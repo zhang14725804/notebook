@@ -11,5 +11,4 @@
 - TCP/IP
 - CSS
 - html
-- Git has a mutable index called stage.
 （后续还会增加）
