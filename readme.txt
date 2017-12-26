@@ -12,4 +12,5 @@
 - CSS
 - html
 - create a new branch
+- Creating a new branch is quick AND simple
 （后续还会增加）
