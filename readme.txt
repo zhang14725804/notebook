@@ -14,4 +14,5 @@
 - create a new branch
 - Creating a new branch is quick and simple.
 - no Fast Forward
+- Git is a free software 
 （后续还会增加）
