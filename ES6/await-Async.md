@@ -32,6 +32,7 @@ console.log("Can't know if promise has finished yet...");
 >下图描绘了这个过程
 
 ![](SimplePromiseExample.png)
+
 通过then添加的回调函数只有当promise执行成功的时候才会执行，如果promise执行失败（比如，网络请求失败），回调函数就不会执行。要处理promise错误的情况，可以通过在catch中添加回调函数，像这样：
 ```
 rp('http://example.com/').
@@ -156,6 +157,7 @@ async function f() {
 >下面描绘f()背后的运行逻辑，因为f()是async修饰，所以他和他的调用函数并行执行
 
 ![](AsyncAwaitExample.png)
+
 f()方法创建一个promise，同时将剩余的部分封装到回调函数中，这部分会在promise结束之后执行
 
 ##Error Handling
