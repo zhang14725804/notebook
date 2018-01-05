@@ -30,6 +30,7 @@ console.log("Can't know if promise has finished yet...");
 在promise完成之前，没有任何合理的方法能阻止当前的一系列操作，不同于java的Future.get，允许阻止当前的线程，直到Future完成。在javascript当中，等待promise完成比较棘手，只能通过在then中添加回调函数的方法解决这个问题
 
 >下图描绘了这个过程
+
 ![](SimplePromiseExample.png)
 通过then添加的回调函数只有当promise执行成功的时候才会执行，如果promise执行失败（比如，网络请求失败），回调函数就不会执行。要处理promise错误的情况，可以通过在catch中添加回调函数，像这样：
 ```
@@ -78,6 +79,7 @@ call1Promise.then(result1 => {
 >创建一个http请求，当他成功的时候去执行回调函数；在回调函数中，为后面的http请求创建两外两个Promise，这两个promise都执行完成后，去执行一个回调函数，需要通过promise.all实现单一的Promise解决两个promise都完成这个时机；因为callback的结果是一个promise，所有需要另一个then打印结果
 
 >下图描绘了这个过程
+
 ![](CombinedPromises.png)
 >为这么一个简单的问题，需要用两个then回调函数，而且不得不调用promise.all同步当前的promise，如果要执行更多的同步操作和错误处理怎么办？这种方法会产生大量的调用的和回调函数
 
@@ -152,6 +154,7 @@ async function f() {
 }
 ```
 >下面描绘f()背后的运行逻辑，因为f()是async修饰，所以他和他的调用函数并行执行
+
 ![](AsyncAwaitExample.png)
 f()方法创建一个promise，同时将剩余的部分封装到回调函数中，这部分会在promise结束之后执行
 
