@@ -5,7 +5,8 @@
 - 自己的小demo
 - 基础知识整理
 - 源码
-- 新潮的技术
+- react
+- vue
 - 爬虫
 - linux
 - TCP/IP
