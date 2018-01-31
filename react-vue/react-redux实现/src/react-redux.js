@@ -56,7 +56,6 @@ export class Provider extends React.Component{
   }
 
   getChildContext(){
-    console.log(this.props)
     return {
       store:this.props.store
     }

@@ -47,3 +47,4 @@ themeSwitch 除了需要 store 里面的数据以外，还需要 store 来 dispa
 **const {store} =this.context**
 
 Header中this.state==null，什么原因，，改如何调试
+(this.props而不是this.state)
