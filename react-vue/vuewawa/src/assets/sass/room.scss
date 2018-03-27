@@ -1,0 +1,560 @@
+.view-room-root {
+  background-color: #F64A7A;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  padding-top: 60px;
+  /** 返回 **/
+  .room-back {
+    position: absolute;
+    z-index: 99;
+    top: 10px;
+    left: 15px;
+    background-image: url('/static/images/room/room-back-icon.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+  }
+  /** 在线人数 **/
+  .user-online {
+    position: absolute;
+    right:18px;
+    z-index: 99;
+    top: 10px;
+    background-image: url('/static/images/room/user-onlie-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px 0 0 20px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-right: 10px;
+
+    .user-online-icon {
+      overflow: hidden;
+      margin: 4px;
+
+      li {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #BEBFC0;
+        display: inline-block;
+        overflow: hidden;
+        border: 1px solid white;
+        margin-left: -8px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      li:first-child {
+        margin: 0;
+      }
+    }
+
+    .user-online-text {
+      flex: 1;
+      line-height: 30px;
+      color: white;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  /** 房间ID **/
+  .room-view-id {
+    position: absolute;
+    right:18px;
+    z-index: 99;
+    top: 40px;
+    color: white;
+    font-size: 10px;
+  }
+  .bianbian{
+    position: absolute;
+    top:12px;
+    width: 4%;
+    height: 60%;
+    background-repeat: no-repeat;
+    background-size: contain; 
+  }
+  .bianbian-left{
+    left:0;
+    background-image: url('/static/images/room/bianbian-left.png');
+  }
+  .bianbian-right{
+    right:0;
+    background-image: url('/static/images/room/bianbian-right.png');
+  }
+}
+.aroom{
+  padding-top: 0;
+  .room-live .control-button-area{
+    top:0;
+  }
+  .room-live .room-video .video-content{
+    width:100%;
+  }
+}
+/** 直播间 **/
+.room-live {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: 94%;
+  margin: 0 auto;
+  position: relative;
+  .iroom-video {
+    background-image: none !important;
+  }
+  /** 视频 **/
+  .room-video {
+    width: 100%;
+    padding: 0;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    /*background-image: url('/static/images/room/room-icon-thumb-cover.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 98% 100%; */
+    .video-content {
+      width: 98%;
+      height: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .video-item-object {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      max-width: unset;
+      max-height: unset;
+      transform: rotate(-90deg) scale(1.7);
+      transform-origin: center;
+      object-fit: contain;
+    }
+
+    .canvas-video {
+      width: 90%;
+      overflow: hidden;
+      margin: 0 auto;
+      height: calc(100vh - 140px);
+    }
+
+    .flex-item {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    .main-video {
+      display: block;
+    }
+
+    .sub-video {
+      display: none;
+    }
+
+    .video-item {
+      background-color: #474c4c;
+      position: absolute;
+      margin: 0 auto;
+      width: auto;
+      left: -100vw;
+      right: -100vw;
+      max-width: unset;
+      max-height: unset;
+      transform: rotate(-90deg);
+      height: 90vw;
+      transform-origin: center;
+      top: 20px;
+      bottom: 0;
+    }
+
+    /** 玩家资料 **/
+    .user-info {
+      width: 70px;
+      height: 85px;
+      position: absolute;
+      top: 55px;
+      left: 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      z-index: 99;
+
+      .user-name {
+        height: 20px;
+        line-height: 20px;
+        width: 100%;
+        font-size: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: white;
+        background: rgba(0, 0, 0, 0.3);
+        text-align: center;
+      }
+
+      .user-photo {
+        height: 65px;
+        background-color: #5F6061;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    /** 摄像头控制区域 **/
+    .camera-control {
+      width: 48px;
+      height: 44px;
+      position: absolute;
+      z-index: 99;
+      top: 50%;
+      right: -4px;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    /** 声音控制区域 **/
+    .audio-area {
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      z-index: 99;
+      bottom: 6rem;
+      right: 1rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    /** 倒计时 **/
+    .time-out {
+      position: absolute;
+      bottom: 8rem;
+      left: 1rem;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      z-index: 99;
+    }
+
+    .time-out-emphasize {
+      color: #FB5837;
+      font-size: 2.4rem;
+    }
+    /** 等待游戏结果提示  **/
+    .result-tip {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 8rem;
+      font-size: 1rem;
+      padding: 2px 10px;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      z-index: 99;
+      background-color: rgba(0,0,0,0.3);
+      border-radius: 20px;
+    }
+  }
+  /** 按钮区域 **/
+  .control-button-area {
+    height: 140px;
+    line-height: 140px;
+    top: -60px;
+    position: relative;
+    z-index: 999;
+    /** 开始抓取按钮 **/
+    .my-begin-catch{
+      position: relative;
+      width:45%;
+      height: 6rem;
+      margin: 0 auto;
+      margin-top:40px;
+      background-image: url('/static/images/room/begin-catch.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      .catch-cash {
+        position: absolute;
+        bottom:-3rem;
+        left:50%;
+        transform: translate(-50%);
+        font-size: 14px;
+        font-weight: normal;
+        color: #E6DCD6;
+      }
+    }
+    .begin-catch-disabled {
+      background-color: #CECFD0;
+      color: white;
+    }
+    /** 个人金币 **/
+    .user-cash {
+      position: absolute;
+      right: 16px;
+      top: 40px;
+      width:65px;
+      height:80px;
+      line-height: 1;
+      background-image: url('/static/images/room/user-cash-bg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding-top: 48px;
+      .user-cash-value {
+        color: #FEF5F8;  
+      }
+    }
+    .user-of-lucky {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      width:50px;
+      height:50px;
+      line-height: 1;
+      background-image: url('/static/images/room/user-of-lucky.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .user-wawa-detail{
+      position: absolute;
+      left: 20px;
+      top: 80px;
+      width:50px;
+      height:50px;
+      line-height: 1;
+      background-image: url('/static/images/room/user-wawa-detail.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    /** 方向控制 **/
+    .control-area {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      box-sizing: border-box;
+
+      .control-button-item {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+
+        .control-button-list {
+          flex: 1;
+
+          .control-item {
+            width: 4rem;
+            height: 4rem;
+            position: absolute;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          .control-item-up {
+            top: -45px;
+            left: 65px;
+          }
+
+          .control-item-down {
+            top: 55px;
+            left: 65px;
+          }
+
+          .control-item-left {
+            top: 5px;
+            left: 15px;
+          }
+
+          .control-item-right {
+            top: 5px;
+            left: 115px;
+          }
+        }
+        /** 开始下抓 **/
+        .control-button-catch {
+          width: 140px;
+          height: 100%;
+          position: relative;
+
+          img {
+            width: 120px;
+            margin: 0 auto;
+            height: 120px;
+            margin-top: -20px;
+          }
+        }
+      }
+    }
+  }
+}
+/** 结果弹窗 **/
+.liveroom_ok_selected {
+  background-image: url('/static/images/room/bg.png');
+  background-position: top !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.liveroom_ok_unchecked {
+  background-image: url('/static/images/room/bg.png');
+  background-position: top !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+/** 游戏结果弹窗 **/
+.live-room-result {
+  text-align: center !important;
+  overflow: hidden;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 340px;
+  height: 320px;
+  margin-top: -40px;
+
+  .user-new-close {
+    right: 1rem !important;
+    top: 8rem !important;
+  }
+
+  .room-live-tip {
+    font-size: 20px;
+    margin-top: 140px;
+
+    .user-new-tip {
+      color: #FA5736 !important;
+    }
+
+    small {
+      color: white;
+    }
+  }
+}
+/** 默认弹窗 **/
+.room-window {
+  text-align: left;
+  background-position: center;
+  padding: 1rem;
+
+  .user-new-close {
+    position: fixed;
+    background-image: url('/static/images/user-icon-list.png');
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+    right: -1rem;
+    top: -1rem;
+    background-size: 25rem 10rem;
+    background-position: -14.3rem -3.6rem;
+  }
+
+  .room-live-tip {
+    font-size: 1.5rem;
+
+    .tip-title {
+      font-size: 1.4rem;
+      text-align: center;
+      padding: 8px;
+      font-weight: bold;
+    }
+
+    small {
+      font-size: 14px;
+      font-weight: normal;
+    }
+  }
+
+  .button-item {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+.new-window{
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.85);
+  position: fixed !important;
+  border-radius: 0 !important;
+  left:0 !important;
+  right:0 !important;
+  top:0 !important;
+  bottom:0 !important;
+  padding:0 !important;
+  width:inherit !important;
+  height: inherit !important;
+  transform: none !important;
+  max-width: inherit !important;
+}
+.new-window .user-new-close{
+    right: 2rem !important;
+    top: 4rem !important;
+}
+.resuleImg{
+  display: block;
+  width: 87%;
+  margin: 1rem auto;
+}
+.new-window  .room-live-tip{
+  color:#865f58;
+  text-align: center;
+  position: absolute;
+  bottom:20rem;
+  margin:0 auto;
+  width: 100%;
+  // left:7rem;
+}
+.new-window  .room-live-tip .user-new-tip label{
+  font-weight: bold;
+}
+.new-window  .room-live-tip span{
+  font-size: 1rem;
+  display: block;
+}
+.new-window  .room-live-tip span b{
+  color: red;
+}
+.mint-popup .button-area{
+  margin-top: -7rem;
+}
+.mint-popup .button-area .button-item{
+  flex: none;
+  padding: 0.1rem 1rem;
+}
+.new-window{
+  background-color: #ffd873;
+  border:1px solid #d9b072;
+  color: #8b6b54;
+}
+.nomoney{
+  height: 9rem !important;
+}
