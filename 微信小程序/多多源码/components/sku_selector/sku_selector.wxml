@@ -1,0 +1,47 @@
+<view catchtap="hideSkuSelector" class="sku-selector-bg" hidden="{{!skuVisible}}">
+    <view catchtap="skuContainerDefaultClick" class="{{mainClass}} {{isIpx?'fix-ipx-sku-selector-main':''}}" style="{{keyboardHeight}}">
+        <view class="sku-selector-container">
+            <view class="sku-selector-head">
+                <view class="sku-selector-img-view">
+                    <image catchtap="viewSkuImage" class="sku-selector-img" data-url="{{currentSkuImg}}" mode="scaleToFill" src="{{currentSkuImg}}"></image>
+                </view>
+                <image src="{{item}}" style="display: none;" wx:for="{{imgUrls}}" wx:key="item"></image>
+                <view class="sku-selector-head-content" style="{{goodsInfo.discount||goodsInfo.skuDisplayTitle&&!hideSkuActivityTitle?'padding-top:21rpx':''}}">
+                    <view class="sku-selector-price">¥  {{goodsInfo.discount?disCountPrice:price}}</view>
+                    <view class="sku-limit-discount" wx:if="{{goodsInfo.discount}}">{{goodsInfo.discountLeftTime+'¥  '+price}}</view>
+                    <view class="sku-limit-discount" wx:if="{{goodsInfo.skuDisplayTitle&&!hideSkuActivityTitle}}">{{goodsInfo.skuDisplayTitle}}</view>
+                    <view class="sku-selector-desc">{{specDesc}}</view>
+                </view>
+                <form bindsubmit="$uploadFormId" reportSubmit="true">
+                    <button catchtap="hideSkuSelector" class="sku-selector-close-btn" formType="submit"></button>
+                </form>
+            </view>
+            <scroll-view id="sku-selector-body" scrollY="true">
+                <view class="sku-specs" wx:for="{{skusByType}}" wx:for-index="typeIndex" wx:for-item="specs" wx:key="sku-specs-{{typeIndex}}">
+                    <view class="sku-specs-key">{{specs.type}}</view>
+                    <view class="sku-spec-value-list">
+                        <view catchtap="selectSpec" class="{{skuButtonClass[ buttonStatus[typeIndex][valueIndex] ]}}" data-type-index="{{typeIndex}}" data-value-index="{{valueIndex}}" wx:for="{{specs.values}}" wx:for-index="valueIndex" wx:for-item="value" wx:key="sku-specs-value-{{valueIndex}}">
+                            {{value}}
+                        </view>
+                    </view>
+                </view>
+                <view class="sku-selector-number" wx:if="{{showSelectorNumber}}">
+                    <text>数量</text>
+                    <view class="sku-number-option">
+                        <view catchtap="updateGoodsNumber" class="{{reduceClass}}" data-delta="-1">
+                            <view class="option-reduce"></view>
+                        </view>
+                        <input adjustPosition="{{false}}" bindblur="goodsNumberBlur" bindfocus="goodsNumberFocus" bindinput="goodsNumberChange" class="sku-selector-input" id="sku-input" maxlength="5" type="number" value="{{goodsNumber}}"></input>
+                        <view catchtap="updateGoodsNumber" class="{{increaseClass}}" data-delta="1">
+                            <view class="option-increase"></view>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+            <form bindsubmit="confirmSku" reportSubmit="true">
+                <button class="sku-selector-bottom" formType="submit">确定</button>
+            </form>
+        </view>
+        <view class="fix-ipx-sku-bottom" wx:if="{{isIpx}}"></view>
+    </view>
+</view>

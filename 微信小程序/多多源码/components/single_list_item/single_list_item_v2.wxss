@@ -1,0 +1,186 @@
+.single-list-item-v2 {
+    height: 350rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    background-color: #fff;
+    width: 100%;
+    padding: 0 0 20rpx 0!important;
+    overflow: visible;
+}
+
+.single-list-item-v2 .std-goods-image-square {
+    position: relative;
+    width: 330rpx;
+    height: 330rpx;
+    overflow: hidden;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/default_square.png") no-repeat;
+    background-size: contain;
+}
+
+.std-goods-image-square image {
+    width: 330rpx;
+    height: 330rpx;
+}
+
+.first-item .detail {
+    padding-top: 5rpx!important;
+}
+
+.single-list-item-v2 .detail {
+    position: relative;
+    padding: 15rpx 20rpx 0 0;
+    width: 398rpx;
+    font-size: 0;
+}
+
+.single-list-item-v2 .detail .price-discount {
+    display: inline-block;
+    position: relative;
+    bottom: 6rpx;
+    margin-left: 10rpx;
+    width: 72rpx;
+    text-align: center;
+    line-height: 38rpx;
+    font-size: 24rpx;
+    color: #e02e24;
+    border: 2rpx solid #e02e24;
+    border-radius: 4px;
+}
+
+.single-list-item-v2 .detail .goods-name {
+    font-size: 26rpx;
+    color: #151516;
+    line-height: 36rpx;
+    max-height: 70rpx;
+    margin-bottom: 11rpx;
+    -webkit-line-clamp: 2;
+    text-align: left;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.single-list-item-v2 .detail .goods-name .national-flag {
+    position: relative;
+    width: 42rpx;
+    height: auto;
+    vertical-align: middle;
+    top: -2rpx;
+}
+
+.single-list-item-v2 .detail .sales {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    height: 52rpx;
+    line-height: 52rpx;
+}
+
+.single-list-item-v2 .detail .sales span {
+    font-size: 24rpx;
+    color: #9c9c9c;
+}
+
+.single-list-item-v2 .detail .core {
+    position: absolute;
+    bottom: 4rpx;
+    left: 0;
+}
+
+.single-list-item-v2 .detail .core .info {
+    position: relative;
+    overflow: hidden;
+}
+
+.single-list-item-v2 .detail .core .info span {
+    font-size: 24rpx;
+    color: #9c9c9c;
+    float: left;
+}
+
+.single-list-item-v2 .detail .core .sale-price {
+    position: relative;
+    font-size: 38rpx;
+    color: #e02e24;
+    text-align: left;
+    line-height: 60rpx;
+}
+
+.single-list-item-v2 .detail .core .market-price {
+    text-align: left;
+    position: relative;
+    font-size: 24rpx;
+    color: #9c9c9c;
+    text-decoration: line-through;
+    line-height: 40rpx;
+}
+
+.single-list-item-v2 .detail .enter-button {
+    background-position: 114rpx 26rpx;
+    position: absolute;
+    right: 20rpx;
+    bottom: 14rpx;
+    width: 142rpx;
+    height: 68rpx;
+    line-height: 70rpx;
+    text-align: center;
+    border-radius: 3px;
+    font-size: 26rpx;
+    color: #fff;
+    background-color: #e02e24;
+    vertical-align: middle;
+}
+
+.enter-button-arrow::after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    width: 10rpx;
+    height: 16rpx;
+    background: url("http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/subject/make_group_btn_icon.png") no-repeat;
+    background-size: 10rpx 16rpx;
+    margin-left: 4rpx;
+    top: -1rpx;
+}
+
+.single-list-item-v2 .detail .top-line {
+    position: absolute;
+    top: -5px;
+    height: 1px;
+    z-index: 1;
+    width: 200%;
+    transform: scale(0.5,0.5);
+    transform-origin: 0 0;
+    background-color: #ededed;
+}
+
+.coupons-character::after {
+    content: "券";
+    font-size: 24rpx;
+    border: 1px solid #ee2e3a;
+    padding: 0 4rpx;
+    margin-left: 8rpx;
+    border-radius: 6rpx;
+    display: inline-block;
+    text-align: center;
+    height: 28rpx;
+    line-height: 28rpx;
+    position: relative;
+    top: -4rpx;
+}
+
+.sale-price-discount-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.not-position-bottom {
+    bottom: 0!important;
+}

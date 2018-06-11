@@ -1,0 +1,44 @@
+.group_guide {
+    height: 122rpx;
+    width: 100%;
+    background-color: white;
+}
+
+.group_guide .status {
+    height: 76rpx;
+    width: 100%;
+}
+
+.group_guide .status_goods {
+    background: url('https://minipinduoduo.oss-cn-shanghai.aliyuncs.com/goods/guide_goods_new.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.group_guide .guide_group_got {
+    background: url('https://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/guide_group_got.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.group_guide .guide_group_check {
+    background: url('https://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/guide_group_check.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.group_guide .guide_group_fail {
+    background: url('https://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/guide_group_fail.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.group_guide .guide_group_going {
+    background: url('https://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/guide_group_going.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.group_guide .guide_desc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 22rpx;
+    color: #343434;
+    padding: 8rpx 18rpx 0;
+}

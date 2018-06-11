@@ -1,0 +1,47 @@
+<template name="user-authorize-modal">
+    <block wx:if="{{userAuthorizeModal_visible&&!userAuthorizeModal_type}}">
+        <view catchtouchmove="preventTouchMove" class="user-authorize-modal-mask"></view>
+        <view catchtouchmove="preventTouchMove" class="user-authorize-modal-dialog-new">
+            <view class="user-authorize-modal-safe">
+                <image class="user-authorize-modal-safe-mark" src="{{userAuthorizeModal_safe_src}}"></image>
+            </view>
+            <view class="user-authorize-modal-content-new">
+                <image class="user-authorize-modal-image-new" src="{{userAuthorizeModal_src}}"></image>
+                <view class="user-authorize-modal-tip-new">
+                    <view class="user-authorize-modal-black-new">拼多多申请获得以下权限</view>
+                    <view class="user-authorize-modal-hint-new">获得你的公开信息（头像、昵称等）</view>
+                </view>
+            </view>
+            <form bindsubmit="$uploadFormId" reportSubmit="true">
+                <view class="user-authorize-modal-footer-new">
+                    <button bindgetuserinfo="$userAuthorizeModelConfirmClicked" catchtap="$userAuthorizeModelOkClicked" class="user-authorize-btn-confirm-new" data-status="user-authorize-confirm" formType="submit" lang="zh_CN" openType="getUserInfo">安全登录</button>
+                </view>
+                <view class="user-authorize-modal-footer-new">
+                    <button bindtap="$userAuthorizeModelCancelClicked" class="user-authorize-btn-cancel-new" data-status="user-authorize-cancel" formType="submit">取消</button>
+                </view>
+            </form>
+        </view>
+    </block>
+    <block wx:if="{{userAuthorizeModal_visible&&userAuthorizeModal_type}}">
+        <view catchtouchmove="preventTouchMove" class="user-authorize-modal-mask"></view>
+        <view catchtouchmove="preventTouchMove" class="user-authorize-modal-dialog">
+            <view class="user-authorize-modal-header-wrapper">微信授权</view>
+            <view class="user-authorize-modal-content">
+                <image class="user-authorize-modal-image" src="https://minipinduoduo.oss-cn-shanghai.aliyuncs.com/user_authorization_model/logo%402x.png"></image>
+                <view class="user-authorize-modal-tip">
+                    <view class="user-authorize-modal-black">拼多多申请获得以下权限:</view>
+                    <view class="user-authorize-modal-hint">
+                        <view>• 获得你的公开信息（昵称、头像等）</view>
+                    </view>
+                </view>
+            </view>
+            <form bindsubmit="$uploadFormId" reportSubmit="true">
+                <view class="user-authorize-modal-black-border"></view>
+                <view class="user-authorize-modal-footer">
+                    <button bindtap="$userAuthorizeModelCancelClicked" class="user-authorize-btn-cancel" data-status="user-authorize-cancel" formType="submit">拒绝</button>
+                    <button bindgetuserinfo="$userAuthorizeModelConfirmClicked" catchtap="$userAuthorizeModelOkClicked" class="user-authorize-btn-confirm" data-status="user-authorize-confirm" formType="submit" openType="getUserInfo">允许</button>
+                </view>
+            </form>
+        </view>
+    </block>
+</template>

@@ -1,0 +1,24 @@
+<view class="debug-mask" hidden="{{!debugNavigationVisible&&!debugWinVisible}}"></view>
+<view class="navigation-url-window" hidden="{{!debugNavigationVisible}}">
+    <form bindreset="formReset" bindsubmit="navigatePage">
+        <view>请输入URL：</view>
+        <textarea cursorSpacing="70" maxlength="-1" name="url"></textarea>
+        <view>（示例：pages/subject/subject?subject_id=974）</view>
+        <button formType="submit" type="primary">
+            跳转
+        </button>
+        <button catchtap="cancelNavWindow" type="default">
+            取消
+        </button>
+    </form>
+</view>
+<view class="debug-confirm" hidden="{{!debugWinVisible}}">
+    <view class="title">调试模式</view>
+    <view class="content">确认打开调试选项吗？（仅供开发者使用，普通用户请取消本弹窗）</view>
+    <button catchtap="confirmDebug" data-open-debug="{{true}}" formType="submit" type="default">
+        确定
+    </button>
+    <button catchtap="confirmDebug" data-open-debug="{{false}}" type="primary">
+        取消
+    </button>
+</view>

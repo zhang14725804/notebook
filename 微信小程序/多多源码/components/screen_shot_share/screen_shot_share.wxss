@@ -1,0 +1,95 @@
+.screen-share-main {
+    position: fixed;
+    width: 100%;
+    z-index: 10001;
+    transition: bottom 350ms ease-in-out 150ms;
+    transform: translateZ(0);
+    box-shadow: 0px -6rpx 20rpx rgba(80,6b,6b,0.18);
+}
+
+.screen-share-main-show {
+    bottom: 0;
+}
+
+.screen-share-main-hide {
+    bottom: -936rpx;
+}
+
+.share-main-container {
+    position: relative;
+    width: 100%;
+    padding: 70rpx 50rpx 50rpx;
+    background-color: white;
+    text-align: center;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #999999;
+    border-top: solid 1px #f2f2f2;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+}
+
+.share-btn {
+    margin-top: 20rpx;
+    color: white;
+    background-color: #e02e24;
+    line-height: 86rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+    border-radius: 43rpx;
+}
+
+.share-close-btn {
+    width: 60rpx;
+    display: inline-block;
+    position: absolute;
+    right: 10rpx;
+    top: 0rpx;
+    text-align: center;
+    vertical-align: middle;
+    padding: 14rpx 0;
+}
+
+.share-close-btn-icon::before {
+    content: "\e61d";
+    font-size: 18rpx;
+    color: #999999;
+    font-family: "icomoon";
+    -webkit-font-smoothing: antialiased;
+    line-height: 36rpx;
+}
+
+.share-close-btn-icon {
+    height: 44rpx;
+    width: 44rpx;
+    border: solid 1px #999999;
+    border-radius: 100rpx;
+    line-height: 36rpx;
+    display: inline-block;
+}
+
+.share-main-group-container {
+    padding: 40rpx 0;
+}
+
+.share-desc {
+    background: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/goods/share-decs-bg.png') no-repeat;
+    background-size: 100% 100%;
+    padding: 40rpx 0 50rpx;
+}
+
+.share-desc-red {
+    color: red;
+}
+
+.wechat_icon:before {
+    content: "\E66B";
+    font-size: 30rpx;
+    color: white;
+    font-family: "icomoon";
+    -webkit-font-smoothing: antialiased;
+}
+
+.wechat_icon {
+    margin-right: 24rpx;
+}

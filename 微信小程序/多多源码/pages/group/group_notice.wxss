@@ -1,0 +1,366 @@
+.group-detail-notice-view {
+    width: 100%;
+    position: relative;
+    padding: 0 20rpx 0 16rpx;
+    background-color: #fff;
+    border-radius: 0;
+}
+
+.group-detail-notice {
+    display: flex;
+    position: relative;
+    color: #333;
+    font-size: 24rpx;
+    overflow: hidden;
+    min-height: 88rpx;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.group-detail-notice:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    height: 1px;
+    border-top: 1px solid #e0e0e0;
+    transform-origin: 0 0;
+    transform: scale(0.5,0.5);
+    box-sizing: border-box;
+}
+
+.group-detail-notice .title {
+    font-size: 26rpx;
+    color: #151516;
+}
+
+.group-detail-notice-content-container {
+    line-height: 50rpx;
+    padding: 20rpx 0;
+    text-align: right;
+}
+
+.group-detail-notice .content:first-child {
+    text-align: left!important;
+}
+
+.group-detail-notice .content:last-child {
+    text-align: right!important;
+}
+
+.group-detail-notice-content-container.has-lottery .content:last-child {
+    text-align: center!important;
+}
+
+.group-detail-notice .content {
+    font-size: 26rpx;
+    float: right;
+    margin-left: 20rpx;
+    position: relative;
+    color: #9c9c9c;
+    text-align: right;
+}
+
+.group-detail-notice .content text {
+    display: inline-block;
+    position: relative;
+}
+
+.group-detail-notice .content text::before {
+    position: relative;
+    top: -6rpx;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    content: '';
+    display: inline-block;
+    background-color: #ccc;
+    margin-right: 8rpx;
+}
+
+.group-detail-notice-container-close {
+    display: inline-block;
+    position: absolute;
+    top: 24rpx;
+    right: 24rpx;
+    width: 44rpx;
+    height: 46rpx;
+    padding: 6rpx 4rpx 20rpx 20rpx;
+    background-image: url("http://pinduoduoimg.yangkeduo.com/wxapp/group_user_close.png");
+    background-position: 0 0;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+}
+
+.group-detail .notice-pop-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.notice-pop-container .notice-pop {
+    width: 100%;
+    height: 100%;
+}
+
+.notice-pop-container .notice-pop .mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+    z-index: 8;
+}
+
+.notice-pop-content {
+    background-color: #fff;
+    width: 580rpx;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 0 30rpx;
+    border-radius: 16rpx;
+    z-index: 10;
+}
+
+.notice-pop-content:after {
+    position: absolute;
+    top: -30rpx;
+    right: -30rpx;
+    width: 60rpx;
+    content: "\E678";
+    font-size: 60rpx;
+    color: #e0e0e0;
+    font-family: "icomoon";
+    line-height: 1;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.notice-pop-content:before {
+    position: absolute;
+    top: -10rpx;
+    right: -10rpx;
+    z-index: 2;
+    content: "\E61D";
+    font-size: 20rpx;
+    color: #9c9c9c;
+    font-family: "icomoon";
+    line-height: 1;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.notice-pop-title {
+    width: 100%;
+    height: 110rpx;
+    padding-top: 36rpx;
+    margin-bottom: 30rpx;
+    text-align: center;
+    color: #151516;
+    font-size: 32rpx;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.notice-pop-list {
+    font-size: 26rpx;
+    color: #58595b;
+    padding-top: 12rpx;
+    line-height: 62rpx;
+    margin-bottom: 40rpx;
+}
+
+.notice-pop-list view {
+    position: relative;
+    padding-left: 44rpx;
+}
+
+.notice-pop-list view::before {
+    background: #9c9c9c;
+    content: '';
+    width: 6rpx;
+    height: 6rpx;
+    border-radius: 100%;
+    position: absolute;
+    top: 30rpx;
+    left: 16rpx;
+}
+
+.notice-pop-list-lottery {
+    font-size: 26rpx;
+    color: #58595b;
+    padding-top: 12rpx;
+    line-height: 50rpx;
+    margin-bottom: 40rpx;
+    height: 700rpx;
+    overflow-y: scroll;
+}
+
+.notice-pop-list-lottery view {
+    position: relative;
+    padding: 0 44rpx;
+}
+
+.notice-pop-list-lottery .red-text {
+    display: inline;
+    color: #e02e24;
+    padding: 0;
+}
+
+.group-detail-notice .content.lottery {
+    -webkit-box-flex: .6;
+    flex: .6;
+}
+
+.lottery-rule-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 10;
+}
+
+#lottery-rule-mask {
+    position: fixed;
+    z-index: 11;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.6;
+    overflow: hidden;
+}
+
+.lottery-rule-module {
+    width: 580rpx;
+    height: 628rpx;
+    padding: 0 30rpx;
+    font-size: 28rpx;
+    color: #58595b;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 5px;
+    background-color: #fff;
+    transform: translate(-50%,-50%);
+    z-index: 11;
+}
+
+.lottery-rule {
+    margin-top: 5px;
+}
+
+.lottery-rule-cancel-img {
+    position: absolute;
+    width: 60rpx;
+    top: -30rpx;
+    right: -30rpx;
+}
+
+.lottery-rule-module .lottery-rule-cancel-img:before {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    z-index: 2;
+}
+
+.lottery-rule-module .lottery-rule-cancel-img:before {
+    content: "\E61D";
+    font-size: 20rpx;
+    color: #9c9c9c;
+    font-family: "icomoon";
+    line-height: 1;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.lottery-rule-module .lottery-rule-cancel-img:after {
+    position: absolute;
+    width: 60rpx;
+}
+
+.lottery-rule-module .lottery-rule-cancel-img:after {
+    content: "\E678";
+    font-size: 60rpx;
+    color: #e0e0e0;
+    font-family: "icomoon";
+    line-height: 1;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.lottery-rule-module .lottery-rule-module-head {
+    width: 100%;
+    height: 110rpx;
+    margin-top: 0;
+    padding-top: 36rpx;
+    color: #151516;
+    font-size: 32rpx;
+    font-weight: normal;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.lottery-rule-module-head {
+    text-align: center;
+}
+
+.lottery-rule-module .lottery-rule-time {
+    padding-top: 60rpx;
+}
+
+.lottery-rule-module .lottery-rule-detail {
+    margin: 0;
+    font-size: 26rpx;
+    color: #58595b;
+    line-height: 52rpx;
+}
+
+.lottery-rule-content {
+    margin-top: 48rpx;
+    font-size: 26rpx;
+    color: #58595b;
+    line-height: 52rpx;
+}
+
+.lottery-rules-win {
+    position: relative;
+    margin-top: 20rpx;
+    width: 100%;
+    padding-top: 20rpx;
+    padding-left: 20rpx;
+    padding-right: 50rpx;
+    padding-bottom: 20rpx;
+    background-color: #fff;
+    min-height: 250rpx;
+}
+
+.lottery-rules-win view {
+    width: 100%;
+    line-height: 38rpx;
+    font-size: 24rpx;
+    text-align: justify;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: #151516;
+}
+
+.lottery-rules-win .lottery-rules-title {
+    font-size: 26rpx;
+}
+
+.lottery-rules-win .lottery-rules-desc {
+    color: #e02e24!important;
+    font-size: 24rpx;
+    text-align: left;
+}

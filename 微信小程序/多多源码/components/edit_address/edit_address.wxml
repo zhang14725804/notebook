@@ -1,0 +1,73 @@
+<template name="editAddress">
+    <view catchtap="hideAllPicker" class="edit-address-container" hidden="{{!editAddressWindowVisible}}">
+        <view class="m-addr-main">
+            <view class="m-addr-title">
+                {{windowTitle}}
+            </view>
+            <view class="m-addr-name">
+                <text style="color: #1c1c1c">联系人</text>
+                <input bindfocus="removeEditModuleError" bindinput="bindNameChange" class="{{isNameError?'input-error normal-input':'normal-input'}}" cursorSpacing="0" id="name" name="inputName" placeholder="姓名" type="text" value="{{inputName}}"></input>
+            </view>
+            <view class="m-addr-mobile">
+                <text style="color: #1c1c1c">手机号码</text>
+                <input bindfocus="removeEditModuleError" bindinput="bindMobileChange" class="{{isMobileError?'input-error normal-input':'normal-input'}}" cursorSpacing="0" id="mobile" name="inputMobile" placeholder="电话" type="number" value="{{inputMobile}}"></input>
+            </view>
+            <view catchtap="showRegionsPicker" class="m-addr-region">
+                <text style="color: #1c1c1c">选择地区</text>
+                <view class="{{alreadyChooseDistrict?'address-picker':'address-picker placeholder-color'}}">{{districtAddress}}</view>
+            </view>
+            <view class="m-addr-address">
+                <text style="color:#1c1c1c; position:relative; top:24rpx;">详细地址</text>
+                <input bindblur="bindAddressBlurCheck" bindfocus="removeEditModuleError" bindinput="bindAddressChange" class="{{isAddressDetailError?'normal-textarea input-error':'normal-textarea'}}" cursorSpacing="0" focus="{{becomeFocus}}" id="addressDetail" name="inputAddressDetail" placeholder="{{showLocationBtn?'输入地址或点击地图选择 -->':'详细街道地址'}}" value="{{inputAddressDetail}}"></input>
+                <view catchtap="didClickLocationBtn" class="location-icon" wx:if="{{showLocationBtn}}"></view>
+            </view>
+            <form bindsubmit="saveEditModuleAddress" reportSubmit="true">
+                <button class="m-addr-save" data-impr-time="{{imprTime}}" disabled="{{disabled}}" formType="submit">保存</button>
+            </form>
+            <view class="m-addr-close">
+                <form bindsubmit="hideEditAddressModule" reportSubmit="true">
+                    <button class="ms-addr-close-icon" formType="submit"></button>
+                </form>
+            </view>
+        </view>
+        <template is="loading-tpl" data="{{loadingVisible:loadingVisible,isLoadingImgLoaded:isLoadingImgLoaded}}"></template>
+        <template is="toast" data="{{...$toastData}}"></template>
+        <template is="user-authorize-modal" data="{{...$userAuthorizeModalData}}"></template>
+    </view>
+    <view class="regions-container {{regionsSelectVisible&&editAddressWindowVisible?'picker-view-show':'picker-view-hide'}}">
+        <view class="picker-topbar">
+            <view catchtap="cancelRegionsPicker" class="picker-cancel">取消</view>
+            <view catchtap="confirmRegionsPicker" class="picker-confirm">确认</view>
+        </view>
+        <picker-view bindchange="bindChange" class="regions-picker" indicatorStyle="height: 38px;" value="{{[provinceIndex,cityIndex,districtIndex]}}">
+            <picker-view-column>
+                <view style="line-height: 38px; text-align: center;" wx:for="{{provinces}}" wx:key="{{item.regionId}}">
+                    {{item.regionName}}
+                </view>
+            </picker-view-column>
+            <picker-view-column>
+                <view style="line-height: 38px; text-align: center;" wx:for="{{cities}}" wx:key="{{item.regionId}}">
+                    {{item.regionName}}
+                </view>
+            </picker-view-column>
+            <picker-view-column>
+                <view style="line-height: 38px; text-align: center;" wx:for="{{districts}}" wx:key="{{item.regionId}}">
+                    {{item.regionName}}
+                </view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+    <view class="regions-container {{addressSelectVisible&&editAddressWindowVisible?'picker-view-show':'picker-view-hide'}}">
+        <view class="recomend-location-title">请点击选择地址</view>
+        <scroll-view class="recommend-list-view" scrollY="true">
+            <view catchtap="didChoosePOI" class="recommend-item" data-index="{{index}}" wx:for="{{nearbyPOIs}}" wx:key="item.key">
+                <view class="icon-arrows-right"></view>
+                <view class="recommend-main-title">{{item.thumb_address}}</view>
+                <view class="recommend-sub-title">{{item.address}}</view>
+            </view>
+        </scroll-view>
+    </view>
+</template>
+<import src="/components/toast/toast.wxml"></import>
+<import src="/components/user_authorize_modal/user_authorize_modal.wxml"></import>
+<import src="/components/loading/loading.wxml"></import>

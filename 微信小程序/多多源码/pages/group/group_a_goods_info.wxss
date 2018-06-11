@@ -1,0 +1,83 @@
+.group_a_goods {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 16rpx;
+}
+
+.group_a_goods .item {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.group_a_goods .goods-img {
+    width: 272rpx;
+    height: 272rpx;
+}
+
+.group_a_goods .goods-img image {
+    width: 272rpx;
+    height: 272rpx;
+}
+
+.group_a_goods .goods-info {
+    padding: 0 38rpx;
+}
+
+.group_a_goods .goods-info .goods-title {
+    padding-top: 12rpx;
+    width: 100%;
+    overflow: hidden;
+    word-break: break-all;
+    word-wrap: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-align: justify;
+    font-size: 28rpx;
+    color: #151516;
+    height: 86rpx;
+    line-height: 40rpx;
+}
+
+.group_a_goods .group-suc-coupon {
+    margin-top: 20rpx;
+    height: 44rpx;
+}
+
+.group_a_goods .group-suc-coupon text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.group_a_goods .group-suc-coupon .icon {
+    width: 33rpx;
+    height: 27rpx;
+    background: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/group_success_coupon_icon.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.group_a_goods .group-suc-coupon .desc {
+    color: #D79E08;
+    margin-left: 10rpx;
+    font-size: 22rpx;
+}
+
+.group_a_goods .goods-price-info {
+    color: #F95B07;
+    margin-top: 36rpx;
+}
+
+.group_a_goods .goods-price-info .unit {
+    font-size: 26rpx;
+}
+
+.group_a_goods .goods-price-info .num {
+    font-size: 40rpx;
+}
+
+.group_a_goods .goods-price-info .group-suc-desc {
+    font-size: 24rpx;
+    color: #8A8A8A;
+    margin-left: 16rpx;
+}

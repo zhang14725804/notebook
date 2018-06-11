@@ -1,0 +1,385 @@
+@import "../../components/single_list_item/single_list_item_v2.wxss";
+
+@import "../../components/subject_share_btn/subject_share_btn.wxss";
+
+@import "../../components/double_grid_item/subjects_item.wxss";
+
+@import "../../components/image_map/image_map.wxss";
+
+@import "../../components/subject_scroll_item/subject_scroll.wxss";
+
+@import "../../components/image_map/large_mixin_promotion.wxss";
+
+@import "../../__wuBaseWxss__/4.wxss";
+
+@import "../../components/quick_entry_forward_index/quick_entry_forward_index.wxss";
+
+@import "../../components/resource_place_config/resource_place_config.wxss";
+
+@import "../../components/service_notice_land_page/service_notice_land_page.wxss";
+
+page {
+    background-color: #f8f8f8;
+    position: relative;
+    min-height: 100%;
+    width: 100%;
+}
+
+.subject-container {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.banner-view {
+    width: 100%;
+    height: 410rpx;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+}
+
+.no-order-text-view {
+    color: #555;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.good-list-container {
+    width: 100%;
+    margin-top: 10rpx;
+    text-align: left;
+    transition: opacity 800ms ease-out 0ms;
+}
+
+.single-list-style {
+    background-color: #fff;
+    padding-top: 20rpx;
+}
+
+.noMarginTop {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.btn-loading {
+    height: 40px;
+    line-height: 40px!important;
+    border-width: 0!important;
+    color: #555!important;
+    font-size: 30rpx;
+}
+
+.btn-loading:before {
+    margin-right: 8px;
+    width: 20px!important;
+    height: 20px!important;
+}
+
+.item-price-view {
+    flex-direction: row;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 12rpx;
+}
+
+.item-price {
+    color: #e02e24;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.price-unit {
+    font-size: 38rpx;
+    line-height: 38rpx;
+    height: 38rpx;
+}
+
+.price-text {
+    font-size: 40rpx;
+    line-height: 40rpx;
+    height: 40rpx;
+}
+
+.match-price {
+    text-decoration: line-through;
+    font-size: 24rpx;
+    color: #9c9c9c;
+    margin-left: 10rpx;
+}
+
+.item-sign-icon-lottery-view {
+    position: absolute;
+    left: 0;
+    top: 10rpx;
+    width: 72rpx;
+    height: 36rpx;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.item-sign-icon-free-view {
+    position: absolute;
+    left: 0;
+    top: 10rpx;
+    width: 106rpx;
+    height: 36rpx;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.item-good-name {
+    max-height: 105rpx;
+    line-height: 35rpx;
+    font-size: 26rpx;
+    color: #151516;
+    margin-bottom: 11rpx;
+    overflow: hidden;
+    text-align: justify;
+}
+
+.item-price-btn-veiw {
+    position: absolute;
+    display: flex;
+    bottom: 14rpx;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.item-make-group-btn {
+    width: 142rpx;
+    height: 68rpx;
+    line-height: 68rpx;
+    color: #fff;
+    text-indent: -8rpx;
+    font-size: 26rpx;
+    text-align: center;
+    background-color: #e02e24;
+    border-radius: 6rpx;
+    padding: 0!important;
+}
+
+.item-make-group-btn:after {
+    border: 0;
+    border-radius: 0;
+    padding: 0!important;
+}
+
+.item-make-group-btn::after {
+    content: '';
+    position: absolute;
+    right: 8rpx;
+    width: 30rpx;
+    top: inherit;
+    left: inherit;
+    height: 68rpx;
+    background: url(http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/subject/make_group_btn_icon.png) no-repeat;
+    background-size: 4px auto;
+    background-position: center;
+    transform: scale(1.0);
+}
+
+.item-info-view {
+    width: 378rpx;
+    height: 330rpx;
+    float: right;
+    margin-right: 20rpx;
+    margin-top: 5rpx;
+    position: relative;
+}
+
+.item-info-view::after {
+    content: '';
+    position: absolute;
+    bottom: -8rpx;
+    left: 0;
+    width: 200%;
+    height: 1px;
+    transform-origin: 0 0;
+    transform: scale(0.5,0.5);
+    background-color: #eee;
+}
+
+.item-view {
+    width: 100%;
+    padding-bottom: 20rpx;
+    height: 350rpx;
+}
+
+.item-img-view {
+    position: relative;
+    width: 330rpx;
+    height: 330rpx;
+    float: left;
+}
+
+.item-img-view image {
+    width: 100%;
+    height: 100%;
+}
+
+#no-goods {
+    position: relative;
+    width: 100%;
+    height: 840rpx;
+    padding-top: 280rpx;
+}
+
+#no-goods .icon {
+    width: 352rpx;
+    height: 206rpx;
+    margin: 0 auto 52rpx auto;
+    background: url(http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/subject/no_goods%402x.png) no-repeat;
+    background-size: contain;
+}
+
+#no-goods .hint {
+    color: #58585B;
+    font-size: 36rpx;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 18rpx;
+}
+
+#no-goods .sub {
+    color: #9c9c9c;
+    font-size: 24rpx;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.item-remaind-time {
+    position: relative;
+    color: #FFA2AD;
+    font-size: 12px;
+    margin-top: 16rpx;
+    width: 120px;
+    height: 15px;
+}
+
+.draw-goods-list {
+    margin-top: 10rpx;
+}
+
+.subject-gap-right {
+    padding-left: 8rpx;
+    padding-right: 0rpx;
+}
+
+.subject-gap-left {
+    padding-right: 8rpx;
+    padding-left: 10rpx;
+}
+
+.subject-item {
+    margin-bottom: 10rpx;
+}
+
+.subject-grid-item {
+    width: 372rpx;
+    padding: 10rpx;
+}
+
+.time-left-icon {
+}
+
+.swiper-title {
+    color: #E02E24;
+    padding: 8rpx 14rpx;
+    border-radius: 8rpx;
+    position: absolute;
+    top: 19rpx;
+    font-size: 28rpx;
+    width: 26rpx;
+    height: 29.5rpx;
+    line-height: 29.5rpx;
+}
+
+.swiper-bg {
+    font-size: 28rpx;
+    background: #ffffff;
+    position: relative;
+    z-index: 99;
+    width: 750rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding-top: 24rpx;
+}
+
+.rewrite-ts-time-line-marTop {
+    margin-top: 26rpx;
+}
+
+.luckyUser-swiper-cover {
+    position: absolute;
+    top: 0;
+    background-color: rgba(0,0,0,0);
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.swiper-title,.spike-today-swiper {
+    display: inline-block;
+}
+
+.swiper-item {
+    height: 37rpx;
+}
+
+.swiper-content {
+    font-family: PingFangHK-Regular;
+    font-size: 24rpx;
+    color: #060606;
+}
+
+.swiper-user-image {
+    width: 37rpx;
+    height: 37rpx;
+    margin-right: 17rpx;
+    border-radius: 50%;
+}
+
+.swiper-text {
+    width: 650rpx;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.random-luckyUser-swiper {
+    height: 37rpx;
+    background: #ffffff;
+    font-size: 28rpx;
+    line-height: 37rpx;
+    padding: 5rpx 21rpx 0;
+}
+
+.show-more-text {
+    color: #AFAFAF;
+    text-align: right;
+    width: 70rpx;
+    text-align: right;
+}
+
+#goodsId-banner {
+    height: 282rpx;
+    margin-bottom: 8rpx;
+}
+
+.delete-default-padding {
+    padding: 0;
+}

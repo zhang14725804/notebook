@@ -1,0 +1,33 @@
+<template name="SingleListItemV2">
+    <form bindsubmit="$uploadFormId" reportSubmit="true">
+        <button catchtap="gotoGoodsDetail" class="single-list-item-v2" data-event-type="{{eventType}}" data-goods-id="{{goodsId}}" data-goods-item="{{transData}}" data-index="{{index}}" formType="submit" id="impr-id">
+            <view class="std-goods-image-square">
+                <image src="{{imgUrl}}"></image>
+            </view>
+            <view class="detail">
+                <view class="goods-name">
+                    <image class="national-flag" mode="widthFix" src="{{nationalFlag}}" wx:if="{{nationalFlag}}"></image>{{goodsName}}</view>
+                <view class="sales" wx:if="{{quickEntranceIndex===14}}">
+                    <span wx:if="{{soldQuantity&&soldQuantity!='0'}}">已团{{soldQuantity}}件</span>
+                </view>
+                <view class="single-item-local-groups" style="float: {{quickEntranceIndex===14?'right':'left'}}" wx:if="{{localGroups}}">
+                    <span class="local-groups-bubble" wx:if="{{localGroups.list&&localGroups.list.length}}">{{localGroups.bubble}}</span>
+                    <image class="avatar{{localGroups.list.length===1?' single-avatar':''}}" src="{{item.avatar}}" wx:for="{{localGroups.list}}" wx:key="{{index}}"></image>
+                </view>
+                <view class="core">
+                    <view class="info" wx:if="{{quickEntranceIndex!=14}}">
+                        <span wx:if="{{soldQuantity&&soldQuantity!='0'}}">已团{{soldQuantity}}件</span>
+                    </view>
+                    <view class="market-price" wx:else>{{'¥  '+marketPrice}}</view>
+                    <view class="{{priceDiscount?'sale-price-discount-wrap':''}}">
+                        <view class="sale-price {{hasMallCoupon===1?'coupons-character':''}}">{{'¥  '+price}}</view>
+                        <view class="price-discount {{priceDiscount?'not-position-bottom':''}}" wx:if="{{priceDiscount&&hasMallCoupon!==1}}">{{priceDiscount}}折</view>
+                    </view>
+                </view>
+                <view class="enter-button enter-button-arrow" wx:if="{{quickEntranceIndex!=14}}">去开团</view>
+                <view class="enter-button" wx:else>立即抢</view>
+                <view class="top-line" wx:if="{{index!==0&&!useFirstItemClass&&!isMixInfoBefore}}"></view>
+            </view>
+        </button>
+    </form>
+</template>

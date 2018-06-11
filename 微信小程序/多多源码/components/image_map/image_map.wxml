@@ -1,0 +1,10 @@
+<template name="image-map">
+    <template is="imageMapEach" data="{{...item,layerId:item.layer_id,zoneId:zoneId}}" wx:for="{{picture_layers}}" wx:key="index"></template>
+</template>
+<template name="imageMapEach">
+    <form bindsubmit="$uploadFormId" reportSubmit="true">
+        <image class="image-map-each" lazyLoad="true" src="{{image_url}}" style="height: {{imgHeight}}px">
+            <button bindtap="mapClick" class="map-each" data-layer-id="{{layerId}}" data-link="{{item}}" data-zone-id="{{zoneId}}" formType="submit" style="width: {{mapWidth}}px; left: {{index*mapWidth}}px" wx:for="{{jump}}" wx:key="index"></button>
+        </image>
+    </form>
+</template>

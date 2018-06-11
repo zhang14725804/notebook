@@ -1,0 +1,42 @@
+<template name="orderCheckoutGoods">
+    <view class="oc-goods" style="{{hasMobile?'min-height:238rpx;':''}}">
+        <view class="oc-goods-mall" wx:if="{{!hasMobile}}">
+            <image class="mall-logo" src="{{mallLogo||preMallLogo}}"></image>
+            <text>{{mallName||preMallName}}</text>
+        </view>
+        <view class="oc-goods-info">
+            <view class="goods-info-pic">
+                <image src="{{thumbUrl||preThumbUrl}}"></image>
+            </view>
+            <view class="oc-goods-detail">
+                <text class="oc-goods-name">{{goodsName||preGoodsName}}</text>
+                <view class="oc-goods-spec">
+                    <view wx:for="{{specs}}" wx:key="{{item.spec_key}}">
+                        <text>{{item.spec_key}}:  {{item.spec_value}}</text>
+                    </view>
+                </view>
+                <view class="oc-goods-price">
+                    <text>¥  </text>{{price||prePrice}}<text>/件</text>
+                </view>
+            </view>
+        </view>
+        <view class="oc-goods-number" wx:if="{{isShowGoodsNumber}}">
+            <text>购买数量</text>
+            <form bindsubmit="updateGoodsNumber" reportSubmit="true">
+                <button class="{{reduceDisable?'oc-reduce-disable':''}} oc-goods-reduce" data-delta="-1" formType="submit">
+                    <view wx:if="{{showMinusButton}}"></view>
+                </button>
+            </form>
+            <input bindblur="blurGoodsNumberInput" class="oc-buy-number {{showPlusButton?'':'without-right'}}" disabled="{{disableUserAction}}" type="number" value="{{goodsNumber}}"></input>
+            <form bindsubmit="updateGoodsNumber" reportSubmit="true">
+                <button class="oc-goods-increase {{increaseDisable?'oc-increase-disable':''}}" data-delta="1" formType="submit">
+                    <view wx:if="{{showPlusButton}}"></view>
+                </button>
+            </form>
+        </view>
+        <view catchtap="clickMallCouponBar" class="oc-mall-coupon-info" wx:if="{{isShowMallCouponInfo}}">
+            <view>店铺优惠</view>
+            <view class="oc-mall-coupon-desc{{isSpecialStyle?' oc-mall-coupon-text-red':''}}">{{mallCouponText}}</view>
+        </view>
+    </view>
+</template>

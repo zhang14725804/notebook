@@ -1,0 +1,37 @@
+<import src="/components/edit_address/edit_address.wxml"></import>
+<import src="/components/toast/toast.wxml"></import>
+<import src="/components/user_authorize_modal/user_authorize_modal.wxml"></import>
+<import src="/pages/addresses/address_item.wxml"></import>
+<import src="/components/modal_dialog/modal_dialog.wxml"></import>
+<import src="/components/loading/loading.wxml"></import>
+<import src="/components/quick_entry_forward_index/quick_entry_forward_index.wxml"></import>
+<view class="page-top-line"></view>
+<view class="addresses-main" hidden="{{!visible}}">
+    <view class="addresses-list {{isIpx?'fix-address-list-bottom':''}}" wx:if="{{addressList&&addressList.length>0}}">
+        <view class="addresses-list-item" wx:for="{{addressList}}" wx:key="{{item.addressId}}">
+            <template is="addressItem" data="{{...item,index:index,showUseBtn:showUseBtn}}"></template>
+        </view>
+    </view>
+    <view class="empty-address" wx:else>
+        <view class="empty-icon"></view>
+    </view>
+    <view style="height:65px"></view>
+</view>
+<view class="add-btn {{isIpx?'fix-ipx-add-btn':''}}">
+    <view class="normal-add-btn{{showWechatChooseAddr?'':' btn-long'}}">
+        <form bindsubmit="commonAddAddress" reportSubmit="true">
+            <button class="normal-btn-text" formType="submit">手动添加</button>
+        </form>
+    </view>
+    <view class="wx-add-btn" wx:if="{{showWechatChooseAddr}}">
+        <form bindsubmit="wechatAddAddress" reportSubmit="true">
+            <button class="wx-btn-text" formType="submit">微信添加</button>
+        </form>
+    </view>
+</view>
+<template is="quickEntryIndex" data="{{...quickEntryControl}}" wx:if="{{quickEntryControl.showQuickEntry}}"></template>
+<template is="loading-tpl" data="{{...$loadingData}}"></template>
+<template is="editAddress" data="{{...addressData}}"></template>
+<template is="toast" data="{{...$toastData}}"></template>
+<template is="user-authorize-modal" data="{{...$userAuthorizeModalData}}"></template>
+<template is="model_dialog" data="{{...$modalData}}"></template>

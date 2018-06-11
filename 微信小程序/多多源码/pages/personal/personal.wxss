@@ -1,0 +1,644 @@
+@import "debug.wxss";
+
+@import "../../components/resource_place_config/resource_place_config.wxss";
+
+.test-500 {
+    width: 500rpx;
+    height: 500rpx;
+}
+
+button,button::after {
+    border: 0 solid transparent!important;
+    border-radius: 0!important;
+    padding: 0!important;
+}
+
+.container {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background-color: #f2f2f2;
+}
+
+.personal-header {
+    position: relative;
+    width: 100%;
+    height: 188rpx;
+    background-color: #e02e24;
+}
+
+.personal-header-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 50%;
+    z-index: -1;
+    background-color: #e02e24;
+}
+
+.user-image-container {
+    position: absolute;
+    left: 29rpx;
+    top: 4rpx;
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 100%;
+    background-color: rgba(255,255,255,0.4);
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.user-image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 122rpx;
+    height: 122rpx;
+    margin: 0 auto;
+    border-radius: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.nick-name {
+    position: absolute;
+    display: block;
+    color: #fff;
+    font-size: 36rpx;
+    top: 28rpx;
+    left: 182rpx;
+    max-width: 32%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: -1rpx;
+}
+
+.update-profile {
+    position: absolute;
+    color: #FFB6B3;
+    font-size: 22rpx;
+    text-align: center;
+    width: 136rpx;
+    height: 32rpx;
+    line-height: 31rpx;
+    border: 1px solid #FFB6B3!important;
+    border-radius: 16rpx!important;
+    left: 182rpx;
+    top: 80rpx;
+    background-color: transparent;
+    letter-spacing: -1rpx;
+}
+
+.daily_duobao_entrance {
+    position: absolute;
+    background-color: transparent;
+    top: 12rpx;
+    width: 278rpx;
+    height: 110rpx;
+    right: 0rpx;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.daily-bubble-tip {
+    position: relative;
+    width: 68rpx;
+    margin-top: 10rpx;
+    margin-left: -60rpx;
+    animation: bubbleAnimation 1.5s infinite;
+}
+
+@-webkit-keyframes bubbleAnimation {
+    0% {
+        transform: translate(0px,0px);
+    }
+
+    50% {
+        transform: translate(0px,-10rpx);
+    }
+
+    100% {
+        transform: translate(0px,0px);
+    }
+}
+
+@keyframes bubbleAnimation {
+    0% {
+        transform: translate(0px,0px);
+    }
+
+    50% {
+        transform: translate(0px,-10rpx);
+    }
+
+    100% {
+        transform: translate(0px,0px);
+    }
+}
+
+.profile-icon {
+    position: relative;
+    top: 9rpx;
+    width: 20rpx;
+    height: 20rpx;
+    margin-right: 4rpx;
+}
+
+#personal-orders {
+    position: relative;
+}
+
+#personal-orders-title {
+    position: relative;
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#personal-orders-title:before {
+    content: "";
+    position: absolute;
+    left: 24rpx;
+    bottom: -1px;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #e0e0e0;
+    transform-origin: 0 0;
+    transform: scale(1,0.5);
+}
+
+.orders-title {
+    float: left;
+    color: #151516;
+    font-size: 34rpx;
+    margin-left: 28rpx;
+}
+
+.arrow-icon {
+    width: 32rpx;
+    height: 32rpx;
+    top: 29rpx;
+    margin-right: 10px;
+    float: right;
+    position: relative;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/personal/more_order.png');
+}
+
+.view-all-orders {
+    display: inline-block;
+    position: relative;
+    height: 90rpx;
+    line-height: 90rpx;
+    float: right;
+    color: #D13435;
+    font-size: 26rpx;
+    margin-right: 8px;
+}
+
+#orders-category-wrapper {
+    position: relative;
+    width: 100%;
+    height: 136rpx;
+    background-color: #fff;
+}
+
+.orders-category-item {
+    position: relative;
+    display: inline-block;
+    width: 20%;
+    height: 136rpx;
+    color: #151516;
+    font-size: 24rpx;
+    text-align: center;
+    line-height: inherit;
+}
+
+.orders-category-item-icon {
+    width: 48rpx;
+    height: 38rpx;
+    position: relative;
+    margin: 28rpx auto 0;
+    background-repeat: no-repeat;
+    background-size: 48rpx 38rpx;
+}
+
+.orders-category-item-text {
+    position: absolute;
+    top: 88rpx;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    line-height: 1;
+}
+
+.p-unpaid {
+    background-image: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/personal/personal_unpaid.png');
+}
+
+.p-grouping {
+    background-image: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/personal/personal_grouping.png');
+}
+
+.p-unshipping {
+    background-image: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/personal/personal_unshipping.png');
+}
+
+.p-unreceived {
+    background-image: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/personal/personal_unreceived.png');
+}
+
+.p-unrated {
+    background-image: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/personal/personal_unrated.png');
+}
+
+.personal-options {
+    margin-top: 16rpx;
+    position: relative;
+    width: 100%;
+    height: 152rpx;
+    line-height: 100%;
+    background-color: #fff;
+}
+
+.personal-options-item {
+    position: relative;
+    display: inline-block;
+    width: 25%;
+    height: 152rpx;
+    color: #151516;
+    font-size: 24rpx;
+    text-align: center;
+    line-height: inherit;
+}
+
+.middle {
+    width: 50%;
+}
+
+.personal-options-item-icon {
+    height: 50rpx;
+    width: 54rpx;
+    position: relative;
+    margin: 28rpx auto 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.personal-options-item-icon::before {
+    font-size: 44rpx;
+    color: #9c9c9c;
+    font-family: icomoon;
+    line-height: 1.2;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+.personal-options-text {
+    position: absolute;
+    top: 104rpx;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    line-height: 1;
+}
+
+.p-message::before {
+    content: "\e671";
+    color: rgb(30,205,22);
+}
+
+.personal-list {
+    background-color: #fff;
+    height: auto;
+    margin-top: 16rpx;
+    padding-left: 24rpx;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 32rpx;
+}
+
+.personal-list-item {
+    position: relative;
+    display: block;
+    height: 92rpx;
+    line-height: 92rpx;
+    text-align: left;
+    background-color: white;
+    font-size: 30rpx;
+    box-sizing: border-box;
+}
+
+.personal-list-item:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #e0e0e0;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+}
+
+.border-hidden:before {
+    border-bottom: 0;
+}
+
+.free-coupons-count {
+    font-size: 24rpx;
+    color: red;
+    position: absolute;
+    right: 20rpx;
+}
+
+.no-line:after {
+    display: none;
+}
+
+.personal-list-icon {
+    color: #151516;
+    margin-left: 62rpx;
+    position: relative;
+    display: inline-block;
+    height: 92rpx;
+    line-height: 92rpx;
+    text-align: center;
+}
+
+.personal-list-icon:after {
+    position: absolute;
+    top: 50%;
+    left: -60rpx;
+    transform: translateY(-50%);
+    font-size: 40rpx;
+    color: #777;
+    font-family: "icomoon";
+    line-height: 1;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.p-offical-service::before,.p-lottery-draw::before {
+    position: absolute;
+    top: 50%;
+    left: -62rpx;
+    transform: translateY(-50%);
+    content: "\e678";
+    font-size: 40rpx;
+    color: #777;
+    line-height: 1;
+    font-family: "icomoon";
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.p-lottery-draw::after {
+    content: "\e635";
+    color: #fff;
+    left: -56rpx;
+    font-size: 22rpx;
+}
+
+.p-offical-service::after {
+    content: "\e6ac";
+    color: #fff;
+    left: -56rpx;
+    font-size: 22rpx;
+}
+
+.p-set::after {
+    content: "\e606";
+}
+
+.free-icon::after {
+    content: "\e697";
+}
+
+.p-my-group::after {
+    content: "\e696";
+}
+
+.p-addresses:after {
+    content: "\e60c";
+}
+
+.p-arrow-img {
+    height: 16rpx;
+    width: 10rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 37rpx;
+}
+
+.orders-count-bubble {
+    height: 36rpx;
+    min-width: 36rpx;
+    line-height: 36rpx;
+    text-align: center;
+    padding: 0 9rpx;
+    border: 1px solid #e02e24;
+    font-size: 21rpx;
+    position: absolute;
+    right: -12rpx;
+    top: -12rpx;
+    border-radius: 36rpx;
+    color: #e02e24;
+    background-color: #fff;
+}
+
+.version-text {
+    width: 100%;
+    position: absolute;
+    bottom: 10rpx;
+    font-size: 22rpx;
+    color: #9c9c9c;
+    text-align: center;
+    padding: 20rpx;
+}
+
+.p-coupon {
+    background-image: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/personal/personal_coupon.png');
+}
+
+.p-likes {
+    background-image: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/personal/personal_likes.png');
+}
+
+.p-my-footprint {
+    background-image: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/personal/personal_my_footprint.png');
+}
+
+.p-sales {
+    background-image: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/personal/personal_sales.png');
+}
+
+.coupon-red-dot {
+    position: absolute;
+    right: -6rpx;
+    top: 0;
+    display: inline-block;
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 100rpx;
+    background-color: #ff0000;
+}
+
+.android-tip-org-box {
+    position: fixed;
+    z-index: 1000;
+    top: 16rpx;
+    right: 22rpx;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.android-tip-arrow-box {
+    height: 60rpx;
+    width: 416rpx;
+    line-height: 60rpx;
+    background-color: rgba(0,0,0,0.6);
+    color: #f0f0f0;
+    font-size: 26rpx;
+    border-radius: 16rpx;
+    padding: 0 20rpx;
+    position: relative;
+}
+
+.android-tip-arrow-box::after {
+    content: '';
+    width: 0;
+    height: 0;
+    font-size: 0;
+    border-width: 16rpx;
+    border-style: solid;
+    border-color: transparent transparent rgba(0,0,0,0.6) transparent;
+    position: absolute;
+    right: 136rpx;
+    top: -28rpx;
+}
+
+.custom_service {
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.custom_service {
+    height: 16rpx;
+    width: 16rpx;
+    font-size: 21rpx;
+    position: relative;
+    top: -20rpx;
+    left: 0rpx;
+    border-radius: 16rpx;
+    background-color: #e02e24;
+}
+
+.new-arrivals-title-view {
+    background-color: #fff;
+    text-align: center;
+    margin-top: 16rpx;
+    height: 90rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    transition: all 1000ms ease-out 0ms;
+    margin-bottom: 2rpx;
+}
+
+.new-arrivals-icon {
+    margin-right: 16rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+}
+
+.new-arrivals-icon::before {
+    content: "\e680";
+    font-size: 32rpx;
+    color: #e02e24;
+    font-family: "icomoon";
+    line-height: 1;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.title-view {
+    width: auto;
+    height: 90rpx;
+    line-height: 90rpx;
+    padding: 0 32rpx;
+    position: relative;
+}
+
+.title {
+    font-size: 30rpx;
+    color: #e03229;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.m {
+    color: #9c9c9c;
+    font-size: 22rpx;
+    line-height: 32rpx;
+}
+
+.good-list-container {
+    width: 100%;
+    transition: all 1000ms ease-out 0ms;
+    text-align: left;
+}
+
+.personal-arrows-icon {
+    width: 24rpx;
+    height: 24rpx;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0,-50%);
+}
+
+.icon-arrows-right::before {
+    content: "\e617";
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    right: 24rpx;
+    text-align: right;
+    font-size: 24rpx;
+    color: #9c9c9c;
+    font-family: "icomoon";
+}

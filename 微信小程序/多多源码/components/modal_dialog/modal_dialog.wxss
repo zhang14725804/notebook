@@ -1,0 +1,232 @@
+.pdd_modal-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.8;
+    overflow: hidden;
+    z-index: 10003;
+    color: #fff;
+    animation: dialogFadeIn 0.3s ease normal forwards;
+}
+
+@-webkit-keyframes dialogFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.8;
+    }
+}
+
+@keyframes dialogFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.8;
+    }
+}
+
+.pdd_modal-dialog {
+    width: 500rpx;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10004;
+    background: #f9f9f9;
+    margin: -298rpx -250rpx;
+    border-radius: 15rpx;
+    animation: scaleIn 0.3s ease normal forwards;
+}
+
+@-webkit-keyframes scaleIn {
+    from {
+        transform: scale(0.5,0.5);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.5,0.5);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+.pdd_modal-content {
+    padding: 40rpx 46rpx 46rpx 46rpx;
+    text-align: center;
+    line-height: 42rpx;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+.pdd_modal-content .pdd_title {
+    margin: 0 auto;
+    width: 407rpx;
+    height: 40rpx;
+    font-size: 34rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgb(21,21,22);
+    margin-bottom: 20rpx;
+}
+
+.pdd_modal-content .pdd_tip {
+    margin: 0 auto;
+    width: 392rpx;
+    font-size: 28rpx;
+    text-align: left;
+    color: rgb(88,89,91);
+}
+
+.pdd_modal-footer {
+    display: flex;
+    flex-direction: row;
+    height: 96rpx;
+    font-size: 32rpx;
+    letter-spacing: 1rpx;
+    line-height: 96rpx;
+    background-color: white;
+    position: relative;
+}
+
+.pdd_modal-footer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 1px;
+    border-top: 1px solid #dedede;
+    transform-origin: 0 0;
+    transform: scale(0.5,0.5);
+    box-sizing: border-box;
+}
+
+.pdd_btn-cancel {
+    width: 50%;
+    font-size: 32rpx;
+    color: rgb(156,156,156);
+    text-align: center;
+    position: relative;
+    line-height: 96rpx;
+    border-radius: 0;
+    border-right: 1px solid #dedede;
+    font-weight: normal;
+    flex-shrink: 0;
+    flex-grow: 0;
+    padding: 0;
+}
+
+.pdd_btn-cancel::after {
+    border: 0;
+}
+
+.pdd_btn-confirm {
+    font-size: 32rpx;
+    color: rgb(224,46,36);
+    text-align: center;
+    line-height: 96rpx;
+    border-radius: 0;
+    font-weight: normal;
+    flex-shrink: 1;
+    flex-grow: 1;
+    padding: 0;
+}
+
+.pdd_btn-confirm::after {
+    border: 0;
+}
+
+.modal-dialog-image-container {
+    width: 581rpx;
+    overflow: hidden;
+    position: fixed;
+    top: 270rpx;
+    left: 50%;
+    z-index: 10004;
+    background: #f9f9f9;
+    margin: 0 -290rpx;
+    border-radius: 15rpx;
+    animation: scaleIn 0.3s ease normal forwards;
+}
+
+.modal-dialog-image-content {
+    padding: 40rpx 46rpx 46rpx 46rpx;
+    text-align: center;
+    line-height: 42rpx;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+.model-dialog-image-preview {
+    height: 212rpx;
+    width: 212rpx;
+    margin: 30rpx auto 58rpx;
+    border: 17rpx #f8f8f8 solid;
+}
+
+.model-dialog-close-btn {
+    position: fixed;
+    top: 246rpx;
+    right: 60rpx;
+    width: 54rpx;
+    height: 54rpx;
+    background: url(http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/limit_challenge/lc_index_model_close.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 10005;
+    animation: scaleIn 0.6s ease normal forwards;
+}
+
+.modal-title-icon {
+    display: inline-block;
+    margin-right: 8rpx;
+    line-height: 1;
+}
+
+.modal-title-icon::before {
+    height: 35rpx;
+    width: 35rpx;
+    font-size: 24rpx;
+    color: #e02E24;
+    font-family: icomoon;
+}
+
+.modal-dialog-image-content .pdd_tip {
+    width: auto;
+    font-size: 28rpx;
+    text-align: center;
+    color: rgb(88,89,91);
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}
+
+.modal-dialog-image-content .pdd_title {
+    margin: 0 auto 20rpx;
+    height: 40rpx;
+    font-size: 34rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgb(21,21,22);
+    width: auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}

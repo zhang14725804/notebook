@@ -1,0 +1,30 @@
+<view class="local-group-container" wx:if="{{localGroups&&localGroups.length>0}}">
+    <view class="local-group-content">
+        <view class="local-group-tips">
+            <text class="tips_icon"></text>
+            <text class="tips_title">或参加别人的团</text>
+            <text class="tips_icon"></text>
+        </view>
+        <form bindsubmit="joinLocalGroup" reportSubmit="true" wx:for="{{localGroups}}" wx:key="local-group-{{item.groupOrderId}}">
+            <button class="local-group-item {{index==1||localGroups.length==1?'group-item-no-border':''}}" data-group-order-id="{{item.groupOrderId}}" formType="submit">
+                <view class="item head_pic">
+                    <image class="local-group-img" src="{{item.avatar}}"></image>
+                </view>
+                <view class="item name">{{item.nickname}}</view>
+                <view class="item left_info">
+                    <view class="local-group-left-num">
+                        <text>还差</text>
+                        <text class="num">{{item.remaindNum}}</text>
+                        <text>人成团</text>
+                    </view>
+                    <view class="local-group-left-time">剩余{{item.leftTimeStr}}</view>
+                </view>
+                <view class="item local-group-btn-area">
+                    <view class="local-group-btn">
+                        去参团
+                    </view>
+                </view>
+            </button>
+        </form>
+    </view>
+</view>

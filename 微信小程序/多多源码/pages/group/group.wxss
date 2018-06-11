@@ -1,0 +1,1611 @@
+@import "group_users.wxss";
+
+.detail view {
+    color: #333;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 26rpx;
+    margin: 0 20rpx;
+    position: relative;
+}
+
+.detail view::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    bottom: -100%;
+    left: 0;
+    transform-origin: 0 0;
+    pointer-events: none;
+    transform: scale(0.5);
+    width: 200%;
+    box-sizing: border-box;
+    border-top: 1px solid #e0e0e0;
+}
+
+.detail .deal_info view::after {
+    border: none;
+}
+
+.detail .title {
+    float: left;
+    width: 190rpx;
+}
+
+.detail .content {
+    position: relative;
+    float: right;
+    width: 520rpx;
+    overflow: hidden;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.detail .deal_info .title,.detail .deal_info .content_info {
+    color: #333;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 26rpx;
+    display: inline-block;
+    margin: 0;
+}
+
+.detail .deal_info .title {
+    width: 150rpx;
+    color: #151516;
+}
+
+.detail .deal_info .content_info {
+    float: right;
+}
+
+.detail .deal_info {
+    border-top: none;
+    margin: 0 20rpx 0 16rpx;
+}
+
+.detail .deal_info:after {
+    border-top: none;
+}
+
+.detail .deal_info .item {
+    display: inline-block;
+    margin: 0 0 0 20rpx;
+}
+
+.detail .deal_info .dot {
+    display: inline-block;
+    width: 6rpx;
+    height: 6rpx;
+    border-radius: 6rpx;
+    background-color: #CCCCCC;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+
+.detail .deal_info .dot {
+    display: inline-block;
+    width: 6rpx;
+    height: 6rpx;
+    border-radius: 6rpx;
+    background-color: #CCCCCC;
+    vertical-align: middle;
+}
+
+.detail .deal_info .desc {
+    display: inline-block;
+    color: #9C9C9C;
+    vertical-align: middle;
+}
+
+.detail .deal_info .arrows-icon {
+    display: inline-block;
+    width: 28rpx;
+    height: 28rpx;
+    font-size: 24rpx;
+    color: #9c9c9c;
+    text-align: center;
+    font-family: icomoon;
+}
+
+.product-name .content {
+    padding-right: 20rpx;
+}
+
+.product-name .content::before {
+    position: absolute;
+    top: 32rpx;
+    right: 12rpx;
+    width: 12rpx;
+    height: 18rpx;
+    content: "\E617";
+    font-size: 24rpx;
+    color: #9c9c9c;
+    font-family: "icomoon";
+    line-height: 1;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
+
+.address .content {
+    padding-right: 26rpx;
+}
+
+.address .content::before {
+    position: absolute;
+    top: 32rpx;
+    right: 12rpx;
+    width: 12rpx;
+    height: 18rpx;
+    content: "\E617";
+    font-size: 24rpx;
+    color: #9c9c9c;
+    font-family: "icomoon";
+    line-height: 1;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
+
+@import "group_joined.wxss";
+
+@import "group_normal.wxss";
+
+@import "group_notice.wxss";
+
+@import "local_group.wxss";
+
+@import "group_a_goods_info.wxss";
+
+@import "../../components/sku_selector/sku_selector.wxss";
+
+@import "../../components/screen_shot_share/screen_shot_share.wxss";
+
+@import "../../components/resource_place_config/resource_place_config.wxss";
+
+@import "../../components/popup_modal/popup_modal.wxss";
+
+@import "../../components/segment/segment.wxss";
+
+@import "../../components/quick_entry_forward_index/quick_entry_forward_index.wxss";
+
+@import "../../components/double_grid_item/subjects_item.wxss";
+
+@import "../../components/group_guide/group_guide.wxss";
+
+.group-detail-nav-head {
+    position: sticky;
+    top: 0;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    border-bottom: solid 1px #F2F2F2;
+    background-color: white;
+}
+
+.group-detail-nav-head .nav_index,.group-detail-nav-head .nav_list {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.group-detail-nav-head .nav_index {
+    width: 182rpx;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+}
+
+.group-detail-nav-head .nav_list {
+    position: relative;
+}
+
+.recommend-list-placeholder {
+    padding-bottom: 200%;
+}
+
+.nav_list_icon {
+    position: absolute;
+    left: 0;
+    display: inline-black;
+    height: 80rpx;
+    width: 16rpx;
+    background: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/group_nav_bg_icon.png') no-repeat;
+    background-size: 100% 100%;
+    z-index: 1;
+}
+
+.group-detail-nav-head .nav_index text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.group-detail-nav-head .nav_index .icon {
+    display: inline-block;
+    height: 36rpx;
+    width: 33rpx;
+    background-image: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/group_nav_index_icon.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.group-detail-nav-head .nav_index .desc {
+    margin-left: 10rpx;
+}
+
+.group-detail-nav-head .nav_index button {
+    font-size: 30rpx;
+    line-height: 40px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.segemnt-main-group .item-title {
+    font-size: 30rpx;
+}
+
+.group-detail-nav {
+    position: relative;
+}
+
+.group-detail-nav-space {
+    opacity: 1;
+    height: 16rpx;
+    width: 100%;
+    position: relative;
+}
+
+.nav-item {
+    width: 25%;
+    float: left;
+    text-align: center;
+    color: #666;
+}
+
+.nav-item .icon,.nav-item .desc {
+    display: inline-block;
+}
+
+.nav-item .desc {
+    color: #58595b;
+    display: block;
+    font-size: 24rpx;
+    margin-top: 4rpx;
+}
+
+.nav-item .icon {
+    display: inline-block;
+    height: 54rpx;
+    width: 52rpx;
+    margin-top: 20rpx;
+    background-image: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/group_nav_icons_new.png');
+    background-size: 250rpx;
+    background-repeat: no-repeat;
+}
+
+.nav-item .icon.index {
+    background-position: -12rpx -6rpx;
+}
+
+.nav-item .icon.hot {
+    background-position: -180rpx -8rpx;
+}
+
+.nav-item .lucky_draw {
+    display: inline-block;
+    height: 52rpx;
+    width: 52rpx;
+    margin-top: 20rpx;
+    padding: 5rpx 4rpx 0;
+}
+
+.nav-item .lucky_draw_icon {
+    height: 46rpx;
+    width: 46rpx;
+    background: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/lucky_draw_icon.gif') no-repeat;
+    background-size: 100% 100%;
+}
+
+.nav-item .new_year_icon {
+    display: inline-block;
+    height: 54rpx;
+    width: 54rpx;
+    margin-top: 20rpx;
+    background: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/new_year_icon.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.nav-item .icon.spike {
+    background-position: -94rpx -6rpx;
+}
+
+.share-modal-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.8;
+    overflow: hidden;
+    z-index: 10003;
+    color: #fff;
+}
+
+.share-modal-dialog {
+    width: 580rpx;
+    height: 612rpx;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10004;
+    background: #ffffff;
+    margin: -306rpx -290rpx;
+    border-radius: 16rpx;
+}
+
+.share-modal-container {
+    width: 580rpx;
+    height: 612rpx;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10004;
+    background: #ffffff;
+    margin: -306rpx -290rpx;
+    border-radius: 16rpx;
+}
+
+.share-modal-container .title-container {
+    height: 112rpx;
+    text-align: center;
+    line-height: 42rpx;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #f2f2f2;
+    border-radius: 16rpx;
+    width: 580rpx;
+    padding-top: 32rpx;
+}
+
+.share-modal-container .title-container .title {
+    height: 50rpx;
+    width: 146rpx;
+    padding: 0rpx 0rpx 0;
+    text-align: left;
+    line-height: 42rpx;
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-weight: bold;
+    font-size: 36rpx;
+    color: #151516;
+}
+
+.share-modal-container .title-container .title::before {
+    content: "\e65a";
+    color: green;
+    font-family: "icomoon";
+    line-height: 1;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.share-modal-container .txt1 {
+    box-sizing: border-box;
+    font-size: 28rpx;
+    width: 498rpx;
+    margin-top: 44rpx;
+    height: 40rpx;
+    color: #58595b;
+    margin-left: 42rpx;
+    text-align: center;
+}
+
+.share-modal-container .continue-btn {
+    color: #FFFFFF;
+    padding: 0rpx 0rpx 0;
+    text-align: center;
+    position: relative;
+    background-color: red;
+    margin-top: 22rpx;
+    border-radius: 10rpx;
+    height: 86rpx;
+    line-height: 80rpx;
+    width: 500rpx;
+}
+
+.share-modal-container .continue-btn:before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 200%;
+    top: 0;
+    left: 100%;
+    border-right: 1px solid #dedede;
+    transform-origin: 0 0;
+    transform: scale(0.5,0.5);
+    box-sizing: border-box;
+}
+
+.share-modal-container .txt2-container {
+    width: 452rpx;
+    height: 34rpx;
+    font-size: 24rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #e02e24;
+    margin-top: 34rpx;
+    display: inline-block;
+    text-align: center;
+    margin-left: 64rpx;
+}
+
+.share-modal-container .txt2-container .line1 {
+    height: 1rpx;
+    border: 1px solid #EDEDED;
+    width: 166rpx;
+    display: inline-block;
+    margin-bottom: 9rpx;
+}
+
+.share-modal-container .txt2-container .txt {
+    color: red;
+    display: inline-block;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}
+
+.share-modal-container .txt2-container .line2 {
+    height: 1rpx;
+    border: 1px solid #EDEDED;
+    width: 166rpx;
+    display: inline-block;
+    margin-bottom: 9rpx;
+}
+
+.share-modal-container .txt3 {
+    width: 412rpx;
+    height: 40rpx;
+    font-size: 28rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #58595b;
+    margin-top: 30rpx;
+    text-align: center;
+    margin-left: 84rpx;
+}
+
+.goto-btn {
+    color: #e02e24;
+    text-align: center;
+    border: 1px solid red;
+    height: 86rpx;
+    padding: 20rpx 0rpx 0;
+    border-radius: 10rpx;
+    width: 500rpx;
+    margin-top: 22rpx;
+    margin-left: 40rpx;
+}
+
+.group-overshadow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10000;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.group-detail-nostore {
+    background-color: #fff;
+    color: #333;
+}
+
+.group-detail-nostore .tip {
+    padding-top: 194rpx;
+    text-align: center;
+    font-size: 34rpx;
+    height: 262rpx;
+    font-weight: bold;
+    background-image: url("http://pinduoduoimg.yangkeduo.com/wxapp/group_no_store.png");
+    background-position: center 40rpx;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-size: 154rpx 128rpx;
+}
+
+.group-detail-success {
+    text-align: center;
+}
+
+.group-detail-success .detail {
+    text-align: left;
+    background-color: #fff;
+}
+
+.group-detail-success .detail .product-name {
+    border-top-width: 0;
+}
+
+.group-detail-success-base-info {
+    background-color: #fff;
+    margin-bottom: 16rpx;
+    padding-bottom: 10rpx;
+}
+
+.group-detail-success-base-info .title {
+    position: relative;
+    padding-top: 32rpx;
+    font-size: 34rpx;
+    line-height: 56rpx;
+    color: #1ecd16;
+}
+
+.group-detail-success-base-info .title::before {
+    display: inline-block;
+    width: 42rpx;
+    height: 42rpx;
+    position: relative;
+    top: 0;
+    left: -12rpx;
+    content: "\E653";
+    font-size: 36rpx;
+    color: #1ecd16;
+    font-family: "icomoon";
+    line-height: 1;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.group-detail-success-base-info .desc {
+    line-height: 48rpx;
+    color: #9c9c9c;
+    font-size: 24rpx;
+}
+
+.group-detail-success-base-info .go-home-page-btn,.group-detail-success-base-info .go-lottery-page-btn {
+    margin: 16rpx 20rpx 20rpx;
+    height: 86rpx;
+    line-height: 86rpx;
+    color: #fff;
+    font-size: 34rpx;
+    background-color: #e02e24;
+    border-radius: 12rpx;
+}
+
+.group-info-page-btn {
+    margin: 16rpx 20rpx 20rpx;
+    height: 86rpx;
+    line-height: 86rpx;
+    color: #fff;
+    font-size: 34rpx;
+    background-color: #e02e24;
+    border-radius: 12rpx;
+}
+
+.group-detail-buy-btn {
+    height: 88rpx;
+    background-color: #e02e24;
+    color: #fff;
+    font-size: 34rpx;
+    line-height: 88rpx;
+    border-radius: 14rpx;
+    text-align: center;
+    margin-top: 20rpx;
+}
+
+.group-detail-buy-btn-hint {
+    font-size: 26rpx;
+    text-align: center;
+    color: #151516;
+    line-height: 30rpx;
+    font-weight: normal;
+}
+
+.group-detail-success-base-info .group-detail-buy-btn {
+    margin: 0 auto;
+    width: 544rpx;
+    height: 86rpx;
+    line-height: 86rpx;
+    color: #fff;
+    font-size: 34rpx;
+    background-color: #e02e24;
+    border-radius: 12rpx;
+    margin-bottom: 64rpx;
+}
+
+.group-detail-buy-btn-new {
+    background-color: #e02e24;
+}
+
+.newer-group-bg {
+    background: rgba(0,0,0,0.85);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    z-index: 30;
+}
+
+#alert-new-user-group {
+    position: fixed;
+    background-color: white;
+    border-radius: 8px;
+    width: 63.5%;
+    min-height: 182px;
+    left: 18.4%;
+    top: 27.6%;
+    text-align: center;
+    z-index: 32;
+}
+
+.ang-item-header {
+    margin: 62rpx 0 6rpx 0;
+}
+
+.ang-item-header .ang-item-icon {
+    position: relative;
+    margin: 0 auto;
+    width: 106rpx;
+    height: 96rpx;
+    background: url(http://pinduoduoimg.yangkeduo.com/wxapp/new_user_group.png) no-repeat;
+    background-size: 314rpx 148rpx;
+    background-position: -154rpx 0;
+}
+
+.ang-item-desc {
+    padding-top: 32rpx;
+    height: 166rpx;
+}
+
+.ang-item-desc .desc-normal {
+    margin: 4rpx 0 2rpx 0;
+    font-size: 32rpx;
+}
+
+.ang-item-desc .desc-spec {
+    font-size: 32rpx;
+    position: relative;
+    width: 100%;
+    font-family: "Adobe \9ED1\4F53 Std";
+    color: #ff223b;
+}
+
+.ang-item-desc .desc-normal {
+    margin: 4rpx 0 2rpx 0;
+    font-size: 32rpx;
+    height: 48rpx;
+}
+
+.ang-item-button {
+    height: 102rpx;
+    width: 420rpx;
+    line-height: 102rpx;
+    position: relative;
+    margin: 0 auto;
+    font-size: 0;
+    border-top: 1px solid #f4f2f2;
+}
+
+.ang-item-button text {
+    position: relative;
+    color: #ff223b;
+    font-size: 36rpx;
+}
+
+.invite-join-time-hint {
+    display: inline-block;
+    min-width: 160rpx;
+    text-align: right;
+}
+
+.group-detail-success-hint {
+    font-size: 24rpx;
+    color: #333333;
+    display: inline-block;
+}
+
+.success-hint-log {
+    color: red;
+}
+
+.success-hint-result {
+    margin-left: 14rpx;
+}
+
+.group-success-hint-toast {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 450rpx;
+    z-index: 5;
+}
+
+.group-success-hint-text {
+    background-color: rgba(00,00,00,0.7);
+    text-align: center;
+    padding: 66rpx 30rpx;
+    font-size: 28rpx;
+    color: white;
+    display: inline-block;
+    border-radius: 8rpx;
+}
+
+.group-detail-success-share {
+    margin-top: 14rpx;
+}
+
+.group-success-hint-toast-share {
+    top: 700rpx;
+}
+
+.add-margin-top {
+    margin-top: 20rpx;
+}
+
+.lottery_seal {
+    position: absolute;
+    right: 20rpx;
+    z-index: 2;
+}
+
+.lottery_seal_success {
+    background: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/group_success_icon.png') no-repeat;
+    height: 112rpx;
+    width: 112rpx;
+    background-size: 100% 100%;
+    top: 138rpx;
+}
+
+.lottery_seal_fail {
+    background: url('https://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/group_fail_icon_bg.png') no-repeat;
+    height: 115rpx;
+    width: 115rpx;
+    background-size: 100% 100%;
+    top: 138rpx;
+}
+
+.lottery_seal_full {
+    background: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/group_full_icon.png') no-repeat;
+    background-size: 100% 100%;
+    height: 108rpx;
+    width: 120rpx;
+    top: 148rpx;
+}
+
+.group-save-desc {
+    display: inline-block;
+    color: #9c9c9c;
+}
+
+.group-big-sales {
+    background-color: rgb(242,242,242);
+    position: relative;
+    padding-top: 16rpx;
+}
+
+.group-save-coupon {
+    padding-top: 8rpx;
+}
+
+.group-save-coupon text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.group-save-coupon .icon {
+    width: 33rpx;
+    height: 27rpx;
+    background: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/group_success_coupon_icon.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.group-save-coupon .desc {
+    color: #D79E08;
+    margin-left: 10rpx;
+    font-size: 22rpx;
+}
+
+.no_store_tips {
+    padding: 20rpx 0;
+}
+
+.lottery-text {
+    height: 34rpx;
+    line-height: 34rpx;
+    position: absolute;
+    font-size: 20rpx;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    border-top-right-radius: 35rpx;
+    border-bottom-right-radius: 35rpx;
+    top: 0;
+    left: 0;
+    background-color: rgb(254,171,181);
+    display: inline-block;
+    padding: 0 18rpx 0 8rpx;
+}
+
+.subscribe {
+    width: 100%;
+    background: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/subscribe_top_bg.png') no-repeat;
+    background-size: 100% 100%;
+    height: 86rpx;
+    padding: 0 22rpx;
+}
+
+.subscribe .item {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.subscribe .subscribe_icon {
+    width: 40rpx;
+    height: 34rpx;
+    background: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/subscribe_icon.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.subscribe .subscribe_title {
+    color: white;
+    font-size: 26rpx;
+    padding-left: 16rpx;
+    text-align: left;
+    line-height: 86rpx;
+    position: relative;
+    top: 2rpx;
+}
+
+.subscribe .subscribe_btn {
+    font-size: 26rpx;
+    color: #E02E24;
+    background-color: white;
+    border-radius: 4rpx;
+    float: right;
+    margin-top: 18rpx;
+    line-height: 52rpx;
+    width: 128rpx;
+    text-align: center;
+    padding: 0 6rpx 0 0;
+}
+
+.subscribe_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.subscribe-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.6;
+}
+
+.subscribe-modal_info {
+    position: absolute;
+    left: 10%;
+    top: 24%;
+    background-color: #f7f7f7;
+    opacity: 1;
+    width: 80%;
+    height: 46%;
+    background: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/subscribe_modal_bg.png') no-repeat;
+    background-size: 100% 100%;
+    padding: 0 46rpx;
+}
+
+.subscribe-close {
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    right: -30rpx;
+    top: -30rpx;
+    background-color: #e0e0e0;
+    border-radius: 50rpx;
+    text-align: center;
+    line-height: 44rpx;
+    padding: 0;
+}
+
+.subscribe-close::before {
+    content: "\E61D";
+    font-size: 20rpx;
+    color: #9c9c9c;
+    font-family: "icomoon";
+    line-height: 1;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.subscibe_modal_gif {
+    width: 518rpx;
+    height: 416rpx;
+    background: url('http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/subscribe_teach.gif') no-repeat;
+    background-size: 100% 100%;
+    margin: auto;
+}
+
+.subscribe-modal_info .title {
+    padding: 32rpx 0 20rpx;
+    font-size: 32rpx;
+    color: white;
+    text-align: center;
+}
+
+.deal-pop-content {
+    background-color: #fff;
+    width: 584rpx;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 16rpx;
+    z-index: 10;
+}
+
+.deal-pop-content .close_btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60rpx;
+    height: 60rpx;
+    top: -30rpx;
+    right: -30rpx;
+    box-sizing: border-box;
+}
+
+.deal-pop-content .close_btn .close_icon {
+    width: 58rpx;
+    height: 58rpx;
+    background: url(http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/index/cfgp_close_btn_icon.png) no-repeat;
+    background-size: 58rpx 58rpx;
+}
+
+.deal-pop-content .title {
+    line-height: 90rpx;
+    color: black;
+    font-size: 36rpx;
+    text-align: center;
+    border-bottom: solid 1px #ECECEC;
+}
+
+.modal_deal_info {
+    padding: 0 26rpx 20rpx;
+}
+
+.modal_deal_info .item {
+    line-height: 100rpx;
+    color: #444444;
+    font-size: 32rpx;
+    display: table;
+    table-layout: fixed;
+    border-bottom: solid 1px #ECECEC;
+    width: 100%;
+}
+
+.modal_deal_info .item:last-child {
+    border-bottom: none;
+}
+
+.modal_deal_info .item_title,.modal_deal_info .content {
+    display: table-cell;
+    text-align: center;
+}
+
+.modal_deal_info .item_title {
+    text-align: left;
+    width: 200rpx;
+}
+
+.modal_deal_info .content {
+    text-align: left;
+    padding: 0 10rpx;
+}
+
+.modal_deal_info .content .content_info {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.modal_deal_info .content_arrow {
+    display: table-cell;
+    width: 38rpx;
+    padding-left: 10rpx;
+}
+
+.modal_deal_info .item_title .dot {
+    display: inline-block;
+    width: 6rpx;
+    height: 6rpx;
+    border-radius: 6rpx;
+    background-color: #444444;
+    vertical-align: middle;
+    margin-right: 10rpx;
+    position: relative;
+    top: -4rpx;
+}
+
+.modal_deal_info .arrows-icon {
+    display: inline-block;
+    width: 28rpx;
+    height: 28rpx;
+    font-size: 24rpx;
+    color: #9c9c9c;
+    text-align: center;
+    font-family: icomoon;
+}
+
+.activity_writing .icon {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-width: 12rpx 12rpx 12rpx 0;
+    border-style: solid;
+    border-color: transparent #fde750 transparent transparent;
+    vertical-align: middle;
+}
+
+.activity_writing .desc {
+    display: inline-block;
+    background-color: #fde750;
+    color: #141415;
+    vertical-align: middle;
+    line-height: 10rpx;
+    padding: 12rpx 10rpx 16rpx;
+    border-radius: 6rpx;
+}
+
+.price_activity {
+    position: relative;
+    top: 14rpx;
+}
+
+.resource-place-config-wrap {
+    bottom: 132rpx;
+}
+
+.resource-place-config-wrap-top {
+    bottom: 232rpx;
+}
+
+.goods-list-container {
+    min-height: 600rpx;
+}
+
+.goods-list-item {
+    display: block;
+    width: 100%;
+    padding: 0 0 16rpx 0;
+    background-color: #f2f2f2;
+    overflow: hidden;
+    text-align: left;
+}
+
+.item-body {
+    overflow: hidden;
+    background-color: white;
+}
+
+.goods-img {
+    display: block;
+    width: 100%;
+    height: 352rpx;
+    overflow: hidden;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/default_square.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.goods-name {
+    display: block;
+    padding: 10rpx 20rpx 0 20rpx;
+    font-size: 32rpx;
+    color: #333;
+    max-height: 104rpx;
+    overflow: hidden;
+    line-height: 48rpx;
+}
+
+.goods-name text {
+    max-height: 104rpx;
+    line-height: 48rpx;
+    overflow: hidden;
+}
+
+.single-item-detail {
+    width: 100%;
+    height: 116rpx;
+    line-height: 116rpx;
+    padding: 0 20rpx 4rpx;
+    overflow: hidden;
+    left: 0;
+}
+
+.single-item-detail .sale-price {
+    font-size: 40rpx;
+    color: #e02e24;
+    margin-right: 12rpx;
+    float: left;
+}
+
+.single-item-detail .mall-coupon {
+    height: 100%;
+    width: 36rpx;
+    float: left;
+    display: flex;
+    align-items: center;
+    margin-right: 6rpx;
+}
+
+.single-item-detail .goods-mall-coupon {
+    width: 36rpx;
+    height: 32rpx;
+    border: 1px solid rgb(224,46,36);
+    border-radius: 4rpx;
+    color: rgb(224,46,36);
+    font-size: 22rpx;
+    text-align: center;
+    line-height: 30rpx;
+}
+
+.single-item-detail .group-desc {
+    font-size: 24rpx;
+    color: #9c9c9c;
+    float: left;
+}
+
+.enter-button {
+    width: 204rpx;
+    height: 68rpx;
+    line-height: 68rpx;
+    text-align: center;
+    border-radius: 8rpx;
+    font-size: 28rpx;
+    color: #fff;
+    background-color: #e02e24;
+    float: right;
+    margin-top: 27rpx;
+    position: relative;
+}
+
+.enter-button-arrow-v2 {
+    color: #fff;
+    font-size: 20rpx;
+    margin-left: 16rpx;
+    top: -1rpx;
+    position: relative;
+    display: inline-block;
+}
+
+.pay_success_head {
+    padding: 100rpx 26rpx 28rpx;
+    color: #7D7D7D;
+    text-align: center;
+    background-color: white;
+    margin-bottom: 18rpx;
+}
+
+.pay_success_head_in {
+    margin-bottom: 0;
+    padding: 42rpx 0 20rpx;
+}
+
+.pay_success_head_normal {
+    padding: 38rpx 0 26rpx;
+}
+
+.pay_success_head .left {
+    font-size: 50rpx;
+    color: black;
+    line-height: 70rpx;
+    font-weight: 600;
+}
+
+.pay_success_head .left .num {
+    color: #F95C08;
+    margin: 0 8rpx;
+}
+
+.pay_success_head .share_desc {
+    font-size: 30rpx;
+    line-height: 42rpx;
+    margin-top: 10rpx;
+}
+
+.pay_success_head .count_down {
+    font-size: 28rpx;
+    margin-top: 18rpx;
+}
+
+.pay_success_head_normal .count_down {
+    margin-top: 24rpx;
+}
+
+.pay_success_head .count_down .time {
+    font-size: 38rpx;
+    color: white;
+    display: inline-block;
+    width: 92rpx;
+    height: 54rpx;
+    background-color: #5B5B5B;
+    border-radius: 6rpx;
+    text-align: center;
+    line-height: 54rpx;
+    margin: 0 10rpx;
+}
+
+.pay_success_head .margin_line {
+    height: 10rpx;
+    margin-top: 18rpx;
+    background-color: #FAFAFA;
+}
+
+.pay_success_head .share_btn {
+    background-color: #E02E24;
+    border-radius: 12rpx;
+    color: white;
+    font-size: 52rpx;
+    font-weight: 600;
+    text-align: center;
+    line-height: 124rpx;
+    margin: 80rpx 26rpx 0;
+}
+
+.pay_success_head_in .group-detail-user-wrapper {
+    padding: 84rpx 0 0;
+}
+
+.pay_success_head_in .share_btn {
+    margin: 44rpx 26rpx 0;
+    line-height: 100rpx;
+    font-size: 48rpx;
+}
+
+.pay_success_head_normal .group-detail-user-wrapper {
+    padding: 26rpx 0 0;
+}
+
+.pay_success_head_normal .group-detail-buy-btn {
+    margin: 28rpx 26rpx 0;
+}
+
+.group-detail-joined-info-group-a {
+    padding: 18rpx 0rpx 0rpx;
+}
+
+.group_a_success {
+    padding: 40rpx 0 34rpx;
+    text-align: center;
+    background-color: white;
+}
+
+.group_a_success .title text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.group_a_success .title .success_icon {
+    width: 58rpx;
+    height: 56rpx;
+    background: url('https://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/group_success_smile_icon.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.group_a_success .title .fail_icon {
+    width: 58rpx;
+    height: 56rpx;
+    background: url('https://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/group_fail_icon.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.group_a_success .title .success_desc {
+    color: #FF712C;
+    font-size: 48rpx;
+    margin-left: 20rpx;
+    font-weight: 600;
+}
+
+.group_a_success .title .fail_desc {
+    color: black;
+    font-size: 48rpx;
+    margin-left: 20rpx;
+    font-weight: 600;
+}
+
+.group_a_success .desc {
+    color: #9A9A9A;
+    font-size: 28rpx;
+    margin-top: 28rpx;
+}
+
+.group_a_success .desc .success_time {
+    margin-right: 10rpx;
+}
+
+.group_a_success .success_users {
+    padding: 78rpx 0 70rpx;
+}
+
+.group_a_success .fail_users {
+    padding: 26rpx 0 24rpx;
+}
+
+.group_a_success .btn_area {
+    padding: 0 20rpx;
+}
+
+.group_a_success .go-home-page-btn,.group_a_success .go-lottery-page-btn {
+    height: 86rpx;
+    line-height: 86rpx;
+    color: #fff;
+    font-size: 34rpx;
+    background-color: #e02e24;
+    border-radius: 12rpx;
+}
+
+.group_a_success .fail_line {
+    background-color: #D5D5D5;
+    height: 2px;
+    margin-top: 44rpx;
+}
+
+.save_img_modal,.save_suc_modal,.tel-modal {
+    z-index: 10005;
+    background-color: rgba(0,0,0,0.8);
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.save_img_modal .modal_main {
+    margin: 12% auto 0;
+    width: 536rpx;
+    animation: scaleIn 0.3s ease normal forwards;
+    text-align: center;
+}
+
+.save_img_modal .modal_body {
+    border-radius: 10rpx;
+    background-color: white;
+    padding: 36rpx 40rpx 44rpx;
+    text-align: left;
+    position: relative;
+}
+
+.save_img_modal .modal_goods_info .goods_pic {
+    width: 456rpx;
+    height: 456rpx;
+}
+
+.save_img_modal .modal_goods_info .goods_pic image {
+    width: 456rpx;
+    height: 456rpx;
+    border-radius: 10rpx 10rpx 0 0;
+}
+
+.save_img_modal .modal_goods_info .goods_name {
+    margin-top: 20rpx;
+    font-size: 24rpx;
+    color: #535353;
+    line-height: 30rpx;
+    height: 60rpx;
+    overflow: hidden;
+    line-clamp: 2;
+    text-align: left;
+    word-break: break-all;
+}
+
+.save_img_modal .price {
+    color: #E25144;
+    font-size: 36rpx;
+    margin-top: 18rpx;
+    line-height: 1;
+}
+
+.save_img_modal .save_code_pic {
+    margin: 36rpx auto 40rpx;
+    text-align: center;
+}
+
+.save_img_modal .save_code_pic .item {
+    display: inline-block;
+}
+
+.save_img_modal .save_code_pic .item image {
+    height: 100rpx;
+    width: 100rpx;
+}
+
+.save_img_modal .save_code_pic .finger_pic image {
+    margin-left: 54rpx;
+    height: 100rpx;
+    width: 124rpx;
+}
+
+.save_img_modal .save_desc {
+    text-align: center;
+}
+
+.save_img_modal .save_desc text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.save_img_modal .save_desc .friends_circle_icon {
+    height: 30rpx;
+    width: 30rpx;
+    background: url('https://minipinduoduo.oss-cn-shanghai.aliyuncs.com/group/friends_circle_icon.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.save_img_modal .save_desc .desc {
+    color: #929292;
+    font-size: 26rpx;
+    margin-left: 10rpx;
+}
+
+.save_img_modal .save_btn {
+    width: 440rpx;
+    line-height: 80rpx;
+    margin: 32rpx auto 0;
+    color: white;
+    background-color: #3caa1a;
+    font-size: 30rpx;
+    text-align: center;
+    border-radius: 6rpx;
+}
+
+.save_img_modal .modal_close_btn {
+    text-align: center;
+    padding: 20rpx;
+    display: inline-block;
+    margin: auto;
+    position: absolute;
+    top: -80rpx;
+    right: -70rpx;
+}
+
+.save_img_modal .modal_close_btn .close_icon:before {
+    display: inline-block;
+    content: "\e6aa";
+    color: white;
+    font-family: "icomoon";
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    font-size: 60rpx;
+}
+
+.save_suc_modal .modal_body {
+    margin: 266rpx auto 0;
+    width: 582rpx;
+    animation: scaleIn 0.3s ease normal forwards;
+}
+
+.save_suc_modal .modal_body .modal_head image {
+    height: 624rpx;
+    width: 582rpx;
+}
+
+.save_suc_modal .modal_body .modal_close_btn {
+    text-align: center;
+    margin-top: 70rpx;
+}
+
+.save_suc_modal .modal_close_btn .close_icon:before {
+    display: inline-block;
+    content: "\e6aa";
+    color: white;
+    font-family: "icomoon";
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    font-size: 60rpx;
+}
+
+@-webkit-keyframes scaleIn {
+    from {
+        transform: scale(0.5,0.5);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.5,0.5);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+.group_fail_guide {
+    padding-bottom: 30rpx;
+    background-color: white;
+}
+
+.tel-modal .tel-modal-body {
+    margin: 414rpx auto 0;
+    width: 654rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #fff;
+    border-radius: 16rpx;
+    position: relative;
+}
+
+.tel-modal .tel-title {
+    font-size: 30rpx;
+    color: rgb(21,21,22);
+    margin: 54rpx 0 42rpx;
+}
+
+.tel-modal .tel-input {
+    width: 598rpx;
+    height: 106rpx;
+    border-radius: 10rpx;
+    border: 1px solid #e0e0e0;
+    font-size: 46rpx;
+    color: rgb(21,21,22);
+    padding-left: 20rpx;
+}
+
+.tel-modal .tel-modal-close {
+    position: absolute;
+    top: -18rpx;
+    right: -18rpx;
+    width: 40rpx;
+    height: 40rpx;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.tel-modal .tel-modal-close::before {
+    display: inline-block;
+    content: "\e69b";
+    color: #e0e0e0;
+    font-family: "icomoon";
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    font-size: 58rpx;
+    position: absolute;
+    top: -10rpx;
+    left: -10rpx;
+}
+
+.tel-modal .tel-submit {
+    width: 538rpx;
+    height: 86rpx;
+    background-color: #e02E24;
+    color: #fff;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 86rpx;
+    margin: 54rpx 0 34rpx;
+    border-radius: 10rpx;
+}

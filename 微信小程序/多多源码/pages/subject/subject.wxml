@@ -1,0 +1,92 @@
+<template name="lotteryListItem">
+    <view catchtap="gotoGoodsDetail" class="item-view" data-goods-id="{{goodsId}}" data-index="{{index+1}}">
+        <view class="item-img-view">
+            <image src="{{imgUrl}}"></image>
+        </view>
+        <view class="item-info-view">
+            <view class="item-good-name">{{goodsName}}</view>
+            <view class="item-remaind-time">{{drawText}}</view>
+            <view class="item-price-btn-veiw">
+                <view class="item-price-view">
+                    <view class="item-price">
+                        <span class="price-unit">¥  </span>
+                        <span class="price-text">{{price}}</span>
+                    </view>
+                    <view class="match-price">¥  {{marketPrice}}</view>
+                </view>
+                <form bindsubmit="$uploadFormId" reportSubmit="true">
+                    <button class="item-make-group-btn" formType="submit">去开团</button>
+                </form>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="/components/bubble/bubble.wxml"></import>
+<import src="/components/wifi_error/wifi_error.wxml"></import>
+<import src="/components/double_grid_item/grid_item_v1.wxml"></import>
+<import src="/components/single_list_item/single_list_item_v2.wxml"></import>
+<import src="/components/load_more_bar/load_more_bar.wxml"></import>
+<import src="/components/go_to_top/go_to_top.wxml"></import>
+<import src="/components/double_grid_item/grid_item_v2.wxml"></import>
+<import src="/components/toast/toast.wxml"></import>
+<import src="/components/double_grid_item/subjects_item.wxml"></import>
+<import src="/components/loading/loading.wxml"></import>
+<import src="/components/image_map/image_map.wxml"></import>
+<import src="/components/subject_scroll_item/subject_scroll.wxml"></import>
+<import src="/components/image_map/small_mixin_promotion.wxml"></import>
+<import src="/components/image_map/large_mixin_promotion.wxml"></import>
+<import src="/components/quick_entry_forward_index/quick_entry_forward_index.wxml"></import>
+<import src="/components/resource_place_config/resource_place_config.wxml"></import>
+<import src="/components/service_notice_land_page/service_notice_land_page.wxml"></import>
+<template is="bubble" data="{{...bubble}}"></template>
+<template is="serviceNoticeLandPage" data="{{...serviceNoticeLandPage}}" wx:if="{{!isShowBanner}}"></template>
+<view class="page-top-line"></view>
+<view id="goodsId-banner" wx:if="{{isShowBanner}}">
+    <form bindsubmit="$uploadFormId" reportSubmit="true">
+        <button catchtap="forwardSpike" class="delete-default-padding" formType="submit">
+            <image class="banner-image" mode="widthFix" src="http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/subject/subject_banner_toSpike1.png"></image>
+        </button>
+    </form>
+</view>
+<view capture-catch:tap="{{clickEnable?'':'catchtap'}}" class="subject-container" wx:if="{{!showError}}">
+    <view catchtap="clickBanner" class="banner-view" style="height:{{bannerHeight}}" wx:if="{{(!bannerHidden||list.length==0)&&!isShowBanner&&!serviceNoticeLandPage.isShowServiceNotice}}">
+        <image class="banner-image" mode="widthFix" src="{{banner}}" wx:if="{{showError==false}}"></image>
+    </view>
+    <view class="swiper-bg" wx:if="{{lotterySubject&&showluckyUserSwiper}}">
+        <swiper autoplay="true" circular="true" class="random-luckyUser-swiper" duration="1000" interval="4000" vertical="true">
+            <swiper-item class="swiper-item" wx:for="{{randomLuckyUserData}}" wx:key="item-{{index}}">
+                <view class="swiper-content">
+                    <image class="swiper-user-image" src="{{item.image_url}}"></image>
+                    <text decode class="swiper-text">恭喜@{{item.nick_name}},&nbsp;0.01元拿到{{item.goods_name}}</text>
+                </view>
+            </swiper-item>
+        </swiper>
+        <view catchtap="gotoShareOrderEvaluation" class="luckyUser-swiper-cover"></view>
+    </view>
+    <view>
+        <view id="no-goods" wx:if="{{noOrderText&&list.length===0}}">
+            <view class="icon"></view>
+            <view class="hint">抱歉，该活动专题商品已售罄</view>
+            <view class="sub">去其他地方看看吧</view>
+        </view>
+        <view class="draw-goods-list" wx:elif="{{lotterySubject}}">
+            <template is="{{item.itemName}}" data="{{...item,index:index,hideGroupNum:true,isDrawResult:true,btnText:btnText,remaindTimeDesc:item.drawText,localGroups:localGroups[item.goodsId]['list']||''}}" wx:if="{{(noOrderText||index!==list.length-1||item.doubleIndex%2!==0)&&item.itemName}}" wx:for="{{list}}" wx:key="goods-item-{{index}}"></template>
+        </view>
+        <view class="good-list-container {{columnNum==='1'?'single-list-style':''}} {{bannerHidden?'noMarginTop':''}}" wx:else>
+            <template is="{{item.itemName}}" data="{{...item,index:index,localGroups:localGroups[item.goodsId]['list']||''}}" wx:if="{{(templeName!='gridItemV1'||noOrderText||index!==list.length-1||item.doubleIndex%2!==0)&&item.itemName}}" wx:for="{{list}}" wx:key="{{item.goodsId}}"></template>
+        </view>
+    </view>
+    <view hidden="{{noOrderText||page==1}}">
+        <template is="load-more-bar-template" data="{{canLoadMore:true,loadingTxt:'正在加载...'}}"></template>
+    </view>
+    <view hidden="{{!noOrderText||list.length===0}}">
+        <template is="load-more-bar-template" data="{{canLoadMore:false,loadingTxt:noOrderText}}"></template>
+    </view>
+</view>
+<template is="to-top-template" data="{{topShow:goTopClass,bigSaleTopShow:'big_sales_top_show'}}"></template>
+<include src="/components/subject_share_btn/subject_share_btn.wxml" wx:if="{{!bigSalesEntranceData.showBigSalesFloat&&showShareBtn&&!withCid&&!resourcePlaceConfig.isShowResourcePlace}}"></include>
+<template is="loading-tpl" data="{{...$loadingData}}"></template>
+<template is="wifi-error" data wx:if="{{showError}}"></template>
+<template is="toast" data="{{...$toastData}}"></template>
+<template is="quickEntryIndex" data="{{...quickEntryControl}}" wx:if="{{quickEntryControl.showQuickEntry}}"></template>
+<template is="resourcePlaceConfig" data="{{...resourcePlaceConfig,topShow:goTopClass}}"></template>

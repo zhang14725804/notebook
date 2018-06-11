@@ -1,0 +1,8 @@
+<template name="groupGuide">
+    <view class="group_guide">
+        <view class="status {{guideStatus}}"></view>
+        <view class="guide_desc">
+            <text class="item" wx:for="{{guideDescList}}" wx:key="{{item}}">{{item}}</text>
+        </view>
+    </view>
+</template>

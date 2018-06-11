@@ -1,0 +1,192 @@
+<template name="chat-item-tpl">
+    <view class="chat-item-container" id="{{id}}">
+        <view class="time" wx:if="{{item.isShowTime}}">{{item.timeStr}}</view>
+        <view class="sys-msg-content" wx:if="{{item.is_system_hint===1}}">{{item.content}}</view>
+        <template is="goods-tpl" data="{{item:item}}" wx:elif="{{item.isFromGoods}}"></template>
+        <template is="order-tpl" data="{{item:item}}" wx:elif="{{item.isFromOrder}}"></template>
+        <template is="return-goods-tpl" data="{{item:item}}" wx:elif="{{item.sub_type===7}}"></template>
+        <template is="return-goods-tpl" data="{{item:item}}" wx:elif="{{item.sub_type===8}}"></template>
+        <template is="pay-order-tpl" data="{{item:item,toRole:toRole}}" wx:elif="{{item.sub_type===9}}"></template>
+        <template is="refund-tpl" data="{{item:item}}" wx:elif="{{item.sub_type===10}}"></template>
+        <view class="chat-item {{toRole!='user'?' role':' mall'}}" hidden="{{item.type==1&&!item.show}}" wx:else>
+            <image class="avatar" src="{{item.imgUrl}}" wx:if="{{toRole!='user'}}"></image>
+            <image catchtap="onMallItemClicked" class="avatar" src="{{item.imgUrl}}" wx:else></image>
+            <view class="chat-content{{toRole!='user'?' content-role':' content-mall'}} {{item.type==1?' content-img':''}} {{item.sub_type===1||item.sub_type===2||item.sub_type===0||item.sub_type===3?' card-bg':''}}" style="{{item.is_rich_text==1||item.is_faq===1||item.type==4||item.sub_type===1||item.sub_type===2||item.sub_type===0||item.sub_type===3?'padding-bottom:0;':'padding-bottom:20rpx;'}}">
+                <view class="chat-arrow{{toRole!='user'?' arrow-role':' arrow-mall'}} {{item.sub_type===1||item.sub_type===2||item.sub_type===0||item.sub_type===3?' card-bg':''}}"></view>
+                <template is="rich-text-tpl" data="{{item:item}}" wx:if="{{item.is_rich_text===1}}"></template>
+                <template is="faq-tpl" data="{{item:item}}" wx:elif="{{item.is_faq===1}}"></template>
+                <template is="comment-tpl" data="{{item:item}}" wx:elif="{{item.type===4}}"></template>
+                <template is="order-bubble" data="{{item:item}}" wx:elif="{{item.sub_type===1}}"></template>
+                <template is="goods-bubble" data="{{item:item}}" wx:elif="{{item.sub_type===0||item.sub_type===2||item.sub_type===3}}"></template>
+                <template is="normal-tpl" data="{{item:item,toRole:toRole}}" wx:else></template>
+            </view>
+            <view bindtap="clickTimeoutMsg" class="timeout-flag" data-request-id="{{item.request_id}}" wx:if="{{item.isTimeOut}}"></view>
+            <button class="loading-flag" disabled="true" loading="true" plain="false" type="default" wx:elif="{{item.isLoading}}"></button>
+        </view>
+    </view>
+</template>
+<template name="pay-order-tpl">
+    <view bindtap="{{toRole=='user'?'onPayOrderClicked':'onOrderItemClicked'}}" class="chat-item {{toRole!='user'?' role':' mall'}}" data-info="{{item.info}}">
+        <image class="avatar" src="{{item.imgUrl}}" wx:if="{{toRole!='user'}}"></image>
+        <image catchtap="onMallItemClicked" class="avatar" src="{{item.imgUrl}}" wx:else></image>
+        <view class="chat-content pay-order-content {{toRole!='user'?' content-role':' content-mall'}}">
+            <view class="pay-order-chat pay-order-color">
+                <view class="chat-arrow pay-order-color {{toRole!='user'?' arrow-role':' arrow-mall'}}"></view>
+                <image class="pay-order-img" src="{{item.info.imageUrl}}"></image>
+                <view class="pay-order-title-content">
+                    <text class="pay-order-title">{{item.info.title}}</text>
+                    <text class="pay-order-amount">{{item.info.moneyStr}}</text>
+                </view>
+            </view>
+            <view class="pay-order-func-container">
+                <view class="func-txt">查看详情</view>
+                <view class="icon-arrows-right"></view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="return-goods-tpl">
+    <view class="refund-goods-tpl-container">
+        <view bindtap="onGoodsTplClicked" class="title-container" data-info="{{item.info}}">
+            <image class="img" src="{{item.info.imgSrc}}"></image>
+            <view class="title">{{item.info.title}}</view>
+        </view>
+        <view bindtap="onGoodsTplClicked" class="goods-container" data-info="{{item.info}}">
+            <image class="goods-icon" src="{{item.info.goodsThumbUrl}}"></image>
+            <view class="desc">{{item.info.goodsName}}</view>
+            <view class="price">{{item.info.refundMoneyStr}}</view>
+        </view>
+        <view bindtap="onGoodsTplClicked" class="info-container" data-info="{{item.info}}">
+            <view class="content" wx:for="{{item.info.list}}" wx:for-item="data" wx:key="index">
+                <view class="key">{{data.key}}<span></span>
+                </view>
+                <view class="value" style="{{data.style}}">{{data.value}}</view>
+            </view>
+            <view class="extra-desc" wx:if="{{item.sub_type===8}}">{{item.info.refundDetailStr}}</view>
+        </view>
+        <view class="func-container" wx:if="{{!item.info.isHideFunc}}">
+            <button bindtap="{{item.info.func}}" class="func-btn" data-info="{{item.info}}">{{item.info.funcTxt}}</button>
+        </view>
+    </view>
+</template>
+<template name="refund-tpl">
+    <view class="refund-tpl-container">
+        <view class="title-container">
+            <image class="img" src="https://xcximgcdn.yangkeduo.com/custom_service/refund.png"></image>
+            <text class="title">{{item.content}}</text>
+        </view>
+        <view class="time">{{item.info.applyDate}}</view>
+    </view>
+</template>
+<template name="order-sku">
+    <view class="chat-order-list">
+        <view bindtap="clickOther" class="chat-order-list-mask"></view>
+        <view class="chat-order-list-panel">
+            <view class="chat-order-list-nav">
+                <view class="chat-order-list-nav-title">{{orderTitle}}</view>
+                <view bindtap="closeOrderSku" class="chat-order-list-nav-close"></view>
+            </view>
+            <scroll-view bindscrolltolower="loadMoreList" class="chat-order-list-main {{!showLess&&mallId==606?' chat-order-list-main-up':''}} {{isIpx&&!showLess&&mallId==606?'fix-ipx-chat-order-list-main-up':''}}" scrollY="{{!showLess}}">
+                <view class="chat-order-list-orders {{showLess?'only-two':''}}">
+                    <template is="order-list-tpl" data="{{item:item,showLess:showLess,showBottom:showBottom,index:index,length:ordersList.length,btnTxt:'发送订单消息',fromSku:true,orderMsgContent:orderMsgContent}}" wx:for="{{ordersList}}" wx:key="index"></template>
+                </view>
+                <view hidden="{{ordersList.length<2||showLess||canLoadMore}}">
+                    <template is="load-more-bar-template" data="{{isIpx:mallId==606?false:isIpx,canLoadMore:canLoadMore,loadingTxt:canLoadMore?'正在加载...':'暂无其他订单'}}"></template>
+                </view>
+            </scroll-view>
+            <view bindtap="notFundOrders" class="bottom-hint {{isIpx?'fix-ipx-bottom-hint':''}}" wx:if="{{!showLess&&mallId==606}}">没有找到想找的订单？</view>
+            <view bindtap="showMoreOrders" class="chat-order-list-bottom-bar {{isIpx?'fix-ipx-chat-order-list-bottom-bar':''}}" hidden="{{!showLess}}">
+                <span class="chat-order-list-panel-button">{{loadMoreTxt}}</span>
+                <span class="chat-order-list-panel-button-arrow"></span>
+            </view>
+            <view class="bottom-bar-distant" hidden="{{ordersList.length>=2}}"></view>
+        </view>
+    </view>
+</template>
+<template name="order-list-tpl">
+    <view bindtap="clickOrders" class="order-list {{showBottom?'':'show-many'}}" data-index="{{index}}" style="{{index===length-1?'margin-bottom:0;':''}}">
+        <image src="{{item.thumb_url}}"></image>
+        <view class="order-list-goods-name">{{item.goods_name}}</view>
+        <view class="order-list-goods-spec" hidden="{{!item.spec}}">{{item.spec}}</view>
+        <view class="order-list-goods-price">¥  {{item.goods_price}}</view>
+        <view class="order-list-goods-number">x{{item.goods_number}}</view>
+        <view class="order-list-order-status">{{item.order_status_desc}}</view>
+        <view catchtap="clickOrdersSku" class="order-list-send" data-index="{{index}}" data-msg="{{orderMsgContent}}">{{btnTxt}}</view>
+    </view>
+    <view class="only-one" wx:if="{{length===1&&fromSku}}">
+        <view>暂无其他订单</view>
+    </view>
+</template>
+<template name="normal-tpl">
+    <image binderror="onImgError" bindload="onImgLoaded" bindtap="previewImg" class="chat-content-img" data-msg-id="{{item.msg_id}}" data-url="{{item.content}}" mode="widthFix" src="{{item.content}}" wx:if="{{item.type==1}}"></image>
+    <view class="chat-arrow{{toRole!='user'?' arrow-role':' arrow-mall'}}"></view>
+    <text class="title" wx:if="{{item.type==0||item.type==20}}">{{item.content}}</text>
+</template>
+<template name="order-bubble">
+    <view bindtap="toCardDetail" class="chat-order-bubble" data-order-sn="{{item.info.orderSequenceNo}}" data-type="{{item.sub_type}}">
+        <view class="order-sn">{{item.content}}</view>
+        <view class="order-box">
+            <image class="bubble-goods-image" src="{{item.info.goodsThumbUrl}}"></image>
+            <view class="order-detail">
+                <text class="bubble-goods-name">{{item.info.goodsName}}</text>
+                <view class="status-desc">{{item.info.orderStatus}}</view>
+                <span class="bubble-ts">{{item.info.orderTime}}</span>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="goods-bubble">
+    <view bindtap="toCardDetail" class="chat-order-bubble" data-goods-id="{{item.info.goodsID}}" data-group-link="{{item.info.groupLink}}" data-type="{{item.sub_type}}">
+        <view class="goods-box">
+            <image class="bubble-goods-image" src="{{item.info.goodsThumbUrl}}"></image>
+            <view class="goods-detail">
+                <text class="bubble-goods-name">{{item.sub_type===3?item.info.groupTitle:item.info.goodsName}}</text>
+                <view class="group-desc" wx:if="{{item.sub_type===3}}">{{item.info.groupDesc}}</view>
+                <view class="group-info" wx:if="{{item.sub_type===0||item.sub_type===2}}">
+                    <span class="price">¥  {{item.info.goodsPrice}}</span>
+                    <span class="customer-num">/{{item.info.customerNumber}}人拼团</span>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="goods-tpl">
+    <view class="chat-box chat-goods-box">
+        <image class="card-goods-image" src="{{item.cardInfo.src}}"></image>
+        <view class="detail">
+            <text class="card-goods-name">{{item.cardInfo.goodsName}}</text>
+            <view class="group-info">
+                <span class="price">¥  {{item.cardInfo.groupPrice}}</span>
+                <span class="customer-num">/{{item.cardInfo.customerNum}}人拼团</span>
+            </view>
+            <view bindtap="sendCard" class="card-button" data-info="{{item}}">咨询该商品</view>
+        </view>
+    </view>
+</template>
+<template name="order-tpl">
+    <view class="chat-order-info">
+        <view class="order-sn">订单编号:{{item.cardInfo.orderSn}}</view>
+        <view class="chat-box chat-order-box">
+            <image class="card-goods-image" src="{{item.cardInfo.src}}"></image>
+            <view class="detail">
+                <text class="card-goods-name">{{item.cardInfo.goodsName}}</text>
+                <view class="status-info">状态:<text class="status-desc">{{item.cardInfo.status}}</text>
+                </view>
+                <view bindtap="sendCard" class="card-button" data-info="{{item}}">咨询该订单</view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="comment-tpl">
+    <view class="title title-list-item">{{item.content}}</view>
+    <view bindtap="commentClicked" class="list-item" data-comment="{{comment}}" data-index="{{index}}" data-msg-id="{{item.msg_id}}" wx:if="{{item.info.is_display}}" wx:for="{{item.info.options}}" wx:for-item="comment" wx:key="index">{{comment}}</view>
+</template>
+<template name="faq-tpl">
+    <view class="title title-list-item">{{item.info.faq_title}}</view>
+    <view bindtap="faqClicked" class="list-item" data-index="{{index}}" data-item="{{item}}" wx:for="{{item.info.faq_list}}" wx:for-item="faq" wx:key="index">{{faq.question}}</view>
+</template>
+<template name="rich-text-tpl">
+    <view class="title title-list-item">{{item.content}}</view>
+    <view bindtap="richTextClicked" class="list-item" data-action="{{richText.click_action.name}}" data-index="{{index}}" data-params="{{richText.click_action.params}}" wx:for="{{item.rich_text.content}}" wx:for-item="richText" wx:key="index">{{richText.text}}</view>
+</template>
+<import src="/components/load_more_bar/load_more_bar.wxml"></import>

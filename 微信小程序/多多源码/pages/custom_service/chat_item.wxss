@@ -1,0 +1,877 @@
+.chat-item-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24rpx;
+}
+
+.chat-item-container .time {
+    align-self: center;
+    height: 30rpx;
+    font-size: 25rpx;
+    padding: 0 20rpx;
+    margin: 20rpx auto 10rpx;
+}
+
+.sys-msg-content {
+    align-self: center;
+    line-height: 26rpx;
+    background-color: #d2d2d2;
+    color: #fff;
+    font-size: 26rpx;
+    text-align: center;
+    border: 1px solid #ededed;
+    border-radius: 4rpx;
+    padding: 10rpx 20rpx;
+}
+
+.chat-item {
+    background-color: #f2f2f2;
+    max-width: 80%;
+    min-height: 100rpx;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 10rpx;
+}
+
+.role {
+    flex-direction: row-reverse;
+    right: 0;
+    left: 20%;
+}
+
+.mall {
+    left: 0;
+}
+
+.chat-item .avatar {
+    width: 80rpx;
+    height: 80rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    border-radius: 80rpx;
+}
+
+.chat-content {
+    padding: 20rpx;
+    background-color: white;
+    border: 1px solid #ededed;
+    border-radius: 10rpx;
+    position: relative;
+    min-height: 72rpx;
+    max-width: 440rpx;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.content-img {
+    max-width: 200rpx;
+}
+
+.content-role {
+    background-color: #9fe956;
+    border: 1px solid #61d95d;
+}
+
+.chat-arrow {
+    width: 15rpx;
+    height: 15rpx;
+    z-index: 999;
+    border: 2rpx solid #ffffff;
+    border-radius: 2rpx;
+    border-right: none;
+    border-bottom: none;
+    position: absolute;
+    top: 30rpx;
+}
+
+.arrow-role {
+    transform: rotate(135deg);
+    background-color: #9fe956;
+    border: 1px solid #61d95d;
+    border-right: none;
+    border-bottom: none;
+    left: calc(100% - 7rpx);
+}
+
+.arrow-mall {
+    background-color: white;
+    left: -7rpx;
+    transform: rotate(-45deg);
+}
+
+.chat-content .title {
+    min-height: 44rpx;
+    line-height: 44rpx;
+    font-size: 32rpx;
+    color: #151516;
+    align-self: center;
+    text-align: justify;
+    word-break: break-all;
+}
+
+.chat-content .title-list-item {
+    margin-bottom: 20rpx;
+}
+
+.chat-content-img {
+    position: ab;
+    min-height: 72rpx;
+    max-width: 100%;
+}
+
+.loading-flag {
+    position: relative;
+    margin-right: 10rpx;
+    width: 40rpx;
+    height: 40rpx;
+    align-self: center;
+    border: none;
+    align-self: center;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-width: 0!important;
+    font-size: 26rpx;
+    color: #555!important;
+    flex-grow: 0;
+    padding: 0!important;
+}
+
+.loading-flag::before {
+    width: 40rpx!important;
+    height: 40rpx!important;
+}
+
+.timeout-flag {
+    position: relative;
+    margin-right: 10rpx;
+    width: 40rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    background-color: red;
+    border-radius: 40rpx;
+    align-self: center;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeout-flag::before {
+    content: '\e6a8';
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ffffff;
+    width: 40rpx;
+    height: 40rpx;
+    font-size: 26rpx;
+    font-family: "icomoon";
+}
+
+.list-item {
+    font-size: 30rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    color: #1ab5f5;
+    text-align: left;
+}
+
+.list-item::before {
+    content: '';
+    border-bottom: 1rpx solid #d8d8d8;
+    width: 100%;
+    height: 1rpx;
+    position: absolute;
+    left: 0;
+}
+
+.role .card-bg {
+    background-color: #fff;
+    padding: 0;
+}
+
+.mall .card-bg {
+    padding: 0;
+}
+
+.card-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 180rpx;
+    height: 48rpx;
+    line-height: 44rpx;
+    border: 1px solid #fe243d;
+    border-radius: 24rpx;
+    color: #fe243d;
+    font-size: 24rpx;
+    overflow: hidden;
+    text-align: center;
+}
+
+.chat-box {
+    margin: 10rpx 0 0;
+    position: relative;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+}
+
+.card-goods-image {
+    width: 150rpx;
+    height: 150rpx;
+    flex-shrink: 0;
+    margin-right: 30rpx;
+}
+
+.chat-box .detail {
+    width: 530rpx;
+}
+
+.bubble-goods-name,.card-goods-name {
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    text-align: left;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+}
+
+.card-goods-name {
+    font-size: 26rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    margin-bottom: 20rpx;
+    -webkit-line-clamp: 1;
+}
+
+.chat-goods-box {
+    height: 210rpx;
+    padding: 30rpx 20rpx;
+    background-color: #fff;
+}
+
+.chat-goods-box .detail .group-info {
+    margin-bottom: 22rpx;
+    font-size: 0;
+}
+
+.price {
+    font-size: 30rpx;
+    color: #fe243d;
+}
+
+.customer-num {
+    font-size: 24rpx;
+    color: #666;
+}
+
+.chat-goods-box .detail .card-button {
+    bottom: 20rpx;
+    right: 20rpx;
+}
+
+.chat-order-info {
+    position: relative;
+    width: 100%;
+    padding: 20rpx;
+    margin-top: 10rpx;
+    background-color: #fff;
+}
+
+.chat-order-info .order-sn {
+    font-size: 24rpx;
+    color: #333;
+    margin-bottom: 22rpx;
+}
+
+.chat-order-info .chat-order-box {
+    height: 150rpx;
+}
+
+.chat-order-info .chat-order-box .detail .status-info {
+    margin-bottom: 22rpx;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.chat-order-info .chat-order-box .detail .status-info .status-desc {
+    color: #fe243d;
+}
+
+.goods-box,.order-box {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background-color: #fff;
+}
+
+.goods-box .bubble-goods-image {
+    width: 100rpx;
+    height: 100rpx;
+    flex-shrink: 0;
+    margin-right: 20rpx;
+}
+
+.goods-box .goods-detail {
+    width: 260rpx;
+}
+
+.bubble-goods-name {
+    font-size: 28rpx;
+    -webkit-line-clamp: 2;
+    line-height: 1.3;
+}
+
+.goods-box .goods-detail .group-info {
+    position: absolute;
+    left: 140rpx;
+    bottom: 10rpx;
+    font-size: 0;
+}
+
+.goods-box .goods-detail .group-desc {
+    font-size: 24rpx;
+    color: #e02e24;
+    bottom: 14rpx;
+    position: absolute;
+}
+
+.chat-order-bubble {
+    position: relative;
+    font-size: 24rpx;
+    color: #666;
+    background-color: #fff;
+    padding: 20rpx;
+    border-radius: 10rpx;
+}
+
+.chat-order-bubble .order-sn {
+    margin-bottom: 18rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.order-box .bubble-goods-image {
+    width: 116rpx;
+    height: 116rpx;
+    flex-shrink: 0;
+    margin-right: 12rpx;
+}
+
+.order-box .order-detail {
+    width: 270rpx;
+}
+
+.order-box .order-detail .status-desc {
+    position: absolute;
+    line-height: 1.2;
+    bottom: 20rpx;
+    color: #fe243d;
+    max-width: 150rpx;
+    text-align: left;
+    z-index: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.order-box .order-detail .bubble-ts {
+    position: absolute;
+    right: 10rpx;
+    bottom: 20rpx;
+    color: #999;
+}
+
+.chat-order-list-mask {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    background-color: rgba(0,0,0,.5);
+    z-index: 100001;
+    top: 0;
+    left: 0;
+}
+
+.chat-order-list-panel {
+    position: fixed;
+    bottom: 0;
+    background-color: #f4f4f6;
+    width: 100%;
+    max-width: 1280rpx;
+    z-index: 100002;
+}
+
+.chat-order-list-nav {
+    width: 100%;
+    height: 70rpx;
+    padding: 20rpx 24rpx;
+    background-color: #fff;
+    border-bottom: 1px solid #ededed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-order-list-nav view {
+    display: inline-block;
+    font-size: 28rpx;
+    color: #58595b;
+}
+
+.chat-order-list-nav-close::after {
+    content: '\e61d';
+    font-size: 28rpx;
+    color: #9C9C9C;
+    font-family: "icomoon";
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.chat-order-list-main {
+    overflow: auto;
+    max-height: 75vh;
+    background-color: #f2f2f2;
+}
+
+.chat-order-list-orders {
+    min-height: 400rpx;
+    padding: 0;
+}
+
+.only-two {
+    height: 400rpx;
+}
+
+.only-one {
+    color: #9c9c9c;
+    font-size: 26rpx;
+    text-align: center;
+    background-color: #fff;
+    height: 200rpx;
+}
+
+.only-one view {
+    padding: 20rpx 0 0 0;
+}
+
+.chat-order-list-bottom-bar {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #f4f4f6;
+    min-height: 92rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28rpx;
+}
+
+.chat-order-list-panel-button-arrow {
+    width: 16rpx;
+    height: 14rpx;
+    margin-left: 8rpx;
+    background-size: 16rpx 14rpx;
+    background-image: url("http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/custom_service/download.png");
+}
+
+.bottom-bar-distant {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #f4f4f6;
+    min-height: 92rpx;
+}
+
+.order-list {
+    position: relative;
+    height: 200rpx;
+    width: 100%;
+    padding-left: 192rpx;
+    padding-right: 120rpx;
+    padding-top: 20rpx;
+    background-color: #fff;
+    border-bottom: 1px solid #ededed;
+}
+
+.show-many {
+    border-bottom: none;
+    margin-bottom: 16rpx;
+}
+
+.order-list image {
+    width: 160rpx;
+    height: 160rpx;
+    position: absolute;
+    left: 20rpx;
+    top: 20rpx;
+}
+
+.order-list .order-list-goods-name {
+    overflow: hidden;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #151516;
+    max-height: 80rpx;
+}
+
+.order-list .order-list-goods-spec {
+    font-size: 22rpx;
+    color: #9c9c9c;
+    max-width: 280rpx;
+    height: 28rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+
+.order-list .order-list-goods-price,.order-list .order-list-goods-number {
+    margin-top: 12rpx;
+    font-size: 28rpx;
+    color: #151516;
+    position: absolute;
+    right: 20rpx;
+    top: 22rpx;
+}
+
+.order-list .order-list-goods-number {
+    top: 56rpx;
+    font-size: 24rpx;
+    color: #9c9c9c;
+}
+
+.order-list .order-list-order-status {
+    position: absolute;
+    bottom: 20rpx;
+    color: #f40009;
+    font-size: 26rpx;
+}
+
+.order-list .order-list-send {
+    position: absolute;
+    bottom: 20rpx;
+    right: 20rpx;
+    display: inline-block;
+    font-size: 24rpx;
+    color: #f40009;
+    border: 1px solid #f40009;
+    border-radius: 28rpx;
+    padding: 10rpx 30rpx;
+}
+
+.bottom-hint {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 92rpx;
+    font-size: 28rpx;
+    line-height: 92rpx;
+    text-align: center;
+    color: #1ab5f5;
+    z-index: 100;
+    background-color: #f2f2f2;
+}
+
+.chat-order-list-main-up {
+    max-height: 70vh;
+    margin-bottom: 90rpx;
+}
+
+.refund-tpl-container {
+    margin-left: 65rpx;
+    width: calc(100% - 130rpx);
+    background-color: #fff;
+    border-bottom: 1rpx solid #eeeeee;
+}
+
+.refund-tpl-container .title-container {
+    width: 100%;
+    height: 42rpx;
+    margin-top: 30rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.refund-tpl-container .title-container .img {
+    width: 42rpx;
+    height: 42rpx;
+    margin-left: 30rpx;
+}
+
+.refund-tpl-container .title-container .title {
+    margin-left: 20rpx;
+    font-size: 30rpx;
+    color: #151516;
+}
+
+.refund-tpl-container .time {
+    margin-left: 92rpx;
+    font-size: 24rpx;
+    color: #9c9c9c;
+    margin-top: 20rpx;
+    margin-bottom: 30rpx;
+    padding: 0;
+}
+
+.refund-goods-tpl-container {
+    background-color: #fff;
+    margin-left: 65rpx;
+    width: calc(100% - 130rpx);
+    border-bottom: 1rpx solid #eeeeee;
+}
+
+.refund-goods-tpl-container .title-container {
+    height: 90rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1rpx solid #eeeeee;
+}
+
+.refund-goods-tpl-container .title-container .img {
+    width: 42rpx;
+    height: 42rpx;
+    margin-left: 30rpx;
+}
+
+.refund-goods-tpl-container .title-container .title {
+    font-size: 32rpx;
+    margin-left: 16rpx;
+    color: #000000;
+}
+
+.refund-goods-tpl-container .goods-container {
+    height: 140rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    border-bottom: 1rpx solid #eeeeee;
+}
+
+.refund-goods-tpl-container .goods-container .goods-icon {
+    width: 80rpx;
+    height: 80rpx;
+    margin-left: 30rpx;
+}
+
+.refund-goods-tpl-container .goods-container .desc {
+    margin-left: 15rpx;
+    max-height: 70rpx;
+    line-height: 35rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    word-break: break-all;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    text-align: justify;
+    text-overflow: ellipsis;
+    max-width: 350rpx;
+    color: #999999;
+    font-size: 24rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.refund-goods-tpl-container .goods-container .price {
+    margin-left: 30rpx;
+    font-size: 24rpx;
+    color: #151516;
+}
+
+.refund-goods-tpl-container .info-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-bottom: 1rpx solid #eeeeee;
+}
+
+.refund-goods-tpl-container .info-container .content {
+    margin-top: 30rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.refund-goods-tpl-container .info-container .content .key {
+    margin-left: 30rpx;
+    font-size: 28rpx;
+    overflow: hidden;
+    height: 42rpx;
+    width: 120rpx;
+    text-align: justify;
+}
+
+.refund-goods-tpl-container .info-container .content .key span {
+    width: 100%;
+    display: inline-block;
+}
+
+.refund-goods-tpl-container .info-container .content .value {
+    margin-left: 15rpx;
+    font-size: 28rpx;
+    max-height: 75rpx;
+    line-height: 37rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    word-break: break-all;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    text-align: justify;
+    text-overflow: ellipsis;
+    max-width: 350rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.refund-goods-tpl-container .info-container .extra-desc {
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+    margin-bottom: 30rpx;
+    font-size: 24rpx;
+    color: #151516;
+}
+
+.refund-goods-tpl-container .func-container {
+    background-color: #fbfbfb;
+    width: 100%;
+    height: 100rpx;
+    position: relative;
+}
+
+.refund-goods-tpl-container .func-container .func-btn {
+    position: absolute;
+    top: 20rpx;
+    right: 30rpx;
+    height: 60rpx;
+    max-width: 350rpx;
+    color: #151516;
+    font-size: 26rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+    border: 1rpx solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pay-order-color {
+    background-color: #ffa400;
+    border: 1px solid #ffa400;
+}
+
+.pay-order-chat {
+    height: 110rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+}
+
+.pay-order-chat .pay-order-img {
+    width: 62rpx;
+    height: 62rpx;
+    margin-left: 24rpx;
+}
+
+.pay-order-chat .pay-order-title-content {
+    margin-left: 16rpx;
+    height: 72rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pay-order-chat .pay-order-title-content .pay-order-title {
+    font-size: 28rpx;
+    color: white;
+}
+
+.pay-order-chat .pay-order-title-content .pay-order-amount {
+    font-size: 24rpx;
+    color: white;
+    opacity: 0.7;
+}
+
+.pay-order-content {
+    border: none;
+    height: 150rpx;
+    width: 440rpx;
+    padding: 0;
+}
+
+.pay-order-func-container {
+    width: 440rpx;
+    height: 40rpx;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.pay-order-func-container .func-txt {
+    font-size: 20rpx;
+    color: #9c9c9c;
+    margin-left: 24rpx;
+}
+
+.icon-arrows-right {
+    position: absolute;
+    top: 15rpx;
+    right: 2px;
+    text-align: center;
+    font-size: 14rpx;
+    color: #9c9c9c;
+    font-family: icomoon;
+}
+
+.fix-ipx-chat-order-list-bottom-bar {
+    min-height: 160rpx;
+    padding-bottom: 68rpx;
+}
+
+.fix-ipx-bottom-hint {
+    height: 160rpx;
+    padding-bottom: 68rpx;
+}
+
+.fix-ipx-chat-order-list-main-up {
+    margin-bottom: 158rpx;
+}

@@ -1,0 +1,176 @@
+.modal-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    overflow: hidden;
+    z-index: 10003;
+    color: #fff;
+    animation: fadeIn 0.3s ease normal forwards;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-dialog {
+    width: 580rpx;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10004;
+    background: #f9f9f9;
+    margin: -332rpx -290rpx;
+    border-radius: 16rpx;
+}
+
+.modal-content {
+    height: 568rpx;
+    padding: 84rpx 20rpx 36rpx;
+    text-align: center;
+    line-height: 42rpx;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
+    border-radius: 16rpx;
+}
+
+.modal-content .uap-avatar {
+    width: 130rpx;
+    height: 130rpx;
+    position: absolute;
+    top: -65rpx;
+    left: 225rpx;
+}
+
+.modal-content .uap-avatar image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4rpx solid #fff;
+}
+
+.modal-content .uap-nick-name {
+    font-size: 34rpx;
+    color: #151517;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-weight: 700;
+    white-space: nowrap;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.modal-content .title {
+    font-size: 32rpx;
+    line-height: 34rpx;
+    color: #151516;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 14rpx;
+}
+
+.modal-content .uap-img {
+    width: 240rpx;
+    height: 240rpx;
+    margin-top: 36rpx;
+}
+
+.modal-content .tip {
+    font-size: 28rpx;
+    color: #58595b;
+    margin-top: 40rpx;
+}
+
+.modal-content .tip .tip-time {
+    margin: 0 14rpx;
+}
+
+.modal-content .tip .num {
+    display: inline-block;
+    width: 46rpx;
+    background: #383838;
+    color: #fff;
+    font-size: 26rpx;
+    border-radius: 4rpx;
+}
+
+.modal-content .tip .colon {
+    display: inline-block;
+    margin: 0 4rpx;
+    font-weight: 700;
+}
+
+.modal-footer {
+    display: flex;
+    flex-direction: row;
+    height: 96rpx;
+    font-size: 32rpx;
+    letter-spacing: 1rpx;
+    line-height: 96rpx;
+    background-color: white;
+    position: relative;
+    border-radius: 16rpx;
+}
+
+.modal-footer:before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 1px;
+    border-top: 1px solid #dedede;
+    transform-origin: 0 0;
+    transform: scale(0.5,0.5);
+    box-sizing: border-box;
+}
+
+.btn-cancel {
+    width: 50%;
+    color: rgb(156,156,156);
+    text-align: center;
+    position: relative;
+    background: transparent!important;
+    overflow: visible!important;
+    font-size: 32rpx;
+    line-height: 96rpx;
+}
+
+.btn-cancel:before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 200%;
+    top: 0;
+    left: 100%;
+    border-right: 1px solid #dedede;
+    transform-origin: 0 0;
+    transform: scale(0.5,0.5);
+    box-sizing: border-box;
+}
+
+.btn-confirm {
+    width: 50%;
+    color: rgb(224,46,36);
+    text-align: center;
+    background: transparent!important;
+    font-size: 32rpx;
+    line-height: 96rpx;
+}

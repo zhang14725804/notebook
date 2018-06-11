@@ -1,0 +1,139 @@
+<template name="subjectItem">
+    <view catchtap="gotoGoodsDetail" class="subject-item {{(index+1)%2===0?'subject-gap-left':'subject-gap-right'}}" data-event-type="{{eventType}}" data-goods-id="{{goodsId}}" data-index="{{index}}" id="impr-id" wx:if="{{specialStyle!==0&&specialStyle!==1&&specialStyle!==2&&specialStyle!==3&&specialStyle!==4}}">
+        <view class="subject-grid-item">
+            <view class="draw-common-img time-left-icon" wx:if="{{isDrawResult}}">
+                {{remaindTimeDesc}}
+            </view>
+            <image class="subject-goods-img" mode="scaleToFill" src="{{imgUrl}}"></image>
+            <view class="subject-group-num" wx:if="{{!hideGroupNum}}">已团{{soldQuantity}}件</view>
+            <view class="subject-goods-name">{{goodsName}}</view>
+            <view class="subject-goods-detail">
+                <view class="subject-goods-price-view" wx:if="{{!ownPriceStyle}}">
+                    <view class="subject-goods-sign" wx:if="{{!showImgSign&&!isDrawResult}}">
+                        <text>{{signText?signText:'清仓价'}}</text>
+                    </view>
+                    <image class="subject-goods-sign-img" src="{{imgSignUrl?imgSignUrl:'http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/open_envelope/open_env_goods_icon.png'}}" wx:if="{{showImgSign}}"></image>
+                    <view class="subject-goods-price">{{price}}</view>
+                </view>
+                <view class="subject-goods-price-view" wx:if="{{ownPriceStyle}}">
+                    <view class="coupon-subject-goods-style" wx:if="{{priceStyle==='lcCoupon'}}">
+                        <view class="coupon-subject-goods-hint">券后价</view>
+                        <view class="coupon-subject-goods-price">¥  {{price}}</view>
+                    </view>
+                </view>
+                <view class="subject-goods-market">¥  {{marketPrice}}</view>
+            </view>
+            <view class="subject-goods-btn-view">
+                <view class="subject-goods-btn">{{btnText?btnText:'马上开团'}}</view>
+            </view>
+        </view>
+    </view>
+    <form bindsubmit="$uploadFormId" reportSubmit="true" wx:if="{{specialStyle===1}}">
+        <button catchtap="gotoGoodsDetail" class="inline-block" data-event-type="{{eventType}}" data-goods-id="{{goodsId}}" data-index="{{index}}" formType="submit" id="impr-id">
+            <view class="subject-item {{(index+1)%2===0?'subject-gap-left':'subject-gap-right'}} formid-subject-item">
+                <view class="subject-grid-item">
+                    <image class="subject-goods-img" mode="scaleToFill" src="{{imgUrl}}"></image>
+                    <view class="subject-group-num">已团{{soldQuantity}}件</view>
+                    <view class="subject-goods-name">{{goodsName}}</view>
+                    <view class="subject-goods-detail">
+                        <view class="subject-goods-price-view">
+                            <view class="subject-goods-sign">
+                                <text>清仓价</text>
+                            </view>
+                            <view class="subject-goods-price">{{price}}</view>
+                        </view>
+                        <view class="subject-goods-market">¥  {{marketPrice}}</view>
+                    </view>
+                    <view class="subject-goods-btn-view">
+                        <view class="subject-goods-btn">马上开团</view>
+                    </view>
+                </view>
+            </view>
+        </button>
+    </form>
+    <form bindsubmit="$uploadFormId" reportSubmit="true" wx:if="{{specialStyle===2}}">
+        <button catchtap="gotoGoodsDetail" class="inline-block" data-event-type="{{eventType}}" data-goods-id="{{goodsId}}" data-index="{{index}}" formType="submit" id="impr-id">
+            <view class="subject-item {{(index+1)%2===0?'subject-gap-left':'subject-gap-right'}} subject-item-style2 formid-subject-item">
+                <view class="subject-grid-item">
+                    <view class="subject-num-img-wrap">
+                        <image class="subject-goods-img" mode="scaleToFill" src="{{imgUrl}}"></image>
+                        <view class="subject-goods-name subject-goods-name-style2">{{goodsName}}</view>
+                    </view>
+                    <view class="subject-goods-detail">
+                        <view class="subject-goods-price-view">
+                            <view class="subject-goods-sign subject-goods-sign-style2">
+                                <text>清仓价</text>
+                            </view>
+                            <view class="subject-goods-price">{{price}}</view>
+                        </view>
+                        <view class="subject-goods-market style2-style4-fontsize">¥  {{marketPrice}}</view>
+                    </view>
+                    <view class="subject-goods-btn-view style2-style3-btn">
+                        <view class="subject-goods-btn">立即抢购</view>
+                    </view>
+                </view>
+            </view>
+        </button>
+    </form>
+    <form bindsubmit="$uploadFormId" reportSubmit="true" wx:if="{{specialStyle===3}}">
+        <button catchtap="gotoGoodsDetail" class="inline-block" data-event-type="{{eventType}}" data-goods-id="{{goodsId}}" data-index="{{index}}" formType="submit" id="impr-id">
+            <view class="subject-item {{(index+1)%2===0?'subject-gap-left':'subject-gap-right'}} subject-item-style3 formid-subject-item">
+                <view class="subject-grid-item">
+                    <image class="subject-goods-img" mode="scaleToFill" src="{{imgUrl}}"></image>
+                    <view class="subject-goods-name">{{goodsName}}</view>
+                    <view class="style3-btn-wrap">
+                        <view class="style3-sub-wrap">
+                            <view class="goods-sign-market-style3">
+                                <view class="subject-goods-sign subject-goods-sign-style3">惊爆价</view>
+                                <view class="subject-goods-market subject-goods-market-style3">¥  {{marketPrice}}</view>
+                            </view>
+                            <view class="subject-goods-price subject-goods-price-style3">{{price}}</view>
+                            <view class="subject-goods-btn subject-goods-btn-style3">
+                                <view>立即抢购</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </button>
+    </form>
+    <form bindsubmit="$uploadFormId" reportSubmit="true" wx:if="{{specialStyle===4}}">
+        <button catchtap="gotoGoodsDetail" class="inline-block" data-event-type="{{eventType}}" data-goods-id="{{goodsId}}" data-index="{{index}}" formType="submit" id="impr-id">
+            <view class="subject-item {{(index+1)%2===0?'subject-gap-left':'subject-gap-right'}} formid-subject-item">
+                <view class="subject-grid-item">
+                    <view class="subject-num-img-wrap">
+                        <image class="subject-goods-img" mode="scaleToFill" src="{{imgUrl}}"></image>
+                        <view class="subject-group-num-style4">已售{{soldQuantity}}件</view>
+                    </view>
+                    <view class="subject-goods-name">{{goodsName}}</view>
+                    <view class="subject-goods-detail">
+                        <view class="subject-goods-price-view">
+                            <view class="subject-goods-sign subject-goods-sign-style4">
+                                <text>亏本价</text>
+                            </view>
+                            <view class="subject-goods-price">{{price}}</view>
+                        </view>
+                        <view class="subject-goods-market style2-style4-fontsize">¥  {{marketPrice}}</view>
+                    </view>
+                    <view class="subject-goods-btn-view style2-style3-btn">
+                        <view class="subject-goods-btn">立即抢购</view>
+                    </view>
+                </view>
+            </view>
+        </button>
+    </form>
+    <form bindsubmit="$uploadFormId" reportSubmit="true" wx:if="{{specialStyle===0}}">
+        <button catchtap="gotoGoodsDetail" class="inline-block" data-event-type="{{eventType}}" data-goods-id="{{goodsId}}" data-index="{{index}}" formType="submit" id="impr-id">
+            <view class="subject-item relative-recommend-item formid-subject-item">
+                <view class="subject-grid-item relative-recommend-grid-item {{(index+1)%2===0?'relative-recommend-subject-float-right':'relative-recommend-subject-float-left'}}">
+                    <image class="subject-goods-img" mode="scaleToFill" src="{{imgUrl}}"></image>
+                    <view class="subject-goods-name">{{goodsName}}</view>
+                    <view class="relative-recommend-v0-detail">
+                        <view class="relative-recommend-price">{{price}}</view>
+                        <view class="relative-recommend-info">已团{{soldQuantity}}件</view>
+                    </view>
+                </view>
+            </view>
+        </button>
+    </form>
+</template>

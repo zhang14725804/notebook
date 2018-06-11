@@ -1,0 +1,11 @@
+<template name="bubble">
+    <navigator url="/pages/group/group?group_order_id={{groupOrderId}}">
+        <view bindtap="$onBubbleClicked" class="bubble-container {{showBubbleCls}}" data-group-order-id="{{groupOrderId}}" style="top: {{top?top:'24rpx'}}">
+            <image bindload="bubbleImageOnLoad" class="bubble-img" src="{{img}}"></image>
+            <view class="bubble-content">
+                <view class="bubble-content-text">{{content}}</view>
+                <view class="icon bubble-icon-arrows-right"></view>
+            </view>
+        </view>
+    </navigator>
+</template>

@@ -1,0 +1,90 @@
+<view hidden="{{!localGroups||localGroups.length===0}}" id="g-local-groups">
+    <view class="g-local-groups-head" wx:if="{{totalNum>5}}">
+        <view class="g-local-groups-title">{{totalNum}}人在开团，可直接参与</view>
+        <form bindsubmit="showGroupModel" reportSubmit="true" style="float:right;">
+            <button class="g-local-groups-check_more" formType="submit">查看更多</button>
+            <button class="g-coupons-arrows-icon icon-arrows-right g-local-group-arrow" formType="submit"></button>
+        </form>
+    </view>
+    <view class="g-local-groups-head" wx:else>
+        <view class="g-local-groups-title">小伙伴在开团，可直接参与</view>
+    </view>
+    <swiper autoplay="true" bindchange="swiperChange" circular="true" class="local-group-item-swiper" current="{{swiperCurrent}}" duration="1000" interval="5000" style="{{localGroups.length==1?'height: 120rpx;':''}}" vertical="true">
+        <swiper-item class="local-group-item-swiper-item{{index===transitionIndex?' local-group-item-swiper-item-transition':''}}" wx:for="{{localGroupsSwiperItems}}" wx:for-item="localGroupsSwiperItem" wx:key="{{index}}">
+            <view class="local-group-item" wx:for="{{localGroupsSwiperItem}}" wx:key="{{item.groupOrderId}}">
+                <image class="local-group-img" src="{{item.avatar}}"></image>
+                <view class="local-group-detial" style="padding:0;">
+                    <view class="local-group-detial-row1" style="height: 90rpx;">
+                        <view class="local-group-name" style="line-height: 90rpx;font-size: 32rpx;width: 100%;">{{item.nickname}}</view>
+                    </view>
+                </view>
+                <view class="local-group-timer-container">
+                    <view class="local-group-timer-row1">
+                        <view class="local-group-require-user">还差
+                            <view class="local-group-num">{{requireNum-item.usersNum}}人</view>拼成</view>
+                    </view>
+                    <view class="local-group-detial-row2">
+                        <view class="local-group-timer" style="text-align:right;justify-content: flex-end;">
+                            <view class="hour-minutes-seconds">剩余{{item.leftTimeStr}}.</view>
+                            <view class="timer-cutdown-wrap">
+                                <view class="timer-cutdown {{refreshCountDown&&item.deltaMillisecond>0?'local-group-timer-refresh':''}}">
+                                    <view wx:for="{{[9,8,7,6,5,4,3,2,1,0]}}" wx:key="{{index}}">{{item}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <form bindsubmit="$uploadFormId" reportSubmit="true">
+                    <button class="local-group-btn" formType="submit">去参团</button>
+                </form>
+            </view>
+        </swiper-item>
+    </swiper>
+    <view class="local-group-item-swiper-cover">
+        <form bindsubmit="$uploadFormId" reportSubmit="true">
+            <button catchtap="localGroupClick" class="cover-item" data-index="0" formType="submit"></button>
+            <button catchtap="localGroupClick" class="cover-item" data-index="1" formType="submit" wx:if="{{localGroups.length>1}}"></button>
+        </form>
+    </view>
+</view>
+<view catchtouchmove="stopDetailMove" class="model-group-container" hidden="{{!groupWindowVisible}}">
+    <view class="m-group-main">
+        <view class="m-group-title">
+            正在开团
+        </view>
+        <scroll-view class="m-group-list" scrollY="true">
+            <view catchtap="localGroupClick" class="local-group-item" data-group-order-id="{{item.groupOrderId}}" data-refer="list" wx:for="{{localGroups}}" wx:key="{{item.groupOrderId}}">
+                <image class="local-group-img" src="{{item.avatar}}"></image>
+                <view class="local-group-detial">
+                    <view class="local-group-detial-row1">
+                        <view class="local-group-name group-window-show" style="width:50%" wx:if="{{item.nickname.length>=6}}">{{item.nickname}}</view>
+                        <view class="local-group-name group-window-show" wx:else>{{item.nickname}}</view>
+                        <view class="local-group-left">还差{{requireNum-item.usersNum}}人</view>
+                    </view>
+                    <view class="local-group-detial-row2">
+                        <view class="local-group-timer">
+                            <view class="hour-minutes-seconds">剩余{{item.leftTimeStr}}.</view>
+                            <view class="timer-cutdown-wrap">
+                                <view class="timer-cutdown {{refreshCountDown&&item.deltaMillisecond>0?'local-group-timer-refresh':''}}">
+                                    <view wx:for="{{[9,8,7,6,5,4,3,2,1,0]}}" wx:key="{{index}}">{{item}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <form bindsubmit="$uploadFormId" reportSubmit="true">
+                    <button class="local-group-btn grouping-modal-show" formType="submit">去参团</button>
+                </form>
+            </view>
+        </scroll-view>
+        <view class="m-group-desc" wx:if="{{totalNum>10}}">
+            仅显示10个正在开团的人
+        </view>
+        <view class="m-group-desc" style="font-size:0" wx:else>
+            仅显示10个正在开团的人
+        </view>
+        <view catchtap="hideGroupModule" class="m-group-close">
+            <view class="ms-group-close-icon"></view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,162 @@
+<template name="orderCheckoutCoupons">
+    <view catchtap="hideCouponsList" class="mall-coupons-list" hidden="{{!showCouponsList}}">
+        <view catchtap="defaultClick" class="{{mainClass}}">
+            <view class="mall-coupons-title-container">
+                <view class="mall-coupons-title-m">{{title}}</view>
+                <view catchtap="hideCouponsList" class="mall-coupons-close">
+                    <view class="mall-coupons-close-icon"></view>
+                </view>
+            </view>
+            <view class="oc-coupons-content" id="oc-coupons">
+                <view class="oc-coupons-empty" wx:if="{{!hasCoupons&&(!promotionEvents||promotionEvents.length===0)}}"></view>
+                <view class="oc-coupons-promotion" wx:elif="{{promotionEvents.length>0}}">
+                    <view class="promotion-item" wx:if="{{goodsNumber<promotionEvents[0].event_items[0]['goods_number']}}">
+                        <view class="promotion-item-container">
+                            <view class="promotion-item-title">
+                                {{promotionEvents[0].event_name}}:
+                            </view>
+                            <view class="promotion-item-desc" wx:if="{{index<=2}}" wx:for="{{promotionEvents[0].event_items}}" wx:key="{{item.goods_number}}">
+                                <view>{{item.descountDesc}}{{index+1<promotionEvents[0].event_items.length?';':''}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view catchtap="selectCouponItem" class="promotion-item {{promotionEvents[0].event_id==selectedEventId?'oc-m-coupons-selected':'oc-m-coupons-unselected'}}" data-coupon-id="0" data-event-id="{{promotionEvents[0].event_id}}" data-is-mall-coupon="{{isMallCoupon}}" wx:else>
+                        <view class="promotion-item-container">
+                            <view class="promotion-item-title">
+                                {{promotionEvents[0].event_name}}:
+                            </view>
+                            <view class="promotion-item-desc" wx:if="{{index<=2}}" wx:for="{{promotionEvents[0].event_items}}" wx:key="{{item.goods_number}}">
+                                <view wx:if="{{goodsNumber>=item.goods_number}}">{{item.descountDesc}}{{promotionEvents[0].event_items[index+1]&&goodsNumber>=promotionEvents[0].event_items[index+1].goods_number?';':''}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="oc-coupon-container">
+                    <view>
+                        <view class="coupon-container-item" wx:if="{{enableSuperpositionCoupons.couponId>0&&enableSuperpositionCoupons.usable&&enableSuperpositionCoupons.maxAvailableNum>0}}">
+                            <view class="coupon-container-title">
+                                可叠加红包
+                            </view>
+                            <view class="oc-coupon-superposition">
+                                <form bindsubmit="selectCouponItem" class="oc-coupon-form" data-coupon-id="{{enableSuperpositionCoupons.couponId}}" data-event-id="{{isMallCoupon?-1:selectedEventId}}" data-is-mall-coupon="{{isMallCoupon}}" reportSubmit="true">
+                                    <button formType="submit">
+                                        <view class="oc-m-coupon {{enableSuperpositionCoupons.couponId==selectedCouponId?'oc-m-coupons-selected':'oc-m-coupons-unselected'}}">
+                                            <view class="oc-m-coupon-left">
+                                                <view class="oc-m-coupon-discount">
+                                                    <text class="unit">¥</text>
+                                                    <text class="num">{{enableSuperpositionCoupons.discount}}</text>
+                                                </view>
+                                                <view class="user-coupon-num">
+                                                     使用{{enableSuperpositionCoupons.selectedNum}}个
+                                                </view>
+                                            </view>
+                                            <view class="oc-m-coupon-right">
+                                                <view class="oc-m-coupon-title">{{enableSuperpositionCoupons.batchName}}</view>
+                                                <view class="oc-m-coupon-expire-super">有效期 {{enableSuperpositionCoupons.startTime}}-{{enableSuperpositionCoupons.endTime}}</view>
+                                                <view class="oc-m-coupon-desc">{{enableSuperpositionCoupons.rulesDesc}}</view>
+                                            </view>
+                                        </view>
+                                    </button>
+                                </form>
+                            </view>
+                            <view class="oc-coupon-super-edit">
+                                <view class="oc-coupon-super-num">
+                                    <view catchtap="updateSuperNumber" class="{{enableSuperpositionCoupons.reduceSuperDisable?'oc-reduce-super-disable':''}} oc-super-reduce" data-delta="-1"></view>
+                                    <view class="oc-super-number-input">
+                                        <input bindblur="blurSuperNumInput" class="oc-super-number" type="number" value="{{enableSuperpositionCoupons.selectedNum}}"></input>
+                                    </view>
+                                    <view catchtap="updateSuperNumber" class="{{enableSuperpositionCoupons.increaseSuperDisable?'oc-increase-super-disable':''}} oc-super-increase" data-delta="1"></view>
+                                    <view class="coupon-super-use-limit" wx:if="{{enableSuperpositionCoupons.increaseSuperDisable}}">已达红包使用数量上限</view>
+                                    <view catchtap="superEditBtnClk" class="oc-super-edit-btn" wx:if="{{enableSuperpositionCoupons.showSuperEditBtn}}">
+                                        确定
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="coupon-container-item" wx:if="{{enableCoupons.length>0}}">
+                            <view class="coupon-container-title" wx:if="{{enableCoupons.length>0&&!isMallCoupon&&enableSuperpositionCoupons.couponId>0&&enableSuperpositionCoupons.usable}}">
+                                通用优惠券
+                            </view>
+                            <view class="coupon-container-content">
+                                <form bindsubmit="selectCouponItem" class="oc-coupon-form" data-coupon-id="{{coupon.couponId}}" data-event-id="{{isMallCoupon?-1:selectedEventId}}" data-is-mall-coupon="{{isMallCoupon}}" reportSubmit="true" wx:for="{{enableCoupons}}" wx:for-item="coupon" wx:key="{{coupon.couponId}}">
+                                    <button formType="submit">
+                                        <view class="oc-m-coupon {{coupon.couponId==selectedCouponId?'oc-m-coupons-selected':'oc-m-coupons-unselected'}}">
+                                            <view class="oc-m-coupon-left">
+                                                <view class="oc-m-coupon-discount">
+                                                    <text class="unit">¥</text>
+                                                    <text class="num">{{coupon.discount}}</text>
+                                                </view>
+                                                <view class="oc-m-coupon-limit">
+                                                    满{{coupon.minAmount}}可用
+                                                </view>
+                                            </view>
+                                            <view class="oc-m-coupon-right">
+                                                <view class="oc-m-coupon-expire">
+                                                    <text class="title">有效期</text>
+                                                    <text class="date">{{coupon.startTime}}-{{coupon.endTime}}</text>
+                                                </view>
+                                                <view class="oc-m-coupon-wxapp" wx:if="{{coupon.displayType==31}}">限拼多多小程序内使用</view>
+                                            </view>
+                                        </view>
+                                    </button>
+                                </form>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="coupon_load_area" wx:if="{{showCouponLoadMore}}">
+                        <view catchtap="loadMorePlatCoupons" class="coupon_load_more">
+                            <text class="desc">展开更多</text>
+                            <text class="icon"></text>
+                        </view>
+                    </view>
+                    <view class="oc-coupon-donot-use">
+                        <view catchtap="selectCouponItem" class="oc-m-coupon-cancel {{selectedCoupon||selectedEventId>0?'oc-m-coupons-unselected':'oc-m-coupons-selected'}}" data-coupon-id="0" data-event-id="{{isMallCoupon?-1:selectedEventId}}" data-is-mall-coupon="{{isMallCoupon}}" wx:if="{{enableCoupons.length>0||enableSuperpositionCoupons.couponId>0&&enableSuperpositionCoupons.usable||selectedEventId&&selectedEventId!=0||promotionEvents.length>0&&selectedEventId!=0&&selectedCouponId}}">
+                            {{isMallCoupon?'暂不使用店铺优惠':'暂不使用优惠'}}
+                        </view>
+                        <view class="oc-receive-more-coupons" wx:if="{{enableCoupons.length>0&&isMallCoupon&&(coupons.length>0||promotionEvents.length>0)}}">
+                            <text catchtap="showMallCouponsList" class="get_more_coupons_btn">领取更多优惠券</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="oc-coupon-use-info" wx:if="{{!(enableSuperpositionCoupons.couponId>0&&enableSuperpositionCoupons.usable||enableCoupons.length>0&&!isMallCoupon)&&!isMallCoupon}}">
+                    当前没有可用的优惠券~
+                </view>
+                <view class="disable-container-head" wx:if="{{(enableSuperpositionCoupons.couponId>0&&!enableSuperpositionCoupons.usable&&enableSuperpositionCoupons.userPossessNum>0||disableCoupons.length>0)&&!isMallCoupon}}"></view>
+                <view class="oc-coupon-disable-container" wx:if="{{enableSuperpositionCoupons.couponId>0&&!enableSuperpositionCoupons.usable&&enableSuperpositionCoupons.userPossessNum>0||disableCoupons.length>0}}">
+                    <view class="oc-m-coupon oc-m-coupon-super" wx:if="{{enableSuperpositionCoupons.couponId>0&&!enableSuperpositionCoupons.usable&&enableSuperpositionCoupons.userPossessNum>0}}">
+                        <view class="oc-m-coupon-left">
+                            <view class="oc-m-coupon-discount">
+                                <text class="unit">¥</text>
+                                <text class="num">{{enableSuperpositionCoupons.discount}}</text>
+                            </view>
+                            <view class="user-coupon-num">
+                                持有{{enableSuperpositionCoupons.userPossessNum}}张
+                            </view>
+                        </view>
+                        <view class="oc-m-coupon-right">
+                            <view class="oc-m-coupon-title">{{enableSuperpositionCoupons.batchName}}</view>
+                            <view class="oc-m-coupon-expire">有效期 {{enableSuperpositionCoupons.startTime}}-{{enableSuperpositionCoupons.endTime}}</view>
+                            <view class="oc-m-coupon-desc">每满{{enableSuperpositionCoupons.superpositionConfig.minOrderAmount}}可用{{enableSuperpositionCoupons.superpositionConfig.maxAvailableNum}}张</view>
+                        </view>
+                    </view>
+                    <view class="oc-m-coupon" wx:if="{{disCoupon.disableReason=='ORDER_AMOUNT_BELOW_LIMITATION'}}" wx:for="{{disableCoupons}}" wx:for-item="disCoupon" wx:key="{{disCoupon.couponId}}">
+                        <view class="oc-m-coupon-left">
+                            <view class="oc-m-coupon-discount" style="line-height: 126rpx;">
+                                <text class="unit">¥</text>
+                                <text class="num">{{disCoupon.discount}}</text>
+                            </view>
+                        </view>
+                        <view class="oc-m-coupon-right">
+                            <view class="oc-m-coupon-min">订单满{{disCoupon.minAmount}}元可使用</view>
+                            <view class="oc-m-coupon-expire">
+                                <text class="title">有效期</text>
+                                <text class="date">{{disCoupon.startTime}}-{{disCoupon.endTime}}</text>
+                            </view>
+                            <view class="oc-m-coupon-can-use">满{{disCoupon.minAmount}}元可用该券</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

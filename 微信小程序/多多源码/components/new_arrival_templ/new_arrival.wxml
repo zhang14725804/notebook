@@ -1,0 +1,31 @@
+<template name="star">
+    <view class="star-title">{{one}}</view>
+    <view class="star-desc">{{two}}</view>
+    <view class="star-avater-view">
+        <view class="star-more-icon"></view>
+        <view class="star-avater-list" wx:for="{{icon}}" wx:key="{{index}}">
+            <image src="{{item}}"></image>
+        </view>
+    </view>
+</template>
+<template name="isNewArrival">
+    <view class="all-container">
+        <view class="title-view" wx:if="{{!showError}}">
+            <view class="new-arrivals-icon"></view>
+            <text>精选新品</text>
+        </view>
+        <image class="pdd-default-image" wx:if="{{naList.length===0&&!showError}}"></image>
+        <view class="good-list-container" wx:if="{{!showError}}">
+            <template is="{{item.itemName}}" data="{{...item,index:index,localGroups:localGroupsMap[item.goodsId].list,hasGroupHide:true}}" wx:if="{{noOrderText||index!==naList.length-1||index%2!==0}}" wx:for="{{naList}}" wx:key="{{item.goodsId}}"></template>
+        </view>
+        <view hidden="{{noOrderText||!naPage||naPage==1}}">
+            <template is="load-more-bar-template" data="{{canLoadMore:true,loadingTxt:'正在加载...'}}"></template>
+        </view>
+        <view hidden="{{!noOrderText}}">
+            <template is="load-more-bar-template" data="{{canLoadMore:false,loadingTxt:noOrderText}}"></template>
+        </view>
+    </view>
+</template>
+<import src="/components/double_grid_item/grid_item_v2.wxml"></import>
+<import src="/components/load_more_bar/load_more_bar.wxml"></import>
+<import src="/components/intime_try_new/intime_try_new.wxml"></import>

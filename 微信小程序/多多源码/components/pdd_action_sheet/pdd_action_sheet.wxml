@@ -1,0 +1,11 @@
+<template name="pdd-action-sheet">
+    <view bindtap="_actionSheetCancel" bindtouchmove="_actionSheetCancel" class="action-sheet-bg" hidden="{{!visible}}">
+        <form bindsubmit="$uploadFormId" reportSubmit="true">
+            <view catchtouchmove="catchTouchMove" class="action-sheet-container{{animationVisible?' action-sheet-container-show':''}}" wx:if="{{itemList}}">
+                <button catchtap="_actionSheetTap" class="action-sheet-button{{index?' action-sheet-border':''}}" data-index="{{index}}" data-sub-refer="actionSheetTap" formType="submit" openType="{{item.type}}" wx:for="{{itemList}}" wx:key="{{index}}">{{item.title}}</button>
+                <view class="action-sheet-gap"></view>
+                <button catchtap="_actionSheetCancel" class="action-sheet-button" formType="submit">取消</button>
+            </view>
+        </form>
+    </view>
+</template>

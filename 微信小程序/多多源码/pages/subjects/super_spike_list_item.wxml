@@ -1,0 +1,28 @@
+<template name="superSpikeListItemV2">
+    <view catchtap="gotoGoodsDetail" class="super-spike-list-item-v2{{index===0?' ss-list-item-1st':''}}" data-goods-id="{{goodsId}}" data-goods-item="{{transData}}" data-index="{{index}}">
+        <view class="ss-goods-image">
+            <image mode="widthFix" src="{{imgUrl}}"></image>
+        </view>
+        <view class="ss-goods-detail">
+            <view class="ss-goods-name">
+                <image class="national-flag" mode="widthFix" src="{{nationalFlag}}" wx:if="{{nationalFlag}}"></image>
+                    {{goodsName}}
+            </view>
+            <view class="ss-goods-content">
+                <view class="local-groups" wx:if="{{localGroups}}">
+                    <span class="local-groups-bubble">
+                        {{localGroups.bubble}}
+                    </span>
+                    <image class="avatar{{localGroups.list.length===1?' single-avatar':''}}" src="{{item.avatar}}" wx:for="{{localGroups.list}}" wx:key="{{index}}"></image>
+                </view>
+                <view class="ss-goods-sales" wx:if="{{soldQuantity!='0'}}">已团{{soldQuantity}}件</view>
+            </view>
+            <view class="ss-market-price">
+                <i>¥  </i>{{marketPrice}}</view>
+            <view class="ss-discount-price">
+                <i>¥  </i>{{price}}</view>
+            <view bindtap="quickBuyClick" class="ss-goods-buy">立即抢</view>
+            <view class="ss-top-line" wx:if="{{sameTypeWithPre}}"></view>
+        </view>
+    </view>
+</template>

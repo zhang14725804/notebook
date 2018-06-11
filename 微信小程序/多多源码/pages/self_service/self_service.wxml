@@ -1,0 +1,18 @@
+<import src="/components/common_qa/common_qa.wxml"></import>
+<import src="/components/toast/toast.wxml"></import>
+<import src="/components/loading/loading.wxml"></import>
+<view class="self-service">
+    <view class="list-title">自助操作</view>
+    <view class="self-service-list">
+        <view catchtap="clickSelfServiceList" class="list-item" data-index="{{index}}" wx:for="{{selfServiceList}}" wx:key="{{index}}">
+            <image class="list-item-img" src="{{item.url}}"></image>
+            <text class="list-item-text">{{item.desc}}</text>
+        </view>
+    </view>
+</view>
+<view class="questions">
+    <template is="common-qa-tpl" data="{{level:2,sortedList:sortedList}}"></template>
+</view>
+<view bindtap="toAllQuestions" class="list-title all-questions">查看所有问题</view>
+<template is="loading-tpl" data="{{...$loadingData}}"></template>
+<template is="toast" data="{{...$toastData}}"></template>

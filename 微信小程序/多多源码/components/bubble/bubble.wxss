@@ -1,0 +1,74 @@
+.bubble-container {
+    z-index: 10001;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 10px 1px rgba(0,0,0,.15);
+    border-radius: 4px;
+    left: 20rpx;
+    top: 24rpx;
+    opacity: 0;
+    transition: all 0.3s linear;
+    background-color: rgba(0,0,0,.7);
+}
+
+.bubble-img,.single-bubble-img {
+    width: 64rpx;
+    height: 64rpx;
+    border: 1px solid transparent;
+    border-right: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    box-sizing: border-box;
+}
+
+.single-bubble-img {
+    width: 48rpx;
+    height: 48rpx;
+    border: none;
+    border-radius: 48rpx;
+    margin-left: 12rpx;
+}
+
+.bubble-content,.single-bubble-content {
+    display: flex;
+    align-items: center;
+    height: 64rpx;
+    color: #fff;
+    font-size: 24rpx;
+    padding-left: 18rpx;
+    padding-right: 18rpx;
+}
+
+.bubble-content-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 550rpx;
+}
+
+.single-bubble-content {
+    padding-left: 12rpx;
+    padding-right: 18rpx;
+}
+
+.bubble-icon-arrows-right {
+    margin-left: 8rpx;
+}
+
+.bubble-icon-arrows-right:before {
+    content: "\e617";
+    font-size: 16rpx;
+}
+
+.single-bubble-content::after {
+    display: none;
+}
+
+.bubble-hide {
+    display: none;
+}
+
+.bubble-show {
+    opacity: 1;
+}

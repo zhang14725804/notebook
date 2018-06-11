@@ -1,0 +1,24 @@
+<template name="subjectsRecommand">
+    <view class="subjects-recommend-container {{quickEntranceIndex===17&&showSpike?'delete-margin-top':''}}">
+        <view class="ss-recommend-header-title">{{dayRecommandTitle}}</view>
+        <view class="ss-recommend-header-subtitle">{{recTitle}}</view>
+        <view class="recommend-goods-container">
+            <scroll-view class="recommend-goods-scroll" scrollLeft="{{spikeGoodsScrollLeft}}" scrollWithAnimation="true" scrollX="{{true}}">
+                <form bindsubmit="$uploadFormId" reportSubmit="true">
+                    <button catchtap="gotoGoodsDetail" class="recommend-goods-grid{{index<dayRecGoodsList.length-1?' spike-split-point':''}}" data-event-type="{{goods.eventType}}" data-goods-id="{{goods.goodsId}}" data-index="{{index}}" data-refer="day_rec" formType="submit" style="width: {{Rpx270}}px;" wx:for="{{dayRecGoodslist}}" wx:for-item="goods" wx:key="{{goods.goodsId}}#{{index}}">
+                        <view class="recommend-goods-img std-goods-image-square" style="width: {{Rpx270}}px; height: {{Rpx270}}px;">
+                            <image mode="widthFix" src="{{goods.thumbUrl}}" wx:if="{{goods.thumbUrl}}"></image>
+                        </view>
+                        <view class="recommend-goods-name">{{goods.goodsName}}</view>
+                        <view class="recommend-goods-price">
+                            <span class="recommend-price">
+                                <i>¥  </i>{{goods.price}}</span>
+                            <span class="recommend-price-desc">
+                                <i>¥  </i>{{goods.marketPrice}}</span>
+                        </view>
+                    </button>
+                </form>
+            </scroll-view>
+        </view>
+    </view>
+</template>

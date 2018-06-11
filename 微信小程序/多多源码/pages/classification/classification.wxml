@@ -1,0 +1,46 @@
+<import src="/components/toast/toast.wxml"></import>
+<import src="/components/user_authorize_modal/user_authorize_modal.wxml"></import>
+<import src="/components/wifi_error/wifi_error.wxml"></import>
+<import src="/components/loading/loading.wxml"></import>
+<view class="page-top-line"></view>
+<view class="view-show" id="classification-container">
+    <view catchtap="gotoSearchResultPage" id="search-container">
+        <view class="search-box">
+            <view class="search-icon"></view>
+            <view class="search-text">搜索商品</view>
+        </view>
+    </view>
+    <scroll-view id="root-list" scrollWithAnimation="{{animation}}" scrollY="true" scrollTop="{{rootListScrollTop}}">
+        <view class="root-list-item {{index===currentActiveIndex?'root-active':''}}" formType="submit" plain="true" wx:for="{{rootList}}" wx:key="{{item.key}}">
+            <view class="line" wx:if="{{index===currentActiveIndex}}"></view>
+            <form bindsubmit="clickRootItem" data-root-item-index="{{index}}" reportSubmit="true">
+                <button class="root-box" formType="submit" plain="true">
+                    <span>{{item.optName}}</span>
+                </button>
+            </form>
+        </view>
+    </scroll-view>
+    <scroll-view bindscroll="scroll" id="detail-list" scrollIntoView="{{scrollToViewId}}" scrollWithAnimation="{{animation}}" scrollY="true">
+        <view class="classification-detail-item" wx:for="{{detailList}}" wx:for-item="detail" wx:key="{{detail.key}}">
+            <view bindtap="gotoCatgoodsPage" class="head" data-opt-pos="{{index+''}}" id="detail-{{detail.optId}}">
+                <view class="txt">{{detail.tabName}}</view>
+                <image class="sales-promotion" src="https://minipinduoduo.oss-cn-shanghai.aliyuncs.com/promotion/catgoods/classification_618_promotion.png" wx:if="{{isInBigSales}}"></image>
+                <form bindsubmit="tapMore" data-opt-pos="{{index+''}}" reportSubmit="true">
+                    <button catchtap="tapMoreToCatgoodsPage" class="show-all" data-opt-pos="{{index+''}}" formType="submit" plain="true">查看全部</button>
+                </form>
+            </view>
+            <view class="detail">
+                <form bindsubmit="$uploadFormId" reportSubmit="true">
+                    <button catchtap="gotoCatgoodsPage" class="detail-item" data-opt-pos="{{index}}-{{itemIndex}}" formType="submit" style="{{(itemIndex+1)%3===0?'margin-right: 0':''}}" wx:for="{{detail.cat}}" wx:for-index="itemIndex" wx:key="{{item.key}}">
+                        <image src="{{item.imgUrl}}"></image>
+                        <view>{{item.optName}}</view>
+                    </button>
+                </form>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<template is="loading-tpl" data="{{...$loadingData}}"></template>
+<template is="toast" data="{{...$toastData}}"></template>
+<template is="user-authorize-modal" data="{{...$userAuthorizeModalData}}"></template>
+<template is="wifi-error" data wx:if="{{showError}}"></template>

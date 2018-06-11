@@ -1,0 +1,14 @@
+<view class="segemnt-main" hidden="{{$tabsData.length==0}}">
+    <scroll-view class="segment-srcoll" scrollLeft="{{scrollLeft}}" scrollWithAnimation="{{true}}" scrollX="{{true}}">
+        <view class="segment-tabs-container" style="{{'width:'+tabsContainerWidth+'px;'+'padding-left:'+paddingLeftWidth+'px;'}}">
+            <form bindsubmit="$uploadFormId" reportSubmit="true">
+                <button bindtap="didClickSegmentTab" class="top-tabs-item" data-index="{{index}}" formType="submit" style="{{'width:'+$tabsData[index].tabWidth+'px'}}" wx:for="{{$tabsData}}" wx:key="type">
+                    <view class="{{index==curTabIndex?'item-title top-tabs-item-current':'item-title'}}">{{item.title}}</view>
+                    <view class="tab-reddot" wx:if="{{$tabsData[index].showRedDot}}"></view>
+                </button>
+            </form>
+            <view animation="{{animationData}}" class="segment-tabs-underline"></view>
+        </view>
+    </scroll-view>
+    <view class="segment-transition"></view>
+</view>

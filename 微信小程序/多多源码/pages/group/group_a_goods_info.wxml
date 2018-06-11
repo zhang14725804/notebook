@@ -1,0 +1,19 @@
+<view catchtap="viewGoodsDetail" class="group_a_goods" data-goods-id="{{goodsInfo.goodsId}}">
+    <view class="item goods-img">
+        <image src="{{goodsInfo.thumbUrl}}"></image>
+    </view>
+    <view class="item goods-info">
+        <view class="goods-title">
+            {{goodsInfo.goodsName}}
+        </view>
+        <view class="group-suc-coupon">
+            <text class="icon"></text>
+            <text class="desc">成团还可享免单</text>
+        </view>
+        <view class="goods-price-info">
+            <text class="num">{{goodsInfo.price}}</text>
+            <text class="unit">元</text>
+            <text class="group-suc-desc">{{'拼团省 '+goodsInfo.gapPrice+'元'}}</text>
+        </view>
+    </view>
+</view>

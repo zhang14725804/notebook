@@ -1,0 +1,20 @@
+<template name="intimeTryNew">
+    <view class="na-header">
+        <view class="title-view" wx:if="{{!showError}}">
+            <view class=" icon icon-intime_try_new na-title-icon"></view>
+            <text>限时试新</text>
+        </view>
+        <scroll-view class="na-header-scroll" scrollX="true">
+            <view catchtap="gotoGoodsDetail" class="na-header-goods-item" data-goods-id="{{item.goodsId}}" data-item-index="{{index}}" data-refer="timeLimit" wx:for="{{lotteryGoodsList}}" wx:key="{{index}}">
+                <image class="na-header-goods-img" mode="widthFix" src="{{item.imgUrl}}"></image>
+                <view class="na-header-short-name">
+                    {{item.goodsName}}
+                </view>
+                <view class="na-header-goods-price">
+                    <i>¥  </i>
+                    <view>{{item.price}}</view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</template>

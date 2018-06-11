@@ -1,0 +1,30 @@
+<template name="addressItem">
+    <view class="address-item-wrap">
+        <view catchtap="chooseAddress" class="address-item-main{{showUseBtn?' aim-small':''}}" data-index="{{index}}">
+            <view class="contact-name">
+                <view>{{name}}，{{mobile}}</view>
+            </view>
+            <view class="contact-address">
+                <view style="display:inline; color: #e02e24" wx:if="{{deliveryType=='NOT_ALLOWED'}}">（无法配送至该地址）</view>
+                <view style="display:inline; color: #e02e24" wx:if="{{deliveryType=='DIFFER_AMOUNT'}}">（配送至该地址配送费不同）</view>
+                <view style="display:inline">{{province}} {{city}} {{district}} {{address}}</view>
+            </view>
+        </view>
+        <form bindsubmit="chooseAddress" class="address-item-form" reportSubmit="true" wx:if="{{showUseBtn&&deliveryType=='SUPPORT_USE'}}">
+            <button class="{{isUsing?'address-item-using':'address-item-choose-btn'}}" data-index="{{index}}" formType="submit" msClick="chooseAddress($index)">使用</button>
+        </form>
+    </view>
+    <view catchtap="setDefaultAddress" class="address-item-ops-1" data-index="{{index}}">
+        <view class="address-item-set-default{{isDefaultAddress?' address-default':''}}">
+            {{defaultText}}
+        </view>
+    </view>
+    <view class="address-item-ops-2">
+        <view catchtap="editAddress" class="address-item-edit" data-index="{{index}}">
+            <text>编辑</text>
+        </view>
+        <view catchtap="deleteAddress" class="address-item-delete" data-index="{{index}}">
+            <text>删除</text>
+        </view>
+    </view>
+</template>

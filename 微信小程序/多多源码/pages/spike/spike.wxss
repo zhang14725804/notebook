@@ -1,0 +1,197 @@
+@import "spike_goods_item.wxss";
+
+@import "timer_spike_container.wxss";
+
+@import "../../components/quick_entry_forward_index/quick_entry_forward_index.wxss";
+
+.ts-content-view {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    background-color: #EDEDED;
+}
+
+.ts-date-tab-view {
+    position: fixed;
+    width: 750rpx;
+    height: 80rpx;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    z-index: 100;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+}
+
+.ts-content-list-view {
+    margin-top: 96rpx;
+    position: relative;
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.ts-date-tab-item {
+    width: 230rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    flex-grow: 1;
+    flex-shrink: 1;
+    position: relative;
+    font-size: 30rpx;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 101;
+    padding: 0;
+    overflow: visible;
+    background-color: transparent;
+}
+
+.ts-tab-item-activity {
+    font-weight: 800;
+    color: #E02E24;
+}
+
+.ts-tab-item-activity .activity-line {
+    position: absolute;
+    left: 50%;
+    margin-left: -62rpx;
+    width: 123rpx;
+    height: 4rpx;
+    bottom: 0rpx;
+    background-color: #E02E24;
+}
+
+.ts-tab-item-inside {
+    height: 42rpx;
+    line-height: 42rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-title,.swiper-content,.spike-today-swiper {
+    display: inline-block;
+}
+
+.spike-today-swiper {
+    width: 528rpx;
+    height: 40rpx;
+    color: #58595B;
+    background-color: transparent;
+    font-size: 28rpx;
+    padding: 0;
+    line-height: 40rpx;
+    margin-left: 11rpx;
+    margin-top: 4rpx;
+}
+
+.swiper-title {
+    margin-left: 20rpx;
+    margin-top: 2rpx;
+    width: 160rpx;
+    height: 48rpx;
+    background: url('https://xcximgcdn.yangkeduo.com/spike/icon_notice.png') no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.swiper-title .txt {
+    margin-left: 39rpx;
+    height: 48rpx;
+    color: #ffffff;
+    font-size: 28rpx;
+    line-height: 48rpx;
+}
+
+.bottom-line {
+    position: absolute;
+    bottom: 0;
+    background-color: #F2F2F2;
+    width: calc(100% - 40rpx);
+    left: 20rpx;
+    height: 2rpx;
+}
+
+.swiper-content {
+    color: #58595B;
+}
+
+.swiper-bg {
+    font-size: 28rpx;
+    background: #ffffff;
+    position: relative;
+    z-index: 99;
+    width: 100%;
+    height: 96rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.rewrite-ts-time-line-marTop {
+    margin-top: 31rpx;
+}
+
+.spike-swiper-cover {
+    position: absolute;
+    top: 0;
+    background-color: rgba(0,0,0,0);
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.ts-date-tab-nomore-item {
+    position: relative;
+    font-size: 30rpx;
+    padding-bottom: 10rpx;
+    color: #58595B;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2F2F2;
+    margin-top: -14rpx;
+    height: 90rpx;
+}
+
+.no-more {
+    position: relative;
+    font-size: 30rpx;
+    padding-bottom: 10rpx;
+    color: #58595B;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2F2F2;
+    height: 90rpx;
+}
+
+.ts-date-tab-nomore-item .txt {
+    font-size: 28rpx;
+    color: #58595B;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8rpx;
+}
+
+.ts-date-tab-nomore-item .txt::after {
+    content: "\e617";
+    font-size: 28rpx;
+    text-align: center;
+    color: #58595B;
+    font-family: icomoon;
+    font-smoothing: antialiased;
+    line-height: 30rpx;
+    height: 30rpx;
+    margin-left: 10rpx;
+}

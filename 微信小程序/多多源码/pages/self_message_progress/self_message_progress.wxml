@@ -1,0 +1,55 @@
+<import src="/components/load_more_bar/load_more_bar.wxml"></import>
+<import src="/components/toast/toast.wxml"></import>
+<import src="/components/go_to_top/go_to_top.wxml"></import>
+<import src="/components/loading/loading.wxml"></import>
+<view>
+    <view class="neg-list">
+        <view bindtap="toDetail" class="neg-item" data-ticket-id="{{message.id}}" wx:for="{{ticketList}}" wx:for-item="message" wx:key="{{index}}">
+            <view class="neg-head">
+                <span class="p-time">{{message.created_time}}</span>
+                <span class="p-status {{message.is_syn==0?'processing':'finish'}}">{{message.is_syn==0?'拼多多处理中':'拼多多已回复'}}</span>
+            </view>
+            <view class="neg-body">
+                <view class="type-desc">{{message.type_desc}}</view>
+                <view class="neg-body-word">
+                    <view class="item-1">问题描述:</view>
+                    <view class="item-2">{{message.question}}</view>
+                </view>
+                <view class="neg-body-word" wx:if="{{message.goods_name}}">
+                    <view class="item-1">商品名称:</view>
+                    <view class="item-2">{{message.goods_name}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="no-self-message" wx:if="{{ticketList.length===0}}">
+            <view class="no-self-message-icon"></view>
+            <view class="no-self-message-text">您还没有相关的自助信息</view>
+            <view class="no-self-message-advice">去看看大家都在买什么吧</view>
+        </view>
+        <view class="load-bar" wx:else>
+            <template is="load-more-bar-template" data="{{canLoadMore:canLoadMore,loadingTxt:canLoadMore?'正在加载...':'没有更多了'}}"></template>
+        </view>
+    </view>
+    <view class="recommend-title {{isShowRecCls}}" hidden="{{loadingVisibility}}">
+        <view class="recommend-t-content">大家都在买</view>
+    </view>
+    <view class="recommend {{isShowRecCls?'recShow':''}}">
+        <view bindtap="goodTap" class="item" data-foot="{{item}}" data-goods-id="{{item.goodsId}}" data-index="{{index}}" wx:for="{{recDataList}}" wx:key="{{index}}">
+            <image class="item-pic" src="{{item.imgUrl}}"></image>
+            <view class="item-name">{{item.goodsName}}</view>
+            <view class="item-price">
+                <view class="price">{{item.price}}</view>
+                <view class="info">
+                    <view class="info-one">{{item.customerNum}}人团</view>
+                    <view class="info-two">已团{{item.soldQuantity}}件</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view hidden="{{recOffset===0||recNoMoreText}}">
+        <template is="load-more-bar-template" data="{{canLoadMore:recCanLoadMore,loadingTxt:recCanLoadMore?'正在加载...':'没有更多了...'}}"></template>
+    </view>
+    <template is="to-top-template" data="{{topShow:goTopClass}}"></template>
+</view>
+<template is="toast" data="{{...$toastData}}"></template>
+<template is="loading-tpl" data="{{...$loadingData}}"></template>

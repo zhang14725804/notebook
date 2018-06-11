@@ -1,0 +1,136 @@
+.service-notification {
+    width: 100%;
+    height: 170rpx;
+    background-color: #DE2F24;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.service-notification-info {
+    font-size: 34rpx;
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+.service-notification-sub-info {
+    font-size: 20rpx;
+}
+
+.segment-container {
+    position: relative;
+}
+
+.segment-container>view {
+    position: absolute;
+}
+
+.service-logo {
+    width: 161rpx;
+    height: 111rpx;
+    margin-top: 10rpx;
+}
+
+.service-logo>image,.service-title-img-wrap>image {
+    width: 100%;
+    height: 100%;
+}
+
+.service-title-img {
+    margin-top: 10rpx;
+    height: 78rpx;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-title-img-wrap {
+    width: 443rpx;
+    height: 51rpx;
+}
+
+.order-pay-success,.fight_group_failed_refund,.fight_group_success,.ship,.coupon_expired,.cancel_order,.help_pay {
+    background-color: none;
+    background-size: 100%;
+}
+
+.service-notification-position {
+    position: absolute;
+    left: 46rpx;
+}
+
+.sub-info-pdd-left {
+    width: 460rpx;
+    height: 30rpx;
+    padding-left: 28rpx;
+    overflow: hidden;
+    line-height: 38rpx;
+}
+
+.ship-position {
+    left: 36rpx;
+}
+
+.ship-sub-info {
+    width: 535rpx;
+    padding-top: 10rpx;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+}
+
+.ship-sub-info>view {
+    display: inline-block;
+}
+
+.ship-goods-info {
+    width: 65%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ship-see-more-detail {
+    color: #FFCF6D;
+}
+
+.order-pay-success {
+    background-image: url('http://xcximgcdn.yangkeduo.com/land_page_recommend_info/order_pay_success.png');
+}
+
+.fight_group_failed_refund {
+    background-image: url('http://xcximgcdn.yangkeduo.com/land_page_recommend_info/fight_group_failed_refund.png');
+}
+
+.fight_group_success {
+    background-image: url('http://xcximgcdn.yangkeduo.com/land_page_recommend_info/fight_group_success.png');
+}
+
+.ship {
+    background-image: url('http://xcximgcdn.yangkeduo.com/land_page_recommend_info/ship.png');
+}
+
+.coupon_expired {
+    background-image: url('http://xcximgcdn.yangkeduo.com/land_page_recommend_info/coupon_expired.png');
+}
+
+.cancel_order {
+    background-image: url('http://xcximgcdn.yangkeduo.com/land_page_recommend_info/cancel_order.png');
+}
+
+.help_pay {
+    background-image: url('http://xcximgcdn.yangkeduo.com/land_page_recommend_info/help_pay.png');
+}
+
+.segment-container {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+page,.body-swiper {
+    height: auto!important;
+}

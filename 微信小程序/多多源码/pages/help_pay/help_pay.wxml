@@ -1,0 +1,116 @@
+<import src="/components/toast/toast.wxml"></import>
+<import src="/components/user_authorize_modal/user_authorize_modal.wxml"></import>
+<import src="/components/double_grid_item/subjects_item.wxml"></import>
+<import src="/components/load_more_bar/load_more_bar.wxml"></import>
+<import src="/components/wifi_error/wifi_error.wxml"></import>
+<import src="/components/double_grid_item/subjects_item.wxml"></import>
+<import src="/components/go_to_top/go_to_top.wxml"></import>
+<import src="/components/loading/loading.wxml"></import>
+<import src="/components/quick_entry_forward_index/quick_entry_forward_index.wxml"></import>
+<view class="container">
+    <view class="help_pay" hidden="{{!showOrderInfo}}">
+        <view class="head_pic">
+            <image src="{{orderInfo.avatar}}"></image>
+        </view>
+        <view class="info">
+            <view class="icon"></view>
+            <view class="detail">
+                <view class="desc">{{orderInfo.statusDesc}}</view>
+                <view class="goods">
+                    <view class="pic">
+                        <image src="{{orderInfo.thumbUrl}}"></image>
+                    </view>
+                    <view class="name">
+                        {{orderInfo.goodsName}}
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="end">
+            <view class="status_seal {{statusSeal?statusSeal:''}}" wx:if="{{statusSeal}}"></view>
+            <view class="price {{orderInfo.priceColor?orderInfo.priceColor:''}}">
+                <text class="unit">¥  </text>
+                <text class="num">{{orderInfo.orderAmount}}</text>
+            </view>
+            <view class="left_time" wx:if="{{orderInfo.status==0&&orderInfo.groupStatus==0&&expireTimeList}}">
+                <text class="title">剩余支付时间</text>
+                <text class="time_item">{{expireTimeList[0]}}</text>
+                <text class="time_dot">:</text>
+                <text class="time_item">{{expireTimeList[1]}}</text>
+                <text class="time_dot">:</text>
+                <text class="time_item">{{expireTimeList[2]}}</text>
+            </view>
+            <view class="status" wx:if="{{orderInfo.middleDesc}}">
+                <text>{{orderInfo.middleDesc}}</text>
+            </view>
+            <block wx:if="{{orderInfo.isOrderOwner}}">
+                <block wx:if="{{orderInfo.status==0}}">
+                    <form bindsubmit="btnClickSubmit" reportSubmit="true" wx:if="{{orderInfo.groupStatus==0}}">
+                        <button class="btn" data-from="share_btn" formType="submit" openType="share">
+                            发送给微信好友
+                        </button>
+                    </form>
+                    <form bindsubmit="btnClick" reportSubmit="true" wx:elif="{{orderInfo.groupStatus==1}}">
+                        <button class="btn" formType="submit">
+                            重新开团
+                        </button>
+                    </form>
+                </block>
+                <form bindsubmit="btnClick" reportSubmit="true" wx:elif="{{orderInfo.status>=1&&orderInfo.status<=6}}">
+                    <button class="btn" formType="submit">
+                        {{orderInfo.btnText}}
+                    </button>
+                </form>
+            </block>
+            <block wx:else>
+                <form bindsubmit="btnClickSubmit" reportSubmit="true" wx:if="{{orderInfo.status==0&&orderInfo.groupStatus==1}}">
+                    <button class="btn" data-from="notice_friend" formType="submit" openType="share">
+                        通知好友开新团
+                    </button>
+                </form>
+                <form bindsubmit="btnClick" reportSubmit="true" wx:else>
+                    <button class="btn" formType="submit">
+                        {{orderInfo.btnText}}
+                    </button>
+                </form>
+            </block>
+            <view class="desc">
+                <block wx:if="{{orderInfo.bottomDesc=='showPayBottomDesc'}}">
+                    <view class="desc_item">
+                        <text class="icon"></text>
+                        <text>付款前请务必与好友确认无误，避免受骗哦</text>
+                    </view>
+                    <view class="desc_item">
+                        <text class="icon"></text>
+                        <text>如果发起退款，钱将原路退还给您</text>
+                    </view>
+                </block>
+                <view class="desc_item" wx:elif="{{orderInfo.bottomDesc}}">{{orderInfo.bottomDesc}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="lc-recommend-goods-main" wx:if="{{showRecGoodsList&&goodsList.length>0}}">
+        <view class="o_en_rec">
+            <view class="o_en_rec_title">
+                <view class="bar bar_left"></view>
+                <view class="title_text">
+                    <view class="icon_div">
+                        <text class="icon"></text>
+                    </view>
+                    <view class="title">更多推荐商品</view>
+                </view>
+                <view class="bar bar_right"></view>
+            </view>
+        </view>
+        <template is="subjectItem" data="{{...item,index:index,hideGroupNum:true,showImgSign:true,btnText:'马上抢'}}" wx:for="{{goodsList}}" wx:key="goods-item-{{index}}"></template>
+        <view hidden="{{!loadMoreVisible}}" style="width: 100%;">
+            <template is="load-more-bar-template" data="{{canLoadMore:canGoodsLoadMore,loadingTxt:canGoodsLoadMore?'正在加载...':'没有更多了...'}}"></template>
+        </view>
+    </view>
+</view>
+<template is="wifi-error" data wx:if="{{showError}}"></template>
+<template is="quickEntryIndex" data="{{...quickEntryControl}}" wx:if="{{quickEntryControl.showQuickEntry}}"></template>
+<template is="toast" data="{{...$toastData}}"></template>
+<template is="user-authorize-modal" data="{{...$userAuthorizeModalData}}"></template>
+<template is="to-top-template" data="{{topShow:goTopClass}}"></template>
+<template is="loading-tpl" data="{{...$loadingData}}"></template>

@@ -1,0 +1,9 @@
+<template name="quickEntryIndex">
+    <form bindsubmit="$uploadFormId" reportSubmit="true">
+        <button catchtap="_fowardIndex" class="foward-index {{isShowQuickEntry?'foward-index-btn-show':'foward-index-btn-hide'}}" formType="submit">
+            <view class="foward-index-sub-wrap">
+                <image mode="aspectFit" src="http://xcximgcdn.yangkeduo.com/quick_entry_forward_index/forward_index.png"></image>
+            </view>
+        </button>
+    </form>
+</template>

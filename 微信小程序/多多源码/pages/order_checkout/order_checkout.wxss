@@ -1,0 +1,686 @@
+@import "../../components/order_checkout_address/order_checkout_address.wxss";
+
+@import "../../components/order_checkout_goods/order_checkout_goods.wxss";
+
+@import "../../components/help_pay/help_pay.wxss";
+
+@import "id_card_popup.wxss";
+
+@import "receive_mall_coupons.wxss";
+
+@import "order_checkout_coupons.wxss";
+
+@import "id_card_hint.wxss";
+
+@import "../../components/quick_entry_forward_index/quick_entry_forward_index.wxss";
+
+.oc-pay-disable {
+    background-color: #ccc!important;
+}
+
+.oc-goods-total-price {
+    position: relative;
+    width: 100%;
+    height: 86rpx;
+    line-height: 84rpx;
+    font-size: 0;
+    text-align: right;
+}
+
+.oc-goods-total-price text {
+    position: relative;
+    display: inline-block;
+    font-size: 26rpx;
+}
+
+.oc-tp {
+    font-size: 28rpx;
+    margin: 0 18rpx;
+}
+
+.oc-bottom-bar {
+    position: fixed;
+    width: 100%;
+    padding: 0;
+    bottom: 0;
+    font-size: 0;
+    text-align: right;
+    background-color: #fff;
+    z-index: 200;
+    display: table;
+    table-layout: fixed;
+    height: 106rpx;
+}
+
+.fix-ipx-oc-bottom-bar {
+    padding-bottom: 68rpx!important;
+}
+
+.oc-pay-final {
+    display: table-cell;
+    padding-right: 24rpx;
+    font-size: 28rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: 56rpx;
+    border-top: solid 1px #e0e0e0;
+}
+
+.oc-pay-final text {
+    color: #333;
+    vertical-align: bottom;
+}
+
+.oc-pay-final .oc-final-icon-shield {
+    vertical-align: middle;
+    position: relative;
+    top: 3rpx;
+}
+
+.oc-pay-final .oc-final-icon-shield:before {
+    content: "\e6fe";
+    color: #5bc256;
+    font-family: "icomoon";
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    font-size: 34rpx;
+}
+
+.oc-pay-final .oc-final-text {
+    position: relative;
+    display: inline-block;
+    color: #000000;
+    margin-left: 11rpx;
+}
+
+.oc-pay-btn-area {
+    display: table-cell;
+    width: 293rpx;
+    vertical-align: middle;
+}
+
+.oc-final-amount-unit {
+    font-size: 38rpx!important;
+    color: #E02E24!important;
+    position: relative;
+    top: 2rpx;
+}
+
+.oc-final-amount {
+    font-size: 40rpx!important;
+    color: #E02E24!important;
+    margin-left: 5rpx;
+    position: relative;
+    top: 2rpx;
+}
+
+.oc-free-shipping {
+    color: #E02E24!important;
+    margin-left: 13rpx;
+    box-sizing: border-box;
+    vertical-align: bottom;
+}
+
+.capital-owner-hint {
+    color: #9c9c9c;
+    font-size: 12px;
+    margin-right: 6px;
+    position: relative;
+}
+
+.oc-pay-btn {
+    position: relative;
+    width: 293rpx;
+    height: 106rpx;
+    font-size: 36rpx;
+    color: #fff;
+    background-color: #e02e24;
+    text-align: center;
+    overflow: hidden;
+}
+
+.oc-pay-btn.has-sub-text {
+    padding-top: 10rpx;
+}
+
+.oc-pay-btn.has-sub-text view {
+    height: 46rpx;
+    line-height: 46rpx;
+}
+
+.oc-free-coupon {
+    position: relative;
+    width: 100%;
+    height: 92rpx;
+    line-height: 92rpx;
+    padding: 0 20rpx;
+    margin-bottom: 20rpx;
+    font-size: 0;
+    text-align: left;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.oc-free-coupon view {
+    font-size: 28rpx;
+    color: #151516;
+}
+
+.oc-free-title {
+    float: left;
+}
+
+.oc-free-discount {
+    float: right;
+    color: #58595b!important;
+    margin-right: 42rpx;
+}
+
+.oc-pf-coupon {
+    position: relative;
+    width: 100%;
+    height: 92rpx;
+    padding: 0 20rpx;
+    margin-bottom: 20rpx;
+    line-height: 92rpx;
+    font-size: 0;
+    text-align: left;
+    background-color: #fff;
+}
+
+.oc-pf-coupon view {
+    font-size: 28rpx;
+    color: #151516;
+}
+
+.oc-pf-coupon .oc-p-coupon-desc {
+    position: absolute;
+    right: 46rpx;
+    top: 0;
+    color: #58595b;
+}
+
+.oc-pf-coupon:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 16rpx;
+    height: 24rpx;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/order_checkout_icon_v2.png") no-repeat;
+    background-position: -86rpx 0;
+    background-size: 132rpx 142rpx;
+    right: 20rpx;
+    top: 34rpx;
+}
+
+.oc-pf-coupon-hide-list .oc-p-coupon-desc {
+    right: 20rpx;
+    color: #5b5b5b;
+    font-size: 26rpx;
+}
+
+.oc-pf-coupon-hide-list:after {
+    display: none;
+}
+
+.oc-virtual-goods {
+    position: relative;
+    width: 100%;
+    height: 120rpx;
+    margin-bottom: 16rpx;
+    padding: 0 20rpx;
+    font-size: 30rpx;
+    color: #151516;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.oc-virtual-goods .virtual-goods-title {
+    width: auto;
+}
+
+.oc-virtual-goods input {
+    position: relative;
+    width: 65%;
+}
+
+#oc-mobile-clear {
+    position: absolute;
+    width: 60rpx;
+    height: 60rpx;
+    padding: 14rpx;
+    top: 30rpx;
+    right: 6rpx;
+}
+
+#oc-mobile-clear::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 32rpx;
+    height: 32rpx;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/oc_mobile_clear.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#id-card-modify {
+    position: relative;
+    width: 100%;
+    font-size: 24rpx;
+    color: #666;
+    line-height: 34rpx;
+    padding-bottom: 20rpx;
+    padding-left: 30rpx;
+    text-align: left;
+}
+
+#id-card-modify .id-card-modify-normal {
+    font-size: 24rpx;
+    line-height: 34rpx;
+}
+
+#id-card-modify .id-card-modify-red {
+    display: inline-block;
+    color: #fb4444;
+    margin-left: 26rpx;
+}
+
+.id-card-img-hint {
+    font-size: 22rpx;
+    line-height: 32rpx;
+}
+
+#id-card-hint-bubble {
+    position: fixed;
+    width: 100%;
+    height: 66rpx;
+    line-height: 66rpx;
+    bottom: 106rpx;
+    font-size: 24rpx;
+    color: #151516;
+    background-color: #fff5b2;
+    z-index: 200;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20rpx;
+}
+
+.fix-ipx-card-hint-bubble {
+    bottom: 174rpx!important;
+}
+
+.id-card-notice-view {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.notice-icon {
+    display: inline;
+    transform: rotate(180deg) translateY(2rpx);
+    margin-right: 8rpx;
+}
+
+.notice-icon::before {
+    content: '\e620';
+}
+
+.id-card-notice-text {
+    display: inline;
+}
+
+.id-card-arrows-view {
+    color: #e02e28;
+    width: 128rpx;
+}
+
+.id-card-arrows-text {
+    display: inline;
+}
+
+.id-card-arrows-icon {
+    display: inline;
+    font-size: 20rpx;
+    font-family: icomoon;
+    color: #e02e28;
+}
+
+.oc-bottom-bar button {
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    line-height: 106rpx;
+}
+
+.oc-bottom-bar button::after {
+    border: none!important;
+}
+
+.oc-express-cost-hint-bubble {
+    position: fixed;
+    height: 70rpx;
+    bottom: 106rpx;
+    font-size: 26rpx;
+    color: #151516;
+    background-color: #fff5b2;
+    z-index: 200;
+    line-height: 70rpx;
+    width: 100%;
+    max-width: 1280rpx;
+}
+
+.hint-text {
+    padding-left: 20rpx;
+    margin-left: 40rpx;
+    display: inline-block;
+}
+
+.hint-text::before {
+    position: absolute;
+    content: "\e620";
+    left: 20rpx;
+    font-family: icomoon;
+}
+
+.hint-freight-title {
+    color: #e02e24;
+    margin-left: 8rpx;
+    display: inline-block;
+}
+
+.promotion-item {
+    position: relative;
+    border-bottom: solid 1px #ECECEC;
+    padding: 45rpx 0;
+    font-size: 30rpx;
+    line-height: 42rpx;
+    color: #585A58;
+}
+
+.promotion-item-container {
+    padding-right: 56rpx;
+}
+
+.promotion-item-title,.promotion-item-desc {
+    display: inline-block;
+}
+
+.promotion-item-desc {
+    margin-left: 16rpx;
+}
+
+.oc-virtual-number {
+    background-color: white;
+    padding: 0 20rpx;
+    font-size: 30rpx;
+    color: #151516;
+    border-bottom: solid 1px #f5f5f5;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 120rpx;
+    z-index: 2;
+    border-top: solid 1px #f5f5f5;
+}
+
+.oc-virtual-number-item {
+    line-height: 100rpx;
+    border-bottom: solid 1px #f5f5f5;
+}
+
+.oc-virtual-number-item:last-child {
+    border-bottom: none;
+}
+
+.number-item-span {
+    margin-right: 20rpx;
+}
+
+.pay_window {
+    z-index: 1001;
+}
+
+.pay_window_bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+}
+
+.pay_window .container {
+    z-index: 1001;
+    background-color: #f2f2f2;
+    font-size: 30rpx;
+    color: #151516;
+    text-align: left;
+    position: absolute;
+    bottom: -936rpx;
+    transition: bottom 200ms ease-in-out;
+}
+
+.pay_window .container_show {
+    bottom: 0;
+}
+
+.fix_ipx_container_show {
+    height: 703rpx;
+}
+
+.pay_window .container_hide {
+    bottom: -936rpx;
+}
+
+.pay_window .head {
+    position: relative;
+    line-height: 96rpx;
+    text-align: center;
+    font-size: 34rpx;
+}
+
+.pay_window .head .time {
+    width: 140rpx;
+    text-align: center;
+}
+
+.pay_window .red_word {
+    color: #E02E24;
+}
+
+.pay_window .close_btn {
+    position: absolute;
+    right: 30rpx;
+    height: 50rpx;
+    width: 50rpx;
+    display: inline-block;
+    line-height: 50rpx;
+    top: 24rpx;
+    padding: 0;
+    background-color: transparent;
+}
+
+.pay_window .close_btn:before {
+    content: "\e61d";
+    color: #9c9c9c;
+    font-family: "icomoon";
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    font-size: 30rpx;
+}
+
+.pay_window .address {
+    line-height: 92rpx;
+    padding: 0 20rpx;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.pay_window .address .address_item {
+    display: table-cell;
+}
+
+.pay_window .address text {
+    vertical-align: middle;
+}
+
+.pay_window .address_item_icon {
+    width: 40rpx;
+}
+
+.pay_window .address_item_go {
+    width: 30rpx;
+}
+
+.pay_window .item {
+    margin-bottom: 16rpx;
+    background-color: white;
+}
+
+.pay_window .item:last-child {
+    margin-bottom: 0;
+}
+
+.pay_window text {
+    display: inline-block;
+}
+
+.pay_window .addr_go_icon:before {
+    content: "\e617";
+    color: #9c9c9c;
+    font-family: "icomoon";
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    font-size: 30rpx;
+}
+
+.pay_window .addr_icon:before {
+    content: "\e615";
+    color: #9c9c9c;
+    font-family: "icomoon";
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    font-size: 36rpx;
+}
+
+.pay_window .addr_info {
+    width: 100%;
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 10rpx;
+    white-space: nowrap;
+}
+
+.pay_window .pay .desc {
+    line-height: 70rpx;
+    color: #58595b;
+    text-align: center;
+    font-size: 26rpx;
+}
+
+.pay_window .pay .pay_btn {
+    line-height: 110rpx;
+    background-color: #E02E24;
+    color: white;
+    text-align: center;
+    font-size: 36rpx;
+}
+
+.pay_window .pay .pay_btn .num {
+    margin-left: 20rpx;
+}
+
+.ts-sales-process-bg {
+    height: 24rpx;
+    width: 202rpx;
+    flex-grow: 0;
+    flex-shrink: 0;
+    background-color: white;
+    border-radius: 24rpx;
+    position: relative;
+    margin-left: 3rpx;
+}
+
+.ts-sales-process {
+    height: 100%;
+    background-image: -webkit-linear-gradient(0deg,#ffb9b9 0%,#ff6d6d 100%);
+    border-radius: 22rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ts-sales-process-blank {
+    height: 100%;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+}
+
+.ts-sales-process-blank-mark {
+    height: 100%;
+    width: 264rpx;
+    border-radius: 22rpx;
+    position: relative;
+}
+
+.ts-sales-present-white {
+    color: #ffffff;
+    position: absolute;
+    line-height: 20rpx;
+    right: 12rpx;
+    font-size: 16rpx;
+}
+
+.oc-coupon-disable-container .oc-m-coupon-right .oc-m-coupon-expire .title,.oc-coupon-disable-container .oc-m-coupon-right .oc-m-coupon-expire .date {
+    font-size: 24rpx;
+}
+
+.mall-coupon-container .promotion-item_container {
+    padding: 45rpx 30rpx 45rpx 14rpx;
+}
+
+.rei-mall-coupons-list .promotion-item_container {
+    padding: 46rpx 30rpx 46rpx 14rpx;
+}
+
+.oc-coupon-disable-container .oc-m-coupon-left .oc-m-coupon-discount .num {
+    font-size: 68rpx;
+    line-height: 68rpx;
+}
+
+.oc-coupon-disable-container .oc-m-coupon-right .oc-m-coupon-can-use {
+    position: relative;
+    top: -2rpx;
+}
+
+.oc-coupon-disable-container .oc-m-coupon {
+    padding: 19rpx 0 9rpx;
+}
+
+.oc-coupon-disable-container .oc-m-coupon-super {
+    padding: 19rpx 0;
+}
+
+.oc-coupon-disable-container .oc-m-coupon-left {
+    width: 194rpx;
+}
+
+.coupon-container-content .oc-m-coupon-left {
+    position: relative;
+    top: -5rpx;
+}
+
+.oc-coupon-container .oc-m-coupon-right {
+    position: relative;
+    right: 6rpx;
+}

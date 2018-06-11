@@ -1,0 +1,31 @@
+.resource-place-config-wrap {
+    width: 130rpx;
+    height: 130rpx;
+    right: 20rpx;
+    position: fixed;
+    bottom: 92rpx;
+    z-index: 2;
+    transition: all 1000ms ease-out 0ms;
+    overflow: hidden;
+}
+
+.resource-place-config-wrap>image {
+    width: 100%;
+    height: 100%;
+}
+
+.resource-place-config-wrap-top {
+    bottom: 192rpx;
+}
+
+.little-banner-btn {
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.express-banner-image {
+    width: 100%;
+    background-size: 100% 100%;
+    margin-top: 16rpx;
+    height: 80rpx;
+}

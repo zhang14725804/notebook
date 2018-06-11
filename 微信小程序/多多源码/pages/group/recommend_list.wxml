@@ -1,0 +1,25 @@
+<import src="/components/double_grid_item/subjects_item.wxml"></import>
+<import src="/components/double_grid_item/grid_item_v1.wxml"></import>
+<import src="/components/double_grid_item/grid_item_v2.wxml"></import>
+<import src="/pages/index/index_rec_goods_item.wxml"></import>
+<import src="/components/load_more_bar/load_more_bar.wxml"></import>
+<import src="/components/go_to_top/go_to_top.wxml"></import>
+<view class="goods-list-container" enableBackToTop="true" wx:if="{{tabStatus[curTabIndex]&&!tabStatus[curTabIndex].showError}}">
+    <image class="pdd-default-image" wx:if="{{catgoodsList.length===0}}"></image>
+    <view class="index-cat-list" wx:if="{{catgoodsList[curTabIndex]&&catgoodsList[curTabIndex].length>0}}">
+        <block wx:if="{{curTabIndex===0}}">
+            <template is="subjectItem" data="{{...item,index:index,hideGroupNum:true,showImgSign:true,btnText:'马上抢',imgSignUrl:imgSignUrl}}" wx:if="{{!canGoodsLoadMore||index!==goodsList.length-1||index%2!==0}}" wx:for="{{catgoodsList[curTabIndex]}}" wx:key="goods-item-{{index}}"></template>
+        </block>
+        <block wx:elif="{{curTabIndex===1}}">
+            <template is="gridItemV1" data="{{...item,index:gridIdx-lastSingleGoodsIndex-1,localGroups:localGroupsMap[item.goodsId].list}}" wx:if="{{tabStatus[curTabIndex].showNoMoreText||gridIdx!==catgoodsList[curTabIndex].length-1||(gridIdx-lastSingleGoodsIndex-1)%2!==0}}" wx:for="{{catgoodsList[curTabIndex]}}" wx:for-index="gridIdx" wx:key="cat-{{curTabIndex}}-grid-{{gridIdx}}"></template>
+        </block>
+        <block wx:else>
+            <template is="gridItemV1" data="{{...item,index:gridIdx}}" wx:if="{{!tabStatus[curTabIndex].canLoadMore||gridIdx!==catgoodsList[curTabIndex].length-1||gridIdx%2!==0}}" wx:for="{{catgoodsList[curTabIndex]}}" wx:for-index="gridIdx" wx:key="cat-{{curTabIndex}}-grid-{{gridIdx}}"></template>
+        </block>
+    </view>
+    <view class="recommend-list-placeholder" wx:else></view>
+    <view hidden="{{!tabStatus[curTabIndex]||!tabStatus[curTabIndex].loadMoreVisible}}">
+        <template is="load-more-bar-template" data="{{canLoadMore:!tabStatus[curTabIndex].showNoMoreText,loadingTxt:!tabStatus[curTabIndex].showNoMoreText?'正在加载...':'没有更多了...'}}"></template>
+    </view>
+    <template is="to-top-template" data="{{topShow:goTopClass,bigSaleTopShow:'big_sales_top_show'}}"></template>
+</view>

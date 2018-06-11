@@ -1,0 +1,25 @@
+<view hidden="{{!idCardPopupVisible}}" id="id-card-container">
+    <view catchtap="hideIdCardPopup" class="bottom-cover"></view>
+    <view class="id-card-main" style="bottom:{{idCardPopupMainClass}}rpx">
+        <view class="id-card-header" style="background-image: url({{idCardHeadImg}});"></view>
+        <view class="id-card-body">
+            <form bindsubmit="submitIdCardInfo">
+                <view class="id-card-info">
+                    <view catchtap="showIdCardHint" class="id-card-hint-enter">
+                        <view style="margin-bottom:14rpx;" wx:if="{{realNameAuth}}">办理卡类或宽带业务必须提供实名信息，拼多多对所有信息严格保密，请放心填写</view>
+                        <block wx:else>
+                            <view>海关规定购买跨境商品必须提供实名信息，了解详情 ></view>
+                            <view style="margin-bottom:14rpx;">过海关时可能额外需要身份证照片，届时商家将主动联系您</view>
+                        </block>
+                    </view>
+                    <input adjustPosition="{{false}}" bindfocus="didFocusRealName" name="realName" placeholder="{{realNameAuth?'办理人':'收货人'}}真实姓名" type="text" value="{{realName}}"></input>
+                    <input adjustPosition="{{false}}" bindfocus="didFocusIdNumber" name="idNumber" placeholder="{{realNameAuth?'办理人':'收货人'}}身份证号" type="idcard" value="{{idNumber}}"></input>
+                </view>
+                <view class="submit-btn">
+                    <button class="submit-btn-text" formType="submit">提交</button>
+                </view>
+            </form>
+        </view>
+        <view catchtap="hideIdCardPopup" class="close-img icon icon-close"></view>
+    </view>
+</view>

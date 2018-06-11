@@ -1,0 +1,57 @@
+<import src="/components/toast/toast.wxml"></import>
+<import src="/components/loading/loading.wxml"></import>
+<view class="neg-list">
+    <view class="neg-item" wx:if="{{message.history_record.length>0}}" wx:for="{{message.history_record}}" wx:key="{{index}}">
+        <view class="neg-head">
+            <image class="neg-head-img" src="http://pinduoduoimg.yangkeduo.com/chat_avatar/chat_avatar_robot.png"></image>
+            <view class="neg-head-info">
+                <view class="neg-head-title">拼多多已回复</view>
+                <view class="neg-head-time">{{item.created_time}}</view>
+            </view>
+        </view>
+        <view class="neg-body">
+            <view class="neg-body-word">
+                <view class="item-1">回复内容:</view>
+                <view class="item-2">{{item.content}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="neg-item">
+        <view class="neg-head">
+            <image class="neg-head-img" src="{{message.avatar}}"></image>
+            <view class="neg-head-info">
+                <view class="neg-head-title">用户提交留言</view>
+                <view class="neg-head-time">{{message.created_time}}</view>
+            </view>
+        </view>
+        <view class="neg-body">
+            <view class="neg-body-word">
+                <view class="item-1">问题类型:</view>
+                <view class="item-2">{{message.type_desc}}</view>
+            </view>
+            <view class="neg-body-word">
+                <view class="item-1">问题描述:</view>
+                <view class="item-2">{{message.question}}</view>
+            </view>
+            <view class="neg-body-word" wx:if="{{message.order_sn}}">
+                <view class="item-1">订单编号:</view>
+                <view class="item-2">{{message.order_sn}}</view>
+            </view>
+            <view class="neg-body-word" wx:if="{{message.goods_name}}">
+                <view class="item-1">商品名称:</view>
+                <view class="item-2">{{message.goods_name}}</view>
+            </view>
+            <view class="neg-img-list">
+                <view bindtap="previewImg" class="neg-img-item" data-url="{{twodata.url}}" wx:for="{{message.attach_url}}" wx:for-item="twodata" wx:key="{{index}}">
+                    <image mode="aspectFit" src="{{twodata.url}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="button-root">
+    <view bindtap="toAfterSales" class="modify-btn btn-red btn-margin-left" wx:if="{{after_sales_id}}">查看售后订单</view>
+    <view bindtap="toSelfMessage" class="revoked-platform-btn" wx:if="{{message.history_record.length<=0}}">修改留言</view>
+</view>
+<template is="loading-tpl" data="{{...$loadingData}}"></template>
+<template is="toast" data="{{...$toastData}}"></template>

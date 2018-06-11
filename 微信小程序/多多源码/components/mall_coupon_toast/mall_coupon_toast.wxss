@@ -1,0 +1,47 @@
+.mall-coupons-toast-double {
+    position: fixed;
+    width: 48%;
+    height: 190rpx;
+    bottom: 626rpx;
+    left: 26%;
+    background: rgba(0,0,0,.8);
+    border-radius: 16rpx;
+    z-index: 12200;
+}
+
+.mall-coupons-toast-double .mc-toast-main {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 40rpx 0 10rpx;
+    font-size: 32rpx;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+}
+
+.mall-coupons-toast-double .mc-toast-sub {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 12rpx 0 0;
+    font-size: 28rpx;
+    color: #fff;
+    text-align: center;
+}
+
+.mall-coupons-toast-single {
+    position: fixed;
+    width: 48%;
+    padding: 50rpx 20rpx;
+    bottom: 626rpx;
+    left: 26%;
+    line-height: 48rpx;
+    font-size: 32rpx;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    background: rgba(0,0,0,0.8);
+    border-radius: 16rpx;
+    z-index: 12200;
+}

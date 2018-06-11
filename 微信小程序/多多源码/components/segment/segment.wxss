@@ -1,0 +1,109 @@
+.segemnt-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 40px;
+    z-index: 100;
+    background-color: #fff;
+}
+
+.segemnt-main-group {
+    overflow: hidden;
+    width: 100%;
+    height: 40px;
+    z-index: 100;
+    background-color: #fff;
+}
+
+.segment-srcoll {
+    width: 100%;
+    height: 40px;
+}
+
+.segment-srcoll-a {
+    background-color: #e02e24;
+}
+
+.segment-tabs-container {
+    height: 40px;
+    background-color: #fff;
+}
+
+.segment-tabs-container-a {
+    background-color: #e02e24;
+}
+
+.top-tabs-item {
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    border: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.top-tabs-item-a {
+    background-color: #e02e24;
+}
+
+.top-tabs-item::after {
+    border: 0;
+}
+
+.item-title {
+    font-size: 14px;
+    line-height: 40px;
+    color: #58595b;
+    text-align: center;
+    display: inline-block;
+}
+
+.item-title-a {
+    font-size: 14px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+}
+
+.segment-tabs-underline {
+    position: absolute;
+    height: 2px;
+    top: 38px;
+    background-color: #e02e24;
+}
+
+.segment-tabs-underline-a {
+    background-color: #fff;
+}
+
+.top-tabs-item-current {
+    color: #e02e24;
+}
+
+.top-tabs-item-current-a {
+    font-size: 15px;
+    color: #fff;
+}
+
+.tab-reddot {
+    display: inline-block;
+    height: 10rpx;
+    width: 10rpx;
+    background-color: #e02e24;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+}
+
+.segment-transition {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24rpx;
+    height: 80rpx;
+    box-shadow: -13px 0 8px -5px rgba(255,255,255,0.8) inset;
+}

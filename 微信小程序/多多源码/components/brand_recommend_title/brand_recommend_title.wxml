@@ -1,0 +1,7 @@
+<template name="brand-recommend-title">
+    <view class="brand-recommend-title {{showContent?'':'no-content'}}">
+        <view class="brand-recommend-content" wx:if="{{showContent}}">
+            <text class="brand-recommend-text">精选推荐</text>
+        </view>
+    </view>
+</template>

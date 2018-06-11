@@ -1,0 +1,72 @@
+<template name="deposit-tpl">
+    <view class="deposit-main-view">
+        <view class="deposit-input-module">
+            <view class="dim-main-area">
+                <input bindblur="_cloRelatedInfo" bindfocus="_relatedInfo" bindinput="_inputTelChange" focus="{{focus}}" maxlength="13" placeholder="请输入手机号码" type="number" value="{{inputValue}}"></input>
+                <view class="dim-mobile-carrier" hidden="{{!inputValue||showDefault}}">{{routersList[0].carrier}}</view>
+                <view class="bottom-line" hidden="{{showRelate}}"></view>
+                <view bindtap="_clearMobile" class="dim-mobile-clear" hidden="{{!mobileClear}}"></view>
+            </view>
+            <view class="dim-drop-down" hidden="{{!showRelate}}">
+                <view bindtap="_changeTel" class="dim-drop-down-item {{index==0?'first-dim':''}}" data-par-price="{{item.par_price}}" data-tel="{{item.mobile}}" data-tel-part="{{item.mobile_part}}" wx:for="{{chargeHistoryList}}" wx:key="index">
+                    <view class="dim-candidate-mobile">{{item.mobile_part}}</view>
+                    <view class="dim-candidate-name">{{item.name}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="deposit-selector-module" hidden="{{!inputValue||showDefault}}">
+            <view bindtap="_changePrice" class="dsm-item {{item.isActive?'dsm-item-selected':''}}" data-index="{{index}}" data-router-id="{{item.id}}" wx:for="{{routersList}}" wx:key="index">
+                <view class="dsm-item-deposit-level">{{item.par_price}}元</view>
+                <view class="dsm-item-price">拼单价 {{item.group_price}}</view>
+            </view>
+        </view>
+        <view class="deposit-selector-module" hidden="{{inputValue&&!showDefault}}">
+            <view class="dsm-item .dsm-item-center .dsm-item-disable">
+                <view class="dsm-item-deposit-level">30元</view>
+            </view>
+            <view class="dsm-item .dsm-item-center .dsm-item-disable">
+                <view class="dsm-item-deposit-level">50元</view>
+            </view>
+            <view class="dsm-item .dsm-item-center .dsm-item-disable">
+                <view class="dsm-item-deposit-level">100元</view>
+            </view>
+        </view>
+        <view id="g-local-groups" wx:if="{{localGroups.length>0&&inputValue&&!showDefault}}">
+            <view class="g-local-groups-head">
+                <view class="g-local-groups-title">直接参与{{routersList[curRoutersIndex].par_price}}元话费拼团</view>
+            </view>
+            <view catchtap="_localGroupClick" class="local-group-item" data-group-order-id="{{item.group_order_id}}" wx:if="{{index<=5}}" wx:for="{{localGroups}}" wx:key="{{item.group_order_id}}">
+                <image class="local-group-img" src="{{item.avatar}}"></image>
+                <view class="local-group-nick-name">{{item.nick_name}}</view>
+                <view class="local-group-detial">
+                    <view class="local-group-detial-row1">
+                        <view class="local-group-name">还差<span>1人</span>拼成</view>
+                    </view>
+                    <view class="local-group-detial-row2">
+                        <view class="local-group-timer">剩余{{item.leftTimeStr}}.</view>
+                        <view class="timer-cutdown-wrap">
+                            <view class="timer-cutdown {{refreshCountDown&&item.deltaMillisecond>0?'local-group-timer-refresh':''}}">
+                                <view wx:for="{{[9,8,7,6,5,4,3,2,1,0]}}" wx:key="{{index}}">{{item}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="local-group-btn">去参团</view>
+            </view>
+        </view>
+    </view>
+    <view class="goods-bottom-bar {{isIpx?'fix-ipx-button':''}}">
+        <form bindsubmit="_singleBuy" class="double-button-form-first" reportSubmit="true">
+            <button class="goods-direct-btn {{inputValue&&!showDefault?'':'dbbm-direct-buy-disabled'}}" formType="submit">
+                <text>单独购买</text>
+                <text class="goods-buy-price" wx:if="{{inputValue&&!showDefault}}">￥{{routersList[curRoutersIndex].normal_price}}</text>
+            </button>
+        </form>
+        <form bindsubmit="_groupBuy" class="double-button-form-second" reportSubmit="true">
+            <button class="goods-group-btn {{inputValue&&!showDefault?'':'dbbm-group-buy-disabled'}}" formType="submit">
+                <text>一键开团</text>
+                <text class="goods-buy-price" wx:if="{{inputValue&&!showDefault}}">￥{{routersList[curRoutersIndex].group_price}}</text>
+            </button>
+        </form>
+    </view>
+</template>

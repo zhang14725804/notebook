@@ -1,0 +1,64 @@
+<template name="lim-free-item-tpl">
+    <view class="lim-free-item">
+        <view class="lim-free-td">
+            <image class="lim-free-head-pic" src="{{avatar}}"></image>
+            <view class="lim-free-name">
+                {{nickname}}
+            </view>
+        </view>
+        <view class="lim-free-td">
+            <view class="lim-free-order-num">
+                {{order_sn_head}}
+            </view>
+            <view class="lim-free-order-num">
+                {{order_sn_end}}
+            </view>
+        </view>
+        <view class="lim-free-td lim-free-tel">
+            {{mobile}}
+        </view>
+    </view>
+</template>
+<import src="/components/toast/toast.wxml"></import>
+<view class="lim-rule">
+    <view class="lim-rule-title">
+        <image class="lim-rule-line" src="{{limRuleLine}}"></image>
+        <view class="lim-rule-title-word">
+            活动规则
+        </view>
+        <image class="lim-rule-line lim-rule-line-right" src="{{limRuleLine}}"></image>
+    </view>
+    <view class="lim-rule-body">
+        <view class="lim-rule-item">
+            1.活动时间:	 {{startTimeDesc}}-{{endTimeDesc}}
+        </view>
+        <view class="lim-rule-item">
+            2.参团时间与成团时间均需在活动时间内为有效订单。
+        </view>
+        <view class="lim-rule-item">
+            3.有效订单方可参与免单活动，免单用户将获得与单件商品等额的无门槛优惠券，可前往我的优惠券查看。
+        </view>
+        <view class="lim-rule-item">
+            4.活动期间，每个用户购买商品最多仅能获得一次免单机会。
+        </view>
+    </view>
+</view>
+<view class="lim-free-list">
+    <view class="lim-free-head">
+        <view class="lim-free-head-item">
+            幸运儿
+        </view>
+        <view class="lim-free-head-item">
+            订单编号
+        </view>
+        <view class="lim-free-head-item lim-free-head-tel">
+            电话
+        </view>
+    </view>
+    <view class="lim-free-body">
+        <view wx:for="{{userInfos}}" wx:key="{{index}}">
+            <template is="lim-free-item-tpl" data="{{...item}}"></template>
+        </view>
+    </view>
+</view>
+<template is="toast" data="{{...$toastData}}"></template>

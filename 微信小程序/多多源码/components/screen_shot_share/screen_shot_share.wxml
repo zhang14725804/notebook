@@ -1,0 +1,18 @@
+<template name="screenShotShare">
+    <view class="{{shareMainClass}}">
+        <view class="share-main-container">
+            <view catchtap="closeShare" class="share-close-btn">
+                <view class="share-close-btn-icon"></view>
+            </view>
+            <view class="share-desc">
+                <text>{{screenShotDesc}}? 点击</text>
+                <text class="share-desc-red">按钮</text>
+                <text>即可分享</text>
+            </view>
+            <button catchtap="screenShare" class="share-btn" data-sub-refer="screen-shot" openType="share">
+                <text class="wechat_icon"></text>
+                <text>分享给您的好友</text>
+            </button>
+        </view>
+    </view>
+</template>

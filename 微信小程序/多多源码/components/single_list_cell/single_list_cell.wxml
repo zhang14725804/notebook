@@ -1,0 +1,8 @@
+<template name="single-list-cell-tpl">
+    <view bindtap="{{tapAction}}" class="single-list-cell" data-index="{{index}}">
+        <image class="single-list-cell-icon" mode="widthFix" src="{{imageUrl}}" wx:if="{{imageUrl.length>0}}"></image>
+        <view class="single-list-cell-title">{{title}}</view>
+        <view class="single-list-cell-arrow"></view>
+        <view class="single-list-cell-bottomline" wx:if="{{!hideBottomLine}}"></view>
+    </view>
+</template>

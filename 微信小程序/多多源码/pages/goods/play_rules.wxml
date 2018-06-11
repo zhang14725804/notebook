@@ -1,0 +1,13 @@
+<template name="goodsPlayRules">
+    <view class="play-rules-container">
+        <view class="rules-title">
+            {{title}}
+        </view>
+        <view class="rules-flow">
+            <view class="play-rules-item item{{index}}" wx:for="{{flow}}" wx:key="flow-{{index}}">
+                <view>{{item[0]}}</view>
+                <view>{{item[1]}}</view>
+            </view>
+        </view>
+    </view>
+</template>

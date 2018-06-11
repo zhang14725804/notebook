@@ -1,0 +1,9 @@
+<template name="remove-button">
+    <form bindsubmit="remove" hidden="{{removeButtonHidden}}" reportSubmit="true" style="z-index:10;">
+        <view class="navigation-modal-icon{{topShow?' navigation-modal-icon-up':''}}">
+            <button class="icon-address-delete" formType="submit">
+                <view class="txt">删除</view>
+            </button>
+        </view>
+    </form>
+</template>

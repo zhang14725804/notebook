@@ -1,0 +1,55 @@
+<template name="spikeGoodsItem">
+    <form bindsubmit="$uploadFormId" reportSubmit="true">
+        <button bindtap="goodsItemClicked" class="ts-goods-item-view  {{isListLastOne?'height-change':''}}" data-current="{{current}}" data-current-can-buy="{{currentCanBuy}}" data-goods-id="{{goodsId}}" data-goods-index="{{goodsIndex}}" data-index="{{goodsIndex}}" data-quantity="{{quantity}}" data-trans-data="{{item}}" formType="submit" id="impr-id" wx:if="{{!banner_channel}}">
+            <view class="ts-goods-img-view">
+                <image class="ts-goods-img" mode="aspectFit" src="{{imgUrl}}"></image>
+                <view class="ts-sales-out-sign" wx:if="{{isSalesOut}}">
+                    <image class="ts-sales-out-img" mode="aspectFit" src="http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/spike/spike_sales_out_sign.png"></image>
+                </view>
+            </view>
+            <view class="ts-goods-info-view">
+                <view class="ts-goods-name {{spikeStatus==='off'?' ts-goods-name-sold-out':''}}">{{goodsName}}</view>
+                <view class="ts-goods-sales-info" wx:if="{{spikeStatus==='on'}}">
+                    <view class="ts-sales-process-bg {{progressValue>70?'ts-solding-out':''}}">
+                        <view class="ts-sales-process {{progressType}}" style="{{'width:'+progressWidth}}"></view>
+                        <view class="solding-out" wx:if="{{progressValue>70}}"></view>
+                        <view class="ts-sales-present" wx:else>{{progressValue+'%'}}</view>
+                    </view>
+                    <view class="ts-goods-sales-num">已抢{{soldQuantity}}件</view>
+                </view>
+                <view class="ts-goods-sales-comming-info" wx:if="{{spikeStatus==='coming'}}">
+                    <view class="ts-goods-sales-num ts-goods-sales-comming-num">限量{{allQuantity}}件</view>
+                    <span class="space ts-goods-sales-comming-num">|</span>
+                    <view class="ts-goods-sales-comming-num">{{timeDay?timeDay:'今日'}}{{timeLine}}开始</view>
+                </view>
+                <view class="ts-goods-sales-info ts-goods-sales-out-info" wx:if="{{spikeStatus==='off'}}">
+                    <view class="ts-goods-sales-num ts-goods-sales-out-num">{{allQuantity}}件被抢光,下次早点来哦</view>
+                </view>
+                <view class="ts-goods-price-info {{spikeStatus==='coming'?'ts-goods-comming-price-info':''}}">
+                    <view class="ts-goods-price-view">
+                        <view class="ts-goods-price {{spikeStatus==='off'?'ts-goods-off-price':''}}">{{salePrice}}</view>
+                        <view class="ts-goods-market-price">¥ {{marketPrice}}</view>
+                    </view>
+                    <form bindsubmit="goodsRemindSetup" catchtap="formClick" class="ts-goods-btn-view" data-button-type="{{buttonType}}" data-current="{{current}}" data-current-can-buy="{{currentCanBuy}}" data-goods-id="{{goodsId}}" data-goods-index="{{goodsIndex}}" data-index="{{goodsIndex}}" data-only-key="{{onlyKey}}" data-quantity="{{quantity}}" data-trans-data="{{item}}" reportSubmit="true">
+                        <button class="ts-goods-btn {{buttonClass}}" formType="submit"></button>
+                    </form>
+                </view>
+            </view>
+            <view class="ts-goods-bottom-line" hidden="{{isListLastOne}}"></view>
+        </button>
+        <view class="blank" wx:if="{{banner_channel}}"></view>
+        <view catchtap="brandClick" class="brand-spike-list" data-brand-id="{{id}}" wx:if="{{banner_channel}}">
+            <image class="brand-img" src="{{banner_channel}}"></image>
+            <view catchtap="brandGoodsClick" class="brand-item-info" data-brand-id="{{id}}" data-goods-id="{{item.goodsId}}" data-index="{{index}}" wx:if="{{index<=2}}" wx:for="{{goods}}" wx:key="index">
+                <image src="{{item.imgUrl}}"></image>
+                <view class="ts-goods-info-view">
+                    <view class="ts-goods-name">{{item.goodsName}}</view>
+                    <view class="ts-goods-price">{{item.salePrice}}</view>
+                    <view class="ts-goods-market-price" wx:if="{{item.progressValue<70}}">¥ {{item.marketPrice}}</view>
+                    <view class="sale-out" wx:else>即将售罄</view>
+                </view>
+            </view>
+        </view>
+        <view class="blank" wx:if="{{banner_channel}}"></view>
+    </form>
+</template>

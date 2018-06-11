@@ -1,0 +1,328 @@
+@import "../edit_address/edit_address.wxss";
+
+.oc-address {
+    box-sizing: border-box;
+    margin-bottom: 16rpx;
+    width: 100%;
+    background-color: #fff;
+}
+
+.oc-address-info {
+    position: relative;
+    width: 100%;
+    min-height: 148rpx;
+    background-color: #fff;
+    color: #151516;
+    font-size: 26rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.oc-address-info-form button::after {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.oc-address-info .oc-address-location {
+    width: 88rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.oc-address-info .oc-address-location .oc-address-location-icon {
+    width: 36rpx;
+    height: 40rpx;
+}
+
+.oc-address-info .oc-address-location .oc-address-location-icon:before {
+    content: "\e615";
+    font-size: 34rpx;
+    color: #5E5E5E;
+    font-family: "icomoon";
+    line-height: 1;
+    font-weight: normal;
+    font-smoothing: antialiased;
+}
+
+.oc-address-info .oc-address-main-info {
+    width: 580rpx;
+    display: inline-block;
+    height: auto;
+    padding: 28rpx 0 28rpx 0;
+    text-align: left;
+}
+
+.oc-address-info .oc-address-main-info .oc-address-receiver {
+    position: relative;
+    width: 100%;
+    margin-bottom: 6rpx;
+    font-size: 0;
+}
+
+.oc-address-receiver .oc-address-receiver-name {
+    font-size: 32rpx;
+    font-weight: bold;
+    margin-right: 22rpx;
+}
+
+.oc-address-receiver .oc-address-receiver-mobile {
+    font-size: 28rpx;
+}
+
+.oc-address-main-info .oc-address-detail {
+    position: relative;
+    word-break: break-all;
+    width: 100%;
+    line-height: 1.4;
+}
+
+.oc-address-detail text {
+    color: #fa323c;
+}
+
+.oc-address-bottom-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/oc_address_bar.png") repeat;
+    background-size: contain;
+}
+
+.oc-address-info .oc-address-right-arrow {
+    width: 62rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.oc-address-right-arrow .oc-address-right-arrow-icon {
+    width: 16rpx;
+    height: 24rpx;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/order_checkout_icon_v2.png") no-repeat;
+    background-position: -86rpx 0;
+    background-size: 132rpx 142rpx;
+}
+
+.indicator {
+    position: relative;
+    border-bottom: 1px solid #ededed;
+}
+
+.oc-add-address {
+    position: relative;
+    width: 100%;
+    height: 94rpx;
+    padding-left: 72rpx;
+    line-height: 94rpx;
+}
+
+.oc-add-address text {
+    position: relative;
+    color: #151516;
+    font-size: 28rpx;
+}
+
+.oc-add-address text::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 44rpx;
+    height: 44rpx;
+    top: -4rpx;
+    left: -66rpx;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/order_checkout_icon_v2.png") no-repeat;
+    background-position: 0 -100rpx;
+    background-size: 132rpx 142rpx;
+}
+
+.oc-address-notice {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    font-size: 0;
+    background-color: #f2f2f2;
+}
+
+.oc-address-notice text {
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+.oc-notice-left {
+    width: 100%;
+    position: absolute;
+    left: 15px;
+    color: #58595b;
+    text-align: left;
+}
+
+.oc-notice-right {
+    width: 100%;
+    position: absolute;
+    right: 0;
+    color: #ff2741;
+    padding-right: 19px;
+    text-align: right;
+    z-index: 1;
+}
+
+.oc-notice-right:after {
+    content: "";
+    width: 5px;
+    height: 8px;
+    margin-right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    position: absolute;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 4px 7px;
+    background-image: url("http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/order_checkou/oc_notice_right_icon.png");
+}
+
+.oc-address-region {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 220;
+}
+
+.oc-region-main {
+    position: absolute;
+    width: 82%;
+    left: 9%;
+    top: 118px;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+}
+
+.oc-region-main .oc-region-title {
+    position: relative;
+    width: 100%;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    background-color: #fff;
+}
+
+.oc-region-main .oc-region-title text {
+    font-size: 15px;
+    color: #333;
+}
+
+.oc-region-main .oc-region-content {
+    position: relative;
+    width: 100%;
+    padding: 40px 10px 46px;
+    min-height: 129px;
+    border-radius: 0 0 10px 10px;
+}
+
+.oc-region-tip {
+    margin-bottom: 8px;
+}
+
+.oc-region-main .oc-region-content text {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    line-height: 18px;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.oc-region-close {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    top: 0;
+    right: 0;
+}
+
+.oc-region-close:after {
+    content: "\e61d";
+    font-size: 28rpx;
+    color: #999999;
+    font-family: "icomoon";
+    line-height: 1;
+    font-weight: lighter;
+    -webkit-font-smoothing: antialiased;
+}
+
+.oc-wx-add-address {
+    position: relative;
+    width: 100%;
+    height: 92rpx;
+    padding-left: 72rpx;
+    line-height: 92rpx;
+    border-bottom: none!important;
+}
+
+.oc-wx-add-address text {
+    position: relative;
+    color: #151516;
+    font-size: 28rpx;
+}
+
+.oc-wx-add-address text::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 44rpx;
+    height: 44rpx;
+    top: -6rpx;
+    left: -66rpx;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/order_checkout_icon_v2.png") no-repeat;
+    background-position: -60rpx -100rpx;
+    background-size: 132rpx 142rpx;
+}
+
+.oc-address-container {
+    padding-left: 20rpx;
+}
+
+.indicator::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 16rpx;
+    height: 24rpx;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/order_checkout_icon_v2.png") no-repeat;
+    background-position: -86rpx 0;
+    background-size: 132rpx 142rpx;
+    right: 20rpx;
+    top: 34rpx;
+}

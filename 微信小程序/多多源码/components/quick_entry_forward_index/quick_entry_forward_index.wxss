@@ -1,0 +1,32 @@
+.foward-index {
+    position: fixed;
+    top: 220rpx;
+    left: -2rpx;
+    font-size: 0;
+    background: transparent;
+    color: #f0f0f0;
+    z-index: 101;
+    overflow: hidden;
+    padding: 0;
+}
+
+.foward-index-sub-wrap {
+    position: relative;
+    width: 122rpx;
+    height: 74rpx;
+}
+
+.foward-index-sub-wrap>image {
+    width: 100%;
+    height: 100%;
+}
+
+.foward-index-btn-show {
+    transition: all 300ms ease-out 0ms;
+    transform: translateX(0);
+}
+
+.foward-index-btn-hide {
+    transition: all 300ms ease-out 0ms;
+    transform: translateX(-122rpx);
+}

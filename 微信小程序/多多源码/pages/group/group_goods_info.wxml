@@ -1,0 +1,52 @@
+<view catchtap="viewGoodsDetail" class="group-detail-goods" data-goods-id="{{goodsInfo.goodsId}}">
+    <view class="group-detail-goods-img">
+        <image src="{{goodsInfo.thumbUrl}}">
+            <view class="group-old-bring-new" wx:if="{{eventType==6}}">老带新</view>
+            <view class="lottery-text" wx:elif="{{eventType==1||eventType==7}}">
+                抽奖
+            </view>
+        </image>
+        <view class="group-detail-goods-no-store" wx:if="{{showNoStoreView}}"></view>
+    </view>
+    <view class="group-detail-goods-info">
+        <view class="lottery_seal lottery_seal_success" wx:if="{{eventType==1&&showSuccessView}}"></view>
+        <view class="lottery_seal lottery_seal_fail" wx:elif="{{eventType==1&&status==2}}"></view>
+        <view class="group-detail-goods-title{{isLottery||isFreeTrial?' special-icon':''}}">
+            <view class="{{goodsInfo.actTagClass}}" wx:if="{{goodsInfo.actTagIcon}}">{{goodsInfo.actTagIcon}}</view>
+            <view class="import-info" wx:if="{{goodsInfo.country}}">
+                <image src="{{goodsInfo.countryImg}}"></image>
+            </view>
+            {{goodsInfo.goodsName}}
+        </view>
+        <view class="group-save-coupon" wx:if="{{(eventType==1||eventType==7)&&showNormalView}}">
+            <text class="icon"></text>
+            <text class="desc">成团还可享免单</text>
+        </view>
+        <view class="group-detail-goods-sales-info">
+            <view class="group-save-desc" wx:if="{{eventType==1}}">
+                拼团省{{goodsInfo.gapPrice}}元
+            </view>
+            <view class="group-member-num" wx:if="{{eventType!=1&&eventType!=7}}">{{goodsInfo.requireNum}}人团</view>
+            <view class="sales-num" wx:if="{{sales>0&&!isFreeTrial&&!hasLotteryRule}}">
+                · 已团{{sales}}件
+            </view>
+        </view>
+        <view class="group-detail-goods-price-info">
+            <view class="price {{promotions&&promotions.events&&promotions.events.promotion_price_activity&&promotions.events.promotion_price_activity.copy_writing&&promotions.events.promotion_price_activity.copy_writing.activity_copy_writing_title?'price_activity':''}}">
+                <text class="unit">¥  </text>
+                <text class="num">{{goodsInfo.price}}</text>
+            </view>
+            <view class="group-member-num group-price-gap" wx:if="{{eventType!=1}}">
+                <view class="activity_writing" wx:if="{{promotions&&promotions.events&&promotions.events.promotion_price_activity&&promotions.events.promotion_price_activity.copy_writing&&promotions.events.promotion_price_activity.copy_writing.activity_copy_writing_title}}">
+                    <text class="icon"></text>
+                    <text class="desc">
+                            {{promotions.events.promotion_price_activity.copy_writing.activity_copy_writing_title}}
+                        </text>
+                </view>
+                <block wx:else>
+                    拼团省{{goodsInfo.gapPrice}}元
+                </block>
+            </view>
+        </view>
+    </view>
+</view>

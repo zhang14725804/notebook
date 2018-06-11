@@ -1,0 +1,3 @@
+<view class="g-share-info-view g-share-info-{{subjectShareBtnStatus=='hide'?'hide':'show'}}">
+    <button catchtap="share" catchtouchmove="$subjectBtnShowHide" class="g-share-info" data-set-status="{{subjectShareBtnStatus}}" data-sub-refer="subject-share-btn" hidden="{{noOrderText&&list.length===0}}" openType="share">分享给好友</button>
+</view>

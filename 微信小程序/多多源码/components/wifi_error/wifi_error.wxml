@@ -1,0 +1,7 @@
+<template name="wifi-error">
+    <view class="wifi-error">
+        <view class="wifi-error-img"></view>
+        <view class="wifi-error-text">手机网络不太顺畅，请检查网络状况</view>
+        <view catchtap="reLoad" class="wifi-error-btn">重新加载</view>
+    </view>
+</template>

@@ -1,0 +1,12 @@
+<template name="common-qa-tpl">
+    <view class="list-title">{{level==1?'问题类型':'常见问题'}}</view>
+    <view class="common-qa-list">
+        <view class="item-group" wx:for="{{sortedList}}" wx:for-item="group" wx:key="group-{{index}}">
+            <view catchtap="viewFAQ" class="question-list-item" data-list-item="{{item}}" wx:for="{{group}}" wx:key="item-{{index}}">
+                <image class="item-icon" src="{{item.iconUrl}}" wx:if="{{level==1}}"></image>
+                <text style="margin-left:8px">{{item.type_desc}}</text>
+                <view class="separator-line" wx:if="{{index<group.length-1}}"></view>
+            </view>
+        </view>
+    </view>
+</template>

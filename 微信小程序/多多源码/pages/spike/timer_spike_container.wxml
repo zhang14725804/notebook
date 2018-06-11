@@ -1,0 +1,29 @@
+<template name="timerSpikeContainer">
+    <view class="ts-container" wx:if="{{canShow}}">
+        <view class="ts-container-head">
+            <view class="ts-time-line ts-time-line-{{isPast?'red':'yellow'}} {{containerIndex==0?'rewrite-ts-time-line-marTop':''}} ">
+                <view class="{{spikeTitleIcon}} icon ts-now-time-line-icon"></view>
+                <view class="ts-time-line-num">
+                    <text hidden="{{!timeDay}}">{{timeDay}} </text>
+                    <text hidden="{{isPast&&isBrand}}">{{timeLine}}</text>
+                    <text>{{title}}</text>
+                </view>
+            </view>
+            <view class="ts-down-count">
+                <view class="ts-down-count-text">{{timerText}}</view>
+                <view class="ts-down-count-num-view">
+                    <text class="num">{{timerNumObj.hours}}</text>
+                    <text class="colon">:</text>
+                    <text class="num">{{timerNumObj.minutes}}</text>
+                    <text class="colon">:</text>
+                    <text class="num">{{globalSecond}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="ts-container-body">
+            <template is="spikeGoodsItem" data="{{...item,item:item,goodsIndex:index,timeDay:timeDay,timeLine:timeLine}}" wx:if="{{goodsList&&goodsList.length>0}}" wx:for="{{goodsList}}" wx:key="goods-list-{{index}}"></template>
+            <template is="spikeGoodsItem" data="{{...item}}" wx:if="{{salesOut&&salesOut.length>0}}" wx:for="{{salesOut}}" wx:key="sales-out-{{index}}"></template>
+        </view>
+    </view>
+</template>
+<import src="/pages/spike/spike_goods_item.wxml"></import>

@@ -1,0 +1,92 @@
+<import src="/components/loading/loading.wxml"></import>
+<import src="/components/toast/toast.wxml"></import>
+<import src="/components/user_authorize_modal/user_authorize_modal.wxml"></import>
+<view class="container" wx:if="{{couponInfo||goodsDetail}}">
+    <view class="head">
+        <view class="head_star">
+            <view catchtap="goToGoodsDetail" class="head_star_to_goods"></view>
+        </view>
+        <view class="w_coupon">
+            <view class="price_info">
+                <view class="price">
+                    <text class="unit">¥  </text>
+                    <text class="num">{{couponInfo.standardPrice}}</text>
+                </view>
+                <view class="time">
+                    <text class="left"></text>
+                    <text class="num">{{couponInfo.couponStartTime}}-{{couponInfo.couponEndTime}}</text>
+                    <text class="right"></text>
+                </view>
+            </view>
+            <view class="goods_info">
+                <view catchtap="goToGoodsDetail" class="goods">
+                    <view class="pic">
+                        <image src="{{goodsDetail.goodsPic}}"></image>
+                    </view>
+                    <view class="info">
+                        <view class="name">
+                            {{goodsDetail.goodsName}}
+                        </view>
+                        <view class="price">
+                            <view class="market_price">
+                                <text class="title">现价</text>
+                                <text>¥  </text>
+                                <text>{{goodsDetail.goodsFactPriceStd}}</text>
+                            </view>
+                            <view class="sales_price">
+                                <view class="item sales_icon">券后价</view>
+                                <view class="item num">
+                                    <text>¥  </text>
+                                    <text>{{goodsDetail.couponPriceStd}}</text>
+                                </view>
+                                <view class="item group_num">已拼{{goodsDetail.salesStd}}件</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="service_area">
+                    <form bindsubmit="showServiceDetail" reportSubmit="true">
+                        <button class="service" formType="submit">
+                            <view class="item" wx:if="{{index<=3}}" wx:for="{{servicePromise}}" wx:key="{{item.type}}">
+                                <text class="icon"></text>
+                                <text>{{item.type}}</text>
+                            </view>
+                            <text class="item check_info"></text>
+                        </button>
+                    </form>
+                </view>
+            </view>
+        </view>
+    </view>
+    <form bindsubmit="takeCoupon" reportSubmit="true">
+        <button class="get_btn" formType="submit">一键抢券</button>
+    </form>
+    <view class=""></view>
+</view>
+<view catchtap="hideServiceDetail" catchtouchmove="stopDetailMove" class="service-detail-bg" hidden="{{!serviceDetailVisible}}">
+    <view catchtap="defaultClick" class="service-detail-main {{serviceMainClass}}">
+        <view class="service-title">
+            服务说明
+            <view catchtap="hideServiceDetail" class="service-close-btn">
+                <view class="close-btn"></view>
+            </view>
+        </view>
+        <view id="service-list">
+            <view class="service-item" wx:for="{{servicePromise}}" wx:key="service-detail-{{index}}">
+                <view class="ms-item-icon icon-productdet-right" style="color:{{goodsInfo.channelSign.fontColor}};"></view>
+                <view class="service-item-name">{{item.type}}</view>
+                <view class="service-item-desc">{{item.desc}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="toast-container" hidden="{{hideToastCon}}">
+    <view class="toast_info">
+        <view class="icon {{toastIcon}}"></view>
+        <view class="desc">{{toastText}}</view>
+        <view class="sub_desc">{{subToastText}}</view>
+    </view>
+</view>
+<template is="toast" data="{{...$toastData}}"></template>
+<template is="loading-tpl" data="{{...$loadingData}}"></template>
+<template is="user-authorize-modal" data="{{...$userAuthorizeModalData}}"></template>

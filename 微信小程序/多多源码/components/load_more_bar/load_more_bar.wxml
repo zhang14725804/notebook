@@ -1,0 +1,8 @@
+<template name="load-more-bar-template">
+    <view class="load-more-bar {{isIpx?'fix-ipx-load-more':''}}">
+        <view class="load-more-line" wx:if="{{!canLoadMore}}"></view>
+        <button class="load-more-btn" disabled="true" loading="{{canLoadMore}}" plain="false" type="default" wx:if="{{!isDrawResult}}">{{loadingTxt}}</button>
+        <text class="load-more-btn-draw-result" wx:else>{{loadingTxt}}</text>
+        <view class="load-more-line" wx:if="{{!canLoadMore}}"></view>
+    </view>
+</template>

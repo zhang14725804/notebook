@@ -1,0 +1,9 @@
+<template name="LargeMixinPromotion">
+    <form bindsubmit="$uploadFormId" reportSubmit="true">
+        <button catchtap="gotoSubject" class="sub-promotion-module-v2" data-subject-id="{{subject_id}}" formType="submit" id="impr-id">
+            <view>
+                <image mode="widthFix" src="{{banner}}"></image>
+            </view>
+        </button>
+    </form>
+</template>

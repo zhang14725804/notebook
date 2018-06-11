@@ -1,0 +1,64 @@
+<template name="contact-item-tpl">
+    <view bindtap="mallClicked" bindtouchend="touchEnd" bindtouchmove="touchMove" bindtouchstart="touchStart" class="contact-item-container {{touchStartIndex===index?' contact-item-container-selected':''}}" data-index="{{index}}" data-mall-id="{{item.mallId}}" id="{{'msg'+index}}">
+        <view class="contact-item-content {{deleteIndex===index?' delete':''}}">
+            <view class="contact-item">
+                <image class="avatar" src="{{item.mallLogo}}"></image>
+                <view class="contact-content">
+                    <view class="name-container">
+                        <view class="mall-name">{{item.mallName}}</view>
+                        <image class="offical-icon" src="http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/custom_service/offical_icon.png" wx:if="{{item.mallId===606}}"></image>
+                    </view>
+                    <view class="content">{{item.contentStr}}</view>
+                </view>
+            </view>
+            <view catchtap="onDeleteItemClicked" class="delete-item" data-index="{{index}}" wx:if="{{!isAndroid}}">删除</view>
+            <view class="time">{{item.timeStr}}</view>
+            <text class="unread-count-bubble" wx:if="{{item.unReadCount>0}}">{{item.unReadCount}}</text>
+        </view>
+    </view>
+</template>
+<import src="/components/toast/toast.wxml"></import>
+<import src="/components/wifi_error/wifi_error.wxml"></import>
+<import src="/components/load_more_bar/load_more_bar.wxml"></import>
+<import src="/components/loading/loading.wxml"></import>
+<import src="/components/resource_place_config/resource_place_config.wxml"></import>
+<import src="/components/go_to_top/go_to_top.wxml"></import>
+<import src="/components/double_grid_item/grid_item_v2.wxml"></import>
+<view class="line"></view>
+<view class="no-message-container" wx:if="{{showEmpty&&!loadingVisibility}}">
+    <image class="no-message-img" src="http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/custom_service/no_message.png"></image>
+    <text class="txt">还没有聊天信息哦</text>
+    <text class="txt1">与商家，官方客服聊天的会显示在这里</text>
+    <text bindtap="onOfficialClicked" class="txt2">联系官方客服</text>
+</view>
+<scroll-view bindscroll="onScroll" bindscrolltolower="scrollToLower" class="container" scrollIntoView="{{scrollToViewId}}" scrollTop="{{scrollTop}}" scrollWithAnimation="{{false}}" scrollY="{{true}}" wx:else>
+    <template is="oms_banner_tpl" data="{{...resourcePlaceConfigBanner,marginTop:0}}"></template>
+    <template is="contact-item-tpl" data="{{item:item,index:index,touchStartIndex:touchStartIndex,deleteIndex:deleteIndex,isAndroid:isAndroid}}" wx:for="{{contactList}}" wx:key="index"></template>
+</scroll-view>
+<view class="new-arrivals-title-view" wx:if="{{!isShowWifiError}}">
+    <view class="title-view">
+        <view class="title">
+            <view class="new-arrivals-icon"></view>
+            <view>为你推荐</view>
+        </view>
+    </view>
+</view>
+<view capture-catch:tap="{{clickEnable?'':'catchtap'}}" class="good-list-container" wx:if="{{!isShowWifiError}}">
+    <template is="{{item.itemName}}" data="{{...item,index:index,localGroups:localGroupsMap[item.goodsId].list}}" wx:if="{{noOrderText||index!==list.length-1||index%2!==0}}" wx:for="{{list}}" wx:key="{{item.goodsId}}"></template>
+</view>
+<template is="resourcePlaceConfig" data="{{...resourcePlaceConfigFloat,topShow:goTopClass}}"></template>
+<view class="delete-content" style="left:{{longPressX}}rpx; top:{{longPressY}}rpx;" wx:if="{{longPressMallIndex>=0}}">
+    <view bindtap="onDeleteClicked" class="content">删除</view>
+    <view class="arrow"></view>
+</view>
+<view catchtap="onDeleteMaskClicked" catchtouchmove="preventMaskTouchMove" class="delete-mask" wx:if="{{longPressMallIndex>=0}}"></view>
+<template is="to-top-template" data="{{topShow:goTopClass,bigSaleTopShow:'big_sales_top_show',diy:true}}"></template>
+<template is="toast" data="{{...$toastData}}"></template>
+<view hidden="{{noOrderText||page==1}}">
+    <template is="load-more-bar-template" data="{{canLoadMore:true,loadingTxt:'正在加载...'}}"></template>
+</view>
+<view hidden="{{!noOrderText}}">
+    <template is="load-more-bar-template" data="{{canLoadMore:false,loadingTxt:noOrderText}}"></template>
+</view>
+<template is="loading-tpl" data="{{...$loadingData}}"></template>
+<template is="wifi-error" data wx:if="{{showError}}"></template>

@@ -1,0 +1,20 @@
+<template name="help_pay_type">
+    <form bindsubmit="selectPayType" reportSubmit="true" wx:if="{{showWechatPay}}">
+        <button data-name="wechatPay" formType="submit">
+            <view class="item" style="{{!showFriendPay?'border: none':''}}">
+                <text class="icon wechat_icon"></text>
+                <text class="pay_type">微信支付</text>
+                <text class="check_icon" wx:if="{{wechatPay}}"></text>
+            </view>
+        </button>
+    </form>
+    <form bindsubmit="selectPayType" reportSubmit="true" wx:if="{{showFriendPay}}">
+        <button data-name="friendPay" formType="submit">
+            <view class="item item_friend_pay">
+                <text class="icon help_icon"></text>
+                <text class="pay_type">找微信好友代付</text>
+                <text class="check_icon" wx:if="{{friendPay}}"></text>
+            </view>
+        </button>
+    </form>
+</template>

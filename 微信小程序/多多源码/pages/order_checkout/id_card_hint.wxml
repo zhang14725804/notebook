@@ -1,0 +1,18 @@
+<view class="bg-fill"></view>
+<view class="id-card-hint-container">
+    <image class="id-card-hint-head" mode="widthFix" src="http://pinduoduoimg.yangkeduo.com/base/id_card/id_card_hint_header.png"></image>
+    <view class="id-card-hint-body">
+        <view class="hint-item" wx:for="{{idCardHints}}" wx:key="hint-{{index}}">
+                {{item}}
+                <view class="hint-item-index">
+                    {{index+1}}
+                </view>
+        </view>
+        <view catchtap="hideIdCardHint" class="confirm-btn">
+            我知道了
+        </view>
+    </view>
+    <view catchtap="hideIdCardHint" class="close-button">
+        <image mode="widthFix" src="http://pinduoduoimg.yangkeduo.com/jsalert/alert_app_download_close.png"></image>
+    </view>
+</view>

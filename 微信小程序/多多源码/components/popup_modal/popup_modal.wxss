@@ -1,0 +1,56 @@
+.popup-modal-close-btn {
+    position: absolute;
+    top: 190rpx;
+    right: 8%;
+    width: 54rpx;
+    height: 54rpx;
+    background: url(http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/limit_challenge/lc_index_model_close.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.popup-modal-modal-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    overflow: hidden;
+    z-index: 10003;
+    color: #fff;
+    animation: fadeIn 0.3s ease normal forwards;
+}
+
+@-webkit-keyframes popupFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.popup-modal-background-view {
+    background-color: transparent;
+    display: block;
+    top: 240rpx;
+    position: relative;
+    width: 80%;
+    animation: scaleIn 0.3s ease normal forwards;
+    padding: 0;
+}
+
+.popup-modal-background-image {
+    width: 100%;
+}

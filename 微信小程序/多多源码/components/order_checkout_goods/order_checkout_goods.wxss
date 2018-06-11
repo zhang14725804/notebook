@@ -1,0 +1,345 @@
+.oc-goods {
+    position: relative;
+    width: 100%;
+    min-height: 316rpx;
+    margin-bottom: 16rpx;
+    background-color: #fff;
+}
+
+.oc-goods-mall {
+    position: relative;
+    width: 100%;
+    height: 78rpx;
+    line-height: 80rpx;
+    text-align: left;
+    font-size: 0;
+}
+
+.oc-goods-mall image {
+    display: inline-block;
+    width: 40rpx;
+    height: 40rpx;
+    margin: 18rpx 26rpx;
+    border-radius: 4rpx;
+}
+
+.oc-goods-mall text {
+    font-size: 26rpx;
+    color: #151516;
+}
+
+.oc-goods-info {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 16rpx 20rpx;
+    font-size: 0;
+    background-color: #f5f5f5;
+    display: flex;
+}
+
+.oc-goods-info .goods-info-pic {
+    width: 180rpx;
+    height: 180rpx;
+}
+
+.oc-goods-info image {
+    width: 180rpx;
+    height: 180rpx;
+}
+
+.oc-goods-detail {
+    position: relative;
+    padding: 6rpx 0 0 20rpx;
+}
+
+.oc-goods-name {
+    position: relative;
+    display: -webkit-box;
+    width: 100%;
+    height: 64rpx;
+    line-height: 32rpx;
+    font-size: 26rpx;
+    color: #151516;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    word-wrap: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-align: left;
+}
+
+.oc-goods-spec {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    font-size: 0;
+    padding-top: 4rpx;
+}
+
+.oc-goods-spec view {
+    position: relative;
+    font-size: 24rpx;
+    line-height: 33rpx;
+    color: #9c9c9c;
+    padding: 0;
+}
+
+.oc-goods-price {
+    margin-top: 4rpx;
+    position: relative;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #151516;
+}
+
+.oc-goods-number {
+    position: relative;
+    width: 100%;
+    height: 94rpx;
+    line-height: 96rpx;
+    font-size: 0;
+    text-align: left;
+    margin-left: 20rpx;
+}
+
+.oc-goods-number text {
+    position: relative;
+    display: inline-block;
+    font-size: 28rpx;
+    color: #151516;
+}
+
+.oc-goods-given {
+    position: relative;
+    display: inline-block;
+    margin-left: 9px;
+    font-size: 11px;
+    color: #ee2e3e;
+}
+
+.oc-reduce-disable {
+    background-color: #f2f2f2!important;
+}
+
+.oc-goods-reduce {
+    position: absolute;
+    display: inline-block;
+    width: 62rpx;
+    height: 50rpx;
+    top: 22rpx;
+    right: 184rpx;
+    border-radius: 4rpx;
+    background-color: #e0e0e0;
+}
+
+.oc-address-info-form button {
+    line-height: normal;
+}
+
+.oc-goods-number button::after {
+    content: none;
+}
+
+.oc-increase-disable {
+    background-color: #f2f2f2!important;
+}
+
+.oc-increase-disable::before {
+    background-position: -32rpx -56rpx!important;
+}
+
+.oc-goods-increase::before {
+    content: '';
+    position: absolute;
+    width: 24rpx;
+    height: 24rpx;
+    top: 14rpx;
+    left: 20rpx;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/order_checkout_icon_v2.png") no-repeat;
+    background-position: 0 -56rpx;
+    background-size: 132rpx 142rpx;
+}
+
+.oc-reduce-disable::before {
+    background-position: -98rpx -56rpx!important;
+}
+
+.oc-goods-reduce::before {
+    content: "";
+    position: absolute;
+    width: 24rpx;
+    height: 24rpx;
+    top: 14rpx;
+    left: 20rpx;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/order_checkout_icon_v2.png") no-repeat;
+    background-position: -66rpx -56rpx;
+    background-size: 132rpx 142rpx;
+}
+
+.oc-buy-number {
+    position: absolute;
+    display: inline-block;
+    width: 74rpx;
+    height: 50rpx;
+    top: 22rpx;
+    right: 106rpx;
+    line-height: 50rpx;
+    font-size: 28rpx;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    color: #151516;
+    text-align: center;
+    border-radius: 4rpx;
+}
+
+.oc-goods-increase {
+    position: absolute;
+    display: inline-block;
+    width: 62rpx;
+    height: 50rpx;
+    border-radius: 4rpx;
+    top: 22rpx;
+    right: 40rpx;
+    background-color: #e0e0e0;
+}
+
+.without-right {
+    right: 40rpx;
+}
+
+.oc-mall-coupon-info {
+    position: relative;
+    width: 100%;
+    height: 92rpx;
+    line-height: 92rpx;
+    font-size: 0;
+    text-align: left;
+    border-top: #ededed solid 1px;
+    margin-left: 20rpx;
+}
+
+.oc-mall-coupon-info view {
+    font-size: 28rpx;
+    color: #151516;
+}
+
+.oc-mall-coupon-info .oc-mall-coupon-desc {
+    position: absolute;
+    right: 66rpx;
+    top: 0;
+    color: #58595b;
+}
+
+.oc-mall-coupon-text-red,.oc-p-coupon-desc-advise {
+    color: #E23939!important;
+}
+
+.oc-mall-coupon-info:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 16rpx;
+    height: 24rpx;
+    background: url(http://cdn.yangkeduo.com/assets/img/order_checkout_icon_v2-f9b641a95e.png) no-repeat;
+    background-position: -86rpx 0;
+    background-size: 132rpx 142rpx;
+    right: 40rpx;
+    top: 34rpx;
+}
+
+.oc-super-reduce {
+    position: relative;
+    display: inline-block;
+    width: 62rpx;
+    height: 50rpx;
+    border-radius: 4rpx;
+    background-color: #e0e0e0;
+    margin-right: 4rpx;
+}
+
+.oc-super-reduce::before {
+    content: "";
+    position: absolute;
+    width: 24rpx;
+    height: 24rpx;
+    top: 14rpx;
+    left: 20rpx;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/order_checkout_icon_v2.png") no-repeat;
+    background-position: -66rpx -56rpx;
+    background-size: 132rpx 142rpx;
+}
+
+.oc-reduce-super-disable::before {
+    background-position: -98rpx -56rpx!important;
+}
+
+.oc-reduce-super-disable {
+    background-color: #f2f2f2!important;
+}
+
+.oc-super-increase {
+    display: inline-block;
+    width: 62rpx;
+    height: 50rpx;
+    border-radius: 4rpx;
+    position: relative;
+    background-color: #e0e0e0;
+    margin-left: 12rpx;
+}
+
+.oc-increase-super-disable::before {
+    background-position: -32rpx -56rpx!important;
+}
+
+.oc-super-increase::before {
+    content: '';
+    position: absolute;
+    width: 24rpx;
+    height: 24rpx;
+    top: 14rpx;
+    left: 20rpx;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/order_checkout_icon_v2.png") no-repeat;
+    background-position: 0 -56rpx;
+    background-size: 132rpx 142rpx;
+}
+
+.oc-increase-super-disable {
+    background-color: #f2f2f2!important;
+}
+
+.oc-super-number {
+    display: table-cell;
+    width: 94rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 28rpx;
+    margin: 0;
+    outline: 0;
+    padding: 0 4rpx;
+    color: #151516;
+    text-align: center;
+    border-radius: 4rpx;
+    background-color: #f2f2f2;
+    margin-right: 4rpx;
+}
+
+.oc-super-number-input {
+    display: inline-block;
+    width: 94rpx;
+    height: 50rpx;
+}
+
+.oc-super-edit-btn {
+    line-height: 44rpx;
+    font-size: 24rpx;
+    color: white;
+    float: right;
+    display: inline-block;
+    padding: 0 20rpx;
+    border-radius: 4rpx;
+    background-color: #ee2e3a;
+    margin-top: 3rpx;
+}

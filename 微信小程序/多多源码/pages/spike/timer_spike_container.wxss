@@ -1,0 +1,130 @@
+.ts-container {
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    margin-bottom: 16rpx;
+}
+
+.ts-container-head {
+    width: 100%;
+    height: 144rpx;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ts-time-line {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    margin-top: 29rpx;
+    height: 53rpx;
+}
+
+.ts-time-line-red {
+    color: #e02e24;
+}
+
+.ts-time-line-yellow {
+    color: #fdc600;
+}
+
+.ts-time-line-num {
+    font-size: 38rpx;
+    height: 53rpx;
+    line-height: 53rpx;
+    font-weight: 700;
+}
+
+.ts-now-time-line-icon {
+    margin-right: 8rpx;
+    font-size: 32rpx;
+}
+
+.ts-down-count {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 11rpx;
+    height: 36rpx;
+}
+
+.ts-down-count-num-view {
+    display: inline-flex;
+    line-height: 1;
+}
+
+.ts-down-count-num-view .num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 28rpx;
+    line-height: 36rpx;
+    width: 46rpx;
+    height: 36rpx;
+    margin: 0 2rpx;
+    background-color: #383838;
+    border-radius: 4rpx;
+}
+
+.ts-down-count-num-view .colon {
+    line-height: 1;
+    color: #383838;
+}
+
+.ts-down-count-text {
+    font-size: 26rpx;
+    color: #000000;
+    line-height: 37rpx;
+    height: 37rpx;
+    margin-right: 7rpx;
+}
+
+.ts-head-bottom {
+    margin-bottom: 14rpx;
+}
+
+.ts-container-body {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.ts-sales-out-line {
+    position: absolute;
+    top: 30rpx;
+    width: 1440rpx;
+    height: 1px;
+    background-color: #d5d5d5;
+    transform-origin: 0 0;
+    transform: scale(0.5,0.5);
+    box-sizing: border-box;
+    z-index: 11;
+}
+
+.ts-sales-out-title-view {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    margin-left: -87rpx;
+    width: 174rpx;
+    z-index: 11;
+    background-color: #ffffff;
+}
+
+.ts-sales-out-title {
+    width: 100%;
+    font-size: 24rpx;
+    color: #9C9B9B;
+    display: flex;
+    justify-content: center;
+    margin-top: 16rpx;
+}

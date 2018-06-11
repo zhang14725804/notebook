@@ -1,0 +1,83 @@
+<template name="serviceNoticeLandPage">
+    <view wx:if="{{isShowServiceNotice}}">
+        <view class="service-notification-wrap service-info-container">
+            <view class="service-notification" wx:if="{{isShowTip===0}}">
+                <view class="service-notification-info">
+                    <view>恭喜您获得88元优惠券</view>
+                    <view class="service-notification-sub-info">可在个人中心-我的优惠券查看</view>
+                </view>
+                <view class="service-logo">
+                    <image src="http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/subjects/coupon_icon.png"></image>
+                </view>
+            </view>
+            <view class="service-notification order-pay-success" wx:if="{{isShowTip===1}}">
+                <view class="service-notification-info service-notification-position">
+                    <view>您已支付成功</view>
+                    <view class="service-notification-sub-info sub-info-pdd-left">{{goodsName}}</view>
+                </view>
+            </view>
+            <view class="service-notification fight_group_failed_refund" wx:if="{{isShowTip===2}}">
+                <view class="service-notification-info service-notification-position">
+                    <view>已为您安排退款，请注意余额变动</view>
+                    <view class="service-notification-sub-info sub-info-pdd-left">{{goodsName}}</view>
+                </view>
+            </view>
+            <view class="service-notification fight_group_success" wx:if="{{isShowTip===3}}">
+                <view class="service-notification-info service-notification-position">
+                    <view>恭喜您拼团成功</view>
+                    <view class="service-notification-sub-info sub-info-pdd-left">{{goodsName}}</view>
+                </view>
+            </view>
+            <view class="service-notification" wx:if="{{isShowTip===4}}">
+                <view class="service-notification-info">
+                    <view>恭喜您瓜分红包成功</view>
+                    <view class="service-notification-sub-info">可在个人中心-我的优惠券查看</view>
+                </view>
+                <view class="service-logo">
+                    <image src="http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/subjects/coupon_icon.png"></image>
+                </view>
+            </view>
+            <view class="service-notification ship" wx:if="{{isShowTip===5}}">
+                <view class="service-notification-info service-notification-position ship-position">
+                    <view>您的商品已发货</view>
+                    <view class="service-notification-sub-info sub-info-pdd-left ship-sub-info">
+                        <view class="ship-goods-info">{{goodsName}}</view>
+                        <view catchtap="_fowardOrderdetail" class="ship-see-more-detail" data-order-sn="{{orderSn}}">［查看详情］></view>
+                    </view>
+                </view>
+            </view>
+            <view class="service-notification coupon_expired" wx:if="{{isShowTip===6}}">
+                <view class="service-notification-info service-notification-position">
+                    <view>您价值n元的优惠券即将过期</view>
+                    <view class="service-notification-sub-info">过期倒计时{{countdown}}</view>
+                </view>
+            </view>
+            <view class="service-notification cancel_order" wx:if="{{isShowTip===7}}">
+                <view class="service-notification-info service-notification-position">
+                    <view>您的订单已成功取消</view>
+                    <view class="service-notification-sub-info sub-info-pdd-left">{{goodsName}}</view>
+                </view>
+            </view>
+            <view class="service-notification help_pay" wx:if="{{isShowTip===8}}">
+                <view class="service-notification-info service-notification-position">
+                    <view>您已帮好友付款成功</view>
+                    <view class="service-notification-sub-info sub-info-pdd-left">{{goodsName}}</view>
+                </view>
+            </view>
+            <view class="service-notification" wx:if="{{isShowTip===10}}">
+                <view class="service-notification-info">
+                    <view>恭喜您获得3元新人优惠券</view>
+                    <view class="service-notification-sub-info">可在个人中心-我的优惠券查看</view>
+                </view>
+                <view class="service-logo">
+                    <image src="http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/subjects/coupon_icon.png"></image>
+                </view>
+            </view>
+            <view class="service-title-img">
+                <view class="service-title-img-wrap">
+                    <image src="http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/subjects/recommend.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

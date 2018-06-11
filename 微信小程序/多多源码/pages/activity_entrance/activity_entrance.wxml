@@ -1,0 +1,20 @@
+<view class="container blue_bg">
+    <view class="head"></view>
+    <view class="body blue_bg">
+        <view class="activity_list red_bg">
+            <view class="item {{item.key}}" wx:for="{{activityList}}" wx:key="{{item.key}}">
+                <view class="title_area">
+                    <view class="title {{item.title.length>3?'title_long':'title_short'}}  red_bg">
+                        <text wx:for="{{item.title}}" wx:for-item="title_item" wx:key="{{title_item}}">{{title_item}}</text>
+                    </view>
+                </view>
+                <form bindsubmit="goToActivity" reportSubmit="true">
+                    <button class="detail_area" data-go-to="{{item.goTo}}" data-page-element="{{item.pageElement}}" formType="submit">
+                        <view class="detail"></view>
+                    </button>
+                </form>
+            </view>
+        </view>
+        <view class="footer"></view>
+    </view>
+</view>

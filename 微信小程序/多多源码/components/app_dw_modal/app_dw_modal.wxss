@@ -1,0 +1,29 @@
+#app-dw-modal .app-dw-bg {
+    width: 684rpx;
+    height: 770rpx;
+    background-image: url('https://xcximgcdn.yangkeduo.com/daily_raider/app-dw-bg.png');
+    background-size: 684rpx 770rpx;
+    margin: 30% auto auto auto;
+    position: relative;
+}
+
+#app-dw-modal .app-dw-close-btn {
+    width: 440rpx;
+    height: 90rpx;
+    position: absolute;
+    left: 110rpx;
+    bottom: 100rpx;
+    padding: 0;
+    background-color: transparent;
+}
+
+#app-dw-modal .app-dw-rw {
+    position: absolute;
+    right: 140rpx;
+    top: 72rpx;
+    letter-spacing: 14rpx;
+    font-family: PingFang-SC-Bold;
+    font-size: 130rpx;
+    color: #F55238;
+    font-weight: bold;
+}

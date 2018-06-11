@@ -1,0 +1,457 @@
+.msg-area {
+    padding-top: 20rpx;
+}
+
+.input-desc {
+    background-color: white;
+    padding: 0 20rpx;
+    line-height: 100rpx;
+    font-size: 30rpx;
+}
+
+.neg-list {
+    padding: 20rpx;
+    color: #333333;
+}
+
+.neg-item {
+    background-color: white;
+    font-size: 22rpx;
+    padding: 20rpx;
+    border-radius: 10rpx;
+    margin-bottom: 20rpx;
+}
+
+.neg-item:last-child {
+    margin-bottom: 0;
+}
+
+.neg-head {
+    padding-bottom: 20rpx;
+    border-bottom: solid 1px #eee;
+}
+
+.neg-head-img {
+    height: 80rpx;
+    width: 80rpx;
+    border-radius: 10rpx;
+    margin-right: 20rpx;
+    vertical-align: middle;
+}
+
+.neg-head-info {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.neg-head-title {
+    font-size: 28rpx;
+}
+
+.neg-head-time {
+    font-size: 24rpx;
+    color: #666666;
+    line-height: 40rpx;
+}
+
+.neg-body {
+    line-height: 50rpx;
+    padding-top: 10rpx;
+}
+
+.neg-img-list .neg-img-item {
+    display: inline-block;
+    height: 120rpx;
+    width: 120rpx;
+    margin-right: 20rpx;
+    border: solid 1px #cccccc;
+}
+
+.send-msg {
+    text-align: right;
+    padding: 20rpx;
+}
+
+.send-msg-btn {
+    background-color: #e02e24;
+    color: white;
+    font-size: 28rpx;
+    display: inline-block;
+}
+
+.complaint-desc-input-textarea {
+    font-family: monospace;
+    border: none;
+    width: 100%;
+    height: 256rpx;
+    font-size: 32rpx;
+    line-height: 46rpx;
+    color: black;
+    resize: none;
+    display: block;
+    padding: 0!important;
+    margin: 0!important;
+    border-radius: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    text-indent: 0;
+    -webkit-rtl-ordering: logical;
+    user-select: text;
+    outline: 0;
+}
+
+.complaint-layout-padding {
+    padding-left: 20rpx;
+    width: 100%;
+    position: relative;
+    margin-bottom: 16rpx!important;
+    background-color: #fff;
+}
+
+.images-info {
+    padding: 90rpx 20rpx 24rpx 0;
+    position: relative;
+    border-bottom: none!important;
+}
+
+.images-info-title {
+    left: 0;
+    top: 31rpx;
+    height: 61rpx;
+    position: absolute;
+    line-height: 32rpx;
+    color: #58595b;
+    font-size: 30rpx;
+    width: 100%;
+    pointer-events: none;
+    cursor: pointer;
+    border-bottom: none!important;
+}
+
+.input-number-hint {
+    color: #9c9c9c;
+    font-size: 26rpx;
+    margin-right: 20rpx;
+}
+
+.image-unloader-positioner {
+    height: 0;
+}
+
+.image-uploader-root {
+    padding: 0;
+    font-size: 0;
+}
+
+.image-uploader-image {
+    position: relative;
+    display: inline-block;
+    width: 108rpx;
+    height: 108rpx;
+    border: 2rpx dashed #e6e6e6;
+    padding: 2rpx;
+    box-sizing: border-box;
+    border-radius: 4rpx;
+    margin-right: 50rpx;
+}
+
+.image-uploader-image image {
+    width: 100rpx;
+    height: auto;
+    max-width: 100rpx;
+    max-height: 100rpx;
+    overflow: hidden;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.image-uploader-image-delete {
+    border-radius: 50%;
+    position: absolute;
+    right: -16rpx;
+    top: -16rpx;
+    background-color: #e02e24;
+    height: 40rpx;
+    width: 40rpx;
+    text-align: center;
+    color: #fff;
+}
+
+.image-uploader-image-delete-sub {
+    height: 6rpx;
+    width: 20rpx;
+    border-radius: 3rpx;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.image-uploader-image-info {
+    width: 102rpx;
+    padding: 4rpx 0;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    font-size: 24rpx;
+    background-color: rgba(0,0,0,.5);
+}
+
+.image-uploader-selector {
+    width: 108rpx;
+    height: 108rpx;
+    background-size: 64rpx 54rpx;
+    background-image: url("http://minipinduoduo.oss-cn-shanghai.aliyuncs.com/refund_money/image_uploader_selector.png");
+    background-position: 20rpx 24rpx;
+    background-repeat: no-repeat;
+    border: 2rpx dashed #e6e6e6;
+    display: inline-block;
+    border-radius: 4rpx;
+}
+
+.complaint-block {
+    background-color: white;
+}
+
+.complaint-desc-input {
+    padding: 20rpx;
+    border-bottom: solid 1px #cccccc;
+}
+
+.neg-item {
+    padding-top: 0;
+}
+
+.neg-head {
+    position: relative;
+    width: 100%;
+    height: 90rpx;
+    border-bottom: 1px solid #ededed;
+    line-height: 90rpx;
+    padding-bottom: 0;
+}
+
+.neg-head .p-time {
+    font-size: 30rpx;
+}
+
+.neg-head .p-status {
+    float: right;
+    font-size: 28rpx;
+}
+
+.processing {
+    color: #f3a600;
+}
+
+.finish {
+    color: #25ad1f;
+}
+
+.neg-head .p-status::after {
+    content: "\e617";
+    font-family: "icomoon";
+    font-size: 24rpx;
+    padding-left: 10rpx;
+}
+
+.neg-body {
+    padding-top: 0;
+}
+
+.neg-body .type-desc {
+    position: relative;
+    height: 58rpx;
+    margin-top: 16rpx;
+    font-size: 30rpx;
+    line-height: 58rpx;
+    color: #151516;
+}
+
+.neg-body-word {
+    font-size: 28rpx;
+    clear: both;
+    color: #9c9c9c;
+}
+
+.neg-body-word .item-1 {
+    width: 132rpx;
+    float: left;
+    line-height: 40rpx;
+}
+
+.neg-body-word .item-2 {
+    margin-left: 132rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 40rpx;
+}
+
+.neg-img-list .neg-img-item {
+    width: 128rpx;
+    height: 128rpx;
+    margin-top: 16rpx;
+}
+
+.no-self-message {
+    margin-top: 140rpx;
+    text-align: center;
+    margin-bottom: 144rpx;
+}
+
+.no-self-message-icon {
+    width: 144rpx;
+    height: 144rpx;
+    margin: auto;
+    background: url(http://pinduoduoimg.yangkeduo.com/wxapp/orders_sprites.png);
+    background-size: 340rpx auto;
+    background-position: 0 -160rpx;
+}
+
+.no-self-message-text {
+    margin-top: 70rpx;
+    color: #151516;
+    font-size: 32rpx;
+}
+
+.no-self-message-advice {
+    color: #9c9c9c;
+    margin-top: 32rpx;
+    font-size: 24rpx;
+}
+
+.neg-list {
+    min-height: 556rpx;
+}
+
+.load-bar {
+    margin-top: 210rpx;
+}
+
+.recommend-title {
+    height: 92rpx;
+    line-height: 92rpx;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+    background-color: #fff;
+    overflow: hidden;
+    border-bottom: 2rpx solid #f2f2f2;
+}
+
+.recommend-t-content {
+    display: inline-block;
+    height: 92rpx;
+    position: relative;
+    margin-left: 23px;
+}
+
+.recommend-t-content:before {
+    content: '';
+    display: inline-block;
+    background: url("http://pinduoduoimg.yangkeduo.com/wxapp/tzfree_list_hot.png") no-repeat;
+    background-size: 18px 18px;
+    background-position: center;
+    width: 18px;
+    height: 92rpx;
+    margin-right: 10px;
+    position: absolute;
+    left: -28px;
+}
+
+.recommend {
+    width: 100%;
+    background-color: #eee;
+}
+
+.recShow {
+    display: flex;
+    display: -webkit-box;
+    align-items: flex-start;
+    -webkit-box-align: start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item {
+    width: 372rpx;
+    float: left;
+    background-color: #fff;
+    margin-bottom: 6rpx;
+}
+
+.item-pic {
+    width: 373rpx;
+    height: 373rpx;
+}
+
+.item-name {
+    margin: 22px 9px 12px 10px;
+    font-size: 24rpx;
+    color: #151516;
+    height: 70rpx;
+    line-height: 36rpx;
+    overflow: hidden;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.item-price {
+    overflow: hidden;
+    margin: 0px 10px;
+}
+
+.price {
+    color: #e02e24;
+    line-height: 68rpx;
+    font-size: 32rpx;
+    float: left;
+}
+
+.price:before {
+    content: '¥  ';
+    display: inline-block;
+    font-size: 24rpx;
+}
+
+.info {
+    line-height: 68rpx;
+    float: right;
+    color: #9c9c9c;
+    font-size: 20rpx;
+}
+
+.info-one {
+    display: inline-block;
+    float: left;
+    padding-right: 12px;
+    position: relative;
+}
+
+.info-one:after {
+    content: '.';
+    font-weight: bold;
+    position: absolute;
+    right: 2px;
+    top: -6rpx;
+    text-align: center;
+    width: 8px;
+    height: 68rpx;
+}
+
+.info-two {
+    display: inline-block;
+    float: left;
+}

@@ -1,0 +1,33 @@
+<template name="indexRecGoodsItem">
+    <form bindsubmit="gotoGoodsDetail" data-event-type="{{eventType}}" data-goods-id="{{goodsId}}" data-goods-item="{{transData}}" data-index="{{index}}" data-refer="main" reportSubmit="true" wx:if="{{goodsId}}">
+        <button class="item-body goods-list-item" formType="submit" hoverClass="none" id="impr-id">
+            <image class="goods-img" lazyLoad="true" src="{{imgUrl}}"></image>
+            <view class="goods-name">
+                <image class="national-flag" lazyLoad="true" mode="widthFix" src="{{nationalFlag}}" wx:if="{{nationalFlag}}"></image>
+                <text>{{goodsName}}</text>
+            </view>
+            <view class="single-item-detail">
+                <view class="sale-price">¥  {{price}}
+                </view>
+                <view class="mall-coupon" wx:if="{{hasMallCoupon===1}}">
+                    <text class="goods-mall-coupon">券</text>
+                </view>
+                <view class="group-desc" wx:if="{{isCompleteLottery}}">
+                    {{customerNum}}人团·单买价{{normalPrice}}元
+                </view>
+                <view class="group-desc" wx:elif="{{soldQuantity!='0'}}">
+                    已团{{soldQuantity}}件
+                </view>
+                <view class="enter-button" data-goods-id="{{goodsId}}" data-goods-item="{{transData}}" data-index="{{index}}">
+                    {{isFreeTrial?'去开团':'去开团'}}
+                    <view class="icon icon-arrows-right enter-button-arrow-v2"></view>
+                </view>
+                <view class="index-local-groups" wx:if="{{localGroupsMap[goodsId]&&localGroupsMap[goodsId].list.length>0}}">
+                    <view class="avatar" style="{{idx==1?'margin-right: -18rpx;':''}}" wx:for="{{localGroupsMap[goodsId].list}}" wx:for-index="idx" wx:for-item="user" wx:key="group-avatar-{{user.group_order_id}}">
+                        <image lazyLoad="true" src="{{user.avatar}}"></image>
+                    </view>
+                </view>
+            </view>
+        </button>
+    </form>
+</template>
