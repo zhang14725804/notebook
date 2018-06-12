@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "product-icon": "../component/producticon/producticon",
+        "friend-list": "../component/friendlist/friendlist",
+        "popup-alert": "../component/popup/popup"
+    },
+    "navigationBarTitleText": "爱回收",
+    "backgroundTextStyle": "light"
+}

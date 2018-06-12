@@ -1,0 +1,259 @@
+page {
+    height: 100%;
+}
+
+.content {
+    height: 100%;
+}
+
+.j-module {
+    overflow: hidden;
+}
+
+.goodsRecommend .list-item {
+    width: 48%;
+    margin: 1%;
+    float: left;
+    text-align: center;
+}
+
+.goodsRecommend .floor-pd-img {
+    padding: 9px;
+}
+
+.goodsRecommend .floor-pd-img image {
+    width: 100%;
+}
+
+.goodsRecommend .floor-pd-info {
+    text-align: center;
+}
+
+.goodsRecommend .floor-pd-info .name {
+    padding-left: 7px;
+    padding-right: 7px;
+    height: 30px;
+    line-height: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.goodsRecommend .floor-pd-price {
+    margin-top: 5px;
+    padding-bottom: 9px;
+    line-height: 15px;
+    color: #e53d40;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.goodsRecommend .floor-pd-cart {
+    height: 40px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.goodsRecommend .floor-pd-cart navigator {
+    position: relative;
+    display: block;
+    height: 40px;
+    background-color: #E43F3D;
+    color: #FFF;
+    font-size: 13px;
+}
+
+.goodsRecommend .floor-pd-cart navigator image {
+    float: left;
+    width: 20px;
+    height: 18px;
+    margin-top: 10px;
+    margin-left: 22%;
+}
+
+.goodsRecommend .floor-pd-cart navigator text {
+    float: left;
+    margin-top: 11px;
+    margin-left: 8px;
+}
+
+.tab .tab-wrap {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    z-index: 101;
+}
+
+.tab .tab-navigator {
+    width: 100%;
+    display: table;
+    height: 47px;
+}
+
+.tab .tab-navigator>view {
+    display: table-cell;
+    height: 47px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    font-size: 15px;
+    color: #c9c9c9;
+    box-sizing: border-box;
+}
+
+.tab .text-line {
+    line-height: 40px;
+    background-color: #444752;
+}
+
+.tab .red-line {
+    height: 7px;
+    text-align: center;
+    line-height: 0;
+}
+
+.tab .red-line::after {
+    content: "";
+    display: none;
+    border-top: 7px solid #e62f51;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+}
+
+.tab .tab-main-cur .text-line {
+    background-color: #e62f51;
+    color: #fff;
+}
+
+.tab .tab-main-cur .red-line::after {
+    display: inline-block;
+}
+
+.tab .tab-content {
+    padding: 5px 8px 0;
+    display: none;
+    overflow: hidden;
+}
+
+.tab .tab-content.current {
+    display: block;
+    animation: fadeIn .3s linear;
+}
+
+.tab .tab-content>view:nth-child(odd) {
+    padding-right: 4px;
+}
+
+.tab .tab-content>view:nth-child(even) {
+    padding-left: 4px;
+}
+
+.tab .tab-content>view {
+    float: left;
+    width: 50%;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+}
+
+.tab .goods-item {
+    background-color: #FFF;
+    box-shadow: 0 1px 1px 0px rgba(0,0,0,.2);
+}
+
+.tab .goods-item image {
+    text-align: center;
+    padding: 4px;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.tab .g-title {
+    height: 36px;
+    margin: 5px 4px 0;
+    line-height: 1.5;
+    color: #333333;
+    font-size: 12px;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.tab .g-price {
+    height: 23px;
+    font-size: 15px;
+    color: #ff0000;
+    line-height: 1.5;
+    text-align: center;
+    padding-bottom: 3px;
+    width: 100%;
+}
+
+.tab .active {
+    display: block;
+}
+
+.normal-coupons>view {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.normal-coupons navigator {
+    display: block;
+    width: auto;
+    height: auto;
+}
+
+.normal-coupons image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.d-pic-fade-out {
+    opacity: 0;
+}
+
+.d-pic-fade-in {
+    transition: opacity .35s;
+    opacity: 1;
+}
+
+.pic-hot-wrap {
+    position: relative;
+}
+
+.pic-hot-wrap image {
+    display: block;
+    width: 100%;
+}
+
+.pic-hot-wrap .hot-link {
+    position: absolute;
+}
+
+.error {
+    margin-top: 200px;
+    text-align: center;
+}
+
+.bottom-to-top {
+    position: fixed;
+    bottom: 216rpx;
+    right: 20rpx;
+    width: 78rpx;
+    height: 78rpx;
+    z-index: 300;
+    transform-origin: 0;
+    opacity: 1;
+    transform: scale(1,1);
+}
+
+.bottom-to-top image {
+    display: inline;
+}

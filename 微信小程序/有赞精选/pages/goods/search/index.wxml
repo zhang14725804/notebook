@@ -1,0 +1,24 @@
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="../../../components/sku/index.wxml"></import>
+<import src="../../../components/copyright/index.wxml"></import>
+<import src="./search/index.wxml"></import>
+<template is="searchbar" data="{{isShowClearButton:isShowClearButton,beginSearch:beginSearch,inputvalue:inputvalue,isfocus:isfocus,searchbg:searchbg}}"></template>
+<view class="container container--without-border" style="min-height:{{products.length>0?'0px':'1250rpx'}}">
+    <block wx:if="{{products.length>0}}">
+        <navigator class="search-goods__cell zan__card" hoverClass="none" url="/pages/goods/detail/index?alias={{item.alias}}" wx:for="{{products}}" wx:key="alias">
+            <view class="search-goods__thumb zan-card__thumb">
+                <image class="zan-card__img" mode="aspectFit" src="{{item.imageUrl}}"></image>
+            </view>
+            <view class="search-goods__detail zan-card__detail">
+                <view class="search-goods__title zan-card__detail-row zan-ellipsis--l2">{{item.title}}</view>
+                <view class="search-goods__price zan-card__detail-row zan-c-red">￥{{item.price}}</view>
+                <view catchtap="tapCart" class="search-goods__cart" data-alias="{{item.alias}}"></view>
+            </view>
+        </navigator>
+    </block>
+    <text class="search-goods__emptytext" wx:elif="{{products&&products.length==0}}">没有找到相关的商品~</text>
+    <text class="search-goods__emptytext" wx:else>点击搜索开始 </text>
+    <template is="copyright" data="{{withScroll:true,copyright:copyright,is_big_shop:is_big_shop}}" wx:if="{{products.length>0&&!needLoadMore}}"></template>
+</view>
+<template is="component-sku" data="{{componentSKU:componentSKU}}"></template>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>

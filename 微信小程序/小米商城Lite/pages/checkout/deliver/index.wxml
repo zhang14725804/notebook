@@ -1,0 +1,11 @@
+<view class="msxcx-layout-mod">
+    <view class="msxcx-layout-mod__bd">
+        <view class="msxcx-widget-list">
+            <view bindtap="tapChecked" class="msxcx-widget-list__item" data-index="{{index}}" wx:for="{{deliver_list}}">
+                <view class="msxcx-layout-check-item  {{item.checked?'msxcx-layout-check-item__checked':''}}">
+                    <text>{{item.desc}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

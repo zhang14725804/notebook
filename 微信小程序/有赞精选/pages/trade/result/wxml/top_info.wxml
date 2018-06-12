@@ -1,0 +1,89 @@
+<template name="top_info">
+    <view class="top-info zan-panel {{order.isVirtual?'top-info--has-border-bottom':''}}">
+        <view class="top-info__hd zan-cell {{order.isVirtual&&!express.isShow?'zan-cell--last-child':''}}">
+            <view class="zan-cell__bd">
+                <view class="top-info__status">
+                    <view class="top-info__icon top-info__icon--{{order.state}}"></view>
+                    <view class="top-info__desc">
+                        <view class="zan-font-14 zan-c-black">
+              {{stateStr}}
+              <view class="zan-font-10 zan-c-gray-dark" wx:if="{{order.order_state=='totuan'}}">
+                                <text>拼团订单需在 </text>
+                                <text>{{countdown.hour}} 时 </text>
+                                <text>{{countdown.minute}} 分 </text>
+                                <text>{{countdown.second}} 秒</text>
+                                <text> 内邀请</text>
+                                <text>{{order.group_left_people}}位好友参团</text>
+                            </view>
+                            <block wx:if="{{order.close_state}}">
+                ({{order.close_state_str}})
+              </block>
+                        </view>
+                        <view class="zan-font-12 zan-c-gray-dark" wx:if="{{false&&order.state=='send'}}">7天后，订单将自动确认</view>
+                    </view>
+                    <view catchtap="showSelfFetchPopupTap" class="top-info_self-fetch_qrcode" wx:if="{{showSelfFetch&&order.state>=5}}"></view>
+                </view>
+                <template is="zan-steps" data="{{type:'horizon',steps:order.steps,className:'top-info__steps'}}" wx:if="{{order.steps.length>0}}"></template>
+            </view>
+        </view>
+        <view catchtap="showExpressPage" class="top-info__express zan-cell {{express.data.expressProgressInfo.length>0?'zan-cell--access':''}} {{order.isVirtual?'zan-cell--last-child':''}}" wx:if="{{express.isShow}}">
+            <view class="zan-cell__bd zan-font-12">
+                <view class="zan-c-red">
+          {{express.data.expressCompanyName}}
+          运单编号:{{express.data.expressNo}}
+        </view>
+                <view class="top-info__express-desc zan-c-gray-darker">
+                    <block wx:if="{{express.data.expressProgressInfo.length>0}}">
+                        <view>{{express.data.expressProgressInfo[0].context}}</view>
+                        <view>{{express.data.expressProgressInfo[0].time}}</view>
+                    </block>
+                    <block wx:else>
+            暂无物流信息
+          </block>
+                </view>
+            </view>
+            <view class="zan-cell__ft"></view>
+        </view>
+        <block wx:if="{{showSelfFetch}}">
+            <view class="zan-cell order-panel shop__message">
+                <text class="zan-field__title zan-c-black">提货地址：</text>
+                <view class="zan-cell__bd zan-cell__ft">
+        {{selfFetch.name}} {{selfFetch.province+selfFetch.city+selfFetch.address_detail}}
+      </view>
+            </view>
+            <view class="zan-cell order-panel shop__message">
+                <text class="zan-field__title zan-c-black">提货时间：</text>
+                <view class="zan-cell__bd zan-cell__ft">
+        {{selfFetch.user_time}}
+      </view>
+            </view>
+            <view class="zan-cell order-panel shop__message">
+                <text class="zan-field__title zan-c-black">提货人：</text>
+                <view class="zan-cell__bd zan-cell__ft">
+        {{selfFetch.user_name}} {{selfFetch.user_tel}}
+        </view>
+            </view>
+            <view catchtap="handleContactSelfFetchService" class="zan-cell order-panel zan-cell--last-child zan-center">
+                <view class="zan-cell__bd zan-c-blue shop__im">
+                    <image class="shop__im-icon" src="https://img.yzcdn.cn/public_files/2016/12/02/8812ea19818110de677ac215286b3005.png"></image>
+                    <text class="shop__im-desc">联系提货点</text>
+                </view>
+                <view class="order-address__border"></view>
+            </view>
+        </block>
+        <block wx:if="{{showExpress}}">
+            <view class="order-address order-address--has" wx:if="{{!order.isVirtual}}">
+                <view class="order-address__title">
+                    <view class="zan-pull-right">{{order.tel}}</view>
+                    <view class="order-address__uname zan-ellipsis">收货人：{{order.user_name}}</view>
+                </view>
+                <view class="order-address__desc zan-font-12 zan-c-gray-darker">
+        收货地址：{{order.province}}{{order.city}}{{order.county}}{{order.address_detail}}
+      </view>
+                <view class="order-address__border"></view>
+            </view>
+        </block>
+    </view>
+</template>
+<import src="../../../../bower_components/zan/dist/steps/index.wxml"></import>
+<import src="../../templates/self_fetch/self_fetch_detail.wxml"></import>

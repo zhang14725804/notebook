@@ -1,0 +1,35 @@
+<view class="container">
+    <view style="text-align:cetner;">
+        <text class="mtb20 ft14 orange" hidden="{{checkTipsHidden}}" style="text-align:center;">当前安全等级不够需再次验证密码</text>
+    </view>
+    <view class="flex-wrp">
+        <view class="code" hidden="{{loginType==='pass'}}">+86</view>
+        <input bindinput="phoneInput" focus="{{phoneFocus}}" maxlength="{{maxlength}}" placeholder="{{usrPlaceholder}}" type="{{usrInput}}" value="{{phone}}"></input>
+    </view>
+    <view class="flex-wrp">
+        <input bindinput="smsInput" confirmType="next" focus="{{passFocus}}" maxlength="{{maxtest}}" placeholder="{{pwdPlaceholder}}" type="{{pwdInput}}" value="{{code}}"></input>
+        <button bindtap="getSMSCode" class="getSMS " confirmType="go" disabled="{{smsDisabled}}" hidden="{{getSMSCodeHide}}" plain="true">{{sendBtnTitle}}</button>
+        <view bindtap="openEye" class="eye" hidden="{{openeye}}" wx:if="{{getSMSCodeHide}}">
+            <icon class="close-eye"></icon>
+        </view>
+        <view bindtap="closeEye" class="eye" hidden="{{!openeye}}" wx:if="{{getSMSCodeHide}}">
+            <icon class="open-eye"></icon>
+        </view>
+    </view>
+    <view class="err_tip mt20">{{err}}</view>
+    <button bindtap="submitLogin" class="block" type="primary">登录</button>
+    <view class="login-line">
+        <view class="login-or">or</view>
+    </view>
+    <view class="login-end">
+        <button bindgetphonenumber="wxPhoneLogin" class="login-left" openType="getPhoneNumber" plain="true" type="primary">
+            <icon class="login-wx"></icon>
+            <text>微信登录</text>
+        </button>
+        <button bindtap="changeLoginType" class="login-right" plain="true" type="primary">
+            <icon class="login-text" hidden="{{loginType==='phone'}}"></icon>
+            <icon class="login-phone" hidden="{{loginType==='pass'}}"></icon>
+            <text>{{loginName}}</text>
+        </button>
+    </view>
+</view>

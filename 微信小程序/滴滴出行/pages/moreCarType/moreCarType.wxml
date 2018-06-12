@@ -1,0 +1,11 @@
+<view class="more-cartype-page">
+    <view class="cartype-items">
+        <view bindtap="_dispatch" class="cartype-item" data-bindtap="onTap({{index}})" xmlns:wx="" wx:for="{{state.carTypes}}">
+            <view class="car-img" style="background-image:url({{item.imgurl}})"></view>
+            <view class="car-text">
+                <view class="car-name">{{item.name}}</view>
+                <view class="car-tip" hidden="{{!item.tip}}">{{item.tip}}</view>
+            </view>
+        </view>
+    </view>
+</view>

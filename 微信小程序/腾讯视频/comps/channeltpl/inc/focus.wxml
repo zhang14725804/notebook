@@ -1,0 +1,21 @@
+<view class="mod_box focus_box">
+    <include src="./comps/box_title.wxml"></include>
+    <block wx:if="{{item.list.length===1}}">
+        <view bindtap="onPlay" class="mod_figures focus" data-cid="{{video.cid||''}}" data-id="{{video.itemId}}" data-index="{{index}}" data-modidx="{{modidx}}" data-type="{{video.itemtype}}" data-vid="{{video.vid||''}}" wx:if="{{video.pictype==1}}" wx:for="{{item.list}}" wx:for-item="video" wx:key="itemId">
+            <view class="figure">
+                <image class="figure_pic" src="{{video.pic}}"></image>
+                <include src="./comps/caption.wxml"></include>
+            </view>
+            <view class="figure_title">{{video.title}}</view>
+        </view>
+    </block>
+    <swiper autoplay="true" circular="true" class="mod_figures mod_figures_focus focus" duration="500" interval="5000" wx:else>
+        <swiper-item bindtap="onPlay" data-cid="{{video.cid||''}}" data-id="{{video.itemId}}" data-index="{{index}}" data-modidx="{{modidx}}" data-type="{{video.itemtype}}" data-vid="{{video.vid||''}}" wx:if="{{video.pictype==1}}" wx:for="{{item.list}}" wx:for-item="video" wx:key="itemId">
+            <view class="figure">
+                <image class="figure_pic" src="{{video.pic}}"></image>
+                <include src="./comps/caption.wxml"></include>
+            </view>
+            <view class="figure_title">{{video.title}}</view>
+        </swiper-item>
+    </swiper>
+</view>

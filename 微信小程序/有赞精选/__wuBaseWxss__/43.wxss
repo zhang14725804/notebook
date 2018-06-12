@@ -1,0 +1,129 @@
+.hot-sale__row {
+    padding: 0 15rpx;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hot-sale__goods-item {
+    width: 355rpx;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    margin-bottom: 10rpx;
+    border: 1rpx solid #E4E4E4;
+    box-sizing: border-box;
+}
+
+.hot-sale__img-wrap {
+    height: 353rpx;
+    position: relative;
+}
+
+.hot-sale__hot-sale__img {
+    width: 100%;
+    height: 100%;
+}
+
+.hot-sale__sold-mask {
+    background-image: url('https://img.yzcdn.cn/public_files/2017/10/11/f8dd02fc590df5b49ddd941fbafe3c86.png');
+    background-size: 173.25rpx;
+    background-position: 50% 50%;
+    background-color: rgba(0,0,0,.5);
+    background-repeat: no-repeat;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.hot-sale__title,.hot-sale__price-wrap {
+    padding: 0 10rpx;
+}
+
+.hot-sale__footer {
+    padding: 0 20rpx 0 10rpx;
+}
+
+.hot-sale__title {
+    font-size: 24rpx;
+    margin-top: 20rpx;
+    line-height: 33rpx;
+    height: 60rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.hot-sale__price-wrap {
+    display: flex;
+    height: 32rpx;
+    line-height: 24rpx;
+    margin-top: 15rpx;
+    align-items: flex-end;
+}
+
+.hot-sale__price-ico {
+    font-size: 24rpx;
+}
+
+.hot-sale__price {
+    font-size: 32rpx;
+    color: #FF4444;
+    font-weight: bold;
+}
+
+.hot-sale__origin-price {
+    font-size: 18rpx;
+    color: #999999;
+    text-decoration: line-through;
+    line-height: 20rpx;
+    margin-left: 15rpx;
+}
+
+.hot-sale__footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 20rpx;
+}
+
+.hot-sale__sold-number {
+    font-size: 20rpx;
+    color: #999999;
+    margin-bottom: 6rpx;
+}
+
+.hot-sale__number {
+    color: #FF4949;
+}
+
+.hot-sale__buy-btn {
+    height: 44rpx;
+    box-sizing: border-box;
+    border: 1rpx solid #FF4A4A;
+    background-color: #FF4A4A;
+    color: #fff;
+    border-radius: 4rpx;
+    font-size: 24rpx;
+    width: 88rpx;
+    text-align: center;
+    line-height: 42rpx;
+    margin-right: 10rpx;
+}
+
+.sold .hot-sale__sold-mask {
+    display: block;
+}
+
+.sold .hot-sale__buy-btn {
+    background-color: #fff;
+    color: #FF4A4A;
+}

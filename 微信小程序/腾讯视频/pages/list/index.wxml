@@ -1,0 +1,68 @@
+<import src="/comps/topbar/index.wxml"></import>
+<view class="body">
+    <template is="topbar" data="{{pageLabel:pageLabel}}" wx:if="{{isShareOpen}}"></template>
+    <view class="nav">
+        <scroll-view class="slide_list" scrollLeft="{{scrollLeft[item.strIndexItemKey]?scrollLeft[item.strIndexItemKey]:0}}" scrollX="true" wx:for="{{nav}}" wx:key="id">
+            <view bindtap="onChangeNav" class="item{{!navRecord[item.strIndexItemKey]&&el.strOptionValue==-1||navRecord[item.strIndexItemKey]==el.strOptionValue?' current':''}}" data-id="{{el.strOptionValue}}" data-key="{{item.strIndexItemKey}}" wx:for="{{item.vecOptionList}}" wx:for-index="i" wx:for-item="el" wx:key="strOptionValue">{{el.strOptionName}}</view>
+        </scroll-view>
+    </view>
+    <block wx:if="{{!loading}}">
+        <block wx:if="{{content.length}}">
+            <view class="mod_figures" wx:if="{{navRecord.channelId==100113||navRecord.channelId==100173||navRecord.channelId==100119}}">
+                <view class="mod_figure">
+                    <view bindtap="onPlay" class="item" data-id="{{item.cover_id}}" wx:for="{{content}}" wx:key="id">
+                        <view class="figure_pic_mod">
+                            <image class="figure_pic" src="{{item.vertical_pic_url}}"></image>
+                            <view class="mark" style="background-image:url({{item.imgtagUrl}})" wx:if="{{item.imgtagUrl}}"></view>
+                            <block wx:if="{{item.episode}}">
+                                <view class="figure_caption" wx:if="navRecord.channelId != 100173">{{item.episode}}</view>
+                            </block>
+                            <view class="figure_caption figure_score" wx:elif="{{item.score}}">{{item.score}}</view>
+                        </view>
+                        <view class="figure_title figure_title_two_row">{{item.title}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="mod_figures_h" wx:else>
+                <view class="mod_figure_h">
+                    <view bindtap="onPlay" class="item" data-id="{{item.cover_id}}" wx:for="{{content}}" wx:key="id">
+                        <view class="figure_l">
+                            <image class="figure_pic" src="{{item.horizontal_pic_url}}"></image>
+                            <view class="mark" style="background-image:url({{item.imgtagUrl}})" wx:if="{{item.imgtagUrl}}"></view>
+                            <view class="figure_caption figure_date" wx:if="{{item.episode}}">{{item.episode}}</view>
+                        </view>
+                        <view class="figure_r">
+                            <view class="vertical_center">
+                                <view class="figure_title_r">{{item.title}}</view>
+                                <view class="figure_desc" wx:if="{{item.current_brief}}">{{item.current_brief}}</view>
+                                <view class="actor" wx:if="{{item.leading_actor}}">{{item.leading_actor}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <view bindtap="onFetchAgain" class="mod_empty mod_empty_white" style="height: {{computeHeight}}px;" wx:if="{{errCode}}">
+                <view class="icon_empty"></view>
+                <view class="empty_title">出了点小问题 ({{errCode}})</view>
+                <view class="empty_text">我们正在紧张地修复</view>
+                <view class="empty_btn">刷新</view>
+            </view>
+            <view class="container_tips" style="height: {{computeHeight}}px;" wx:else>
+                <view class="tips_con">
+                    <view class="icon_empty"></view>
+                    <view class="tips">很抱歉，没有找到任何相关内容</view>
+                    <view class="suggestion">建议您减少一些筛选条件试试</view>
+                </view>
+            </view>
+        </block>
+    </block>
+    <view class="mod_loading" style="height: {{computeHeight}}px;" wx:else>
+        <view class="icon_loading"></view>
+    </view>
+    <view class="mod_loading loadmore" wx:if="{{loadingMore}}">
+        <view class="icon_loading"></view>
+    </view>
+</view>
+<include src="/comps/tabbar/tabbar.wxml"></include>

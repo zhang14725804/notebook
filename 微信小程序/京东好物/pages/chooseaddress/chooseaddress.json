@@ -1,0 +1,7 @@
+{
+    "backgroundTextStyle": "bold",
+    "navigationBarBackgroundColor": "#fdfdfe",
+    "navigationBarTitleText": "地址选择",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+}

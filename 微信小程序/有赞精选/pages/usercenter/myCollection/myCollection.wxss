@@ -1,0 +1,72 @@
+@import "../../../templates/loadMore/loadMore.wxss";
+
+view,scroll-view,swiper,swiper-item,icon,text,progress,mask,input,button,label,form,checkbox,checkbox-group,picker,picker-item,radio,radio-group,switch,slider,slector-item,action-sheet,action-sheet-cancel,action-sheet-item,loading,toast,modal,navigator,image,audio,video,map,canvas,native {
+    margin: 0;
+    padding: 0;
+}
+
+.page {
+    background-color: #F8F8F8;
+}
+
+.item {
+    height: 380rpx;
+    margin: 0 auto 20rpx;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.item-header {
+    display: flex;
+    flex-direction: row;
+    margin-left: 30rpx;
+}
+
+.item-header-image {
+    height: 88rpx;
+    width: 88rpx;
+    border-radius: 50%;
+    margin-top: 30rpx;
+}
+
+.item-header-info {
+    margin-left: 20rpx;
+}
+
+.item-header-info-name {
+    display: inline-block;
+    margin-top: 30rpx;
+    font-size: 28rpx;
+    width: 500rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #333;
+    font-weight: bold;
+}
+
+.certificate-contaimer {
+    margin: 0;
+    line-height: 34rpx;
+}
+
+.item-content {
+    margin-top: 24rpx;
+    margin: 24rpx auto 0;
+    width: 720rpx;
+}
+
+.item-content-image {
+    height: 210rpx;
+    width: 210rpx;
+    margin: 0 15rpx;
+}
+
+.shop-cert {
+    display: inline-block;
+    font-size: 12px;
+    vertical-align: middle;
+    color: #333;
+    margin-right: 20px;
+}

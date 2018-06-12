@@ -1,0 +1,38 @@
+<view bindtap="bindSearchFocus" class="searchbar">
+    <view class="searchbar_label">
+        <icon class="searchbar_icon" size="14" type="search"></icon>
+        <text>找攻略</text>
+    </view>
+</view>
+<view class="list list-hot" wx:if="{{recommends.list.length>0}}">
+    <view class="list-t">
+        <text class="list-t_zh">推荐</text>
+        <text class="list-t_en">POPULAR</text>
+    </view>
+    <scroll-view bindscrolltolower="bindrecommendscroll" class="list-c list-hot-c" lowerThreshold="200" scrollX="true">
+        <view bindtap="recGlClick" class="list-hot-item" data-id="{{item.gid}}" wx:for="{{recommends.list}}" wx:key="id">
+            <image class="hot_image" src="{{item.img}}"></image>
+        </view>
+    </scroll-view>
+</view>
+<block wx:for="{{list}}" wx:key="mddid">
+    <view class="list">
+        <view class="list-t">
+            <text class="list-t_zh">{{item.mdd.name}}</text>
+            <text class="list-t_en">{{item.mdd.en_name}}</text>
+            <text bindtap="bindshowmore" class="list-t_more" data-mddid="{{item.mddid}}" wx:if="{{item.list.length>1}}">全部</text>
+        </view>
+        <scroll-view class="list-c" scrollX="true">
+            <view bindtap="glClick" class="list-c-item" data-id="{{item.id}}" wx:for="{{item.list}}" wx:key="id">
+                <image class="list-c-item_image" mode="aspectFill" src="{{item.img}}"></image>
+                <view class="list-c-item_t">{{item.title}}</view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="list-gap"></view>
+</block>
+<include src="../footer.wxml" wx:if="{{page.no&&!page.next}}"></include>
+<view class="weui-loadmore" hidden="{{!page.next}}" wx:else>
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">{{loadingmore?'加载中...':'上滑继续加载'}}</view>
+</view>

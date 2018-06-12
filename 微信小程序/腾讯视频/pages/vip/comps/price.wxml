@@ -1,0 +1,36 @@
+<template name="vip_user_price">
+    <view class="mod_box mod_box_pay cf" wx:if="{{priceList}}">
+        <view class="mod_hd">
+            <view class="mod_tit_list">
+                <view class="tit_list">
+                    <view class="tit_txt">{{isVip?'续费延长VIP有效期':'VIP套餐'}}</view>
+                    <navigator class="more_txt" url="term/index">
+                        <view class="txt">服务协议</view>
+                        <view class="icon_arrow"></view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+        <view class="mod_bd">
+            <view class="mod_pay_list">
+                <view class="list" wx:for="{{priceList}}" wx:key="{{c_order}}">
+                    <view class="txt_info">
+                        <view class="txt">
+                    {{item.product_desc}}<text class="num">{{item.price}}</text>元
+                </view>
+                        <view class="ori_price">{{item.original_price}}元</view>
+                        <view class="flag" wx:if="{{item.icon_desc}}">{{item.icon_desc}}</view>
+                    </view>
+                    <view class="txt_tips" wx:if="{{item.coupons}}">
+                        <view class="link link_color2" href="javascript:;">
+                    优惠券 满<text class="num">{{item.coupons.least_price/100}}</text>元立减<text class="num">{{item.coupons.max_value/100}}</text>元<text class="icon_arrow"></text>
+                        </view>
+                    </view>
+                    <view bindtap="openPay" class="link_info" data-amount="{{item.amount}}" data-productid="{{item.product_id}}" data-qqofferid="{{item.qq_offerid}}" data-type="{{item.type}}" data-wxofferid="{{item.wx_offerid}}">
+                        <view class="txt">{{isVip?'续费':'开通'}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

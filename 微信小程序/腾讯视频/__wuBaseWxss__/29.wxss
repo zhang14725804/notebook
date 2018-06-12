@@ -1,0 +1,63 @@
+.mod_empty {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.mod_empty.none {
+    display: none;
+}
+
+.mod_empty .icon_empty {
+    background: url(https://i.gtimg.cn/qqlive/images/tinyapp/error_pic.png) center center no-repeat;
+    background-size: 100%;
+    display: block;
+    width: 300px;
+    height: 97px;
+    margin: 0 auto 10px;
+}
+
+.mod_empty .empty_text,.mod_empty .empty_title {
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+}
+
+.mod_empty .empty_text {
+    margin-top: 5px;
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.empty_btn {
+    display: block;
+    margin-top: 20px;
+    width: 120px;
+    line-height: 36px;
+    border-radius: 18px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #FF7000;
+    text-align: center;
+}
+
+.mod_empty_white .icon_empty {
+    background-image: url(https://i.gtimg.cn/qqlive/images/tinyapp/error_pic_white.png);
+    width: 375px;
+    height: 155px;
+}
+
+.mod_empty_white .empty_text,.mod_empty_white .empty_title {
+    color: #666666;
+}

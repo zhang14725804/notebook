@@ -1,0 +1,200 @@
+<view class="pageFrame _18ffead _1a01644">
+    <view class="navigationBar _18ffead"></view>
+    <view class="pageBody _18ffead">
+        <scroll-view bindscroll="onScroll" bindscrolltolower="loadMore" class="list-page _1a01644" enableBackToTop="enable-back-to-top" scrollTop="{{scrollTop}}" scrollY="{{!isEmpty}}" wx:if="{{showPage}}">
+            <view bindtap="closeMask" catchtouchmove="moveStop" class="pop-mask _1a01644" hidden="{{!popMask}}" id="popMask"></view>
+            <view class="header _1a01644">
+                <view class="search-container _1a01644">
+                    <view class="gltleft _1a01644">
+                        <icon class="icon _1a01644" size="14" type="search"></icon>
+                        <input bindconfirm="confirmHandler" bindinput="inputHandler" class="searchInput _1a01644" placeholder="输入你要找的宝贝" placeholderClass="placeholderclass" value="{{keyword}}"></input>
+                    </view>
+                </view>
+                <view class="filter _1a01644">
+                    <view catchtouchmove="$filter$maskTouchMove" class="filter-all list-filter _1a01644">
+                        <view bindtap="$filter$popAreaHandler" class="filter-item">
+                            <text class="filtertitle" style="color: {{$filter$filterType==0?'#FF5647':'#43474c'}}">{{$filter$areaName}}</text>
+                            <view class="filter-item-image  {{$filter$filterType==0?'image-rotate':''}}"></view>
+                        </view>
+                        <view bindtap="$filter$popCateHandler" class="filter-item">
+                            <text class="filtertitle" style="color: {{$filter$filterType==1?'#FF5647':'#43474c'}}">{{$filter$cateName}}</text>
+                            <view class="filter-item-image {{$filter$filterType==1?'image-rotate':''}}"></view>
+                        </view>
+                        <view bindtap="$filter$popOrderHandle" class="filter-item">
+                            <text class="filtertitle" style="color: {{$filter$filterType==2?'#FF5647':'#43474c'}}">{{$filter$orderName}}</text>
+                            <view class="filter-item-image {{$filter$filterType==2?'image-rotate':''}}"></view>
+                        </view>
+                        <view bindtap="$filter$popPriceHandle" class="filter-item">
+                            <text class="filtertitle" style="color: {{$filter$filterType==3?'#FF5647':'#43474c'}}">{{$filter$priceName}}</text>
+                            <view class="filter-item-image {{$filter$filterType==3?'image-rotate':''}}"></view>
+                        </view>
+                    </view>
+                    <view class="gps-position" hidden="{{$filter$filterType!=0}}">
+                        <view class="gps-position-left">
+                            <view class="gps-position-left-text">当前位置</view>
+                            <view class="gps-position-left-citys">
+                                <text class="gps-position-left-citys-city">{{$filter$initGpsCityData.city_localName||$filter$gpsCityData.city_localName||$filter$currentProvince.name||$filter$gpsFail}}</text>
+                                <text>{{$filter$gpsCityData.region_localName||$filter$currentSubArea.name}}</text>
+                            </view>
+                        </view>
+                        <view bindtap="$filter$GPSTap" class="gps-position-right">
+                            <image class="gps-position-right-image  {{$filter$gpsLoading?'fresh-run':''}} " src="../../images/fresh.png"></image>
+                            <text class="gps-position-right-text">刷新</text>
+                        </view>
+                    </view>
+                    <view catchtouchmove="$filter$maskTouchMove" class="scroll-container" hidden="{{$filter$filterType!=0}}">
+                        <scroll-view class="areali" enableBackToTop="enable-back-to-top" scrollY="true" style="width: {{$filter$subAreaData.length?'28%':'100%'}}">
+                            <view bindtap="$filter$selectProvinceHandler" class="areaItem" data-id="{{province.id}}" style="background-color: {{$filter$currentProvince.name==province.name||$filter$subAreaData.length==0?'white':'#F6F6F8'}};color: {{$filter$currentProvince.name==province.name?'#ff5647':'#43474c'}}" wx:for="{{$filter$provinceData}}" wx:for-item="province">
+        {{province.name}}
+      </view>
+                        </scroll-view>
+                        <scroll-view class="areali" enableBackToTop="enable-back-to-top" hidden="{{!$filter$subAreaData.length}}" scrollY="true" style="width: {{$filter$thirdAreaData.length?'28%':'72%'}}">
+                            <view bindtap="$filter$selectSubAreaHandler" class="areaItem" data-id="{{areaSub.id}}" style="color: {{$filter$currentSubArea.name==areaSub.name?'#ff5647':'#43474c'}}" wx:for="{{$filter$subAreaData}}" wx:for-item="areaSub">
+        {{areaSub.name}}
+      </view>
+                        </scroll-view>
+                        <scroll-view class="areali" hidden="{{!$filter$thirdAreaData.length}}" scrollY="true" style="width: 28%">
+                            <view bindtap="$filter$selectThirdAreaHandler" class="areaItem" data-id="{{areaThird.id}}" wx:for="{{$filter$thirdAreaData}}" wx:for-item="areaThird">
+        {{areaThird.name}}
+      </view>
+                        </scroll-view>
+                    </view>
+                    <view catchtouchmove="$filter$maskTouchMove" class="scroll-container" hidden="{{$filter$filterType!=1}}">
+                        <scroll-view class="areali" enableBackToTop="enable-back-to-top" scrollY="true" style="width: {{$filter$subCateData.length?'28%':'100%'}}">
+                            <view bindtap="$filter$selectCate1Handler" class="areaItem" data-id="{{cate1.id}}" style="background-color: {{$filter$cate1Id==cate1.id||$filter$subCateData.length==0?'white':'#F6F6F8'}};color: {{$filter$cate1Id==cate1.id?'#ff5647':'#43474c'}}" wx:for="{{$filter$allCateData}}" wx:for-item="cate1">
+        {{cate1.name}}
+      </view>
+                        </scroll-view>
+                        <scroll-view class="areali" enableBackToTop="enable-back-to-top" hidden="{{!$filter$subCateData.length}}" scrollY="true" style="width: {{$filter$thirdCateData.length?'28%':'72%'}}">
+                            <view bindtap="$filter$selectCate2Handler" class="areaItem" data-id="{{cate2.id}}" style="color: {{$filter$cate2Id==cate2.id?'#ff5647':'#43474c'}}" wx:for="{{$filter$subCateData}}" wx:for-item="cate2">
+        {{cate2.name}}
+      </view>
+                        </scroll-view>
+                        <scroll-view class="areali" enableBackToTop="enable-back-to-top" hidden="{{!$filter$thirdCateData.length}}" scrollY="true" style="width: 28%;">
+                            <view bindtap="$filter$selectCate3Handler" class="areaItem" data-id="{{cate3.id}}" style="color: {{$filter$cate3Id==cate3.id?'#ff5647':'#43474c'}}" wx:for="{{$filter$thirdCateData}}" wx:for-item="cate3">
+        {{cate3.name}}
+      </view>
+                        </scroll-view>
+                    </view>
+                    <view catchtouchmove="$filter$maskTouchMove" class="single-select" hidden="{{$filter$filterType!=2}}">
+                        <view bindtap="$filter$selectOrderHandler" class="single-select-item" data-id="{{order.id}}" wx:for="{{$filter$orderData}}" wx:for-item="order">{{order.name}}</view>
+                    </view>
+                    <view catchtouchmove="$filter$maskTouchMove" class="single-select" hidden="{{$filter$filterType!=3}}">
+                        <view class="single-select--labeltext">快捷标签（可多选）</view>
+                        <view bindtap="$filter$oneLabelTap" class="single-select--labels">
+                            <view class="single-select--label {{$filter$isOneCity?'label--selected':''}}" data-selected="{{$filter$isOneCity}}" id="onecity">同城</view>
+                            <view class="single-select--label {{$filter$isNew?'label--selected':''}}" data-selected="{{$filter$isNew}}" id="new">全新</view>
+                            <view class="single-select--label {{$filter$isfreePost?'label--selected':''}}" data-selected="{{$filter$isfreePost}}" id="freepost">包邮</view>
+                        </view>
+                        <view class="single-select__gooodchoice">
+                            <view class="single-select__gooodchoice--title">价格范围（元）</view>
+                            <view class="single-select__gooodchoice--input">
+                                <input bindinput="$filter$lowPriceInput" class="single-select__gooodchoice--input-left" placeholder="最低价" placeholderStyle="color: #CCCCD1" type="number" value="{{$filter$minInput}}"></input>
+                                <view class="single-select__gooodchoice--input-middle"></view>
+                                <input bindinput="$filter$upPriceInput" class="single-select__gooodchoice--input-right" placeholder="最高价" placeholderStyle="color: #CCCCD1" type="number" value="{{$filter$maxInput}}"></input>
+                            </view>
+                            <view class="single-select__gooodchoice--price">
+                                <view bindtap="$filter$selectPriceHandler" class="single-select__gooodchoice--price-item {{$filter$singleprice==1&&$filter$priceVal==item.maxprice?'price--selected':''}}" data-wpyselectpricehandler-a="{{item}}" id="1" wx:for="{{$filter$priceData}}">
+          {{item.maxprice}}元以下
+        </view>
+                            </view>
+                        </view>
+                        <view class="fiter__bottom-btn">
+                            <view bindtap="$filter$resetTap" class="fiter__bottom-btn--reset">重置</view>
+                            <view bindtap="$filter$confirmTap" class="fiter__bottom-btn--confirm">确认</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="headerHolder _1a01644"></view>
+            <view class="panel-cate _d97c26e _1a01644" wx:if="{{currentCate==101}}">
+                <view bindtap="$SubcatePannel$changeCate" class="panel-cate-item _d97c26e" data-wpychangecate-a="{{item}}" wx:for="{{$SubcatePannel$cateData}}">
+                    <view class="panel-cate-item-pic _d97c26e" style="background-image:url({{item.image}});"></view>
+                    <view class="panel-cate-item-text _d97c26e">
+        {{item.name}}
+      </view>
+                </view>
+            </view>
+            <view bindtap="brandClickHandler" class="brand-info _1a01644" wx:if="{{brandInfo}}">
+                <image class="_1a01644" mode="widthFix" src="{{brandInfo.imageUrl}}"></image>
+                <view class="line _1a01644"></view>
+            </view>
+            <view bindtouchmove="goodListMove" class="goods-list _1a01644">
+                <view class="elastic-list _ab8747a _1a01644">
+                    <view bindtap="$GoodsList$clickHandler" class="item-list-container _5261098 elasticList _1a01644" data-index="{{index}}" wx:if="{{goodsCardType==0}}" wx:for="{{$GoodsList$goodsList}}" wx:key="{{item.infoId}}">
+                        <block wx:if="{{item&&item.infoId}}">
+                            <image class="item-img _5261098" mode="aspectFill" src="{{item.pic}}"></image>
+                            <view class="item-content _5261098">
+                                <view class="title _5261098">{{item.title}}</view>
+                                <view class="desc _5261098" wx:if="{{item.parentCate&&item.parentCate=='101'}}">{{item.desc}}</view>
+                                <view class="para-names _5261098" wx:else>
+                                    <view class="_5261098" wx:for="{{item.paraNames}}" wx:for-item="paraName">{{paraName}}</view>
+                                </view>
+                                <view class="label-price _5261098">
+                                    <view class="price _5261098">
+                                        <text class="symbol _5261098">￥</text> {{item.price}}
+          </view>
+                                    <view class="item-list-labels _5261098">
+                                        <image class="item-list-labels-label _5261098" src="{{label.icon}}" style="width:{{label.w}}rpx; height:{{label.h}}rpx" wx:for="{{item.infoLabels}}" wx:for-item="label" wx:key="icon"></image>
+                                    </view>
+                                </view>
+                                <view class="footer _5261098">
+                                    <text class="city _5261098" wx:if="{{item.distance}}">{{item.distance}}</text>
+                                    <text class="city _5261098" wx:else>{{item.cityName}}{{item.cityName&&item.businessName?' | ':''}}{{item.businessName}}</text>
+                                    <text class="time _5261098">{{item.friendTime}}</text>
+                                </view>
+                            </view>
+                            <form bindsubmit="$GoodsList$sendFromId" class="form _5261098" data-index="{{index}}" reportSubmit="true">
+                                <button class="submit-button _5261098" formType="submit"></button>
+                            </form>
+                        </block>
+                        <view class="placeholder _5261098" wx:else></view>
+                    </view>
+                    <view bindtap="$GoodsListBook$clickHandler" class="item-list-container _3752866 elasticList _1a01644" data-index="{{index}}" wx:if="{{goodsCardType==2}}" wx:for="{{$GoodsListBook$goodsList}}" wx:key="{{item.infoId}}">
+                        <view class="item-cover _3752866">
+                            <image class="item-img _3752866" mode="aspectFit" src="{{item.cover}}"></image>
+                        </view>
+                        <view class="item-content _3752866">
+                            <view class="title _3752866">{{item.title}}</view>
+                            <view class="author _3752866" wx:if="{{item.authors&&item.authors.length}}">{{item.authors[0]}}</view>
+                            <view class="score _3752866" wx:if="{{item.doubanRate}}">豆瓣评分：{{item.doubanRate}}</view>
+                            <view class="label-price _3752866">
+                                <view class="price _3752866">
+                                    <text class="symbol _3752866">二手价 ￥</text> {{item.sellPrice}}
+        </view>
+                                <view class="price _3752866">
+                                    <text class="symbol _3752866"> 原价{{item.price}}</text>
+                                </view>
+                                <view class="label _3752866" wx:if="{{item.sellDiscount}}">
+          {{item.sellDiscount}}折
+        </view>
+                            </view>
+                        </view>
+                        <form bindsubmit="$GoodsListBook$sendFromId" class="form _3752866" data-index="{{index}}" reportSubmit="true">
+                            <button class="submit-button _3752866" formType="submit"></button>
+                        </form>
+                    </view>
+                </view>
+                <view class="loading-tip _1a01644" wx:if="{{isLoading}}">
+                    <image class="loading-icon _1a01644" src="https://img.58cdn.com.cn/zhuanzhuan/zzwa/common/load_more2.png"></image>
+                    <text class="loading-text _1a01644">{{tipText}}</text>
+                </view>
+                <view class="loading-tip _1a01644" wx:if="{{!isLoading&&isEnd&&!isEmpty}}">
+                    <image class="loading-icon _1a01644" src="https://img.58cdn.com.cn/zhuanzhuan/zzwa/common/load_more2.png"></image>
+                    <text class="loading-text _1a01644">{{endText}}</text>
+                </view>
+                <view class="empty-tip _1a01644" wx:if="{{isEmpty&&!isLoading}}">
+                    <image class="_1a01644" src="https://img.58cdn.com.cn/zhuanzhuan/zzwa/common/bear.png"></image>
+                    <text class="_1a01644">小程序暂时不支持此类宝贝展示，请前往【转转APP】哦！</text>
+                </view>
+            </view>
+            <view bindtap="backTopHandler" class="back-top _1a01644" wx:if="{{showBackTop}}"></view>
+        </scroll-view>
+        <view class="zzwa_loading _1a01644" wx:else></view>
+    </view>
+    <view bindtap="$PageFrame$BackHome$onBackHome" bindtouchstart="$PageFrame$BackHome$onTouchstart" catchtouchmove="$PageFrame$BackHome$onTouchmove" class="backHome {{$PageFrame$BackHome$pageBodyReady?'ready':'unready'}} _757a836 _18ffead" style="background-image: url('{{$PageFrame$BackHome$backHome.icon}}'); {{$PageFrame$BackHome$backHome.extraStyle}}; transform: translate3d({{$PageFrame$BackHome$eleOffset.x}}px, {{$PageFrame$BackHome$eleOffset.y}}px, 0); " wx:if="{{$PageFrame$BackHome$backHome.show}}"></view>
+    <view bindtap="$PageFrame$ErrorTip$refresh" class="tip _f2dd71c _18ffead" wx:if="{{$PageFrame$ErrorTip$show}}">
+        <image class="error-icon _f2dd71c" src="{{$PageFrame$ErrorTip$icon}}"></image>
+        <view class="error-tip _f2dd71c">{{$PageFrame$ErrorTip$errorTip}}</view>
+    </view>
+</view>

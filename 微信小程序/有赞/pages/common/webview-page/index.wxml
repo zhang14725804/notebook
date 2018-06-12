@@ -1,0 +1,1 @@
+<web-view src="{{viewSrc}}" wx:if="{{viewSrc}}"></web-view>

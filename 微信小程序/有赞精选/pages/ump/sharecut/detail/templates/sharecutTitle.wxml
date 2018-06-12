@@ -1,0 +1,49 @@
+<template name="sharecutTitle">
+    <view wx:if="{{isSelf}}">
+        <view class="sharecut-detail__title" wx:if="{{activityStatus===1}}">
+        好友帮你砍了<text class="cut">{{sharePrice}}</text>元,还差<text class="need">{{currentPrice}}</text>元
+    </view>
+        <view class="sharecut-detail__title" wx:if="{{activityStatus===2}}">
+        厉害了，好友帮你砍到<text class="cut">{{currentPrice}}</text>元了
+    </view>
+        <view class="sharecut-detail__title" wx:if="{{activityStatus===3||activityStatus===7}}">
+       哎呀，手慢 ！商品已抢完...
+    </view>
+        <view class="sharecut-detail__title" wx:if="{{activityStatus===4||activityStatus===8}}">
+       好遗憾，就差一点点...
+    </view>
+        <view class="sharecut-detail__title" wx:if="{{activityStatus===5||activityStatus===9}}">
+       恭喜你，已成功拿下好物!
+    </view>
+        <view class="sharecut-detail__title" wx:if="{{activityStatus===6}}">
+      还没有人帮你砍价~
+    </view>
+        <view class="detail__time-wrap" wx:if="{{activityStatus===1||activityStatus===6}}">
+            <view class="sharecut-detail__time">仅剩 <text class="time">{{countdown}}</text>，快喊好友帮忙</view>
+        </view>
+        <view class="detail__time-wrap" wx:if="{{activityStatus===2}}">
+            <view class="sharecut-detail__time">仅剩 <text class="time">{{countdown}}</text>，手慢无</view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="sharecut-detail__title" wx:if="{{activityStatus===1}}">
+      你已帮好友砍了<text class="cut">{{sharePrice}}</text>元
+    </view>
+        <view class="sharecut-detail__title" wx:if="{{activityStatus>=2&&activityStatus<=5||activityStatus===10}}">
+      已有<text class="cut">{{friendList.length}}</text>人为TA 砍价
+    </view>
+        <view class="time-header detail__time-wrap" wx:if="{{activityStatus===1}}">
+            <view class="sharecut-detail__time">已有<text class="cut">{{friendList.length}}</text>人为TA 砍价</view>
+        </view>
+    </view>
+    <view class="sharecut-detail__activity-status" wx:if="{{!isSelf}}">
+        <view class="success" wx:if="{{activityStatus===5}}"></view>
+        <view class="end" wx:if="{{activityStatus===4}}"></view>
+        <view class="soldout" wx:if="{{activityStatus===3}}"></view>
+    </view>
+    <view class="sharecut-detail__activity-status" wx:if="{{isSelf}}">
+        <view class="success" wx:if="{{activityStatus===5||activityStatus===9}}"></view>
+        <view class="end" wx:if="{{activityStatus===4||activityStatus===8}}"></view>
+        <view class="soldout" wx:if="{{activityStatus===3||activityStatus===7}}"></view>
+    </view>
+</template>

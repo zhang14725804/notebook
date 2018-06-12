@@ -1,0 +1,148 @@
+<template name="m-paopao-imgFeed-more">
+    <view class="m-paopao-feedBox">
+        <image class="m-paopao-feedBox-bg" mode="aspectFill" src="http://www.qiyipic.com/common/fix/wx-iqiyi-active-bg/m-paopao-feedBox-bg.png"></image>
+        <view class="m-paopao-feedBox-content">
+            <view class="m-feed-user">
+                <view class="m-feed-userImg">
+                    <image class="c-feed-userImg" mode="aspectFill" src="{{item.icon?item.icon:'/resource/images/head-img.png'}}"></image>
+                </view>
+                <view class="m-feed-userInfo">
+                    <view class="c-feed-userName">
+                        <view>
+                            <text>{{item.name?item.name:'爱奇艺用户'}}</text>
+                        </view>
+                    </view>
+                    <view class="c-feed-time">
+                        <text class="c-feed-text">{{item.pubStr}}</text>
+                        <text class="c-feed-text" wx:if="{{item.uvCount}}">{{item.uvCount}}阅读量</text>
+                    </view>
+                </view>
+            </view>
+            <view class="m-feed-article">
+                <rich-text class="m-article-p" nodes="{{item.description}}"></rich-text>
+            </view>
+            <view class="m-imgFeed-more">
+                <view class="m-imgFeed-more-item" wx:if="{{index<2}}" wx:for="{{item.picList}}" wx:for-item="picList" wx:key="index">
+                    <view class="m-imgFeed-more-inner">
+                        <image class="m-imgFeed-more-img" mode="aspectFill" src="{{picList.url}}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="m-scrollList-paopaofeed">
+    <scroll-view class="m-scrollList-paopaofeed" scrollLeft="0" scrollX="true">
+        <view class="m-scrollList-paopaofeed-inner">
+            <view bindtap="openPaopaoFeed" class="m-paopao-feed-item" data-feed-id="{{item.feedId}}" data-source-type="{{item.sourceType}}" wx:if="{{item.description&&item.picList.length>0}}" wx:for="{{feeds}}" wx:key="index">
+                <template is="m-paopao-imgFeed-more" data="{{item:item}}"></template>
+            </view>
+        </view>
+    </scroll-view>
+</template>
+<template name="m-scrollList-paopao">
+    <scroll-view class="m-scrollList-paopao" scrollLeft="0" scrollX="true">
+        <view class="m-scrollList-inner">
+            <view class="m-paopao-star">
+                <image class="star-icon" src="http://pic8.qiyipic.com/image/20160307/7c/94/p_2003479_m_601_m1_160_160.jpg"></image>
+                <text class="star-name">王子文</text>
+            </view>
+            <view class="m-paopao-star">
+                <image class="star-icon" src="http://pic8.qiyipic.com/image/20160307/7c/94/p_2003479_m_601_m1_160_160.jpg"></image>
+                <text class="star-name">王子文</text>
+            </view>
+            <view class="m-paopao-star">
+                <image class="star-icon" src="http://pic8.qiyipic.com/image/20160307/7c/94/p_2003479_m_601_m1_160_160.jpg"></image>
+                <text class="star-name">王子文</text>
+            </view>
+            <view class="m-paopao-star">
+                <image class="star-icon" src="http://pic8.qiyipic.com/image/20160307/7c/94/p_2003479_m_601_m1_160_160.jpg"></image>
+                <text class="star-name">王子文</text>
+            </view>
+            <view class="m-paopao-star">
+                <image class="star-icon" src="http://pic8.qiyipic.com/image/20160307/7c/94/p_2003479_m_601_m1_160_160.jpg"></image>
+                <text class="star-name">王子文</text>
+            </view>
+            <view class="m-paopao-star">
+                <image class="star-icon" src="http://pic8.qiyipic.com/image/20160307/7c/94/p_2003479_m_601_m1_160_160.jpg"></image>
+                <text class="star-name">王子文</text>
+            </view>
+        </view>
+    </scroll-view>
+</template>
+<template name="m-scrollList">
+    <scroll-view bindscroll="scroll" bindscrolltolower="lower" bindscrolltoupper="upper" class="m-scrollList m-scrollList-titleonly" scrollX="true">
+        <view class="m-scrollList-inner">
+            <view class="m-scrollList_item">
+                <view class="m-scrollList_imgBox">
+                    <image class="m-scrollList_img" height="73" mode="aspectFill" src="http://pic9.qiyipic.com/image/20170418/e5/d9/v_112158763_m_601_m1_284_160.jpg" width="130"></image>
+                    <view class="m-scrollList_update">
+                        <text class="m-scrollList_updateTx">{{item.update}}</text>
+                    </view>
+                    <image class="c-icon-selectedPlay" height="25" hidden="{{true}}" src="/resource/images/c-icon-selectedPlay.png" width="25"></image>
+                    <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{condition}}"></image>
+                    <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{condition}}"></image>
+                </view>
+                <view class="m-scrollList_title">
+                    <text>标题文案最长两行截断</text>
+                </view>
+            </view>
+            <view class="m-scrollList_item">
+                <view class="m-scrollList_imgBox">
+                    <image class="m-scrollList_img" height="73" mode="aspectFill" src="http://pic9.qiyipic.com/image/20170418/e5/d9/v_112158763_m_601_m1_284_160.jpg" width="130"></image>
+                    <view class="m-scrollList_update">
+                        <text class="m-scrollList_updateTx">{{item.update}}</text>
+                    </view>
+                    <image class="c-icon-selectedPlay" height="25" hidden="{{true}}" src="/resource/images/c-icon-selectedPlay.png" width="25"></image>
+                    <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{condition}}"></image>
+                    <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{condition}}"></image>
+                </view>
+                <view class="m-scrollList_title">
+                    <text>标题文案最长两行截断</text>
+                </view>
+            </view>
+            <view class="m-scrollList_item">
+                <view class="m-scrollList_imgBox">
+                    <image class="m-scrollList_img" height="73" mode="aspectFill" src="http://pic9.qiyipic.com/image/20170418/e5/d9/v_112158763_m_601_m1_284_160.jpg" width="130"></image>
+                    <view class="m-scrollList_update">
+                        <text class="m-scrollList_updateTx">{{item.update}}</text>
+                    </view>
+                    <image class="c-icon-selectedPlay" height="25" hidden="{{true}}" src="/resource/images/c-icon-selectedPlay.png" width="25"></image>
+                    <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{condition}}"></image>
+                    <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{condition}}"></image>
+                </view>
+                <view class="m-scrollList_title">
+                    <text>标题文案最长两行截断</text>
+                </view>
+            </view>
+            <view class="m-scrollList_item">
+                <view class="m-scrollList_imgBox">
+                    <image class="m-scrollList_img" height="73" mode="aspectFill" src="http://pic9.qiyipic.com/image/20170418/e5/d9/v_112158763_m_601_m1_284_160.jpg" width="130"></image>
+                    <view class="m-scrollList_update">
+                        <text class="m-scrollList_updateTx">{{item.update}}</text>
+                    </view>
+                    <image class="c-icon-selectedPlay" height="25" hidden="{{true}}" src="/resource/images/c-icon-selectedPlay.png" width="25"></image>
+                    <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{condition}}"></image>
+                    <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{condition}}"></image>
+                </view>
+                <view class="m-scrollList_title">
+                    <text>标题文案最长两行截断</text>
+                </view>
+            </view>
+            <view class="m-scrollList_item">
+                <view class="m-scrollList_imgBox">
+                    <image class="m-scrollList_img" height="73" mode="aspectFill" src="http://pic9.qiyipic.com/image/20170418/e5/d9/v_112158763_m_601_m1_284_160.jpg" width="130"></image>
+                    <view class="m-scrollList_update">
+                        <text class="m-scrollList_updateTx">{{item.update}}</text>
+                    </view>
+                    <image class="c-icon-selectedPlay" height="25" hidden="{{true}}" src="/resource/images/c-icon-selectedPlay.png" width="25"></image>
+                    <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{condition}}"></image>
+                    <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{condition}}"></image>
+                </view>
+                <view class="m-scrollList_title">
+                    <text>标题文案最长两行截断</text>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</template>

@@ -1,0 +1,50 @@
+<view class="mine-page">
+    <view class="user-info">
+        <view class="user-img-box" wx:if="{{imgUrl}}">
+            <image binderror="imgErr" class="user-img" src="{{imgUrl}}"></image>
+        </view>
+        <view class="user-img-box" wx:else>
+            <image class="user-img" src="{{defaultUrl}}"></image>
+        </view>
+        <view class="user-text" wx:if="{{username}}">
+            {{username}}
+        </view>
+        <view bindtap="handleLogin" class="user-text" wx:else>
+            请点击登录
+        </view>
+    </view>
+    <view class="mine-list">
+        <view bindtap="gotoOrder" class="mine-item arrow" style="border-bottom: 1rpx solid #E5E5E5">
+            <image class="icon-item" src="https://p0.meituan.net/wxapp/4746980f618f2f0199757ba6b5e541141566.png"></image>
+            <text class="text-item">我的订单</text>
+        </view>
+        <formcover>
+            <view bindtap="goCollect" class="mine-item arrow" style="border-bottom: 1rpx solid #E5E5E5">
+                <image class="icon-item" src="http://p0.meituan.net/codeman/fae908ea1b517c786524a1643ea2b6d41729.png"></image>
+                <text class="text-item">我的收藏</text>
+            </view>
+        </formcover>
+        <form bindsubmit="gotoVoucher" data-source="pingtai" reportSubmit="true">
+            <button class="formButton" formType="submit">
+                <view class="mine-item arrow" style="border-bottom: 1rpx solid #E5E5E5">
+                    <image class="icon-item" src="https://p0.meituan.net/wxapp/4ebe6667737549691b34319d48c9a6612399.png"></image>
+                    <text class="text-item">我的券包</text>
+                    <text class="text-right" wx:if="{{availableVouchersNum}}">有{{availableVouchersNum}}张可用</text>
+                </view>
+            </button>
+        </form>
+        <formcover wx:if="{{myPrizeItem.isShow}}">
+            <view bindtap="goPrize" class="mine-item {{myPrizeItem.isArrow?'arrow':''}}" style="border-bottom: 1rpx solid #E5E5E5">
+                <image class="icon-item" src="{{myPrizeItem.icon}}"></image>
+                <text class="text-item">{{myPrizeItem.name}}</text>
+            </view>
+        </formcover>
+        <formcover>
+            <view bindtap="makeCall" class="mine-item" data-phone="10107888">
+                <image class="icon-item" src="https://p0.meituan.net/wxapp/ca6446e85acc01723d0b9365caad65fb2679.png"></image>
+                <text class="text-item">客服电话：10107888</text>
+                <text class="subtext-item">(服务时间：9:00-23:00)</text>
+            </view>
+        </formcover>
+    </view>
+</view>

@@ -1,0 +1,203 @@
+<template name="tpl_coupon">
+    <view class="xcoupon type_{{coupon.coupontypeStr}} {{coupon.disabled==true?'disabled':''}}">
+        <view class="xcoupon_main">
+            <view class="xcoupon_price">
+                <block wx:if="{{coupon.couponTypeNum==2}}">
+                    <view class="single_range" wx:if="{{coupon.discountInfo.info.length==1}}">
+                        <view>
+                            <text class="price">{{utils.fixedDecimal(coupon.discountInfo.info[0].discountRate*10).int}}</text>
+                            <block wx:if="{{utils.fixedDecimal(coupon.discountInfo.info[0].discountRate*10).decimal*1}}">
+                                <text class="point">.</text>
+                                <text class="price">{{utils.fixedDecimal(coupon.discountInfo.info[0].discountRate*10).decimal*1}}</text>
+                            </block>
+                            <text class="char_unit">折</text>
+                        </view>
+                        <view class="p mt25">满{{coupon.discountInfo.info[0].quota}}元可用</view>
+                        <view class="tip mt10">最高立减{{coupon.discountInfo.high}}元</view>
+                    </view>
+                    <view class="multi_range" wx:if="{{coupon.discountInfo.info.length>1}}">
+                        <view class="p" wx:for="{{coupon.discountInfo.info}}" wx:key="{{index}}">
+                            满{{item.quota}}元/
+                            <text class="price">{{utils.fixedDecimal(item.discountRate*10).int}}</text>
+                            <block wx:if="{{utils.fixedDecimal(item.discountRate*10).decimal*1}}">
+                                <text class="point">.</text>
+                                <text class="price">{{utils.fixedDecimal(item.discountRate*10).decimal*1}}</text>
+                            </block>
+                            <text class="char_unit">折</text>
+                        </view>
+                        <view class="tip mt20">最高立减{{coupon.discountInfo.high}}元</view>
+                    </view>
+                </block>
+                <view class="single_range" wx:else>
+                    <view>
+                        <text class="symbol_unit">¥</text>
+                        <text class="price vat">{{coupon.discount}}</text>
+                    </view>
+                    <view class="p mt25">满{{coupon.quota}}元可用</view>
+                </view>
+            </view>
+            <view class="xcoupon_msg">
+                <view class="xcoupon_condition line2">
+                    <text class="xcoupon_tag">{{coupon.typeTag}}</text>
+                    <text class="vam" wx:if="{{coupon.couponKind==0&&coupon.couponTypeNum==2}}">{{coupon.limitStr||ppms&&ppms.couponName||'折扣神券（限部分商品可用，特殊品类及特价商品除外）'}}</text>
+                    <text class="vam" wx:else>{{coupon.limitStr?coupon.limitStr:coupon.coupontypeStr=='yun'?'限京东自营商品（部分特殊商品运费除外）':'可购买京东全品类商品（特殊商品除外）'}}</text>
+                </view>
+                <view class="xcoupon_attrs">
+                    <text class="xcoupon_attrs_item" wx:for="{{coupon.attrTags}}" wx:key="{{index}}">{{item}}</text>
+                </view>
+                <view class="xcoupon_date">{{coupon.rangeDate}}</view>
+            </view>
+        </view>
+        <block wx:if="{{mode==1&&coupon.isShowGoods&&coupon.useableCouponStatus==2}}">
+            <block wx:if="{{coupon.ticketPurchase.isGoodsLoaded}}">
+                <block wx:if="{{!coupon.ticketPurchase.isGoodsError}}">
+                    <block wx:if="{{coupon.ticketPurchase.goodsNoWrap.length>0}}">
+                        <view class="dash_line"></view>
+                        <view catchtap="navigateToTicketPurchase" class="xcoupon_purchase" data-batchid="{{coupon.batchid}}" data-begin-time="{{coupon.beginTime}}" data-coupon-kind="{{coupon.couponKind}}" data-end-time="{{coupon.endTime}}" data-type="{{2}}">
+                            <text class="p text_grey">此券即将过期，可用于购买以下商品</text>
+                            <view class="xcoupon_purchase_list" wx:if="{{coupon.ticketPurchase.isGoodsLoaded}}">
+                                <image class="xcoupon_purchase_good" src="{{item.imgurl}}" wx:for="{{coupon.ticketPurchase.goodsNoWrap}}" wx:key="{{index}}"></image>
+                                <view class="to_use text_red">
+                                    <text>{{getCDkey&&coupon.canBeShare?'更多':'去使用'}}</text>
+                                    <view class="icon_arrow_right"></view>
+                                </view>
+                            </view>
+                        </view>
+                        <block wx:if="{{getCDkey&&coupon.canBeShare&&shareBtnInfo.state!=3}}">
+                            <view class="dash_line"></view>
+                            <view class="xcoupon_opera">
+                                <block wx:if="{{getCDkey&&coupon.canBeShare&&shareBtnInfo.state!=3}}">
+                                    <view class="xcoupon_opera_item" wx:if="{{shareBtnInfo.state==0&&shareBtnInfo.status==1}}">
+                                        <button catchtap class="reset_btn coupon_share_btn" data-coupon-idx="{{couponIdx}}" data-tab-index="{{coupon.tabIndex}}" openType="share">赠送好友</button>
+                                    </view>
+                                    <view catchtap="navigateToSend" class="xcoupon_opera_item" data-coupon-idx="{{couponIdx}}" data-tab-index="{{coupon.tabIndex}}" wx:else>赠送好友</view>
+                                </block>
+                                <view catchtap="navigateToTicketPurchase" class="xcoupon_opera_item text_red" data-batchid="{{coupon.batchid}}" data-begin-time="{{coupon.beginTime}}" data-coupon-kind="{{coupon.couponKind}}" data-end-time="{{coupon.endTime}}" data-type="{{2}}">去使用</view>
+                            </view>
+                        </block>
+                    </block>
+                    <block wx:else>
+                        <view class="dash_line"></view>
+                        <view class="xcoupon_opera">
+                            <block wx:if="{{getCDkey&&coupon.canBeShare&&shareBtnInfo.state!=3}}">
+                                <view class="xcoupon_opera_item" wx:if="{{shareBtnInfo.state==0&&shareBtnInfo.status==1}}">
+                                    <button catchtap class="reset_btn coupon_share_btn" data-coupon-idx="{{couponIdx}}" data-tab-index="{{coupon.tabIndex}}" openType="share">赠送好友</button>
+                                </view>
+                                <view catchtap="navigateToSend" class="xcoupon_opera_item" data-coupon-idx="{{couponIdx}}" data-tab-index="{{coupon.tabIndex}}" wx:else>赠送好友</view>
+                            </block>
+                            <view catchtap="navigateToTicketPurchase" class="xcoupon_opera_item text_red" data-batchid="{{coupon.batchid}}" data-begin-time="{{coupon.beginTime}}" data-coupon-kind="{{coupon.couponKind}}" data-end-time="{{coupon.endTime}}" data-type="{{2}}">去使用</view>
+                        </view>
+                    </block>
+                </block>
+                <view wx:else>
+                    <view class="dash_line"></view>
+                    <view class="xcoupon_opera">
+                        <block wx:if="{{getCDkey&&coupon.canBeShare&&shareBtnInfo.state!=3}}">
+                            <view class="xcoupon_opera_item" wx:if="{{shareBtnInfo.state==0&&shareBtnInfo.status==1}}">
+                                <button catchtap class="reset_btn coupon_share_btn" data-coupon-idx="{{couponIdx}}" data-tab-index="{{coupon.tabIndex}}" openType="share">赠送好友</button>
+                            </view>
+                            <view catchtap="navigateToSend" class="xcoupon_opera_item" data-coupon-idx="{{couponIdx}}" data-tab-index="{{coupon.tabIndex}}" wx:else>赠送好友</view>
+                        </block>
+                        <view catchtap="navigateToTicketPurchase" class="xcoupon_opera_item text_red" data-batchid="{{coupon.batchid}}" data-begin-time="{{coupon.beginTime}}" data-coupon-kind="{{coupon.couponKind}}" data-end-time="{{coupon.endTime}}" data-type="{{1}}">去使用</view>
+                    </view>
+                </view>
+            </block>
+        </block>
+        <block wx:if="{{mode==1&&(coupon.tabIndex==0||coupon.tabIndex==1&&coupon.canBeShare)&&coupon.couponTypeNum!=4}}">
+            <block wx:if="{{coupon.couponKind==0}}">
+                <view class="dash_line dots"></view>
+                <view class="xcoupon_opera">
+                    <block wx:if="{{getCDkey&&coupon.canBeShare&&shareBtnInfo.state!=3}}">
+                        <view class="xcoupon_opera_item" wx:if="{{shareBtnInfo.state==0&&shareBtnInfo.status==1}}">
+                            <button catchtap class="reset_btn coupon_share_btn" data-coupon-idx="{{couponIdx}}" data-tab-index="{{coupon.tabIndex}}" openType="share">赠送好友</button>
+                        </view>
+                        <view catchtap="navigateToSend" class="xcoupon_opera_item" data-coupon-idx="{{couponIdx}}" data-tab-index="{{coupon.tabIndex}}" wx:else>赠送好友</view>
+                    </block>
+                    <view catchtap="navigateToGoodsCategory" class="xcoupon_opera_item text_red" data-type="{{coupon.couponTypeNum}}" wx:if="{{coupon.couponTypeNum!=4}}">去使用</view>
+                </view>
+            </block>
+            <block wx:else>
+                <block wx:if="{{coupon.useableCouponStatus!=2}}">
+                    <view class="dash_line dots"></view>
+                    <view class="xcoupon_opera">
+                        <block wx:if="{{getCDkey&&coupon.canBeShare&&shareBtnInfo.state!=3}}">
+                            <view class="xcoupon_opera_item" wx:if="{{shareBtnInfo.state==0&&shareBtnInfo.status==1}}">
+                                <button catchtap class="reset_btn coupon_share_btn" data-coupon-idx="{{couponIdx}}" data-tab-index="{{coupon.tabIndex}}" openType="share">赠送好友</button>
+                            </view>
+                            <view catchtap="navigateToSend" class="xcoupon_opera_item" data-coupon-idx="{{couponIdx}}" data-tab-index="{{coupon.tabIndex}}" wx:else>赠送好友</view>
+                        </block>
+                        <view catchtap="navigateToTicketPurchase" class="xcoupon_opera_item text_red" data-batchid="{{coupon.batchid}}" data-begin-time="{{coupon.beginTime}}" data-coupon-kind="{{coupon.couponKind}}" data-end-time="{{coupon.endTime}}" data-type="{{1}}">去使用</view>
+                    </view>
+                </block>
+            </block>
+        </block>
+        <block wx:if="{{mode==1&&coupon.state==10}}">
+            <view class="dash_line dots"></view>
+            <view class="xcoupon_opera">
+                <view catchtap="recallSend" class="xcoupon_opera_item" data-coupon-idx="{{couponIdx}}">撤销赠送</view>
+                <view catchtap="goSharePage" class="xcoupon_opera_item text_red" data-coupon-idx="{{couponIdx}}">赠送给其他好友</view>
+            </view>
+        </block>
+        <block wx:if="{{mode==2}}">
+            <view class="dash_line dots"></view>
+            <view class="xcoupon_explain">
+                <view class="xcoupon_explain_item" wx:if="{{coupon.couponTypeNum==2}}">
+                    <view class="xcoupon_explain_l">
+                        <text>条</text>
+                        <text>件</text>
+                    </view>
+                    <view class="xcoupon_explain_r">
+                        <text wx:for="{{coupon.discountInfo.info}}" wx:key="{{index}}">满{{item.quota}}元享{{item.discountRate*10}}折，</text>
+                        <text>最高可减{{coupon.discountInfo.high}}元</text>
+                    </view>
+                </view>
+                <view class="xcoupon_explain_item">
+                    <view class="xcoupon_explain_l">
+                        <text>说</text>
+                        <text>明</text>
+                    </view>
+                    <view class="xcoupon_explain_r" wx:if="{{coupon.couponKind==0&&coupon.couponTypeNum==2}}">
+                        <text>{{coupon.limitStr||ppms&&ppms.couponName||'折扣神券（限部分商品可用，特殊品类及特价商品除外）'}}</text>
+                    </view>
+                    <view class="xcoupon_explain_r" wx:else>
+                        <text>{{coupon.limitStr}}</text>
+                    </view>
+                </view>
+                <view class="xcoupon_explain_item" wx:if="{{coupon.isOverlay==2}}">
+                    <view class="xcoupon_explain_l">
+                        <text>可</text>
+                        <text>叠</text>
+                        <text>加</text>
+                    </view>
+                    <view class="xcoupon_explain_r">{{coupon.overlayDesc}}</view>
+                </view>
+                <view class="xcoupon_explain_item" wx:if="{{!coupon.isFullPlayform}}">
+                    <view class="xcoupon_explain_l">
+                        <text>限</text>
+                        <text>平</text>
+                        <text>台</text>
+                    </view>
+                    <view class="xcoupon_explain_r">{{coupon.platFormInfo}}</view>
+                </view>
+                <view class="xcoupon_explain_item" wx:if="{{coupon.areaType==2}}">
+                    <view class="xcoupon_explain_l">
+                        <text>限</text>
+                        <text>地</text>
+                        <text>区</text>
+                    </view>
+                    <view class="xcoupon_explain_r">{{coupon.areaDesc}}</view>
+                </view>
+                <view class="xcoupon_explain_item">
+                    <view class="xcoupon_explain_l">
+                        <text>券</text>
+                        <text>编</text>
+                        <text>号</text>
+                    </view>
+                    <view class="xcoupon_explain_r">{{coupon.couponid}}</view>
+                </view>
+            </view>
+        </block>
+        <view class="xcoupon_coner {{coupon.conerStyle}}" wx:if="{{!!coupon.conerStyle}}">{{coupon.conerStr}}</view>
+    </view>
+</template>
+<wxs module="utils" src="../utils.wxs" />

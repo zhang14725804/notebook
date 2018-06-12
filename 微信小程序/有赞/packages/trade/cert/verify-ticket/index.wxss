@@ -1,0 +1,65 @@
+@import "../../../../components/copyright/index.wxss";
+
+.verify-ticket__container {
+    background: #f8f8f8;
+    overflow: auto;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.qrcode__container,.order-info__container,.code-info__container {
+    padding: 15px;
+    background: #fff;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+}
+
+.qrcode__container {
+    display: flex;
+    padding-top: 30px;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+}
+
+.qrcode__container image {
+    width: 200px;
+    height: 200px;
+}
+
+.qrcode__container image.hide {
+    display: none;
+}
+
+.qrcode__container image.verified {
+    width: 132px;
+    height: 110px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.order-info__container {
+    margin-bottom: 15px;
+}
+
+.order-info__container .divider {
+    margin: 15px -15px 15px 0;
+}
+
+.code-info__container.with-border--top::before {
+    left: 15px;
+}
+
+.code-info__container.with-border--top:first-child::before {
+    left: 0;
+}
+
+.code-info__container>view:first-child {
+    font-size: 12px;
+    color: #666;
+}

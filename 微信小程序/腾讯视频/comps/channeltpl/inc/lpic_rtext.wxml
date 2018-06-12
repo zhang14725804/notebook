@@ -1,0 +1,17 @@
+<view class="mod_box">
+    <include src="./comps/box_title.wxml"></include>
+    <view class="mod_figures">
+        <view bindtap="onPlay" class="figure_lr" data-cid="{{video.cid||''}}" data-id="{{video.itemId}}" data-index="{{index}}" data-modidx="{{modidx}}" data-type="{{video.itemtype}}" data-vid="{{video.vid||''}}" wx:for="{{item.list}}" wx:for-item="video" wx:key="itemId">
+            <view class="figure_l">
+                <image class="figure_pic" src="{{video.pic}}"></image>
+                <include src="./comps/caption.wxml"></include>
+            </view>
+            <view class="figure_r">
+                <view class="vertical_center">
+                    <view class="figure_title">{{video.title}}</view>
+                    <view class="figure_desc" wx:if="{{video.subtitle}}">{{video.subtitle}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

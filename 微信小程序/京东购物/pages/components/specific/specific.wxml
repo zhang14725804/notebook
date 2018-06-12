@@ -1,0 +1,84 @@
+<view class="xlist_group description">
+    <view class="xlist_item" style="min-height: {{tab.minHeight}}">
+        <view class="detail_tab">
+            <view bindtap="switchTab" class="tab_item {{tab.index==index?'cur':''}}" data-tab="{{index}}" wx:for="{{['商品介绍','规格参数','售后保障']}}">{{item}}</view>
+        </view>
+        <view class="section_intro" hidden="{{tab.index!=0}}">
+            <block wx:if="{{tab.intro.notices.length}}">
+                <view class="section_intro_title_wrap">
+                    <view class="section_intro_line"></view>
+                    <view class="section_intro_title">全球购公告</view>
+                </view>
+                <image bindload="imageDidLoad" data-idx="{{index}}" data-src="{{item.url}}" data-type="notices" src="{{item.url}}" style="width: {{item.width}}; height: {{item.height}};" wx:for="{{tab.intro.notices}}"></image>
+            </block>
+            <block wx:if="{{isBookOrDisk&&tab.intro.contents.length}}">
+                <view class="intro_book_or_disk" wx:for="{{tab.intro.contents}}" wx:for-item="section">
+                    <view class="sep_header">
+                        <text>{{section.title}}</text>
+                    </view>
+                    <block wx:for="{{section.content}}">
+                        <image bindload="imageDidLoad" data-idx="{{item.imgIdx}}" data-src="{{tab.intro.images[item.imgIdx].url}}" data-type="images" src="{{tab.intro.images[item.imgIdx].url}}" style="width: {{tab.intro.images[item.imgIdx].width}}; height: {{tab.intro.images[item.imgIdx].height}};" wx:if="{{item.type=='image'}}"></image>
+                        <text class="p" wx:else>{{item.value}}</text>
+                    </block>
+                </view>
+            </block>
+            <block wx:elif="{{tab.intro.images.length}}">
+                <view class="section_intro_title_wrap">
+                    <view class="section_intro_line"></view>
+                    <view class="section_intro_title">商品介绍</view>
+                </view>
+                <view class="intro_others">
+                    <image bindload="imageDidLoad" data-idx="{{index}}" data-src="{{item.url}}" data-type="images" src="{{item.url}}" style="width: {{item.width}}; height: {{item.height}};" wx:for="{{tab.intro.images}}"></image>
+                </view>
+            </block>
+            <view class="load_tips" wx:if="{{tab.intro.tips}}">{{tab.intro.tips}}</view>
+        </view>
+        <view class="section_specs" hidden="{{tab.index!=1}}">
+            <view class="load_tips" wx:if="{{tab.specs.tips}}">{{tab.intro.tips}}</view>
+            <view class="pack_list" wx:if="{{tab.specs.packInfo}}">
+                <view class="sep_header">
+                    <text>包装清单</text>
+                </view>
+                <view class="content">{{tab.specs.packInfo}}</view>
+            </view>
+            <view class="specific" wx:if="{{tab.specs.specific.length}}">
+                <view class="sep_header">
+                    <text>商品参数</text>
+                </view>
+                <view class="xtable">
+                    <block wx:for="{{tab.specs.specific}}">
+                        <view class="xtable_tr" wx:if="{{item.title}}">
+                            <view class="xtable_td title">{{item.title}}</view>
+                        </view>
+                        <view class="xtable_tr sep_line" wx:for="{{item.content}}" wx:for-item="_item">
+                            <view class="xtable_td label">{{_item[0]}}</view>
+                            <view class="xtable_td content">{{_item[1]}}</view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <view class="section_service" hidden="{{tab.index!=2}}">
+            <text class="p vary" wx:if="{{tab.service.content}}">{{tab.service.content}}</text>
+            <block wx:if="{{isZiying}}">
+                <view class="sep_header">
+                    <text>服务承诺</text>
+                </view>
+                <view class="p">京东商城向您保证所售商品均为正品行货，京东自营商品开具机打发票或电子发票。凭质保证书及京东商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由京东联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。京东商城还为您提供具有竞争力的商品价格和<navigator class="link" url="/pages/item/subPackages/freight/freight">运费政策</navigator>，请您放心购买！</view>
+                <text class="p">注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！</text>
+            </block>
+            <view class="sep_header">
+                <text>权利声明</text>
+            </view>
+            <text class="p">京东商城上的所有商品信息、客户评价、商品咨询、网友讨论等内容，是京东商城重要的经营资源，未经许可，禁止非法转载使用。</text>
+            <text class="p">注：本站商品信息均来自于厂商，其真实性、准确性和合法性由信息拥有者（厂商）负责。本站不提供任何保证，并不承担任何法律责任。</text>
+            <view class="sep_header">
+                <text>价格说明</text>
+            </view>
+            <text class="p">1.京东价：京东价为商品的销售价，是您最终决定是否购买商品的依据。</text>
+            <text class="p">2.划线价：商品展示的划横线价格为参考价，该价格可能是品牌专柜标价、商品吊牌价或由品牌供应商提供的正品零售价（如厂商指导价、建议零售价等）或该商品在京东平台上曾经展示过的销售价；由于地区、时间的差异性和市场行情波动，品牌专柜标价、商品吊牌价等可能会与您购物时展示的不一致，该价格仅供您参考。</text>
+            <text class="p">3.折扣：如无特殊说明，折扣指销售商在原价、或划线价（如品牌专柜标价、商品吊牌价、厂商指导价、厂商建议零售价）等某一价格基础上计算出的优惠比例或优惠金额；如有疑问，您可在购买前联系销售商进行咨询。</text>
+            <text class="p">4.异常问题：商品促销信息以商品详情页“促销”栏中的信息为准；商品的具体售价以订单结算页价格为准；如您发现活动商品售价或促销信息有异常，建议购买前先联系销售商咨询。</text>
+        </view>
+    </view>
+</view>

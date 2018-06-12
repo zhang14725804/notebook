@@ -1,0 +1,181 @@
+.preview-audio-wrap {
+    width: 100%;
+    height: 100%;
+}
+
+.preview-audio-wrap .top-gap {
+    width: 100%;
+    height: 118rpx;
+}
+
+.preview-audio-wrap .audio-bg-wrap {
+    width: 300rpx;
+    height: 300rpx;
+    margin: 0 auto;
+}
+
+.preview-audio-wrap .audio-bg {
+    width: 300rpx;
+    height: 300rpx;
+    border-radius: 50%;
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/ic_music_bg.png') no-repeat center;
+    background-size: 300rpx 300rpx;
+    animation: bgRoate 3s infinite linear;
+}
+
+@-webkit-keyframes bgRoate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes bgRoate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+.preview-audio-wrap .audio-name {
+    width: 100%;
+    text-align: center;
+    color: #333;
+    font-size: 40rpx;
+    margin-top: 128rpx;
+    font-weight: bold;
+}
+
+.preview-audio-wrap .audio-size {
+    width: 100%;
+    text-align: center;
+    color: #999;
+    font-size: 28rpx;
+    margin-top: 32rpx;
+}
+
+.preview-audio-wrap .audio-control-wrap {
+    width: 100%;
+    margin-top: 68rpx;
+}
+
+.preview-audio-wrap .audio-control-wrap .audio-duration-wrap {
+    width: 100%;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+}
+
+.preview-audio-wrap .audio-control-wrap .audio-duration-wrap .audio-currenttime {
+    color: #999;
+    font-size: 24rpx;
+    margin-right: 19rpx;
+    width: 64rpx;
+    text-align: center;
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+
+.preview-audio-wrap .audio-control-wrap .audio-duration-wrap .duration-bg {
+    position: relative;
+    width: 498rpx;
+    background: #F6F7F9;
+    height: 6rpx;
+    display: inline-block;
+}
+
+.preview-audio-wrap .audio-control-wrap .audio-duration-wrap .duration-bg .duration-now {
+    background: #3888FF;
+    height: 6rpx;
+}
+
+.preview-audio-wrap .audio-control-wrap .audio-duration-wrap .duration-bg .duration-node {
+    position: absolute;
+    width: 48rpx;
+    height: 48rpx;
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/ic_schedule_button.png') no-repeat center;
+    background-size: 48rpx 48rpx;
+    top: -21.5rpx;
+}
+
+.preview-audio-wrap .audio-control-wrap .audio-duration-wrap .audio-endtime {
+    color: #999;
+    font-size: 24rpx;
+    margin-left: 19rpx;
+    width: 64rpx;
+    text-align: center;
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+
+.preview-audio-wrap .audio-control-wrap .audio-control {
+    margin-top: 168rpx;
+    text-align: center;
+}
+
+.preview-audio-wrap .audio-control-wrap .audio-control .previous-track {
+    display: inline-block;
+    width: 42rpx;
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/ic_music_rewind.png') no-repeat center;
+    background-size: 42rpx 46rpx;
+    height: 120rpx;
+    line-height: 120rpx;
+    margin-right: 100rpx;
+}
+
+.preview-audio-wrap .audio-control-wrap .audio-control .next-track {
+    display: inline-block;
+    width: 42rpx;
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/ic_music_fast_forward.png') no-repeat center;
+    background-size: 42rpx 46rpx;
+    height: 120rpx;
+    line-height: 120rpx;
+    margin-left: 100rpx;
+}
+
+.preview-audio-wrap .audio-control-wrap .audio-control .play {
+    display: inline-block;
+    width: 120rpx;
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/ic_music_stop.png') no-repeat center;
+    background-size: 120rpx 120rpx;
+    height: 120rpx;
+    line-height: 120rpx;
+}
+
+.preview-audio-wrap .audio-control-wrap .audio-control .pause {
+    display: inline-block;
+    width: 120rpx;
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/ic_music_play.png') no-repeat center;
+    background-size: 120rpx 120rpx;
+    height: 120rpx;
+    line-height: 120rpx;
+}

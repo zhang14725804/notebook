@@ -1,0 +1,13 @@
+<template name="fang-housedesc">
+    <view class="fang-block-house-intro marg-top">
+        <view class="house-intro-title">
+            <text>{{descTitle}}</text>
+        </view>
+        <view class="fang-sheshi">
+            <text class="fang-sheshi-t" wx:for="{{info.paramMap.allocation}}" wx:key="index">{{item}}</text>
+        </view>
+        <view class="fang-reason {{spread?'kuozhan':''}}">
+            <text>{{info.content}}</text>
+        </view>
+    </view>
+</template>

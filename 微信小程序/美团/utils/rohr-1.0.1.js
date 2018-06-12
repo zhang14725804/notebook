@@ -1,0 +1,1 @@
+module.exports = require("../npm/@mtfe/wxapp-rohr/dist/rohr.js");

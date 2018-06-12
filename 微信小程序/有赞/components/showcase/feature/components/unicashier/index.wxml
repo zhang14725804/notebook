@@ -1,0 +1,11 @@
+<template name="theme-feature-unicashier">
+    <view class="sc-unicashier">
+        <view class="sc-unicashier__desc">
+            <view class="sc-unicashier__title">到店消费</view>
+            <view class="sc-unicashier__activity zan-ellipsis" wx:if="{{data.activity}}">{{data.activity}}</view>
+        </view>
+        <view class="sc-unicashier__action">
+            <view bindtap="unicashier__handleClick" class="zan-btn zan-btn--danger zan-btn--small" data-id="{{data.qrcodeId}}">买单</view>
+        </view>
+    </view>
+</template>

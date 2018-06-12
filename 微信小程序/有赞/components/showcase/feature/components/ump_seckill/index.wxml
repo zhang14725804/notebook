@@ -1,0 +1,52 @@
+<template name="goods-image">
+    <view class="ump-seckill-goods__img-wrap" style="{{imgWrapStyle}}">
+        <image class="ump-seckill-goods__img" mode="{{isCover?'aspectFill':'aspectFit'}}" src="{{imgUrl}}"></image>
+        <view class="ump-seckill-goods__mask" wx:if="{{showMask}}"></view>
+    </view>
+</template>
+<template name="theme-feature-ump_seckill">
+    <view class="ump-seckill ump-seckill--{{data._sizeName}} ump-seckill--btn-{{data.buyBtnType}}">
+        <navigator class="ump-seckill-goods {{goods._hasStock?'':'ump-seckill-goods--soldout'}} {{goods._isEnd?'ump-seckill-goods--end':''}} {{goods._isNotStart?'ump-seckill-goods--not-start':''}}" data-goods-url="{{goods.detailUrl||''}}" url="{{goods.activityAlias?'/pages/goods/seckill/index?alias='+goods.activityAlias:''}}" wx:for="{{data.goodsList}}" wx:for-item="goods" wx:key="{{ goods.id }}">
+            <view class="ump-seckill-goods__header">
+                <template is="goods-image" data="{{size:data.size,ratio:data.ratio,showMask:!goods._hasStock||goods._isEnd,imgUrl:goods.thumbUrl,imgWrapStyle:goods._imgWrapStyle,isCover:goods._isCover}}"></template>
+                <view class="ump-seckill-goods__tag-info theme-gradient-color">
+                    <text class="ump-seckill-goods__tag" wx:if="{{goods._isShowActivityTag}}">{{goods.tag}}</text>
+                    <view class="ump-seckill-goods__tag-countdown" wx:if="{{data.showCountDown&&goods._isShowCountdown}}">
+                        <view class="ump-seckill-goods__countdown-text" wx:if="{{goods._countdownText.length>0}}">
+              {{goods._countdownText}}
+            </view>
+                        <template is="countdown" data="{{ isMarginLeft:goods._countdownText.length>0,timeStyle:'white',hideZeroDay:true,countdown:goods._countdown,timeSeparator:[] }}"></template>
+                    </view>
+                </view>
+            </view>
+            <view class="ump-seckill-goods__content">
+                <view class="ump-seckill-goods__title" wx:if="{{data.showTitle}}">
+                    <view class="ump-seckill-goods__discount">立减{{goods._discount}}元</view>
+          {{goods.title}}
+        </view>
+                <view class="ump-seckill-goods__info {{data.showStockNum?'':'ump-seckill-goods__stock--hide'}}">
+                    <text class="ump-seckill-goods__discount">立减{{goods._discount}}元</text>
+                    <text class="ump-seckill-goods__stock" wx:if="{{data.showStockNum}}">{{goods._limitText}}{{goods.currentStock||0}}件</text>
+                </view>
+                <view class="ump-seckill-goods__detail theme-color">
+                    <view class="ump-seckill-goods__price">
+            {{data._priceText}}
+            <text class="ump-seckill-goods__price-symbol">¥</text>
+                        <text class="ump-seckill-goods__price-yuan">{{goods._price.yuan}}</text>
+                        <text class="ump-seckill-goods__price-cent">{{goods._price.cent}} </text>
+                    </view>
+                    <view class="ump-seckill-goods__origin-price">{{data._originPriceText}} <text class="line-through">¥{{goods._originPrice}}</text>
+                    </view>
+                </view>
+                <view class="ump-seckill-goods__bottom {{goods._isShowMicroStockNum?'':'ump-seckill-goods__bottom--hide-stock'}}">
+                    <view class="ump-seckill-goods__stock" wx:if="{{goods._isShowMicroStockNum}}">
+            {{goods._limitText}}{{goods.currentStock}}件
+          </view>
+                    <view class="ump-seckill-goods__action {{data.buyBtnType==0||data.buyBtnType==2?'':'theme-bg-color'}}" wx:if="{{data.showBuyBtn}}">{{goods._btnText}}</view>
+                </view>
+            </view>
+            <template is="countdown" data="{{timeStyle:'white',isMicro:true,hideZeroDay:true,countdown:goods._countdown,timeSeparator:data._timeSeparator}}" wx:if="{{data.showCountDown&&goods._isShowMicroCountdown}}"></template>
+        </navigator>
+    </view>
+</template>
+<import src="countdown.wxml"></import>

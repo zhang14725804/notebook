@@ -1,0 +1,7 @@
+<template name="nav">
+    <view class="nav flex-c">
+        <view class="flex1 {{item.active?'active':''}}" wx:if="{{!item.isNotshow}}" wx:for="{{nav}}" wx:key="index">
+            <text bindtap="{{navTapHandler||'onNavTap'}}" class="nav-btn {{item.active?'active':''}}" data-index="{{index}}">{{item.name}}</text>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,20 @@
+{
+    "navigationBarTitleText": "商品详情",
+    "usingComponents": {
+        "GuessYouLike": "../../components/guess-you-like/guess-you-like",
+        "Review": "../../components/review/review",
+        "Shop": "../../components/shop/shop",
+        "Specific": "../../components/specific/specific",
+        "Address": "../../components/address/address",
+        "xModal": "../../components/modal/modal",
+        "quick-nav": "../../../components/quick-nav/quick-nav",
+        "app-launch": "../../../components/app-launch/app-launch",
+        "Accessories": "../components/accessories/index",
+        "Answers": "../components/answers/index",
+        "GlobalInfo": "../components/global-info/index",
+        "AddressLayer": "../components/address-layer/index",
+        "return-app": "../../../components/return_app/return_app",
+        "CouponLayer": "../components/coupon-layer/index",
+        "ShareLayer": "../components/share-layer/index"
+    }
+}

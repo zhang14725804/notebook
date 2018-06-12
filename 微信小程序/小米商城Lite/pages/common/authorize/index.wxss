@@ -1,0 +1,32 @@
+page {
+    text-align: center;
+}
+
+.mx-error-img {
+    display: block;
+    margin: 100rpx auto 0;
+    width: 240rpx;
+}
+
+.mx-error-txt {
+    display: block;
+    margin: 32rpx auto;
+    font-size: 36rpx;
+    color: #666;
+    text-align: center;
+}
+
+.mx-error-txt_sub {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.mx-error-btn {
+    margin: 32rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 36rpx;
+    border: 1rpx solid #adadad;
+    color: #adadad;
+    border-radius: 10rpx;
+}

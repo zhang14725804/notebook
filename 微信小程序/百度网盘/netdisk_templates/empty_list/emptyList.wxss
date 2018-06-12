@@ -1,0 +1,128 @@
+.empty-list-wrap .empty-add-file {
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #3888FF;
+    border-radius: 8rpx;
+    width: 254rpx;
+    height: 80rpx;
+    border: none;
+}
+
+.empty-list-wrap .empty-add-file::after {
+    content: none;
+    border: none;
+}
+
+.normal-empty-dir-wrap {
+    margin: 0 auto;
+}
+
+.normal-empty-dir-wrap .empty-icon {
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/bg_add_to_blank_v130.png') no-repeat center;
+    width: 280rpx;
+    height: 464rpx;
+    background-size: 280rpx 254rpx;
+    background-position: center bottom;
+    margin: 0 auto 24rpx;
+}
+
+.normal-empty-dir-wrap .empty-text {
+    color: #d2d2d2;
+    font-size: 30rpx;
+    text-align: center;
+    margin-bottom: 68rpx;
+}
+
+.share-empty-dir-wrap {
+    margin: 0 auto;
+}
+
+.share-empty-dir-wrap .empty-icon {
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/bg_add_to_blank_v130.png') no-repeat center;
+    width: 280rpx;
+    height: 390rpx;
+    background-size: 280rpx 254rpx;
+    background-position: center bottom;
+    margin: 0 auto 24rpx;
+}
+
+.share-empty-dir-wrap .empty-text {
+    color: #d2d2d2;
+    font-size: 30rpx;
+    text-align: center;
+    margin-bottom: 68rpx;
+}
+
+.normal-empty-list-wrap {
+    margin: 0 auto;
+}
+
+.normal-empty-list-wrap .empty-icon {
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/bg_netdisc_blank.png') no-repeat center;
+    width: 390rpx;
+    height: 763rpx;
+    background-size: contain;
+    margin: 0 auto;
+    margin-bottom: -163rpx;
+}
+
+.normal-empty-list-wrap .empty-title {
+    color: #333;
+    font-weight: bold;
+    font-size: 58rpx;
+    text-align: center;
+}
+
+.normal-empty-list-wrap .empty-text {
+    color: #333;
+    font-size: 26rpx;
+    text-align: center;
+    margin-top: 12rpx;
+}
+
+.upload-empty-list-wrap {
+    margin: 0 auto;
+}
+
+.upload-empty-list-wrap .empty-icon {
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/bg_add_to_blank_v130.png') no-repeat center;
+    width: 280rpx;
+    height: 552rpx;
+    background-size: 280rpx 254rpx;
+    background-position: center bottom;
+    margin: 0 auto 24rpx;
+}
+
+.upload-empty-list-wrap .empty-text {
+    color: #d2d2d2;
+    font-size: 30rpx;
+    text-align: center;
+    margin-bottom: 68rpx;
+}
+
+.share-empty-list-wrap {
+    margin: 0 auto;
+}
+
+.share-empty-list-wrap .empty-icon {
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/bg_shared_blank.png') no-repeat center;
+    width: 465rpx;
+    height: 760rpx;
+    background-size: contain;
+    margin: 0 auto;
+    margin-bottom: -163rpx;
+}
+
+.share-empty-list-wrap .empty-title {
+    color: #333;
+    font-size: 58rpx;
+    text-align: center;
+    font-weight: bold;
+}
+
+.share-empty-list-wrap .empty-text {
+    color: #333;
+    font-size: 26rpx;
+    text-align: center;
+    margin-top: 12rpx;
+}

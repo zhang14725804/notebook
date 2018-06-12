@@ -1,0 +1,77 @@
+<template name="info">
+    <view class="info">
+        <view class="safe-row">
+            <text class="zan-c-black">退款编号：</text>
+            <text class="zan-pull-right zan-c-gray-darker">{{safe_no}}</text>
+        </view>
+        <view class="safe-row">
+            <text class="zan-c-black">申请时间：</text>
+            <text class="zan-pull-right zan-c-gray-darker">{{safe.add_time}}</text>
+        </view>
+        <view class="safe-row">
+            <text class="zan-c-black">退款原因：</text>
+            <text class="zan-pull-right zan-c-gray-darker">{{safe.safe_reason_str}}</text>
+        </view>
+        <view class="safe-row">
+            <text class="zan-c-black">处理方式：</text>
+            <text class="zan-pull-right zan-c-gray-darker">{{safe.safe_type_str}}</text>
+        </view>
+        <view class="safe-row">
+            <text class="zan-c-black">退款金额：</text>
+            <text class="zan-pull-right zan-c-red">￥{{safe.refund_fee}}</text>
+        </view>
+    </view>
+    <view class="info-goods">
+        <view class="info-goods__namecard zan-card">
+            <view class="zan-card__thumb">
+                <image class="zan-card__img" mode="aspectFit" src="{{goods.imgPreview}}"></image>
+            </view>
+            <view class="zan-card__detail">
+                <view class="zan-card__detail-row">
+                    <view class="zan-card__right-col">¥ {{goods.payPriceStr}}</view>
+                    <view class="zan-card__left-col zan-ellipsis--l2">{{goods.title}}</view>
+                </view>
+                <view class="zan-card__detail-row zan-c-gray-darker">
+                    <view class="zan-card__right-col">x{{goods.num}}</view>
+                    <view class="zan-card__left-col">{{goods.skuStr}}</view>
+                </view>
+                <view class="zan-card__detail-row zan-c-gray-darker">
+                    <view class="zan-card__left-col zan-c-red">{{goods.orderStateStr}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="chat">
+    <view class="safe-chat">
+        <block wx:for="{{log}}" wx:for-item="logItem" wx:key="id">
+            <view class="safe-chat__time zan-c-gray-dark zan-center">{{logItem.add_time}}</view>
+            <view class="zan-chat {{logItem.explain_detail.who=='买家'?'zan-chat--light zan-chat--right':'zan-chat--dark zan-chat--left'}}">
+                <view class="zan-chat__detail">
+                    <view class="zan-chat__hd {{logItem.explain_detail.detail.length>0||logItem.ext_info.length>0?'':'zan-chat__hd--no-border'}}" wx:if="{{logItem.explain_detail.state_str}}">{{logItem.explain_detail.state_str}}</view>
+                    <view class="zan-chat__bd" wx:if="{{logItem.explain_detail.detail.length>0||logItem.ext_info.length>0}}">
+                        <view class="zan-chat__row" wx:for="{{logItem.explain_detail.detail}}" wx:for-item="explainItem" wx:key="unique">
+                            <view class="zan-chat__label">{{explainItem.title}}：</view>
+                            <view class="zan-chat__content">{{explainItem.str}}</view>
+                        </view>
+                        <view class="zan-chat__row" wx:if="{{logItem.ext_info.length>0}}">
+                            <view class="zan-chat__label">图片举证：</view>
+                            <view class="zan-chat__content">
+                                <image catchtap="showPicture" class="zan-pull-left" data-src="{{pictureData.src}}" mode="aspectFit" src="{{pictureData.srcPreview}}" style="width: 60px; height: 60px; margin-right: 10px; margin-bottom: 10px;" wx:for="{{logItem.ext_info}}" wx:for-item="pictureData" wx:key="src"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="zan-chat__arrow"></view>
+            </view>
+        </block>
+    </view>
+</template>
+<template name="safe-info">
+    <view class="zan-panel {{tab.selectedId==1?'':'safe-panel--no-border-bottom'}}">
+        <template is="zan-tab" data="{{tab:tab,componentId:'tab'}}"></template>
+        <template is="info" data="{{safe_no:safe_no,safe:safe,goods:goods}}" wx:if="{{tab.selectedId==1}}"></template>
+        <template is="chat" data="{{log:log}}" wx:else></template>
+    </view>
+</template>
+<import src="../../../../../../bower_components/zan/dist/tab/index.wxml"></import>

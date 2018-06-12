@@ -1,0 +1,120 @@
+<view class="msxcx-widget-loading msxcx-widget-loading_big" wx:if="{{!loaded}}">
+    <view></view>
+    <text>加载中</text>
+</view>
+<view class="wx-mifans-index" wx:if="{{loaded}}">
+    <image class="header" mode="widthFix" src="https://i8.mifile.cn/webfile/h5/weixin/0328/header_img.jpg?0402"></image>
+    <view class="wx-mifans-content">
+        <image class="mail" mode="widthFix" src="https://i8.mifile.cn/webfile/h5/weixin/0328/mifans-mall.jpg?"></image>
+        <view class="wx-my-tips">
+            <text class="my-tips-title">我是米粉 {{userinfo.username}}</text>
+            <view class="my-tips-desc" wx:if="{{userinfo.content&&userinfo.content.length>0}}">
+                <text class="my-tips-par" wx:for="{{userinfo.content}}">{{item}}</text>
+            </view>
+            <view class="my-tips-desc" wx:else>
+                <text class="my-tips-par">截止2018年，还未拥有一件小米科技产品</text>
+                <text class="my-tips-par">小米为发烧而生，用科技改变生活</text>
+                <text class="my-tips-par">让每个人都感受科技带来的乐趣。</text>
+            </view>
+            <view class="bind-mi-account" wx:if="{{!isbindmiaccount}}">
+                <button bindtap="goBindLogin" class="product-more">绑定小米账号</button>
+            </view>
+        </view>
+        <view class="wx-my-product" wx:if="{{productList&&productList.length>0}}">
+            <text class="my-product-title">我的藏品展示</text>
+            <view class="product-content">
+                <view class="image-row" wx:for="{{productList}}" wx:for-index="productindex" wx:key="product_list">
+                    <image class="row-bg" mode="widthFix" src="https://i8.mifile.cn/webfile/h5/weixin/0328/product_my_border_1.png" wx:if="{{productindex===0}}"></image>
+                    <image class="row-bg" mode="widthFix" src="https://i8.mifile.cn/webfile/h5/weixin/0328/my_product_border-2.png" wx:else></image>
+                    <view class="row-content">
+                        <view class="row-content-list">
+                            <view class="col-list" wx:for="{{productList[productindex]}}" wx:for-item="cell" wx:key="productindex">
+                                <view class="col-image imageList" mode="widthFix" style="background-image: url('{{cell.image}}')" wx:if="{{cell.image}}"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="image-row" wx:if="{{more}}">
+                    <image class="last" mode="widthFix" src="https://i8.mifile.cn/webfile/h5/weixin/0328/my_product_border_3.png"></image>
+                    <view class="my-product-more">
+                        <button bindtap="viewmore" class="product-more">查看更多</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="wx-group-buy">
+            <text class="my-product-title">{{support_info.title}}</text>
+            <text class="my-product-subtitle">{{support_info.des}}</text>
+            <view class="group-content">
+                <view class="group-product">
+                    <image mode="widthFix" src="{{support_info.coupon_product.image}}"></image>
+                </view>
+                <view class="group-container">
+                    <view class="mx-group-player">
+                        <view class="list">
+                            <view class="player {{item?'uavatar':''}}" wx:for="{{playerList}}">
+                                <block wx:if="{{item}}">
+                                    <view class="avatar" style="background-image: url('{{item}}')" wx:if="{{item}}"></view>
+                                </block>
+                                <image mode="widthFix" src="https://i8.mifile.cn/webfile/h5/weixin/0328/unavatar.png" wx:else></image>
+                            </view>
+                        </view>
+                        <text bindtap="supportsList" class="more-player" wx:if="{{history}}">查看历史助力人数 ></text>
+                        <text bindtap="unsupportsList" class="more-player" wx:if="{{unhistory}}">收起 ></text>
+                    </view>
+                    <button bindtap="{{action.type}}" class="wx-share-btn">{{action.desc}}</button>
+                    <text class="lottery_msg" wx:if="{{action.type==='lottery'}}">您还剩 {{available_score}} 次抽奖机会</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="rule">
+        <navigator url="/pages/coupon/index">
+            <view class="show-my-prize">查看奖品</view>
+        </navigator>
+        <text> | </text>
+        <navigator url="/pages/page/s/index?page=zb-20180401-iammifans-intro">
+            <view>活动规则</view>
+        </navigator>
+    </view>
+</view>
+<view class="msxcx-pop-prize-mask" wx:if="{{showShareImg}}">
+    <view class="msxcx-pop msxcx-pop-share">
+        <view bindtap="closeModal" class="close share-close" data-type="showShareImg">
+            <image src="https://i8.mifile.cn/webfile/h5/weixin/0328/close.png"></image>
+        </view>
+        <view class="pop-show-img" style="background-image: url('{{shareData.merge_share_url}}')"></view>
+    </view>
+    <view class="share-btn">
+        <button class="share-btn-list" openType="share">分享给好友</button>
+        <button bindtap="saveFile" class="share-btn-list">保存到相册</button>
+    </view>
+</view>
+<view class="msxcx-pop-prize-mask" wx:if="{{showPrizeInfo}}">
+    <view class="msxcx-pop">
+        <view class="msxcx-pop-prize-content">
+            <view bindtap="closeModal" class="close" data-type="showPrizeInfo">
+                <image mode="widthFix" src="https://i8.mifile.cn/webfile/h5/weixin/0328/close.png"></image>
+            </view>
+            <view class="logo">
+                <image src="https://i8.mifile.cn/webfile/h5/weixin/0328/mifans_logo.png?"></image>
+            </view>
+            <view class="pop-prize-suc" wx:if="{{getAward}}">
+                <view class="pop-content">
+                    <view class="prize-title">
+                        <text>恭喜中奖</text>
+                    </view>
+                    <view class="prize-name">{{prize_name}}</view>
+                </view>
+            </view>
+            <view class="pop-prize-fail" wx:else>
+                <view class="pop-content">
+                    <view class="prize-title">
+                        <text>很遗憾</text>
+                        <text>大奖与你擦肩而过</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

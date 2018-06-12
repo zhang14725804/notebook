@@ -1,0 +1,266 @@
+<template name="waittosold-countdown">
+    <view class="waittosold-countdown">
+    距开售 还剩
+    <text>
+            <text class="mc-days">{{day}}</text>
+            <text class="mc-text">天</text>
+            <text class="mc-hours">{{hour}}</text>
+            <text class="mc-text">小时</text>
+            <text class="mc-minutes">{{minute}}</text>
+            <text class="mc-text">分</text>
+            <text class="mc-seconds">{{second}}</text>
+            <text class="mc-text">秒</text>
+        </text>
+    </view>
+</template>
+<template name="goods-price">
+    <view class="zan-font-24" style="line-height: 24px;">{{yuan}}</view>
+    <view class="zan-font-12">.{{fen}}</view>
+</template>
+<import src="../../multi-store/common/store-switch/index.wxml"></import>
+<import src="../../multi-store/common/store-business/index.wxml"></import>
+<import src="../../multi-store/common/recommend/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/toptips/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/actionsheet/index.wxml"></import>
+<import src="../../../components/copyright/index.wxml"></import>
+<import src="../../../components/ZanAccount/index.wxml"></import>
+<import src="../../../components/share-goods/index.wxml"></import>
+<import src="../../../components/sku/index.wxml"></import>
+<import src="template/orderPreferenceDialog.wxml"></import>
+<import src="template/pintuan.wxml"></import>
+<import src="template/detail.wxml"></import>
+<import src="../common/e-card/tip.wxml"></import>
+<import src="../common/express-cell/index.wxml"></import>
+<import src="../common/express-intro/index.wxml"></import>
+<import src="../common/goods-detail/bottom-mini-button/index.wxml"></import>
+<import src="../common/count-down/index.wxml"></import>
+<import src="../common/e-card/tip.wxml"></import>
+<import src="../common/shop-info/index.wxml"></import>
+<import src="../common/shop-info/cert.wxml"></import>
+<import src="../common/shop-info/youzan-security.wxml"></import>
+<import src="../common/shop-info/navigate-to-branch-store.wxml"></import>
+<import src="../../../components/visit-gift/index.wxml"></import>
+<view class="page-container {{themeClass}} {{deviceType}}">
+    <canvas canvasId="shareCard" class="share-canvas" style="width: 375px; height: 517px;"></canvas>
+    <service-due statusText="{{CURRENT_GLOBAL_SHOP.service.status_text}}" wx:if="{{CURRENT_GLOBAL_SHOP.isServiceDue}}"></service-due>
+    <view class="feature-page__top-hook"></view>
+    <template is="multi-store-switch" data="{{CURRENT_GLOBAL_SHOP:CURRENT_GLOBAL_SHOP}}" wx:if="{{isMultiStore}}"></template>
+    <template is="store-business-status" data="{{business:CURRENT_GLOBAL_SHOP.business_hours_advanced_text}}" wx:if="{{CURRENT_GLOBAL_SHOP.isMultiStore&&CURRENT_GLOBAL_SHOP.is_opening==0}}"></template>
+    <view class="container container--with-fix-bottom {{pageWindowLock&&'page-locked'}}">
+        <block wx:if="{{goods}}">
+            <view class="goods-image-panel">
+                <swiper autoplay="{{!showGoodsDialog&&goods.picture.length>1}}" bindchange="handleSwiperChange" bindtap="handleSwiperImageTap" circular="{{true}}" indicatorDots="{{goods.picture.length>1}}" style="width: {{goods.pictureWidth}}px; height: {{goods.pictureHeight}}px;">
+                    <swiper-item wx:for="{{goods.picture}}" wx:key="*this">
+                        <image class="goods-image" data-index="{{index}}" mode="aspectFit" src="{{item}}" style="width: {{goods.pictureWidth}}px; height: {{goods.pictureHeight}}px;"></image>
+                        <view catch:tap="handleVideoPlayClicked" class="goods-video-play" wx:if="{{index===0&&goods.videoUrl}}"></view>
+                    </swiper-item>
+                </swiper>
+                <video bindended="handleVideoEnded" bindfullscreenchange="handleFullscreenChange" bindpause="handleVideoPause" bindplay="handleVideoPlay" catch:tap="handleVideoTap" class="goods-video" hidden="{{!mainVideo.showVideo}}" id="goods-video" src="{{goods.videoUrl}}" style="height: {{goods.pictureHeight}}px;" vIf="{{goods.videoUrl}}">
+                    <cover-view bind:tap="handleVideoClose" class="goods-video__close-btn {{mainVideo.isVideoFullscreen?'goods-video__close-btn--fullscreen':''}}" hidden="{{!mainVideo.showCloseVideoBtn}}">×</cover-view>
+                </video>
+            </view>
+            <view wx:if="{{activity}}">
+                <template is="activity-count-down" data="{{countdown:countdown,activity:activity}}"></template>
+            </view>
+            <view class="good-info__pay-info">
+                <view class="goods-title__container">
+                    <view class="goods-header">
+                        <view class="zan-ellipsis--l2 zan-font-16 goods-title"> {{goods.title}}</view>
+                        <view class="zan-ellipsis--l2 zan-font-12 zan-c-gray-darker goods-desc">{{goods.sell_point}}</view>
+                    </view>
+                    <form-view bindtap="handleShareClick" class="share-image__icon collect-form-id-button" style="width: 40px; display: block;">
+                        <image src="https://b.yzcdn.cn/weapp/goods/detail/share.png"></image>
+                    </form-view>
+                </view>
+                <block wx:if="{{pay_way!=='integral'}}">
+                    <block wx:if="{{!timelimitedDiscount||!timelimitedDiscount.is_started}}">
+                        <view class="good-info__price">
+                            <view class="goods-price goods-info__price zan-c-red">
+                                <view class="zan-font-14">¥</view>
+                                <view class="zan-font-24 zan-font-bold" style="line-height:24px;">
+                  {{goods.price.desc}}
+                </view>
+                            </view>
+                            <view class="price-tag" wx:if="{{isMember}}">会员折扣</view>
+                        </view>
+                        <view class="zan-text-deleted zan-font-12 zan-c-gray good-info__price-origin">
+              {{goods.price.origin.deletedPriceDesc}}
+            </view>
+                    </block>
+                    <view class="good-info__price" wx:else>
+                        <view class="goods-type__is-group-on" wx:if="{{goodsPreference.type=='groupOn'}}">
+                {{timelimitedDiscount.description}}
+              </view>
+                        <view class="goods-price goods-info__price zan-c-red">
+                            <view class="zan-font-14">¥</view>
+                            <view class="zan-font-18 zan-font-bold">
+                                <block wx:if="{{goods.price.isRange}}">
+                                    <template is="goods-price" data="{{...goods.price.min}}"></template>
+                                    <view style="margin: 0 6px;">-</view>
+                                    <template is="goods-price" data="{{...goods.price.max}}"></template>
+                                </block>
+                                <template is="goods-price" data="{{...goods.price}}" wx:else></template>
+                            </view>
+                        </view>
+                        <view class="zan-text-deleted zan-font-12 zan-c-gray">
+                ¥ {{goods.price.origin.desc}}
+              </view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="goods-price goods-info__price zan-c-red">
+                        <view class="zan-font-24 zan-font-bold">
+              {{goodsPreference.points.desc}}
+            </view>
+                    </view>
+                    <view class="zan-text-deleted zan-font-12 zan-c-gray ccc" style="margin: 5px 0 10px 0;">
+              原价：¥{{goods.price.origin.desc}}
+          </view>
+                </block>
+                <template is="mutil-store-recommend-swiper" data="{{stores:stores,redrectToStore:redrectToStore}}" wx:if="{{stores&&stores.length&&sku.stock_num===0&&soldOutRecommend}}"></template>
+                <view class="goods-info" wx:if="{{!(sku.stock_num===0&&isMultiStore)}}">
+                    <text class="goods-info__item">运费: {{delivery.postage_desc||' 免运费'}}</text>
+                    <text class="goods-info__item goods-info__item--remain zan-center" wx:if="{{!goods.hide_stock}}">剩余: {{sku.stock_num}}</text>
+                    <text class="goods-info__item " style="text-align:{{goods.hide_stock?'left':'right'}};">{{shopSetting.show_soldcount&&sku.sold_num>0?'销量: '+sku.sold_num:' '}}</text>
+                </view>
+                <view bindtap="toggleOrderPreferenceDialog" class="order-preference" wx:if="{{!(sku.stock_num===0&&isMultiStore)&&orderPreference&&orderPreference.labels.length}}">
+                    <view class="order-preference__bd zan-ellipsis">
+                        <view class="order-preference__label zan-tag zan-tag--danger zan-tag--plain" style="margin-right: 5px;" wx:for="{{orderPreference.labels}}" wx:key="index">
+                {{item}}
+              </view>
+                        <view class="order-preference__desc zan-ellipsis">
+                {{orderPreference.cashBackDesc}}
+                <block wx:if="{{orderPreference.meetReduceList&&orderPreference.meetReduceList.length}}" wx:for="{{orderPreference.meetReduceList}}" wx:key="index">
+                                <text>{{item.text}}</text>
+                                <view catchtap="goToExpressDetail" class="free-pack-label" wx:if="{{item.isPartial}}">
+                    部分地区包邮
+                  </view>
+                                <text wx:if="{{orderPreference.meetReduceList.length-1!==index}}">；</text>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="order-prefernce__ft"></view>
+                </view>
+            </view>
+            <view class="groupon__presale-info zan-hairline--surround" wx:if="{{goodsPreference.type=='groupOn'&&goods.presaleDesc}}">
+                <text class="zan-tag zan-tag--danger groupon__presale-tag">预售</text>
+                <text class="groupon__presale-desc">{{goods.presaleDesc}}</text>
+            </view>
+            <template is="e-card-tip" data="{{data:virtual}}" wx:if="{{virtual}}"></template>
+            <youzan-security noBorder="{{virtual||goodsPreference.type=='groupOn'&&goods.presaleDesc}}" styleType="{{CURRENT_GLOBAL_SHOP.security.style}}" wx:if="{{CURRENT_GLOBAL_SHOP.security.joined}}"></youzan-security>
+            <view class="zan-panel zan-panel--without-border" wx:if="{{goodsPreference.type!='groupOn'&&goodsPreference.type!='pointsGoods'&&!sku.none_sku&&goods.isDisplay}}">
+                <view bindtap="toggleGoodsDialog" class="zan-cell zan-cell--access zan-cell--last-child" data-is-ump="{{timelimitedDiscount&&timelimitedDiscount.is_started?true:false}}">
+                    <view class="zan-cell__bd">
+            {{sku.desc}}
+          </view>
+                    <view class="zan-cell__ft"></view>
+                </view>
+            </view>
+            <template is="express-list-cell" data="{{delivery:delivery,tapExpressPopupOrCell:tapExpressPopupOrCell}}" wx:if="{{virtualStatus==0&&isMultiStore&&delivery.support.length}}"></template>
+            <template is="express-intro" data="{{delivery:delivery,showExpressIntroPopup:showExpressIntroPopup,tapExpressPopupOrCell:tapExpressPopupOrCell}}" wx:if="{{isMultiStore}}"></template>
+            <template is="goods-pintuan" data="{{data:goodsPreference,ongoing_group:ongoing_group}}" wx:if="{{goodsPreference.type=='groupOn'}}"></template>
+            <template is="shop-info" data="{{CURRENT_GLOBAL_SHOP:CURRENT_GLOBAL_SHOP,isMultiStore:isMultiStore}}"></template>
+            <template is="navigate-to-branch-store" data="{{isMultiStore:isMultiStore}}"></template>
+            <template is="shop-cert" data="{{shopCert:shopCert,toggleCertIntroPopup:toggleCertIntroPopup,showCertIntro:showCertIntro}}"></template>
+            <template is="goods-detail" data="{{goods:goods,saleRecord:saleRecord,tab:goodsDetailTab,showPriceIntro:showPriceIntro,richTextList:richTextList,theme:theme,componentSKU:componentSKU}}"></template>
+            <view class="buy-now" wx:if="{{sku.stock_num==0||!goods.isDisplay}}">
+                <view class="buy-now__tips" wx:if="{{sku.stock_num==0}}">(⊙o⊙) ~ 该商品售罄啦，看看其他商品吧！</view>
+                <view class="buy-now__tips" wx:elif="{{!goods.isDisplay}}">(⊙o⊙) ~ 该商品下架啦，看看其他商品吧！</view>
+                <view class="buttons-flex">
+                    <template is="home-button" data="{{isSetHome:isSetHome}}"></template>
+                    <button bindtap="handleBack" class="zan-btn zan-btn--danger zan-btn--large goods-action__main-btn">查看店铺其他商品</button>
+                </view>
+            </view>
+            <form-view class="buy-now" wx:elif="{{goodsPreference.type=='groupOn'}}">
+                <view class="buttons-flex">
+                    <template is="home-button" data="{{isSetHome:isSetHome}}"></template>
+                    <view class="column-divider"></view>
+                    <template is="message-button" data="{{page_path:page_path,goods:goods,kdt_id:kdt_id,isSetContact:isSetContact,userInfo:userInfo,userInfoDeny:userInfoDeny,businessId:im.businessId}}"></template>
+                    <template is="cart-button" data="{{isSetShoppingCart:isSetShoppingCart,cartCount:cartCount}}"></template>
+                    <button class="zan-btn zan-btn--large disabled-btn" wx:if="{{goods.purchaseLimit}}">仅限特定会员购买</button>
+                    <block wx:else>
+                        <button bindtap="toggleGoodsDialog" class="zan-btn zan-btn--warn zan-btn--large goods-action__vice-btn" data-have-buy="{{true}}" data-have-cart="{{true}}" data-use-origin-quota="{{true}}">
+                ¥{{money.removeZero(goods.price.origin.min*100)}}单买
+              </button>
+                        <button bindtap="gotoMyTuan" class="zan-btn zan-btn--danger zan-btn--large goods-action__main-btn" wx:if="{{goodsPreference.activity_extra.button_type!=2}}">查看我的团</button>
+                        <button bindtap="toggleGoodsDialog" class="zan-btn zan-btn--danger zan-btn--large goods-action__main-btn" data-create-groupon="{{true}}" data-have-buy="{{true}}" data-is-groupon="{{true}}" data-is-ump="{{true}}" wx:else>¥{{money.removeZero( (goods.price.isRange?goods.price.min.desc:goods.price.desc)*100 )}}开团
+              </button>
+                    </block>
+                </view>
+            </form-view>
+            <form-view class="buy-now" wx:elif="{{goods.presale&&goods.presaleDesc}}">
+                <view class="buttons-flex">
+                    <template is="home-button" data="{{isSetHome:isSetHome}}"></template>
+                    <view class="column-divider"></view>
+                    <template is="message-button" data="{{page_path:page_path,goods:goods,kdt_id:kdt_id,isSetContact:isSetContact,userInfo:userInfo,userInfoDeny:userInfoDeny}}"></template>
+                    <button class="zan-btn zan-btn--large disabled-btn" wx:if="{{goods.purchaseLimit}}">仅限特定会员购买</button>
+                    <button bindtap="toggleGoodsDialog" class="zan-btn zan-btn--danger zan-btn--large {{buyButtonDisabled?'zan-btn--disabled':'goods-action__main-btn'}}" data-have-buy="{{true}}" data-have-cart="{{false}}" data-is-ump="{{timelimitedDiscount&&timelimitedDiscount.is_started?true:false}}" disabled="{{buyButtonDisabled}}" wx:else>
+                        <text class="zan-font-12" style="display: inline-block; margin-right: 6px; vertical-align: top;">{{goods.presaleDesc}}</text>
+                        <text style="display:inline-block; float:right; width:100px;">立即购买</text>
+                    </button>
+                </view>
+            </form-view>
+            <form-view class="buy-now" wx:elif="{{goods.waitToSold}}">
+                <template is="waittosold-countdown" data="{{...waitToSoldCountdown}}"></template>
+                <view class="buttons-flex">
+                    <template is="home-button" data="{{isSetHome:isSetHome}}"></template>
+                    <view class="column-divider"></view>
+                    <template is="message-button" data="{{page_path:page_path,goods:goods,kdt_id:kdt_id,isSetContact:isSetContact,userInfo:userInfo,userInfoDeny:userInfoDeny}}"></template>
+                    <template is="cart-button" data="{{isSetShoppingCart:isSetShoppingCart,cartCount:cartCount}}"></template>
+                    <button class="zan-btn zan-btn--large disabled-btn" wx:if="{{goods.purchaseLimit}}">仅限特定会员购买</button>
+                    <block wx:else>
+                        <block wx:if="{{pay_way!=='integral'}}">
+                            <button bindtap="toggleGoodsDialog" class="zan-btn zan-btn--warn zan-btn--large goods-action__main-btn" data-have-cart="{{true}}" data-is-ump="{{timelimitedDiscount&&timelimitedDiscount.is_started?true:false}}" wx:if="{{supportShoppingCart&&isSetShoppingCart}}">加入购物车
+                </button>
+                            <button class="zan-btn zan-btn--disabled zan-btn--large" wx:else>
+                  即将开售
+                </button>
+                        </block>
+                        <button bindtap="toggleGoodsDialog" class="zan-btn zan-btn--danger zan-btn--large {{supportShoppingCart&&isSetShoppingCart?'zan-btn--disabled':'goods-action__main-btn'}}" data-have-buy-points="{{true}}" data-is-ump="{{true}}" disabled="{{supportShoppingCart&&isSetShoppingCart}}" wx:if="{{pay_way==='integral'}}">积分兑换
+              </button>
+                    </block>
+                </view>
+            </form-view>
+            <form-view class="buy-now" wx:else>
+                <view class="buttons-flex">
+                    <template is="home-button" data="{{isSetHome:isSetHome}}"></template>
+                    <template is="message-button" data="{{page_path:page_path,goods:goods,kdt_id:kdt_id,isSetContact:isSetContact,userInfo:userInfo,userInfoDeny:userInfoDeny,businessId:im.businessId}}"></template>
+                    <template is="cart-button" data="{{isSetShoppingCart:isSetShoppingCart,cartCount:cartCount}}"></template>
+                    <button class="zan-btn zan-btn--large disabled-btn" wx:if="{{goods.purchaseLimit}}">仅限特定会员购买</button>
+                    <block wx:else>
+                        <button bindtap="toggleGoodsDialog" class="zan-btn zan-btn--warn zan-btn--large goods-action__vice-btn" data-have-cart="{{true}}" data-is-ump="{{timelimitedDiscount&&timelimitedDiscount.is_started?true:false}}" wx:if="{{supportShoppingCart&&isSetShoppingCart&&pay_way!=='integral'}}">
+                加入购物车
+              </button>
+                        <button bindtap="toggleGoodsDialog" class="zan-btn zan-btn--danger zan-btn--large goods-action__main-btn" data-have-buy="{{true}}" data-is-ump="{{timelimitedDiscount&&timelimitedDiscount.is_started?true:false}}" wx:if="{{isSetBuyBtn&&pay_way!=='integral'}}">
+                立即购买
+              </button>
+                        <button bindtap="toggleGoodsDialog" class="zan-btn zan-btn--warn zan-btn--large goods-action__vice-btn" data-have-buy-price="{{true}}" data-is-ump="{{timelimitedDiscount&&timelimitedDiscount.is_started?true:false}}" data-use-origin-quota="{{true}}" wx:if="{{pay_way==='integral'&&!goodsPreference.buy_limit}}">
+                原价购买
+              </button>
+                        <button bindtap="toggleGoodsDialog" class="zan-btn zan-btn--danger zan-btn--large goods-action__main-btn" data-have-buy-points="{{true}}" data-is-ump="{{true}}" wx:if="{{pay_way==='integral'}}">积分兑换
+              </button>
+                    </block>
+                </view>
+            </form-view>
+            <template is="orderPreferenceDialog" data="{{...orderPreference,showOrderPrefernceDialog:showOrderPrefernceDialog}}" wx:if="{{orderPreference.labels&&orderPreference.labels.length}}"></template>
+        </block>
+    </view>
+    <template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+    <template is="zan-toptips" data="{{zanTopTips:zanTopTips}}"></template>
+    <template is="zan-account" data="{{...zanAccount}}"></template>
+    <template is="component-sku" data="{{componentSKU:componentSKU,pay_way:pay_way}}"></template>
+    <template is="copyright" data="{{copyright:copyright,is_big_shop:is_big_shop,withFixBottom:true}}" wx:if="{{goods}}"></template>
+    <share-goods alias="{{shareImage.alias}}" bind:failed="onShareImageError" bind:finished="onShareImageFinished" bind:saved="closeActionSheet" goodsImage="{{shareImage.goodsImage}}" joinNum="{{shareImage.joinNum}}" minPrice="{{shareImage.minPrice}}" originPrice="{{shareImage.originPrice}}" price="{{shareImage.price}}" show="{{shareImage.show}}" showPrice="{{shareImage.showPrice}}" title="{{shareImage.title}}" type="{{shareImage.type}}"></share-goods>
+</view>
+<import src="../../common/wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>
+<template is="zan-actionsheet" data="{{...actionsheet}}"></template>
+<template is="visit-gift" data="{{visitGift:visitGift}}"></template>
+<wxs module="money">
+module.exports.removeZero = function(money) {
+    var priceStr = money / 100 + "";
+    var priceComponent = priceStr.split(".");
+    return priceComponent.length == 2 ? priceComponent[1] == "00" ? priceComponent[0] : priceStr : priceStr;
+};
+</wxs>

@@ -1,0 +1,52 @@
+<template name="fang-params-block">
+    <view class="fang-block marg-top">
+        <view class="head-block">
+            <view class="head-fang-tag" wx:if="{{info.paramMap.room}}">
+                <text class="head-tab-label">户型</text>
+                <text class="head-tab-title">{{info.paramMap.room}}</text>
+            </view>
+            <view class="head-fang-tag" wx:if="{{info.paramMap.price}}">
+                <text class="head-tab-label">{{info.cateCode==3?'总价':'租金'}}</text>
+                <text class="head-tab-title">{{info.paramMap.price}}{{info.paramMap.price!='面议'?info.priceUnit:''}}</text>
+            </view>
+            <view class="head-fang-tag" wx:if="{{info.paramMap.location}}">
+                <text class="head-tab-label">位置</text>
+                <text class="head-tab-title">{{info.paramMap.location}}</text>
+            </view>
+        </view>
+        <view class="fang-tag-block">
+            <view class="fang-tag" wx:if="{{info.paramMap.xiaoqu}}">
+                <text class="tab-label">小区：</text>
+                <text class="tab-title">{{info.paramMap.xiaoqu}}</text>
+            </view>
+            <view class="fang-tag" wx:if="{{info.paramMap.area}}">
+                <text class="tab-label">面积：</text>
+                <text class="tab-title">{{info.paramMap.area}}</text>
+            </view>
+            <view class="fang-tag" wx:if="{{info.paramMap.floor}}">
+                <text class="tab-label">楼层：</text>
+                <text class="tab-title">{{info.paramMap.floor<0?'-':info.paramMap.floor}}/{{info.paramMap.totalfloor}}层</text>
+            </view>
+            <view class="fang-tag" wx:if="{{info.paramMap.purchase}}">
+                <text class="tab-label">付款：</text>
+                <text class="tab-title">{{info.paramMap.purchase}}</text>
+            </view>
+            <view class="fang-tag" wx:if="{{info.paramMap.toward}}">
+                <text class="tab-label">朝向：</text>
+                <text class="tab-title">{{info.paramMap.toward}}</text>
+            </view>
+            <view class="fang-tag" wx:if="{{info.paramMap.fittype}}">
+                <text class="tab-label">装修：</text>
+                <text class="tab-title">{{info.paramMap.fittype}}</text>
+            </view>
+            <view class="fang-tag" wx:if="{{info.paramMap.objecttype}}">
+                <text class="tab-label">类型：</text>
+                <text class="tab-title">{{info.paramMap.objecttype}}</text>
+            </view>
+        </view>
+        <view class="fang-addr" wx:if="{{info.paramMap.dizhi}}">
+            <text class="tab-label">地址：</text>
+            <text class="tab-title">{{info.paramMap.dizhi}}</text>
+        </view>
+    </view>
+</template>

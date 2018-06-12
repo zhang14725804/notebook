@@ -1,0 +1,13 @@
+<template name="pintuan">
+    <view catchtap="{{isOrderResult&&isLeader?'onPintuanDetailClick':isLeader?'':'onLeaderSelected'}}" class="pintuan__container">
+        <view class="{{!isLeader&&!isOrderResult?'pintuan__checkbox pintuan_checkbox--checked':'pintuan__img'}}" wx:if="{{isLeaderSelected}}"></view>
+        <view class="{{!isLeader&&!isOrderResult?'pintuan__checkbox  pintuan_checkbox--unchecked':'pintuan__img'}}" wx:else></view>
+        <view class="pintuan__tips" wx:if="{{!isOrderResult}}">{{!isLeader?'由团长代收包裹（免运费）':'团员可以选择团长代收，团员商品将一起发给你哦'}}</view>
+        <block wx:else>
+            <view class="pintuan__tips" wx:if="{{!isLeader}}">由团长代收包裹（免运费)</view>
+            <view class="pintuan__tips" wx:else>为{{grouponColletcionNum}}位团员代收包裹</view>
+        </block>
+        <view class="pintuan__tips pintuan__leader" wx:if="{{!isLeader}}">团长：{{leaderName}}</view>
+        <view class="zan-arrow" wx:if="{{isOrderResult&&isLeader}}"></view>
+    </view>
+</template>

@@ -1,0 +1,234 @@
+.comment-base {
+    position: relative;
+}
+
+.comment-info {
+    width: 100%;
+    background: #fff;
+}
+
+.card {
+    margin: 0;
+    border-top: 1px solid #e5e5e5;
+}
+
+.card-info {
+    border-radius: 30rpx;
+    position: relative;
+}
+
+.card-user {
+    padding: 30rpx;
+}
+
+.avatar {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+}
+
+.user-info {
+    margin-bottom: 20rpx;
+}
+
+.user-info text {
+    font-size: 34rpx;
+    vertical-align: 17rpx;
+    margin-left: 20rpx;
+}
+
+.comment-text {
+    font-size: 33rpx;
+    line-height: 48rpx;
+}
+
+.img-list {
+    margin: 30rpx auto;
+    overflow: hidden;
+}
+
+.img-list .productImg {
+    width: 207rpx;
+    height: 207rpx;
+    background-size: cover;
+    margin-right: 20rpx;
+    background-color: #fff;
+}
+
+.img-list .productImg:last-child {
+    margin-right: 0rpx;
+}
+
+.imgList-line {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20rpx;
+}
+
+.product-info {
+    margin: 30rpx auto;
+    background: #f7f7f7;
+    height: 160rpx;
+    padding: 0rpx 0 0rpx 30rpx;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.product-con {
+    width: 360rpx;
+}
+
+.product-info .product-img {
+    width: 100rpx;
+    margin-right: 30rpx;
+    height: 100rpx;
+}
+
+.product-title {
+    font-size: 34rpx;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.product-desc {
+    font-size: 28rpx;
+    color: rgba(0,0,0,0.54);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 470rpx;
+    display: block;
+}
+
+.product-value {
+    color: #ff6700;
+    font-size: 34rpx;
+    position: absolute;
+    top: 30rpx;
+    right: 37rpx;
+}
+
+.comment-num {
+    font-size: 26rpx;
+    color: #9b9b9b;
+    height: 30rpx;
+    line-height: 30rpx;
+}
+
+.like-share {
+    float: right;
+    display: flex;
+    height: 32rpx;
+}
+
+.like-num {
+    margin-right: 35rpx;
+}
+
+.button-share {
+    background: #fff;
+    border: none;
+    padding: 0;
+    line-height: 1;
+    font-size: 0;
+}
+
+button::after {
+    border: none;
+}
+
+.like image {
+    margin-right: 10rpx;
+}
+
+.comment-icon {
+    width: 30rpx;
+    height: 26rpx;
+    vertical-align: -2rpx;
+}
+
+.share-icon {
+    vertical-align: 5rpx;
+}
+
+.gid-line {
+    width: 100%;
+    height: 20rpx;
+    background: #ebebeb;
+}
+
+.comment-common-style {
+    background: #fff;
+    padding: 0rpx;
+}
+
+.comment-content {
+    padding: 0rpx 0 0rpx 30rpx;
+}
+
+.comment-title {
+    height: 75rpx;
+    color: #9b9b9b;
+    line-height: 75rpx;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.comment-item {
+    position: relative;
+    font-size: 26rpx;
+    color: #9b9b9b;
+    padding: 30rpx 30rpx 30rpx 85rpx;
+}
+
+.comment-item .avatar {
+    position: absolute;
+    top: 20rpx;
+    left: 0rpx;
+}
+
+.comment-item-title {
+    position: relative;
+}
+
+.comment-item-title .like {
+    float: right;
+}
+
+.comment-item-title .like .like-num {
+    margin-right: 0;
+}
+
+.comment-text {
+    color: #000;
+    font-size: 33rpx;
+    line-height: 47rpx;
+    padding-top: 20rpx;
+}
+
+.msxcx-pop {
+    overflow: visible;
+}
+
+.msxcx-pop-mask {
+    display: block;
+}
+
+.close {
+    position: absolute;
+    top: -80rpx;
+    right: 0rpx;
+    z-index: 9999;
+}
+
+.close image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.big-pic {
+    height: 660rpx;
+}

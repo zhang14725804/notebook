@@ -1,0 +1,8 @@
+{
+    "disableScroll": true,
+    "enablePullDownRefresh": false,
+    "navigationBarTitleText": "腾讯视频",
+    "usingComponents": {
+        "appbanner": "../../components/appbanner/index"
+    }
+}

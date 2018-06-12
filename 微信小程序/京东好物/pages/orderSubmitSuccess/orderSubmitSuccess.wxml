@@ -1,0 +1,30 @@
+<view class="orderSubmitSuccess">
+    <view class="block-item lg">
+        <view class="flex-container flex-row pay-detail" style="display: flex;">
+            <view class="flex-view-item sub-flex-ave img">
+                <image backgroundSize="cover" class="orderSubmitSuccess-icon" src="http://commonst.360buyimg.com/common/wx-images/orderSubmitSuccess.png"></image>
+            </view>
+            <view class="flex-view-item text sub-flex-ave">
+                <view class="item">支付方式：{{payType}}</view>
+                <view class="item">订单金额：
+          <view class="span emphasize" style="position: relative; right: 10rpx;">¥{{factPrice}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="text">
+            <view class="span ignore warning">
+        注意：京东不会以订单异常、系统升级为由要求您点击任何链接进行退款操作。
+      </view>
+        </view>
+    </view>
+    <view class="flex-row two-btn-wrapper" style=" display:flex;">
+        <view class="flex-view-item" style="flex-grow:1;">
+            <navigator redirect hoverClass="navigator-hover" url="../order/order">
+                <button class="default no first">我的订单</button>
+            </navigator>
+        </view>
+    </view>
+    <view class="spacer-xxl"></view>
+    <view class="spacer-xxl"></view>
+    <view class="spacer-xxl"></view>
+</view>

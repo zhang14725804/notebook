@@ -1,0 +1,21 @@
+@import "../../../../components/showcase/index.wxss";
+
+@import "../../../../components/copyright/index.wxss";
+
+@import "../../../../pages/multi-store/common/store-switch/index.wxss";
+
+@import "../../../../pages/multi-store/common/store-business/index.wxss";
+
+.home-btn {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.home-btn button {
+    width: 86px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    border-radius: 2px;
+    color: #999;
+}

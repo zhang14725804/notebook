@@ -1,0 +1,117 @@
+.sharecut-widget {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    height: 40px;
+    display: flex;
+}
+
+.sharecut-widget .widget-left {
+    width: 67%;
+    background: #f44;
+    color: #fff;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+.sharecut-widget .widget-left-after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 20px 0px;
+    border-color: transparent transparent #ff4444 transparent;
+    top: 20px;
+    left: 100%;
+}
+
+.sharecut-widget .widget-left-before {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 20px 10px 0 0;
+    border-color: #ff4444 transparent transparent transparent;
+    top: 0px;
+    left: 100%;
+}
+
+.sharecut-widget .widget-right-before {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 20px 10px 20px 0;
+    border-color: transparent #ffb500 transparent transparent;
+    top: 0;
+    left: 100%;
+}
+
+.sharecut-widget .widget-right {
+    background: #ffb500;
+    color: #fff;
+    display: inline-block;
+    height: 40px;
+    position: relative;
+    float: right;
+    margin-left: 10px;
+    flex: 1;
+}
+
+.sharecut-widget .widget-name {
+    margin-left: 30rpx;
+    font-size: 40rpx;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+}
+
+.sharecut-widget .widget-engage {
+    margin-left: 7px;
+    font-size: 12px;
+    background: #EE3838;
+    padding: 2px 4px;
+    border-radius: 2px;
+    position: relative;
+    top: -2px;
+}
+
+.sharecut-widget .widget-countdown {
+    font-size: 20rpx;
+    color: #fff;
+    position: absolute;
+    bottom: 10rpx;
+    height: 32rpx;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.sharecut-widget .widget-countdown .countdown {
+    margin-top: 0;
+    height: 32rpx;
+}
+
+.widget-right-text {
+    font-size: 20rpx;
+    position: absolute;
+    top: 8rpx;
+    left: 66rpx;
+}
+
+.swiper-wrapper {
+    position: relative;
+}
+
+.mini-screen .countdown--num {
+    font-size: 8px;
+    min-height: 14px!important;
+    min-width: 14px!important;
+    line-height: 14px!important;
+}

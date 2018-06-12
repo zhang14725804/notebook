@@ -1,0 +1,234 @@
+.wx_nav {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    overflow: hidden;
+}
+
+.wx_nav .wx_nav_item {
+    display: block;
+    width: 100%;
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+
+.jd_dlBar_v2 {
+    margin-bottom: 49px;
+}
+
+.wx_nav {
+    overflow: visible;
+    height: 49px;
+    border-top: 1px solid #ddd;
+    width: 100%;
+    max-width: 540px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #fff;
+    position: fixed;
+    z-index: 900;
+    bottom: 0;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.wx_nav .sign_c_tip {
+    position: absolute;
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    background: #e93b3d;
+    color: #fff;
+    font-size: 10px;
+    border-radius: 10px;
+    padding: 0 6px;
+    top: -10px;
+    left: 50%;
+    z-index: 10;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.wx_nav .sign_c_tip:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    font-size: 0;
+    display: inline-block;
+    border-left: 6px solid #e93b3d;
+    border-bottom: 8px dashed transparent;
+    bottom: -5px;
+    left: 6px;
+    -webkit-transform: rotate(20deg);
+}
+
+.wx_nav .sign_c_tip.yellow {
+    background: #f19325;
+}
+
+.wx_nav .sign_c_tip.yellow:before {
+    border-left-color: #f19325;
+}
+
+.wx_nav .sign_c_tip.white {
+    background: #fff;
+    box-shadow: 0 1px 10px rgba(0,0,0,.08);
+    color: #e93b3d;
+}
+
+.wx_nav .sign_c_tip.white:before {
+    border-left-color: #fff;
+}
+
+.wx_nav .wx_nav_item {
+    position: relative;
+    width: 200px;
+    height: 45px;
+    padding-top: 4px;
+    color: #999;
+    font-size: 12px;
+    background-color: #eee;
+    text-align: center;
+}
+
+.wx_nav .wx_nav_item:before {
+    width: 23px;
+    height: 23px;
+    content: "\20";
+    display: block;
+    margin: 0 auto 2px;
+}
+
+.wx_nav .wx_nav_item:active {
+    background-color: #dfdfdf;
+}
+
+.wx_nav .wx_nav_item.on,.wx_nav .wx_nav_item:active {
+    color: #e4393c;
+}
+
+.wx_nav .wx_nav_item.on:before,.wx_nav .wx_nav_item:active:before {
+    background-position-y: -23px;
+}
+
+.wx_nav .wx_nav_item.dot {
+    position: relative;
+}
+
+.wx_nav .wx_nav_item.dot:after {
+    content: "\20";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: #e4393c;
+    border-radius: 4px;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: 10px;
+}
+
+.wx_nav .wx_nav_item .wx_nav_tag {
+    display: block;
+    min-width: 0;
+    min-height: 4px;
+    padding: 2px 4px;
+    line-height: 1;
+    background: #e4393c;
+    border-radius: 14px;
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    margin-left: 3px;
+    font-size: 8px;
+    color: #fff;
+    text-align: center;
+    font-family: arial;
+}
+
+.wx_nav .wx_nav_item .wx_nav_tag:empty {
+    top: 4px;
+    margin-left: 5px;
+    padding: 0;
+    width: 6px;
+    height: 6px;
+}
+
+.wx_nav .nav_index:before {
+    background-position: 0 0;
+}
+
+.wx_nav .nav_search:before {
+    background-position: -46px 0;
+}
+
+.wx_nav .nav_fav:before {
+    background-position: -23px 0;
+}
+
+.wx_nav .nav_shopcart:before {
+    background-position: -138px 0;
+}
+
+.wx_nav .nav_me:before {
+    background-position: -69px 0;
+}
+
+.wx_nav .nav_newsfeed:before {
+    background-position: -161px 0;
+}
+
+.wx_nav .nav_shopping_guide:before {
+    background-position: -184px 0;
+}
+
+.wx_nav_custom .wx_nav_item {
+    background: #fff;
+}
+
+.wx_nav_custom .wx_nav_item:before {
+    display: none;
+}
+
+.wx_nav_custom .wx_nav_item image {
+    width: 20px;
+    height: 20px;
+    margin: 2px auto;
+    display: block;
+}
+
+.wx_nav_custom .wx_nav_item .highlight {
+    display: none;
+}
+
+.wx_nav_custom .wx_nav_item:nth-child(1) {
+    z-index: 5;
+}
+
+.wx_nav_custom .wx_nav_item:nth-child(2) {
+    z-index: 4;
+}
+
+.wx_nav_custom .wx_nav_item:nth-child(3) {
+    z-index: 3;
+}
+
+.wx_nav_custom .wx_nav_item:nth-child(4) {
+    z-index: 2;
+}
+
+.wx_nav_custom .wx_nav_item:nth-child(5) {
+    z-index: 1;
+}
+
+.wx_nav_custom .on .highlight {
+    display: block;
+}
+
+.wx_nav_custom .on .normal {
+    display: none;
+}

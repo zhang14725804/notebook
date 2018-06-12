@@ -1,0 +1,32 @@
+.order-ensure__tip-container {
+    text-align: center;
+    color: #BBBBBB;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.order-ensure__tip-container.no-secured {
+    color: #666666;
+    margin-top: 26px;
+}
+
+.vertical-line {
+    font-size: 10px;
+}
+
+image {
+    position: relative;
+    top: -2px;
+}
+
+image.secured {
+    width: 59px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+image.guaranted {
+    width: 44px;
+    height: 12px;
+    vertical-align: middle;
+}

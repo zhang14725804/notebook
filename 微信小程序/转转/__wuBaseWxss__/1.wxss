@@ -1,0 +1,203 @@
+.form._3752866 {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+
+.submit-button._3752866 {
+    border: none;
+    padding: none;
+    margin: none;
+    box-sizing: content-box;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.item-list-container._3752866 {
+    position: relative;
+    background-color: #ffffff;
+    width: 702rpx;
+    height: 311rpx;
+    box-sizing: border-box;
+    padding: 50rpx 0 32rpx;
+    margin: 0 24rpx;
+    border: none!important;
+}
+
+.item-list-container._3752866:before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 0;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    pointer-events: none;
+    border-radius: 0;
+    border-bottom: 1px solid #E7E7E7;
+}
+
+.item-list-container .item-cover._3752866 {
+    display: block;
+    width: 228rpx;
+    height: 228rpx;
+    float: left;
+    border-radius: 10rpx;
+    position: relative;
+    text-align: center;
+}
+
+.item-list-container .item-img._3752866 {
+    max-width: 228rpx;
+    height: 228rpx;
+}
+
+.item-list-container .item-content._3752866 {
+    display: block;
+    width: 438rpx;
+    height: 100%;
+    margin-left: 16rpx;
+    float: left;
+    position: relative;
+}
+
+.item-list-container .item-content .title._3752866 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #504A4D;
+    line-height: 42rpx;
+    width: 100%;
+}
+
+.item-list-container .item-content .author._3752866 {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.item-list-container .item-content .author._3752866,.item-list-container .item-content .score._3752866 {
+    margin-top: 5rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #A7ABBB;
+    line-height: 42rpx;
+    width: 100%;
+    height: 42rpx;
+}
+
+.item-list-container .item-content .score._3752866 {
+    color: #554f52;
+}
+
+.item-list-container .item-content .label._3752866 {
+    height: 60rpx;
+    margin-left: 10rpx;
+    padding: 0 14rpx;
+    background: rgba(253,156,147,0.18);
+    border-radius: 3rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 20rpx;
+    color: #FC7A7A;
+    letter-spacing: 0;
+    height: 30rpx;
+    line-height: 30rpx;
+    text-align: center;
+    display: inline-block;
+    transform: translateY(-4rpx);
+    box-sizing: border-box;
+    vertical-align: bottom;
+}
+
+.item-list-container .item-content .para-names._3752866 {
+    height: 28rpx;
+    margin-top: 15rpx;
+    width: 100%;
+    font-family: PingFangHK-Regular;
+    font-size: 20rpx;
+    color: #969696;
+    letter-spacing: 0;
+}
+
+.item-list-container .item-content .para-names view._3752866 {
+    width: auto;
+    height: 28rpx;
+    background: #F8F8F8;
+    border-radius: 4rpx;
+    line-height: 28rpx;
+    float: left;
+    margin-right: 8rpx;
+}
+
+.item-list-container .item-content .label-price._3752866 {
+    margin-top: 58rpx;
+    height: 44rpx;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+.item-list-container .item-content .label-price .price._3752866 {
+    display: inline-block;
+    font-size: 32rpx;
+    color: #E7563C;
+    font-family: ArialMT;
+    letter-spacing: 0;
+    vertical-align: bottom;
+    line-height: 32rpx;
+    margin-right: 16rpx;
+}
+
+.item-list-container .item-content .label-price .price .symbol._3752866 {
+    font-family: LucidaGrande;
+    font-size: 20rpx;
+    color: #A7ABBB;
+    letter-spacing: 0;
+}
+
+.item-list-container .item-content .label-price .item-list-labels._3752866 {
+    position: absolute;
+    right: -12rpx;
+    height: 30rpx;
+    box-sizing: border-box;
+}
+
+.item-list-container .item-content .label-price .item-list-labels-label._3752866 {
+    margin-right: 16rpx;
+}
+
+.item-list-container .item-content .footer._3752866 {
+    margin-top: 20rpx;
+    font-family: PingFangHK-Regular;
+    font-size: 24rpx;
+    color: #969696;
+    letter-spacing: 0;
+    line-height: 24rpx;
+    width: 100%;
+    height: 24rpx;
+}
+
+.item-list-container .item-content .footer .city._3752866 {
+    float: left;
+}
+
+.item-list-container .item-content .footer .time._3752866 {
+    float: right;
+}

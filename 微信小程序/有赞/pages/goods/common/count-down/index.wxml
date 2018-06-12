@@ -1,0 +1,14 @@
+<template name="activity-count-down">
+    <view class="count-down__container">
+        <view class="count-down__desc">
+      {{activity.name}}
+    </view>
+        <view class="count-down__date" wx:if="{{countdown.length&&!activity.isEnded}}">
+            <text class="countdown-label">距{{activity.isStarted?'结束':'开始'}}仅剩 </text>
+            <block wx:for="{{countdown}}" wx:key="{{ index }}">
+                <view class="countdown--num">{{item.value}}</view>
+                <view class="countdown--split">{{item.unit}}</view>
+            </block>
+        </view>
+    </view>
+</template>

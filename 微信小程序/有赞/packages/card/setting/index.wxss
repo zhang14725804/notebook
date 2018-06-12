@@ -1,0 +1,33 @@
+@import "../../../__wuBaseWxss__/1.wxss";
+
+page {
+    min-height: 100%;
+    background-color: #F8F8F8;
+}
+
+.setting-panel {
+    background-color: #fff;
+}
+
+.btn-container {
+    padding: 40px 10px 0px 10px;
+}
+
+.active_btn {
+    border-radius: 4px;
+}
+
+.disabled {
+    color: #999;
+}
+
+.address-edit__pickers {
+    height: 28px;
+}
+
+.address-edit__picker {
+    display: inline-block;
+    width: 33%;
+    height: 28px;
+    overflow: hidden;
+}

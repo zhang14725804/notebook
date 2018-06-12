@@ -1,0 +1,328 @@
+@import "../../__wuBaseWxss__/30.wxss";
+
+.cf:before,.cf:after {
+    content: '';
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.none {
+    display: none;
+}
+
+navigator {
+    color: #222;
+    text-decoration: none;
+}
+
+.g_container_nonetwork {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.g_container_nonetwork .nonetwork_con {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.g_container_nonetwork .icon_nonetwork {
+    display: block;
+    width: 100px;
+    height: 65px;
+    margin: 0 auto 40px;
+    background: url(http://vm.gtimg.cn/tencentvideo/vstyle/mobile/vip/style/app_v2/img/common/icon_nonetwork.png?d=1102&max_age=31104000) 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.g_container_nonetwork .tit {
+    font-size: 18px;
+    line-height: 26px;
+    color: #676e75;
+}
+
+.g_container_nonetwork .txt {
+    font-size: 12px;
+    line-height: 21px;
+    color: #a0a4a9;
+}
+
+.g_pop_mask {
+    position: fixed;
+    z-index: 9998;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.6);
+}
+
+.g_pop {
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.g_pop_loading {
+    width: 120px;
+    background: rgba(0,0,0,.7);
+    border-radius: 5px;
+}
+
+.g_pop_loading .pop_con {
+    padding: 20px 0;
+}
+
+.g_pop_loading .pop_con .icon_loading {
+    display: block;
+    margin: 10px auto;
+    width: 32px;
+    height: 32px;
+    background-image: url(http://vm.gtimg.cn/tencentvideo/vstyle/mobile/vip/style/app_v2/img/common/loading_64.gif?d=1102&max_age=31104000);
+    background-position: center center;
+    background-size: cover;
+}
+
+.g_pop_loading .pop_con .txt {
+    color: #fff;
+    text-align: center;
+}
+
+.g_pop_qq {
+    width: 100%;
+    max-width: 414px;
+    padding: 0 10px;
+}
+
+.g_pop_qq .pop_wrap {
+    padding-top: 20px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,.3);
+    border-radius: 5px;
+}
+
+.g_pop_qq .pop_title {
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-align: center;
+    word-break: break-all;
+}
+
+.g_pop_qq .pop_con {
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.g_pop_qq .pop_con .txt {
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+    word-break: break-all;
+}
+
+.g_pop_qq .pop_con .txt .num {
+    padding: 0 3px;
+    color: #d4a13f;
+}
+
+.g_pop_qq .pop_con .ipt {
+    display: block;
+    width: 240px;
+    height: 24px;
+    line-height: 24px;
+    padding: 7px 5px;
+    border: 1px solid #a1a1a1;
+    border-radius: 4px;
+    outline: none;
+}
+
+.g_pop_qq .pop_con .ipt:focus {
+    border: 1px solid #e62600;
+    -webkit-transition: border .30s ease-in-out;
+}
+
+.g_pop_qq .pop_con .user_pic {
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 10px auto 0;
+}
+
+.g_pop_qq .pop_con .user_pic img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.g_pop_qq .btn_wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.g_pop_qq .btn_wrap .btn {
+    position: relative;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.g_pop_qq .btn_wrap .btn:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #ccc;
+    -webkit-transform: scaleY(.5);
+    -webkit-transform-origin: 0 0;
+}
+
+.g_pop_qq .btn_wrap .btn_em {
+    color: #d6ab56;
+}
+
+.g_pop_qq .btn_wrap .btn_half {
+    float: left;
+    width: 50%;
+    position: relative;
+    box-sizing: content-box;
+}
+
+.g_pop_qq .btn_wrap .btn_half:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-right: 1px solid #ccc;
+    -webkit-transform: scaleX(.5);
+    -webkit-transform-origin: 0 0;
+}
+
+.g_pop_coupon {
+    width: 320px;
+}
+
+.g_pop_coupon .pop_con {
+    margin-bottom: 0;
+    padding-bottom: 10px;
+}
+
+.g_pop_coupon .coupon_list_out {
+    position: relative;
+    max-height: 124px;
+    overflow: hidden;
+}
+
+.g_pop_coupon .coupon_list_out:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #ccc;
+    -webkit-transform: scaleY(.5);
+    -webkit-transform-origin: 0 0;
+}
+
+.g_pop_coupon .coupon_list {
+    padding: 8px 0;
+    position: relative;
+    max-height: 108px;
+    overflow-y: scroll;
+}
+
+.g_pop_coupon .coupon_list .item {
+    position: relative;
+    font-size: 13px;
+    line-height: 36px;
+}
+
+.g_pop_coupon .coupon_list .item:last-child:after {
+    display: none;
+}
+
+.g_pop_coupon .coupon_list .link_chk {
+    display: block;
+    overflow: hidden;
+}
+
+.g_pop_coupon .coupon_list .name {
+    float: left;
+    width: 45px;
+    color: #585858;
+    text-align: left;
+}
+
+.g_pop_coupon .coupon_list .price {
+    float: left;
+    width: 40px;
+    color: #d1a25d;
+    text-align: center;
+}
+
+.g_pop_coupon .coupon_list .time {
+    float: left;
+    width: 150px;
+    color: #a0a0a0;
+    text-align: left;
+}
+
+.g_pop_coupon .coupon_list .link_chk .icon_chk {
+    float: left;
+    width: 15px;
+    height: 15px;
+    text-indent: -9999em;
+    background-image: url(http://vm.gtimg.cn/tencentvideo/vstyle/mobile/vip/style/app_v2/img/common/icon_chk.png?d=1102&max_age=31104000);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 40px;
+    margin-top: 10px;
+}
+
+.g_pop_coupon .coupon_list .link_chk.select .icon_chk {
+    background-position: -20px 0;
+}
+
+.mod_box {
+    padding: 24px 16px;
+}
+
+.gap {
+    height: 15px;
+    background: #f5f7f9;
+}
+
+@import "comps/account.wxss";
+
+@import "comps/price.wxss";
+
+@import "comps/film.wxss";
+
+@import "comps/privs.wxss";

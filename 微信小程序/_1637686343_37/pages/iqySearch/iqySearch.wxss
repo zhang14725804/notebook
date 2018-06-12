@@ -1,0 +1,45 @@
+@import "../../__wuBaseWxss__/0.wxss";
+
+@import "../../__wuBaseWxss__/6.wxss";
+
+@import "../../__wuBaseWxss__/11.wxss";
+
+page {
+    line-height: 1;
+}
+
+.container {
+    height: auto;
+    background-color: #fff;
+}
+
+.container-overflow-hidden {
+    height: 100%;
+    overflow: hidden;
+}
+
+.iqySearch_top {
+    position: relative;
+}
+
+.iqySearch_top_bg {
+    width: 750rpx;
+    height: 340rpx;
+}
+
+.m-iqySearch_top_content {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.c-icon-iqySearchLogo {
+    width: 300rpx;
+    height: 100rpx;
+    margin: 60rpx auto 50rpx;
+    display: block;
+}
+
+.c-icon-search-center {
+    vertical-align: -3rpx;
+}

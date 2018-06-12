@@ -1,0 +1,168 @@
+<view class="section-inquiry">
+    <image class="order-success-icon" src="{{okIcon}}"></image>
+    <view class="product-name ">订单提交成功
+    <text class="product-money">{{orderInfo.amount}} 元</text>
+    </view>
+    <view class="order-tip">
+    请使用订单关联手机
+    <text bindtap="showtip" class="user-phone">{{phonenumber}}</text> 登录爱回收账户
+  </view>
+</view>
+<view class="friendAssistance" wx:if="{{friendAssistance.isShowFriendAssistance}}">
+    <navigator url="{{friendAssistance.navigatortoUrl}}">
+        <image src="{{friendAssistance.bannerImage}}"></image>
+    </navigator>
+</view>
+<view class="friend-popup" wx:if="{{friendAssistance.isShowPopup}}">
+    <view catchtap="handleonClosePopup" class="mask-layer"></view>
+    <view class="friend-popup-container">
+        <span class="friend-popup-twoPacketAmount">{{orderInfo.zhuliTwoFriendAmount}}</span>
+        <navigator url="{{friendAssistance.navigatortoUrl}}">立即参加</navigator>
+    </view>
+    <view catchtap="handleonClosePopup" class="popup-close icon-close"></view>
+</view>
+<block wx:if="{{tradetype==='store'}}">
+    <view class="section">
+        <view class="section-title">
+            <text>回收须知</text>
+        </view>
+        <view class="foot-note-group">
+            <view class="foot-note">
+                <view class="foot-note_icon">
+                    <image class="icon-idcard" src="{{iconIdcard}}"></image>
+                </view>
+                <view class="foot-note_text">
+          准备好身份证
+        </view>
+            </view>
+            <view class="foot-note foot-note_question">
+                <image class="icon-questions" src="{{iconQuestion}}"></image>
+                <view class="foot-note_icon">
+                    <image class="icon-clock" src="{{iconClock}}"></image>
+                </view>
+                <view class="foot-note_text">
+          手动解除{{identity}}账户
+        </view>
+            </view>
+            <view class="foot-note">
+                <view class="foot-note_icon">
+                    <image class="icon-power" src="{{iconPower}}"></image>
+                </view>
+                <view class="foot-note_text">
+          充电至50%以上
+        </view>
+            </view>
+        </view>
+    </view>
+    <view class="section-ondoor-tips">
+        <text>门店信息已发至您的手机，请3天内前往门店交易</text>
+        <text>交易成功，当面支付现金</text>
+    </view>
+</block>
+<block wx:if="{{tradetype==='express'}}">
+    <view class="section">
+        <view class="section-title">
+            <text>回收须知</text>
+        </view>
+        <view class="foot-note-group" wx:if="{{expressType=='sf'}}">
+            <view class="foot-note">
+                <view class="foot-note_icon">
+                    <image class="icon-idcard" src="{{iconIdcard}}"></image>
+                </view>
+                <view class="foot-note_text">
+          准备好身份证
+        </view>
+            </view>
+            <view class="foot-note foot-note_question">
+                <image class="icon-questions" src="{{iconQuestion}}"></image>
+                <view class="foot-note_icon">
+                    <image class="icon-clock" src="{{iconClock}}"></image>
+                </view>
+                <view class="foot-note_text">
+          手动解除{{identity}}账户
+        </view>
+            </view>
+            <view class="foot-note">
+                <view class="foot-note_icon">
+                    <image class="icon-power" src="{{iconPower}}"></image>
+                </view>
+                <view class="foot-note_text">
+          充电至50%以上
+        </view>
+            </view>
+        </view>
+        <view class="foot-note-group" wx:else>
+            <view class="foot-note foot-note_question">
+                <view class="foot-note_icon">
+                    <image class="icon-clock" src="{{iconClock}}"></image>
+                </view>
+                <view class="foot-note_text">
+          手动解除{{identity}}账户
+        </view>
+            </view>
+            <view class="foot-note">
+                <view class="foot-note_icon">
+                    <image class="icon-power" src="{{iconPower}}"></image>
+                </view>
+                <view class="foot-note_text">
+          充电至50%以上
+        </view>
+            </view>
+            <view class="foot-note">
+                <view class="foot-note_icon">
+                    <image class="icon-express" src="{{iconExpress}}"></image>
+                </view>
+                <view class="foot-note_text">
+          联系快递
+        </view>
+            </view>
+        </view>
+    </view>
+    <view class="section-ondoor-tips">
+        <text wx:if="{{expressType!='sf'}}">快递地址已发至您的手机</text>
+        <text wx:if="{{expressType=='sf'}}">顺丰上门人员信息稍后短信至您的手机</text>
+        <text>如验货无误，收到机器后48小时放款</text>
+    </view>
+</block>
+<block wx:if="{{tradetype==='ondoor'||tradetype==='metro'}}">
+    <view class="section">
+        <view class="section-title">
+            <text>回收须知</text>
+        </view>
+        <view class="foot-note-group">
+            <view class="foot-note">
+                <view class="foot-note_icon">
+                    <image class="icon-idcard" src="{{iconIdcard}}"></image>
+                </view>
+                <view class="foot-note_text">
+          准备好身份证
+        </view>
+            </view>
+            <view class="foot-note foot-note_question">
+                <image class="icon-questions" src="{{iconQuestion}}"></image>
+                <view class="foot-note_icon">
+                    <image class="icon-clock" src="{{iconClock}}"></image>
+                </view>
+                <view class="foot-note_text">
+          手动解除{{identity}}账户
+        </view>
+            </view>
+            <view class="foot-note">
+                <view class="foot-note_icon">
+                    <image class="icon-power" src="{{iconPower}}"></image>
+                </view>
+                <view class="foot-note_text">
+          充电至80%以上
+        </view>
+            </view>
+        </view>
+    </view>
+    <view class="section-ondoor-tips">
+        <text>工作人员将会致电联系您</text>
+        <text>回收成功，现场支付现金</text>
+    </view>
+</block>
+<view class="bottom-button">
+    <button bindtap="handleOnTapCheckOrder" type="primary">查看订单</button>
+</view>
+<image class="piwik-image-placeholder" src="{{piwikSource}}"></image>

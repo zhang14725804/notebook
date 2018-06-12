@@ -1,0 +1,161 @@
+<template name="bottom">
+    <view class="flex-row" style="margin-left:20rpx;margin-top:30rpx;margin-bottom:20rpx">
+        <view class="flex-between">
+            <view class="flex-row">
+                <image class="d_img" src="http://njst.360buyimg.com/jdreact/program/shop_dynamic_icon_show.png" style="width: 34rpx;height: 34rpx;"></image>
+                <text class="font_24" style="color:#686868;margin-left:10rpx">{{viewCounts}}人看过</text>
+            </view>
+            <view class="flex-row" style="margin-right:20rpx">
+                <image class="d_img" src="http://njst.360buyimg.com/jdreact/program/shop_dynamic_icon_words.png" style="width: 34rpx;height: 34rpx;"></image>
+                <text class="font_24" style="color:#686868;margin-left:20rpx">{{commentCount&&commentCount!==0?commentCount:'评论'}}</text>
+                <image class="d_img" src="http://njst.360buyimg.com/jdreact/program/shop_dynamic_icon_good.png" style="width: 34rpx;height: 34rpx;margin-left:60rpx"></image>
+                <text class="font_24" style="color:#686868;margin-left:20rpx">{{praiseCount&&praiseCount!==0?praiseCount:'赞'}}</text>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="skulist">
+    <view class="flex-row" style="flex-wrap: wrap;background-color: #fff;">
+        <view wx:if="{{products.length===1}}" wx:for="{{products||[]}}" wx:key="products+{{index}}">
+            <view bindtap="clickSku" class="flex-row" data-activityType="{{activityType}}" data-wareid="{{item.wareId}}" style="margin-top:20rpx">
+                <image class="d_img" src="{{products[0].imgPath}}" style="margin-left:20rpx;position:relative;width: 228rpx;height: 228rpx;">
+                    <view style="position:absolute;top:0;left:0;background-color:rgba(0,0,0,0.1);width:228rpx;height:228rpx"></view>
+                    <image src="{{item.isUnderCarriage===1?'http://njst.360buyimg.com/jdreact/program/shop_mark_off_shelf.png':'http://njst.360buyimg.com/jdreact/program/shop_mark_sold_out.png'}}" style="position:absolute;top:0;left:0;width:128rpx;height:128rpx;margin-left:50rpx;margin-top:50rpx;" wx:if="{{item.isUnderCarriage===1||item.stock===0}}"></image>
+                </image>
+                <view style="margin-left:40rpx;margin-top:10rpx;flex:1;height:228rpx;">
+                    <text class="secKillText">{{item.wareName}}</text>
+                    <view style="height:80rpx"></view>
+                    <text class="font_38" style="" wx:if="{{item.jdPrice}}">￥ {{item.jdPrice}}</text>
+                    <text class="font_38" style="" wx:else>暂无报价</text>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{index<6&&products.length>1}}" wx:for="{{products||[]}}" wx:key="products+{{index}}">
+            <image bindtap="clickSku" class="d_img" data-activityType="{{activityType}}" data-wareid="{{item.wareId}}" src="{{item.imgPath}}" style="position:relative;margin-top:20rpx;margin-left:{{index%3?10:20}}rpx;width: 230rpx;height: 230rpx;">
+                <view style="position:absolute;top:0;left:0;background-color:rgba(0,0,0,0.1);width:230rpx;height:230rpx"></view>
+                <view style="display: flex;align-items: center;justify-content: center;position:absolute;bottom:0;left:0;width:230rpx;height:40rpx;margin-bottom:16rpx;">
+                    <text class="font_30" style="font-weight: bold;padding-top:8rpx;padding-bottom:8rpx;padding-left:20rpx;padding-right:20rpx;border-radius:40rpx;background-color:rgba(255,255,255,0.5);">￥{{item.jdPrice}}</text>
+                </view>
+                <image src="{{item.isUnderCarriage===1?'http://njst.360buyimg.com/jdreact/program/shop_mark_off_shelf.png':'http://njst.360buyimg.com/jdreact/program/shop_mark_sold_out.png'}}" style="position:absolute;top:0;left:0;width:130rpx;height:130rpx;margin-left:50rpx;margin-top:50rpx;" wx:if="{{item.isUnderCarriage===1||item.stock===0}}"></image>
+            </image>
+        </view>
+    </view>
+</template>
+<template name="buyerShow">
+    <view class="flex-row" style="flex-wrap: wrap;background-color: #fff;">
+        <view wx:if="{{index<6}}" wx:for="{{images||[]}}" wx:key="images+{{index}}">
+            <image bindtap="bigPicPreview" class="d_img" data-currentURL="{{item.imgUrl}}" data-list="{{images}}" mode="aspectFill" src="{{item.imgUrl}}" style="position:relative;margin-top:20rpx;margin-left:{{index%3?10:20}}rpx;width: 230rpx;height: 230rpx;"></image>
+        </view>
+    </view>
+</template>
+<template name="activityTypeTab">
+    <view class="flex-column">
+        <view class="flex-row" style="align-items: center;justify-content:flex-start">
+            <view style="width:20rpx"></view>
+            <image class="" mode="aspectFit" src="{{activityTypeTabImg}}" style="margin-right:20rpx;width: 100rpx;height: 38rpx;" wx:if="{{activityTypeTabImg}}"></image>
+            <text class="font_28" style="color:#5274b1" wx:if="{{activityTab}}">#{{activityTab}}#</text>
+            <text class="font_28" style="margin-bottom:0rpx">{{activityDesc}}</text>
+        </view>
+        <view class="flex-row" style="margin-top:10rpx" wx:if="{{activitySubhead}}">
+            <view style="margin-left:20rpx;width:4rpx;height:25rpx;background-color: #848484;"></view>
+            <text class="font_24" style="margin-left:10rpx;color:#848484">{{activitySubhead}}</text>
+        </view>
+        <view style="height:10rpx"></view>
+    </view>
+</template>
+<template name="modified">
+    <view class="flex-row" style="margin-left:20rpx;margin-top:30rpx;margin-bottom:20rpx">
+        <image class="d_img" src="http://njst.360buyimg.com/jdreact/program/shop_dynamic_icon_time.png" style="width: 34rpx;height: 34rpx;"></image>
+        <text class="font_30" style="margin-left:10rpx">{{modified}}</text>
+    </view>
+</template>
+<template name="activityDesc">
+    <view class="flex-column" style="margin-left:20rpx;margin-top:30rpx;margin-bottom:20rpx">
+        <view class="flex-row">
+            <text class="font_28" style="margin-bottom:0rpx;color:#5274b1" wx:if="{{activityTab}}">#{{activityTab}}#</text>
+            <text class="font_28" style="margin-bottom:0rpx">{{activityDesc}}</text>
+        </view>
+        <view class="flex-row" wx:if="{{activitySubhead}}">
+            <view style="margin-bottom:0rpx;width:4rpx;height:25rpx;background-color: #787878;"></view>
+            <text class="font_28" style="margin-left:10rpx;margin-bottom:0rpx">{{activitySubhead}}</text>
+        </view>
+        <image class="d_img" mode="aspectFit" src="{{subjectUrl}}" style="margin-top:20rpx;width: 710rpx;height: 280rpx;"></image>
+    </view>
+</template>
+<template name="seckill">
+    <view class="flex-column" style="margin-left:20rpx;margin-right:20rpx;margin-top:30rpx;margin-bottom:20rpx">
+        <view class="flex-row" style="">
+            <image class="d_img" src="{{activityTypeTabImg}}" style="width: 90rpx;height: 40rpx;"></image>
+            <text class="font_28" style="margin-left:20rpx">距结束还差</text>
+            <text class="font_26" style="margin-left:5rpx;padding-left:4rpx;padding-right:4rpx;background-color: #000;border-radius: 4rpx;color:#fff">{{hour}}</text>
+            <text class="font_28" style="margin-left:5rpx;">时</text>
+            <text class="font_26" style="margin-left:5rpx;padding-left:4rpx;padding-right:4rpx;background-color: #000;border-radius: 4rpx;color:#fff">{{min}}</text>
+            <text class="font_28" style="margin-left:5rpx;">分</text>
+        </view>
+        <view class="flex-row" style="margin-top:20rpx" wx:if="{{products&&products.length===1}}">
+            <image class="d_img" src="{{products[0].imgPath}}" style="width: 228rpx;height: 228rpx;"></image>
+            <view style="margin-left:20rpx;flex:1;height:228rpx;">
+                <text class="secKillText">{{products[0].wareName}}</text>
+                <view style="height:40rpx"></view>
+                <text class="font_38" style="">￥ {{products[0].jdPrice}}</text>
+            </view>
+        </view>
+        <view class="flex-row" style="flex-wrap: wrap;background-color: #fff;" wx:else>
+            <image class="d_img" src="{{item.imgPath}}" style="margin-top:20rpx;margin-left:{{index%3?20:0}}rpx;width: 220rpx;height: 220rpx;" wx:if="{{index<6}}" wx:for="{{products||[]}}" wx:key="products+{{index}}"></image>
+        </view>
+    </view>
+</template>
+<template name="presale">
+    <view class="flex-column" style="margin-left:20rpx;margin-right:20rpx;margin-top:30rpx;margin-bottom:20rpx">
+        <view class="flex-row" style="">
+            <image class="d_img" src="{{activityTypeTabImg}}" style="width: 90rpx;height: 40rpx;"></image>
+            <text class="font_28" style="margin-left:20rpx">{{activityDesc}}</text>
+        </view>
+        <view class="flex-row" style="margin-top:20rpx" wx:if="{{products&&products.length===1}}">
+            <image class="d_img" src="{{products[0].imgPath}}" style="width: 228rpx;height: 228rpx;"></image>
+            <view style="margin-left:20rpx;flex:1;height:228rpx;">
+                <text class="secKillText">{{products[0].wareName}}</text>
+                <view style="height:40rpx"></view>
+                <text class="font_38" style="">￥ {{products[0].jdPrice}}</text>
+            </view>
+        </view>
+        <view class="flex-row" style="flex-wrap: wrap;background-color: #fff;" wx:else>
+            <image class="d_img" src="{{item.imgPath}}" style="margin-top:20rpx;margin-left:{{index%3?20:0}}rpx;width: 220rpx;height: 220rpx;" wx:if="{{index<6}}" wx:for="{{products||[]}}" wx:key="products+{{index}}"></image>
+        </view>
+    </view>
+</template>
+<template name="shopActivity">
+    <view style="background-color: #ffffff;">
+        <block wx:if="{{item.activityType===3||item.activityType===4||item.activityType===12}}" wx:for="{{activity||[]}}" wx:key="activity+{{index}}">
+            <template is="modified" data="{{...item}}"></template>
+            <template is="activityDesc" data="{{...item}}" wx:if="{{item.activityType===3}}"></template>
+            <template is="seckill" data="{{...item}}" wx:if="{{item.activityType===4}}"></template>
+            <template is="presale" data="{{...item}}" wx:if="{{item.activityType===12}}"></template>
+            <template is="bottom" data="{{...item}}"></template>
+            <view style="background-color: #f8f8f8;height:40rpx"></view>
+        </block>
+    </view>
+</template>
+<template name="subjectUrl">
+    <view bindtap="subjectUrl" data-murl="{{murl}}" style="display:flex;width:750rpx;align-items: center;justify-content: flex-start;">
+        <image class="d_img" mode="widthFix" src="{{subjectUrl}}" style="margin-left:20rpx;width:710rpx;"></image>
+    </view>
+</template>
+<view class="actFrame">
+    <block wx:if="{{item.activityType===1||item.activityType===3||item.activityType===4||item.activityType===5||item.activityType===10||item.activityType===12||item.activityType===16}}" wx:for="{{activityList}}">
+        <view style="height:20rpx;width:750rpx;background-color:#f8f8f8" wx:if="{{index}}"></view>
+        <view style="display: flex;flex-direction: column;width:750rpx;background-color: #ffffff;">
+            <template is="modified" data="{{...item}}"></template>
+            <view style="height:10rpx;"></view>
+            <template is="activityTypeTab" data="{{...item}}"></template>
+            <block wx:if="{{item.activityType===3}}">
+                <template is="subjectUrl" data="{{...item}}"></template>
+                <view style="height:20rpx"></view>
+            </block>
+            <block wx:else>
+                <template is="buyerShow" data="{{...item.comment}}" wx:if="{{item.activityType===16}}"></template>
+                <template is="skulist" data="{{...item}}" wx:else></template>
+            </block>
+        </view>
+    </block>
+</view>

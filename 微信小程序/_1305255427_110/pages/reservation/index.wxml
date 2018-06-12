@@ -1,0 +1,18 @@
+<view bindtap="handleClickShop" class="single_shop {{index==selectShopIndex?'active':''}}" data-index="{{index}}" wx:for="{{shopList}}" wx:key="{{item.id}}">
+    <text class="shop_name {{index==0?'active':''}} beyondOne">{{item.name}} <text class="number">{{item.filterDistance}}</text>
+    </text>
+    <text class="shop_address">{{item.address}}</text>
+    <view class="contact">
+        <span bindtap="handleClickPhone" class="info_phone" data-mobile="{{item.mobile}}">联系门店</span>
+        <span bindtap="handleClickMap" data-shop="{{item}}">查看地图</span>
+    </view>
+    <view class="shop_time">
+        <text class="desc">预约到店时间：</text>
+        <view bindtap="handleClickTime" class="choose_time" data-index="{{index}}" wx:for="{{timeArray}}" wx:key="{{index}}">
+            <span class="select {{selectTimeIndex==index?'active':''}}"></span>
+                {{item['string']}}
+            </view>
+        <button bindtap="handleSumbit" wx:if="{{hasLogin}}">预约到店</button>
+        <button bindgetphonenumber="getPhoneNumber" openType="getPhoneNumber" wx:else>预约到店</button>
+    </view>
+</view>

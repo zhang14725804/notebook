@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "replyBox": "/components/replyBox/index",
+        "notices": "/components/notices/index",
+        "loadingOrMore": "/components/loadingOrMore/index"
+    }
+}

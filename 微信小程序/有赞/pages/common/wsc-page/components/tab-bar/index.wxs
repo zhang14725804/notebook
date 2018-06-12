@@ -1,0 +1,24 @@
+"use strict";
+
+function isCurrentPage(currentPage, item) {
+    return item.page_path && (currentPage === item.page_path || "/" + currentPage === item.page_path);
+}
+
+function getBackgroundPosition(currentPage, item) {
+    var isCurrent = isCurrentPage(currentPage, item);
+    var iconConfig = isCurrent ? item.icon.selected : item.icon.normal;
+    var leftPosition = "-" + iconConfig.left + "px";
+    var topPosition = "-" + iconConfig.top + "px";
+    return "background-position: " + leftPosition + " " + topPosition + ";";
+}
+
+function getFontColor(currentPage, item, config) {
+    var isCurrent = isCurrentPage(currentPage, item);
+    var color = isCurrent ? config.selectedColor : config.color;
+    return "color: " + color + ";";
+}
+
+module.exports = {
+    getBackgroundPosition: getBackgroundPosition,
+    getFontColor: getFontColor
+};

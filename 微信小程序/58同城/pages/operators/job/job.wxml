@@ -1,0 +1,13 @@
+<import src="./template/select.wxml"></import>
+<view class="container-main {{!showSelect?'container-main-bg':''}}">
+    <view wx:if="{{!showSelect}}">
+        <view catchtap="e_showSelect" class="btn btn-select btn-select-industry" data-title="行业" data-type="industry">
+      {{formData.industry_value||'请选择您的行业'}}
+    </view>
+        <view catchtap="e_showSelect" class="btn btn-select btn-select-city" data-title="城市" data-type="city">
+      {{formData.city_value||'请选择您的城市'}}
+    </view>
+        <view catchtap="e_search" class="btn btn-search"></view>
+    </view>
+    <template is="list-block" data="{{listData:listData,listName:listName,listTitle:listTitle}}" wx:if="{{showSelect}}"></template>
+</view>

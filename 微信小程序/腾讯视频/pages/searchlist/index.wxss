@@ -1,0 +1,310 @@
+.page_loading {
+    position: fixed;
+    top: 40%;
+    height: 50rpx;
+}
+
+.searchlist {
+    padding: 32rpx;
+    padding-top: 0;
+    padding-right: 0;
+    width: 100%;
+}
+
+.searchlist ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.searchlist .item {
+    width: 218rpx;
+    margin-right: 16rpx;
+    margin-top: 32rpx;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.searchlist .item.last {
+    margin-right: 0;
+}
+
+.searchlist .item .cover {
+    width: 100%;
+    height: 306rpx;
+    overflow: hidden;
+    border-radius: 8rpx;
+    position: relative;
+}
+
+.searchlist .item .img {
+    width: 100%;
+    height: 306rpx;
+}
+
+.searchlist .item .desc {
+    color: #222;
+    font-size: 30rpx;
+    line-height: 44rpx;
+    margin-top: 16rpx;
+    text-align: center;
+    white-space: initial;
+}
+
+.searchlist .item.hori {
+    display: flex;
+    margin: 30rpx 0;
+    padding-right: 32rpx;
+}
+
+.searchlist .item.hori .cover {
+    width: 260rpx;
+    height: 148rpx;
+    overflow: hidden;
+    border-radius: 8rpx;
+    position: relative;
+}
+
+.searchlist .item.hori .img {
+    width: 100%;
+    height: 148rpx;
+}
+
+.searchlist .item.hori .desc {
+    flex: 1;
+    margin-left: 20rpx;
+    width: 100rpx;
+    overflow: hidden;
+}
+
+.searchlist .item.hori text {
+    font-size: 15px;
+    color: #333;
+    line-height: 24px;
+    max-height: 44px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+
+.mark-info {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    color: #fff;
+    display: inline-block;
+    position: absolute;
+    right: 16rpx;
+    bottom: 16rpx;
+}
+
+.empty {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(https://i.gtimg.cn/qqlive/images/tinyapp/empty.png) center center no-repeat;
+    background-size: 574rpx 356rpx;
+}
+
+.empty .empty_title {
+    margin-top: 450rpx;
+    font-size: 32rpx;
+    color: #333;
+}
+
+.empty .empty_text {
+    color: #555;
+}
+
+.filter {
+    border-bottom: 1rpx solid #e0e0e0;
+    position: relative;
+    z-index: 10;
+    background-color: #fff;
+    overflow: hidden;
+    min-height: 92rpx;
+}
+
+.filter .list {
+    color: #222;
+    font-size: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom: 24rpx;
+    background-color: #fff;
+    height: 80rpx;
+}
+
+.filter .filter-item {
+    display: inline-block;
+    font-size: 28rpx;
+    padding: 0 18rpx;
+    margin-left: 24rpx;
+    text-align: center;
+    line-height: 56rpx;
+    height: 56rpx;
+}
+
+.filter .filter-item.first {
+    margin-left: 32rpx;
+}
+
+.filter .filter-item.last {
+    margin-right: 120rpx;
+}
+
+.filter .filter-item.active {
+    border-radius: 10rpx;
+    background-color: #f5f7f9;
+    color: #ff7000;
+}
+
+.filter .dropdown {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0rpx;
+    width: 68rpx;
+    height: 80rpx;
+    padding-right: 32rpx;
+    background: linear-gradient(to right,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+    z-index: 3;
+    text-align: right;
+}
+
+.filter .head {
+    padding-top: 10rpx;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+}
+
+.searchlist .item.person {
+    height: 160rpx;
+    width: auto;
+}
+
+.searchlist .item.person:first-child {
+    margin-top: 32rpx;
+}
+
+.searchlist .item.person .cover {
+    border-radius: 50%;
+    height: 112rpx;
+    width: 112rpx;
+    margin-right: 24rpx;
+    overflow: hidden;
+}
+
+.searchlist .item.person .cover .img {
+    width: 100%;
+    height: 100%;
+}
+
+.searchlist .item.person .first_line {
+    font-size: 30rpx;
+    line-height: 30rpx;
+    color: #222;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.searchlist .item.person .second_line,.searchlist .item.person .third_line {
+    font-size: 26rpx;
+    color: #979797;
+    line-height: 26rpx;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 20rpx;
+}
+
+.searchlist .item.person .third_line {
+    margin-top: 16rpx;
+}
+
+.searchlist .flb {
+    display: flex;
+}
+
+.searchlist .flb-vt {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchlist .flb-1 {
+    flex: 1;
+}
+
+.figure_pic_mod {
+    display: block;
+    font-size: 0;
+    position: relative;
+}
+
+.figure_title {
+    margin-top: 7px;
+}
+
+.figure_pic {
+    width: 100%;
+    height: 306rpx;
+}
+
+.figure_pic_mod {
+    display: block;
+    font-size: 0;
+    position: relative;
+}
+
+.mod_figures {
+    padding: 12px 12px 0 12px;
+}
+
+.mod_figure {
+    width: 100%;
+}
+
+.mod_figure .item {
+    width: 33.3%;
+    padding: 0 4px;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.mod_figure_h .item {
+    width: 50%;
+}
+
+.mod_figure_h .figure_pic {
+    width: 100%;
+    height: 188rpx;
+}
+
+.figure_title {
+    margin-top: 7px;
+}
+
+.figure_caption .figure_score {
+    position: absolute;
+    right: 5px;
+    top: 13px;
+    color: #FF7000;
+}
+
+.figure_caption .figure_other {
+    position: absolute;
+    left: 5px;
+    top: 13px;
+}

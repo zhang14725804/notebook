@@ -1,0 +1,52 @@
+@import "../../netdisk_templates/file_list/fileList.wxss";
+
+@import "../../netdisk_templates/bottom_modal/bottomModal.wxss";
+
+@import "../../netdisk_templates/topTip/topTip.wxss";
+
+@import "../../netdisk_templates/dialog/dialog.wxss";
+
+.dir-detail-wrap .dir-header {
+    width: 100%;
+    padding: 48rpx 0 20rpx 0;
+    height: 128rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #333;
+}
+
+.dir-detail-wrap .dir-header .share-button {
+    background: #fff;
+    border: none;
+    outline: none;
+    border-color: #fff;
+    display: inline;
+    padding: 0;
+    text-align: inherit;
+    line-height: normal;
+    font-size: 26rpx;
+    color: #333;
+}
+
+.dir-detail-wrap .dir-header .share-button::after {
+    content: none;
+}
+
+.dir-detail-wrap .dir-header .dir-header-tab {
+    width: 25%;
+    display: inline-block;
+}
+
+.dir-detail-wrap .dir-header-gap {
+    height: 20rpx;
+    background: #f7f7f7;
+}
+
+.dir-detail-wrap .dir-header .dir-header-tab .op-icon {
+    width: 100%;
+    height: 48rpx;
+    background-size: 48rpx;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 18rpx;
+}

@@ -1,0 +1,392 @@
+<template name="CarTypeSamewayInfo">
+    <view class="car-type-normal-info">
+        <view class="car-type-info-title-wrap">
+            <view class="car-type-info-title">
+                <text>顺路接单</text>
+            </view>
+        </view>
+        <view class="items">
+            <view class="item" xmlns:wx="" wx:if="{{info.oilcost_distance_unit_price||info.oilcost_time_unit_price}}">
+                <view class="t">
+                    <view>油耗费</view>
+                    <view>
+                        <text wx:if="{{info.oilcost_distance_unit_price}}">{{info.oilcost_distance_unit_price}}元/公里</text>
+                        <text wx:if="{{info.oilcost_distance_unit_price&&info.oilcost_time_unit_price}}"> {{state.char_plus}} </text>
+                        <text wx:if="info.oilcost_time_unit_price">{{info.oilcost_time_unit_price}}元/分钟</text>
+                    </view>
+                </view>
+            </view>
+            <view class="item" wx:if="{{info.depreciation_distance_unit_price||info.depreciation_time_unit_price}}">
+                <view class="t">
+                    <view>折旧保养费</view>
+                    <view>
+                        <text wx:if="{{info.depreciation_distance_unit_price}}">{{info.depreciation_distance_unit_price}}元/公里</text>
+                        <text wx:if="{{info.depreciation_distance_unit_price&&info.depreciation_time_unit_price}}"> {{state.char_plus}} </text>
+                        <text wx:if="{{info.depreciation_time_unit_price}}">{{info.depreciation_time_unit_price}}元/分钟</text>
+                    </view>
+                </view>
+            </view>
+            <view class="item" wx:if="{{info.security_distance_unit_price||info.security_time_unit_price}}">
+                <view class="t">
+                    <view>安保费</view>
+                    <view>
+                        <text wx:if="{{info.security_distance_unit_price}}">{{info.security_distance_unit_price}}元/公里</text>
+                        <text wx:if="{{info.security_distance_unit_price&&info.security_time_unit_price}}"> {{state.char_plus}} </text>
+                        <text wx:if="{{info.security_time_unit_price}}">{{info.security_time_unit_price}}元/分钟</text>
+                    </view>
+                </view>
+            </view>
+            <view class="item" wx:if="{{info.info_percent}}">
+                <view class="t">
+                    <view>信息费</view>
+                    <view>
+                        <text wx:if="{{info.info_percent}}">{{info.info_percent*100}}%</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="CarTypeAppointInfo">
+    <view class="car-type-appoint-info">
+        <view class="car-type-info-title-wrap">
+            <view class="car-type-info-title">
+                <text>预约用车</text>
+            </view>
+        </view>
+        <view class="items">
+            <view class="item">
+                <view class="t">
+                    <view>基础计价规则与实时计价保持一致</view>
+                </view>
+            </view>
+            <view class="item" xmlns:wx="" wx:if="{{info.appointment_limit_fee}}">
+                <view class="t">
+                    <view>最低消费</view>
+                    <view>{{info.appointment_limit_fee}}元</view>
+                </view>
+                <view class="d">里程费、时长费合计不足最低消费时，直接按最低消费额计费</view>
+            </view>
+        </view>
+        <view class="notice">注：因司机接驾预约订单有更长的接驾和等待成本，为了保证服务质量，预约用车有最低消费限制</view>
+    </view>
+</template>
+<template name="CarTypeNormalInfo">
+    <view class="car-type-normal-info">
+        <view class="car-type-info-title-wrap">
+            <view class="car-type-info-title">
+                <text>{{title}}</text>
+            </view>
+        </view>
+        <view class="items">
+            <view class="item" xmlns:wx="" wx:if="{{infoChild.start_price}}">
+                <view class="t b">
+                    <view>
+                        <text>起步费</text>
+                        <text wx:if="{{infoChild.start_distance}}">({{infoChild.start_distance}}公里)</text>
+                    </view>
+                    <view>{{infoChild.start_price}} 元</view>
+                </view>
+            </view>
+            <view class="item" wx:if="{{infoChild.normal_unit_price}}">
+                <view class="t b">
+                    <view>里程费</view>
+                    <view>{{infoChild.normal_unit_price}}元/公里</view>
+                </view>
+                <view class="d d-null" wx:if="{{infoChild.distance_by_time_interval}}">
+                    <text>每0.1公里结算；</text>
+                    <view class="date-part-wrap" wx:for="{{infoChild.distance_by_time_interval.intervals}}" wx:for-index="i_idx" wx:for-item="i" wx:key="key-d">
+                        <text class="date-part">{{i.begin}} - {{i.end}}</text>
+                        <text class="date-part">{{i.price}} 元/公里</text>
+                    </view>
+                </view>
+            </view>
+            <view class="item" wx:if="{{infoChild.time_unit_price}}">
+                <view class="t b">
+                    <view>时长费</view>
+                    <view>{{infoChild.time_unit_price}}元/分钟</view>
+                </view>
+                <view class="d d-null" wx:if="{{infoChild.time_by_time_interval}}">
+                    <view class="date-part-wrap" wx:for="{{infoChild.time_by_time_interval.intervals}}" wx:for-index="i_idx" wx:for-item="i" wx:key="key-t">
+                        <text class="date-part">{{i.begin}} - {{i.end}}</text>
+                        <text class="date-part">{{i.price}} 元/分钟</text>
+                    </view>
+                </view>
+            </view>
+            <view>
+                <view class="item" wx:if="{{infoChild.c_level=='1000'&&infoChild.appointment_limit_fee}}">
+                    <view class="t b">
+                        <view>最低消费</view>
+                        <view>{{infoChild.appointment_limit_fee}} 元</view>
+                    </view>
+                    <view class="d">因司机接驾预约订单有较长的接驾时间和等待成本，为了保证服务质量，预约用车有最低消费限制。 里程费、低速费等合计不足最低消费时，直接按最低消费额计算</view>
+                </view>
+                <view class="item" wx:elif="{{infoChild.c_level!='1000'&&infoChild.limit_fee}}">
+                    <view class="t b">
+                        <view>最低消费</view>
+                        <view>{{infoChild.limit_fee}} 元</view>
+                    </view>
+                    <view class="d">里程费、时长费合计不足最低消费时，直接按最低消费额计费</view>
+                </view>
+            </view>
+            <view class="item" wx:if="{{!infoChild.time_unit_price&&infoChild.low_speed_by_time_interval}}">
+                <view class="t b">
+                    <view>低速费</view>
+                    <view>{{infoChild.low_speed_time_unit_price}}元/{{infoChild.low_speed_time}}分钟</view>
+                </view>
+                <view class="d d-null" vIf="lowSpeedByTimeJson" wx:if="{{infoChild.low_speed_by_time_interval}}">速度 {{state.char_lt}} {{infoChild.low_speed}} 公里/小时为低速；
+                        <view class="date-part-wrap" wx:for="{{infoChild.low_speed_by_time_interval.intervals}}" wx:for-index="i_idx" wx:for-item="i" wx:key="key">
+                        <text class="date-part">{{i.begin}} - {{i.end}}</text>
+                        <text class="date-part">{{i.price}} 元/分钟</text>
+                    </view>
+                </view>
+            </view>
+            <view class="item" wx:elif="{{!infoChild.time_unit_price&&!infoChild.open_peak}}">
+                <view class="t b">
+                    <view>低速费</view>
+                    <view>{{infoChild.low_speed_time_unit_price}}元/{{infoChild.low_speed_time}}分钟</view>
+                </view>
+                <view class="d">速度 {{state.char_lt}} {{infoChild.low_speed}} 公里/小时为低速；
+                    </view>
+            </view>
+            <view class="item" wx:elif="{{!infoChild.time_unit_price&&infoChild.open_peak}}">
+                <view class="t b">
+                    <view>低速费</view>
+                    <view>{{infoChild.low_speed_time_unit_price}}元/{{infoChild.low_speed_time}}分钟</view>
+                </view>
+                <view class="d">
+                        速度 {{state.char_lt}} {{infoChild.low_speed}} 公里/小时为低速；
+                        {{infoChild.morning_peak_start}}-{{infoChild.morning_peak_end}} {{infoChild.peak_low_speed_time_price}}元/{{infoChild.low_speed_time}}分钟；
+                        {{infoChild.evening_peak_start}}-{{infoChild.evening_peak_end}} {{infoChild.peak_low_speed_time_price}}元/{{infoChild.low_speed_time}}分钟
+                    </view>
+            </view>
+            <view class="item" wx:if="{{infoChild.empty_driving_unit_price}}">
+                <view class="t">
+                    <view>远途费</view>
+                    <view>{{infoChild.empty_driving_unit_price}}元/公里</view>
+                </view>
+                <view class="d">超 {{infoChild.empty_distance}} 公里后，加收远途费
+                    </view>
+            </view>
+            <view class="item" wx:if="{{infoChild.peak_fee_strategy}}">
+                <view class="t">
+                    <view>高峰费</view>
+                </view>
+                <view class="d">
+                    <view class="sub-fee-items" wx:if="{{infoChild.peak_fee_strategy.morning_peak_info}}">
+                        <view class="left">早高峰 {{infoChild.peak_fee_strategy.morning_peak_info.start}} {{state.char_minus}} {{infoChild.peak_fee_strategy.morning_peak_info.end}}</view>
+                        <view class="right">{{infoChild.peak_fee_strategy.morning_peak_info.fee}} 元</view>
+                    </view>
+                    <view class="sub-fee-items" wx:if="{{infoChild.peak_fee_strategy.morning_peak_info}}">
+                        <view class="left">晚高峰 {{infoChild.peak_fee_strategy.evening_peak_info.start}} {{state.char_minus}} {{infoChild.peak_fee_strategy.evening_peak_info.end}}</view>
+                        <view class="right">{{infoChild.peak_fee_strategy.evening_peak_info.fee}} 元</view>
+                    </view>
+                </view>
+            </view>
+            <view class="item" wx:if="{{infoChild.night_driving_unit_price}}">
+                <view class="t">
+                    <view>夜间费</view>
+                    <view>{{infoChild.night_driving_unit_price}}元/分钟</view>
+                </view>
+                <view class="d">夜间（{{infoChild.night_begin}} {{state.char_minus}} {{infoChild.night_end}}次日）行驶时，加收夜间服务费
+                    </view>
+            </view>
+            <view class="item" wx:if="{{infoChild.c_level!='1000'}}">
+                <view class="t">
+                    <view>动态加价</view>
+                </view>
+                <view></view>
+                <view class="d">当处于高峰时段、周围司机较少，或司机距离您较远的情况下，为了促进成交，鼓励司机更快接单，平台会对订单适当加价，加价金额全部给到司机。为保障乘客的利益与出行体验，加价会封顶不会无限制增加</view>
+            </view>
+            <view class="item" wx:if="{{infoChild.car_pool}}">
+                <view class="t">
+                    <view>拼车一口价</view>
+                </view>
+                <view class="d">行程前后价格不变，但发生更改目的地或里程、时长严重超出时，将恢复按里程时长计费</view>
+            </view>
+            <view class="item" wx:if="{{infoChild.car_pool&&infoChild.open_discount_carpool_succ}}">
+                <view class="t">
+                    <view>拼成/未拼成折扣</view>
+                </view>
+                <view class="d">行程中是否拼到乘客，将享受不同折扣</view>
+            </view>
+            <view class="item" wx:if="{{infoChild.car_pool&&!infoChild.open_discount_carpool_succ}}">
+                <view class="t">
+                    <view>拼车动态折扣</view>
+                    <view>{{infoChild.passenger_one}}折起</view>
+                </view>
+                <view class="d">系统会根据时间、出发地等因素，动态调整拼车折扣</view>
+            </view>
+            <view class="item" wx:if="{{infoChild.custom_info&&infoChild.custom_info.length}}">
+                <view class="t">
+                    <view>更多服务</view>
+                </view>
+                <view class="d">
+                    <view class="sub-fee-items" wx:for="{{infoChild.custom_info}}" wx:for-index="i_idx" wx:for-item="i" wx:key="key-c">
+                        <view class="left">{{i.title}}</view>
+                        <view class="right">{{i.price}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="notice" wx:if="{{infoChild.c_level=='1000'}}">注：高速费、路桥费、停车费、其他费用按行驶过程中司务员实际垫付的费用收取</view>
+        <view class="notice" wx:else>注：高速费、路桥费、停车费、其他费用按行驶过程中司机实际垫付的费用收取</view>
+    </view>
+</template>
+<template name="DateTypeInfo">
+    <view class="price-rule-detail">
+        <view class="price-rule-detail-wrap" xmlns:wx="" wx:if="{{info.car_level=='1000'}}">
+            <view class="car-type-appoint-info-wrap car-type">
+                <template is="{{'CarTypeNormalInfo'}}" data="{{infoChild:info,state:state,title:'预约用车'}}"></template>
+            </view>
+            <view class="car-type-sameway-info-wrap car-type" wx:if="{{info.oilcost_distance_unit_price||info.oilcost_time_unit_price||info.depreciation_distance_unit_price||info.depreciation_time_unit_price||info.security_distance_unit_price||info.security_time_unit_price||info.info_percent}}">
+                <template is="{{'CarTypeSamewayInfo'}}" data="{{info:info,state:state}}"></template>
+            </view>
+            <view class="car-type-sameway-info-wrap car-type" wx:elif="{{info.region_normal}}">
+                <template is="{{'CarTypeNormalInfo'}}" data="{{infoChild:info.region_normal,state:state,title:'顺路接单'}}"></template>
+            </view>
+        </view>
+        <view class="price-rule-detail-wrap" wx:else>
+            <view class="car-type-normal-info-wrap car-type">
+                <template is="{{'CarTypeNormalInfo'}}" data="{{infoChild:info,state:state,title:'实时用车'}}"></template>
+            </view>
+            <view class="car-type-appoint-info-wrap car-type" wx:if="{{info.appointment_limit_fee}}">
+                <template is="{{'CarTypeAppointInfo'}}" data="{{info:info,state:state}}"></template>
+            </view>
+            <view class="car-type-sameway-info-wrap car-type" wx:if="{{info.oilcost_distance_unit_price||info.oilcost_time_unit_price||info.depreciation_distance_unit_price||info.depreciation_time_unit_price||info.security_distance_unit_price||info.security_time_unit_price||info.info_percent}}">
+                <template is="{{'CarTypeSamewayInfo'}}" data="{{info:info,state:state}}"></template>
+            </view>
+            <view class="car-type-sameway-info-wrap car-type" wx:elif="{{info.region_normal}}">
+                <template is="{{'CarTypeNormalInfo'}}" data="{{infoChild:info.region_normal,state:state,title:'顺路接单'}}"></template>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="CarTypeComboInfo">
+    <view class="car-type-combo-info">
+        <view class="car-type-info-title-wrap">
+            <view class="car-type-info-title">
+                <text>包车</text>
+            </view>
+        </view>
+        <view class="items">
+            <view class="item" xmlns:wx="" wx:for="{{item_fst.combo}}" wx:for-index="item_sec_index" wx:for-item="item_sec" wx:key="key-sec">
+                <view class="t b">
+                    <view class="t-left">{{item_sec.package_time}}小时{{item_sec.package_distance}}公里</view>
+                    <view class="t-right">{{item_sec.package}}元</view>
+                </view>
+            </view>
+            <view class="item" wx:if="{{item_fst.normal_unit_price}}">
+                <view class="t b">
+                    <view>里程费</view>
+                    <view>{{item_fst.normal_unit_price}}元/公里</view>
+                </view>
+                <view class="d">超出部分，加收里程费；每0.1公里结算；</view>
+            </view>
+            <view class="item" wx:if="{{item_fst.time_unit_price}}">
+                <view class="t b">
+                    <view>时长费</view>
+                    <view>{{item_fst.time_unit_price}}元/分钟</view>
+                </view>
+                <view class="d">超出部分，加收时长费；</view>
+            </view>
+            <view class="item" wx:if="{{!item_fst.time_unit_price&&!item_fst.open_peak}}">
+                <view class="t b">
+                    <view>低速费</view>
+                    <view>{{item_fst.low_speed_time_unit_price}}元/{{item_fst.low_speed_time}}分钟</view>
+                </view>
+                <view class="d">超出部分，加收低速费；速度 {{state.char_lt}} {{item_fst.low_speed}} 公里</view>
+            </view>
+            <view class="item" wx:if="{{!item_fst.time_unit_price&&item_fst.open_peak}}">
+                <view class="t b">
+                    <view>低速费</view>
+                    <view>{{item_fst.low_speed_time_unit_price}}元/{{item_fst.low_speed_time}}分钟</view>
+                </view>
+                <view class="d">
+                    超出部分，加收低速费；速度 {{state.char_lt}} {{item_fst.low_speed}} 公里
+                    {{item_fst.morning_peak_start}}-{{item_fst.morning_peak_end}} {{item_fst.peak_low_speed_time_price}}元/{{item_fst.low_speed_time}}分钟；
+                    {{item_fst.evening_peak_start}}-{{item_fst.evening_peak_end}} {{item_fst.peak_low_speed_time_price}}元/{{item_fst.low_speed_time}}分钟
+                </view>
+            </view>
+            <view class="item" wx:if="{{item_fst.night_driving_unit_price}}">
+                <view class="t">
+                    <view>夜间费</view>
+                    <view>{{item_fst.night_driving_unit_price}}元/公里</view>
+                </view>
+                <view class="d">
+                    超出部分，夜间（{{item_fst.night_begin}} {{state.char_minus}} {{item_fst.night_end}}次日）行驶时，加收夜间服务费
+                </view>
+            </view>
+            <view class="item" wx:if="{{item_fst.custom_info&&item_fst.custom_info.length}}">
+                <view class="t">
+                    <view>更多服务</view>
+                </view>
+                <view class="d"></view>
+            </view>
+        </view>
+    </view>
+</template>
+<view class="mod-p-price-rule must-be">
+    <view class="container">
+        <view class="p-loading" xmlns:wx="" wx:if="{{state.showLoading}}"></view>
+        <view class="p-error" wx:if="{{state.errpage}}">{{state.errmsg}}</view>
+        <view class="p-main" wx:if="{{!state.errpage&&!state.showLoading}}">
+            <view class="p-main-content-wrap">
+                <view class="content">
+                    <view class="header-bg"></view>
+                    <swiper autoplay="{{state.autoplay}}" bindchange="_dispatch" class="car-type-info swiper-container" data-bindchange="listenSwiper" duration="{{state.duration}}" indicatorActiveColor="#e1e1e0" indicatorColor="#ececec" indicatorDots="{{state.indicatorDots}}" interval="{{state.interval}}">
+                        <view class="swiper-wrapper">
+                            <view wx:if="{{state.showCombo}}">
+                                <swiper-item wx:for="{{state.carTypes}}" wx:for-index="item_fst_index" wx:for-item="item_fst" wx:key="key">
+                                    <view class="swiper-slide" data-carLevel="{{item_fst.car_level}}">
+                                        <view class="car-type-img">
+                                            <image class="car-img" src="{{item_fst.c_image}}"></image>
+                                        </view>
+                                        <view class="car-level-name-wrap">
+                                            <span class="car-level-name">{{item_fst.c_level_name}}</span>
+                                        </view>
+                                        <view class="price-rule-scroller">
+                                            <view class="price-rule-detail">
+                                                <view class="car-type-combo-info-wrap">
+                                                    <template is="{{'CarTypeComboInfo'}}" data="{{item_fst:item_fst,state:state}}"></template>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </swiper-item>
+                            </view>
+                            <view wx:else>
+                                <swiper-item wx:for="{{state.carTypes}}" wx:for-index="item_fst_index" wx:for-item="item_fst" wx:key="key">
+                                    <view class="swiper-slide" data-carLevel="{{item_fst[ state.dateType[item_fst_index] ].car_level}}" wx:if="{{item_fst[ state.dateType[item_fst_index] ]}}">
+                                        <view class="car-type-img">
+                                            <image class="car-img" src="{{item_fst[ state.dateType[item_fst_index] ].c_image}}"></image>
+                                        </view>
+                                        <view class="car-level-name-wrap">
+                                            <text class="car-level-name">{{item_fst[ state.dateType[item_fst_index] ].c_level_name}}</text>
+                                        </view>
+                                        <view class="price-rule-scroller">
+                                            <view class="tab-date-wrap" wx:if="{{item_fst.rest_day_strategies||item_fst.custom_day_strategies}}">
+                                                <view class="tab-date">
+                                                    <view bindtap="_dispatch" class="tab-li {{state.dateType[item_fst_index]=='strategies'?'active':''}}" data-bindtap="handleDateType({{item_fst_index}},'strategies')" wx:if="{{item_fst.strategies}}">工作日
+                                                        </view>
+                                                    <view bindtap="_dispatch" class="tab-li {{state.dateType[item_fst_index]=='rest_day_strategies'?'active':''}}" data-bindtap="handleDateType({{item_fst_index}},'rest_day_strategies')" wx:if="{{item_fst.rest_day_strategies}}">休息日
+                                                        </view>
+                                                    <view bindtap="_dispatch" class="tab-li {{state.dateType[item_fst_index]=='custom_day_strategies'?'active':''}}" data-bindtap="handleDateType({{item_fst_index}},'custom_day_strategies')" wx:if="{{item_fst.custom_day_strategies}}">特定日期
+                                                        </view>
+                                                </view>
+                                                <view class="custom-des" wx:if="{{state.dateType[item_fst_index]=='custom_day_strategies'}}">
+                                                        {{item_fst[ state.dateType[item_fst_index] ].start_time}} ~ {{item_fst[ state.dateType[item_fst_index] ].stop_time}}
+                                                    </view>
+                                            </view>
+                                            <template is="{{'DateTypeInfo'}}" data="{{info:item_fst[ state.dateType[item_fst_index] ],state:state}}"></template>
+                                        </view>
+                                    </view>
+                                </swiper-item>
+                            </view>
+                        </view>
+                    </swiper>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

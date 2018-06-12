@@ -1,0 +1,8 @@
+<view class="msxcx-widget-loading msxcx-widget-loading_big" wx:if="{{!loaded}}">
+    <view></view>
+    <text>加载中</text>
+</view>
+<block wx:else>
+    <import src="../template/page/index.wxml"></import>
+    <template is="tpl-page" data="{{info:info}}"></template>
+</block>

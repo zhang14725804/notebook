@@ -1,0 +1,38 @@
+.header._4366968 {
+    padding: 36rpx 0 28rpx 24rpx;
+    overflow: hidden;
+}
+
+.header .title._4366968 {
+    font-size: 32rpx;
+    color: #504a4d;
+    line-height: 40rpx;
+    font-weight: 600;
+    float: left;
+}
+
+.header .title._4366968::before {
+    display: inline-block;
+    content: '';
+    width: 29rpx;
+    height: 24rpx;
+    background: url("https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/category/icons/header.png") no-repeat;
+    background-size: 100% 100%;
+    vertical-align: top;
+    margin: 8rpx 10rpx 0 0;
+}
+
+.header .meta._4366968 {
+    float: right;
+    font-size: 24rpx;
+    color: #969696;
+    line-height: 40rpx;
+    font-weight: 400;
+    padding-right: 24rpx;
+}
+
+.header .meta .icon._4366968 {
+    width: 24rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+}

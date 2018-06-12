@@ -1,0 +1,77 @@
+.hd-logo {
+    width: 276rpx;
+    height: 92rpx;
+    background: url(https://wappass.baidu.com/static/wpsecurity/img/wechat/baidu_logo.png) no-repeat;
+    background-size: 276rpx 92rpx;
+    margin: 100rpx auto 0;
+}
+
+.bd-phonenum {
+    display: block;
+    height: 100%;
+    line-height: 100rpx;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    flex: 1;
+    flex-basis: 0;
+}
+
+.bd-loginbtn {
+    margin: 50rpx 0 0 0;
+}
+
+.getcode-btn {
+    background: #3c76ff;
+    border-radius: 2px;
+    color: #90b6ff;
+    font-size: 36rpx;
+}
+
+.userprotocol {
+    font-size: 24rpx;
+    color: #999;
+    margin-top: 40rpx;
+    display: block;
+}
+
+.section {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    margin-top: 70rpx;
+    background-color: #fff;
+    position: relative;
+    height: 100rpx;
+    padding-left: 34rpx;
+}
+
+.section::after {
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid rgba(0,0,0,0.2);
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+.input-clearValue {
+    width: 32rpx;
+    height: 32rpx;
+    background: url('https://wappass.baidu.com/static/wpsecurity/img/wechat/close.png') no-repeat center center;
+    background-size: 32rpx 32rpx;
+    position: absolute;
+    right: 28rpx;
+    top: 50%;
+    margin-top: -16rpx;
+    display: none;
+    z-index: 1000;
+}
+
+.user-agreement {
+    text-decoration: underline;
+}

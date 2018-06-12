@@ -1,0 +1,121 @@
+<import src="../../components/wetoast/wetoast.wxml"></import>
+<template is="wetoast" data="{{...__wetoast__}}"></template>
+<view class="page-container {{isIphoneX?'active':''}}">
+    <view class="top-searchbar">
+        <view bindtap="handleClickHeaderSearch" class="view-searchbar">
+            <text class="icon-search"></text>
+      搜索您要卖的品牌、机型
+    </view>
+    </view>
+    <view bindtap="handleTapClickThis" class="search-myself" data-current="1" data-url="{{'../detail/detail?isfromcategory=true&productId='+productId+'&productName='+mobileName+'&productImg='+mobileImgUrl}}" wx:if="{{isGetModel}}">
+        <view class="searchView">
+            <image backgroundSize="cover" class="mobile-img" mode="scaleToFill" src="{{mobileImg1}}" wx:if="{{isGetMobileImg}}"></image>
+        </view>
+        <view class="mobile-name-title"> 检测到您的手机为
+      <text class="mobile-name">{{mobileName}}</text>
+        </view>
+        <button catchtap="stop" class="share" openType="share">
+      您的手机最高可卖<text class="mobile-price">{{topPrice}}元</text>，点我邀请好友来PK
+      <image class="arrow" mode="aspectFit" src="../../resource/images/index/icon_arrow.png"></image>
+        </button>
+        <view class="nav-enter {{!isGetModel||!isSupportMobile?'hide':''}}" url="{{'../detail/detail?isfromcategory=true&productId='+productId+'&productName='+mobileName+'&productImg='+mobileImgUrl}}">
+    本机估价
+    </view>
+    </view>
+    <view class="search-other">
+        <view class="search-nav">
+            <form bindsubmit="handleMainBtnClick" class="main-btn" reportSubmit="{{true}}">
+                <button formType="submit">免费估价</button>
+            </form>
+        </view>
+        <scroll-view scrollX class="other-category">
+            <form bindsubmit="handleCategoryClick" class="category-navightor" data-index="{{index}}" data-url="{{item.url}}" reportSubmit="{{true}}" wx:for="{{category}}">
+                <image src="{{item.imgUrl}}"></image>
+                <text>{{item.name}}</text>
+                <button formType="submit"></button>
+            </form>
+        </scroll-view>
+    </view>
+    <view bindtap="handleReservation" class="reservation {{showAnimation?'active':''}}" wx:if="{{ab_reservation=='B'&&reservationCity}}">
+        <view class="left_city">
+            <image src="../../resource/images/index/location.png"></image>
+            <span class="beyondOne">{{reservationCity}}</span>
+        </view>
+        <view class="right_shop {{showAnimation?'active':''}}">
+            <text class="title beyondOne">{{shopList[0].name}}</text>
+            <text class="desc beyondOne">{{reservationText}}</text>
+            <span class="arrow_right">{{shopList[0].distance>3?'查看门店':'预约到店'}}</span>
+        </view>
+    </view>
+    <span class="hotRecycletitle">大家都在卖 <span bindtap="handleToMore" class="title">更多</span>
+    </span>
+    <view class="hotRecycle">
+        <view class="item" wx:for="{{hotRecycle}}">
+            <form bindsubmit="handleHotRecycleClick" data-index="{{index}}" data-item="{{item}}" data-url="{{'../detail/detail?isfromcategory=true&productId='+item.id+'&categoryId=1'}}" reportSubmit="{{true}}">
+                <button formType="submit"></button>
+            </form>
+            <view class="imageView">
+                <image src="{{item.imgUrl}}"></image>
+            </view>
+            <view class="contentView">
+                <text class="sub_title">{{item.name}}</text>
+                <text class="desc">最高回收价</text>
+                <text class="price">￥{{item.topPrice}}</text>
+            </view>
+        </view>
+    </view>
+    <view bindtap="handleClickSwiper" class="top-title" wx:if="{{!bannerUI.defaultBannerShow}}">
+        <swiper autoplay="true" bindchange="handleBannerChange" circular="true" indicatorActiveColor="rgba(0, 0, 0, .0)" indicatorColor="rgba(255, 255, 255, .0)" indicatorDots="false" wx:if="{{!bannerUI.defaultBannerShow}}">
+            <swiper-item wx:for="{{bannerItems}}" wx:key="item.imgUrl">
+                <image bindtap="handleClickBanner" class="top-title-image" data-info="{{item}}" src="{{item.imgUrl}}"></image>
+            </swiper-item>
+        </swiper>
+        <image class="top-title-image" src="{{item.imgUrl}}" wx:if="{{bannerUI.defaultBannerShow}}" wx:for="{{bannerItems}}" wx:key="item.imgUrl"></image>
+        <view class="banner-point" wx:if="{{!bannerUI.defaultBannerShow&&bannerItems.length>1}}">
+            <view style="margin: 0 auto; display:inline-block;">
+                <text class="banner-point-text{{index==selectBanner?'-active':''}}" wx:for="{{bannerItems}}" wx:key="item.imgUrl"></text>
+            </view>
+        </view>
+    </view>
+    <view class="steps">
+        <text class="title">四步变现</text>
+        <view class="contanier">
+            <view class="single_step active">
+                <image mode="aspectFit" src="../../resource/images/index/icon_safe.png"></image>
+                <span>旧机估价</span>
+            </view>
+            <view class="single_step active">
+                <image mode="aspectFit" src="../../resource/images/index/icon_dropin.png"></image>
+                <span>在线下单</span>
+            </view>
+            <view class="single_step active">
+                <image mode="aspectFit" src="../../resource/images/index/icon_paid.png"></image>
+                <span>专业质检</span>
+            </view>
+            <view class="single_step">
+                <image mode="aspectFit" src="../../resource/images/index/icon_fair.png"></image>
+                <span>快速收款</span>
+            </view>
+        </view>
+    </view>
+    <view class="index-foot {{isIphoneX?'active':''}}">
+        <view bindtap="handleToRedirect" class="foot-left" data-url="../index/index">
+            <image mode="aspectFit" src="../../resource/images/index/icon_home.png"></image>
+            <span>主页</span>
+        </view>
+        <view bindtap="handleToMoon" class="foot-left active_618" url="../index/index">
+            <image mode="aspectFit" src="../../resource/images/index/6188.png"></image>
+            <span style="line-height:128rpx;">领福利</span>
+        </view>
+        <view bindtap="handleToNavigate" class="foot-left" data-current="1" data-url="../usercenter/index" wx:if="{{hasLogin}}">
+            <image mode="aspectFit" src="../../resource/images/index/icon_people.png"></image>
+            <span>我的</span>
+        </view>
+        <button bindgetphonenumber="getPhoneNumber" class="foot-left" openType="getPhoneNumber" wx:else>
+            <image mode="aspectFit" src="../../resource/images/index/icon_people.png"></image>
+            <span>我的</span>
+        </button>
+    </view>
+    <navigator class="plant-your-tree" hoverClass="none" openType="navigate" url="{{treeUrl}}"></navigator>
+</view>
+<image class="piwik-image-placeholder" src="{{piwikSource}}"></image>

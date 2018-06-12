@@ -1,0 +1,62 @@
+.bd {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30rpx;
+}
+
+.bd-smsinfo {
+    display: block;
+    text-align: center;
+    font-size: 30rpx;
+    color: #979797;
+    padding-top: 80rpx;
+    line-height: 50rpx;
+}
+
+.bd-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    margin-top: 120rpx;
+    padding: 0;
+}
+
+.bd-phonenum {
+    font-size: 52rpx;
+    display: block;
+    text-align: center;
+    color: #333;
+    line-height: 75rpx;
+}
+
+.bd-codetxt {
+    margin-right: 20rpx;
+}
+
+.bd-smscode {
+    display: inline-block;
+    height: 100%;
+    line-height: 40rpx;
+}
+
+.bd-sendcode {
+    background-color: #fff;
+    height: 100rpx;
+    border-radius: 2px;
+    padding: 0;
+    line-height: 100rpx;
+    font-size: 28rpx;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    flex: 1;
+    z-index: 1000;
+    position: relative;
+}
+
+.bd-sendcode:after {
+    border-radius: 2px;
+}
+
+.resend-sms {
+    color: #777;
+}

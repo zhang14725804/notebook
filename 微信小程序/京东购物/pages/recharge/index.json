@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "充值中心",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 100,
+    "usingComponents": {
+        "carousel": "./components/carousel/carousel",
+        "phone-tab": "./components/phone-tab/phone-tab",
+        "flux-tab": "./components/flux-tab/flux-tab",
+        "quick-nav": "../../../components/quick-nav/quick-nav"
+    }
+}

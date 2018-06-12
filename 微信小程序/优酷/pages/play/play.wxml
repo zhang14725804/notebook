@@ -1,0 +1,162 @@
+<view class="container">
+    <view style="width:100%; height:422rpx;">
+        <view class="youkuplayer-container">
+            <view class="player-layer" style="width:100%;height:100%" wx:if="{{$youkuplayer$isShowLayer}}">
+                <image class="player-background" src="{{$youkuplayer$YoukuPlayerLayer$coverURL}}" wx:if="{{$youkuplayer$YoukuPlayerLayer$panelName==='nonetwork'}}"></image>
+                <image class="player-layer-background" src="{{$youkuplayer$YoukuPlayerLayer$coverURL}}" wx:else></image>
+                <view bindtap="$youkuplayer$YoukuPlayerLayer$onPlayHandler" class="init-panel-container" wx:if="{{$youkuplayer$YoukuPlayerLayer$panelName==='init'}}">
+                    <image class="player-layer-play" src="https://img.alicdn.com/tfs/TB1WampXY9YBuNjy0FgXXcxcXXa-98-96.png"></image>
+                </view>
+                <view class="error-panel-container" wx:else>
+                    <view class="youkuplayer-text" wx:if="{{$youkuplayer$YoukuPlayerLayer$errorMassage}}">{{$youkuplayer$YoukuPlayerLayer$errorMassage}}</view>
+                    <view bindtap="$youkuplayer$YoukuPlayerLayer$toPlay" class="player-layer-button youkuplayer-text" wx:if="{{$youkuplayer$YoukuPlayerLayer$panelName==='4g'||$youkuplayer$YoukuPlayerLayer$panelName==='nonetwork'}}">{{$youkuplayer$YoukuPlayerLayer$buttonContent}}</view>
+                    <button appParameter="{{$youkuplayer$YoukuPlayerLayer$openAppParam}}" binderror="$youkuplayer$YoukuPlayerLayer$launchAppError" class="player-layer-button youkuplayer-text" hoverClass="none" openType="launchApp" wx:else>
+                        <text>{{$youkuplayer$YoukuPlayerLayer$buttonContent}}</text>
+                    </button>
+                </view>
+                <view bindtap="$youkuplayer$YoukuPlayerLayer$onRefrashHandler" class="player-error-retry">
+                    <view class="player-retry-text" wx:if="{{$youkuplayer$YoukuPlayerLayer$panelName==='end'}}">重新观看</view>
+                    <view class="player-retry-text" wx:if="{{$youkuplayer$YoukuPlayerLayer$panelName==='error'}}">尝试刷新</view>
+                </view>
+            </view>
+            <video controls bindended="$youkuplayer$onEndHandler" binderror="$youkuplayer$onErrorHandler" bindfullscreenchange="$youkuplayer$onFullHandler" bindtimeupdate="$youkuplayer$onTimerHandler" class="youku-player" customCache="{{$youkuplayer$false}}" id="youku-player" src="{{$youkuplayer$videoUrl}}" wx:if="{{!$youkuplayer$isShowLayer}}"></video>
+        </view>
+    </view>
+    <view bindtap="backToMiniProgram" class="back-vipmini" wx:if="{{source==='vipmini'}}">返回会员</view>
+    <view style="height: {{scrollHeight}}px" wx:if="{{isError||isLoading}}">
+        <view class="play-error" wx:if="{{isError}}">
+            <image class="play-error-tips" src="{{$dataerror$errorType==='nodataerror'?'/image/nodata-error.png':'/image/connect-error.png'}}"></image>
+            <view class="play-error-text">{{$dataerror$errorContent}}</view>
+            <image bindtap="$dataerror$refrashData" class="play-refrash" src="/image/refrash.png" wx:if="{{$dataerror$errorType!=='nodataerror'}}"></image>
+        </view>
+        <view class="play-loading" wx:elif="{{isLoading}}">
+            <image class="loading" src="/image/loading.gif"></image>
+        </view>
+    </view>
+    <scroll-view scrollY scrollTop="{{currectScrollY}}" style="height: {{scrollHeight}}px" wx:else>
+        <view bindtap="$vipbanner$clickHandler" class="banner" wx:if="{{$vipbanner$isShow}}">
+            <button appParameter="{{$vipbanner$openAppParam}}" binderror="$vipbanner$launchAppError" class="banner-button" hoverClass="none" openType="launchApp">
+                <text class="banner-text">{{$vipbanner$info}}</text>
+            </button>
+        </view>
+        <view class="introduce-container border-bottom" wx:if="{{$videodetails$videoData}}">
+            <view bindtap="$videodetails$showHideIntroduce" class="introduce-layer clearfix" data-wpyshowhideintroduce-a="">
+                <view class="introduce-header module-name">
+                    <view class="introduce-title">
+                        <text class="introduce-mark" wx:if="{{$videodetails$videoData.mark}}">{{$videodetails$videoData.mark.text}}</text>
+                        <text class="introduce-videotitle">{{$videodetails$videoData.title}}</text>
+                    </view>
+                    <view class="introduce-more">
+                        <image class="{{$videodetails$isShowIntroduce?'introduce-more-icon active':'introduce-more-icon'}}" src="https://img.alicdn.com/tfs/TB1YB8zXQyWBuNjy0FpXXassXXa-24-24.png"></image>
+                        <text class="introduce-more-text">简介</text>
+                    </view>
+                </view>
+                <view class="introduce-score">
+                    <text class="video-score" wx:if="{{$videodetails$videoData.youkuRate}}">{{$videodetails$videoData.youkuRate}}</text>
+                    <text class="video-point">·</text>
+                    <text class="video-num" wx:if="{{$videodetails$videoData.totalVv}}">{{$videodetails$videoData.totalVv}}</text>
+                </view>
+            </view>
+            <view class="introduce-details" wx:if="{{$videodetails$isShowIntroduce}}">
+                <view class="celebrity-group clearfix" wx:if="{{$videodetails$videoData.directors||$videodetails$videoData.performers}}">
+                    <view class="celebrity-type" wx:if="{{$videodetails$videoData.directors}}">{{'导演：'+$videodetails$videoData.directors}}</view>
+                    <view class="celebrity-list" wx:if="{{$videodetails$videoData.performers}}">{{'主演：'+$videodetails$videoData.performers}}</view>
+                </view>
+                <view class="uploader-layer clearfix" wx:if="{{$videodetails$subscribeInfo}}">
+                    <image class="uploader-header" src="{{$videodetails$subscribeInfo.img}}"></image>
+                    <view class="uploader-describe">
+                        <text class="uploader-name">{{$videodetails$videoData.uploader}}</text>
+                        <text>{{$videodetails$fansInfo.sumCount+'粉丝'}}</text>
+                    </view>
+                </view>
+                <text class="introduce-desc">{{$videodetails$videoData.desc}}</text>
+            </view>
+            <view class="introduce-qualitys">
+                <view class="quality-layer">
+                    <view class="currect-quality">
+                        <text>高清</text>
+                    </view>
+                    <view class="quality-list"></view>
+                </view>
+                <button class="share-layer" hoverClass="none" id="share-layer" openType="share">
+                    <image class="share-image" src="https://img.alicdn.com/tfs/TB1CJSJXQCWBuNjy0FaXXXUlXXa-48-48.png"></image>
+                </button>
+            </view>
+        </view>
+        <view class="program-container border-bottom" wx:if="{{$ProgramList$programList}}">
+            <view class="program-layer clearfix">
+                <view class="program-title">
+                    <text class="module-name">{{$ProgramList$title}}</text>
+                </view>
+                <view class="program-tv" wx:if="{{$ProgramList$videoType==='tv'}}">
+                    <scroll-view scrollX scrollIntoView="program-{{$ProgramList$currectIndex}}" style="white-space: nowrap;">
+                        <view bindtap="$ProgramList$onProgramHandler" class="program-item-tv" data-wpyonprogramhandler-a="{{$ProgramList$item}}" data-wpyonprogramhandler-b="{{$ProgramList$index}}" id="program-{{$ProgramList$index}}" wx:for="{{$ProgramList$programList}}" wx:for-index="$ProgramList$index" wx:for-item="$ProgramList$item" wx:key="$ProgramList$key">
+                            <text class="item-tv-title active" wx:if="{{$ProgramList$currectIndex===$ProgramList$index}}">{{$ProgramList$item.stage}}</text>
+                            <text class="item-tv-title" wx:else>{{$ProgramList$item.stage}}</text>
+                            <text class="iconEn payIconEn" wx:if="{{$ProgramList$item.mark&&$ProgramList$item.mark.type=='PAY'}}">VIP</text>
+                            <text class="iconEn trailerIconEn" wx:elif="{{$ProgramList$item.mark&&$ProgramList$item.mark.type=='TRAILER'}}">预</text>
+                            <text class="iconEn newIconEn" wx:elif="{{$ProgramList$item.mark&&$ProgramList$item.mark.type=='NEW'}}">新</text>
+                            <text class="iconTV" wx:else></text>
+                        </view>
+                    </scroll-view>
+                </view>
+                <view class="program-movie" wx:if="{{$ProgramList$videoType==='movie'}}">
+                    <scroll-view scrollX scrollIntoView="program-{{$ProgramList$currectIndex}}" style="white-space: nowrap;">
+                        <view bindtap="$ProgramList$onProgramHandler" class="program-item-movie" data-wpyonprogramhandler-a="{{$ProgramList$item}}" data-wpyonprogramhandler-b="{{$ProgramList$index}}" id="program-{{$ProgramList$index}}" wx:for="{{$ProgramList$programList}}" wx:for-index="$ProgramList$index" wx:for-item="$ProgramList$item" wx:key="$ProgramList$key">
+                            <image class="program-movie-image" src="{{$ProgramList$item.img}}"></image>
+                            <text class="iconEn payIconEn" wx:if="{{$ProgramList$item.mark&&$ProgramList$item.mark.type=='PAY'}}">VIP</text>
+                            <text class="iconEn trailerIconEn" wx:elif="{{$ProgramList$item.mark&&$ProgramList$item.mark.type=='TRAILER'}}">预</text>
+                            <text class="iconEn newIconEn" wx:elif="{{$ProgramList$item.mark&&$ProgramList$item.mark.type=='NEW'}}">新</text>
+                            <text class="iconTV" wx:else></text>
+                            <view class="waist active" wx:if="{{$ProgramList$currectIndex===$ProgramList$index}}">
+                                <text class="item-movie-title">{{$ProgramList$item.title}}</text>
+                                <view class="v-num">正在播放</view>
+                            </view>
+                            <view class="waist" wx:else>
+                                <text class="item-movie-title">{{$ProgramList$item.title}}</text>
+                                <view class="v-num" wx:if="{{$ProgramList$item.subtitle}}">{{$ProgramList$item.subtitle}}</view>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+        </view>
+        <view class="recommend-container border-bottom" wx:if="{{$recommend$recommendList}}">
+            <view class="recommend-layer clearfix">
+                <view class="recommend-title">
+                    <text class="module-name">{{$recommend$title}}</text>
+                </view>
+                <view class="vertical-list" wx:if="{{$recommend$isVertical}}">
+                    <view bindtap="$recommend$onRecommend" class="vertical-list-item" data-wpyonrecommend-a="{{$recommend$item}}" wx:for="{{$recommend$recommendList}}" wx:for-index="$recommend$index" wx:for-item="$recommend$item" wx:key="$recommend$key">
+                        <view class="vertical-item-picwrap">
+                            <image class="vertical-item-pic net-cover" src="{{$recommend$item.img}}"></image>
+                            <image class="vertical-item-pic" src="/image/play-horizontal-cover.png"></image>
+                        </view>
+                        <view class="vertical-item-desc">
+                            <text class="vertical-item-title">{{$recommend$item.title}}</text>
+                            <text class="vertical-item-dec">{{$recommend$item.subtitle}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="drawlist PHONE_BASE_C horizontal-list" wx:if="{{!$recommend$isVertical}}">
+                    <view bindtap="$recommend$onRecommend" class="item-movie" data-wpyonrecommend-a="{{$recommend$item}}" wx:for="{{$recommend$recommendList}}" wx:for-index="$recommend$index" wx:for-item="$recommend$item" wx:key="$recommend$key">
+                        <view class="picwrap">
+                            <image class="pic net-cover" src="{{$recommend$item.img}}"></image>
+                            <image class="pic" src="/image/vertical-cover.png"></image>
+                            <text class="item-score">{{$recommend$item.firstScore}}</text>
+                            <text class="item-score score-small">.{{$recommend$item.secondScore}}</text>
+                        </view>
+                        <text class="vtitle">{{$recommend$item.title}}</text>
+                        <text class="vdec">{{$recommend$item.subtitle}}</text>
+                    </view>
+                </view>
+                <view bindtap="$recommend$onChangeMore" class="recommend-more" wx:if="{{$recommend$nowPage<$recommend$page}}">
+                    <view class="recommend-more-icon">加载更多</view>
+                </view>
+            </view>
+        </view>
+        <view class="footer">
+            <image class="pic" src="/image/logo.png"></image>
+        </view>
+    </scroll-view>
+</view>

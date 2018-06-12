@@ -1,0 +1,24 @@
+<template name="images-swiper">
+    <view class="swipe-contain">
+        <swiper bindchange="swipeChange" catchtap="toLargerShow" class="swiper">
+            <view wx:if="{{videoSrc!=''&&currPicNum==1}}">
+                <view wx:if="{{!videoShow}}">
+                    <view catchtap="e_videoPlay" class="detail-video-icon"></view>
+                </view>
+            </view>
+            <swiper-item wx:for="{{info.pic}}" wx:key="index">
+                <image class="image" mode="{{isDog?'aspectFit':'aspectFill'}}" src="{{item}}"></image>
+            </swiper-item>
+        </swiper>
+        <view class="pic-num">
+            <text>{{currPicNum}}/{{info.pic.length}}</text>
+        </view>
+    </view>
+    <view catchtap="e_videoClose" class="swipe-larger-contain" wx:if="{{videoShow}}">
+        <video autoplay controls catchtap="videoCancelBubble" id="myVideo" src="{{videoSrc}}">
+            <cover-view catchtap="e_videoClose" class="video-close-btn">
+                <cover-image class="video-close-img" src="https://img.58cdn.com.cn/weixin/img/video_close.png"></cover-image>
+            </cover-view>
+        </video>
+    </view>
+</template>

@@ -1,0 +1,50 @@
+<import src="../../components/noData/noData"></import>
+<import src="../../components/toast/toast.wxml"></import>
+<page class="page-wrap">
+    <view bindtap="switchOrder" class="order-tab">
+        <view class="tab-item {{tab.selectedId==item.id?'checked':''}}" data-item-id="{{item.id}}" data-type="{{item.typeName}}" wx:for="{{tab.list}}">{{item.title}}</view>
+    </view>
+    <scroll-view bindscroll="scroll" bindscrolltolower="ForReachBottom" class="my-order-viewport" scrollTop="{{scrollTop}}" scrollX="false" scrollY="true" style="height:{{screenHeight-51}}px;" wx:if="{{firstHasData}}">
+        <view class="order-ul bd-tb" wx:if="{{order!=null&&order.isVirtualOrder==false}}" wx:for="{{orderList}}" wx:for-index="idx" wx:for-item="order">
+            <view class="order-top bd-b">
+                <icon class="icn-pop-shop" wx:if="{{order.canGoToShop}}"></icon>
+                <icon class="icn-shop" wx:else></icon>
+                <view class="shop-name">{{order.shopName}}</view>
+                <view class="order-state jd-red">{{order.orderStatusShow}}</view>
+            </view>
+            <view bindtap="jump2orderTrack" class="order-top-car bd-b" data-url="{{order.trackUrl}}" style="display:{{order.message&&order.orderStatusId!=5&&order.orderStatusId!=6?'':'none'}}">
+                <image></image>
+                <view class="car-info">{{order.message}}</view>
+            </view>
+            <view bindtap="jump2orderDetail" class="order-commodities" data-url="{{order.detailUrl}}">
+                <view class="order-li bd-b" wx:for="{{order.orderMsg.wareInfoList}}" wx:for-index="idy" wx:for-item="ware">
+                    <view class="product-img">
+                        <image mode="aspectFit" src="{{ware.imageurl}}"></image>
+                    </view>
+                    <view class="product-info">{{ware.wname}}</view>
+                </view>
+            </view>
+            <view class="order-bottom">
+                <view class="text-left">
+                    <view class="text3">实付款：</view>
+                    <view class="text4">¥{{order.price}}</view>
+                </view>
+                <view class="pay-btn" wx:if="{{order.buttons.length>0}}">
+                    <block wx:for="{{order.buttons}}" wx:for-index="idz" wx:for-item="buttons">
+                        <form bindsubmit="goPay" data-factPrice="{{order.price}}" data-orderId="{{order.orderId}}" data-orderType="{{order.orderType}}" data-orderTypeCode="{{order.payTypeCode}}" reportSubmit="true" wx:if="{{(buttons.showLabelId==1||buttons.showLabelId==2000)&&order.isOtcSelfOrder==false&&order.isPreSaleOrder==false&&order.internationalType==0}}">
+                            <button class="message-push-btn button jd-red jd-red-bd" formType="submit">去支付</button>
+                        </form>
+                        <form bindsubmit="confirmGoods" data-orderId="{{order.orderId}}" reportSubmit="true" wx:if="{{buttons.showLabelId==5||buttons.showLabelId==4000&&home_orderdetail_confirm618}}">
+                            <button class="message-push-btn button jd-red jd-red-bd" formType="submit">确认收货</button>
+                        </form>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <image bindtap="toTopTap" class="bottom-to-top" src="http://commonst.360buyimg.com/common/wx-images/scroll-to-top-icon-new.png" style="display:{{toTopDisplay}}"></image>
+        <view class="no-more" style="display:{{noMore?'flex':none}}">没有更多了</view>
+        <button class="load" loading="true" style="display:{{loadnone?none:'flex'}}">加载中</button>
+    </scroll-view>
+    <template is="noMoreData" data="{{...noOrderItem}}" wx:else></template>
+    <template is="toast" data="{{...toastData}}"></template>
+</page>

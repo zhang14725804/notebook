@@ -1,0 +1,92 @@
+<import src="../template/banner.wxml"></import>
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="../../../components/ZanAccount/index.wxml"></import>
+<import src="../../../components/followWechat/tips/followWechat.wxml"></import>
+<import src="../../../components/followWechat/followYZ.wxml"></import>
+<import src="../../../components/ZanAccount/index.wxml"></import>
+<import src="../../../templates/copyright.wxml"></import>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+<template is="zan-account" data="{{...zanAccount}}"></template>
+<template is="followYZ" data wx:if="{{showQrcode}}"></template>
+<view class="container container--without-border container--with-copyright">
+    <template is="banner" data="{{title:userInfo.nickName,logo:userInfo.avatarUrl,isUserCenter:true}}"></template>
+    <template is="zan-account" data="{{...zanAccount}}"></template>
+    <view class="container" style="min-height:96rpx">
+        <template is="followWechat" data="{{bindTips:bindTips}}"></template>
+    </view>
+    <view class="zan-panel zan-panel--without-margin-top">
+        <navigator class="zan-cell zan-cell--access" hoverClass="none" style="{{showBindPhoneNumber?'border-top:1rpx solid #e5e5e5':''}}" url="/pages/order/list/index">
+            <view class="zan-cell__bd">我的订单</view>
+            <view class="zan-cell__ft zan-font-12">查看全部订单</view>
+        </navigator>
+        <view>
+            <view class="state-list">
+                <navigator class="state-list__item" hoverClass="none" url="/pages/order/list/index?type=topay&count={{topay}}">
+                    <view class="state-list__icon zan-badge">
+                        <image class="order-type-icon" mode="aspectFit" src="https://img.yzcdn.cn/public_files/2017/10/31/ee8bcb94ba2ce87b8d9e3a48fe52b209.png"></image>
+                        <view class="zan-badge__count" wx:if="{{topay!=0}}">{{topay}}</view>
+                    </view>
+          待付款
+        </navigator>
+                <navigator class="state-list__item" hoverClass="none" url="/pages/order/list/index?type=togroup&count={{togroup}}">
+                    <view class="state-list__icon zan-badge">
+                        <image class="order-type-icon" mode="aspectFit" src="https://img.yzcdn.cn/public_files/2017/10/31/7b675911c33c14875633b3dd547c0655.png"></image>
+                        <view class="zan-badge__count" wx:if="{{togroup!=0}}">{{togroup}}</view>
+                    </view>
+          待成团
+        </navigator>
+                <navigator class="state-list__item" hoverClass="none" url="/pages/order/list/index?type=tosend&count={{tosend}}">
+                    <view class="state-list__icon zan-badge">
+                        <image class="order-type-icon" mode="aspectFit" src="https://img.yzcdn.cn/public_files/2017/10/31/8c60f26538e13c440c33ed76939bdd73.png"></image>
+                        <view class="zan-badge__count" wx:if="{{tosend!=0}}">{{tosend}}</view>
+                    </view>
+          待发货
+        </navigator>
+                <navigator class="state-list__item" hoverClass="none" url="/pages/order/list/index?type=send&count={{send}}">
+                    <view class="state-list__icon zan-badge">
+                        <image class="order-type-icon" mode="aspectFit" src="https://img.yzcdn.cn/public_files/2017/10/31/1cefb8d50dcbad2d1302375a43ddb261.png"></image>
+                        <view class="zan-badge__count" wx:if="{{send!=0}}">{{send}}</view>
+                    </view>
+          待收货
+        </navigator>
+                <navigator class="state-list__item" hoverClass="none" url="/pages/order/list/index?type=rights">
+                    <view class="state-list__icon zan-badge">
+                        <image class="order-type-icon" mode="aspectFit" src="https://img.yzcdn.cn/public_files/2017/10/31/a26d6ae0e00c458514d3e5936056c547.png"></image>
+                    </view>
+          退款/维权
+        </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="zan-panel">
+        <view bindtap="onMyAddressClick" class="zan-cell zan-cell--access zan-cell--last-child">
+            <view class="zan-cell__bd">收货地址</view>
+            <view class="zan-cell__ft"></view>
+        </view>
+    </view>
+    <view class="zan-panel">
+        <view bindtap="onMyCouponClick" class="zan-cell zan-cell--access zan-cell--last-child">
+            <view class="zan-cell__bd">优惠券</view>
+            <view class="zan-cell__ft"></view>
+        </view>
+    </view>
+    <view class="zan-panel">
+        <view bindtap="handleMyMsgList" class="zan-cell zan-cell--access zan-cell--last-child">
+            <view class="zan-cell__bd">我的消息</view>
+            <view class="zan-cell__ft"></view>
+        </view>
+    </view>
+    <view class="zan-panel">
+        <view bindtap="gotoHelpCenter" class="zan-cell zan-cell--access zan-cell--last-child">
+            <view class="zan-cell__bd">售后维权</view>
+            <view class="zan-cell__ft"></view>
+        </view>
+    </view>
+    <view class="zan-panel">
+        <view bindtap="goToOperationView" class="zan-cell zan-cell--access zan-cell--last-child">
+            <view class="zan-cell__bd">我要开店</view>
+            <view class="zan-cell__ft"></view>
+        </view>
+    </view>
+</view>
+<template is="copyright" data></template>

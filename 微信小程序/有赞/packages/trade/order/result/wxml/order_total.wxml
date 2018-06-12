@@ -1,0 +1,40 @@
+<template name="order-total">
+    <view class="zan-panel zan-panel--without-border order-total">
+        <view class="zan-cell order-total__cell">
+            <view class="zan-cell__bd">
+                <view>
+                    <text>商品金额</text>
+                    <text class="zan-pull-right zan-c-gray-darker">
+                        <text wx:if="{{order.activity_type==5}}">{{order.totalPriceStr!=='0.00'?'¥'+order.totalPriceStr+'+':''}}{{order.totalPointsStr+'积分'}}</text>
+                        <text wx:else>¥ {{order.totalPriceStr}}</text>
+                    </text>
+                </view>
+                <view wx:if="{{!order.isVirtual}}">
+                    <text>运费</text>
+                    <text class="zan-pull-right zan-c-gray-darker">+ ¥ {{order.postage}}</text>
+                </view>
+                <view wx:if="{{order.reduceData.id}}">
+                    <text>{{order.reduceData.name}}</text>
+                    <text class="zan-pull-right zan-c-gray-darker">- ¥ {{order.reduceData.discountFee}}</text>
+                </view>
+                <view wx:if="{{order.couponData.id}}">
+                    <text>优惠</text>
+                    <text class="zan-pull-right zan-c-gray-darker">- ¥ {{order.couponData.discountFee}}</text>
+                </view>
+                <view wx:if="{{isLeader&&order.totalPriceStr-order.real_pay>0}}">
+                    <text>团长优惠</text>
+                    <text class="zan-pull-right zan-c-gray-darker">- ¥ {{order.totalPriceStr-order.real_pay}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="zan-cell zan-cell--last-child order-total__cell">
+            <view class="zan-cell__bd">
+                <text>{{paidAmountDesc}}</text>
+                <text class="order-result-total__total-price zan-pull-right zan-c-red">
+                    <text wx:if="{{order.activity_type==5}}">{{order.real_pay!=='0.00'?'¥'+order.real_pay+'+':''}}{{order.totalPointsStr+'积分'}}</text>
+                    <text wx:else>¥ {{order.real_pay}}</text>
+                </text>
+            </view>
+        </view>
+    </view>
+</template>

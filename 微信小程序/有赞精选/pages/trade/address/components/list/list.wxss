@@ -1,0 +1,60 @@
+.address__list {
+    margin-bottom: 90px;
+    border-bottom: 1rpx solid #e5e5e5;
+    background-color: #fff;
+}
+
+.address__list--empty {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    padding-top: 95px;
+    background: url("https://img.yzcdn.cn/public_files/2016/11/25/92141c47852923a1c5f63794a797a5b4.png") center 0 no-repeat;
+    background-size: 75px 86px;
+    text-align: center;
+    color: #999;
+}
+
+.address__item {
+    padding: 15px 35px 15px 39px;
+}
+
+.address__add {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    padding-left: 38px;
+    line-height: 1.6;
+    background: #fff url("https://img.yzcdn.cn/public_files/2016/11/28/74380be81c8d26c684911c572533a978.png") no-repeat 10px center;
+    background-size: 18px 18px;
+}
+
+.address-item__check {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.addess-item__detail {
+    line-height: 16px;
+    word-break: break-all;
+}
+
+.address-item__edit {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 26px;
+    padding: 10px;
+    background-image: url("https://b.yzcdn.cn/v2/image/wap/address/edit_address@2x.png");
+    background-repeat: no-repeat;
+    background-size: 24px 26px;
+    background-position: center;
+}

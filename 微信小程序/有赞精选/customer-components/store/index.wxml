@@ -1,0 +1,16 @@
+<view class="store">
+    <image class="store__image" src="{{logo}}" style="width: {{logoWidth}}; height: {{logoHeight}}"></image>
+    <view class="store__content">
+        <view class="store__content-left">
+            <view class="store__title">{{name}} <slot name="topIcon"></slot>
+            </view>
+            <slot name="description"></slot>
+        </view>
+        <navigator class="store__action" url="{{actionUrl}}" wx:if="{{actionText&&!actionCollection}}">
+        {{actionText}}
+      </navigator>
+        <view catchtap="onActionTextClick" class="store__action {{is_collection?'is-collection':''}}" wx:if="{{actionText&&actionCollection}}">
+        {{actionText}}
+      </view>
+    </view>
+</view>

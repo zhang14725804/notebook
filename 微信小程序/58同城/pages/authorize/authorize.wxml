@@ -1,0 +1,19 @@
+<view class="authorize-box">
+    <view class="logo-box">
+        <image class="logo-pic" mode="aspectFit" src="../../images/58logo.png"></image>
+    </view>
+    <text class="title">58同城</text>
+    <text class="title-des">58同城-人人信赖的生活服务平台</text>
+    <view class="auz-box">
+        <text class="auz-title">该程序将获得以下授权</text>
+        <view class="auz-des">
+            <view class="circle"></view>
+            <text>获得您的公开信息（头像、昵称等）</text>
+        </view>
+        <text>(取消授权你可能错过很多功能哦～)</text>
+    </view>
+    <view class="btn-box">
+        <text catchtap="e_back" data-currentcid="{{currentcid}}">返回首页</text>
+        <button bindgetuserinfo="getUserInfo" catchtap="e_auth" class="auz-btn" data-currentcid="{{currentcid}}" openType="getUserInfo">立即授权</button>
+    </view>
+</view>

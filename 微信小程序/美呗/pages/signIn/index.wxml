@@ -1,0 +1,9 @@
+<view>
+    <view class="login-header">
+        <image class="banner" mode="aspectFill" src="https://cdn-ssl.meb.com/wxa/v1/login-banner.png"></image>
+    </view>
+    <view class="btn-group">
+        <button bindgetphonenumber="getPhoneNumber" class="wx-btn btn" openType="getPhoneNumber" wx:if="{{isAuth}}">微信用户一键登录</button>
+        <button bindtap="toLogin" class="mobile-btn btn">手机号码登录/注册</button>
+    </view>
+</view>

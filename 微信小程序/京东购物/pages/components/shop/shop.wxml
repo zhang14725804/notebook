@@ -1,0 +1,60 @@
+<view bindtap="changeFavShop" class="xlist_group shopInfo" wx:if="{{shopInfo.shopName}}">
+    <view class="shopInfo_shot">
+        <image class="shopInfo_logo" src="{{shopInfo.shopLogoUrl}}"></image>
+        <view class="shopInfo_name line1">{{shopInfo.shopName}}</view>
+        <view wx:if="{{shopFlag=='global'}}">
+            <image class="icon_global" src="/assets/images/globalSam/icon_global.png"></image>
+        </view>
+        <view wx:elif="{{shopFlag=='global_zy'}}">
+            <image class="icon_global_zy" src="/assets/images/globalSam/icon_global_zy.png"></image>
+        </view>
+        <view wx:elif="{{shopInfo.commonGoodShopCodeconsole=='1'}}">
+            <image class="icon_goodShop" src="/assets/images/jd_goodShop.png"></image>
+        </view>
+        <view wx:elif="{{shopInfo.categoryGoodShopCode=='1'}}">
+            <image class="icon_categShop" src="/assets/images/jd_categShop.png"></image>
+        </view>
+        <view class="flag_solid" wx:elif="{{shopInfo.flag}}">{{shopInfo.flag}}</view>
+    </view>
+    <view class="shopInfo_detail">
+        <view class="shopInfo_detail_wrap">
+            <view bindtap="gotoShop" class="shopInfo_detail_item" data-type="fans">
+                <view>
+                    <view class="num">{{shopInfo.shopFansNum}}</view>
+                    <view class="name">粉丝人数</view>
+                </view>
+            </view>
+            <view bindtap="gotoShop" class="shopInfo_detail_item" data-type="all">
+                <view>
+                    <view class="num">{{shopInfo.goodsNum}}</view>
+                    <view class="name">全部商品</view>
+                </view>
+            </view>
+            <view class="shopInfo_detail_item" wx:if="{{!shopInfo.isZy&&shopInfo.totalScore!='0.00'}}">
+                <view>
+                    <view class="num">{{shopInfo.totalScore}}</view>
+                    <view class="name">综合评分</view>
+                </view>
+            </view>
+        </view>
+        <view class="shopInfo_detail_score" wx:if="{{!shopInfo.isZy&&shopInfo.totalScore!='0.00'}}">
+            <view>商品 <text class="{{shopInfo.goodsScoreFlag=='高'?'red':'green'}}">{{shopInfo.goodsScore}} | {{shopInfo.goodsScoreFlag}}</text>
+            </view>
+            <view>服务 <text class="{{shopInfo.serviceScoreFlag=='高'?'red':'green'}}">{{shopInfo.serviceScore}} | {{shopInfo.serviceScoreFlag}}</text>
+            </view>
+            <view>物流 <text class="{{shopInfo.effiScoreFlag=='高'?'red':'green'}}">{{shopInfo.effiScore}} | {{shopInfo.effiScoreFlag}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="shopInfo_operation" wx:if="{{venderId!=0}}">
+        <view bindtap="favShop" class="shopInfo_operation_item {{favStatus?'faved':''}}" data-type="{{favStatus?'del':'add'}}">
+            <image src="/assets/images/fav.png" wx:if="{{!favStatus}}"></image>
+            <image src="/assets/images/faved.png" wx:else></image>
+            <text>{{favStatus?'已收藏店铺':'收藏店铺'}}</text>
+        </view>
+        <view bindtap="gotoShop" class="shopInfo_operation_item" wx:if="{{!wxSearchFlag}}">
+            <image src="/assets/images/order_shop.png"></image>
+            <text>进入店铺</text>
+        </view>
+    </view>
+</view>

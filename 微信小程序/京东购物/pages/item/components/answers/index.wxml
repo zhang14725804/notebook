@@ -1,0 +1,14 @@
+<view bindtap="gotoAnswerList" class="xlist_group answers" wx:if="{{answerList.length}}">
+    <view class="xlist_item answers_header">
+        <view class="answers_header_l">问答</view>
+        <view class="answers_header_r">查看更多</view>
+        <view class="xlist_icon_arrow"></view>
+    </view>
+    <view class="content">
+        <view class="item" wx:for="{{answerList}}">
+            <view class="q_icon">Q</view>
+            <view class="item_detail line1">{{item.content}}</view>
+            <view class="item_answers line1">共有{{item.answerCount}}条回答</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,100 @@
+@import "../../../__wuBaseWxss__/5.wxss";
+
+.question-list {
+    margin-top: 16rpx;
+    background: #f2f4f5;
+}
+
+.question-list-item {
+    background: #fff;
+    padding: 28rpx 20rpx;
+    margin-bottom: 16rpx;
+}
+
+.list-item-title {
+    color: #292929;
+    font-size: 32rpx;
+    line-height: 48rpx;
+    font-weight: bold;
+}
+
+.list-item-user-info {
+    color: #999;
+    font-size: 28rpx;
+    line-height: 34rpx;
+    vertical-align: middle;
+    padding: 16rpx 0;
+    overflow: hidden;
+}
+
+.list-item-answer-num {
+    float: right;
+}
+
+.list-item-content {
+    font-size: 30rpx;
+    line-height: 44rpx;
+    color: #464646;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+page {
+    font-size: 28rpx;
+    background: #f2f4f5;
+    color: #464646;
+}
+
+.page-scroll {
+    height: 100vh;
+}
+
+.header-list-tab-wrap {
+    height: 80rpx;
+}
+
+.header-list-tab {
+    height: 80rpx;
+    background-color: #fff;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 0rpx 20rpx;
+    box-sizing: border-box;
+    border-bottom: 2rpx solid #ebebeb;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.header-item-tab {
+    display: inline-block;
+    line-height: 78rpx;
+    height: 78rpx;
+    color: #666;
+    font-size: 32rpx;
+    border: none;
+    padding: 0 20rpx;
+}
+
+.header-item-on {
+    color: #FF552E;
+    position: relative;
+    font-weight: bold;
+}
+
+.header-item-on::before {
+    content: "";
+    position: absolute;
+    width: 26rpx;
+    height: 4rpx;
+    background-color: #FF552E;
+    left: 0;
+    right: 0;
+    bottom: 0rpx;
+    margin: auto;
+}

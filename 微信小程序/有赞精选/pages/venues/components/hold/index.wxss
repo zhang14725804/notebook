@@ -1,0 +1,9 @@
+@import "../../common/swiper/index.wxss";
+
+@import "../../../../__wuBaseWxss__/43.wxss";
+
+@import "../../../../templates/loadMore/loadMore.wxss";
+
+.hot-sale__goods-item:nth-child(1),.hot-sale__goods-item:nth-child(2) {
+    margin-top: 20rpx;
+}

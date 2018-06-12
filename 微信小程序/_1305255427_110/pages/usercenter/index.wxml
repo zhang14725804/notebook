@@ -1,0 +1,62 @@
+<view class="header">
+    <view class="content">
+        <view class="avatarBox">
+            <view class="avatar">
+                <image mode="aspectFit" src="{{userInfo.avatarUrl}}"></image>
+            </view>
+        </view>
+        <view class="userinfo">
+            <span class="mobile">{{userInfo.mobile}}</span>
+            <span>我的手机号</span>
+        </view>
+        <navigator class="setting" url="{{urlObj.setting}}">
+            <image mode="aspectFit" src="../../resource/images/usercenter/icon_setting.png"></image>
+        </navigator>
+    </view>
+    <view class="centerView">
+        <navigator url="{{urlObj.order}}">
+            <image mode="aspectFit" src="../../resource/images/usercenter/order.png"></image>
+            <span>我的订单</span>
+        </navigator>
+        <navigator url="{{urlObj.wallet}}">
+            <image mode="aspectFit" src="../../resource/images/usercenter/wallet.png"></image>
+            <span>我的钱包</span>
+        </navigator>
+        <navigator url="../usercenter/coupon">
+            <image mode="aspectFit" src="../../resource/images/usercenter/coupon.png"></image>
+            <span>我的加价券</span>
+        </navigator>
+    </view>
+</view>
+<view class="bottomView">
+    <navigator url="{{urlObj.help}}">
+        <image class="icon" mode="aspectFit" src="../../resource/images/usercenter/icon_help.png"></image>
+        <span>帮助中心</span>
+        <image class="arrow" mode="aspectFit" src="../../resource/images/usercenter/icon_menuearrow.png"></image>
+    </navigator>
+    <navigator url="{{activity.url}}" wx:if="{{activity.url}}">
+        <image class="icon" mode="aspectFit" src="{{activity.imgUrl}}"></image>
+        <span>{{activity.name}}</span>
+        <image class="arrow" mode="aspectFit" src="../../resource/images/usercenter/icon_menuearrow.png"></image>
+    </navigator>
+    <view bindtap="handleToMoon" class="toMoon">
+        <image class="icon" mode="aspectFit" src="../../resource/images/usercenter/prize.png"></image>
+        <span>领福利</span>
+        <image class="arrow" mode="aspectFit" src="../../resource/images/usercenter/icon_menuearrow.png"></image>
+    </view>
+</view>
+<view class="index-foot {{isIphoneX?'active':''}}">
+    <view bindtap="handleToNavigate" class="foot-left" data-url="../index/index">
+        <image mode="aspectFit" src="../../resource/images/usercenter/Toolbars_home_nomal.png"></image>
+        <span>主页</span>
+    </view>
+    <view bindtap="handleToMoon" class="foot-left active_618" url="../index/index">
+        <image mode="aspectFit" src="../../resource/images/index/6188.png"></image>
+        <span style="line-height:128rpx;">领福利</span>
+    </view>
+    <view bindtap="handleToRedirect" class="foot-left" data-url="../usercenter/index">
+        <image mode="aspectFit" src="../../resource/images/usercenter/Toolbars_wode.png"></image>
+        <span>我的</span>
+    </view>
+</view>
+<image class="piwik-image-placeholder" src="{{piwikSource}}"></image>

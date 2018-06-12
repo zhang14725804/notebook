@@ -1,0 +1,28 @@
+@import "../../../__wuBaseWxss__/1.wxss";
+
+@import "../../../components/ZanAccount/index.wxss";
+
+.img-container {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.top-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.status_text {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+}
+
+.btn-container {
+    padding: 40px 10px 20px 10px;
+}
+
+.active_btn {
+    border-radius: 4px;
+}

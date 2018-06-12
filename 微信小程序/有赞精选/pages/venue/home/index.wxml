@@ -1,0 +1,188 @@
+<import src="../../../templates/loadMore/loadMore.wxml"></import>
+<import src="../../../components/formidReciver/index.wxml"></import>
+<import src="../../venues/common/share_btn/index.wxml"></import>
+<import src="../../venues/common/go_top/index.wxml"></import>
+<import src="./components/goods-item/index.wxml"></import>
+<import src="./components/countdown/index.wxml"></import>
+<view class="search-bar" id="search-bar">
+    <navigator class="search-bar__left" hoverClass="none" url="/pages/venue/search/index?isfocus=0">
+        <view class="search-bar__icon search-bar__icon-category"></view>
+        <text class="search-bar__icon-category-text">分类</text>
+    </navigator>
+    <navigator class="search-bar__content" hoverClass="none" url="/pages/venue/search/index?isfocus=1">
+        <view class="search-bar__icon search-bar__icon-search"></view>
+        <text>{{searchText}}</text>
+    </navigator>
+    <navigator class="search-bar__right" hoverClass="none" url="/pages/usercenter/myMsgList/myMsgList">
+        <view class="search-bar__icon search-bar__icon-chat"></view>
+        <text class="search-bar__icon-chat-text">消息</text>
+    </navigator>
+</view>
+<view class="page-block swiper-wrapper" wx:if="{{banner.length>0}}">
+    <view class="page-block__header">
+        <view class="page-block__header-left">
+            <text class="page-block__title">今日推荐</text>
+            <text class="page-block__sub-title">每天都有新鲜事</text>
+        </view>
+        <view class="page-block__header-right" hoverClass="none">
+            <text class="page-block__indicator-current">{{currentSwiperItem}}</text>
+            <text class="page-block__indicator-total">/{{banner.length}}</text>
+        </view>
+    </view>
+    <swiper autoplay circular bindchange="onSwiperChange" class="swiper" duration="300" id="swiper" indicatorActiveColor="#ff4444" indicatorColor="rgba(255, 255, 255, .6)" indicatorDots="{{banner.length>1}}" interval="5000">
+        <swiper-item class="swiper__item" wx:for="{{banner}}" wx:key="{{ item.id }}">
+            <navigator class="swiper__navigator form-id__wrap" hoverClass="none" url="{{item.url+'&banner_id=home~banner~'+index+1}}">
+                <template is="formidReciver" data="{{pageUrl:item.url,position:'recommend'}}"></template>
+                <image class="swiper__img" src="{{item.hd_img}}"></image>
+            </navigator>
+        </swiper-item>
+    </swiper>
+</view>
+<view class="page-block groupon-goods" wx:if="{{groupon.goods&&groupon.goods.length>2}}">
+    <view class="page-block__header">
+        <view class="page-block__header-left">
+            <text class="page-block__title">低价火拼</text>
+            <text class="page-block__sub-title">一起拼最划算</text>
+        </view>
+        <navigator class="page-block__header-right form-id__wrap" hoverClass="none" url="{{groupon.url+'&banner_id=home~huopin!more~1'}}">
+            <template is="formidReciver" data="{{pageUrl:groupon.url,position:'groupon'}}"></template>
+            <text class="page-block__action-text">更多</text>
+        </navigator>
+    </view>
+    <scroll-view scrollX class="page-block__content">
+        <view class="groupon-goods__item" wx:for="{{groupon.goods}}" wx:key="{{ item.goods_id }}">
+            <template is="goods-item" data="{{...item,pageUrl:item.url+'&banner_id=home~huopin~'+index+1,position:'groupon'}}" wx:if="{{index!==groupon.goods.length-1}}"></template>
+            <navigator class="huoping_all" hoverClass="none" url="{{item.url+'&banner_id=home~huopin!more~1'}}" wx:elif="{{index===groupon.goods.length-1}}">
+                <image class="all_image" src="{{item.pic_url}}"></image>
+            </navigator>
+        </view>
+    </scroll-view>
+</view>
+<navigator class="page-block sales-goods form-id__wrap" hoverClass="none" url="{{sales.url+'?banner_id=home~rexiao~1'}}" wx:if="{{sales.goods&&sales.goods.length>0}}">
+    <template is="formidReciver" data="{{pageUrl:sales.url,position:'rank'}}"></template>
+    <view class="page-block__header">
+        <view class="page-block__header-left">
+            <text class="page-block__title">热销榜</text>
+            <text class="page-block__sub-title">每日热销指南</text>
+        </view>
+        <view class="page-block__header-right form-id__wrap" hoverClass="none">
+            <template is="formidReciver" data="{{pageUrl:groupon.url,position:'groupon'}}"></template>
+            <text class="page-block__action-text">更多</text>
+        </view>
+    </view>
+    <view class="page-block__content">
+        <view class="sales-goods__item" wx:for="{{sales.goods}}" wx:key="{{ item.goods_id }}">
+            <image class="sales-goods__image" src="{{item.goods_icon_url}}"></image>
+            <view class="sales-goods__sales">
+        已售<text>{{item.sale_num}}</text>件
+      </view>
+        </view>
+    </view>
+</navigator>
+<view class="page-block timelimited-goods" wx:if="{{timelimited.goods&&timelimited.goods.length>2}}">
+    <view class="page-block__header">
+        <view class="page-block__header-left">
+            <text class="page-block__title">限时折扣</text>
+            <template is="countdown" data="{{...countdown}}"></template>
+        </view>
+        <navigator class="page-block__header-right form-id__wrap" hoverClass="none" url="{{timelimited.url+'&banner_id=home~limit!more~1'}}">
+            <template is="formidReciver" data="{{pageUrl:timelimited.url,position:'timelimited'}}"></template>
+            <text class="page-block__action-text">更多</text>
+        </navigator>
+    </view>
+    <scroll-view scrollX class="page-block__content">
+        <view class="timelimited-goods__item" wx:for="{{timelimited.goods}}" wx:key="{{ item.goods_id }}">
+            <template is="goods-item" data="{{...item,width:150,height:150,pageUrl:item.url+'&banner_id=home~limit~'+index+1,position:'timelimited'}}" wx:if="{{index!==timelimited.goods.length-1}}"></template>
+            <navigator class="timelimited_all" hoverClass="none" url="{{item.url+'&banner_id=home~limit!more~1'}}" wx:elif="{{index===timelimited.goods.length-1}}">
+                <view class="view-more">
+                    <view class="view-more__text">查看全部</view>
+                    <view class="view-more__icon">GO<view class="zan-icon zan-icon-arrow"></view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </scroll-view>
+</view>
+<view class="page-block discover-goods" wx:if="{{discover.length>0}}">
+    <view class="page-block__header">
+        <text class="page-block__title">发现</text>
+        <text class="page-block__sub-title">发现更更多优质好货</text>
+    </view>
+    <view class="page-block__goods discover-goods__content">
+        <navigator class="discover-goods__item discover-goods__item--{{index+1}}" url="{{item.url+'&banner_id=home~found~'+index+1}}" wx:for="{{discover}}" wx:key="{{ item.id }}">
+            <template is="formidReciver" data="{{pageUrl:item.url,position:'find_subject'}}"></template>
+            <image class="discover-goods__image" src="{{item.hd_img}}"></image>
+            <view class="discover-goods__item-detail">
+                <block wx:if="{{index<2}}">
+                    <view>{{item.tag}}</view>
+                    <view>{{item.description}}</view>
+                </block>
+                <block wx:else>
+                    <image class="discover-goods__item-image" src="{{item.description}}" wx:if="{{item.description}}"></image>
+                    <view>{{item.tag}}</view>
+                </block>
+            </view>
+        </navigator>
+    </view>
+</view>
+<view class="page-block topic-goods" wx:if="{{topics.length>0}}">
+    <view class="page-block__header">
+        <text class="page-block__title">主题精选</text>
+        <text class="page-block__sub-title">发现朋友圈的好货</text>
+    </view>
+    <view class="page-block__goods" wx:for="{{topics}}" wx:for-index="topicIndex" wx:key="{{ item.id }}">
+        <navigator class="topic-goods__banner form-id__wrap" url="{{item.url+'&banner_id=home~subject.'+topicIndex+1+'.'+item.topicId+'~main'}}">
+            <template is="formidReciver" data="{{pageUrl:item.url,position:'topic_spotlight'}}"></template>
+            <image class="topic-goods__image" src="{{item.banner}}"></image>
+        </navigator>
+        <scroll-view class="page-block__content" scrollX="true">
+            <view class="topic-goods__item" wx:for="{{item.goods}}" wx:for-index="goodsIndex" wx:for-item="goods" wx:key="{{ goods.id }}">
+                <template is="goods-item" data="{{...goods,width:180,height:180,pageUrl:goods.url+'&banner_id=home~subject.'+topicIndex+1+'.'+item.topicId+'~'+goodsIndex+1,position:'topic_spotlight'}}" wx:if="{{goodsIndex!==item.goods.length-1}}"></template>
+                <navigator class="topic_all" hoverClass="none" url="{{item.url+'&banner_id=home~subject.'+topicIndex+1+'.'+item.topicId+'~main'}}" wx:elif="{{goodsIndex===item.goods.length-1}}">
+                    <view class="view-more">
+                        <view class="view-more__text">查看全部</view>
+                        <view class="view-more__icon">GO<view class="zan-icon zan-icon-arrow"></view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view class="categary-title" wx:if="{{tab.list&&tab.list.length>0}}">
+    <text>朋友圈的好货推荐</text>
+</view>
+<view class="tab-list" id="tab">
+    <view class="form-id-row">
+        <template is="formidReciver" data="{{position:tab.selectedId}}"></template>
+    </view>
+    <zan-tab scroll bindtabchange="onTabChange" fixed="{{tabBarFixed}}" height="{{tabHeight}}" list="{{tab.list}}" minWidth="{{tabWidth}}" selectedId="{{tab.selectedId}}" wx:if="{{tab.list&&tab.list.length>0}}"></zan-tab>
+</view>
+<view class="tab-goods" style="min-height: calc(100vh - {{tabHeight}}px);">
+    <view class="tab-goods__item" wx:for="{{curTabGoods}}" wx:key="{{ item.alias }}">
+        <goods-item bindtapCallback="onTapCallback" goods="{{item}}" price="{{item.price}}" salesNum="{{item.salesNum}}" thumbUrl="{{item.thumbUrl}}" title="{{item.title}}" url="{{item.url+'&banner_id=home~category.'+tab.selectedId+'~'+index+1}}">
+            <template is="formidReciver" data="{{pageUrl:item.url,position:tab.selectedId}}"></template>
+        </goods-item>
+    </view>
+    <template is="loadmore" data="{{loading:loading,nomore:nomore}}"></template>
+</view>
+<view class="global-icon">
+    <view bindtap="onActivityIconClick" class="activity-icon" wx:if="{{showActivityIcon}}">
+        <image class="activity-icon__image" src="{{activityIcon.picture}}"></image>
+        <view catchtap="onActivityIconClose" class="activity-icon__close"></view>
+    </view>
+    <template is="venuesShareBtn" data></template>
+    <template is="go-top" data="{{visiable:goTopVisiable}}"></template>
+</view>
+<template is="shareDialog" data="{{showShareDialog:showShareDialog,posterId:'all'}}"></template>
+<view class="activity-popup zan-popup {{showActivityPop?'zan-popup--show':''}}">
+    <view class="zan-popup__mask"></view>
+    <view class="zan-popup__container">
+        <view bindtap="onActivityPopClick">
+            <image class="activity-popup__image" src="{{popActivity.picture}}"></image>
+        </view>
+        <view class="activity-popup__line"></view>
+        <view bindtap="onActivityPopupClose" class="zan-icon zan-icon-close"></view>
+    </view>
+</view>
+<canvas canvasId="venues-share-poster" style="display: {{venuesShareDisplay}}; width: 750px; height: 980px; position: fixed; top: 0; left: 10000px; z-index: 1000;"></canvas>

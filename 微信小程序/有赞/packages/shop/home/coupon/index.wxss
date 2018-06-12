@@ -1,0 +1,3 @@
+@import "../../../../components/coupon/coupon_cell.wxss";
+
+@import "../../../../components/ZanAccount/index.wxss";

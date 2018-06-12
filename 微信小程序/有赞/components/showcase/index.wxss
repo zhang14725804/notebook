@@ -1,0 +1,7 @@
+@import "default/index.wxss";
+
+@import "takeAway/index.wxss";
+
+@import "feature/index.wxss";
+
+@import "../sku/index.wxss";

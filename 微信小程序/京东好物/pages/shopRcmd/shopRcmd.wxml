@@ -1,0 +1,13 @@
+<skuList skuList="{{list}}" skuType="{{1002}}"></skuList>
+<view class="loadingFrame" wx:if="{{state===1}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+</view>
+<view class="loadingFrame" wx:if="{{!hasNext&&list.length}}">
+    <view class="weui-loadmore__tips">我是有底线的~</view>
+</view>
+<view class="pt-hasNoData" wx:elif="{{!hasNext&&!list.length}}">
+    <image class="pt-img-noData" src="http://njst.360buyimg.com/jdreact/program/shop_joy.png"></image>
+    <view class="fontNodata">抱歉，暂无符合条件的商品</view>
+</view>
+<netError bindreloadevent="onReload" netState="{{state}}"></netError>

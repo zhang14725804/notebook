@@ -1,0 +1,24 @@
+<view class="detail">
+    <view class="info">
+        <view class="label">
+            <view class="playcount" wx:if="{{page==='vplus'}}">{{video.videoData.playCount}}播放</view>
+            <block wx:else>
+                <block wx:for="{{video.tagList}}" wx:for-item="tag">
+                    <view bindtap="onTagClick" class="vplus" data-tagname="{{tag.text}}" data-type="4" data-value="{{tag.value}}" wx:if="{{tag.type===4}}">
+                        <image class="avatar" src="{{tag.avatar||'https://i.gtimg.cn/qqlive/images/20150608/avatar.png'}}"></image>
+                        <view class="nick">{{tag.text}}</view>
+                    </view>
+                    <view bindtap="onTagClick" class="txt" data-datakey="{{tag.datakey}}" data-starid="{{tag.starId}}" data-tagname="{{tag.text}}" data-type="{{tag.type}}" data-value="{{tag.value}}" wx:else>{{tag.text}}</view>
+                </block>
+            </block>
+        </view>
+        <view class="operation">
+            <view bindtap="onCommentClick" class="comment_box" data-cid="{{video.cid}}" data-vid="{{video.vid}}">
+                <view class="icon comment"></view>
+                <view class="num" wx:if="{{video.comment.commentNum!=0}}">{{video.comment.commentNum}}</view>
+            </view>
+            <view bindtap="onShareClick" class="icon share" data-cid="{{video.cid}}" data-vid="{{video.vid}}"></view>
+            <view bindtap="onDeleteClick" class="icon delete" data-datakey="{{video.feedbackDataKey}}" data-index="{{index}}" wx:if="{{page==='hot'}}"></view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,15 @@
+<template name="countdown">
+    <view class="countdown">
+        <view class="countdown__item countdown__item-hour">
+      {{hour}}
+    </view>
+        <view class="countdown__symbol">:</view>
+        <view class="countdown__item countdown__item-minute">
+      {{minute}}
+    </view>
+        <view class="countdown__symbol">:</view>
+        <view class="countdown__item countdown__item-second">
+      {{second}}
+    </view>
+    </view>
+</template>

@@ -1,0 +1,59 @@
+<template name="promotion_detail">
+    <view class="detail-header {{!(source==='list'||source==='points-cash-list')?'':'detail-header-hide'}}">
+        <image class="header-sideline-left" mode="aspectFill" src="https://img.yzcdn.cn/public_files/2017/08/16/bf0e247ddc0ef26a05eefb3718105ee5.png" wx:if="{{curVisibility}}"></image>
+        <image class="header-img" mode="aspectFill" src="https://img.yzcdn.cn/public_files/2017/08/16/ecfe644dfe84bc25b660cfe8aeed26db.png" wx:if="{{curVisibility&&isSuccessView}}"></image>
+        <view class="header-content" wx:if="{{curVisibility&&!isSuccessView}}">送你一张{{promoType==='promocard'?'优惠券':'优惠码'}}</view>
+        <view class="header-content" wx:elif="{{curVisibility&&isSuccessView&&!isCashSuccessView}}">领取成功</view>
+        <view class="header-content" wx:elif="{{curVisibility&&isCashSuccessView}}">兑换成功</view>
+        <image class="header-sideline-right" mode="aspectFill" src="https://img.yzcdn.cn/public_files/2017/08/16/454364e81b93ad7070a867502cc9626a.png" wx:if="{{curVisibility}}"></image>
+    </view>
+    <view class="content-view">
+        <view class="detail-bg-img" style="background-image: url({{promoType?promoType==='promocard'?'https://img.yzcdn.cn/public_files/2017/08/24/0519190a536b34aa6729bde8c731453d.png':'https://img.yzcdn.cn/public_files/2017/08/24/7462c578db898b553547731a52dac47b.png':''}});" wx:if="{{curVisibility&&isSuccessView}}"></view>
+        <view class="detail-bg-img" style="background-image: url('https://img.yzcdn.cn/public_files/2017/08/28/15472ea432d67be507f7bc8fe34892bb.png');" wx:elif="{{curVisibility&&!isSuccessView}}"></view>
+        <view class="sold-out-view">
+            <view class="sold-out-img">
+                <view class="stamp stamp_over" wx:if="{{curVisibility&&!isSuccessView&&coupon.stock===0}}"></view>
+                <view class="stamp stamp_got" wx:elif="{{curVisibility&&!isSuccessView&&coupon.buyer_taked_limit}}"></view>
+                <view class="stamp stamp_expired" wx:elif="{{curVisibility&&(!isSuccessView&&coupon.is_expired||coupon.is_invalid==='1')}}"></view>
+                <view class="stamp stamp_unqualified" wx:elif="{{curVisibility&&!isSuccessView&&coupon.user_level_limit}}"></view>
+            </view>
+        </view>
+        <view class="detail-content-container">
+            <view>
+                <view class="detail-coupon-name" wx:if="{{curVisibility}}">
+          {{coupon.group.name||coupon.name||(promoType==='promocard'?'优惠券':'优惠码')}}
+        </view>
+                <view class="underline" wx:if="{{curVisibility}}"></view>
+            </view>
+            <view class="detail-price-container {{promoType=='promocode'?isSuccessView?'detail-price-container-moveup':'':''}}">
+                <view class="detail-price-tag" wx:if="{{curVisibility&&(coupon.preferential_type&&coupon.preferential_type===1||!coupon.preferential_type)}}">¥</view>
+                <view class="detail-price-roundnum" wx:if="{{coupon.preferential_type&&coupon.preferential_type===1||!coupon.preferential_type}}">{{coupon.roundNumber}}</view>
+                <view class="detail-price-roundnum" wx:elif="{{coupon.preferential_type&&coupon.preferential_type===2}}">{{coupon.discount}}</view>
+                <view class="detail-price-decimal" wx:if="{{coupon.preferential_type&&coupon.preferential_type===1||!coupon.preferential_type}}">{{coupon.decimal}}</view>
+                <view class="detail-price-decimal" wx:elif="{{coupon.preferential_type&&coupon.preferential_type===2}}">折</view>
+                <view class="detail-condition" wx:if="{{curVisibility&&coupon.atLeastString}}">/ 满{{coupon.atLeastString}}元可用</view>
+                <view class="detail-condition" wx:elif="{{curVisibility&&!coupon.atLeastString}}">/ 无使用门槛</view>
+            </view>
+            <view class="detail-price-expire {{promoType=='promocode'?isSuccessView?'detail-price-expire-moveup':'':''}}" wx:if="{{curVisibility}}">有效期：{{coupon.start_time}} - {{coupon.end_time}}</view>
+            <view class="detail-promocode" wx:if="{{curVisibility&&promoType=='promocode'&&isSuccessView}}">优惠码：{{coupon.code}}</view>
+        </view>
+        <image catchtap="onQrCodeTapped" class="detail-qr-code" data-verifycode="{{coupon.verify_code}}" mode="aspectFill" src="https://img.yzcdn.cn/public_files/2017/08/09/f40cdf5877fa34cdb04ea3f3cc1c4366.png" wx:if="{{curVisibility&&(tabPosition===0||isSuccessView)}}"></image>
+        <view class="detail-instruction-view {{promoType=='promocode'?isSuccessView?'detail-instruction-view-moveup':'':''}}" wx:if="{{curVisibility}}">
+            <view class="detail-instruction-container">
+                <view class="detail-instruction" wx:if="{{curVisibility}}">使用说明</view>
+                <text class="detail-ins-content">{{coupon.instructions||coupon.group.instructions}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="detail-button-view">
+        <button catchtap="onUseButtonTapped" class="zan-btn zan-btn--danger" data-group="{{coupon.group}}" wx:if="{{curVisibility&&isSuccessView}}">
+            <view>立即使用</view>
+        </button>
+        <button catchtap="onUseButtonTapped" class="zan-btn zan-btn--danger" data-group="{{coupon.group}}" wx:if="{{curVisibility&&!isSuccessView}}">
+            <view>进店逛逛</view>
+        </button>
+        <button catchtap="onShareButtonTapped" class="zan-btn" openType="share" style="margin-right: 5px;" wx:if="{{curVisibility&&(coupon.is_share||coupon.group.is_share)&&isSuccessView}}">
+            <view>分享给好友</view>
+        </button>
+    </view>
+</template>

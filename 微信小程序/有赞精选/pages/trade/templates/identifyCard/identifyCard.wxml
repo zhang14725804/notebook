@@ -1,0 +1,8 @@
+<template name="identifyCard">
+    <view class="zan-cell zan-cell--last-child zan-panel identify--container">
+        <text class="zan-field__title zan-c-black">身份证号</text>
+        <view class="zan-cell__bd zan-field__input">
+            <input autoHeight="true" bindblur="onMessageBlur" bindinput="identifyCardInput" disabled="{{order_no?true:false}}" placeholder="因海关清关需要，请填写收货人的身份证号" value="{{identifyCardNo}}"></input>
+        </view>
+    </view>
+</template>

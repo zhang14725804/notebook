@@ -1,0 +1,81 @@
+<template name="m-result-loading">
+    <view class="m-filmLibrary-loading" wx:if="{{load=='show'}}">
+        <text>正在加载...</text>
+    </view>
+    <view bindtap="{{errorHandler}}" class="m-filmLibrary-loading" wx:if="{{load=='error'}}">
+        <text>未获取到内容，点我重试~</text>
+    </view>
+    <view bindtap="{{errorHandler}}" class="m-box-cover" style="position: relative;" wx:if="{{load=='firstError'}}">
+        <view class="m-tips">
+            <image class="c-icon-tips" height="90" src="/resource/images/c-icon-tips.png" width="90"></image>
+            <text class="m-tips_tx">未获取到内容</text>
+            <text class="m-tips_tx">请点击页面重试</text>
+        </view>
+    </view>
+    <view class="m-box-cover" style="position: relative;" wx:if="{{load=='nomore'}}">
+        <view class="m-tips">
+            <image class="c-icon-tips" height="90" src="/resource/images/c-icon-tips.png" width="90"></image>
+            <text class="m-tips_tx">{{tips}}</text>
+        </view>
+    </view>
+    <view class="m-box-cover" style="position: relative;" wx:if="{{load=='invalid'}}">
+        <view class="m-tips">
+            <image class="c-icon-tips" height="90" src="/resource/images/c-icon-tips.png" width="90"></image>
+            <text class="m-tips_tx">{{invalidTips}}</text>
+        </view>
+    </view>
+</template>
+<template name="m-records-loading">
+    <view class="m-box-cover" wx:if="{{load=='empty'}}">
+        <view class="m-tips">
+            <image class="c-icon-tips" height="90" src="/resource/images/c-icon-tips.png" width="90"></image>
+            <text class="m-tips_tx">{{text}}</text>
+        </view>
+    </view>
+    <view class="m-filmLibrary-loading" wx:if="{{load=='show'}}">
+        <text class="m-record-loading-base">正在加载...</text>
+    </view>
+    <view bindtap="{{errorHandler}}" class="m-filmLibrary-loading" wx:if="{{load=='error'}}">
+        <text class="m-record-loading-base">未获取到内容，点我重试~</text>
+    </view>
+    <view class="m-filmLibrary-loading" wx:if="{{load=='nomore'}}">
+        <text class="m-record-loading-base">无更多内容</text>
+    </view>
+    <view bindtap="{{errorHandler}}" class="m-box-cover" style="position: relative;" wx:if="{{load=='firstError'}}">
+        <view class="m-tips">
+            <image class="c-icon-tips" height="90" src="/resource/images/c-icon-tips.png" width="90"></image>
+            <text class="m-tips_tx">未获取到内容</text>
+            <text class="m-tips_tx">请点击页面重试</text>
+        </view>
+    </view>
+</template>
+<template name="m-filmLibrary-loading">
+    <view class="m-filmLibrary-loading" wx:if="{{load=='show'}}">
+        <text>正在加载...</text>
+    </view>
+    <view bindtap="{{errorHandler}}" class="m-filmLibrary-loading" wx:if="{{load=='error'}}">
+        <text>未获取到内容，点我重试~</text>
+    </view>
+    <view class="m-filmLibrary-loading" wx:if="{{load=='nomore'}}">
+        <text>无更多内容</text>
+    </view>
+    <view bindtap="{{errorHandler}}" class="m-box-cover" style="position: relative;" wx:if="{{load=='firstError'}}">
+        <view class="m-tips">
+            <image class="c-icon-tips" height="90" src="/resource/images/c-icon-tips.png" width="90"></image>
+            <text class="m-tips_tx">未获取到内容</text>
+            <text class="m-tips_tx">请点击页面重试</text>
+        </view>
+    </view>
+</template>
+<template name="load">
+    <view class="m-box-cover" wx:if="{{load==='show'}}">
+        <image class="c-cover-loading" height="20" src="/resource/images/c-icon-loading.gif" width="20"></image>
+    </view>
+    <view bindtap="{{errorHandler}}" class="m-box-cover" wx:if="{{load==='error'}}">
+        <view class="m-tips">
+            <image class="c-icon-tips" height="90" src="/resource/images/c-icon-tips.png" width="90"></image>
+            <text class="m-tips_tx">未获取到内容</text>
+            <text class="m-tips_tx">请点击页面重试</text>
+        </view>
+    </view>
+</template>

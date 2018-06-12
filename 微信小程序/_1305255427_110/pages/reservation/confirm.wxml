@@ -1,0 +1,19 @@
+<form bindsubmit="handleSubmit" reportSubmit="{{true}}">
+    <view class="contanier">
+        <text class="shop_name beyondOne">{{shopList[reservationInfo.selectShopIndex].name}}</text>
+        <text class="shop_address">{{shopList[reservationInfo.selectShopIndex].address}}</text>
+        <text class="desc">预约到店时间：</text>
+        <text class="time">{{reservationInfo.time['string']}}</text>
+        <text class="desc">预约手机号：</text>
+        <view class="phoneBox">
+            <input bindinput="PhoneNumberInput" class="phonenumber" focus="{{true}}" maxlength="11" type="number" value="{{reservationInfo.mobile}}" wx:if="{{showInput}}"></input>
+            <span class="phonenumber" wx:else>{{reservationInfo.mobile}}</span>
+            <span bindtap="showInput" class="change" wx:if="{{!showInput}}">修改</span>
+            <image bindtap="clearAll" class="clearAll" src="../../resource/images/usercenter/icon-cancel.png" wx:if="{{showInput&&reservationInfo.mobile.length}}"></image>
+        </view>
+        <text class="tip">预约成功后门店店员将收到通知，为迎接您做好准备</text>
+    </view>
+    <button class="submit" formType="submit">
+        确认下单
+    </button>
+</form>

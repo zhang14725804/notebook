@@ -1,0 +1,79 @@
+<import src="/components/failureTip/index.wxml"></import>
+<form bindsubmit="remindFormSubmit" class="{{colorType}}" reportSubmit="true">
+    <view class="{{settings.colorType}}">
+        <template is="failureTip" data="{{...failureTip}}"></template>
+        <view class="remind__hd ">
+            <view class="remind__hd__item{{nameSize}}">
+                <view>{{name}}</view>
+            </view>
+            <view class="remind__hd__item2">
+                <view class="remind__hd__item2__n">最新价</view>
+                <view class="remind__hd__item2__v {{rateUpdown}} {{psmaller}}">{{price}}</view>
+            </view>
+            <view class="remind__hd__item3">
+                <view class="remind__hd__item3__n">涨跌幅</view>
+                <view class="remind__hd__item3__v {{rateUpdown}}">{{chgRatio}}</view>
+            </view>
+        </view>
+        <view class="remind__panel">
+            <view class="remind__panel__tr">
+                <view class="remind__panel__tr__col">
+                    <view>股价涨到</view>
+                </view>
+                <view class="remind__panel__tr__col2">
+                    <view>
+                        <input bindblur="bindblurInput" bindfocus="bindfocusInput" bindinput="bindKeyInputUpPrice" class="remind__panel__input {{upPriceInvalid?'red':''}}" data-type="upPrice" focus="{{inputFocus[0]}}" maxlength="10" style="{{switchChecked.upPrice?'':'color:gray'}}" type="digit" value="{{inputVal.upPrice}}"></input>
+                    </view>
+                    <view class="remind__panel__tr__col2__y">元</view>
+                    <view class="remind__alert" wx:if="{{alert.upPrice[0]}}">
+                        <view class="remind__alert__panel {{alert.upPrice[3]}}">
+                            <view class="{{alert.upPrice[2]?'invalid':''}}">{{alert.upPrice[1]}}</view>
+                        </view>
+                        <view class="remind__alert__t"></view>
+                    </view>
+                </view>
+                <view class="remind__panel__tr__col3">
+                    <switch bindchange="bindSwitchChange" checked="{{switchChecked.upPrice}}" data-type="upPrice" style="height:66rpx;" type="switch"></switch>
+                </view>
+            </view>
+            <view class="remind__panel__tr">
+                <view class="remind__panel__tr__col">
+                    <view>股价跌到</view>
+                </view>
+                <view class="remind__panel__tr__col2">
+                    <view>
+                        <input bindblur="bindblurInput" bindfocus="bindfocusInput" bindinput="bindKeyInputDownPrice" class="remind__panel__input {{downPriceInvalid?'red':''}}" data-type="downPrice" focus="{{inputFocus[1]}}" maxlength="10" style="{{switchChecked.downPrice?'':'color:gray'}}" type="digit" value="{{inputVal.downPrice}}"></input>
+                    </view>
+                    <view class="remind__panel__tr__col2__y">元</view>
+                    <view class="remind__alert" wx:if="{{alert.downPrice[0]}}">
+                        <view class="remind__alert__panel {{alert.upPrice[3]}}">
+                            <view class="{{alert.downPrice[2]?'invalid':''}}">{{alert.downPrice[1]}}</view>
+                        </view>
+                        <view class="remind__alert__t"></view>
+                    </view>
+                </view>
+                <view class="remind__panel__tr__col3">
+                    <switch bindchange="bindSwitchChange" checked="{{switchChecked.downPrice}}" data-type="downPrice" style="height:66rpx;" type="switch"></switch>
+                </view>
+            </view>
+            <view class="remind__panel__tr">
+                <view class="remind__panel__tr__col">
+                    <view>日涨跌幅超</view>
+                </view>
+                <view class="remind__panel__tr__col2">
+                    <view>
+                        <input bindblur="bindblurInput" bindfocus="bindfocusInput" bindinput="bindKeyInputChgRatio" class="remind__panel__input" data-type="chgRatio" maxlength="10" style="{{switchChecked.chgRatio?'':'color:gray'}}" type="digit" value="{{inputVal.chgRatio}}"></input>
+                    </view>
+                    <view class="remind__panel__tr__col2__y">%</view>
+                </view>
+                <view class="remind__panel__tr__col3">
+                    <switch bindchange="bindSwitchChange" checked="{{switchChecked.chgRatio}}" data-type="chgRatio" style="height:66rpx;" type="switch"></switch>
+                </view>
+            </view>
+        </view>
+        <view class="remind__state">一周内满足条件仅提醒1次</view>
+        <view class="remind__form">
+            <button class="remind__form__btn" formType="submit">完成</button>
+        </view>
+    </view>
+</form>

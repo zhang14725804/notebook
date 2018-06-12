@@ -1,0 +1,171 @@
+<page class="wrap">
+    <view class="distribution-box" wx:if="{{isJdShipment}}">
+        <view class="distribution-top">
+            <view class="che"></view>配送方式
+      </view>
+        <view class="product-multiple-info" wx:if="{{jdShowSku.length>0}}">
+            <scroll-view class="scroll-img-wrap" scrollX="true">
+                <view class="prod-img-list" style="width:{{jdImgListWidth}};">
+                    <view class="prod-item-wrap" wx:for="{{jdShowSku}}">
+                        <view class="prod-img-wrap">
+                            <image class="product-img" src="https://img10.360buyimg.com/n4/{{item.skuImgUrl}}"></image>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="distribution-btn-box">
+            <view class="distribution-btn checked">{{jdsendVal}}</view>
+        </view>
+        <view bindtap="alertInit" class="time-check-box" style="display:{{isSmall?'':'none'}}">
+            <view class="check-l">
+                <view class="check-t">商品送货时间</view>
+                <view class="check-b"> {{promiseDate&&promiseTime?promiseDate+promiseTime:otherVal}}</view>
+            </view>
+            <view class="check-r">
+                <view class="time-icon" style="display:{{needAlert&&isShowSmallMid?'block':'none'}}"></view>
+            </view>
+        </view>
+        <view bindtap="alertBigItemBZD" class="time-check-box" style="display:{{isBig?'':'none'}}">
+            <view class="check-l">
+                <view class="check-t">大件商品送货时间</view>
+                <view class="check-b">{{showBigItemText}}</view>
+            </view>
+            <view class="check-r">
+                <view class="time-icon"></view>
+            </view>
+        </view>
+        <view bindtap="alertBigItemInstallDatesList" class="time-check-box" style="display:{{hasInstallDatesList?'':'none'}}">
+            <view class="check-l">
+                <view class="check-t">大件商品安装时间</view>
+                <view class="check-b">{{instalBigItemTex}}</view>
+            </view>
+            <view class="check-r">
+                <view class="time-icon"></view>
+            </view>
+        </view>
+    </view>
+    <view class="distribution-box" wx:if="{{isOtherShipment}}">
+        <view class="distribution-top">
+            <view class="che"></view>配送方式
+      </view>
+        <view class="product-multiple-info" wx:if="{{otherShowSku.length>0}}">
+            <scroll-view class="scroll-img-wrap" scrollX="true">
+                <view class="prod-img-list" style="width:{{otherImgListWidth}};">
+                    <view class="prod-item-wrap" wx:for="{{otherShowSku}}">
+                        <view class="prod-img-wrap">
+                            <image class="product-img" src="https://img10.360buyimg.com/n4/{{item.skuImgUrl}}"></image>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="distribution-btn-box">
+            <view class="distribution-btn checked">{{othersendVal}}</view>
+        </view>
+        <view class="time-check-box" style="display:{{isOther?'':'none'}}">
+            <view class="check-l">
+                <view class="check-t">商品送货时间</view>
+                <view class="check-b"> {{otherVal}}</view>
+            </view>
+        </view>
+        <view bindtap="alertBigItemBZD" class="time-check-box" style="display:{{isBig?'':'none'}}">
+            <view class="check-l">
+                <view class="check-t">大件商品送货时间</view>
+                <view class="check-b">{{showBigItemText}}</view>
+            </view>
+            <view class="check-r">
+                <view class="time-icon"></view>
+            </view>
+        </view>
+        <view bindtap="alertBigItemInstallDatesList" class="time-check-box" style="display:{{hasInstallDatesList?'':'none'}}">
+            <view class="check-l">
+                <view class="check-t">大件商品安装时间</view>
+                <view class="check-b">{{instalBigItemTex}}</view>
+            </view>
+            <view class="check-r">
+                <view class="time-icon"></view>
+            </view>
+        </view>
+    </view>
+    <view class="distribution-box" wx:if="{{isSopOtherShipment}}">
+        <view class="distribution-top">
+            <view class="che"></view>配送方式
+      </view>
+        <view class="product-multiple-info" wx:if="{{sopShowSku.length>0}}">
+            <scroll-view class="scroll-img-wrap" scrollX="true">
+                <view class="prod-img-list" style="width:{{sopImgListWidth}};">
+                    <view class="prod-item-wrap" wx:for="{{sopShowSku}}">
+                        <view class="prod-img-wrap">
+                            <image class="product-img" src="https://img10.360buyimg.com/n4/{{item.skuImgUrl}}"></image>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="distribution-btn-box">
+            <view class="distribution-btn checked">{{sopsendVal}}</view>
+        </view>
+        <view class="time-check-box">
+            <view class="check-l">
+                <view class="check-t">商品送货时间</view>
+                <view class="check-b">工作日、双休日与节假日均可送货</view>
+            </view>
+        </view>
+    </view>
+    <view class="sub-btn-wrap">
+        <form bindsubmit="pageSubmit" reportSubmit="true">
+            <button class="message-push-btn sub-btn" formType="submit">确定</button>
+        </form>
+    </view>
+</page>
+<view class="alert-box" style="display:{{jdzShow?'block':'none'}}">
+    <view class="alert-title">配送时间</view>
+    <view class="alert-content-box">
+        <scroll-view class="alert-scroll-view-l" scrollTop="{{lTop}}" scrollY="true">
+            <view bindtap="leftClick" class="{{item.selected?'check':''}}" data-index="{{index}}" wx:for="{{dateArr}}" wx:key="unique">
+        {{item.dateStr}}
+      </view>
+        </scroll-view>
+        <scroll-view class="alert-scroll-view-r" scrollTop="{{rTop}}" scrollY="true">
+            <view bindtap="rightClick" class="{{item.selected?'check':''}}" data-index="{{index}}" wx:for="{{timeArr}}" wx:key="unique">
+        {{item.promiseTimeRange}}
+      </view>
+        </scroll-view>
+    </view>
+    <view class="alert-bttom-box">
+        <view bindtap="onTimeCloseBtn" class="alert-btn">取消</view>
+        <view bindtap="onTimeConfirmBtn" class="alert-btn alert-btn-green jd-red">确定</view>
+    </view>
+</view>
+<view class="alert-mask" style="display:{{jdzShow?'block':'none'}}"></view>
+<view class="alert-box" style="display:{{bigShow?'block':'none'}}">
+    <view class="alert-title">配送时间</view>
+    <view class="alert-content-box">
+        <scroll-view class="alert-scroll-c" scrollTop="{{cTop}}" scrollY="true">
+            <view bindtap="bigCenterClick" class="{{item.selected?'check':''}}" data-index="{{index}}" wx:for="{{bigDateArr}}" wx:key="unique">
+        {{item.dateStr}}
+      </view>
+        </scroll-view>
+    </view>
+    <view class="alert-bttom-box">
+        <view bindtap="bigCloseBtn" class="alert-btn">取消</view>
+        <view bindtap="bigTimeConfirmBtn" class="alert-btn alert-btn-green jd-red">确定</view>
+    </view>
+</view>
+<view class="alert-mask" style="display:{{bigShow?'block':'none'}}"></view>
+<view class="alert-box" style="display:{{installShow?'block':'none'}}">
+    <view class="alert-title">安装时间</view>
+    <view class="alert-content-box">
+        <scroll-view class="alert-scroll-c" scrollTop="{{iTop}}" scrollY="true">
+            <view bindtap="installClick" class="{{item.selected?'check':''}}" data-index="{{index}}" wx:for="{{installArr}}" wx:key="unique">
+        {{item.name}}
+      </view>
+        </scroll-view>
+    </view>
+    <view class="alert-bttom-box">
+        <view bindtap="installTimeCloseBtn" class="alert-btn">取消</view>
+        <view bindtap="installTimeConfirmBtn" class="alert-btn alert-btn-green jd-red">确定</view>
+    </view>
+</view>
+<view class="alert-mask" style="display:{{installShow?'block':'none'}}"></view>

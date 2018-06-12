@@ -1,0 +1,27 @@
+<view class="pageFrame _18ffead">
+    <view class="navigationBar _18ffead"></view>
+    <view class="pageBody _18ffead">
+        <view>
+            <view catchtouchmove="$chooseCategory$maskTouchMove" class="cate-list" wx:if="{{$chooseCategory$showFirstCate}}">
+                <scroll-view class="cate-list-first" scrollIntoView="{{$chooseCategory$firstCateScrollInto}}" scrollY="true">
+                    <view catchtap="$chooseCategory$selectSubCate" class="cate-list-first-item{{$chooseCategory$selectedId==item.cateId?' selected-cate':''}}" data-catename="{{item.cateName}}" data-id="{{item.cateId}}" id="cate{{item.cateId}}" wx:for="{{$chooseCategory$cateList}}">{{item.cateName}}</view>
+                </scroll-view>
+                <scroll-view class="cate-list-second" scrollIntoView="{{$chooseCategory$secondCateScrollInto}}" scrollY="true" wx:if="showSecond">
+                    <view catchtap="$chooseCategory$selectThirdCate" class="cate-list-second-item{{$chooseCategory$subSelectedId==cateSub.cateId?' selected-cate':''}}" data-catename="{{cateSub.cateName}}" data-id="{{cateSub.cateId}}" id="subCate{{cateSub.cateId}}" wx:for="{{$chooseCategory$subCateList}}" wx:for-item="cateSub">
+                        <text class="second-text">{{cateSub.cateName}}</text>
+                        <view class="third-cate" wx:if="{{$chooseCategory$showThird&&$chooseCategory$subSelectedId==cateSub.cateId}}">
+                            <view catchtap="$chooseCategory$selectTargetCate" class="third-cate-item{{$chooseCategory$thirdSeclectedCate==cateThird.cateId?' taget-cate':''}} {{index%2==0?'left-cate':'right-cate'}}" data-catename="{{cateThird.cateName}}" data-id="{{cateThird.cateId}}" data-index="{{index}}" wx:for="{{$chooseCategory$thirdCateList}}" wx:for-item="cateThird" wx:key="{{index}}">
+                                <text>{{cateThird.cateName}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="$PageFrame$BackHome$onBackHome" bindtouchstart="$PageFrame$BackHome$onTouchstart" catchtouchmove="$PageFrame$BackHome$onTouchmove" class="backHome {{$PageFrame$BackHome$pageBodyReady?'ready':'unready'}} _757a836 _18ffead" style="background-image: url('{{$PageFrame$BackHome$backHome.icon}}'); {{$PageFrame$BackHome$backHome.extraStyle}}; transform: translate3d({{$PageFrame$BackHome$eleOffset.x}}px, {{$PageFrame$BackHome$eleOffset.y}}px, 0); " wx:if="{{$PageFrame$BackHome$backHome.show}}"></view>
+    <view bindtap="$PageFrame$ErrorTip$refresh" class="tip _f2dd71c _18ffead" wx:if="{{$PageFrame$ErrorTip$show}}">
+        <image class="error-icon _f2dd71c" src="{{$PageFrame$ErrorTip$icon}}"></image>
+        <view class="error-tip _f2dd71c">{{$PageFrame$ErrorTip$errorTip}}</view>
+    </view>
+</view>

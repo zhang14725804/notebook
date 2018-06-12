@@ -1,0 +1,119 @@
+@import "../../__wuBaseWxss__/2.wxss";
+
+.popssms .rowWrapper {
+    background: #ffffff;
+    position: relative;
+}
+
+.popssms .rowWrapper .row {
+    width: 100%;
+    height: 3em;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.popssms .rowWrapper .row:last-child {
+    border-bottom: none;
+}
+
+.popssms .rowWrapper .row .label {
+    font-size: 0.9375em;
+    letter-spacing: -0.37px;
+    color: #333333;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    display: block;
+    width: 2.75em;
+    padding-left: 0.8em;
+    white-space: nowrap;
+}
+
+.popssms .rowWrapper .row .inputContainer {
+    position: relative;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    padding-left: 1.5em;
+    margin-right: 0.75em;
+}
+
+.popssms .rowWrapper .row .inputContainer .mobileInput {
+    display: block;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    vertical-align: middle;
+    font-size: 0.9em;
+    -webkit-tap-highlight-color: transparent;
+    padding-left: 0;
+}
+
+.popssms .rowWrapper .row .mobileRow {
+    display: block;
+    padding-left: 1.6em;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    font-size: 0.9375em;
+}
+
+.popssms .rowWrapper .row .sendSMSButton {
+    display: block;
+    margin-right: 7rpx;
+    line-height: 54rpx;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    white-space: nowrap;
+    padding: 6rpx 6rpx;
+    width: 220rpx;
+    font-size: 32rpx;
+    background: #F7F7F7;
+    outline: none;
+}
+
+.popssms .rowWrapper .row .mobileCodeInput {
+    display: block;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    vertical-align: middle;
+    font-size: 0.9em;
+    -webkit-tap-highlight-color: transparent;
+    padding-left: 0;
+}
+
+.popssms .rowWrapper .submitButtonRow {
+    margin-top: 1.25em;
+    padding: 0 0.75em;
+    text-align: center;
+}
+
+.popssms .rowWrapper .submitButtonRow .banMainBtn {
+    display: inline-block;
+    line-height: 1;
+    width: 100%;
+    color: #FFF;
+    padding: 32rpx 16rpx;
+    background-color: #06c1ae;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 40rpx;
+    border: 0;
+    outline: none;
+    -webkit-user-select: none;
+}
+
+page,.page {
+    overflow: hiden;
+    width: 100%;
+    height: 100%;
+}

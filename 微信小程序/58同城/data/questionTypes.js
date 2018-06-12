@@ -1,0 +1,37 @@
+module.exports = [ {
+    name: "打工",
+    cateId: "pline_dg",
+    index: "1"
+}, {
+    name: "租房",
+    cateId: "696372195245961216",
+    index: "2"
+}, {
+    name: "二手车",
+    cateId: "696375330463035392",
+    index: "3"
+}, {
+    name: "二手房",
+    cateId: "696374271963312128",
+    index: "4"
+}, {
+    name: "二手",
+    cateId: "696375083120734208",
+    index: "5"
+}, {
+    name: "装修",
+    cateId: "703310685745442816",
+    index: "6"
+}, {
+    name: "婚庆",
+    cateId: "703310692812845056",
+    index: "7"
+}, {
+    name: "家政",
+    cateId: "703312378633646080",
+    index: "8"
+}, {
+    name: "租车",
+    cateId: "703313808689983488",
+    index: "9"
+} ];

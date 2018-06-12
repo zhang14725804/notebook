@@ -1,0 +1,112 @@
+<template name="self_fetch_address">
+    <block wx:if="{{order_no}}">
+        <view class="zan-cell zan-field order-panel shop__message">
+            <text class="zan-field__title zan-c-black">提货人</text>
+            <view class="zan-cell__bd zan-field__input zan-c-black">
+        {{selfFetchAddress.userName!=undefined?selfFetchAddress.userName:fetchUserName}}
+      </view>
+        </view>
+        <view class="zan-cell zan-field order-panel shop__message">
+            <text class="zan-field__title zan-c-black">手机号码</text>
+            <view class="zan-cell__bd zan-field__input zan-c-black">
+        {{selfFetchAddress.userTel!=undefined?selfFetchAddress.userTel:fetchPhoneNumber}}
+      </view>
+        </view>
+        <view class="zan-cell zan-cell--access zan-field order-panel shop__message">
+            <text class="zan-field__title zan-c-black">提货地址</text>
+            <view class="zan-cell__bd zan-field__input zan-c-black">
+        {{selfFetchAddress.addressDetail!=undefined?selfFetchAddress.name+selfFetchAddress.province+selfFetchAddress.city+selfFetchAddress.addressDetail:fetchAddress}}
+      </view>
+            <view class="zan-cell__ft zan-c-gray-dark"></view>
+        </view>
+        <view class="zan-cell zan-field order-panel shop__message">
+            <text class="zan-field__title zan-c-black">提货时间</text>
+            <view class="zan-cell__bd zan-field__input zan-c-black">
+        {{selfFetchAddress.userTime!=undefined?selfFetchAddress.userTime:fetchTime}}
+      </view>
+        </view>
+        <view catchtap="handleContactSelfFetchService" class="zan-cell order-panel zan-cell--last-child zan-center">
+            <view class="zan-cell__bd zan-c-blue shop__im">
+                <image class="shop__im-icon" src="https://img.yzcdn.cn/public_files/2016/12/02/8812ea19818110de677ac215286b3005.png"></image>
+                <text class="shop__im-desc">联系提货点</text>
+            </view>
+            <view class="order-address__border"></view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="zan-cell zan-field order-panel shop__message">
+            <text class="zan-field__title zan-c-black">提货人</text>
+            <input bindinput="bindNameInput" class="zan-cell__bd zan-field__input zan-c-black" placeholder="请填写提货人姓名" placeholderStyle="color:#999" type="text" value="{{fetchUserName}}"></input>
+        </view>
+        <view class="zan-cell zan-field order-panel shop__message">
+            <text class="zan-field__title zan-c-black">手机号码</text>
+            <input bindinput="bindPhoneNumberInput" class="zan-cell__bd zan-field__input zan-c-black" placeholder="请填写提货人手机号" placeholderStyle="color:#999" type="number" value="{{fetchPhoneNumber}}"></input>
+        </view>
+        <view bindtap="onFetchAddressTap" class="zan-cell zan-cell--access zan-field order-panel shop__message">
+            <text class="zan-field__title zan-c-black" style="">提货地址</text>
+            <view class="zan-cell__bd zan-field__input" style="color:{{fetchAddress&&fetchAddress.length>0?'#333':'#999'}};">{{fetchAddress&&fetchAddress.length>0?fetchAddress:'请选择商户提货地址'}}
+      </view>
+            <view class="zan-cell__ft zan-c-gray-dark"></view>
+        </view>
+        <view bindtap="onFetchTimeTap" class="zan-cell zan-field order-panel shop__message">
+            <text class="zan-field__title zan-c-black">提货时间</text>
+            <view class="zan-cell__bd zan-field__input" style="color:{{fetchTime&&fetchTime.length>0?'#333':'#999'}};">
+        {{fetchTime&&fetchTime.length>0?fetchTime:'请选择提货时间'}}
+      </view>
+            <view class="zan-arrow" wx:if="{{show_fetch_time_arrow}}"></view>
+            <view class="order-address__border"></view>
+        </view>
+    </block>
+</template>
+<template name="address">
+    <view bindtap="onAddressTap" class="order-address order-address--has {{order_no?'':'order-address--edit'}}" wx:if="{{address.user_name}}">
+        <view class="order-address__title">
+            <view class="zan-pull-right">{{address.tel}}</view>
+            <view class="order-address__uname zan-ellipsis">收货人：{{address.user_name}}</view>
+        </view>
+        <view class="order-address__desc zan-font-12 zan-c-gray-darker">
+        收货地址：{{address.province}}{{address.city}}{{address.county}} {{address.address_detail}}
+      </view>
+        <view class="zan-arrow" wx:if="{{!order_no}}"></view>
+        <view class="order-address__border"></view>
+    </view>
+    <view bindtap="onAddressTap" class="order-address order-address--empty order-address--edit" wx:if="{{!address.user_name}}">
+        <view class="order-address__border"></view>
+        <view class="order-address--empty__title zan-c-black">新增收货地址</view>
+        <view class="zan-arrow"></view>
+    </view>
+</template>
+<template name="top_info">
+    <view class="top-info zan-panel {{is_virtual?'top-info--has-border-bottom':''}}" wx:if="{{!is_virtual||showCountDown}}">
+        <view class="top-info__hd zan-cell {{is_virtual||showSelfFetch?'zan-cell--last-child':''}}" wx:if="{{showCountDown}}">
+            <view class="zan-cell__bd">
+                <view class="top-info__status">
+                    <view class="top-info__icon top-info__icon--topay"></view>
+                    <view class="top-info__desc">
+                        <view class="zan-font-14 zan-c-black">等待买家付款</view>
+                        <view class="zan-font-12 zan-c-gray-dark">
+                            <text>请于</text>
+                            <text wx:if="{{countdown.day>0}}">{{countdown.day}}天</text>
+                            <text wx:if="{{countdown.hour>0}}">{{countdown.hour}}时</text>
+                            <text wx:if="{{countdown.minute>0}}">{{countdown.minute}}分</text>
+                            <text>{{countdown.second}}秒</text>
+                            <text> 内付款，超时订单将自动关闭</text>
+                        </view>
+                    </view>
+                </view>
+                <template is="zan-steps" data="{{type:'horizon',steps:steps,className:'top-info__steps'}}" wx:if="{{steps.length>0}}"></template>
+            </view>
+        </view>
+        <view class="segmentedControl theme-border-color" wx:if="{{!hideSegmentOnlySelfFetch&&!order_no&&!includeFx}}">
+            <text bindtap="{{order_no==''?'onExpressTap':''}}" class="{{showExpress?'selected theme-text-color theme-bg-color':'last theme-color'}} theme-border-color">商家配送</text>
+            <text bindtap="{{order_no==''?'onSelfFetchTap':''}}" class="{{showSelfFetch?'selected theme-text-color theme-bg-color':'last theme-color'}} theme-border-color">到店自提</text>
+        </view>
+        <template is="self_fetch_address" data="{{is_optional_self_fetch_time:is_optional_self_fetch_time,show_fetch_time_arrow:show_fetch_time_arrow,address:address,order_no:order_no,fetchAddress:fetchAddress,fetchTime:fetchTime,selfFetchAddress:selfFetchAddress,fetchUserName:fetchUserName,fetchPhoneNumber:fetchPhoneNumber}}" wx:if="{{showSelfFetch}}"></template>
+        <block wx:if="{{showExpress}}">
+            <template is="address" data="{{address:address,order_no:order_no}}" wx:if="{{!is_virtual}}"></template>
+        </block>
+    </view>
+    <template is="e-card-customer" data="{{customer:customer,access:!order_no}}" wx:if="{{goods_list[0].isVirtual===3}}"></template>
+</template>
+<import src="../../../../../bower_components/zan/dist/steps/index.wxml"></import>
+<import src="../e-card/customer.wxml"></import>

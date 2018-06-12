@@ -1,0 +1,35 @@
+<template name="videobgpic">
+    <view catchtap="playCurrentVideo" class="m-videopic m-floatLayer-short" data-area="{{pingback.area}}" data-bkt="{{pingback.bkt}}" data-eventid="{{pingback.event_id}}" data-feedid="{{item.feedId}}" data-rank="{{index}}" data-tvid="{{item.tvId}}" style="z-index: 1;">
+        <image class="m-videopic_pic" src="{{item.thumbnail}}"></image>
+        <image class="c-icon-play" height="55" mode="aspectFit" src="/resource/images/c-icon-play.png" style="top:156rpx" width="55"></image>
+        <view class="m-videopic_title">
+            <text>{{item.tvTitle}}</text>
+        </view>
+        <view class="m-videopic_time">
+            <text>{{item.duration}}</text>
+        </view>
+    </view>
+</template>
+<import src="/components/player/video.wxml"></import>
+<import src="/components/videoLayout/videoLayout.wxml"></import>
+<import src="template/m-subTab.wxml"></import>
+<import src="template/m-filmLibrary-loading.wxml"></import>
+<import src="template/m-loadingEnd.wxml"></import>
+<import src="template/m-short-handle.wxml"></import>
+<view class="container">
+    <template is="m-subTab-channel" data="{{channelTabs:channelInfos.channelTabs,channelTabIndex:channelInfos.channelTabIndex}}"></template>
+    <template is="m-loadingEnd" data="{{recommend:recommend,showFeedToast:showFeedToast}}" wx:if="{{load=='complete'||load=='error'||load=='nomore'}}"></template>
+    <view class="m-box">
+        <view wx:for="{{videos.videolist}}" wx:key="index">
+            <view class="m-video m-play">
+                <template is="videobgpic" data="{{item:item,pingback:trackParams.pingback,index:index}}"></template>
+            </view>
+            <template is="m-short-handle" data="{{video:item,isSurportBtnShare:isSurportBtnShare,pingback:trackParams.pingback,index:index}}"></template>
+        </view>
+        <view class="m-video m-play" hidden="{{!playInfo.showVideo}}" style="position: absolute; z-index: 1; top: {{videoTop}}px;">
+            <template is="video" data="{{...video,show:videoLayout.canPlay&&!videoLayout.videoLoading}}"></template>
+            <template is="videoLayout" data="{{...videoLayout}}"></template>
+        </view>
+    </view>
+    <template is="m-filmLibrary-loading" data="{{load:load,errorHandler:'retryLoadPage'}}"></template>
+</view>

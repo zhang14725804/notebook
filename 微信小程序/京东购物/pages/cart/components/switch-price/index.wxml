@@ -1,0 +1,24 @@
+<view class="xmodal" wx:if="{{show}}">
+    <view catch:tap="close" class="xmodal_mask"></view>
+    <view class="xmodal_content">
+        <view catchtap="close" class="xmodal_hd">
+            <view class="xmodal_title">
+                切换价格
+            </view>
+        </view>
+        <view class="xmodal_bd">
+            <view class="xmodal_bd_item">若您考虑到使用优惠券或其他促销，可进行价格切换，以便达到券或促销的使用门槛。</view>
+            <view catch:tap="select" class="xmodal_bd_item" data-checked="{{isPlusPrice>0}}" data-item-id="{{itemId}}" data-name="plus" data-sku="{{sku}}">
+                <view class="check_box {{isPlusPrice>0?'checked':''}}"></view>
+                <view class="text">使用会员价<view class="price plus">{{plus_price}}</view>
+                </view>
+            </view>
+            <view catch:tap="select" class="xmodal_bd_item" data-checked="{{!(isPlusPrice>0)}}" data-item-id="{{itemId}}" data-name="normal" data-sku="{{sku}}">
+                <view class="check_box {{isPlusPrice>0?'':'checked'}}"></view>
+                <view class="text">使用非会员价
+                    <view class="price">{{price}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

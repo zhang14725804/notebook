@@ -1,0 +1,33 @@
+<block wx:if="{{coupons.length!=0}}">
+    <view class="msxcx-layout-mod__ohd">选择优惠券</view>
+    <view class="msxcx-layout-mod">
+        <view class="msxcx-layout-mod__bd msxcx-layout-mod__bd_nopadding">
+            <view class="mx-coupon">
+                <view bindtap="chooseItem" class="{{!couponCode&&coupon.couponId==couponId?'selected':''}}" data-cid="{{coupon.couponId}}" wx:for="{{coupons}}" wx:for-item="coupon">
+                    <view class="price price_cash" wx:if="{{coupon.type=='cash'}}">
+                        <text>{{coupon.value}}</text>
+                    </view>
+                    <view class="price price_discount" wx:if="{{coupon.type=='discount'}}">
+                        <text>折扣</text>
+                    </view>
+                    <view class="price price_deductible" wx:if="{{coupon.type=='deductible'}}">
+                        <text>抵扣</text>
+                    </view>
+                    <view class="price price_interestfree" wx:if="{{coupon.type=='interestfree'}}">
+                        <text>免息</text>
+                    </view>
+                    <text class="name">{{coupon.couponName}}</text>
+                    <text class="sub">{{coupon.usableRange}}</text>
+                    <text class="time">{{coupon.beginTime}} - {{coupon.endTime}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>
+<view class="msxcx-layout-mod__ohd">输入优惠券码</view>
+<view class="msxcx-layout-mod">
+    <view class="msxcx-layout-mod__bd">
+        <input bindinput="codeChanged" class="msxcx-widget-input" focus="{{coupons.length!=0?false:true}}" maxlength="50" placeholder="" value="{{couponCode}}"></input>
+    </view>
+</view>
+<button bindtap="submit" class="msxcx-widget-btn" type="mi">确定</button>

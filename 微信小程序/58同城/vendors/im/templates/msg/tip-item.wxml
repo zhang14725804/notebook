@@ -1,0 +1,12 @@
+<template name="tip-item">
+    <view class="im-msg im-msg-tip" id="msg-{{index}}">
+        <view class="im-msg-time {{item.is_show_time==='false'?'im-msg-time-hide':''}}">
+            <view class="im-msg-time-content">{{item.format_time}}</view>
+        </view>
+        <view class="im-msg-main">
+            <view class="im-msg-tip-container">
+          {{item.content.text}}
+        </view>
+        </view>
+    </view>
+</template>

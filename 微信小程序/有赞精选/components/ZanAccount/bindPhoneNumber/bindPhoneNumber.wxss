@@ -1,0 +1,39 @@
+.bind__container {
+    display: flex;
+    position: relative;
+    height: 110rpx;
+    margin-bottom: 20rpx;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.bind__container .bind__img {
+    height: 34rpx;
+    width: 24rpx;
+    margin-left: 30rpx;
+    background: url("https://img.yzcdn.cn/public_files/2017/09/15/da2d9386c9b143b64ed3b744373e6cd8.png");
+    background-size: 24rpx 34rpx;
+}
+
+.bind__container .bind__title {
+    margin-left: 20rpx;
+    font-size: 28rpx;
+    text-align: center;
+    color: #333333;
+}
+
+.bind__container .bind_action {
+    position: absolute;
+    top: 34rpx;
+    right: 30rpx;
+    line-height: 44rpx;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+    text-align: center;
+    font-size: 20rpx;
+    color: #FF4343;
+    border-radius: 4rpx;
+    border: 2rpx solid #FF4343;
+}

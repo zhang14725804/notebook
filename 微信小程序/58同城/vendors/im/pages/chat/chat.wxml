@@ -1,0 +1,13 @@
+<import src="../../templates/msg/msglist.wxml"></import>
+<import src="../../templates/msg/editor.wxml"></import>
+<import src="../../templates/msg/captcha.wxml"></import>
+<import src="../../templates/msg/topic.wxml"></import>
+<import src="../../templates/common/logout.wxml"></import>
+<view bindtouchstart="ontouchstart" class="{{topic?'paddingTop':''}}">
+    <view class="msg-mask" style="height:{{scrollHeight}}px;" wx:if="{{hideMsg}}"></view>
+    <template is="topic" data="{{topic:topic}}" wx:if="{{topic}}"></template>
+    <template is="msglist" data="{{msglist:msglist,scrollHeight:topic?scrollHeight-60:scrollHeight,toView:toView,loadStatus:loadStatus,scrollTop:scrollTop,upperThreshold:upperThreshold,isShowMark:isShowMark,msgListMark:msgListMark,isIphoneX:isIphoneX}}"></template>
+    <template is="editor" data="{{inputData:inputData,scrollHeight:scrollHeight,focus:focus,isIphoneX:isIphoneX}}"></template>
+    <template is="captcha" data="{{captcha:captcha}}"></template>
+    <template is="logout" data="{{loginStatus:loginStatus}}"></template>
+</view>

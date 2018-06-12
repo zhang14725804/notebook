@@ -1,0 +1,6 @@
+{
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "mt-pendant": "../../../index/components/mt-pendant/pendant"
+    }
+}

@@ -1,0 +1,4 @@
+<view class="promote-banner" hidden="{{hideModule}}">
+    <image bindload="onImgLoad" class="promote-banner__image {{showImage?'promote-banner__image--show':''}}" mode="aspectFill" src="{{image}}"></image>
+    <view bindtap="tapOnItem" class="promote-banner__item" data-url="{{item}}" wx:for="{{banner}}"></view>
+</view>

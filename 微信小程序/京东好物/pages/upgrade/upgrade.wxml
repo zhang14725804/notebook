@@ -1,0 +1,2 @@
+<import src="../../components/noData/noData"></import>
+<template is="noMoreData" data="{{...updateItem}}"></template>

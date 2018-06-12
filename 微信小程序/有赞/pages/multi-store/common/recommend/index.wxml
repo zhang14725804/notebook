@@ -1,0 +1,13 @@
+<template name="mutil-store-recommend-swiper">
+    <view class="store-recommend__tip">
+        <view class="zan-font-12" style="margin-top: 10px;">商品售罄啦，这些分店还有货，你可以去看看：</view>
+    </view>
+    <scroll-view bindtap="redrectToStore" class="store-recommend__swiper" scrollX="{{true}}">
+        <view class="store-recommend__item" data-index="{{index}}" data-store-id="{{store.id}}" wx:for="{{stores}}" wx:for-item="store" wx:key="*this">
+            <view class="zan-font-12" style="color: #333">{{store.name}}</view>
+            <view class="zan-font-12 zan-c-gray" style="margin-top: 15px" wx:if="{{store.distance}}">
+                <view class="zan-icon-location zan-icon"></view> {{store.distance}}
+      </view>
+        </view>
+    </scroll-view>
+</template>

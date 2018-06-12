@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "筛选",
+    "usingComponents": {
+        "filter-panel": "../components/filter-panel/index",
+        "filter-price": "../components/filter-price/index"
+    }
+}

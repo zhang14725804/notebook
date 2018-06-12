@@ -1,0 +1,37 @@
+<view class="container">
+    <view class="message zan-panel zan-c-black">
+        <view class="goods-card zan-card goods-card--first">
+            <view class="zan-card__thumb">
+                <image class="zan-card__img" mode="aspectFit" src="{{goods.imgUrl}}"></image>
+            </view>
+            <view class="zan-card__detail">
+                <view class="zan-card__detail-row">
+                    <view class="zan-card__right-col">￥{{goods.payPriceStr}}</view>
+                    <view class="zan-card__left-col zan-ellipsis--l2">
+            {{goods.title}}
+          </view>
+                </view>
+                <view class="zan-card__detail-row zan-c-gray-darker">
+                    <view class="zan-card__right-col">x{{goods.num}}</view>
+                    <view class="zan-card__left-col goods-card__detail-sku">
+            {{goods.skuStr}}
+          </view>
+                </view>
+            </view>
+        </view>
+        <view class="message__form zan-field">
+            <view class="zan-cell {{index+1==goods.message.length?'zan-cell--last-child':''}}" wx:for="{{goods.message}}" wx:key="index">
+                <view class="zan-field__title">{{item.name}}:</view>
+                <view class="zan-cell__bd zan-c-gray-darker">
+                    <image catchtap="previewImg" data-src="{{item.value}}" mode="scaleToFill" src="{{item.preview}}" style="width: 70px;height: 70px;" wx:if="{{item.type=='image'}}"></image>
+                    <block wx:else>
+              {{item.value?item.value:'无'}}
+            </block>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="zan-btns">
+        <button catchtap="navigateBack" class="zan-btn">查看订单详情</button>
+    </view>
+</view>

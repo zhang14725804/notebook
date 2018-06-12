@@ -1,0 +1,25 @@
+<template name="floorTpl">
+    <scroll-view bindscroll="onScroll" scrollIntoView="{{scrollViewId}}" scrollY="true" style="height: {{windowHeight}}px;">
+        <view>
+            <template is="banner" data="{{image_url:goodsInfo.image_url}}"></template>
+            <template is="zan-tab" data="{{...tab,tabScrollLeft:tabScrollLeft}}"></template>
+            <view class="section-container">
+                <view id="{{item.topicViewId}}" wx:for="{{sections}}" wx:key="{{ item.id }}">
+                    <view class="section-title" wx:if="{{item.title}}">
+                        <view class="section-title__line"></view>
+                        <text class="section-title__content">{{item.title}}</text>
+                    </view>
+                    <image bindload="onBannerLoad" class="section-image" data-banner-id="{{index}}" mode="widthFix" src="{{item.image_url}}" wx:if="{{item.image_url}}"></image>
+                    <view class="section-description" wx:if="{{item.description}}">{{item.description}}</view>
+                    <view class="goods-list">
+                        <block wx:for="{{item.goodsList}}" wx:for-index="goodsChunkIndex" wx:for-item="goodsChunk" wx:key="{{ `${item.id}-${goodsChunkIndex}` }}">
+                            <template is="item" data="{{...goods,size:itemSize,index:goodsIndex,sectionIndex:index,chunkIndex:goodsChunkIndex}}" wx:for="{{goodsChunk}}" wx:for-index="goodsIndex" wx:for-item="goods" wx:key="{{ `${item.id}-${goodsChunkIndex}-${goodsIndex}` }}"></template>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</template>
+<import src="../../templates/index.wxml"></import>
+<import src="../../component/tab/index.wxml"></import>

@@ -1,0 +1,38 @@
+<template name="noticePanel">
+    <view class="noticePanel">
+        <view class="noticePanel_events">
+            <navigator class="noticePanel_events_button" url="">
+        大事提醒
+      </navigator>
+            <view class="noticePanel_events_timeline">
+                <view class="year">
+                    <view class="year_td">2016</view>
+                </view>
+                <view class="timeline_items">
+                    <view class="timeline_item">
+                        <view class="timeline_item_header">
+                            <view class="timeline_item_date">12-31</view>
+                            <view class="timeline_item_title">业绩披露</view>
+                        </view>
+                        <view class="timeline_item_content">
+              2016年三季度报美股收益0.08元，每股净资产1.55元
+            </view>
+                    </view>
+                </view>
+                <view class="timeline_items">
+                    <view class="timeline_item">
+                        <view class="timeline_item_header">
+                            <view class="timeline_item_date">12-31</view>
+                            <view class="timeline_item_title">业绩披露</view>
+                        </view>
+                        <view class="timeline_item_content">
+              2016年三季度报美股收益0.08元，每股净资产1.55元2016年三季度报美股收益0.08元，每股净资产1.55元
+            </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <template is="newsPanel" data></template>
+    </view>
+</template>
+<import src="newsPanel.wxml"></import>

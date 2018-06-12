@@ -1,0 +1,11 @@
+<import src="../../../../components/coupon/coupon_cell.wxml"></import>
+<import src="../../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="../../../../components/ZanAccount/index.wxml"></import>
+<view class="page-container {{themeClass}} {{deviceType}} {{isTabPage&&'page-is-tab-page'}}">
+    <view class="container">
+        <template is="coupon_card" data="{{coupon:item,index:index}}" wx:for="{{list}}" wx:key="id"></template>
+    </view>
+</view>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+<import src="../../../../pages/common/wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

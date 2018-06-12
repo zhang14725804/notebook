@@ -1,0 +1,11 @@
+<template name="yzweapp-tab-bar">
+    <view class="yzweapp-tab-bar" wx:if="{{data.showStoreTabBar}}">
+        <view class="yzweapp-store-tab-bar">
+            <view bindtap="yzweapp__changeStoreTabBar" class="weapp-nav-item weapp-store-nav-item" data-nav-type="{{item.nav_type}}" data-path="{{item.page_path||''}}" data-type="{{item.type}}" wx:for="{{data.storeTabBarConfig.list}}" wx:key="pagePath">
+                <view class="nav-icon" style="{{utils.getBackgroundPosition(data.currentStoreTabBar,item)}}"></view>
+                <text class="nav-text" style="{{utils.getFontColor(data.currentStoreTabBar,item,data.storeTabBarConfig)}}">{{item.text}}</text>
+            </view>
+        </view>
+    </view>
+</template>
+<wxs module="utils" src="index.wxs" />

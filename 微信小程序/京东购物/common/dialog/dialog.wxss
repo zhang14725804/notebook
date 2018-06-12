@@ -1,0 +1,147 @@
+.dialog_wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5000;
+}
+
+.dialog_mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.3);
+    z-index: 5000;
+}
+
+.dialog_cn {
+    position: fixed;
+    z-index: 1;
+    width: 270px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 5001;
+}
+
+.dialog_title {
+    width: 100%;
+    height: 46px;
+    padding: 11px 10px;
+    position: relative;
+    box-sizing: border-box;
+    z-index: 5001;
+}
+
+.title {
+    width: 190px;
+    height: 24px;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: 5001;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dialog_title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 1px;
+    background-color: #E5E5E5;
+    z-index: 5002;
+}
+
+.close_btn {
+    width: 11px;
+    height: 11px;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.dialog_content {
+    position: relative;
+    box-sizing: border-box;
+    padding: 12px 10px;
+    width: 100%;
+    min-height: 40px;
+    max-height: 220px;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-scrolling: touch;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 5001;
+}
+
+.bottom_mask {
+    width: 100%;
+    height: 25px;
+    position: absolute;
+    bottom: 44px;
+    left: 0;
+    background-image: linear-gradient(-180deg,rgba(255,255,255,0.00) 0%,#FFFFFF 100%);
+    z-index: 5001;
+}
+
+.dialog_btns {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    z-index: 5001;
+}
+
+.dialog_btn {
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dialog_btns::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 1px;
+    background-color: #E5E5E5;
+    z-index: 5002;
+}
+
+.cancel_btn {
+    border-right: 1px solid #E5E5E5;
+}
+
+.more_btn {
+    border-left: 1px solid #E5E5E5;
+}
+
+.disabled {
+    color: rgba(51,51,51,.3);
+}

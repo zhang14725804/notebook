@@ -1,0 +1,120 @@
+.content-loading {
+    position: relative;
+    text-align: center;
+    font-size: 26rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+}
+
+.icon-loading {
+    position: relative;
+    top: 10rpx;
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+    border-radius: 100%;
+    background-image: url("https://img.58cdn.com.cn/weixin/img/wechat-app/loading.gif");
+    background-position: 0 0;
+    background-size: 100% 100%;
+}
+
+.container-main {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+
+.container-empty {
+    margin-top: 165rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.container-empty-icon {
+    width: 70rpx;
+    height: 86rpx;
+    margin-bottom: 40rpx;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.container-empty-desc {
+    font-size: 26rpx;
+    line-height: 26rpx;
+    color: #A9A9A9;
+}
+
+.no-more-info {
+    width: 100%;
+    text-align: center;
+    font-size: 22rpx;
+    color: #ff552e;
+    padding: 15rpx 0rpx;
+    display: none;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.loading-more {
+    position: relative;
+    text-align: center;
+    font-size: 26rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+}
+
+.to_top {
+    font-size: 20rpx;
+    color: #ddd;
+    width: 80rpx;
+    height: 80rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 30rpx;
+    right: 30rpx;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.to_top::after {
+    content: '';
+    position: absolute;
+    bottom: 20rpx;
+    left: 27rpx;
+    border-left: 15rpx solid transparent;
+    border-right: 15rpx solid transparent;
+    border-bottom: 15rpx solid #ccc;
+}

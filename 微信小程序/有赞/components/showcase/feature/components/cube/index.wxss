@@ -1,0 +1,26 @@
+.feature-cube-container {
+    position: relative;
+}
+
+.feature-cube-image {
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.cube-transparent-btn {
+    position: static;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    border-radius: none;
+    background: transparent;
+    background-color: transparent;
+    border-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.cube-transparent-btn::after {
+    display: none;
+    visibility: hidden;
+}

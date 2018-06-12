@@ -1,0 +1,32 @@
+{
+    "usingComponents": {
+        "component-wx-nav": "../../../components/wx_nav/wx_nav",
+        "component-jdc-title": "/pages/market/components/jdc-title/jdc-title",
+        "component-jdc-seckill": "/pages/market/components/jdc-seckill/jdc-seckill",
+        "component-jdc-jdmiaosha": "/pages/market/components/jdc-jdmiaosha/jdc-jdmiaosha",
+        "component-jdc-sku": "/pages/market/components/jdc-sku/jdc-sku",
+        "component-jdc-mart": "/pages/market/components/jdc-mart/jdc-mart",
+        "component-jdc-image": "/pages/market/components/jdc-image/jdc-image",
+        "component-jdc-cpc": "/pages/market/components/jdc-cpc/jdc-cpc",
+        "component-jdc-coupon": "/pages/market/components/jdc-coupon/jdc-coupon",
+        "component-jdc-keywords": "/pages/market/components/jdc-keywords/jdc-keywords",
+        "component-jdc-imglist": "/pages/market/components/jdc-imglist/jdc-imglist",
+        "component-jdc-header": "/pages/market/components/jdc-header/jdc-header",
+        "component-jdc-nav": "/pages/market/components/jdc-nav/jdc-nav",
+        "component-jdc-tab": "/pages/market/components/jdc-tab/jdc-tab",
+        "component-jdc-rank": "/pages/market/components/jdc-rank/jdc-rank",
+        "component-jdc-tmall": "/pages/market/components/jdc-tmall/jdc-tmall",
+        "component-jdc-newProduct": "/pages/market/components/jdc-newProduct/jdc-newproduct",
+        "component-jdc-guess": "/pages/market/components/jdc-guess/jdc-guess",
+        "component-jdc-interestgoods": "/pages/market/components/jdc-interestgoods/jdc-interestgoods",
+        "component-jdc-couponcenter": "/pages/market/components/jdc-couponcenter/jdc-couponcenter",
+        "component-jdc-materialcenterproduct": "/pages/market/components/jdc-materialcenterproduct/jdc-materialcenterproduct",
+        "component-jdc-cpcmart": "/pages/market/components/jdc-cpcmart/jdc-cpcmart",
+        "component-jdc-footer": "/pages/market/components/jdc-footer/jdc-footer",
+        "component-jdc-floating": "/pages/market/components/jdc-floating/jdc-floating",
+        "component-jdc-groupbuying": "/pages/market/components/jdc-groupbuying/jdc-groupbuying",
+        "component-jdc-shoppingcartyh": "/pages/market/components/jdc-shoppingcartyh/jdc-shoppingcartyh",
+        "component-jdc-gwq": "/pages/market/components/jdc-gwq/jdc-gwq",
+        "search-bar": "/pages/index/components/search-bar/search-bar"
+    }
+}

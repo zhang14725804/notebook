@@ -1,0 +1,21 @@
+<template name="NotLogin$4e893c92">
+    <view class="_div data-v-6b1bd740 notLogin card-bg">
+        <view class="_div data-v-6b1bd740 user-info">
+            <view class="_div data-v-6b1bd740 user-img">
+                <image class="_img data-v-6b1bd740 image" src="https://mat1.gtimg.com/finance/images/stock/p/unknown/15d3eb45fc7cf3a4.png"></image>
+            </view>
+        </view>
+        <view class="_div data-v-6b1bd740 reward-text-h1">
+            <view class="_div data-v-6b1bd740 reward-text-h1-border"></view>
+            <view class="_div data-v-6b1bd740 reward-text-h1-container">
+                <view class="_div data-v-6b1bd740 left"></view>
+                <view class="_div data-v-6b1bd740 text">未登录</view>
+                <view class="_div data-v-6b1bd740 right"></view>
+            </view>
+            <view class="_div data-v-6b1bd740 reward-text-h1-border"></view>
+        </view>
+        <view class="_div data-v-6b1bd740 reward-text-h2">
+            <view class="_p data-v-6b1bd740">请登录查看抽奖结果~</view>
+        </view>
+    </view>
+</template>

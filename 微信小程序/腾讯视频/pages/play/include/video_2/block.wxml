@@ -1,0 +1,8 @@
+<scroll-view bindscrolltolower="onLayerScrollBottom" class="mod_episode" data-flag="{{dataItem.listFlag}}" data-key="{{dataItem.listKey}}" lowerThreshold="400" scrollLeft="{{scrollIndex*56-168}}" scrollX="true">
+    <view class="episode_list">
+        <view bindtap="changeVideo" class="list_item {{listItem.vid==currentVideo.vid?'current':''}}" data-listkey="{{dataItem.listKey}}" data-video="{{listItem.vid}}" id="{{listItem.vid}}" wx:for="{{videoDataMap[dataItem.listKey].videoList}}" wx:for-index="listIndex" wx:for-item="listItem" wx:key="vid">
+            <view class="item_link">{{listItem.poster.firstLine}}</view>
+            <view class="u_mark" style="background-image: url({{markItem.markImageUrl}})" wx:if="{{markItem.markImageUrl}}" wx:for="{{listItem.poster.markLabelMap}}" wx:for-item="markItem" wx:key="position"></view>
+        </view>
+    </view>
+</scroll-view>

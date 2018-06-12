@@ -1,0 +1,37 @@
+<view class="header-info">
+    <view class="line">
+        <text class="label">订单号：</text>
+        <text class="txt">{{orderTrack.orderInfo.orderId}}</text>
+    </view>
+    <view class="line" wx:if="{{orderTrack.orderInfo.carrier}}">
+        <text class="label">配送方式：</text>
+        <text class="txt">{{orderTrack.orderInfo.carrier}}</text>
+    </view>
+</view>
+<view class="track-path">
+    <view class="path-ul">
+        <block wx:for="{{orderTrack.flows}}" wx:for-index="idx" wx:for-item="flow">
+            <view class="path-li first" wx:if="{{idx==0}}">
+                <text class="up-msg">{{flow.message}}</text>
+                <text class="down-msg">{{flow.crateTime}}</text>
+                <view class="aside-line">
+                    <icon class="icn-status"></icon>
+                </view>
+            </view>
+            <view class="path-li" wx:elif="{{idx<orderTrack.flows.length-1}}">
+                <text class="up-msg">{{flow.message}}</text>
+                <text class="down-msg">{{flow.crateTime}}</text>
+                <view class="aside-line">
+                    <icon class="icn-status"></icon>
+                </view>
+            </view>
+            <view class="path-li last" wx:else>
+                <text class="up-msg">{{flow.message}}</text>
+                <text class="down-msg">{{flow.crateTime}}</text>
+                <view class="aside-line">
+                    <icon class="icn-status"></icon>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

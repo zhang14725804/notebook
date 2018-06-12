@@ -1,0 +1,10 @@
+<web-view bindmessage="getMessage" id="webview" src="{{url}}" wx:if="{{showWebview&&canIUseWebView}}"></web-view>
+<view class="no-webview" wx:if="{{!canIUseWebView}}">
+  您的微信版本太低啦，需要升级微信才能看到内容
+  <mt-back></mt-back>
+</view>
+<view class="form-before" wx:elif="{{needForm}}">
+    <form bindsubmit="formSubmit" reportSubmit="true">
+        <button class="submit-btn" formType="submit">进入活动</button>
+    </form>
+</view>

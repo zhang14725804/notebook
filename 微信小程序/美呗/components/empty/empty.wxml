@@ -1,0 +1,3 @@
+<view class="empty-container">
+    <image class="empty-img" mode="aspectFit" src="https://cdn-ssl.meb.com/wxa/v1/empty-gery.png"></image>
+</view>

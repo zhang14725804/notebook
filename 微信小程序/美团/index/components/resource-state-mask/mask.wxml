@@ -1,0 +1,9 @@
+<view bindtap="close" catchtouchmove="preventD" class="mask {{show?'maskShow':'maskHidden'}}" hidden="{{!maskVaild}}" style="background-color: {{background.bgColor}}" wx:if="{{maskData}}">
+    <view bindtransitionend="transitionEnd" class="content {{animationClass}}" hidden="{{!show}}" style="transition-duration: {{maskData.animationDuration}}ms">
+        <image catchtap="imgClick" class="content-image" mode="widthFix" src="{{maskData.imgSrc}}">
+            <view catchtap="close" class="content-close">
+                <view class="content-close-x"></view>
+            </view>
+        </image>
+    </view>
+</view>

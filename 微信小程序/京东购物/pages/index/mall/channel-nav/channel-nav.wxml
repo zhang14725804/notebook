@@ -1,0 +1,8 @@
+<view class="channel-nav {{decorated?'channel-nav--618':''}}" hidden="{{hideModule}}" style="{{bg&&'background-image: url('+bg+')'}}">
+    <view bindtap="tapOnItem" class="channel-nav__item" data-url="{{item.jumpUrl}}" wx:for="{{entries}}" wx:key="name">
+        <view class="channel-nav__icon">
+            <image class="channel-nav__icon-image" hidden="{{hideIcons}}" src="{{item.imgUrl}}"></image>
+        </view>
+        <view class="channel-nav__text" style="color: {{textColor?textColor:'#666'}}">{{item.name}}</view>
+    </view>
+</view>

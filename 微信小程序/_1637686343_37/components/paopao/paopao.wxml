@@ -1,0 +1,54 @@
+<template name="m-search-paopao">
+    <block wx:if="{{toMiniProgram}}">
+        <view class="m-search-paopao-box" wx:if="{{wallBaseInfo&&wallBaseInfo.length>2}}">
+            <view bindtap="goCircle" class="m-paopao-title" data-circle-block="wx_bubbles" data-circle-rseat="wx_intobubbles">
+                <text class="m-paopao-text">泡泡</text>
+            </view>
+            <scroll-view class="m-scrollList-paopao" scrollLeft="0" scrollX="true">
+                <view class="m-paopao-star" wx:for="{{wallBaseInfo}}" wx:key="index">
+                    <view bindtap="goCircle" class="search-paopao-img" data-circle-block="wx_bubbles" data-circle-id="{{item.id}}" data-circle-rseat="wx_stars2">
+                        <image class="star-icon" src="{{item.image_url}}"></image>
+                    </view>
+                    <view class="search-paopao-text">
+                        <text bindtap="goCircle" class="paopao-name" data-circle-block="wx_bubbles" data-circle-id="{{item.id}}" data-circle-rseat="wx_stars2">{{item.title}}</text>
+                        <view bindtap="goCircle" class="paopao-in" data-circle-block="wx_bubbles" data-circle-id="{{item.id}}" data-circle-rseat="wx_intobubbles">
+                            <text>进圈</text>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </block>
+</template>
+<template name="m-circle-scroll">
+    <scroll-view class="m-scrollList-paopao" scrollLeft="0" scrollX="true">
+        <view class="m-scrollList-inner">
+            <view bindtap="goCircle" class="m-paopao-star" data-circle-id="{{item.id}}" wx:for="{{wallBaseInfo}}" wx:key="index">
+                <form bindsubmit="getFormId" class="collect-form" data-rseat="{{rseat}}" reportSubmit="true" wx:if="{{collectFormId}}">
+                    <button class="collect-paopao-btn" formType="submit">
+                        <image class="star-icon" src="{{item.icon}}"></image>
+                        <text class="star-name">{{item.name}}</text>
+                    </button>
+                </form>
+                <block wx:else>
+                    <image class="star-icon" src="{{item.icon}}"></image>
+                    <text class="star-name">{{item.name}}</text>
+                </block>
+            </view>
+        </view>
+    </scroll-view>
+</template>
+<template name="starUp">
+    <view class="m-box m-box-paopao" wx:if="{{wallBaseInfo.length>2}}">
+        <view class="m-box-paopao-inner">
+            <view class="m-title">
+                <text class="m-title_h">{{title?title:'参演明星'}}</text>
+                <view bindtap="goCircle" class="m-title_more" wx:if="{{toIndex===true}}">
+                    <text class="m-title_moreTx">明星UP榜</text>
+                    <image class="c-icon-more" height="15" src="/resource/images/c-icon-arrow-green.png" width="15"></image>
+                </view>
+            </view>
+            <template is="m-circle-scroll" data="{{wallBaseInfo:wallBaseInfo,collectFormId:collectFormId,rseat:rseat}}"></template>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,126 @@
+@import "../curtain/curtain.wxss";
+
+.wrap._72f9024 {
+    background: #F2F3F6;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.wrap._72f9024::after {
+    content: "";
+    display: block;
+    height: 110rpx;
+}
+
+.wrap .father-param._72f9024 {
+    width: 100%;
+    background: white;
+    margin-bottom: 30rpx;
+}
+
+.params-wrap._72f9024 {
+    padding: 30rpx;
+}
+
+.params-wrap .title._72f9024 {
+    font-family: PingFangSC-Medium;
+    font-size: 30rpx;
+    color: #43474C;
+    letter-spacing: 0;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.params-wrap .title._72f9024::before {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 28rpx;
+    background: #FF5647;
+    position: absolute;
+    left: -30rpx;
+    top: 6rpx;
+}
+
+.params-wrap .title .tipText._72f9024 {
+    font-family: normal;
+    font-size: 24rpx;
+    color: #AAAEB9;
+    margin-left: 30rpx;
+}
+
+.params._72f9024 {
+    padding-top: 30rpx;
+}
+
+.params .name._72f9024 {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #43474C;
+}
+
+.value-wrap._72f9024 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.value-wrap .value._72f9024 {
+    background: #F2F3F6;
+    border-radius: 3px;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #585C60;
+    letter-spacing: 0;
+    height: 64rpx;
+    width: 220rpx;
+    text-align: center;
+    margin-top: 20rpx;
+    line-height: 64rpx;
+}
+
+.value-wrap .value.selected._72f9024 {
+    background: #FDECEA;
+    color: #FF5647;
+}
+
+.value-wrap .value.middle._72f9024 {
+    margin-left: 15rpx;
+    margin-right: 15rpx;
+}
+
+.selecte-ok._72f9024 {
+    width: 750rpx;
+    height: 98rpx;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+}
+
+@media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) {
+    .selecte-ok._72f9024 {
+        padding-bottom: 45rpx;
+    }
+}
+
+.selecte-ok._72f9024::after {
+    display: block;
+    content: "选好了";
+    width: 690rpx;
+    height: 74rpx;
+    background: #FF5647;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 36rpx;
+    color: rgba(255,255,255,0.5);
+    line-height: 74rpx;
+}
+
+.selecte-ok.able._72f9024::after {
+    color: #FFFFFF;
+}

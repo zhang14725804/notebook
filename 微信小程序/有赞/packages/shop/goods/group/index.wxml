@@ -1,0 +1,20 @@
+<import src="../../../../components/showcase/index.wxml"></import>
+<import src="../../../../components/copyright/index.wxml"></import>
+<import src="../../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="../../../../bower_components/zan/dist/toptips/index.wxml"></import>
+<import src="../../../../bower_components/zan/dist/loadmore/index.wxml"></import>
+<import src="../../../../pages/multi-store/common/store-switch/index.wxml"></import>
+<import src="../../../../pages/multi-store/common/store-business/index.wxml"></import>
+<view class="page-container {{themeClass}} {{deviceType}}">
+    <template is="multi-store-switch" data="{{CURRENT_GLOBAL_SHOP:CURRENT_GLOBAL_SHOP}}" wx:if="{{isMultiStore}}"></template>
+    <template is="store-business-status" data="{{business:CURRENT_GLOBAL_SHOP.business_hours_advanced_text}}" wx:if="{{CURRENT_GLOBAL_SHOP.isMultiStore&&CURRENT_GLOBAL_SHOP.is_opening==0}}"></template>
+    <view class="container {{themeClass}}">
+        <template is="showcase" data="{{extra:extra,type:type,richTextList:richTextList,banner:banner,tags:tags,goods:goods,systemInfo:systemInfo,scrollIntoView:scrollIntoView,scrollTop:scrollTop,fixedGoodsTag:fixedGoodsTag,theme:theme,componentSKU:componentSKU,zanAccount:zanAccount}}" wx:if="{{!fetching}}"></template>
+        <template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+        <template is="zan-toptips" data="{{zanTopTips:zanTopTips}}"></template>
+        <template is="zan-loadmore" data="{{nomore:nomore,nodata:nodata}}"></template>
+    </view>
+    <template is="copyright" data="{{copyright:copyright,is_big_shop:is_big_shop}}"></template>
+</view>
+<import src="../../../../pages/common/wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

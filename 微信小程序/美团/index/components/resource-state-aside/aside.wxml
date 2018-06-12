@@ -1,0 +1,3 @@
+<view class="content {{animationClass}}" style="width: {{asideData.width}}rpx; right: {{right}}rpx; bottom: {{asideData.toBottom}}rpx">
+    <image catchtap="imgClick" class="content-image" mode="widthFix" src="{{asideData.imgSrc}}"></image>
+</view>

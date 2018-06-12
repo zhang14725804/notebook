@@ -1,0 +1,15 @@
+{
+    "navigationBarTitleText": "充值订单",
+    "usingComponents": {
+        "order-list": "../components/order-list/index",
+        "unit-button": "/pages/components/button/index",
+        "shop": "../components/base-shop/index",
+        "good": "../components/base-good/index",
+        "arrow": "../components/base-arrow/index",
+        "box": "../components/base-box/index",
+        "quick-nav": "/components/quick-nav/quick-nav",
+        "tip-top": "../components/tip-top/index",
+        "dialog": "/common/dialog/dialog",
+        "return-app": "/components/return_app/return_app"
+    }
+}

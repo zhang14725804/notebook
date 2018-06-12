@@ -1,0 +1,9 @@
+<view>
+    <view style="background:#fff">
+        <view style="border-bottom:1px solid #f5f5f5" wx:for="{{list}}">
+            <qa bind:jumpDetailEvent="onTapqa" data-id="{{item.Id}}" qaData="{{item}}"></qa>
+        </view>
+    </view>
+    <empty wx:if="{{list&&!list.length}}"></empty>
+    <loadMore visible="{{hasMore}}"></loadMore>
+</view>

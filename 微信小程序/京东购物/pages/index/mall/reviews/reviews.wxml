@@ -1,0 +1,19 @@
+<block wx:if="{{entries.length}}">
+    <view class="floor-title">好物评测<view bind:tap="gotoUrl" class="floor-title__more" data-url="{{moreUrl}}">{{moreDesc}}</view>
+    </view>
+    <scroll-view class="reviews" scrollX="true">
+        <view bind:tap="gotoUrl" class="reviews__item" data-url="{{item.url}}" wx:for="{{entries}}" wx:key="title">
+            <view class="reviews-cover">
+                <image class="reviews-cover__img bg_stamp" src="{{item.cover}}"></image>
+                <view class="reviews-cover__price" wx:if="{{item.price}}">{{item.price}}</view>
+            </view>
+            <view class="reviews-info">
+                <image class="reviews-info__img bg_stamp" src="{{item.image}}"></image>
+                <view class="reviews-info__content">
+                    <view class="reviews-info__content-text">{{item.title}}</view>
+                </view>
+                <view class="reviews-info__view" wx:if="{{item.view}}">{{item.view}}</view>
+            </view>
+        </view>
+    </scroll-view>
+</block>

@@ -1,0 +1,14 @@
+.error__container {
+    padding: 22vh 0;
+}
+
+.error__icon {
+    height: 130px;
+    background: transparent url("https://img.yzcdn.cn/public_files/2017/01/06/e1b383efe53fc099b2a337b4aefc6769.png") center no-repeat;
+    background-size: 138px 129px;
+}
+
+.error__texts {
+    padding-top: 30px;
+    line-height: 1.8;
+}

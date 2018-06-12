@@ -1,0 +1,36 @@
+<view class="bg">
+    <view class="cards" wx:if="{{list.length!=0}}">
+        <view bindtap="chooseItem" class="card" data-cardid="{{item.card_id}}" vIf="{{item.balance!=0}}" wx:for="{{list}}">
+            <view class="card-option{{item.hasBeenSelected?' card-option_checked':''}}"></view>
+            <view class="card-money">
+                <text>{{item.money}}</text>
+            </view>
+            <view class="card-detail">
+                <view class="card-detail-balance">
+            余额
+            <text>{{item.balance}}</text>元
+          </view>
+                <view class="card-detail-endtime">
+                    <text>{{item.end_time}}前有效</text>
+                </view>
+                <view class="card-detail-cardid">
+                    <text>卡号：{{item.card_id}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="weui-loadmore" wx:if="{{hasMore}}">
+            <view bindtap="loadMore" class="weui-loadmore__tips">点击加载更多</view>
+        </view>
+    </view>
+    <view class="bottom">
+        <view class="amount">
+      已选择礼品卡
+      <text>{{offset}}</text> 元
+    </view>
+        <view class="need-to-pay" wx:if="{{needToPay!==undefined}}">
+      还需支付
+      <text>{{needToPay}}</text> 元
+    </view>
+        <button bindtap="submit" class="msxcx-widget-btn" type="mi">确定</button>
+    </view>
+</view>

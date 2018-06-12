@@ -1,0 +1,24 @@
+<view class="doctor-paper">
+    <view class="doctor-paper-content">
+        <view class="doctor-paper-zgzs">
+            <view class="image">
+                <image bindtap="imagePreview" data-index="{{BusinessLicenseFiles}}" data-urls="{{BusinessLicenseFilesArr}}" src="{{BusinessLicenseFiles}}"></image>
+            </view>
+            <view class="zgzs">
+                <text class="zgzs-text">营业执照</text>
+                <text class="zgzs-number">{{BusinessLicenseId}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="doctor-paper-content">
+        <view class="doctor-paper-zgzs">
+            <view class="image">
+                <image bindtap="imagePreview" data-index="{{MedicalLicenseFiles}}" data-urls="{{MedicalLicenseFilesArr}}" src="{{MedicalLicenseFiles}}"></image>
+            </view>
+            <view class="zgzs">
+                <text class="zgzs-text">医疗机构执业许可证</text>
+                <text class="zgzs-number">{{MedicalLicenseId}}</text>
+            </view>
+        </view>
+    </view>
+</view>

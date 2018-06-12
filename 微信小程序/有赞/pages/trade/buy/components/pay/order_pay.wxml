@@ -1,0 +1,13 @@
+<template name="order_pay">
+    <form-view class="zan-panel order-pay">
+        <view class="order-warning" wx:if="{{showDescResult.showMsg}}">{{showDescResult.showMsg}}</view>
+        <view class="order-pay__container zan-pull-right">
+            <text class="zan-c-gray-darker">合计：</text>
+            <text class="order-pay__price zan-font-16">￥{{payment_strs.realPayStr}}</text>
+            <button bindtap="onPayClick" class="{{utils.getSubmitBtnClass(CURRENT_GLOBAL_SHOP.isServiceDue,is_virtual,order_no,showDescResult,postageInfo,address,localDeliveryInfo,fetchUserName,fetchPhoneNumber,fetchAddress,fetchTime,hasPresale)}} order-pay__btn zan-btn zan-btn--danger" loading="{{isPayBtnLoading}}">
+                <text wx:if="{{!isPayBtnLoading}}">{{order_no?'去支付':'提交订单'}}</text>
+            </button>
+        </view>
+    </form-view>
+</template>
+<wxs module="utils" src="index.wxs" />

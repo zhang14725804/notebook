@@ -1,0 +1,46 @@
+<import src="../../../wxParse/wxParse.wxml"></import>
+<scroll-view>
+    <view class="container">
+        <view class="top-layout">
+            <text class="title-text">{{Article.Title}}</text>
+            <view class="title" wx:if="{{Article.DoctorName&&Article.DoctorName.length>0&&Article.HospitalName&&Article.HospitalName.length>0}}">
+                <image class="image" mode="aspectFill" src="{{Article.DoctorImageUrl}}"></image>
+                <view class="name">
+                    <text class="doctor">{{Article.DoctorName}}/{{Article.JobTitle}}</text>
+                    <text class="hospital">{{Article.HospitalName}}</text>
+                </view>
+            </view>
+            <view class="top-line" wx:else></view>
+            <template is="wxParse" data="{{wxParseData:Content.nodes}}"></template>
+        </view>
+        <view class="about-layout" wx:if="{{RelateArticle.length>0}}">
+            <view class="line-h"></view>
+            <view class="text-layout">
+                <text class="about-text">相关知识</text>
+                <view class="line-about"></view>
+                <view bindtap="onItemClick" class="about-item" data-id="{{item.Id}}" wx:for="{{RelateArticle}}" wx:for-index="i">
+                    <view class="row-text ">
+                        <view>•</view>
+                        <text class="about-title">{{item.Title}}</text>
+                    </view>
+                    <view class="info" wx:if="{{item.DoctorName&&item.DoctorName.length>0&&item.HospitalName&&item.HospitalName.length>0}}">
+                        <text class="doctor-name">{{item.DoctorName}}</text>
+                        <text class="gray-text">{{'/'+item.JobTitle+'/'+item.HospitalName}}</text>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="moreClick" class="more-layout">
+                <text class="more-text">更多{{Article.SecondProjectName}}知识 >></text>
+            </view>
+        </view>
+        <view class="aside"></view>
+    </view>
+</scroll-view>
+<view class="bottom-layout">
+    <view class="icon-layout">
+        <image bindtap="onHomeClick" class="icon" mode="aspectFit" src="https://cdn-ssl.meb.com/wxa/v1/home-nav.png"></image>
+    </view>
+    <button class="button-layout contact-btn" openType="contact">
+        <text class="bottom-text">咨询一下</text>
+    </button>
+</view>

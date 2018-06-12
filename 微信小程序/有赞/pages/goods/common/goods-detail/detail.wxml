@@ -1,0 +1,174 @@
+<template name="detail--seckill">
+    <view class="detail-container-seckill" wx:if="{{goods}}">
+        <template is="goods-swiper" data="{{goods:goods}}"></template>
+        <template is="goods-panel" data="{{CURRENT_GLOBAL_SHOP:CURRENT_GLOBAL_SHOP,stores:stores,soldOutRecommend:soldOutRecommend,redirectToWebView:redirectToWebView,redrectToStore:redrectToStore,CURRENT_GLOBAL_SHOP:CURRENT_GLOBAL_SHOP,goods:goods,sku:sku,activity:activity,bookNum:bookNum,timelimitedDiscount:timelimitedDiscount,countdown:countdown,orderPreference:orderPreference,shopSetting:shopSetting,delivery:delivery,isSkNotice:isSkNotice,isSkCheckBook:isSkCheckBook}}"></template>
+        <template is="goods-sku-standard" data="{{goods:goods,sku:sku,goodsPreference:goodsPreference}}"></template>
+        <template is="express-list-cell" data="{{delivery:delivery,tapExpressPopupOrCell:tapExpressPopupOrCell}}" wx:if="{{isMultiStore&&delivery.support.length&&virtualStatus==0}}"></template>
+        <template is="express-intro" data="{{delivery:delivery,showExpressIntroPopup:showExpressIntroPopup,tapExpressPopupOrCell:tapExpressPopupOrCell}}" wx:if="{{isMultiStore}}"></template>
+        <template is="shop-info" data="{{CURRENT_GLOBAL_SHOP:CURRENT_GLOBAL_SHOP,isMultiStore:isMultiStore}}"></template>
+        <template is="navigate-to-branch-store" data="{{isMultiStore:isMultiStore}}"></template>
+        <template is="shop-cert" data="{{shopCert:shopCert,toggleCertIntroPopup:toggleCertIntroPopup,showCertIntro:showCertIntro}}"></template>
+        <template is="goods-detail" data="{{goods:goods,showPriceIntro:showPriceIntro,richTextList:richTextList,theme:theme,componentSKU:componentSKU}}"></template>
+    </view>
+</template>
+<template name="detail">
+    <view class="detail-container-seckill" wx:if="{{goods}}">
+        <template is="goods-swiper" data="{{goods:goods}}"></template>
+        <template is="goods-panel" data="{{activity:activity,goods:goods,sku:sku,timelimitedDiscount:timelimitedDiscount,countdown:countdown,orderPreference:orderPreference,shopSetting:shopSetting,delivery:delivery}}"></template>
+        <template is="goods-pre-sale" data="{{goods:goods,orderPreference:orderPreference}}"></template>
+        <template is="goods-sku-standard" data="{{goods:goods,sku:sku,goodsPreference:goodsPreference}}"></template>
+        <template is="express-list-cell" data="{{delivery:delivery,tapExpressPopupOrCell:tapExpressPopupOrCell}}" wx:if="{{isMultiStore&&delivery.support.length&&virtualStatus==0}}"></template>
+        <template is="express-intro" data="{{delivery:delivery,showExpressIntroPopup:showExpressIntroPopup,tapExpressPopupOrCell:tapExpressPopupOrCell}}" wx:if="{{isMultiStore}}"></template>
+        <template is="goods-pintuan" data="{{data:goodsPreference,ongoing_group:ongoing_group}}" wx:if="{{goodsPreference.type=='groupOn'}}"></template>
+        <template is="shop-info" data="{{shop:shop,isMultiStore:isMultiStore}}"></template>
+        <template is="navigate-to-branch-store" data="{{isMultiStore:isMultiStore}}"></template>
+        <template is="shop-cert" data="{{shopCert:shopCert,toggleCertIntroPopup:toggleCertIntroPopup,showCertIntro:showCertIntro}}"></template>
+        <template is="goods-detail" data="{{goods:goods}}"></template>
+    </view>
+</template>
+<template name="goods-detail">
+    <view class="zan-panel zan-panel--without-border">
+        <view class="goods-detail">
+            <view class="goods-detail__text" style="line-height: 14px;">商品详情</view>
+            <template is="showcase" data="{{type:'feature',richTextList:richTextList,theme:theme,componentSKU:componentSKU}}"></template>
+        </view>
+    </view>
+    <template is="dr-bar" data="{{borderRadius:true,text:'价格说明'}}"></template>
+    <template is="price-intro" data="{{showPriceIntro:showPriceIntro}}"></template>
+</template>
+<template name="goods-shop-cert">
+    <view class="zan-panel" wx:if="{{shopCert&&shopCert.length}}">
+        <view class="zan-cell zan-cell--access zan-cell--last-child">
+            <view class="zan-cell__bd">
+                <view class="shop-cert" wx:for="{{shopCert}}" wx:key="{{ index }}">
+                    <view class="zan-icon zan-icon-certificate" style="color: #06BF04"></view>
+          {{item}}
+        </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="goods-sku-standard">
+    <view class="zan-panel" wx:if="{{goodsPreference.type!='groupOn'&&!sku.none_sku&&goods.isDisplay}}">
+        <view bindtap="toggleGoodsDialog" class="zan-cell zan-cell--access zan-cell--last-child">
+            <view class="zan-cell__bd">
+        {{sku.desc}}
+      </view>
+            <view class="zan-cell__ft"></view>
+        </view>
+    </view>
+</template>
+<template name="goods-pre-sale">
+    <view class="groupon__presale-info" wx:if="{{goodsPreference.type=='groupOn'&&goods.presaleDesc}}">
+        <text class="zan-tag zan-tag--red groupon__presale-tag">预售</text>
+        <text class="groupon__presale-desc">{{goods.presaleDesc}}</text>
+    </view>
+</template>
+<template name="goods-panel">
+    <canvas canvasId="shareCard" class="share-canvas" style="width: 375px; height: 568px;"></canvas>
+    <view wx:if="{{activity}}">
+        <template is="activity-count-down" data="{{countdown:countdown,activity:activity}}"></template>
+    </view>
+    <view class="zan-panel" style="margin-top: 0; border-top: none;">
+        <view style="margin: 15px 15px 0;">
+            <view class="goods-title__container">
+                <view class="goods-header">
+                    <view class="zan-ellipsis--l2 zan-font-16 goods-title"> {{goods.title}}</view>
+                    <view class="zan-ellipsis--l2 zan-font-12 zan-c-gray-darker goods-desc">{{goods.sell_point}}</view>
+                </view>
+                <form reportSubmit bindsubmit="globalCollectFormId" style="width: 40px">
+                    <button bindtap="handleShareClick" class="share-image__icon collect-form-id-button" formType="submit">
+                        <image src="https://b.yzcdn.cn/weapp/goods/detail/share.png"></image>
+                    </button>
+                </form>
+            </view>
+            <view class="good-info__price">
+                <block wx:if="{{!timelimitedDiscount||!timelimitedDiscount.is_started}}">
+                    <view class="goods-price goods-info__price zan-c-red">
+                        <view class="zan-font-14">¥</view>
+                        <view class="zan-font-24 zan-font-bold" style="line-height:24px;">
+              {{goods.price.desc}}
+            </view>
+                    </view>
+                    <view class="zan-text-deleted zan-font-12 zan-c-gray">
+            {{goods.price.origin.deletedPriceDesc}}
+          </view>
+                </block>
+                <block wx:else>
+                    <view class="goods-type__is-group-on" wx:if="{{goodsPreference.type=='groupOn'}}">
+              {{timelimitedDiscount.description}}
+          </view>
+                    <view class="goods-price goods-info__price zan-c-red">
+                        <view class="zan-font-14">¥</view>
+                        <view class="zan-font-18 zan-font-bold">
+                            <block wx:if="{{goods.price.isRange}}">
+                                <template is="goods-price" data="{{...goods.price.min}}"></template>
+                                <view style="margin: 0 6px;">-</view>
+                                <template is="goods-price" data="{{...goods.price.max}}"></template>
+                            </block>
+                            <template is="goods-price" data="{{...goods.price}}" wx:else></template>
+                        </view>
+                    </view>
+                    <view class="zan-text-deleted zan-font-12 zan-c-gray">
+              ¥ {{goods.price.origin.desc}}
+          </view>
+                </block>
+            </view>
+            <template is="mutil-store-recommend-swiper" data="{{stores:stores,redrectToStore:redrectToStore}}" wx:if="{{stores&&stores.length&&sku.stock_num===0&&soldOutRecommend}}"></template>
+            <view class="goods-info">
+                <text class="goods-info__item">运费: {{delivery.postage_desc||'¥0'}}</text>
+                <text class="goods-info__item goods-info__item--remain zan-center" wx:if="{{!goods.hide_stock}}">剩余: {{sku.stock_num}}</text>
+                <text class="goods-info__item " style="text-align:{{goods.hide_stock?'left':'right'}};">{{shopSetting.show_soldcount&&sku.sold_num>0?'销量: '+sku.sold_num:' '}}</text>
+            </view>
+            <view bindtap="toggleOrderPreferenceDialog" class="order-preference" wx:if="{{orderPreference&&orderPreference.labels.length}}">
+                <view class="order-preference__bd zan-ellipsis">
+                    <view class="order-preference__label zan-tag zan-tag--danger zan-tag--plain" style="margin-right: 5px;" wx:for="{{orderPreference.labels}}" wx:key="index">
+              {{item}}
+            </view>
+                    <view class="order-preference__desc zan-ellipsis">{{orderPreference.cashBackDesc}}{{orderPreference.meetReduceDesc}}</view>
+                </view>
+                <view class="order-prefernce__ft"></view>
+            </view>
+            <view class="seckill-notice" wx:if="{{isSkNotice}}">
+                <view class="seckill-notice-label-wp">
+                    <view class="seckill-notice-label">秒杀</view>
+                </view>
+                <view class="seckill-notice-text">
+                    <view class="notice-text-p">
+              预计 {{timelimitedDiscount.seckillNotice.date}} 日
+              {{timelimitedDiscount.seckillNotice.time}} 开始
+            </view>
+                    <view class="notice-text-p" wx:if="{{isSkCheckBook}}">
+              参与活动需要提前预约秒杀资格 <text wx:if="{{bookNum}}">( {{bookNum}}人已预约 )</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <youzan-security styleType="{{CURRENT_GLOBAL_SHOP.security.style}}" wx:if="{{CURRENT_GLOBAL_SHOP.security.joined}}"></youzan-security>
+    </view>
+</template>
+<template name="goods-swiper">
+    <view>
+        <swiper autoplay="{{!showGoodsDialog&&goods.picture.length>1}}" bindchange="handleSwiperChange" bindtap="handleSwiperImageTap" circular="{{true}}" indicatorDots="{{goods.picture.length>1}}" style="width: {{goods.pictureWidth}}px; height: {{goods.pictureHeight}}px;">
+            <swiper-item wx:for="{{goods.picture}}" wx:key="*this">
+                <image class="goods-image" data-index="{{index}}" mode="aspectFit" src="{{item}}" style="width: {{goods.pictureWidth}}px; height: {{goods.pictureHeight}}px;"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+</template>
+<template name="goods-price">
+    <view class="zan-font-24" style="line-height: 24px;">{{yuan}}</view>
+    <view class="zan-font-12">.{{fen}}</view>
+</template>
+<import src="template/pintuan.wxml"></import>
+<import src="../../../../components/dr-bar/index.wxml"></import>
+<import src="../../../../components/showcase/index.wxml"></import>
+<import src="template/price-intro.wxml"></import>
+<import src="../count-down/index.wxml"></import>
+<import src="../shop-info/index.wxml"></import>
+<import src="../express-cell/index.wxml"></import>
+<import src="../express-intro/index.wxml"></import>
+<import src="../../../multi-store/common/recommend/index.wxml"></import>
+<import src="../shop-info/cert.wxml"></import>
+<import src="../shop-info/youzan-security.wxml"></import>
+<import src="../shop-info/navigate-to-branch-store.wxml"></import>

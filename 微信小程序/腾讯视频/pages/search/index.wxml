@@ -1,0 +1,40 @@
+<import src="/comps/searchbar/index.wxml"></import>
+<import src="/pages/search/result/tv.wxml"></import>
+<import src="/comps/works/works.wxml"></import>
+<import src="/pages/search/result/person.wxml"></import>
+<import src="/pages/search/result/com.wxml"></import>
+<import src="/pages/search/result/more.wxml"></import>
+<import src="/pages/search/result/empty.wxml"></import>
+<import src="/pages/search/result/correct.wxml"></import>
+<view class="search page flb-vt" style="opacity: {{searchOpacity}};" wx:if="{{showSearch}}">
+    <template is="searchbar" data="{{...searchbar,showLayout:showLayout,filter:searchFilters.length&&!showLayout}}"></template>
+    <view class="mod_loading page_loading" wx:if="{{searchLoading&&searchLoadingPos=='top'}}">
+        <view class="icon_loading"></view>
+    </view>
+    <view style="display: {{searchFilters.length&&!showLayout?'':'none'}}">
+        <include src="/pages/search/result/filter.wxml"></include>
+    </view>
+    <view class="search-results-layout flb-1" style="display: {{!showLayout&&!(searchLoading&&searchLoadingPos=='top')?'':'none'}};">
+        <view class="search-results">
+            <scroll-view bindscrolltolower="onSearchScrollButtom" bindtouchstart="onSearchResultsTouch" lowerThreshold="150" scrollTop="{{searchScrollTop}}" scrollY="true" style="height: 100%; display: {{showSearchResult?'':'none'}}">
+                <view>
+                    <block wx:for="{{searchResults}}" wx:for-item="result" wx:key="modId">
+                        <view class="search-modtitle" wx:if="{{result.itemType==2}}">{{result.item.title}}</view>
+                        <template is="search_com" data="{{...result.item}}" wx:if="{{result.itemType==5}}"></template>
+                        <block wx:if="{{result.itemType==15}}">
+                            <template is="search_person" data="{{...result.item}}" wx:if="{{result.modType=='person'}}"></template>
+                            <template is="search_tv" data="{{...result.item}}" wx:if="{{result.modType=='other'}}"></template>
+                        </block>
+                        <template is="search_empty" data="{{...result.item}}" wx:if="{{result.itemType==16}}"></template>
+                        <template is="works" data="{{...result.item,scrollLeft:searchScrollTop}}" wx:if="{{result.itemType==43}}"></template>
+                        <template is="search_more" data="{{...result.item}}" wx:if="{{result.itemType==51}}"></template>
+                        <template is="search_correct" data="{{...result.item}}" wx:if="{{result.itemType==82}}"></template>
+                    </block>
+                </view>
+                <view class="mod_loading {{searchLoading&&searchLoadingPos=='bottom'?'':'none'}}" style="position: relative;height: 50px;">
+                    <view class="icon_loading"></view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>

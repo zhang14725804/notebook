@@ -1,0 +1,18 @@
+<template name="search_person">
+    <view bindtap="onRouteStarPage" class="person search-mod" data-stat="search_result:{{action.reportKey||'person'}}" data-url="{{action.url}}">
+        <view class="flb">
+            <view class="avatar">
+                <image class="img" src="{{poster.imageUrl}}"></image>
+            </view>
+            <view class="flb-1">
+                <view class="title">
+                    <template is="hltext" data="{{text:poster.firstLine}}"></template>
+                </view>
+                <view class="search-text" wx:for="{{poster.lines}}" wx:for-item="line" wx:key="idx">
+                    <template is="hltext" data="{{text:line.text}}"></template>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="/comps/hltext/hltext.wxml"></import>

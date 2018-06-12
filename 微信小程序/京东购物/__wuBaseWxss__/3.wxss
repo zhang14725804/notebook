@@ -1,0 +1,37 @@
+.error_retry {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 13px;
+    color: #999;
+}
+
+.error_retry text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.error_retry button {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    color: #666;
+    font-size: inherit;
+    box-sizing: border-box;
+    line-height: normal;
+    padding: 2px 14px;
+    background-color: transparent;
+    border: 1rpx solid #999;
+    border-radius: 999px;
+}
+
+.error_retry button::after {
+    border: 0;
+}
+
+.error_retry.full_page {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    margin-top: -45px;
+}

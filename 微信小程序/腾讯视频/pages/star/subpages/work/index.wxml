@@ -1,0 +1,35 @@
+<import src="/comps/topbar/index.wxml"></import>
+<view class="body">
+    <template is="topbar" data="{{pageLabel:pageLabel}}" wx:if="{{isShareOpen}}"></template>
+    <view class="mod_empty mod_empty_white {{status.empty?'':'none'}}">
+        <view class="icon_empty"></view>
+        <view class="empty_title">出了点小问题 ({{status.ret}})</view>
+        <view class="empty_text">我们正在紧张地修复</view>
+        <view bindtap="fetchStarWorkAgain" class="empty_btn">刷新</view>
+    </view>
+    <view class="mod_figures {{status.loading||status.empty?'hide':''}}">
+        <view class="mod_figure {{poster.cssType=='h'?'mod_figure_h':''}}">
+            <view bindtap="onTapWorkPoster" class="item" data-cid="{{item.cid}}" data-lid="{{item.lid}}" data-vid="{{item.vid}}" wx:for="{{poster.list}}" wx:key="{{*this}}">
+                <view class="figure_pic_mod">
+                    <image class="figure_pic" src="{{item.imageUrl}}"></image>
+                    <view class="mark" style="background-image: url({{item.markLabel.topRight.markImageUrl}})" wx:if="item.markLabel.topRight"></view>
+                    <view class="figure_caption" wx:if="item.markLabel.bottomLeft || item.markLabel.bottomRight">
+                        <view class="figure_other" wx:if="item.markLabel.bottomLeft">
+                                {{item.markLabel.bottomLeft.text}}
+                            </view>
+                        <view class="figure_score" wx:if="item.markLabel.bottomRight">
+                                {{item.markLabel.bottomRight.text}}
+                            </view>
+                    </view>
+                </view>
+                <view class="figure_title figure_title_two_row">{{item.firstLine}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="mod_loading{{status.loading?'':' hide'}}">
+        <view class="icon_loading"></view>
+    </view>
+    <view class="scroll_loading mod_loading {{status.scrollLoading?'':' hide'}}">
+        <view class="icon_loading"></view>
+    </view>
+</view>

@@ -1,0 +1,12 @@
+<template name="order-customer">
+    <view class="customer-info__view zan-cell {{access?'zan-cell--access':'one-line'}}">
+        <view class="zan-cell__bd customer-info__detail">
+            <i class="zan-icon zan-icon-contact"></i>
+            <view class="customer-info__detail-info">
+                <view class="zan-cell__text">联系人：{{customer.user_name}}</view>
+                <view class="zan-cell__desc">{{access?'联系电话：':''}}{{customer.telephone}}</view>
+            </view>
+        </view>
+        <view class="zan-cell__ft zan-c-gray-dark"></view>
+    </view>
+</template>

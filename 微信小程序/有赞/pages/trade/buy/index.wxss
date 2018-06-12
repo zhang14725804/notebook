@@ -1,0 +1,132 @@
+@import "../../../__wuBaseWxss__/90.wxss";
+
+@import "../../../components/datepicker/index.wxss";
+
+@import "../../../components/ZanAccount/index.wxss";
+
+@import "../../../components/pay/cashier/index.wxss";
+
+@import "../../../components/order-address/customer/index.wxss";
+
+@import "../templates/pintuan/pintuan.wxss";
+
+.order-container {
+    background-color: #f8f8f8;
+    padding-bottom: 80px;
+}
+
+@import "templates/top_info/top_info.wxss";
+
+@import "components/shop/shop.wxss";
+
+.sms {
+    padding: 6px 15px;
+}
+
+.sms__title {
+    line-height: 32px;
+}
+
+.sms__ft {
+    height: 32px;
+}
+
+.sms__switch {
+    width: 51px;
+    height: 32px;
+}
+
+.order-total {
+    overflow: hidden;
+    padding: 12px 15px;
+    line-height: 26px;
+}
+
+@import "components/pay/order_pay.wxss";
+
+.unavailable__tips {
+    margin: 20px 0 10px;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+}
+
+.unavailable__panel {
+    position: relative;
+    padding: 5px 0;
+    padding-left: 15px;
+    white-space: nowrap;
+}
+
+.unavailable__image {
+    width: 90px;
+    height: 90px;
+    margin-right: 5px;
+}
+
+.unavailable__action {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    line-height: 100px;
+    padding-right: 10px;
+    background-color: #fff;
+    text-align: right;
+    font-size: 14px;
+    color: #666;
+}
+
+.unavailable__action::after {
+    content: '';
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    border-width: 2px 2px 0 0;
+    border-color: #c8c8c8;
+    border-style: solid;
+    transform: translateY(-20%) matrix(0.71,0.71,-0.71,0.71,0,0);
+}
+
+.unavailable-dialog__list {
+    min-height: 175px;
+    max-height: 60vh;
+    overflow: scroll;
+}
+
+.unavailable-dialog__tag {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    background-color: rgba(0,0,0,0.6);
+}
+
+@import "../../multi-store/common/store-business/index.wxss";
+
+.order-tip {
+    margin-top: 20px;
+    height: 100px;
+}
+
+.customer-info__add-one {
+    position: relative;
+    padding-left: 42px;
+}
+
+.customer-info__view .customer-info__add-user {
+    height: 36px;
+    width: 36px;
+    position: absolute;
+    left: 0;
+    top: -10px;
+}
+
+.e-card-customer .disabled {
+    pointer-events: none;
+}

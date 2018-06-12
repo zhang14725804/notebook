@@ -1,0 +1,90 @@
+.works {
+    white-space: nowrap;
+    width: 750rpx;
+    font-size: 0;
+    height: 416rpx;
+}
+
+.works .item {
+    width: 218rpx;
+    margin-right: 16rpx;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.works .item.first {
+    margin-left: 32rpx;
+}
+
+.works .item.last {
+    margin-right: 32rpx;
+}
+
+.works .cover {
+    width: 100%;
+    height: 306rpx;
+    overflow: hidden;
+    border-radius: 8rpx;
+    background-color: #f5f7f9;
+    position: relative;
+}
+
+.works .img {
+    width: 100%;
+    height: 100%;
+}
+
+.works .desc {
+    color: #222;
+    font-size: 30rpx;
+    line-height: 44rpx;
+    margin-top: 16rpx;
+    text-align: center;
+    white-space: initial;
+}
+
+.works .mark-info {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    color: #fff;
+    display: inline-block;
+    position: absolute;
+    right: 16rpx;
+    bottom: 16rpx;
+}
+
+.works.hori {
+    height: 262rpx;
+}
+
+.works.hori .item {
+    width: 270rpx;
+}
+
+.works.hori .cover {
+    height: 152rpx;
+}
+
+.works.star {
+    height: 190rpx;
+}
+
+.works.star .item {
+    width: 112rpx;
+    margin-right: 48rpx;
+}
+
+.works.star .cover {
+    border-radius: 50%;
+}
+
+.works.star .cover {
+    width: 112rpx;
+    height: 112rpx;
+}
+
+.works.star .desc {
+    text-align: center;
+    font-size: 26rpx;
+    line-height: 34rpx;
+}

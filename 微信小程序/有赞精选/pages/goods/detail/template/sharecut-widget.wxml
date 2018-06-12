@@ -1,0 +1,22 @@
+<template name="sharecutWidget">
+    <view class="sharecut-widget">
+        <view class="widget-left">
+            <text class="widget-name">分享0元得</text>
+            <text class="widget-engage" wx:if="{{goods.pvStats>=0}}">已有{{goods.pvStats}}人参加</text>
+            <view class="widget-left-after"></view>
+            <view class="widget-left-before"></view>
+            <view class="widget-right-before"></view>
+        </view>
+        <view class="widget-right {{isMiniScreen?'mini-screen':''}}">
+            <text class="widget-right-text">距结束仅剩</text>
+            <view class="widget-countdown">
+                <view class="countdown" wx:if="{{countdown.length}}">
+                    <block wx:for="{{countdown}}" wx:key="{{ index }}">
+                        <view class="countdown--num">{{item.value}}</view>
+                        <view class="countdown--split">{{item.suffix}}</view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

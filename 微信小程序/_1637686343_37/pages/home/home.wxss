@@ -1,0 +1,265 @@
+@import "../../__wuBaseWxss__/0.wxss";
+
+.m-banner {
+    position: relative;
+    width: 100%;
+    height: 800rpx;
+}
+
+.m-banner_imageBox {
+    position: relative;
+    width: 100%;
+    height: 750rpx;
+}
+
+.m-banner_image {
+    width: 100%;
+    height: 100%;
+}
+
+.m-banner_image-cover {
+    width: 100%;
+    height: 150rpx;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    background-image: linear-gradient(to bottom,rgba(250,250,250,0) 0%,rgba(250,250,250,1) 100%);
+    background-repeat: repeat-x;
+}
+
+.m-banner_image-cover-top {
+    width: 100%;
+    height: 140rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+    background-repeat: repeat-x;
+}
+
+.c-icon-bannerLogo {
+    width: 146rpx;
+    height: 48rpx;
+    padding-top: 20rpx;
+    margin-right: 34rpx;
+}
+
+.c-icon-search {
+    position: absolute;
+    right: 30rpx;
+    top: 24rpx;
+    z-index: 5;
+    display: block;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.m-swiperList {
+    position: absolute;
+    left: 0;
+    bottom: -30rpx;
+    z-index: 5;
+    width: 100%;
+    height: 310rpx;
+}
+
+.m-swiperList_item {
+}
+
+.m-swiperList_item-wrap {
+    display: box;
+    width: 690rpx;
+    height: 280rpx;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40rpx;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    text-align: center;
+    background-color: #fff;
+    color: #666;
+    box-shadow: 0 4rpx 25rpx rgba(90,90,90,.1);
+}
+
+.m-swiperList_cover {
+    position: relative;
+    width: 150rpx;
+    height: 200rpx;
+    margin-right: 40rpx;
+    overflow: hidden;
+}
+
+.m-swiperList_img {
+    width: 100%;
+    height: 100%;
+}
+
+.m-swiperList_info {
+    box-flex: 1;
+    font-size: 30rpx;
+    line-height: 50rpx;
+    text-align: left;
+    position: relative;
+}
+
+.m-swiperList_info-h2 {
+    display: block;
+    width: 400rpx;
+    height: 50rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.m-swiperList_info-p {
+    display: block;
+    width: 420rpx;
+    height: 50rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 28rpx;
+}
+
+.m-swiperList_info-h2 {
+    font-size: 36rpx;
+    color: #333;
+    font-weight: 700;
+}
+
+.m-banner_toplogo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    display: flex;
+    padding: 0 30rpx;
+}
+
+.m-banner_toplogo_content {
+    display: flex;
+}
+
+@import "../../__wuBaseWxss__/7.wxss";
+
+@import "../../__wuBaseWxss__/13.wxss";
+
+.m-playRecorded-tips {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 50;
+    width: 100%;
+    height: 80rpx;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+    padding-right: 136rpx;
+    line-height: 80rpx;
+    color: #fff;
+    font-size: 24rpx;
+    background-color: #22c41e;
+    transition: top .8s cubic-bezier(0.165,0.84,0.44,1);
+}
+
+.playRecorded-tips-content {
+    display: block;
+    width: 100%;
+    height: 80rpx;
+    overflow: hidden;
+}
+
+.playRecorded-tips-link {
+    position: absolute;
+    right: 20rpx;
+    top: 0;
+}
+
+@import "../../__wuBaseWxss__/6.wxss";
+
+@import "../../__wuBaseWxss__/11.wxss";
+
+.m-swiperList_live {
+    height: 270rpx;
+    white-space: nowrap;
+}
+
+.m-swiper_live_item {
+    margin-right: 3rpx;
+    width: 260rpx;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.m-live_item-wrap {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.m-live_cover {
+    height: 150rpx;
+    position: relative;
+}
+
+.m-swiper_live_img {
+    width: 100%;
+    height: 100%;
+}
+
+.m-live_info {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    padding: 25rpx 0 16rpx;
+    white-space: nowrap;
+}
+
+.m-live_play_time {
+    color: #8c8c8c;
+    font-size: 24rpx;
+    line-height: 24rpx;
+    padding-bottom: 10rpx;
+}
+
+.m-live-bottom {
+    padding-left: 20rpx;
+    height: 120rpx;
+}
+
+page {
+    background-color: #fafafa;
+    line-height: 1;
+    height: 100%;
+}
+
+.container {
+    height: auto;
+}
+
+.container-overflow-hidden {
+    height: 100%;
+    overflow: hidden;
+}
+
+.c-icon-search-center {
+    z-index: 5;
+    display: inline-block;
+    width: 26rpx;
+    height: 26rpx;
+    margin-right: 14rpx;
+    vertical-align: -3rpx;
+}
+
+.m-banner .c-icon-play {
+    top: 50%;
+    width: 60rpx;
+    height: 60rpx;
+    transform: translate(-50%,-50%);
+}

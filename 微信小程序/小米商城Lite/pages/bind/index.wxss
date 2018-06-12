@@ -1,0 +1,98 @@
+page {
+    background: #fff;
+}
+
+.mx-login-title {
+    margin: 64rpx 0;
+    font-size: 40rpx;
+    text-align: center;
+}
+
+.mx-login-input {
+    margin: 32rpx;
+}
+
+.mx-login-input__inner {
+    position: relative;
+    height: 100rpx;
+    border-bottom: 2rpx solid #ccc;
+    overflow: hidden;
+}
+
+.mx-login-input_focus .mx-login-input__inner {
+    border-color: #ff6700;
+}
+
+.mx-login-input__inner label {
+    float: left;
+    margin: 25rpx 25rpx 0 0;
+    width: 70rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 20rpx;
+    background: #ccc;
+    text-align: center;
+    border-radius: 5rpx;
+    color: #fff;
+}
+
+.mx-login-input_focus .mx-login-input__inner label {
+    background: #ff6700;
+}
+
+.mx-login-input__inner input {
+    float: left;
+    width: 450rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 40rpx;
+}
+
+.mx-login-input__inner .reset {
+    z-index: 9;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100rpx;
+    height: 100rpx;
+    background: url(http://i8.mifile.cn/v1/a1/74f6b2b4-33f4-2ae2-fa79-f41a733525b0.png) center center no-repeat;
+    background-size: 48rpx 48rpx;
+    opacity: .4;
+}
+
+.mx-login-input__hint {
+    margin-top: 16rpx;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.mx-login-input__hint text {
+    margin-left: 16rpx;
+    color: #586C94;
+}
+
+.mx-login-sub {
+    margin: -32rpx 0 64rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.mx-login-input__inner button[size=mini] {
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -24rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    font-size: 24rpx;
+}
+
+.mx-login-input__inner label.lock {
+    background-image: url(http://i8.mifile.cn/b2c-mimall-media/d78ee3b264bd05a5923ec1e14c62a394.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 32rpx 32rpx;
+    text-indent: -99999px;
+}

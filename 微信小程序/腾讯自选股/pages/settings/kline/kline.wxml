@@ -1,0 +1,33 @@
+<view>
+    <view class="klineSetting__wrapper">
+        <view class="klineSetting__wrapper__title">复权类型默认选择</view>
+        <view bindtap="bindFqTap" class="klineSetting__wrapper__select">
+            <view class="klineSetting__wrapper__select__option" data-type="no">
+                <view data-type="no">不复权</view>
+                <view class="klineSetting__wrapper__select__option__nike{{fqType==='no'?'--cur':''}}"></view>
+            </view>
+            <view class="klineSetting__wrapper__select__option" data-type="qfq">
+                <view data-type="qfq">前复权</view>
+                <view class="klineSetting__wrapper__select__option__nike{{fqType==='qfq'?'--cur':''}}"></view>
+            </view>
+            <view class="klineSetting__wrapper__select__option--noBR" data-type="hfq">
+                <view data-type="hfq">后复权</view>
+                <view class="klineSetting__wrapper__select__option__tips{{fqType==='hfq'?'--cur':''}}">后复权对美股无效</view>
+                <view class="klineSetting__wrapper__select__option__nike{{fqType==='hfq'?'--cur':''}}"></view>
+            </view>
+        </view>
+    </view>
+    <view class="klineSetting__wrapper">
+        <view class="klineSetting__wrapper__title">K线样式设置</view>
+        <view bindtap="bindStyleTap" class="klineSetting__wrapper__select">
+            <view class="klineSetting__wrapper__select__option" data-type="solid">
+                <view>实心阳线</view>
+                <view class="klineSetting__wrapper__select__option__nike{{barType==='solid'?'--cur':''}}"></view>
+            </view>
+            <view class="klineSetting__wrapper__select__option" data-type="empty" style="border-bottom:none">
+                <view>空心阳线</view>
+                <view class="klineSetting__wrapper__select__option__nike{{barType==='empty'?'--cur':''}}"></view>
+            </view>
+        </view>
+    </view>
+</view>

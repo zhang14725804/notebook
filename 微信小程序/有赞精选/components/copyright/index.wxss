@@ -1,0 +1,19 @@
+.copyright-container {
+    padding: 58px 70px 70px 70px;
+    background-color: #f9f9f9;
+}
+
+.copyright-image {
+    height: 45rpx;
+    width: 165rpx;
+    display: block;
+    margin: auto;
+}
+
+.copyright-text {
+    font-size: 24rpx;
+    color: #BFBFC3;
+    line-height: 24rpx;
+    margin-top: 20rpx;
+    text-align: center;
+}

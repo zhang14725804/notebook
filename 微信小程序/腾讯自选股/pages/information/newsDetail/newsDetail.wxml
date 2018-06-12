@@ -1,0 +1,59 @@
+<view class="newsCon nodata" wx:if="{{nodata}}">
+    <view class="nodata-icon"></view>
+    <view class="nodata-text">当前网络状况不佳</view>
+</view>
+<view class="newsCon" wx:if="{{!nodata&&!loading}}">
+    <view class="newsCon__t">
+        <view class="newsCon__t__title">{{newsData.title}}</view>
+        <view class="newsCon__t__sub">
+            <view class="newsCon__t__sub__source" style="display:{{source==''?'none':'inline-block'}}">{{source}}</view>
+            <view class="newsCon__t__sub__date">{{time}}</view>
+        </view>
+    </view>
+    <view class="newsCon__b newsCon__b_reStocks" wx:if="{{newsData.stockInfo.length}}">
+    相关股票：
+      <view bindtap="tapStock" class="newsCon__b_stock {{idx==newsData.stockInfo.length-1?'':'reStocks'}} {{!stocksStorage[item.symbol]?'noClick':''}}" data-name="{{item.name}}" data-noClick="{{stocksStorage[item.symbol]}}" data-symbol="{{item.symbol}}" wx:for="{{newsData.stockInfo}}" wx:for-index="idx" wx:key="idx">{{item.name}}</view>
+    </view>
+    <view class="newsCon__b {{allEnglish?'en':''}}">
+        <block wx:for="{{newsData.contentArr}}" wx:for-index="idx" wx:key="idx">
+            <view class="newsCon__b__s image" wx:if="{{item.type=='image'}}">
+                <image bindtap="previewImage" data-attribute="{{item.attribute}}" data-images="{{newsData.images}}" data-src="{{item.src}}" src="{{item.src}}" style="width:{{item.width}}rpx;height:{{item.height}}rpx;"></image>
+            </view>
+            <view class="newsCon__b__s video" wx:elif="{{item.type=='video'}}">
+                <image data-attribute="{{item.attribute}}" src="{{item.vid}}"></image>
+            </view>
+            <view class="newsCon__b__s stock" data-name="{{item.name}}" data-symbol="{{item.symbol}}" wx:elif="{{item.type=='stock'}}">{{item.name}}</view>
+            <view class="newsCon__b__s" wx:else>
+                <block wx:for="{{item.text}}" wx:for-index="itemDx" wx:for-item="plainItem" wx:key="itemDx">
+                    <span bindtap="tapStock" class="newsCon__b_stock {{!stocksStorage[plainItem.symbol]?'noClick':''}}" data-name="{{plainItem.name}}" data-noClick="{{stocksStorage[plainItem.symbol]}}" data-symbol="{{plainItem.symbol}}" wx:if="{{plainItem.type=='stock'}}">{{plainItem.name}}</span>
+                    <span class="newsCon__b_text" wx:elif="{{plainItem.text!=''||plainItem.text!=' '}}">{{plainItem.text}}</span>
+                </block>
+            </view>
+        </block>
+    </view>
+    <view class="newsCon__b" wx:if="{{newsData.relate_news&&newsData.relate_news.length}}">
+        <view class="newsCon__b__s title">相关新闻</view>
+        <view bindtap="goNews" class="newsCon__b__s" data-articletype="{{item.articletype}}" data-id="{{item.id}}" data-source="{{item.source}}" data-time="{{item.time}}" data-timestamp="{{item.timestamp}}" wx:for="{{newsData.relate_news}}" wx:for-index="idx" wx:key="idx">
+                {{item.title}}
+                <view class="newsCon__b__s_resource">
+                <span>{{item.source}}</span>
+                <span> | </span>
+                <span>{{item.FormatTime}}</span>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="whole-white-bg" wx:if="{{loading}}">
+    <view style="height:100rpx;width:100%;padding-top:200rpx;">
+        <view class="loadEffect rotate">
+            <view class="v v1"></view>
+            <view class="v v2"></view>
+            <view class="v v3"></view>
+            <view class="v v4"></view>
+            <view class="v v5"></view>
+            <view class="v v6"></view>
+            <view class="v v7"></view>
+            <view class="v v8"></view>
+        </view>
+    </view>
+</view>

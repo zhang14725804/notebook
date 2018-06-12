@@ -1,0 +1,9 @@
+<template name="banner">
+    <view class="uc-banner uc-banner--{{type}}">
+        <view class="uc-banner__filter-blur" style="background-image: url({{backImage}})" wx:if="{{backImage}}"></view>
+        <image class="uc-banner__logo" src="{{logo}}"></image>
+        <view class="uc-banner__title" wx:if="{{title}}">{{title}}</view>
+        <view class="uc-banner__level" wx:if="{{level}}">{{level}}</view>
+        <view class="uc-banner__points" wx:if="{{points}}">{{points}}</view>
+    </view>
+</template>

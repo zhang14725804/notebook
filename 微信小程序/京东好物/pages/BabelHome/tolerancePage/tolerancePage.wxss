@@ -1,0 +1,240 @@
+.tolerance-noDataBG {
+    margin-top: 0rpx;
+    width: 750rpx;
+    height: 620rpx;
+    background-color: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+}
+
+.tolerance-noDataSeperatedLine {
+    margin-top: 0rpx;
+    width: 750rpx;
+    height: 1rpx;
+    background-color: #F9F9F9;
+}
+
+.tolerance-noDataImg {
+    margin-top: 137rpx;
+    width: 228rpx;
+    height: 136rpx;
+}
+
+.tolerance-noDataText {
+    font-size: 32rpx;
+    color: #CCCCCC;
+    line-height: 32rpx;
+    width: 384rpx;
+    text-align: center;
+}
+
+.tolerance-shopTitle {
+    width: 750rpx;
+    height: 82rpx;
+}
+
+.tolerance-list {
+    margin-top: 9rpx;
+    box-sizing: border-box;
+    width: 750rpx;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: #ffffff;
+}
+
+.tolerance-item {
+    box-sizing: border-box;
+    width: 350rpx;
+    height: 520rpx;
+    margin-top: 10rpx;
+    background-color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+.tolerance-item-margin {
+    margin-left: 20rpx;
+    margin-right: 10rpx;
+}
+
+.tolerance-img {
+    width: 350rpx;
+    height: 350rpx;
+}
+
+.tolerance-img-gray {
+    position: absolute;
+    top: 114rpx;
+    left: 114rpx;
+    width: 122rpx;
+    height: 122rpx;
+}
+
+.tolerance-markLabel {
+    width: 68rpx;
+    height: 66rpx;
+    color: #ffffff;
+    font-size: 36rpx;
+    text-align: center;
+    line-height: 66rpx;
+}
+
+.tolerance-markLabel.style1Text {
+    height: 34rpx;
+    font-size: 22rpx;
+    line-height: 33rpx;
+    text-align: center;
+    overflow: hidden;
+}
+
+.tolerance-markLabel.style2Text {
+    top: 9rpx;
+    left: 10rpx;
+    height: 46rpx;
+    width: 46rpx;
+    color: #ffffff;
+    word-break: break-all;
+    font-size: 23rpx;
+    line-height: 24rpx;
+    position: absolute;
+    overflow: hidden;
+}
+
+.tolerance-other {
+    color: #f23030;
+    font-size: 26rpx;
+}
+
+.tolerance-cart {
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.tolerance-title {
+    font-size: 25rpx;
+    font-family: "PingFangSC-Regular";
+    color: #131313;
+    margin-top: 16rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    height: 53rpx;
+    line-height: 26.5rpx;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.tolerance-blankLine {
+    background-color: #ffffff;
+    height: 22rpx;
+    width: 350rpx;
+}
+
+.tolerance-price-1 {
+    margin-top: 20rpx;
+    margin-left: 20rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+    max-width: 240rpx;
+    font-size: 32rpx;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.tolerance-price-origin {
+    text-decoration: line-through;
+    line-height: 24rpx;
+    display: inline-block;
+    height: 24rpx;
+    max-width: 130rpx;
+    color: #999999;
+    font-size: 24rpx;
+    margin-left: 8rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+}
+
+.tolerance-price-text {
+    color: #252525;
+}
+
+.tolerance-price-text-gray {
+    color: #999999;
+}
+
+.tolerance-price-text-red {
+    color: #f02b2b;
+}
+
+.tolerance-hasMore {
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 22rpx;
+    background-color: #f7e3aa;
+    color: #848689;
+    text-align: center;
+}
+
+.tolerance-newProduct-tips {
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+    background-color: #f8f8f8;
+    font-size: 28rpx;
+    color: #686868;
+    position: relative;
+    z-index: 1;
+    margin-top: 12rpx;
+}
+
+.tolerance-newProduct-tips view {
+    margin: 0 auto;
+    width: 315rpx;
+    height: 100%;
+    z-index: 2;
+    background-color: #f8f8f8;
+    position: relative;
+}
+
+.tolerance-newProduct-tips image {
+    width: 23rpx;
+    height: 23rpx;
+    margin-right: 12rpx;
+}
+
+.tolerance-newProduct-tips:before {
+    content: '';
+    border-bottom: 1px solid #e0e0e0;
+    height: 1px;
+    position: absolute;
+    left: 20rpx;
+    top: 30rpx;
+    z-index: 1;
+    width: 710rpx;
+}
+
+.tolerance-hasNoData {
+    margin-top: 150rpx;
+    flex-direction: column;
+    background-color: #f8f8f8;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.tolerance-img-noData {
+    width: 236rpx;
+    height: 140rpx;
+}
+
+.tolerance-img-wifi {
+    width: 210rpx;
+    height: 210rpx;
+}

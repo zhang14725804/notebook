@@ -1,0 +1,6 @@
+<template name="hz_tmp_name">
+    <view class="hotZone-backGround" style="width:{{picWidth/3*2}}rpx;height:{{picHeight/3*2}}rpx">
+        <image class="hotZone-img" src="http:{{hotZoneModel.pictureUrl}}" style="width:{{picWidth/3*2}}rpx;height:{{picHeight/3*2}}rpx" wx:if="{{hotZoneModel.pictureUrl&&hotZoneModel.pictureUrl.length}}"></image>
+        <view bindtap="lunbotuDidTap" class="hotZone-view" data-jump-info="{{item.jump}}" style="top:{{item.y/3*2}}rpx;left:{{item.x/3*2}}rpx;width:{{item.w/3*2}}rpx;height:{{item.h/3*2}}rpx;z-index:10;" wx:if="{{item}}" wx:for="{{hotZoneModel.hotZonesList}}"></view>
+    </view>
+</template>

@@ -1,0 +1,21 @@
+.form button {
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: inherit;
+    margin: auto;
+    font-size: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    line-height: inherit;
+    border-radius: inherit;
+    -webkit-tap-highlight-color: transparent;
+    overflow: inherit;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.form button::after {
+    display: none;
+}

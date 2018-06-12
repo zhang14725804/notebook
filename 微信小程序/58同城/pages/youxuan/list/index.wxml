@@ -1,0 +1,114 @@
+<template name="youxuanlist">
+    <view class="list-body">
+        <view catchtap="e_listItemTap" class="li-info" data-url="/pages/detail/detail?infoId={{item.infoId}}&dispCateName={{item.dispCateName}}&dispLocalName={{item.dispLocalName}}&cateCode={{item.cateCode}}&key={{searchKey}}" wx:for="{{list}}" wx:key="index">
+            <view class="li-pic-wrap" wx:if="{{item.hasPic&&(item.cateCode===3||item.cateCode===7||item.cateCode===6||item.cateCode===1||item.cateCode===2)}}">
+                <image bindload="imageLoaded" class="{{item.imageLoaded?'li-pic':item.cateCode===3||item.cateCode===1||item.cateCode===2?'li-pic house-default-bg':'li-pic default-bg'}}" data-index="{{index}}" lazyLoad="{{true}}" mode="aspectFit" src="{{item.pic?item.pic:item.cateCode===3||item.cateCode===1||item.cateCode===2?'//img.58cdn.com.cn/ui9/house/list/lazy_pic.png':'//pic3.58cdn.com.cn/p1/small/n_t089bbf3d4c9c380057dde.jpg?t=5'}}"></image>
+            </view>
+            <view class="li-body {{item.cateCode===3||item.cateCode===7||item.cateCode===6||item.cateCode===1||item.cateCode===2?' set-margin-left':''}}">
+                <view class="li-head">
+                    <view class="piclogo" wx:if="{{item.hasPic&&item.cateCode===10}}">
+                        <text class="tu">图</text>
+                    </view>
+                    <text class="title" wx:if="{{item.cateCode==10}}">{{item.title}}</text>
+                    <text class="title title-clamp-2" wx:elif="{{item.cateCode==6||item.cateCode==7}}">{{item.title}}</text>
+                    <text class="title title-clamp-2 title-padding-right" wx:elif="{{item.cateCode==8}}">{{item.title}}</text>
+                    <text class="title title-clamp-1" wx:else>{{item.title}}</text>
+                </view>
+                <view class="intro">
+                    <view class="desc">
+                        <view class="addr">
+                            <view wx:if="{{item.cateCode===1||item.cateCode===2||item.cateCode===3}}">
+                                <view class="detail-line">
+                                    <text class="{{item.brief1[1]||item.brief1[2]?'line':''}}" style="display:{{item.brief1[0]?'inline':'none'}};">{{item.brief1[0]}}</text>
+                                    <text class="{{item.brief1[2]?'line':''}}" style="display:{{item.brief1[1]?'inline':'none'}};">{{item.brief1[1]}}</text>
+                                    <text style="display:{{item.brief1[2]?'inline':'none'}};">{{item.brief1[2]}}</text>
+                                </view>
+                                <view class="detail-line">
+                                    <text>{{item.brief2[0]}}</text>
+                                </view>
+                            </view>
+                            <view wx:elif="{{item.cateCode===4||item.cateCode===5}}">
+                                <view class="detail-job">
+                                    <text wx:if="{{item.brief1[0]}}">{{item.brief1[0]}}</text>
+                                    <text wx:if="{{item.brief1[1]}}">{{item.brief1[1]}}</text>
+                                </view>
+                                <view class="detail-job">
+                                    <text wx:if="{{item.brief2[0]}}">{{item.brief2[0]}}</text>
+                                </view>
+                            </view>
+                            <view wx:elif="{{item.cateCode===6||item.cateCode===7}}">
+                                <view class="detail-line">
+                                    <text class="{{item.brief1[1]||item.brief1[2]?'line':''}}" style="display:{{item.brief1[0]?'inline':'none'}};">{{item.brief1[0]}}</text>
+                                    <text class="{{item.brief1[2]?'line':''}}" style="display:{{item.brief1[1]?'inline':'none'}};">{{item.brief1[1]}}</text>
+                                    <text style="display:{{item.brief1[2]?'inline':'none'}};">{{item.brief1[2]}}</text>
+                                </view>
+                            </view>
+                            <view wx:elif="{{item.cateCode===8}}">
+                                <view class="detail-life">
+                                    <text wx:if="{{item.brief1[0]}}">{{item.brief1[0]}}</text>
+                                    <text wx:if="{{item.brief1[1]}}">{{item.brief1[1]}}</text>
+                                </view>
+                            </view>
+                            <view wx:elif="{{item.cateCode===10}}">
+                                <view>
+                                    <text wx:if="{{item.brief1[0]}}">{{item.brief1[0]}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="price-date-km">
+                    <view class="list-third-line" wx:if="{{item.cateCode===1||item.cateCode===2||item.cateCode===3}}">
+                        <text class="price {{item.priceUnit?'':'no-unit'}}">{{item.price}}</text>
+                        <text class="price-unit no-unit" wx:if="{{item.priceUnit}}">{{item.priceUnit}}</text>
+                        <text class="date-km">{{item.postDate}}</text>
+                        <text class="fang_leixing" wx:if="{{cateCode==9}}">{{item.cateCode==1?'整租':'合租'}}</text>
+                    </view>
+                    <view class="list-third-line" wx:elif="{{item.cateCode==4||item.cateCode==5}}">
+                        <text class="price">{{item.salary}}</text>
+                        <text class="price-unit" wx:if="{{item.priceUnit}}">{{item.priceUnit}}</text>
+                    </view>
+                    <view class="list-third-line" wx:elif="{{item.cateCode==6||item.cateCode==7}}">
+                        <text class="price {{item.priceUnit?'':'no-unit'}}">{{item.price}}</text>
+                        <text class="price-unit no-unit" wx:if="{{item.priceUnit}}">{{item.priceUnit}}</text>
+                        <text class="date-km">{{item.postDate}}</text>
+                    </view>
+                    <view class="list-third-line" wx:elif="{{item.cateCode==8}}">
+                        <text class="area" wx:if="{{item.brief2[0]&&!youxuan}}">{{item.brief2[0]}}</text>
+                        <text class="company" wx:if="{{item.brief2[1]}}">{{item.brief2[1]}}</text>
+                    </view>
+                    <view class="list-third-line" wx:elif="{{item.cateCode==10}}">
+                        <text class="price {{item.priceUnit?'':'no-unit'}}">{{item.price}}</text>
+                        <text class="price-unit no-unit" wx:if="{{item.priceUnit}}">{{item.priceUnit}}</text>
+                        <text class="date-km">{{item.postDate}}</text>
+                    </view>
+                    <text class="date-km job-data-km" wx:if="{{item.cateCode==4||item.cateCode==5}}">{{item.postDate}}</text>
+                </view>
+                <view class="tel-btn-wrap" wx:if="{{item.cateCode===1||item.cateCode===2||item.cateCode===3}}">
+                    <form catchsubmit="e_phone" data-catecode="{{item.cateCode}}" data-infoid="{{item.infoId}}" reportSubmit="{{true}}">
+                        <button class="button-reset detail-big-btn" formType="submit" id="list-btn"></button>
+                    </form>
+                </view>
+                <view class="btn" wx:elif="{{item.cateCode===4||item.cateCode===5}}">
+                    <view class="btn-wrap">
+                        <form catchsubmit="e_apply" data-catecode="{{item.cateCode}}" data-infoid="{{item.infoId}}" reportSubmit="{{true}}" wx:if="{{!flag}}">
+                            <button class="button-reset detail-btn detail-btn-zhao-pin" formType="submit" id="list-btn">投递</button>
+                        </form>
+                    </view>
+                </view>
+                <view class="tel-btn-wrap" wx:elif="{{item.cateCode===6||item.cateCode===7||item.cateCode===10}}">
+                    <form catchsubmit="e_phone" data-catecode="{{item.cateCode}}" data-infoid="{{item.infoId}}" reportSubmit="{{true}}">
+                        <button class="button-reset detail-big-btn" formType="submit" id="list-btn"></button>
+                    </form>
+                </view>
+                <view class="tel-btn-wrap tel-btn-wrap-top" wx:elif="{{item.cateCode===8}}">
+                    <form catchsubmit="e_phone" data-catecode="{{item.cateCode}}" data-infoid="{{item.infoId}}" reportSubmit="{{true}}">
+                        <button class="button-reset detail-big-btn" formType="submit" id="list-btn"></button>
+                    </form>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="loading-more" wx:if="{{hasMore||loading}}">
+        <icon class="loading-icon"></icon>正在加载</view>
+</template>

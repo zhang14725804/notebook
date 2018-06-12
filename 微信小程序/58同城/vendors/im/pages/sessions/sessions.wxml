@@ -1,0 +1,8 @@
+<import src="../../templates/session/list.wxml"></import>
+<view bindtap="goToFriend" class="friendEnter" data-url="/pages/friend/friend?friendType=push&friendPath=chat">
+    <image class="friend-icon" src="../../../../images/friends.png"></image>
+    <view class="friend-name">默契聊天</view>
+    <view class="friend-count" wx:if="{{imCount>0}}">
+        <text>{{imCount}}</text>条</view>
+</view>
+<template is="session-list" data="{{sessionList:sessionList,loadStatus:loadStatus,loginStatus:loginStatus,routeType:routeType}}"></template>

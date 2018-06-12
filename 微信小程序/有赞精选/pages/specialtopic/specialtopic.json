@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "take-coupon": "../../customer-components/take-coupon/index"
+    }
+}

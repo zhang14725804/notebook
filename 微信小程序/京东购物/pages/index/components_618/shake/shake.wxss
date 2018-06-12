@@ -1,0 +1,149 @@
+.shake {
+    position: fixed;
+    top: 0;
+    right: 20px;
+    z-index: 251;
+    width: 42px;
+    transform: translateY(-105px);
+    transition: transform .5s ease;
+    transition: transform .5s ease,-webkit-transform .5s ease;
+}
+
+.shake::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 50px;
+    background-color: #fff;
+}
+
+.shake.shake--show {
+    transform: translateY(0);
+}
+
+.shake__wrap {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 42px;
+    height: 52px;
+}
+
+.shake__wrap.shake__wrap--anim {
+    animation: anim_shake 2s linear 0.5s;
+}
+
+.shake__image {
+    width: 100%;
+    height: 100%;
+}
+
+@-webkit-keyframes anim_shake {
+    0% {
+        transform: translateY(0);
+    }
+
+    10% {
+        transform: translateY(-4px);
+    }
+
+    20% {
+        transform: translateY(0);
+    }
+
+    55% {
+        transform: rotate(0);
+    }
+
+    59% {
+        transform: rotate(-10deg);
+    }
+
+    66% {
+        transform: rotate(10deg);
+    }
+
+    70% {
+        transform: rotate(0);
+    }
+
+    74% {
+        transform: rotate(-10deg);
+    }
+
+    81% {
+        transform: rotate(10deg);
+    }
+
+    85% {
+        transform: rotate(0);
+    }
+
+    89% {
+        transform: rotate(-10deg);
+    }
+
+    96% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+@keyframes anim_shake {
+    0% {
+        transform: translateY(0);
+    }
+
+    10% {
+        transform: translateY(-4px);
+    }
+
+    20% {
+        transform: translateY(0);
+    }
+
+    55% {
+        transform: rotate(0);
+    }
+
+    59% {
+        transform: rotate(-10deg);
+    }
+
+    66% {
+        transform: rotate(10deg);
+    }
+
+    70% {
+        transform: rotate(0);
+    }
+
+    74% {
+        transform: rotate(-10deg);
+    }
+
+    81% {
+        transform: rotate(10deg);
+    }
+
+    85% {
+        transform: rotate(0);
+    }
+
+    89% {
+        transform: rotate(-10deg);
+    }
+
+    96% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}

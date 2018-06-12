@@ -1,0 +1,145 @@
+.scene-view {
+    position: relative;
+    box-sizing: border-box;
+    background: #f8f8f8;
+    width: 100%;
+    z-index: 90;
+    padding-bottom: 20rpx;
+}
+
+.scene {
+    background: #fff;
+    padding: 20rpx;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    height: auto;
+    flex-flow: row wrap;
+    align-content: flex-start;
+}
+
+.scene-item {
+    flex: 0 0 50%;
+    height: 236rpx;
+    display: block;
+    position: relative;
+    padding: 5rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.whole {
+    flex-basis: 100%;
+}
+
+.half {
+    flex-basis: 50%;
+}
+
+.scene .link {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.scene .mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 4rpx;
+}
+
+.scene .bg {
+    position: absolute;
+    bottom: 0;
+    max-width: 60%;
+}
+
+.whole .bg {
+    width: 39%;
+    height: 90%;
+    right: 5%;
+}
+
+.half .bg {
+    width: 53%;
+    height: 60%;
+    right: 1rpx;
+    border-bottom-right-radius: 4rpx;
+}
+
+.scene .tip {
+    position: absolute;
+    left: 0;
+    height: 38rpx;
+    width: 50%;
+    background-size: auto 38rpx;
+    background-repeat: no-repeat;
+    border-top-left-radius: 4rpx;
+}
+
+.scene .desc {
+    position: absolute;
+    top: 50rpx;
+    left: 15rpx;
+    max-width: 90%;
+    display: block;
+    overflow: hidden;
+}
+
+.whole .desc {
+    max-width: 56%;
+}
+
+.scene .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #222;
+    font-size: 24rpx;
+    font-weight: 700;
+}
+
+.scene .tag {
+    color: #666;
+    margin-top: 10rpx;
+    font-size: 21rpx;
+}
+
+.half .tag {
+    max-width: 180rpx;
+}
+
+.scene .discount-wrap {
+    margin-bottom: 10rpx;
+}
+
+.scene .discount {
+    display: inline;
+    padding: 5rpx 10rpx;
+    height: 35rpx;
+    font-size: 21rpx;
+    border-radius: 4rpx;
+    width: auto;
+}
+
+.formButton {
+    width: inherit;
+    height: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: inherit;
+    line-height: inherit;
+    font-size: inherit;
+    display: inline;
+    text-align: left;
+    position: static;
+}
+
+.formButton::after {
+    content: "";
+    display: none;
+}

@@ -1,0 +1,6 @@
+<view class="msxcx-p-noweb">
+    <image mode="widthFix" src="../../images/mitu-sorry.png"></image>
+    <text>额...网络不给力</text>
+    <text>点击屏幕，返回首页</text>
+</view>
+<view bindtap="tapGoBack" style="z-index:10;position:absolute;top:0;left:0;width:100%;height:100%;"></view>

@@ -1,0 +1,5 @@
+<view class="canvas-box">
+    <canvas canvasId="canvasDraft" class="canvas-draft" wx:if="{{showCanvasDraft}}"></canvas>
+    <canvas canvasId="canvasMain" class="canvas-main"></canvas>
+</view>
+<button bindtap="saveImg">保存图片</button>

@@ -1,0 +1,40 @@
+.countdown {
+    display: inline-block;
+}
+
+.countdown__day,.countdown__hour,.countdown__minute,.countdown__second {
+    display: inline-block;
+    margin: 0 3px;
+    padding: 0 3px;
+    line-height: 16px;
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+.countdown__time-text {
+    font-size: 12px;
+}
+
+.countdown--black {
+    color: #fff;
+}
+
+.countdown--black .countdown__day,.countdown--black .countdown__hour,.countdown--black .countdown__minute,.countdown--black .countdown__second {
+    background-color: #333;
+}
+
+.countdown--black .countdown__time-text {
+    color: #333;
+}
+
+.countdown--white {
+    color: #ff4343;
+}
+
+.countdown--white .countdown__day,.countdown--white .countdown__hour,.countdown--white .countdown__minute,.countdown--white .countdown__second {
+    background-color: #fff;
+}
+
+.countdown--white .countdown__time-text {
+    color: #fff;
+}

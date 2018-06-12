@@ -1,0 +1,10 @@
+{
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "当前定价",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "light",
+    "usingComponents": {
+        "ahs-alert": "../../components/ahs-alert/ahs-alert"
+    }
+}

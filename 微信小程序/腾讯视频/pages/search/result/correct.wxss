@@ -1,0 +1,12 @@
+.correct {
+    height: 140rpx;
+    background-color: #f5f7f9;
+    line-height: 48rpx;
+    padding: 22rpx 32rpx;
+    color: #222;
+    font-size: 30rpx;
+}
+
+.correct .search-hl {
+    font-weight: 900;
+}

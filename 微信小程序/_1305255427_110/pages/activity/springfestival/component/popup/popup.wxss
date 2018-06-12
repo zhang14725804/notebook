@@ -1,0 +1,197 @@
+.ahs-popup-container {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.mask-layer {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    opacity: 0.3;
+}
+
+.property-value__popup {
+    position: relative;
+    width: 640rpx;
+    margin: 170rpx 55rpx auto 55rpx;
+    border-radius: 10rpx;
+}
+
+.slide-text-container {
+    width: 640rpx;
+    word-wrap: break-word;
+    white-space: normal;
+    box-sizing: border-box;
+    overflow: auto;
+    text-align: center;
+}
+
+.property-value__popup .slide-text {
+    font-size: 30rpx;
+    line-height: 42rpx;
+    color: #353535;
+}
+
+.popup-close {
+    position: absolute;
+    left: 50%;
+    margin-left: -31rpx;
+    bottom: -112rpx;
+    height: 62rpx;
+    width: 62rpx;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 60rpx;
+    text-align: center;
+    line-height: 62rpx;
+    background-image: url('https://sr.aihuishou.com/activity/minapp/icon-cancel.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.refresh-container {
+    text-align: center;
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rpx;
+}
+
+.refresh-container image {
+    width: 330rpx;
+    height: 198rpx;
+    margin: 53rpx 155rpx 41rpx 155rpx;
+}
+
+.refresh-text {
+    font-size: 32rpx;
+    padding: 0 63rpx;
+    width: 514rpx;
+    overflow: hidden;
+}
+
+.refresh-navigator {
+    width: 536rpx;
+    height: 104rpx;
+    border-radius: 51rpx;
+    color: #fff;
+    background-color: #FF501A;
+    line-height: 104rpx;
+    margin: 64rpx 52rpx 70rpx 52rpx;
+    padding: 0;
+}
+
+.refresh-navigator:after {
+    border: none;
+}
+
+.envelope-title-image {
+    width: 105rpx;
+    height: 105rpx;
+    margin: 202rpx 186rpx 43rpx 186rpx;
+}
+
+.envelope-userInfo image {
+    width: 54rpx;
+    height: 54rpx;
+    border-radius: 54rpx;
+    vertical-align: middle;
+    background-image: url('https://sr.aihuishou.com/activity/minapp/defaultmiddle.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.envelope-tips-title {
+    font-size: 32rpx;
+    margin-bottom: 14rpx;
+}
+
+.envelope-tips-content {
+    color: #666;
+    font-size: 28rpx;
+    margin-bottom: 100rpx;
+    padding: 0 124rpx;
+}
+
+.popup-navigator {
+    width: 536rpx;
+    height: 104rpx;
+    line-height: 104rpx;
+    color: #F24540;
+    margin: 0 52rpx;
+    background-color: #fff;
+    padding: 0;
+    font-size: 32rpx;
+    border: 0;
+}
+
+.popup-navigator:after {
+    border: none;
+}
+
+.envelope-title-text {
+    font-size: 32rpx;
+    text-align: center;
+    padding-top: 170rpx;
+    padding-bottom: 20rpx;
+    color: #F24540;
+}
+
+.envelope-userInfo {
+    font-size: 32rpx;
+    vertical-align: middle;
+}
+
+.envelope-container {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://sr.aihuishou.com/activity/minapp/envelope.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.fireworks {
+    background-image: url('https://sr.aihuishou.com/activity/minapp/envelopefireworks.png');
+}
+
+.getphone-container {
+    padding: 64rpx 0;
+    background-color: #fff;
+    border-radius: 10rpx;
+    text-align: center;
+}
+
+.getphone-container p {
+    font-size: 36rpx;
+}
+
+.getphone-text {
+    font-size: 32rpx;
+    color: #666;
+    margin: 20rpx 74rpx 48rpx 74rpx;
+}
+
+.getphone-navigator {
+    width: 536rpx;
+    height: 104rpx;
+    background: rgba(0,175,56,1);
+    border-radius: 51rpx;
+    color: #fff;
+    margin: 0 52rpx;
+    line-height: 104rpx;
+    border: 0;
+    padding: 0;
+    border-color: #fff;
+}
+
+.getphone-navigator:after {
+    border: none;
+}

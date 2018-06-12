@@ -1,0 +1,11 @@
+<template name="store-business-status">
+    <view class="store-business__status-container {{fixedYouzanApp?'store-business__status-container--youzan':''}}">
+        <image src="https://img.yzcdn.cn/public_files/2018/02/12/4183ec312503e7a702708d90cab325b8.png"></image>
+        <view class="store-business__status-tip">
+            <view>休息中，暂停接单</view>
+            <view class="zan-font-12 zan-c-gray-darker" wx:if="{{business}}">
+        营业时段：{{business}}
+      </view>
+        </view>
+    </view>
+</template>

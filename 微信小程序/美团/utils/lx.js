@@ -1,0 +1,1 @@
+module.exports = require("../npm/@analytics/wechat-sdk/lib/index.js");

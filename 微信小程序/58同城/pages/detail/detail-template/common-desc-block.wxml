@@ -1,0 +1,10 @@
+<template name="common-desc-block">
+    <view class="fang-block-house-intro marg-top" wx:if="{{info.content}}">
+        <view class="house-intro-title">
+            <text>{{descTitle}}</text>
+        </view>
+        <view class="fang-reason {{spread?'kuozhan':''}} ersc-cw-desc-block">
+            <text>{{info.content}}</text>
+        </view>
+    </view>
+</template>

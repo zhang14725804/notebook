@@ -1,0 +1,8 @@
+<view class="container-main">
+    <view class="panel-icon">
+        <view catchtap="e_goTo" class="icon-wrapper" data-url="{{item.url}}" wx:for="{{icons}}" wx:key="index">
+            <view class="icon {{item.class}}"></view>
+            <view class="icon-text">{{item.text}}</view>
+        </view>
+    </view>
+</view>

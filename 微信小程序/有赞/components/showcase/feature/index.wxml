@@ -1,0 +1,32 @@
+<template name="theme-feature">
+    <template is="theme-feature-{{item.itemType}}" data="{{data:item,index:index,extra:extra,themeClass:themeClass}}" wx:if="{{item.itemType&&item.itemType!=='null'}}" wx:for="{{theme}}" wx:key="unique"></template>
+    <view id="theme-feature__content-end-hook" style="height: 1px;"></view>
+    <template is="zan-loadmore" data="{{nomore:false,loading:true}}" wx:if="{{extra.showLoading}}"></template>
+</template>
+<import src="../../../bower_components/zan/dist/loadmore/index.wxml"></import>
+<import src="components/audio/index.wxml"></import>
+<import src="components/broadcast/index.wxml"></import>
+<import src="components/coupon/index.wxml"></import>
+<import src="components/divider/index.wxml"></import>
+<import src="components/emptyspace/index.wxml"></import>
+<import src="components/goods/index.wxml"></import>
+<import src="components/groupon/index.wxml"></import>
+<import src="components/nav/index.wxml"></import>
+<import src="components/image/index.wxml"></import>
+<import src="components/rich_text/index.wxml"></import>
+<import src="components/search/index.wxml"></import>
+<import src="components/store/index.wxml"></import>
+<import src="components/storeinfo/index.wxml"></import>
+<import src="components/taglist/taglistLeft.wxml"></import>
+<import src="components/taglist/taglistTop.wxml"></import>
+<import src="components/texts/index.wxml"></import>
+<import src="components/offline_shop_info/index.wxml"></import>
+<import src="components/contact_us/index.wxml"></import>
+<import src="components/title/index.wxml"></import>
+<import src="components/link/index.wxml"></import>
+<import src="components/cube/index.wxml"></import>
+<import src="components/ump_limitdiscount/index.wxml"></import>
+<import src="components/ump_seckill/index.wxml"></import>
+<import src="components/unicashier/index.wxml"></import>
+<import src="components/column/index.wxml"></import>
+<import src="components/content/index.wxml"></import>

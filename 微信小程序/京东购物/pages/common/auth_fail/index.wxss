@@ -1,0 +1,81 @@
+.fail_intro {
+    padding: 0 20px;
+    background: #fff;
+}
+
+.fail_intro_img {
+    width: 175px;
+    height: 140px;
+    margin: 0 auto;
+    padding: 40px 0 12px 0;
+}
+
+.fail_intro_img image {
+    width: 100%;
+    height: 100%;
+}
+
+.fail_intro_tit {
+    font-size: 19px;
+    color: #666;
+    text-align: center;
+}
+
+.fail_intro_reason {
+    font-size: 15px;
+    color: #666;
+    text-align: center;
+    padding-top: 12px;
+}
+
+.fail_intro_rst {
+    font-size: 12px;
+    color: #999;
+    padding-top: 20px;
+    padding-bottom: 55px;
+}
+
+.fail_how {
+    padding: 0 20px 40px;
+}
+
+.fail_how_tit {
+    font-size: 15px;
+    color: #666;
+    padding: 20px 0 14px;
+}
+
+.fail_how_do {
+    display: flex;
+}
+
+.fail_how_todo,.fail_how .order {
+    font-size: 14px;
+    color: #999;
+}
+
+.fail_how_todo {
+    flex: 1;
+}
+
+.fail_how_img {
+    width: 212px;
+    margin: 20px auto;
+}
+
+.fail_how_img.again {
+    height: 110px;
+}
+
+.fail_how_img.auth {
+    height: 180px;
+}
+
+.fail_how_img image {
+    width: 100%;
+    height: 100%;
+}
+
+.fail_how .order {
+    width: 15px;
+}

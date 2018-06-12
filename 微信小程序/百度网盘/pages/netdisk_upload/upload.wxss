@@ -1,0 +1,54 @@
+@import "../../netdisk_templates/file_list/fileList.wxss";
+
+.mod-switch {
+    height: 79rpx;
+    padding-top: 21rpx;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 100;
+}
+
+.switch-container {
+    display: flex;
+    width: 690rpx;
+    height: 58rpx;
+    margin: 0 auto;
+    border: 1px solid #3888ff;
+    border-radius: 6rpx;
+    font-size: 26rpx;
+    line-height: 58rpx;
+    color: #3888ff;
+}
+
+.switch-tab {
+    flex: 1;
+    text-align: center;
+}
+
+.switch-netdisk {
+    background-color: #3888ff;
+    color: #fff;
+}
+
+.scroll-wrap {
+    padding-top: 200rpx;
+    width: 100%;
+    transition: 200ms linear height;
+    position: relative;
+    bottom: 110rpx;
+}
+
+.commit-btn {
+    position: fixed;
+    width: 100%;
+    height: 102rpx;
+    background-color: #3888ff;
+    color: #fff;
+    text-align: center;
+    line-height: 102rpx;
+    transition: 200ms linear bottom;
+    bottom: -120rpx;
+}

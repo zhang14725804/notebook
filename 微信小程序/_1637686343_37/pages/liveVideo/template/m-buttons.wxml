@@ -1,0 +1,26 @@
+<template name="m-buttonsFull-gray">
+    <view class="m-buttonsFull" wx:if="{{isSurportBtnShare}}">
+        <form bindsubmit="collectLiveShareForm" class="live-share-form" reportSubmit="true">
+            <button class="m-buttonsFull-btn buttonsFull-btn-gray" formType="submit" openType="share">
+                <image class="c-icon-liveVideo-share" src="/resource/images/c-icon-liveVideo-share.png"></image>
+                <text class="m-buttonsFull-btn-text">邀请好友{{getLiveStatus==0?'预约':'观看'}}</text>
+            </button>
+        </form>
+    </view>
+</template>
+<template name="m-buttonsFull-green">
+    <view class="sub-form-box" hidden="{{getLiveStatus!=0}}">
+        <form bindsubmit="subscribeSubmit" class="sub-form" data-qipu-id="{{program.id}}" data-subscribe-area="program" data-subscribe-disabled="{{program.disabled}}" data-subscribe-status="{{program.subscribeStatus}}" reportSubmit="true">
+            <view class="m-buttonsFull">
+                <button class="m-buttonsFull-btn buttonsFull-btn-green" disabled="{{program.disabled}}" formType="submit" hidden="{{program.subscribeStatus}}" loading="{{program.disabled}}" style="background-color:#0bbe06">
+                    <image class="c-icon-liveVideo-time" src="/resource/images/c-icon-liveVideo-time.png"></image>
+                    <text class="m-buttonsFull-btn-text">直播预约</text>
+                </button>
+                <button class="m-buttonsFull-btn buttonsFull-btn-ok" disabled="{{program.disabled}}" formType="submit" hidden="{{!program.subscribeStatus}}" loading="{{program.disabled}}" style="background-color:#fff">
+                    <image class="c-icon-liveVideo-ok" src="/resource/images/c-icon-checked-select.png"></image>
+                    <text class="m-buttonsFull-btn-text">已预约</text>
+                </button>
+            </view>
+        </form>
+    </view>
+</template>

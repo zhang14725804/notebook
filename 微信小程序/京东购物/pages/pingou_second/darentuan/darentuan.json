@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "达人团",
+    "usingComponents": {
+        "topbar": "./components/topbar/index",
+        "banner": "./components/banner/index",
+        "darentuan": "./components/darentuan/index",
+        "pingou-tips": "./components/pingouTips/index",
+        "hot-pin": "./components/populartuan/index",
+        "quick-nav": "../../../components/quick-nav-wqvue/index"
+    }
+}

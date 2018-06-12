@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "商品分类",
+    "onReachBottomDistance": 100,
+    "usingComponents": {
+        "sales-promotion": "components/promote-618/promote-618"
+    }
+}

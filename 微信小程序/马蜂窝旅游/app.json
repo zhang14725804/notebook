@@ -1,0 +1,18 @@
+{
+    "pages": [
+        "pages/gonglve/index",
+        "pages/gonglve/search",
+        "pages/gonglve/mdd",
+        "pages/gonglve/detail",
+        "pages/note/detail",
+        "pages/question/question",
+        "pages/question/questionDetail"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#ffc811",
+        "backgroundColor": "#fff",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "马蜂窝旅游"
+    }
+}

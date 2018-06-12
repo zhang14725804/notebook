@@ -1,0 +1,1 @@
+module.exports = require("../npm/@hfe/mp-owl/lib/index.js");

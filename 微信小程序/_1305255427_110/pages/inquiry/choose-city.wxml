@@ -1,0 +1,27 @@
+<view class="page-container">
+    <view class="section-current-city">
+        <text class="page-title">当前定位城市</text>
+        <view class="page-content">
+            <view bindtap="handleOnSelectCity" class="city-item" data-city="{{currentCity}}" wx:if="{{currentCity.id}}">{{currentCity.name}}</view>
+            <view class="city-item" wx:else>定位失败</view>
+        </view>
+    </view>
+    <view class="section-all-city">
+        <text class="page-title">服务开通城市</text>
+        <scroll-view class="page-content scrollview-content" scrollIntoView="{{toView}}" scrollTop="{{scroll_top}}" scrollY="true">
+            <view class="city-item-wrapper" wx:for="{{supportShopCityList}}" wx:for-index="cityindex">
+                <view class="city-item-title" id="{{item.name+'_view'}}" wx:if="{{item.id-1==cityindex}}" wx:for="{{supportCityIndexList}}">
+                    <view class="title-item" data-letter="item">
+            {{item.name}}</view>
+                </view>
+                <view bindtap="handleOnSelectCity" class="city-item" data-city="{{item}}">{{item.name}}</view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="search-index">
+        <view catchtouchend="handleOnSearchbarIndexTouchEnd" catchtouchmove="handleOnSearchbarIndexTouchMove" catchtouchstart="handleOnSearchbarIndexTouchStar" data-item="{{item}}" id="{{item.name}}" wx:for="{{supportCityIndexList}}">
+      {{item.name}}</view>
+    </view>
+    <view class="index-letter" wx:if="{{isShow_IndexLetter}}">{{index_letter}}</view>
+</view>
+<image class="piwik-image-placeholder" src="{{piwikSource}}"></image>

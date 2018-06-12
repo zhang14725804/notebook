@@ -1,0 +1,73 @@
+<view class="mod-p-price-rule must-be">
+    <view class="container">
+        <view class="mod-page-rule">
+            <view class="mod-detail">
+                <view class="mod-header">
+                    <view class="header-img">
+                        <view class="bg"></view>
+                        <image src="{{state.detailData.url}}"></image>
+                    </view>
+                    <view class="header-title">
+            {{state.detailData.title}}
+          </view>
+                </view>
+                <view class="mod-date-tab">
+                    <view class="date-tab-wrapper" xmlns:wx="" wx:if="{{state.detailData.strategies.length>1}}">
+                        <view class="day-lists">
+                            <view class="day-list-item" wx:for="{{state.detailData.strategies}}" wx:for-item="listItem">
+                                <view bindtap="_dispatch" class="day-item" data-bindtap="checkDay({{index}})" wx:if="{{item}}" wx:for="{{listItem}}">
+                                    <view class="itemspan active" wx:if="{{index==state.curr_day_type}}">{{index}}</view>
+                                    <view class="itemspan" wx:if="{{index!==state.curr_day_type}}">{{index}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="period-lists">
+                            <view class="period-list-item" wx:for="{{state.detailData.strategies}}" wx:for-item="listItem">
+                                <view class="period-item" wx:if="{{Item.start_time&&Item.stop_time&&index==state.curr_day_type}}" wx:for="{{listItem}}" wx:for-item="Item">
+                  {{Item.start_time}}-{{Item.stop_time}}
+                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="mod-content">
+                    <view wx:for="{{state.contentData.strategy}}" wx:for-item="listItem">
+                        <view class="vehicle-lists" wx:for="{{listItem}}" wx:for-index="vehicleItemIndex" wx:for-item="vehicleItem">
+                            <view class="mod-content-title">
+                                <view class="titlespan">{{vehicleItemIndex}}</view>
+                            </view>
+                            <view class="fee-lists">
+                                <view class="fee-item" wx:for="{{vehicleItem.items}}" wx:for-item="feeItem">
+                                    <view class="fee-name-item">
+                                        <view class="mod-sub-fee-items">
+                                            <view class="left">{{feeItem.name}}</view>
+                                            <view class="right">{{feeItem.value}}</view>
+                                        </view>
+                                    </view>
+                                    <view class="date-lists" wx:if="{{feeItem.sub_items&&feeItem.sub_items.length>0}}">
+                                        <view class="date-item" wx:for="{{feeItem.sub_items}}" wx:for-item="dateItem">
+                                            <view class="mod-sub-fee-items">
+                                                <view class="left">{{dateItem.name}}</view>
+                                                <view class="right">{{dateItem.value}}</view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                    <view class="fee-des-lists" wx:if="{{feeItem.sub_title&&feeItem.sub_title.length>0}}">
+                                        <view class="fee-des-item" wx:for="{{feeItem.sub_title}}" wx:for-item="subTitleItem">
+                                            <text>{{subTitleItem.name}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="notice-lists" wx:if="{{vehicleItem.notices&&vehicleItem.notices.length>0}}">
+                                    <view class="notice-item" wx:for="{{vehicleItem.notices}}" wx:for-item="noticeItem">
+                    {{noticeItem.name}}
+                  </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

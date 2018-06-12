@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "订单跟踪",
+    "usingComponents": {
+        "service-contact": "../components/service-contact/index",
+        "recommend": "/components/recommend/index",
+        "i-button": "/pages/components/button/index",
+        "dialog": "/common/dialog/dialog"
+    }
+}

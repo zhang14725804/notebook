@@ -1,0 +1,31 @@
+@import "check-order.wxss";
+
+.phone-type {
+    display: flex;
+}
+
+.phone-type view {
+    flex: 1;
+}
+
+.backup-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 30rpx;
+    font-size: 34rpx;
+}
+
+.backup-text text,.backup-text image {
+    flex: auto;
+}
+
+.backup-text.first {
+    margin-top: 55rpx;
+}
+
+.backup-text image {
+    width: 688rpx;
+    height: 565rpx;
+    margin: 80rpx 0;
+}

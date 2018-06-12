@@ -1,0 +1,30 @@
+<import src="./template/cityList.wxml"></import>
+<import src="./template/townList.wxml"></import>
+<import src="./template/townNav.wxml"></import>
+<import src="./template/townSearchList.wxml"></import>
+<form bindreset="form_reset" bindsubmit="submit">
+    <view class="city-header-fixed">
+        <view class="city-nav-wrap">
+            <view class="city-nav">
+                <button catchtap="e_cityNavChange" class="nav-item-btn {{navCheckedIndex===index?'on':''}}" data-index="{{index}}" formType="reset" plain="{{true}}" wx:for="{{cityNavList}}" wx:key="index">{{item.name}}</button>
+            </view>
+        </view>
+        <view class="city-search-header search_show">
+            <view class="city-search-border">
+                <icon class="city-search-icon" size="14" type="search"></icon>
+                <input bindinput="e_cityInput" class="city-search-input" placeholder="输入{{navCheckedIndex===0?'城市':'乡镇'}}名称"></input>
+                <button catchtap="e_resetTownScrollTop" class="reset-btn" formType="reset" plain="{{true}}" wx:if="{{searchKey.length>0}}"></button>
+            </view>
+            <button catchtap="e_cityBtnCancle" class="search-btn city-search-cancel">取消</button>
+        </view>
+        <view catchtap="e_changeCity" class="curr-city" wx:if="{{currCity!=''}}">定位城市： {{currCity}}</view>
+    </view>
+</form>
+<template is="town-nav" data="{{townNavList:townNavList}}" wx:if="{{navCheckedIndex===1&&!searchKey}}"></template>
+<view class="city-contain">
+    <scroll-view bindscroll="e_getScrollTop" bindscrolltolower="e_scrollToBottom" class="scroll-city-content{{navCheckedIndex===1&&!searchKey?' scroll-city-content-nav':''}}{{currCity==''?' scroll-city-content-nogps':''}}{{navCheckedIndex===1&&currCity==''?' scroll-city-content-nogps-town':''}}" scrollTop="{{scrollTop}}" scrollWithAnimation="{{true}}" scrollY="{{true}}">
+        <template is="city-list" data="{{cityList:cityList,currDispCityId:currDispCityId,searchKey:searchKey,citySouList:citySouList}}" wx:if="{{navCheckedIndex===0}}"></template>
+        <template is="town-list" data="{{townDetailList:townDetailList}}" wx:elif="{{navCheckedIndex===1&&!searchKey}}"></template>
+        <template is="town-search-list" data="{{townList:townList}}" wx:else></template>
+    </scroll-view>
+</view>

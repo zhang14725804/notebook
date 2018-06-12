@@ -1,0 +1,19 @@
+<view class="captcha">
+    <view class="title">输入验证码</view>
+    <view class="desc">
+        <text bindtap="_dispatch" data-bindtap="onClickRefresh">看不清？点击刷新</text>
+    </view>
+    <view class="image-wrapper">
+        <image binderror="_dispatch" bindload="_dispatch" bindtap="_dispatch" data-binderror="onCaptchaError" data-bindload="handleLoad" data-bindtap="onClickRefresh" src="{{state.url}}" xmlns:wx="" wx:if="{{state.renderImg}}"></image>
+    </view>
+    <view bindtap="_dispatch" class="canvas-wrapper" data-bindtap="onCanvasClick">
+        <view class="canvas-item {{state.code.length===0&&state.focus?'current':''}}">{{state.code[0]}}</view>
+        <view class="canvas-item {{state.code.length===1&&state.focus?'current':''}}">{{state.code[1]}}</view>
+        <view class="canvas-item {{state.code.length===2&&state.focus?'current':''}}">{{state.code[2]}}</view>
+        <view class="canvas-item {{state.code.length>=3&&state.focus?'current':''}}">{{state.code[3]}}</view>
+    </view>
+    <view class="warning {{warningCard.state.show?'show':''}}">
+        <view class="warning-title">{{warningCard.props.msg}}</view>
+    </view>
+    <input bindblur="_dispatch" bindinput="_dispatch" class="hidden-input" data-bindblur="onBlur" data-bindinput="onInput" focus="{{state.focus}}" maxlength="4" password="password" value="{{state.code}}"></input>
+</view>

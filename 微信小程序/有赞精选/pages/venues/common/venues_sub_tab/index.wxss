@@ -1,0 +1,28 @@
+.sub-tab {
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.sub-tab__fix {
+    overflow: hidden;
+    position: fixed;
+    top: 80rpx;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+    background-color: #f4f4f4;
+}
+
+.sub-tab__item {
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    padding-left: 30rpx;
+    text-align: center;
+    font-size: 24rpx;
+    padding: 20rpx 0;
+}
+
+.sub-tab .selected .sub-tab__inner {
+    color: #FF4444;
+}

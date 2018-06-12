@@ -1,0 +1,56 @@
+<template name="stocklistTemp3">
+    <view class="stocklistTemp3 remen">
+        <view class="tab-nav">
+            <view catchtap="bindChangeTab" class="tab-nav-btn {{selected[0]}}" data-tab="0">行业</view>
+            <view catchtap="bindChangeTab" class="tab-nav-btn {{selected[1]}}" data-tab="1">概念</view>
+        </view>
+        <view>
+            <swiper bindchange="bindSwipeChangeTab" current="{{curTab}}" duration="{{300}}" style="height:{{scrollHeight}}">
+                <swiper-item>
+                    <scroll-view scrollY="{{true}}" style="height:{{scrollHeight}};">
+                        <template is="stocklistTemp2" data="{{list:hylist,mkt:mkt,order:order1,listname:'行业',loadingFlag:loadingFlag,tipshow:tipshow,nodata:nodata,remenStyle:remenStyle}}"></template>
+                    </scroll-view>
+                </swiper-item>
+                <swiper-item>
+                    <scroll-view scrollY="{{true}}" style="height:{{scrollHeight}};">
+                        <template is="stocklistTemp2" data="{{list:gnlist,mkt:mkt,order:order2,listname:'概念',loadingFlag:loadingFlag,tipshow:tipshow,nodata:nodata,remenStyle:remenStyle}}"></template>
+                    </scroll-view>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+</template>
+<template name="stocklistTemp2">
+    <view style="{{remenStyle?remenStyle:''}}">
+        <view class="ranking-header">
+            <view class="ranking-header-left">{{listname}}名称</view>
+            <view bindtap="bindSort" class="ranking-header-mid blue">
+      涨跌幅
+      <view class="arrow-{{order}}" wx:if="{{!loadingFlag}}"></view>
+                <view class="loading" wx:if="{{loadingFlag}}"></view>
+            </view>
+            <view class="ranking-header-right">领涨股</view>
+        </view>
+        <view class="ranking-container" wx:if="{{nodata===false}}">
+            <view class="stocklist toggleList">
+                <navigator class="stocklist-panel" hoverClass="other-navigator-hover" url="../hqRanking/hqRanking?type=remen_{{mkt}}&bd_code={{Item.bd_code}}&bd_name={{Item.bd_name}}" wx:for="{{list}}" wx:for-index="idx" wx:for-item="Item" wx:key="bd_code">
+                    <view class="stocklist-left">
+                        <view class="stocklist-left-up--{{Item.nameSize}}">{{Item.bd_name}}</view>
+                    </view>
+                    <view class="stocklist-mid {{Item.Updown}} ">{{Item.bd_zdf}}</view>
+                    <view class="stocklist-right {{Item.nzg_name.length>6?'small':''}} {{Item.nzg_name.length>10?'extrasmall':''}} {{Item.nzg_name.length>14?'exextrasmall':''}} ">{{Item.nzg_name}}</view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="stocklistTemp"></template>
+<import src="/components/failureTip/index.wxml"></import>
+<view class="{{colorType}}">
+    <template is="failureTip" data="{{...failureTip}}"></template>
+    <template is="stocklistTemp{{temp}}" data="{{list:list,mkt:mkt,order:order,order1:order1,order2:order2,selected:selected,hylist:hylist,gnlist:gnlist,scrollHeight:scrollHeight,loadingFlag:loadingFlag,tipshow:tipshow,nodata:nodata,remenStyle:remenStyle,curTab:curTab}}"></template>
+    <view class="hqranking nodata" wx:if="{{nodata===true}}">
+        <view class="nodata-icon"></view>
+        <view class="nodata-text">当前网络状况不佳</view>
+    </view>
+</view>

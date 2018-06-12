@@ -1,0 +1,34 @@
+.filter-back {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 103rpx;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 99;
+}
+
+.filter {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #fafafa;
+    z-index: 100;
+}
+
+.filter-item {
+    height: 550rpx;
+    background-color: #fff;
+}
+
+.filter-item-li {
+    font-family: 'PingFangSC';
+    margin-left: 45rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: left;
+    border-bottom: 1rpx solid #F3F3F3;
+    color: #333;
+    font-size: 28rpx;
+}

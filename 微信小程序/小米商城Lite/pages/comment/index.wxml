@@ -1,0 +1,33 @@
+<scroll-view bindscrolltolower="load" lowerThreshold="100" scrollY="true" style="height:{{windowHeight}}px">
+    <view class="msxcx-p-comment-list">
+        <view class="msxcx-p-comment-list__item" wx:for="{{comments}}" wx:for-item="c">
+            <image class="avatar" mode="widthFix" src="{{c.user_avatar}}"></image>
+            <view class="name">{{c.user_name}}</view>
+            <view class="content">{{c.comment_content}}</view>
+            <view class="image">
+                <view wx:for="{{c.comment_images}}" wx:for-item="image">
+                    <image bindtap="viewImage" data-current="{{image}}" data-urls="{{c.comment_images}}" mode="aspectFill" src="http:{{image}}"></image>
+                </view>
+            </view>
+            <view class="sub">
+                <text>{{c.add_time}}</text>
+            </view>
+            <view class="reply" wx:if="{{c.reply_content!=''||c.user_replys.length!=0}}">
+                <text>
+                    <text class="orange">官方回复：</text>{{c.reply_content}}</text>
+                <text wx:for="{{c.user_replys}}" wx:for-item="r">
+                    <text>{{r.user_name}}：</text>{{r.reply_content}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="msxcx-widget-loading" wx:if="{{loading}}">
+        <view></view>
+        <text>加载中</text>
+    </view>
+    <view class="msxcx-widget-seprator" wx:if="{{page_current>=show_page&&show_page<page_total}}">
+        <text>只显示最热{{show_page*10}}条评论</text>
+    </view>
+    <view class="msxcx-widget-seprator" wx:if="{{page_current>=show_page&&show_page>=page_total}}">
+        <view></view>
+    </view>
+</scroll-view>

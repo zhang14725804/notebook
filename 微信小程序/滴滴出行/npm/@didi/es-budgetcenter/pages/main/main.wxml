@@ -1,0 +1,51 @@
+<view class="main">
+    <form bindsubmit="_dispatch" data-bindsubmit="useCarBtn">
+        <view class="txt-count">
+            <view class="count">
+                <p>
+                    <strong>本次车费预计</strong>
+                    <em id="count-forecasts">{{estimateprice.props.price}}<span>元</span>
+                    </em>
+                </p>
+            </view>
+        </view>
+        <view class="txt-setup">
+            <view class="ul">
+                <view catchtap="_dispatch" class="li" data-catchtap="searchBudget" data-path="selecteditem" data-require="{{selecteditem.props.budgetRequire}}" data-type="cost_center" wx:if="{{selecteditem.props.budgetShow}}">
+                    <view class="liStrong">成本中心</view>
+                    <view class="liSpan" data-id="{{selecteditem.props.defaultBudgetId}}" id="dataBudgetId">{{selecteditem.props.defaultBudget}}</view>
+                </view>
+                <view catchtap="_dispatch" class="li" data-catchtap="searchRemark" data-path="selecteditem" data-require="{{selecteditem.props.remarkRequire}}" data-type="remark" wx:if="{{selecteditem.props.remarkShow}}">
+                    <view class="liStrong">用车备注</view>
+                    <view class="liSpan" data-name="{{selecteditem.props.defaultRemark}}" data-status="{{selecteditem.props.remarkRequire}}" id="dataRemark">{{selecteditem.props.defaultRemark}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="txt-note" wx:if="{{state.remarkShow}}">
+            <view class="title">补充说明 (<text data-require="{{note.props.remarkRequire}}" id="noteRequire">{{note.props.remarkRequire=='0'?'必填':'选填'}}</text>)</view>
+            <view style="width:100%;height:72px;" wx:if="{{note.props.vwrapShow}}"></view>
+            <view wx:if="{{note.props.remarkNoteShow}}">
+                <textarea bindblur="_dispatch" data-bindblur="saveNote" data-path="note" id="remarkNote" maxlength="30" placeholder="请补充用车事由说明(限30个字符)" placeholderClass="textarea-placeholder" value="{{note.props.defaultNote}}"></textarea>
+            </view>
+        </view>
+        <view class="pos-bottom" wx:if="{{state.orderId}}">
+            <button class="btn-orange" formType="submit">确认信息</button>
+        </view>
+        <view class="pos-bottom" wx:else>
+            <button class="btn-orange" formType="submit">确认叫车</button>
+        </view>
+    </form>
+    <view animation="{{modaldialog.props.animationData}}" wx:if="{{modaldialog.props.showModalStatus}}">
+        <view class="drawer_screen"></view>
+        <div class="drawer_box">
+            <view class="drawer_icon">
+                <span class="icon_bg"></span>
+                <image class="img" src="https://es-static.xiaojukeji.com/static/web/didi_taxi/images/i-plaint.png"></image>
+            </view>
+            <view class="text">{{modaldialog.props.dialogText}}</view>
+            <view class="btn-cont">
+                <a bindtap="_dispatch" class="btn-orange" data-bindtap="powerDrawer" data-path="modaldialog" data-statu="close">我知道了</a>
+            </view>
+        </div>
+    </view>
+</view>

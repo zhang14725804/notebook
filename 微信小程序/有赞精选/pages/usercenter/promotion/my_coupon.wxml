@@ -1,0 +1,49 @@
+<template name="coupon_empty_view">
+    <view class="coupon-empty-view-container" style="height: {{empBgHeight}}px; width: {{empBgWidth}}px;">
+        <view class="coupon-empty-view-content">
+            <view class="coupon-empty-view-img" style="background-image: url({{empImgUrl}}); height: {{empImgHeight}}rpx; width: {{empImgWidth}}rpx; background-size: {{empImgWidth}}rpx {{empImgHeight}}rpx;"></view>
+            <view class="coupon-empty-view-hint">{{emptyHintText}}</view>
+            <text bindtap="onGotoHomePage" class="coupon-empty-view-button">随便逛逛</text>
+        </view>
+    </view>
+</template>
+<import src="../../../components/coupon/coupon_cell.wxml"></import>
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="../../../components/ZanAccount/index.wxml"></import>
+<import src="../../../components/ZanAccount/bindPhoneNumber/bindPhoneNumber.wxml"></import>
+<view class="coupon-page-container" style="height: {{winHeight}}px; width: {{winWidth}}px">
+    <view class="swiper-tab">
+        <view bindtap="swichNav" class="swiper-tab-list {{currentTab==0?'on':''}}" data-current="0">未使用</view>
+        <view bindtap="swichNav" class="swiper-tab-list {{currentTab==1?'on':''}}" data-current="1">已使用</view>
+        <view bindtap="swichNav" class="swiper-tab-list {{currentTab==2?'on':''}}" data-current="2">已失效</view>
+    </view>
+    <view class="swiper-container">
+        <swiper bindchange="bindChange" class="swiper-box" current="{{currentTab}}" duration="300" style="height:{{winHeight-40}}px;">
+            <swiper-item>
+                <scroll-view scrollY bindscrolltolower="onLoadMore" style="width: 100%; height:{{winHeight-40}}px;" wx:if="{{couponValid.length>0}}">
+                    <view class="outer_view" wx:for="{{couponValid}}" wx:for-item="coupon" wx:key="unique">
+                        <template is="coupon_card" data="{{coupon:coupon,index:index}}"></template>
+                    </view>
+                </scroll-view>
+                <template is="coupon_empty_view" data="{{winHeight:winHeight,winWidth:winWidth,...emptyBgData}}" wx:elif="{{!isValidLoading}}"></template>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view scrollY bindscrolltolower="onLoadMore" style="width: 100%; height: 100%;" wx:if="{{couponUsed.length>0}}">
+                    <view class="outer_view" wx:for="{{couponUsed}}" wx:for-item="coupon" wx:key="unique">
+                        <template is="coupon_card" data="{{coupon:coupon,index:index}}"></template>
+                    </view>
+                </scroll-view>
+                <template is="coupon_empty_view" data="{{winHeight:winHeight,winWidth:winWidth,...emptyBgData}}" wx:elif="{{!isUsedLoading}}"></template>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view scrollY bindscrolltolower="onLoadMore" style="width: 100%; height: 100%;" wx:if="{{couponInvalid.length>0}}">
+                    <view class="outer_view" wx:for="{{couponInvalid}}" wx:for-item="coupon" wx:key="unique">
+                        <template is="coupon_card" data="{{coupon:coupon,index:index}}"></template>
+                    </view>
+                </scroll-view>
+                <template is="coupon_empty_view" data="{{winHeight:winHeight,winWidth:winWidth,...emptyBgData}}" wx:elif="{{!isInvalidLoading}}"></template>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>

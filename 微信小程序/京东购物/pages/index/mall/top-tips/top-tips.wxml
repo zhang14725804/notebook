@@ -1,0 +1,2 @@
+<view class="top-tips" hidden="{{hideModule}}">
+    <view bindtap="closeModule" class="top-tips__close"></view>添加桌面抢先购</view>

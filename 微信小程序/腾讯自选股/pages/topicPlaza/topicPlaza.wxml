@@ -1,0 +1,22 @@
+<view class="topicPlaza nodata" wx:if="{{nodata}}">
+    <view class="nodata-icon"></view>
+    <view class="nodata-text">当前网络状况不佳</view>
+</view>
+<view class="topicPlaza">
+    <scroll-view scrollY bindscrolltolower="tolower" class="topicPlaza_scroll">
+        <view catchtap="bindTapComment" class="topicPlaza_item" data-dataObj="{{item}}" data-tid="{{item.topic_id}}" wx:for="{{topics}}" wx:for-index="idx" wx:key="idx">
+            <image class="topicPlaza_item_img" src="{{item.list_imgurl?item.list_imgurl:defaultImg}}"></image>
+            <view class="topicPlaza_item_mask"></view>
+            <view class="topicPlaza_item_con">
+                <view class="topicPlaza_item_con_title">{{item.topic}}</view>
+                <view class="topicPlaza_item_con_detail">
+                    <view class="topicPlaza_item_con_icon"></view>
+                    <view class="topicPlaza_item_con_text">{{item.count}}人已经参与了该话题</view>
+                </view>
+                <view class="topicPlaza_item_con_join">我也要说说</view>
+            </view>
+        </view>
+        <view class="topicPlaza_nodata" wx:if="{{!topics.length&&!loading}}">暂无话题</view>
+        <loadingOrMore id="loadingOrMore"></loadingOrMore>
+    </scroll-view>
+</view>

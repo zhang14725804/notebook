@@ -1,0 +1,32 @@
+.store-business__status-container {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    background: #FFF7CC;
+    z-index: 30;
+    display: flex;
+}
+
+.store-business__status-container--youzan {
+    bottom: 49px;
+}
+
+.store-business__status-container image {
+    width: 64px;
+    height: 45px;
+    margin: 15px;
+}
+
+.store-business__status-tip {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px 15px 15px 0;
+    box-sizing: border-box;
+}
+
+.store-business__status-tip>view:first-child {
+    font-size: 15px;
+    color: #111;
+}

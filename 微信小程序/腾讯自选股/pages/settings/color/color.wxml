@@ -1,0 +1,10 @@
+<view class="klineSetting__wrapper__select">
+    <view bindtap="changeColor" class="klineSetting__wrapper__select__option" data-colortype="hzld">
+        <view>红涨绿跌</view>
+        <view class="klineSetting__wrapper__select__option__nike{{settings.colorType=='hzld'?'--cur':''}}"></view>
+    </view>
+    <view bindtap="changeColor" class="klineSetting__wrapper__select__option" data-colortype="lzhd" style="border-bottom:none">
+        <view>绿涨红跌</view>
+        <view class="klineSetting__wrapper__select__option__nike{{settings.colorType=='hzld'?'':'--cur'}}"></view>
+    </view>
+</view>

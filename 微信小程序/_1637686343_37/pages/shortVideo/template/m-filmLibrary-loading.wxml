@@ -1,0 +1,18 @@
+<template name="m-filmLibrary-loading">
+    <view class="m-filmLibrary-loading" wx:if="{{load=='show'}}">
+        <text>正在加载...</text>
+    </view>
+    <view class="m-filmLibrary-loading" wx:if="{{load=='error'}}">
+        <text>暂无新内容</text>
+    </view>
+    <view class="m-filmLibrary-loading" wx:if="{{load=='nomore'}}">
+        <text>暂无新内容</text>
+    </view>
+    <view bindtap="{{errorHandler}}" class="m-box-cover" wx:if="{{load=='firstError'}}">
+        <view class="m-tips">
+            <image class="c-icon-tips" height="90" src="/resource/images/c-icon-tips.png" width="90"></image>
+            <text class="m-tips_tx">未获取到内容</text>
+            <text class="m-tips_tx">请点击页面重试</text>
+        </view>
+    </view>
+</template>

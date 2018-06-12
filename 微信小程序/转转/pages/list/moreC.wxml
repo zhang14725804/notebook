@@ -1,0 +1,40 @@
+<view class="pageFrame _18ffead">
+    <view class="navigationBar _18ffead"></view>
+    <view class="pageBody _18ffead">
+        <scroll-view bindscrolltolower="loadMore" class="list-page" enableBackToTop="enable-back-to-top" scrollTop="{{scrollTop}}" scrollY="true" wx:if="{{showPage}}">
+            <view class="goods-list">
+                <view bindtap="$GoodsListC$clickHandler" class="item-list-container{{index%2==0?' left-item':''}}" data-index="{{index}}" wx:for="{{$GoodsListC$goodsList}}" wx:key="{{item.infoId}}">
+                    <view class="item-img-list">
+                        <image class="item-img" mode="aspectFill" src="{{item.pic}}"></image>
+                    </view>
+                    <view class="item-desc">
+                        <view class="item-list-title">
+                            <text class="item-title">{{item.title}}</text>
+                        </view>
+                        <view class="item-list-price">
+                            <view class="item-nowPrice" wx:if="{{item.price&&item.price>0}}">
+                                <i>￥</i>{{item.price}}</view>
+                        </view>
+                        <view class="item-list-local">
+                            <view>{{item.city}}{{item.city&&item.area?' | ':''}}{{item.area}}</view>
+                        </view>
+                    </view>
+                    <form bindsubmit="$GoodsListC$sendFromId" class="form" data-index="{{index}}" reportSubmit="true">
+                        <button class="submit-button" formType="submit"></button>
+                    </form>
+                </view>
+            </view>
+            <view class="loading-tip _580173e" wx:if="{{$LoadingMore$showTip}}">
+                <image class="loading-icon _580173e" src="{{$LoadingMore$tip.icon}}"></image>
+                <text class="loading-text _580173e">{{$LoadingMore$tip.text}}</text>
+            </view>
+            <view bindtap="backTopHandler" class="back-top"></view>
+        </scroll-view>
+        <view class="zzwa_loading" wx:else></view>
+    </view>
+    <view bindtap="$PageFrame$BackHome$onBackHome" bindtouchstart="$PageFrame$BackHome$onTouchstart" catchtouchmove="$PageFrame$BackHome$onTouchmove" class="backHome {{$PageFrame$BackHome$pageBodyReady?'ready':'unready'}} _757a836 _18ffead" style="background-image: url('{{$PageFrame$BackHome$backHome.icon}}'); {{$PageFrame$BackHome$backHome.extraStyle}}; transform: translate3d({{$PageFrame$BackHome$eleOffset.x}}px, {{$PageFrame$BackHome$eleOffset.y}}px, 0); " wx:if="{{$PageFrame$BackHome$backHome.show}}"></view>
+    <view bindtap="$PageFrame$ErrorTip$refresh" class="tip _f2dd71c _18ffead" wx:if="{{$PageFrame$ErrorTip$show}}">
+        <image class="error-icon _f2dd71c" src="{{$PageFrame$ErrorTip$icon}}"></image>
+        <view class="error-tip _f2dd71c">{{$PageFrame$ErrorTip$errorTip}}</view>
+    </view>
+</view>

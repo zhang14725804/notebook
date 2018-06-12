@@ -1,0 +1,15 @@
+@import "../../../../components/formidReciver/index.wxss";
+
+.swiper-wrapper {
+    height: 400rpx;
+}
+
+.swiper-wrapper__navigator {
+    height: 100%;
+    position: relative;
+}
+
+.swiper-wrapper__img {
+    width: 100%;
+    height: 100%;
+}

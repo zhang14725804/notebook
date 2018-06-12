@@ -1,0 +1,71 @@
+.card {
+    margin-bottom: 20rpx;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.image-layout {
+    height: 285rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.image {
+    width: 100%;
+    height: 285rpx;
+    background-color: #eee;
+    position: absolute;
+}
+
+.cover-modal {
+    width: 100%;
+    height: 285rpx;
+    background: #000;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.title {
+    position: relative;
+    width: 100%;
+    height: 285rpx;
+    line-height: 285rpx;
+    color: #fff;
+    font-size: 40rpx;
+    padding: 0 20rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+.info {
+    display: flex;
+    width: 100%;
+    height: 88rpx;
+    padding-top: 32rpx;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-left: 39rpx;
+    left: 0;
+    background-color: white;
+}
+
+.doctor-name {
+    font-size: 26rpx;
+    color: #1c1c1c;
+    line-height: 36rpx;
+}
+
+.gray-text {
+    font-size: 26rpx;
+    left: 0;
+    color: #c3c3c3;
+    line-height: 36rpx;
+}

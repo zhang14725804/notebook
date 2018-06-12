@@ -1,0 +1,125 @@
+@import "../../../../components/copyright/index.wxss";
+
+.multi-store__choose-shop {
+    background: #f8f8f8;
+    min-height: 70vh;
+}
+
+.choose-shop__header {
+    height: 110px;
+    text-align: center;
+}
+
+.choose-shop__header image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    margin: 20px 0 10px;
+}
+
+.choose-shop__action-bar {
+    display: flex;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.choose-shop__action-bar>view:first-child {
+    flex: 1;
+}
+
+.choose-shop__tabs {
+    color: #666666;
+    line-height: 14px;
+    text-align: left;
+    display: flex;
+    width: 162px;
+    align-items: center;
+}
+
+.choose-shop__tab {
+    padding: 0 10px;
+    position: relative;
+    white-space: nowrap;
+    height: 44px;
+    line-height: 44px;
+}
+
+.choose-shop__tab>icon {
+    top: 4px;
+    position: relative;
+}
+
+.choose-shop__tab::after {
+    content: '';
+    height: 13px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 1px;
+    background: #d8d8d8;
+}
+
+.choose-shop__tab:last-child::after {
+    display: none;
+}
+
+.choose-shop__shop-list {
+    background: #fff;
+    height: calc(100vh - 43px);
+}
+
+.location-type .choose-shop__shop-list {
+    background: #fff;
+    height: calc(100vh - 43px - 44px);
+}
+
+.choose-shop__send-address {
+    background: #fff;
+    padding: 10px 15px;
+}
+
+.choose-shop__send-address::after {
+    left: 0;
+}
+
+.choose-shop__send-address .zan-cell__bd {
+    display: flex;
+    align-items: flex-start;
+    color: #333;
+}
+
+.choose-shop__send-address .zan-cell__bd view:last-child:after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: relative;
+    right: 0;
+    top: 15px;
+    left: 10px;
+    border-top: 6px solid #333;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.choose-shop__tab.active {
+    border-bottom: 2px solid #f44;
+    color: #f44;
+    height: 42px;
+    line-height: 42px;
+}
+
+.choose-shop__shop-list .zan-cell,.choose-shop__shop-list .location-result__item-base {
+    pointer-events: none;
+}
+
+.location-result__item-base {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px 0;
+    margin-bottom: -12px;
+    align-items: center;
+}

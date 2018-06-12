@@ -1,0 +1,19 @@
+<view class="top">
+    <image class="successIcon" src="../../resource/images/reservation/success.png"></image>
+    <text class="successText">预约成功</text>
+    <text>请保持电话畅通，门店小哥会联系您哦</text>
+</view>
+<view class="shadow"></view>
+<view class="info">
+    <text class="shop_name">{{shop.name}}</text>
+    <text class="shop_address">{{shop.address}}</text>
+    <view class="contact">
+        <span bindtap="handleClickPhone" class="info_phone" data-mobile="">联系门店</span>
+        <span bindtap="handleClickMap" data-shop="">查看地图</span>
+    </view>
+    <text class="tips">
+        <text class="tip_title">温馨提示:</text>
+        <text class="tip_desc">前往门店前，记得带上您的身份证，满18岁才可以交易</text>
+    </text>
+    <view bindtap="handleBack" class="back">返回首页</view>
+</view>

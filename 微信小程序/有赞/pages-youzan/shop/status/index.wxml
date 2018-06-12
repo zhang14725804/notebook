@@ -1,0 +1,14 @@
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/loadmore/index.wxml"></import>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+<view class="container center">
+    <view class="shop-empty">
+        <view class="shop-empty__pic"></view>
+        <view class="shop-empty__title" wx:if="{{title}}">{{title}}</view>
+        <template is="zan-loadmore" data="{{loading:loading}}"></template>
+        <view class="shop-empty__action" wx:if="{{!showBtn&&!loading}}">请登录电脑端 youzan.com 查看</view>
+        <view bindtap="jumpToCreateShop" class="shop-empty__action zan-btn zan-btn--primary" wx:if="{{showBtn}}">立即开店</view>
+    </view>
+</view>
+<import src="../../../pages/common/wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

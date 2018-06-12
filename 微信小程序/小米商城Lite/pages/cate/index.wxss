@@ -1,0 +1,124 @@
+page {
+    position: relative;
+    height: 100%;
+    background: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+view.l {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 160rpx;
+    height: 100%;
+    border-right: 1rpx solid #ebebeb;
+    overflow: auto;
+}
+
+view.l>view {
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+}
+
+view.l>view.current {
+    font-size: 32rpx;
+    color: #ff4a00;
+}
+
+scroll-view {
+    position: absolute;
+    top: 0;
+    left: 160rpx;
+    right: 0;
+    padding-bottom: 32rpx;
+    margin: 0 auto;
+    width: 540rpx;
+    height: 100%;
+}
+
+.mx-cate-title {
+    padding-top: 16px;
+    text-align: center;
+    height: 44px;
+    line-height: 44px;
+    overflow: hidden;
+}
+
+.mx-cate-title>view {
+    display: inline-block;
+}
+
+.mx-cate-title>view::before {
+    content: '';
+    float: left;
+    margin: 43rpx 0 0;
+    width: 32rpx;
+    height: 2rpx;
+    background: #d9d9d9;
+}
+
+.mx-cate-title>view::after {
+    content: '';
+    float: left;
+    margin: 43rpx 0 0;
+    width: 32rpx;
+    height: 2rpx;
+    background: #d9d9d9;
+}
+
+.mx-cate-title>view text {
+    float: left;
+    margin: 0 16px;
+    font-size: 16px;
+    color: #424242;
+}
+
+.mx-cate {
+    margin: 0 auto;
+    width: 270px;
+    overflow: auto;
+}
+
+.mx-cate>view {
+    float: left;
+    padding: 8px 0;
+    width: 90px;
+    text-align: center;
+    border-radius: 6rpx;
+}
+
+.mx-cate>view view {
+    margin: 0 auto 8px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.mx-cate>view image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.mx-cate>view text {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 0 8rpx;
+}
+
+.mx-cate>view:active view image {
+    margin: 5rpx;
+    width: 45px;
+    height: 45px;
+    transition: 100ms;
+}

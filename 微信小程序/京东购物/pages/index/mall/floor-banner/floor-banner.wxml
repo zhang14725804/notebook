@@ -1,0 +1,10 @@
+<view class="floor-banner" wx:if="{{bannerData.length}}">
+    <swiper bindchange="onSwiperChange" circular="true" class="floor-banner-swiper">
+        <swiper-item bind:tap="gotoUrl" class="floor-banner-swiper__item" data-url="{{item.url}}" wx:for="{{bannerData}}" wx:key="url">
+            <image class="floor-banner-swiper__image bg_stamp" src="{{item.image}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="floor-banner-dot" wx:if="{{bannerData.length>1}}">
+        <view class="floor-banner-dot__item floor-banner-dot__item--{{index==swiperIdx?'cur':''}}" wx:for="{{bannerData}}" wx:key="url"></view>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+{
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "领取卡券",
+    "backgroundColor": "#fde3cf",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+}

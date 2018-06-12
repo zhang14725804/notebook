@@ -1,0 +1,33 @@
+<view class="timepicker">
+    <view class="header">
+        <view bindtap="onCancelTap" class="cancel">取消</view>
+        <view class="title">{{title}}</view>
+    </view>
+    <view class="navs">
+        <view bindtap="{{navigator.disabled?'':'onDayTap'}}" class="nav-item day {{navigator.selected?'selected ':''}}{{navigator.disabled?'disabled ':''}}" data-date="{{navigator.date}}" wx:for="{{navigatorList}}" wx:for-index="idx" wx:for-item="navigator" wx:key="idx">
+            <text class="description">{{navigator.description}}</text>
+            <text class="show">{{navigator.dataShow}}</text>
+        </view>
+        <view bindtap="onCalendarTap" class="nav-item calendar">
+            <text class="description">更多</text>
+            <image class="show icon-daychoice" src="https://img.yzcdn.cn/public_files/2017/07/16/bc2632f8df4c1455bb8d7d7dd83e73dd.png"></image>
+        </view>
+    </view>
+    <scroll-view class="slot-panel" scrollIntoView="current" scrollY="true">
+        <block wx:for="{{rows}}" wx:for-index="idx" wx:for-item="row" wx:key="idx">
+            <view class="seperator" wx:if="{{row.type=='seperator'}}">
+        {{row.description}}
+      </view>
+            <view class="slot-row" wx:if="{{row.type=='data'}}">
+                <block wx:for="{{row.slots}}" wx:for-index="idx2" wx:for-item="slot" wx:key="idx2">
+                    <view bindtap="{{slot.enabled?'onSlotTap':''}}" class="slot {{slot.enabled?'':'disabled '}}{{slot.selected?'selected ':''}}" data-end="{{slot.end}}" data-start="{{slot.start}}" wx:if="{{!slot.fake}}">
+            {{slot.show}}
+          </view>
+                    <view class="slot fake" wx:if="{{slot.fake}}"></view>
+                </block>
+            </view>
+        </block>
+    </scroll-view>
+</view>
+<import src="../wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

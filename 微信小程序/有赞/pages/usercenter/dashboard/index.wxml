@@ -1,0 +1,13 @@
+<import src="../../../components/copyright/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="templates/normal.wxml"></import>
+<import src="templates/fantasy.wxml"></import>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+<view class="page-container {{deviceType}} {{themeClass}} {{isTabPage&&'page-is-tab-page'}}">
+    <view class="container container--without-border">
+        <template is="uc-{{ucType}}" data="{{userInfo:userInfo,kdtId:kdtId,zanAccount:zanAccount,showBindPhoneNumber:showBindPhoneNumber,bindTips:bindTips,topay:topay,tosend:tosend,send:send,isSetShoppingCart:isSetShoppingCart,cartCount:cartCount,servicePhoneNumber:servicePhoneNumber,im:im}}"></template>
+    </view>
+    <template is="copyright" data="{{copyright:copyright,is_big_shop:is_big_shop}}"></template>
+</view>
+<import src="../../common/wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

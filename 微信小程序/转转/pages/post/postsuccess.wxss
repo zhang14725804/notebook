@@ -1,0 +1,308 @@
+@import "../../__wuBaseWxss__/6.wxss";
+
+@import "../../__wuBaseWxss__/0.wxss";
+
+.poster-canvas {
+    position: fixed;
+    left: 751rpx;
+    top: 0;
+    z-index: 4;
+    width: 750px;
+    height: 1526px;
+}
+
+.scroll-view {
+    width: 750rpx;
+    height: 100vh;
+    background-color: #F7F8FA;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.save-image {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 120rpx;
+    background-color: white;
+    padding-top: 19rpx;
+    border-top: 1px solid #ccc;
+    z-index: 20;
+}
+
+@media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) {
+    .save-image {
+        padding-bottom: 45rpx;
+    }
+}
+
+.save-image-tap {
+    width: 690rpx;
+    height: 82rpx;
+    background-color: #FF5647;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 82rpx;
+    color: white;
+}
+
+.post-image-wrap {
+    width: 526rpx;
+    height: 983rpx;
+    overflow: hidden;
+    margin: 40rpx auto 0;
+    border-top: 17rpx solid white;
+    border-right: 22rpx solid white;
+    border-left: 22rpx solid white;
+    box-shadow: 0 0 20rpx 2rpx #ccc;
+    border-radius: 12rpx;
+}
+
+.post-image-wrap .post-imgae {
+    width: 100%;
+}
+
+.close-post {
+    width: 50rpx;
+    height: 50rpx;
+    background-image: url('https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/relaeseshare/close.png');
+    background-size: 100%;
+    background-position: center;
+    position: fixed;
+    right: 20rpx;
+    top: 20rpx;
+    z-index: 20;
+}
+
+@import "../curtain/curtain.wxss";
+
+.home-share-channel {
+    position: static;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: content-box;
+    text-align: center;
+    text-decoration: none;
+    line-height: 0;
+    border-radius: 0;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    color: #000000;
+    background-color: transparent;
+}
+
+.home-share-channel::after {
+    content: '';
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.success-container.bannerAbsent {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: 'PingFangSC-Medium';
+    background-color: #fff;
+}
+
+.success-container.bannerAbsent .success-img {
+    width: 750rpx;
+    height: 696rpx;
+}
+
+.success-container.bannerAbsent .success-img .img-tip {
+    width: 750rpx;
+    height: 696rpx;
+    background-size: cover;
+    background-position: center;
+}
+
+.success-container.bannerAbsent .success-title {
+    width: 750rpx;
+    height: 100rpx;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 24rpx;
+}
+
+.success-container.bannerAbsent .success-title-name {
+    width: 420rpx;
+    height: 40rpx;
+    font-size: 30rpx;
+    color: #43474C;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.success-container.bannerAbsent .success-title-price {
+    width: 750rpx;
+    height: 40rpx;
+    font-size: 44rpx;
+    color: #FF5647;
+    margin: 10rpx 0 0;
+}
+
+.success-container.bannerAbsent .success-title-icon {
+    font-size: 20rpx;
+    display: inline-block;
+}
+
+.success-container.bannerAbsent .success-share {
+    text-align: center;
+    margin: 60rpx auto 89rpx;
+    width: 500rpx;
+}
+
+.success-container.bannerAbsent .success-share-wechat {
+    font-size: 24rpx;
+    color: #43474C;
+    display: inline-block;
+    line-height: 28rpx;
+    margin-right: 70rpx;
+}
+
+.success-container.bannerAbsent .success-share-wechat .wechat-icon {
+    width: 102rpx;
+    height: 102rpx;
+    margin-bottom: 16rpx;
+    background: url(https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/post/wechat.png) no-repeat 0 center;
+    background-size: cover;
+}
+
+.success-container.bannerAbsent .success-share-circle {
+    font-size: 24rpx;
+    color: #43474C;
+    display: inline-block;
+    line-height: 28rpx;
+}
+
+.success-container.bannerAbsent .success-share-circle .circle-icon {
+    width: 102rpx;
+    height: 102rpx;
+    margin-bottom: 16rpx;
+    background: url(https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/post/circle.png) no-repeat 0 center;
+    background-size: cover;
+}
+
+.success-container.bannerAbsent .success-share-p {
+    font-size: 28rpx;
+    color: #7B828B;
+    margin-top: 25rpx;
+}
+
+.success-container.bannerPresent {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: 'PingFangSC-Medium';
+    background-color: #fff;
+    padding: 40rpx 125rpx 240rpx;
+}
+
+.success-container.bannerPresent .success-img {
+    width: 100%;
+    height: 500rpx;
+}
+
+.success-container.bannerPresent .success-img .img-tip {
+    width: 100%;
+    height: 500rpx;
+    background-size: cover;
+    background-position: center;
+}
+
+.success-container.bannerPresent .success-title {
+    text-align: center;
+    margin: 33rpx 0 0;
+}
+
+.success-container.bannerPresent .success-title-name {
+    width: 420rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 30rpx;
+    color: #43474C;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.success-container.bannerPresent .success-title-price {
+    height: 51rpx;
+    line-height: 51rpx;
+    font-size: 44rpx;
+    color: #FF5647;
+    margin: 9rpx 0 0;
+}
+
+.success-container.bannerPresent .success-title-icon {
+    font-size: 20rpx;
+    display: inline-block;
+}
+
+.success-container.bannerPresent .success-share {
+    margin: 39rpx auto 37rpx;
+}
+
+.success-container.bannerPresent .success-share-wechat {
+    font-size: 24rpx;
+    color: #43474C;
+    float: left;
+    line-height: 28rpx;
+    margin: 0 120rpx 0 88rpx;
+}
+
+.success-container.bannerPresent .success-share-wechat .wechat-icon {
+    width: 102rpx;
+    height: 102rpx;
+    margin-bottom: 16rpx;
+    background: url(https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/post/wechat.png) no-repeat 0 center;
+    background-size: cover;
+}
+
+.success-container.bannerPresent .success-share-circle {
+    font-size: 24rpx;
+    color: #43474C;
+    float: left;
+    line-height: 28rpx;
+}
+
+.success-container.bannerPresent .success-share-circle .circle-icon {
+    width: 102rpx;
+    height: 102rpx;
+    margin-bottom: 16rpx;
+    background: url(https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/post/circle.png) no-repeat 0 center;
+    background-size: cover;
+}
+
+.success-container.bannerPresent .success-share-p {
+    clear: both;
+    text-align: center;
+    font-size: 28rpx;
+    color: #7B828B;
+    line-height: 38rpx;
+    margin-top: 27rpx;
+}
+
+.invitePostBanner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 240rpx;
+}

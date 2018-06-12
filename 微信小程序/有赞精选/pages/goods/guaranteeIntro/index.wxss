@@ -1,0 +1,6 @@
+.container {
+    background: #F9F9F9;
+    overflow: hidden;
+    min-height: 100vh;
+    box-sizing: border-box;
+}

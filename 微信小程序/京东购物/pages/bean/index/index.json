@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "京豆乐园",
+    "usingComponents": {
+        "quick-nav": "/components/quick-nav/quick-nav"
+    }
+}

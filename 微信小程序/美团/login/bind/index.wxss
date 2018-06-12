@@ -1,0 +1,83 @@
+@import "../../__wuBaseWxss__/2.wxss";
+
+.form-container {
+    padding: 20rpx;
+    margin-top: 50rpx;
+    background: #fff;
+    text-align: center;
+}
+
+.form-container .wx-userinfo-btn {
+    display: inline-block;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    color: #ccc;
+    line-height: inherit;
+}
+
+.form-container .wx-userinfo-btn:after {
+    border: none;
+}
+
+.form-container .floor {
+    display: inline-block;
+    height: 82rpx;
+    width: 592rpx;
+    line-height: 82rpx;
+    border-bottom: 1px solid #e5e5e5;
+    margin-top: 28rpx;
+    padding-top: 5rpx;
+    padding-bottom: 5rpx;
+    position: relative;
+    color: #ccc;
+}
+
+.form-container .floor .placeholder {
+    color: #ccc;
+    font-size: 36rpx;
+}
+
+.form-container .floor .text-input {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    color: #333;
+    font-size: 40rpx;
+}
+
+.form-container .floor .phone-input {
+    padding-left: 10rpx;
+    text-align: left;
+    width: 450rpx;
+}
+
+.form-container .floor .code-btn {
+    font-size: 28rpx;
+    position: absolute;
+    right: 0;
+}
+
+.form-container .floor .code-input {
+    text-align: left;
+    padding-left: 10rpx;
+}
+
+.form-container .submit {
+    display: inline-block;
+    width: 592rpx;
+    font-size: 36rpx;
+    color: #999;
+    background: #E5E5E5;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    border-radius: 8rpx;
+    margin-top: 48rpx;
+}
+
+.form-container .submit-active {
+    color: #fff;
+    background: #06C1AE;
+}

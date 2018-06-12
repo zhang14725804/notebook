@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "店铺精选",
+    "navigationBarBackgroundColor": "#FFF",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "go-page": "../../../customer-components/go-page/index"
+    }
+}

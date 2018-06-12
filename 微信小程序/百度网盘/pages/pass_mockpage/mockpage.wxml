@@ -1,0 +1,10 @@
+<text>这是模拟产品线的页面，登录成功后会跳转到这里，在storage中会新种bduss，stoken,waimai_stoekn字段</text>
+<button bindtap="jumpLogin" type="default"> 跳登录页 </button>
+<input placeholder="身份证输入键盘" type="idcard"></input>
+<input placeholder="带小数点的数字键盘" type="digit"></input>
+<view class="section">
+    <input placeholder="number" type="number"></input>
+</view>
+<view class="section">
+    <input pattern="/^[a-z0-9]+$/i" placeholder="text" type="text"></input>
+</view>

@@ -1,0 +1,22 @@
+<template name="list">
+    <view class="address__list" wx:if="{{list.length>0}}">
+        <view bindtap="onAddressItemClick" class="address__item zan-cell {{index==list.length-1?'zan-cell--last-child':''}}" data-addressid="{{item.id}}" wx:for="{{list}}" wx:key="id">
+            <view class="zan-cell__bd">
+                <icon class="address-item__check" color="#f44" size="18" type="success" wx:if="{{item.id==selected.id}}"></icon>
+                <icon class="address-item__check" size="18" type="circle" wx:else></icon>
+                <view>{{item.user_name}}, {{item.tel}}</view>
+                <view class="addess-item__detail zan-font-12 zan-c-gray-darker">
+          收货地址：{{item.province||''}}{{item.city||''}}{{item.county||''}} {{item.address_detail||''}}
+        </view>
+                <view catchtap="onEditClick" class="address-item__edit" data-id="{{item.id}}"></view>
+            </view>
+        </view>
+    </view>
+    <view class="address__list--empty" wx:else>
+    哎呀，你还没有收货地址哦~
+  </view>
+    <view catchtap="onAddClick" class="address__add zan-panel">
+        <text>新增收货地址</text>
+        <view class="zan-arrow"></view>
+    </view>
+</template>

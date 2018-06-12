@@ -1,0 +1,29 @@
+<view class="must-be">
+    <view class="complaint-container" id="container">
+        <view class="contpart" id="complaint-done">
+            <view class="outer" id="outer">
+                <view id="inner">
+                    <view class="head-img"></view>
+                    <view class="h1">提交完成</view>
+                    <view id="content">
+                        <view id="list">
+                            <view class="li">
+                                <view class="title">投诉结果： 客服已收到，将尽快给您处理</view>
+                                <view class="item">处理结果将短信发送给您（或在app服务中心查询）</view>
+                            </view>
+                            <view class="li">
+                                <view class="title">投诉理由：{{state.data.tag_name}}</view>
+                                <view class="item">{{state.data.content}}</view>
+                            </view>
+                        </view>
+                        <view id="dots"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="kefu-cont footer">
+                <text bindtap="_dispatch" class="kefu-online" data-bindtap="onlineServiceHandle">在线客服</text>
+                <text bindtap="_dispatch" class="kefu-tel" data-bindtap="callServiceHandle">客服电话</text>
+            </view>
+        </view>
+    </view>
+</view>

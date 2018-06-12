@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "话题圈广场",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "loadingOrMore": "/components/loadingOrMore/index"
+    }
+}

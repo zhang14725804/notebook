@@ -1,0 +1,4 @@
+<view class="{{_className}}" hoverClass="{{hoverClassName}}" style="{{buttonWidth}}{{_style}}">
+    {{text}}
+    <slot wx:if="{{!text}}"></slot>
+</view>

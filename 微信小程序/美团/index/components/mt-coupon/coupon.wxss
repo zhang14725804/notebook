@@ -1,0 +1,302 @@
+.btn-reset {
+    display: inline-block;
+    width: auto;
+    padding: 0;
+    margin: initial;
+    font-size: 26px;
+    line-height: 1;
+    border-radius: 0;
+    color: #353535;
+    background-color: transparent;
+}
+
+.btn-container {
+    display: block;
+}
+
+.btn-reset:after {
+    display: none;
+}
+
+.nowrap {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+}
+
+.toast {
+    position: fixed;
+    z-index: 1001;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+    padding: 20rpx 30rpx;
+    background: rgba(0,0,0,.5);
+    border-radius: 100rpx;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.coupon {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -290rpx;
+    margin-top: -455rpx;
+    z-index: 1000;
+    width: 580rpx;
+    height: 907rpx;
+}
+
+.coupon-cnt {
+    width: 100%;
+    height: 800rpx;
+    background: url("http://s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-st/file:a4938654/img3.png") no-repeat;
+    background-size: 100%;
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+
+.no-auth-box {
+    background-image: url("https://s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-st/file:bcde5843/kaihongbao.png");
+    border-radius: 10rpx;
+}
+
+.no-auth-money {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    height: 396rpx;
+    padding-top: 182rpx;
+}
+
+.money-val {
+    line-height: 280rpx;
+    font-size: 200rpx;
+    color: #FFECBA;
+}
+
+.money-unit {
+    font-size: 72rpx;
+    color: #FFECBA;
+}
+
+.coupon-cnt.coupon-over {
+    background-image: url("https://s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-st/file:a4938654/img4.png");
+}
+
+.coupon-cnt.coupon-no-authorize {
+    background-image: url("https://s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-st/file:a4938654/img5.png");
+}
+
+.authorize-words {
+    font-size: 54rpx;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 222rpx;
+    margin-bottom: 164rpx;
+}
+
+.coupon-list {
+    margin-top: 147rpx;
+    font-size: 20rpx;
+    color: rgba(255,255,255,0.70);
+    text-align: center;
+    line-height: 28px;
+}
+
+.coupon-link {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.coupon-detail {
+    position: relative;
+    width: 480rpx;
+    height: 180rpx;
+    margin: 40rpx auto;
+    background: url("http://s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-st/file:a4938654/compon.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    box-shadow: 0 2rpx 5rpx rgba(0,0,0,.15);
+}
+
+.coupon-detail.coupon-over {
+    box-sizing: border-box;
+    padding-top: 53rpx;
+    font-size: 48rpx;
+    color: #B1B1B1;
+    text-align: center;
+    box-shadow: none;
+    background-image: url("http://s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-st/file:a4938654/nul.png");
+}
+
+.shop-detail {
+    display: flex;
+    height: 130rpx;
+}
+
+.rmb-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 160rpx;
+    height: 130rpx;
+}
+
+.rmb {
+    font-size: 40rpx;
+    color: #FF6600;
+    font-family: AvenirNext-Medium;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.rmb-mark {
+    font-size: 24rpx;
+}
+
+.biz-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    padding-left: 10rpx;
+    box-sizing: border-box;
+}
+
+.shop-title {
+    font-size: 24rpx;
+    line-height: 33rpx;
+    color: #333333;
+}
+
+.coupon-validity {
+    font-size: 18rpx;
+    color: #FF6600;
+}
+
+.coupon-condition {
+    box-sizing: border-box;
+    height: 50rpx;
+    line-height: 50rpx;
+    padding-left: 21rpx;
+    padding-right: 21rpx;
+    font-size: 18rpx;
+    color: #999999;
+}
+
+.coupon-word {
+    font-size: 18rpx;
+    color: #FF6600;
+}
+
+.coupon-share-btn {
+    display: block;
+    width: 450rpx;
+    height: 90rpx;
+    margin: 45rpx auto 10rpx;
+    background: url("http://s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-st/file:a4938654/share-money.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.coupon-share-btn.coupon-over {
+    opacity: 0.5;
+}
+
+.coupon-share-btn.coupon-no-authorize {
+    background-image: url("http://s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-st/file:a4938654/authorize.png");
+}
+
+.coupon-receive {
+    font-size: 20rpx;
+    color: #FFF0C8;
+    text-align: center;
+}
+
+.clear-space {
+    letter-spacing: -6rpx;
+}
+
+.receive-words {
+    margin-left: 16rpx;
+    margin-right: 10rpx;
+}
+
+.receive-peoples {
+    display: flex;
+    justify-content: center;
+    height: 115rpx;
+    margin-top: 25rpx;
+}
+
+.receive-people,.receive-omit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.receive-omit {
+    width: 20rpx;
+    height: 80rpx;
+    margin: 0 20rpx;
+    font-size: 30rpx;
+    color: #FFF0C8;
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+.receive-people:not(:first-child) {
+    margin-left: 30rpx;
+}
+
+.receive-omit+.receive-people {
+    margin-left: 0;
+}
+
+.people-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    border: 2rpx solid rgba(255,255,255,0.50);
+}
+
+.receive-money {
+    width: 72rpx;
+    height: 25rpx;
+    line-height: 25rpx;
+    margin-top: 10rpx;
+    font-size: 16rpx;
+    color: #F3345D;
+    opacity: 0.6;
+    background: #FFFFFF;
+    border-radius: 100rpx;
+    text-align: center;
+}
+
+.close-btn {
+    width: 67rpx;
+    height: 67rpx;
+    margin-top: 40rpx;
+}
+
+.tc {
+    text-align: center;
+}

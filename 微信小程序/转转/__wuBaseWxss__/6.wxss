@@ -1,0 +1,88 @@
+.guide {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+}
+
+.guide:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: .69;
+    background: #000000;
+}
+
+.guide-content {
+    width: 620rpx;
+    height: 682rpx;
+    background: #ffffff;
+    border-radius: 4rpx;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.guide-content-icon {
+    width: 332rpx;
+    height: 189rpx;
+    margin: 59rpx 0 0 145rpx;
+    display: block;
+}
+
+.guide-content-title {
+    font-family: SFNSDisplay-Regular;
+    font-size: 32rpx;
+    line-height: 32rpx;
+    height: 32rpx;
+    color: #ff9094;
+    text-align: center;
+    margin-top: 58rpx;
+}
+
+.guide-content-tip {
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #717880;
+    line-height: 26rpx;
+    text-align: center;
+    height: 26rpx;
+    width: 100%;
+    margin-top: 39rpx;
+    position: relative;
+}
+
+.guide-content-btn {
+    background-image: linear-gradient(-90deg,#ffad91 0,#ff7d8a 100%);
+    border-radius: 44rpx;
+    width: 367rpx;
+    height: 88rpx;
+    text-align: center;
+    line-height: 88rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #ffffff;
+    margin: 58rpx 0 0 126rpx;
+}
+
+.guide-content-dis {
+    width: 120rpx;
+    height: 23rpx;
+    display: block;
+    margin: 45rpx 0 0 249rpx;
+}
+
+.guide-content-close {
+    width: 31rpx;
+    height: 31rpx;
+    display: block;
+    position: absolute;
+    right: 30rpx;
+    top: 30rpx;
+}

@@ -1,0 +1,32 @@
+<import src="search/index.wxml"></import>
+<import src="../../../../bower_components/zan/dist/toast/index.wxml"></import>
+<view class="page-container {{deviceType}} {{themeClass}}">
+    <view class="container">
+        <view class="sub-title zan-font-14 zan-c-gray-darker">选择提货点</view>
+        <view class="banner search-bar" wx:if="{{searching}}">
+            <template is="searchbar" data="{{isShowClearButton:isShowClearButton,inputvalue:inputvalue,isfocus:false,autoFocus:false,searchbg:'#F8F8F8',search_placeholder:'请输入自提点名称'}}"></template>
+        </view>
+        <view class="banner" wx:else>
+            <view bindtap="selectCity" class="city-text">
+                <text class="zan-c-gray-darker zan-font-14">{{localAddress||'全部城市'}}</text>
+                <text class="zan-icon zan-icon-arrow zan-c-gray zan-font-12"></text>
+            </view>
+            <view bindtap="searchAction" class="zan-icon zan-font-14 zan-icon-search zan-c-gray"></view>
+        </view>
+        <view class="zan-panel zan-panel--without-border">
+            <view bindtap="selectAddressAndBack" class="zan-cell" data-id="{{item.id}}" wx:for="{{searching?searchAddressList:addressList}}">
+                <view class="zan-font-18 zan-cell__icon zan-icon {{!item.isChecked?'zan-icon-check zan-c-gray':'zan-icon-checked zan-c-blue'}}" style="margin-right: 15px"></view>
+                <view class="zan-cell__bd">
+                    <view class="zan-cell__text zan-font-12 zan-c-333" style="margin-top: -3px">{{item.name}}</view>
+                    <view class="zan-cell__desc zan-font-10 zan-c-gray-dark">{{item.detail}}</view>
+                </view>
+                <view class="zan-cell__ft zan-c-gray-dark zan-font-12" style="align-self:flex-start;" wx:if="{{!searching}}">
+          {{item.distance}}
+        </view>
+            </view>
+        </view>
+    </view>
+</view>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+<import src="../../../common/wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

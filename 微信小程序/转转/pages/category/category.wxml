@@ -1,0 +1,88 @@
+<view class="pageFrame _18ffead _5d3b044">
+    <view class="navigationBar _18ffead"></view>
+    <view class="pageBody _18ffead">
+        <form bindsubmit="$CrazyFormId$saveFormId" class="_bdca0bf _5d3b044" reportSubmit="true">
+            <button class="_bdca0bf" formType="submit">
+                <form bindsubmit="$CrazyFormId$saveFormId" class="_bdca0bf" reportSubmit="true">
+                    <button class="_bdca0bf" formType="submit">
+                        <form bindsubmit="$CrazyFormId$saveFormId" class="_bdca0bf" reportSubmit="true">
+                            <button class="_bdca0bf" formType="submit">
+                                <form bindsubmit="$CrazyFormId$saveFormId" class="_bdca0bf" reportSubmit="true">
+                                    <button class="_bdca0bf" formType="submit">
+                                        <form bindsubmit="$CrazyFormId$saveFormId" class="_bdca0bf" reportSubmit="true">
+                                            <button class="_bdca0bf" formType="submit">
+                                                <view class="_5d3b044">
+                                                    <view class="searchBox _a4f1cfd">
+                                                        <input bindblur="$SearchBox$onBlur" bindconfirm="$SearchBox$onConfirm" bindfocus="$SearchBox$onFocus" class="input {{$SearchBox$active?'active':'inactive'}} _a4f1cfd" confirmType="search" placeholder="{{$SearchBox$placeholder}}" placeholderClass="searchBox-placeholder"></input>
+                                                    </view>
+                                                    <view class="searchBoxHolder _a4f1cfd"></view>
+                                                    <view class="cates _fd3057e _5d3b044">
+                                                        <view bindtap="$Cates$onCate" class="cate _fd3057e" data-wpyoncate-a="{{index}}" wx:for="{{$Cates$cates}}" wx:for-item="cate" wx:key="{{index}}">
+                                                            <view class="icon _fd3057e" style="background-image: url('{{cate.picUrl}}'), url('{{cate.backgroundUrl}}')"></view>
+                                                            <view class="desc _fd3057e">{{cate.desc}}</view>
+                                                        </view>
+                                                    </view>
+                                                    <view class="recommends _1e3c4a6 _5d3b044">
+                                                        <view class="header _4366968 _1e3c4a6">
+                                                            <view class="title _4366968" wx:if="{{$Recommends$SectionHeader$header.title}}">{{$Recommends$SectionHeader$header.title}}</view>
+                                                            <view catchtap="$Recommends$SectionHeader$onMeta" class="meta _4366968" wx:if="{{$Recommends$SectionHeader$header.meta}}">
+      {{$Recommends$SectionHeader$header.meta}}
+      <image class="icon _4366968" src="{{$Recommends$SectionHeader$header.metaIcon.src}}" style="{{$Recommends$SectionHeader$header.metaIcon.style}}" wx:if="{{$Recommends$SectionHeader$header.metaIcon}}"></image>
+                                                            </view>
+                                                        </view>
+                                                        <view class="cates _1e3c4a6">
+                                                            <view bindtap="$Recommends$onCate" class="cate _1e3c4a6" data-wpyoncate-a="{{index}}" wx:for="{{$Recommends$pageCates}}" wx:for-item="cate" wx:key="name">
+                                                                <image class="img _1e3c4a6" mode="aspectFit" src="{{cate.image}}"></image>
+                                                                <view class="name _1e3c4a6">{{cate.name}}</view>
+                                                            </view>
+                                                        </view>
+                                                    </view>
+                                                    <view class="moreGoods _4bb47fb _5d3b044">
+                                                        <view class="header _4366968 _4bb47fb">
+                                                            <view class="title _4366968" wx:if="{{$MoreGoods$SectionHeader$header.title}}">{{$MoreGoods$SectionHeader$header.title}}</view>
+                                                            <view catchtap="$MoreGoods$SectionHeader$onMeta" class="meta _4366968" wx:if="{{$MoreGoods$SectionHeader$header.meta}}">
+      {{$MoreGoods$SectionHeader$header.meta}}
+      <image class="icon _4366968" src="{{$MoreGoods$SectionHeader$header.metaIcon.src}}" style="{{$MoreGoods$SectionHeader$header.metaIcon.style}}" wx:if="{{$MoreGoods$SectionHeader$header.metaIcon}}"></image>
+                                                            </view>
+                                                        </view>
+                                                        <view class="goods _4bb47fb">
+                                                            <view bindtap="$MoreGoods$onGood" class="good _4bb47fb" data-wpyongood-a="{{index}}" wx:for="{{$MoreGoods$goods}}" wx:for-item="good" wx:key="infoId">
+                                                                <image class="pic _4bb47fb" mode="aspectFill" src="{{good.pic}}"></image>
+                                                                <view class="info _4bb47fb">
+                                                                    <view class="title _4bb47fb">{{good.title}}</view>
+                                                                    <view class="price _4bb47fb">
+                                                                        <text class="unit _4bb47fb">￥</text>{{good.price}}</view>
+                                                                    <view class="infoLabels _4bb47fb">
+                                                                        <image class="label _4bb47fb" src="{{label.labelImage}}" style="width: {{label.width}}rpx; height: {{label.height}}rpx;" wx:for="{{good.infoLabels}}" wx:for-item="label" wx:key="labelId"></image>
+                                                                    </view>
+                                                                    <view class="user _4bb47fb">
+                                                                        <image class="avatar _4bb47fb" mode="aspectFill" src="{{good.avatar}}"></image>
+                                                                        <view class="nickName _4bb47fb">{{good.nickName}}</view>
+                                                                    </view>
+                                                                    <view class="area _4bb47fb">{{good.area}}</view>
+                                                                </view>
+                                                            </view>
+                                                        </view>
+                                                        <view class="loading-tip _580173e _4bb47fb" wx:if="{{$MoreGoods$LoadingMore$showTip}}">
+                                                            <image class="loading-icon _580173e" src="{{$MoreGoods$LoadingMore$tip.icon}}"></image>
+                                                            <text class="loading-text _580173e">{{$MoreGoods$LoadingMore$tip.text}}</text>
+                                                        </view>
+                                                    </view>
+                                                </view>
+                                            </button>
+                                        </form>
+                                    </button>
+                                </form>
+                            </button>
+                        </form>
+                    </button>
+                </form>
+            </button>
+        </form>
+    </view>
+    <view bindtap="$PageFrame$BackHome$onBackHome" bindtouchstart="$PageFrame$BackHome$onTouchstart" catchtouchmove="$PageFrame$BackHome$onTouchmove" class="backHome {{$PageFrame$BackHome$pageBodyReady?'ready':'unready'}} _757a836 _18ffead" style="background-image: url('{{$PageFrame$BackHome$backHome.icon}}'); {{$PageFrame$BackHome$backHome.extraStyle}}; transform: translate3d({{$PageFrame$BackHome$eleOffset.x}}px, {{$PageFrame$BackHome$eleOffset.y}}px, 0); " wx:if="{{$PageFrame$BackHome$backHome.show}}"></view>
+    <view bindtap="$PageFrame$ErrorTip$refresh" class="tip _f2dd71c _18ffead" wx:if="{{$PageFrame$ErrorTip$show}}">
+        <image class="error-icon _f2dd71c" src="{{$PageFrame$ErrorTip$icon}}"></image>
+        <view class="error-tip _f2dd71c">{{$PageFrame$ErrorTip$errorTip}}</view>
+    </view>
+</view>

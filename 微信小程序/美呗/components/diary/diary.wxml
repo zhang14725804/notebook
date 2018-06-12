@@ -1,0 +1,57 @@
+<view class="diary-item">
+    <view bindtap="onTapDiary" class="diray-inner" data-baseId="{{data.DiaryBaseDataId||data.Content.DiaryBaseDataId}}" data-id="{{data.Id||data.Content.Id}}">
+        <view class="header">
+            <image class="diary-avatar" mode="aspectFill" src="{{data.User.HeadImage}}"></image>
+            <view class="user-name">
+                <text>{{data.User.Nickname}}</text>
+                <view># {{data.AfterDay||data.Content.AfterDay}}</view>
+            </view>
+        </view>
+        <view class="img-contetnt">
+            <view>
+                <image class="diary-img" mode="aspectFill" src="{{data.RecommendBeforePicture||data.Content.BeforePicture}}"></image>
+                <image class="diary-tag-img" mode="aspectFit" src="https://cdn-ssl.meb.com/wxa/v1/before.png"></image>
+            </view>
+            <view>
+                <image class="diary-img" mode="aspectFill" src="{{data.RecommendAfterPicture||data.Content.AfterPicture}}"></image>
+                <image class="diary-tag-img" mode="aspectFit" src="https://cdn-ssl.meb.com/wxa/v1/after.png"></image>
+            </view>
+        </view>
+        <view class="diary-content">
+            <text wx:if="{{data.Content.Content}}">{{data.Content.Content}}</text>
+            <text wx:else>{{data.Content}}</text>
+        </view>
+        <view class="diary-operation">
+            <view class="diary-likes">
+                <view style="margin-right:20rpx">
+                    <block wx:if="{{data.Content.LikeNumber}}">
+                        <image class="likes-img" mode="aspectFit" src="https://cdn-ssl.meb.com/wxa/v1/like.png" wx:if="{{!data.Content.IsLike}}"></image>
+                        <image class="likes-img" mode="aspectFit" src="https://cdn-ssl.meb.com/wxa/v1/like-active.png" wx:if="{{data.Content.IsLike}}"></image>
+                    </block>
+                    <block wx:if="{{!data.Content.LikeNumber}}">
+                        <image class="likes-img" mode="aspectFit" src="https://cdn-ssl.meb.com/wxa/v1/like.png" wx:if="{{!data.IsLike}}"></image>
+                        <image class="likes-img" mode="aspectFit" src="https://cdn-ssl.meb.com/wxa/v1/like-active.png" wx:if="{{data.IsLike}}"></image>
+                    </block>
+                </view>
+                <view class="likes-avatar" wx:for="{{data.LikeUser}}" wx:key="item">
+                    <image class="likes-avatar-img" mode="aspectFill" src="{{item.HeadImage}}"></image>
+                </view>
+                <view class="likes-num" wx:if="{{data.LikeUser.length}}">
+                    {{data.LikeNumber||data.Content.LikeNumber}}赞
+                </view>
+            </view>
+            <view>
+                <image class="comment-img" mode="aspectFit" src="https://cdn-ssl.meb.com/wxa/v1/message.png"></image>
+            </view>
+        </view>
+        <view class="comments" wx:if="{{data.Comment.length}}">
+            <view class="triangle"></view>
+            <view class="comments-more">共有{{data.CommentNumber||data.Content.CommentNumber}}条评论</view>
+            <view class="comment-item" wx:for="{{data.Comment}}" wx:key="item">
+                <text class="comments-user comment-item">{{item.Nickname}}：</text>
+                <text class="comments-text comment-item">{{item.Content}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="rich-bottom" wx:if="{{hasSolid}}"></view>
+</view>

@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "go-page": "../../../customer-components/go-page/index"
+    },
+    "enablePullDownRefresh": true
+}

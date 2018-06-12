@@ -1,0 +1,20 @@
+<template name="express-intro">
+    <view class="zan-popup express-intro-container zan-popup--bottom {{showExpressIntroPopup&&'zan-popup--show'}}">
+        <view bindtap="tapExpressPopupOrCell" class="zan-popup__mask"></view>
+        <view class="zan-popup__container">
+            <view class="header">
+        支持以下配送方式
+        <view bindtap="tapExpressPopupOrCell" class="zan-icon zan-icon-close" style="color: #999; font-size: 22px"></view>
+            </view>
+            <view class="intro">
+                <view wx:if="{{delivery.desc['同城配送']}}">
+                    <text>同城配送</text>({{delivery.desc['同城配送']}})</view>
+                <view wx:if="{{delivery.desc['快递发货']}}">
+                    <text>快递发货</text>({{delivery.desc['快递发货']}})</view>
+                <view wx:if="{{delivery.desc['自提']}}">
+                    <text>到店自提</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

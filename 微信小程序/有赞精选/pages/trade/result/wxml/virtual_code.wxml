@@ -1,0 +1,17 @@
+<template name="virtual_code">
+    <view class="virtual-code zan-panel">
+        <view class="zan-cell">
+            <view class="zan-cell__bd">
+                <text class="zan-c-gray-dark">订单二维码：</text>
+                <text>{{order.order_no}}</text>
+            </view>
+        </view>
+        <view class="virtual-code__code zan-cell zan-cell--last-child">
+            <view class="zan-cell__bd">
+                <view class="zan-center">
+                    <image class="virtual-code__image zan-center" mode="aspectFit" src="{{qrcode.image}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

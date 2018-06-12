@@ -1,0 +1,73 @@
+.sc-goods__corner-mark {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #f44;
+    line-height: 0;
+}
+
+.sc-goods__corner-mark--custom {
+    height: 36px;
+    width: 36px;
+}
+
+.sc-goods__corner-mark--0 {
+    top: -4px;
+    height: 32px;
+    font-size: 32px;
+}
+
+.sc-goods__corner-mark--1 {
+    left: 5px;
+    top: 5px;
+    height: 34px;
+    font-size: 34px;
+}
+
+.sc-goods__corner-mark--2 {
+    height: 36px;
+    font-size: 36px;
+}
+
+.sc-goods__corner-mark--3 {
+    left: 5px;
+    top: 5px;
+    height: 28px;
+    font-size: 28px;
+}
+
+.sc-goods__corner-back {
+    position: absolute;
+    background-color: #fff;
+}
+
+.sc-goods__corner-back--0 {
+    top: 5px;
+    left: 0;
+    width: 30px;
+    height: 13px;
+}
+
+.sc-goods__corner-back--1 {
+    top: 10px;
+    left: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 24px;
+}
+
+.sc-goods__corner-back--2 {
+    top: 0;
+    left: 0;
+    border: 16px solid;
+    border-color: #fff transparent transparent #fff;
+    background-color: transparent;
+}
+
+.sc-goods__corner-back--3 {
+    top: 6px;
+    left: 6px;
+    width: 26px;
+    height: 26px;
+    border-radius: 26px;
+}

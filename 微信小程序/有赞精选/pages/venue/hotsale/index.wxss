@@ -1,0 +1,105 @@
+@import "../../venues/common/share_btn/index.wxss";
+
+@import "../../venues/common/go_top/index.wxss";
+
+.page-hotsale {
+    background: #f8f8f8;
+}
+
+.page-hotsale .goods-scroll {
+    padding-top: 72rpx;
+}
+
+.page-hotsale .goods-scroll .goods-item-container {
+    width: 710rpx;
+    background: #ffffff;
+    height: 260rpx;
+    border-radius: 16rpx;
+    margin: 20rpx auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.page-hotsale .goods-scroll .goods-top-icon {
+    width: 76rpx;
+    height: 82rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.page-hotsale .goods-scroll .goods_top1 {
+    background: url('https://img.yzcdn.cn/mars/image/goods_top1.png') no-repeat center center;
+    background-size: 76rpx 82rpx;
+}
+
+.page-hotsale .goods-scroll .goods_top2 {
+    background: url('https://img.yzcdn.cn/mars/image/goods_top2.png') no-repeat center center;
+    background-size: 76rpx 82rpx;
+}
+
+.page-hotsale .goods-scroll .goods_top3 {
+    background: url('https://img.yzcdn.cn/mars/image/goods_top3.png') no-repeat center center;
+    background-size: 76rpx 82rpx;
+}
+
+.page-hotsale .store-scroll {
+    padding-top: 72rpx;
+}
+
+.page-hotsale .store-scroll .store-item-container {
+    width: 670rpx;
+    height: 332rpx;
+    background: #ffffff;
+    margin: 20rpx auto;
+    border-radius: 16rpx;
+    padding: 16rpx 20rpx;
+}
+
+.page-hotsale .store-scroll .store-item-container .store-top-icon {
+    display: inline-block;
+    width: 84rpx;
+    height: 38rpx;
+    position: relative;
+    top: 8rpx;
+}
+
+.page-hotsale .store-scroll .store-item-container .store_top1 {
+    background: url('https://img.yzcdn.cn/mars/image/store_top01.png') no-repeat center center;
+    background-size: 84rpx 38rpx;
+}
+
+.page-hotsale .store-scroll .store-item-container .store_top2 {
+    background: url('https://img.yzcdn.cn/mars/image/store_top02.png') no-repeat center center;
+    background-size: 84rpx 38rpx;
+}
+
+.page-hotsale .store-scroll .store-item-container .store_top3 {
+    background: url('https://img.yzcdn.cn/mars/image/store_top03.png') no-repeat center center;
+    background-size: 84rpx 38rpx;
+}
+
+.page-hotsale .store-scroll .store-item-container .store-description {
+    font-size: 12px;
+    color: #999999;
+}
+
+.page-hotsale .store-scroll .store-item-container .store-goods {
+    height: 218rpx;
+    width: 672rpx;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20rpx;
+}
+
+.page-hotsale .store-scroll .store-item-container .store-goods .store-goods-item {
+    width: 218rpx;
+    height: 218rpx;
+    margin-right: 10rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+.page-hotsale .store-scroll .store-item-container .store-goods .store-goods-item:nth-child(3n) {
+    margin-right: 0;
+}

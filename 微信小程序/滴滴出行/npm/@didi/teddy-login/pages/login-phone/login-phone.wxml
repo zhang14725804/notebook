@@ -1,0 +1,18 @@
+<view class="login-phone">
+    <view class="title">登录</view>
+    <view class="input-wrapper">
+        <view class="phone-input">
+            <input bindfocus="_dispatch" bindinput="_dispatch" class="input" data-bindfocus="onFocus" data-bindinput="onInput" data-path="phoneInput" focus="{{phoneInput.state.focus}}" maxlength="{{phoneInput.state.maxlength}}" placeholder="请输入手机号" type="number" value="{{phoneInput.state.phone}}"></input>
+            <view bindtap="_dispatch" class="close mfic mfic-wrong" data-bindtap="clearInput" data-path="phoneInput" xmlns:wx="" wx:if="{{phoneInput.state.phone.length>0&&phoneInput.props.needClose}}"></view>
+        </view>
+    </view>
+    <view class="btn-wrapper">
+        <view bindtap="_dispatch" class="mf-btn {{button.state.classes}}" data-bindtap="handleClick" data-path="button">
+            <view class="{{button.state.icon}}"></view>
+  {{button.props.text}}
+</view>
+    </view>
+    <view class="warning {{warningCard.state.show?'show':''}}">
+        <view class="warning-title">{{warningCard.props.msg}}</view>
+    </view>
+</view>

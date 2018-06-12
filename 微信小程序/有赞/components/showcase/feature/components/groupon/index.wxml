@@ -1,0 +1,14 @@
+<template name="theme-feature-groupon">
+    <view wx:if="{{!data.loading}}">
+        <view class="cap-ump-groupon {{utils.getGrouponContainerClass(data.size)}}">
+            <template is="goods-item" data="{{...data,goods:goods}}" wx:for="{{data.grouponGoodsList}}" wx:for-item="goods" wx:key="alias"></template>
+        </view>
+        <view class="cap-ump-groupon__view-more" wx:if="{{data.isShowViewMore&&data.goods_num<=data.grouponGoodsList.length&&data.goods_source==0}}">
+            <view bindtap="groupon__handleLookMore" class="cap-ump-groupon__view-more-text" data-component-index="{{index}}">
+        查看全部
+      </view>
+        </view>
+    </view>
+</template>
+<import src="components/item/index.wxml"></import>
+<wxs module="utils" src="index.wxs" />

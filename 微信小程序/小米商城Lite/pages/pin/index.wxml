@@ -1,0 +1,91 @@
+<import src="/pages/pin/tpl/index.wxml"></import>
+<view class="msxcx-widget-loading msxcx-widget-loading_big" wx:if="{{!loaded}}">
+    <view></view>
+    <text>加载中</text>
+</view>
+<block wx:else>
+    <block wx:for="{{sections}}">
+        <swiper autoplay="{{true}}" circular="{{true}}" indicatorActiveColor="rgba(255,255,255,.8)" indicatorColor="rgba(255,255,255,.4)" indicatorDots="{{item.body.items.length>1}}" interval="{{4000}}" wx:if="{{item.view_type==='gallery_540'}}">
+            <swiper-item wx:for="{{item.body.items}}" wx:for-item="gallery">
+                <view bindtap="bindTapSwiper" class="stat-swiper" data-item="{{gallery}}">
+                    <image src="{{gallery.img_url}}"></image>
+                </view>
+            </swiper-item>
+        </swiper>
+        <swiper autoplay="{{true}}" circular="{{true}}" indicatorActiveColor="rgba(255,255,255,.8)" indicatorColor="rgba(255,255,255,.4)" indicatorDots="{{item.body.items.length>1}}" interval="{{4000}}" style="width: {{item.body&&item.body.w/1080*750}}rpx; height: {{item.body&&item.body.h/1080*750}}rpx;" wx:if="{{item.view_type==='gallery_custom'}}">
+            <swiper-item wx:for="{{item.body.items}}" wx:for-item="gallery">
+                <view bindtap="bindTapSwiper" class="stat-swiper" data-item="{{gallery}}" url="{{gallery.action.path}}">
+                    <image src="{{gallery.img_url}}" style="width: {{gallery.w/1080*750}}rpx; height: {{gallery.h/1080*750}}rpx;"></image>
+                </view>
+            </swiper-item>
+        </swiper>
+        <view class="award-section" wx:if="{{item.view_type==='winner_list'&&item.body&&item.body.items&&item.body.items.length}}">
+            <view class="awark-mask" style="width: {{item.body&&item.body.w/1080*750}}rpx; height: {{item.body&&item.body.h/1080*750}}rpx;"></view>
+            <swiper autoplay="{{true}}" circular="{{true}}" class="award-list" interval="{{2000}}" style="width: {{item.body&&item.body.w/1080*750}}rpx; height: {{item.body&&item.body.h/1080*750}}rpx;" vertical="{{true}}">
+                <swiper-item wx:for="{{item.body.items}}" wx:for-item="gallery">
+                    <view class="swiper-item" style="line-height: {{item.body&&item.body.h/1080*750}}rpx;">
+                        <view class="avatar" style="background-image: url('{{gallery.img_url}}')"></view>
+                        <view class="nickname">{{gallery.title}}</view>
+                        <view class="price">{{gallery.product_tag}}</view>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="mx-pin-divider" wx:if="{{item.view_type=='divider_line'}}"></view>
+        <view class="mx-pin-banner" style="width: {{item.body&&item.body.w/1080*750}}rpx; height: {{item.body&&item.body.h/1080*750}}rpx;" wx:if="{{item.view_type=='cells_auto_fill'}}">
+            <view class="image" style="width: {{cell.w/1080*750}}rpx; height: {{cell.h/1080*750}}rpx; background-image: url('{{cell.img_url}}')" wx:for="{{item.body.items}}" wx:for-item="cell"></view>
+        </view>
+        <view class="mx-pin-banner" style="width: {{item.body&&item.body.w/1080*750}}rpx; height: {{item.body&&item.body.h/1080*750}}rpx;" wx:if="{{item.view_type=='head_with_sub'}}">
+            <block wx:for="{{item.body.items}}" wx:for-item="cell">
+                <view bindtap="toggleBook" class="book-icon-section flex-box {{bookInfo&&bookInfo.status===1?'booked':'not-book'}}" style="height: {{item.body&&item.body.h/1080*750}}rpx;">
+                    <view class="book-icon"></view>{{bookInfo&&bookInfo.status===1?'已订阅':'订阅'}}
+        </view>
+                <view class="image" style="width: {{cell.w/1080*750}}rpx; height: {{cell.h/1080*750}}rpx; background-image: url('{{cell.img_url}}')"></view>
+            </block>
+        </view>
+        <view class="mx-pin-index-group" wx:elif="{{item.view_type=='groupon_view'}}">
+            <navigator bindtap="tapStat" class="pin-item" data-logcode="{{group.action.log_code}}" url="{{group.action.path}}" wx:for="{{item.body.items}}" wx:for-item="group">
+                <view class="image">
+                    <image class="pic" mode="widthFix" src="{{group.img_url}}"></image>
+                    <label wx:if="{{group.project_type==0}}">{{group.person_num}}人团</label>
+                    <label wx:if="{{group.project_type==1||group.project_type==2||group.project_type==3}}">{{group.clock}}</label>
+                </view>
+                <view class="info">
+                    <view class="name">{{group.title}}</view>
+                    <view class="price">
+                        <text class="p1">{{group.product_price}}<text class="sub">元<block wx:if="{{group.show_price_qi}}">起</block>
+                            </text>
+                        </text>
+                        <text class="p2_pre">单买价</text>
+                        <text class="p2">{{group.product_org_price}}<text class="sub">元<block wx:if="{{group.show_org_price_qi}}">起</block>
+                            </text>
+                        </text>
+                    </view>
+                    <button type="mi">{{group.btn_txt}}</button>
+                </view>
+            </navigator>
+        </view>
+        <view class="mx-pin-1row2col" wx:elif="{{item.view_type=='groupon_two_line_view'}}">
+            <navigator bindtap="tapStat" class="pin-item" data-logcode="{{group.action.log_code}}" url="{{group.action.path}}" wx:for="{{item.body.items}}" wx:for-item="group">
+                <view class="image">
+                    <view class="pic" style="background-image: url({{group.img_url}})"></view>
+                    <label wx:if="{{group.project_type==0}}">{{group.person_num}}人团</label>
+                    <label wx:if="{{group.project_type==1||group.project_type==2||group.project_type==3}}">{{group.clock}}</label>
+                </view>
+                <view class="info">
+                    <view class="name">{{group.title}}</view>
+                    <view class="price">
+                        <text class="p1">{{group.product_price}}<text class="sub">元<block wx:if="{{group.show_price_qi}}">起</block>
+                            </text>
+                        </text>
+                        <text class="p2">单买价{{group.product_org_price}}<text class="sub">元<block wx:if="{{group.show_org_price_qi}}">起</block>
+                            </text>
+                        </text>
+                    </view>
+                    <button type="mi">{{group.btn_txt}}</button>
+                </view>
+            </navigator>
+        </view>
+    </block>
+    <template is="pin-tab-bar" data="{{tabBar:tabBar}}"></template>
+</block>

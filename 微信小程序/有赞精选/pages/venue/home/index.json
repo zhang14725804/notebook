@@ -1,0 +1,9 @@
+{
+    "navigationBarBackgroundColor": "#ff4444",
+    "navigationBarTextStyle": "#ffffff",
+    "usingComponents": {
+        "zan-tab": "../../../customer-components/tab/index",
+        "goods-item": "../../../customer-components/goods-item/index"
+    },
+    "enablePullDownRefresh": true
+}

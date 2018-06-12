@@ -1,0 +1,21 @@
+.load-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60rpx;
+    color: #333;
+}
+
+.load-more image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 30rpx;
+}
+
+.white {
+    background: #fff;
+}
+
+.black {
+    background: #f5f5f5;
+}

@@ -1,0 +1,43 @@
+<view class="my-cardcollect-container">
+    <view class="my-cardcollect-header">
+        <view class="my-cardcollect-title">
+            <view class="my-cardcollect-title-text">
+                <span class="title-text-round">第{{activityInfo.round}}轮</span>
+                <span style="color:#666666;">再集{{activityInfo.remain}}张, 即获</span>
+                <span style="font-size:50rpx;">{{activityInfo.amount}}</span>元现金<span catchtap="handleonRefreshProductIcon" class="title-refresh" wx:if="{{!activityInfo.friendList||activityInfo.friendList&&activityInfo.round==1}}">刷新组合</span>
+            </view>
+            <view class="my-cardcollect-countdown" wx:if="{{activityInfo.round<=5&&!activityInfo.hasCompleted}}">
+                <span>距本轮结束还有  </span>
+                <span class="countdown-clock">{{countdown.h}}</span> : 
+          <span class="countdown-clock">{{countdown.m}}</span> : 
+          <span class="countdown-clock">{{countdown.s}}</span>
+            </view>
+            <view class="my-cardcollect-countdown" wx:if="{{activityInfo.round>=5&&activityInfo.hasCompleted}}">
+                <span>厉害了老铁，游戏全部完成！点击下方按钮去提现哟～</span>
+            </view>
+        </view>
+    </view>
+    <view class="my-cardcollect-frame">
+        <view class="my-cardcollect-body">
+            <view class="my-cardcollect-content">
+                <product-icon gameId="{{activityInfo.id}}" id="product_icon"></product-icon>
+                <button formType="submit" openType="share">分享微信群，立刻收集品牌</button>
+            </view>
+        </view>
+        <view class="my-cardcollect-info">
+            <view class="info-walletpackget">
+                <image src="{{resource.images.redpackImage}}"></image>
+                <p>我已经赚了<span style="color:#F24540;fon-size:28rpx;">
+                        <span style="font-size:50rpx;"> {{activityInfo.prizeAmount}} </span>元</span>
+                    <span catchtap="navigetorwidthdraw" class="info-walletpackget-withdraw {{ui.isWithDraw?'':'unclick'}}">立即提现</span>
+                </p>
+            </view>
+            <friend-list gameId="{{activityInfo.id}}" isFriend="{{ui.isFriend}}"></friend-list>
+            <navigator class="my-cardcollect-foot" url="../../../index/index">
+        测测你的手机值多少钱
+      </navigator>
+        </view>
+    </view>
+    <navigator class="nav-activityrule" url="{{resource.url.activityrule}}">活动规则</navigator>
+</view>
+<popup-alert amount="{{popup.amount}}" bind:closePopup="handleOnClosePopup" bind:navigatorMyCollect="createNewGame" bind:reSetnavigatorMyCollect="resetNewGame" gameId="{{popup.gameId}}" mode="{{popup.mode}}" modeType="{{popup.modeType}}" round="{{popup.round}}" wx:if="{{ui.isShowPopup}}"></popup-alert>

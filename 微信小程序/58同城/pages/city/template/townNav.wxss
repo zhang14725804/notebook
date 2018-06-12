@@ -1,0 +1,38 @@
+.town-nav-wrap {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    padding: 0 30rpx;
+}
+
+.town-nav-item {
+    -webkit-box-flex: 1;
+    flex: 1;
+    display: inline-block;
+    text-align: center;
+    font-size: 30rpx;
+    color: #333333;
+    padding: 24rpx 0;
+}
+
+.town-nav-item.on {
+    color: #ff552e;
+}
+
+.town-nav-item.checked {
+    position: relative;
+}
+
+.town-nav-item.checked::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #ff552e;
+    border-radius: 4rpx;
+    height: 4rpx;
+    width: 60rpx;
+}

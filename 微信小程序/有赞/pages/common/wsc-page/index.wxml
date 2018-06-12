@@ -1,0 +1,10 @@
+<template name="wsc-page">
+    <view class="wsc-page">
+        <template is="jump-mini-program" data="{{data:wscpage.jumpConfig}}"></template>
+        <template is="yzweapp-tab-bar" data="{{data:wscpage.tab}}"></template>
+    </view>
+    <template is="zan-toptips" data="{{zanTopTips:zanTopTips}}"></template>
+</template>
+<import src="components/jump-mini-program/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/toptips/index.wxml"></import>
+<import src="components/tab-bar/index.wxml"></import>

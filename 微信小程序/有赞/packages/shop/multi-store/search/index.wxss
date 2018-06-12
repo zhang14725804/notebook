@@ -1,0 +1,36 @@
+.multi-store__search-shop {
+    background: #f8f8f8;
+    min-height: 100vh;
+}
+
+.search-bar {
+    padding: 10px;
+    height: 36px;
+}
+
+.search-shop__tip {
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+.choose-shop__shop-list {
+    height: calc(100vh - 56px);
+}
+
+.choose-shop__shop-list .result-item {
+    background: #fff;
+}
+
+.choose-shop__shop-list .zan-cell,.choose-shop__shop-list .location-result__item-base {
+    pointer-events: none;
+}
+
+.location-result__item-base {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px 0;
+    margin-bottom: -12px;
+    align-items: center;
+}

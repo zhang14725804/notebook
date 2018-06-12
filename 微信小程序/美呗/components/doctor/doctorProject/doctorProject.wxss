@@ -1,0 +1,34 @@
+.projects {
+    height: 20px;
+    margin-top: 10rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 470rpx;
+    max-width: 100%;
+}
+
+.projects.full {
+    width: 100%;
+}
+
+.projects .icon {
+    width: 30rpx;
+    height: 30rpx;
+    position: relative;
+    top: 6rpx;
+    margin-right: 8rpx;
+}
+
+.projects .project-item {
+    margin-left: 20rpx;
+    font-size: 30rpx;
+}
+
+.color-ff8083 {
+    color: #ff8083;
+}
+
+.color-000 {
+    color: #000;
+}

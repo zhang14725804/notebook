@@ -1,0 +1,69 @@
+@import "../../__wuBaseWxss__/30.wxss";
+
+@import "../search/index.wxss";
+
+@import "../../__wuBaseWxss__/31.wxss";
+
+@import "../../comps/channelbox/index.wxss";
+
+.body {
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+.body .mod_loading {
+    position: absolute;
+}
+
+.mod_loading.hide {
+    display: none;
+}
+
+.mod_loading.loadmore {
+    height: auto;
+    padding-bottom: 16px;
+}
+
+.site_nav {
+    position: relative;
+    z-index: 2;
+}
+
+.site_sub_nav {
+    position: relative;
+    color: #666;
+    font-size: 14px;
+    padding: 12px 10px;
+    border-bottom: 1rpx solid #e0e0e0;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.sub_nav_link {
+    height: 28px;
+    line-height: 28px;
+    padding: 0 9px;
+    background-color: #f5f7f9;
+    border-radius: 3px;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    margin: 0 6px;
+}
+
+@media (max-width:360px) {
+    .sub_nav_link {
+        padding: 0 3px;
+    }
+}
+
+.btn_search {
+    position: absolute;
+    right: 8px;
+    bottom: 2px;
+    width: 40px;
+    height: 40px;
+    background: url(https://i.gtimg.cn/qqlive/images/tinyapp/search_btn.svg) center center no-repeat;
+    background-size: 20px;
+}

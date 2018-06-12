@@ -1,0 +1,7 @@
+<view class="auth">
+    <view class="auth_btn_wrapper">
+        <button bindgetuserinfo="onGotUserInfo" lang="zh_CN" openType="getUserInfo" plain="true" size="default">
+            <view class="auth_btn"></view>
+        </button>
+    </view>
+</view>

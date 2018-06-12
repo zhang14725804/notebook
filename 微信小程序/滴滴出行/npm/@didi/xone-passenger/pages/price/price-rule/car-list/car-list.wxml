@@ -1,0 +1,28 @@
+<view class="mod-p-price-rule must-be">
+    <view class="container">
+        <view class="mod-page-rule">
+            <view class="mod-lists">
+                <view class="mod-lists-inner">
+                    <view xmlns:wx="" wx:for="{{state.listData}}" wx:for-item="carTypeItem">
+                        <view wx:for="{{carTypeItem}}" wx:for-index="carTypeIndex" wx:for-item="carTypeData">
+                            <view>
+                                <view bindtap="_dispatch" class="car-type-name" data-bindtap="spreadItem({{carTypeIndex}})" wx:if="{{carTypeData.children.length!==1}}">
+                                    <view>{{carTypeIndex}}</view>
+                                    <view class="arrow-top arrow" wx:if="{{carTypeData.isSpread}}"></view>
+                                    <view class="arrow-bottom arrow" wx:if="{{!carTypeData.isSpread}}"></view>
+                                </view>
+                                <view bindtap="_dispatch" class="scene-name" data-bindtap="openItem({{scene.curr_strategy_token}})" wx:if="{{carTypeData.isSpread}}" wx:for="{{carTypeData.children}}" wx:for-item="scene">
+                                    <span>{{scene.title}}</span>
+                                </view>
+                                <view bindtap="_dispatch" class="car-type-name" data-bindtap="openItem({{carTypeData.children[0].curr_strategy_token}})" wx:if="{{carTypeData.children.length===1}}">
+                                    <view>{{carTypeIndex}}</view>
+                                    <view class="arrow-right arrow"></view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

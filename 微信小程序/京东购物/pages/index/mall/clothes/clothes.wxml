@@ -1,0 +1,20 @@
+<view class="clothes">
+    <view class="clothes-title">
+        <view class="clothes-title__dt">京东服饰</view>
+        <view class="clothes-title__dd">臻选大牌</view>
+    </view>
+    <view class="clothes-coupon">¥50</view>
+    <view class="clothes-image">
+        <view class="clothes-image__item clothes-image__item--before">
+            <image src="http://jdc.jd.com/img/200"></image>
+        </view>
+        <view class="clothes-image__item clothes-image__item--after">
+            <image src="http://jdc.jd.com/img/200"></image>
+        </view>
+    </view>
+    <view class="clothes-keyword">
+        <view class="clothes-keyword__item">衬衫男</view>
+        <view class="clothes-keyword__item">半身裙</view>
+        <view class="clothes-keyword__item">蕾丝连衣裙</view>
+    </view>
+</view>

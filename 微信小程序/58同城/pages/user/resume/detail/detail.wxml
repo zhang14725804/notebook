@@ -1,0 +1,140 @@
+<view class="container-main">
+    <view class="panel">
+        <view class="container-form">
+            <view class="form-item">
+                <view class="form-item-label">个人资料</view>
+            </view>
+            <view class="form-item">
+                <view class="avatar" style="background-image:{{info.pic?info.pic:'inhret'}};"></view>
+                <view class="form-item-field form-item-field_true_name">
+                    {{info.trueName}}
+                </view>
+            </view>
+            <view class="form-item" wx:if="{{info.gender}}">
+                <view class="form-item-label">
+                    <view>性</view>
+                    <view class="letter-last">别</view>
+                </view>
+                <view class="form-item-field">
+                    {{info.gender}}
+                </view>
+            </view>
+            <view class="form-item" wx:if="{{info.birthDate}}">
+                <view class="form-item-label">出生日期</view>
+                <view class="form-item-field">
+                    {{info.birthDate}}
+                </view>
+            </view>
+            <view class="form-item" wx:if="{{info.education}}">
+                <view class="form-item-label">最高学历</view>
+                <view class="form-item-field">
+                    {{info.education}}
+                </view>
+            </view>
+            <view class="form-item" wx:if="{{info.workYears}}">
+                <view class="form-item-label">工作时间</view>
+                <view class="form-item-field">
+                    {{info.workYears}}
+                </view>
+            </view>
+            <view class="form-item" wx:if="{{info.tel}}">
+                <view class="form-item-label">联系方式</view>
+                <view class="form-item-field">
+                    {{info.tel}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="panel">
+        <view class="container-form">
+            <view class="form-item">
+                <view class="form-item-label ">求职意向</view>
+            </view>
+            <view class="form-item" wx:if="{{info.targetCates&&info.targetCates.length>0}}">
+                <view class="form-item-label">期望工作</view>
+                <view class="form-item-field form-field-target_cate">
+                    <block wx:for="{{info.targetCates}}" wx:key="key">
+                        <view class="field-split" wx:if="{{index!==0}}">|</view>
+                        <view class="target_cate-item">
+                            {{item}}
+                        </view>
+                    </block>
+                </view>
+            </view>
+            <view class="form-item" wx:if="{{info.salary}}">
+                <view class="form-item-label">期望薪资</view>
+                <view class="form-item-field">
+                    {{info.salary}}
+                </view>
+            </view>
+            <view class="form-item" wx:if="{{info.targetAreas&&info.targetAreas.length>0}}">
+                <view class="form-item-label">求职地区</view>
+                <view class="form-item-field form-field-target_area">
+                    <block wx:for="{{info.targetAreas}}" wx:key="key">
+                        <view class="field-split" wx:if="{{index!==0}}">|</view>
+                        <view class="target_cate-area">
+                            {{item}}
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="panel" wx:if="{{info.expList&&info.expList.length>0}}">
+        <view class="container-form">
+            <view class="form-item">
+                <view class="form-item-label">工作经验</view>
+            </view>
+            <view class="form-item">
+                <view class="form-item-field">
+                    <view class="field_exp {{index===info.expList.length-1?'':'dash-border'}}" wx:for="{{info.expList}}" wx:key="index">
+                        <view>{{item.company}} - {{item.position}}</view>
+                        <view>薪资:{{item.salary}}</view>
+                        <view>时间:{{item.time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="panel" wx:if="{{info.eduList&&info.eduList.length>0}}">
+        <view class="container-form">
+            <view class="form-item">
+                <view class="form-item-label">教育经历</view>
+            </view>
+            <view class="form-item">
+                <view class="form-item-field">
+                    <view class="field_edu {{index===info.eduList.length-1?'':'dash-border'}}" wx:for="{{info.eduList}}" wx:key="index">
+                        <view>{{item.school}}-{{item.major}}</view>
+                        <view>时间:{{item.time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="panel" wx:if="{{info.advantagesArr&&info.advantagesArr.length>0}}">
+        <view class="container-form">
+            <view class="form-item">
+                <view class="form-item-label">我的亮点</view>
+            </view>
+            <view class="form-item">
+                <view class="form-item-field form-item-field_advantage">
+                    <view class="field-advantage" wx:for="{{info.advantagesArr}}" wx:key="index">
+                        {{item}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="panel panel-last" wx:if="{{info.letter}}">
+        <view class="container-form">
+            <view class="form-item">
+                <view class="form-item-label">个人评价</view>
+            </view>
+            <view class="form-item">
+                <view class="form-item-field">
+                    {{info.letter}}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

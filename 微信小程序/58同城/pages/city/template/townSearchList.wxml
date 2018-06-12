@@ -1,0 +1,8 @@
+<template name="town-search-list">
+    <view class="town-list">
+        <view catchtap="e_townItem" class="town-item-li  {{townItem.id==-1?'char':''}}" data-town-id="{{townItem.id}}" wx:for="{{townList}}" wx:for-item="townItem" wx:key="index">
+            <view>{{townItem.name}}</view>
+            <view class="town-item-desc" wx:if="{{townItem.desc}}">{{townItem.desc}}</view>
+        </view>
+    </view>
+</template>

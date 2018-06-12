@@ -1,0 +1,7 @@
+<template name="topbar">
+    <view bindtap="onReturnHome" class="topbar">
+        <view class="topbar_logo"></view>
+        <view class="topbar_label">{{pageLabel}}</view>
+        <view class="topbar_more">更多精彩视频</view>
+    </view>
+</template>

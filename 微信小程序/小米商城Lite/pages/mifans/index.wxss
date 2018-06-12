@@ -1,0 +1,436 @@
+.wx-mifans-index {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    background: url("http://i8.mifile.cn/webfile/h5/weixin/0328/mifans_bg_2.jpg") round;
+}
+
+.header {
+    width: 100%;
+    display: block;
+}
+
+.wx-mifans-content {
+    position: relative;
+    z-index: 2;
+}
+
+.mail {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+}
+
+.wx-my-tips {
+    text-align: center;
+    font-size: 30rpx;
+    position: relative;
+    z-index: 2;
+    color: #b49d7c;
+    padding-top: 120rpx;
+}
+
+.my-tips-title,.my-product-title {
+    font-size: 42rpx;
+    display: block;
+    color: #aa9372;
+}
+
+.wx-group-buy .my-product-title {
+    line-heigth: 42rpx;
+}
+
+.my-tips-title {
+    padding: 0 0 20rpx 0;
+}
+
+.my-tips-desc {
+    text-align: center;
+    padding: 0 80rpx 300rpx 80rpx;
+}
+
+.my-tips-desc .my-tips-par {
+    padding: 0rpx 0 10rpx;
+    display: block;
+    line-height: 46rpx;
+}
+
+.wx-my-product {
+    text-align: center;
+    margin-bottom: 60rpx;
+    margin-top: 90rpx;
+}
+
+.wx-group-buy {
+    text-align: center;
+    overflow: hidden;
+}
+
+.product-content {
+    margin: 28rpx 30rpx 0 30rpx;
+    overflow: hidden;
+}
+
+.product-content .image-row {
+    position: relative;
+    width: 100%;
+}
+
+.product-content .last {
+    margin: 0 9rpx;
+    width: 670rpx;
+}
+
+.product-content .row-content {
+    position: absolute;
+    left: 50%;
+    bottom: 20rpx;
+    width: 575rpx;
+    margin-left: -287rpx;
+    overflow: hidden;
+}
+
+.row-content-list {
+    width: 590rpx;
+}
+
+.row-bg {
+    width: 100%;
+    display: block;
+}
+
+.col-list {
+    width: 90rpx;
+    height: 130rpx;
+    background: #fff;
+    border: 8rpx solid #f4faec;
+    box-shadow: 0rpx 5rpx 5rpx #b0b0b0;
+    line-height: 130rpx;
+    text-align: center;
+    margin-right: 15rpx;
+    line-height: 130rpx;
+    float: left;
+}
+
+.col-list:last-child {
+    margin-right: 0;
+}
+
+.col-image {
+    height: 90rpx;
+    background-size: cover;
+    width: 90rpx;
+    margin-top: 20rpx;
+}
+
+.my-product-more {
+    position: absolute;
+    top: 40rpx;
+    background: #fff;
+    width: 280rpx;
+    height: 70rpx;
+    left: 50%;
+    margin-left: -140rpx;
+    color: #aa9372;
+}
+
+.bind-mi-account {
+    background: #fff;
+    width: 260rpx;
+    height: 70rpx;
+    color: #aa9372;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.product-more {
+    margin: 8rpx;
+    background: #fff;
+    border: 1rpx solid #b49d7c;
+    font-size: 30rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    color: #b49d7c;
+    border-radius: 0;
+}
+
+.my-product-subtitle {
+    color: #aa9372;
+    font-size: 24rpx;
+}
+
+.group-content {
+    padding: 20rpx 0;
+    overflow: hidden;
+    margin: 20rpx 0;
+}
+
+.group-product {
+    margin: 20rpx 0 0 0;
+}
+
+.group-content image {
+    width: 100%;
+}
+
+.group-image-list {
+    border: 1rpx solid #aa9372;
+    margin: 10rpx;
+}
+
+.group-image {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 0 0 80rpx;
+}
+
+.group-decs {
+    font-size: 16rpx;
+}
+
+.group-image image {
+    width: 200rpx;
+    margin-top: 20rpx;
+}
+
+.group-other {
+    font-size: 36rpx;
+    text-align: left;
+    margin-left: 40rpx;
+    width: 290rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.group-product-value {
+    display: block;
+}
+
+.share-btn {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wx-share-btn {
+    width: 100%;
+    height: 92rpx;
+    margin: 0 auto 20rpx auto;
+    border: none;
+    line-height: 92rpx;
+    border-radius: 46rpx;
+    font-size: 36rpx;
+    background: url("http://i8.mifile.cn/webfile/h5/weixin/0328/mifans-btn.png") no-repeat;
+    color: #fff;
+    background-size: cover;
+}
+
+.share-btn-list {
+    width: 50%;
+    border-radius: 0;
+    background: #e5d7ca;
+    color: #baa586;
+    font-size: 30rpx;
+}
+
+button::after {
+    border: none;
+}
+
+.msxcx-pop-prize-mask {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+}
+
+.msxcx-pop {
+    background: url("http://i8.mifile.cn/webfile/h5/weixin/0328/prize_bg.png") round;
+    height: 770rpx;
+    border-radius: 0;
+    overflow: visible;
+}
+
+.msxcx-pop-share {
+    height: 960rpx;
+}
+
+.pop-show-img {
+    overflow: hidden;
+    height: 960rpx;
+    background-size: cover;
+}
+
+.close {
+    position: absolute;
+    top: 60rpx;
+    right: 60rpx;
+    z-index: 9999;
+}
+
+.close image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.msxcx-pop-prize-content {
+    margin: 35rpx;
+    border: 1rpx solid #ac926f;
+    height: 690rpx;
+    text-align: center;
+}
+
+.msxcx-pop-prize-content .logo {
+    position: absolute;
+    bottom: 80rpx;
+    left: 50%;
+    margin-left: -37rpx;
+}
+
+.msxcx-pop-prize-content .logo image {
+    width: 74rpx;
+    height: 94rpx;
+}
+
+.prize-title {
+    color: #aa9372;
+    font-size: 42rpx;
+    padding-top: 90rpx;
+}
+
+.prize-title text {
+    display: block;
+}
+
+.prize-name {
+    background: url('http://i8.mifile.cn/webfile/h5/weixin/0328/prize_name.png') no-repeat;
+    width: 337rpx;
+    height: 188rpx;
+    background-size: cover;
+    margin: 80rpx auto 0;
+    line-height: 160rpx;
+    color: #fff;
+    font-size: 36rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0 80rpx;
+}
+
+.group-container {
+    padding: 0 55rpx;
+}
+
+.mx-group-player {
+    margin: 40rpx auto 70rpx auto;
+    width: 604rpx;
+    overflow: hidden;
+}
+
+.mx-group-player .list {
+    padding: 32rpx 0 20rpx 0;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 630rpx;
+}
+
+.mx-group-player .player {
+    width: 100rpx;
+    height: 100rpx;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    border-radius: 50%;
+    margin: 0 26rpx 30rpx 0;
+}
+
+.mx-group-player .player image {
+    width: 101rpx;
+    height: 101rpx;
+    border-radius: 50%;
+    vertical-align: top;
+}
+
+.mx-group-player .player .avatar {
+    width: 101rpx;
+    height: 101rpx;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+    border-radius: 50%;
+    vertical-align: top;
+}
+
+.mx-group-player .player .master {
+    position: absolute;
+    bottom: -10rpx;
+    left: 50%;
+    width: 80rpx;
+    margin-left: -40rpx;
+    line-height: 30rpx;
+    background-color: #ff6700;
+    color: #fff;
+    font-size: 20rpx;
+    border-radius: 16rpx;
+    z-index: 3;
+}
+
+.lottery_msg {
+    color: rgba(0,0,0,0.27);
+    font-size: 24rpx;
+}
+
+.mx-group-player .player .no {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 100rpx;
+    color: #c8b292;
+    font-size: 50rpx;
+}
+
+.more-player {
+    text-align: center;
+    color: #baa586;
+}
+
+.rule {
+    padding: 10rpx 0 100rpx 0;
+    color: #baa586;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 350rpx;
+    margin: 0 auto;
+}
+
+.rule text {
+    color: rgba(186,165,134,.4);
+    font-size: 24rpx;
+}
+
+.share-close {
+    top: -80rpx;
+    right: 0;
+}
+
+.canvas-img {
+    display: none;
+}

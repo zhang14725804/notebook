@@ -1,0 +1,119 @@
+page {
+    background-color: #fff;
+}
+
+.nav-hover {
+    background-color: #198C49;
+}
+
+.page-container {
+    padding-bottom: 100rpx;
+}
+
+.title {
+    height: 100rpx;
+    text-indent: 30rpx;
+    font-size: 34rpx;
+    line-height: 100rpx;
+    color: #5C626D;
+    border-bottom: 1rpx solid #D9D9D9;
+}
+
+.question-wrap {
+    padding: 36rpx 30rpx 22rpx;
+    border-bottom: 1rpx solid #D9D9D9;
+    transition: all ease-in-out .3s;
+}
+
+.question-content {
+    padding-top: 10rpx;
+    display: none;
+}
+
+.sub-title {
+    padding-bottom: 14rpx;
+    font-size: 34rpx;
+    line-height: 48rpx;
+    color: #000;
+    position: relative;
+}
+
+.sub-title:before,.sub-title:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-width: 16rpx;
+    border-style: solid dashed dashed dashed;
+}
+
+.sub-title:before {
+    bottom: 14rpx;
+    border-color: #c7c7c7 transparent transparent transparent;
+}
+
+.sub-title:after {
+    bottom: 18rpx;
+    border-color: #fff transparent transparent transparent;
+}
+
+.question-wrap.show .question-content {
+    display: block;
+}
+
+.question-wrap.show .sub-title:before {
+    bottom: 30rpx;
+    border-style: dashed dashed solid dashed;
+    border-color: transparent transparent #c7c7c7;
+}
+
+.question-wrap.show .sub-title:after {
+    bottom: 26rpx;
+    border-style: dashed dashed solid dashed;
+    border-color: transparent transparent #fff transparent;
+}
+
+.question-text {
+    padding-right: 8rpx;
+    max-height: 148rpx;
+    font-size: 30rpx;
+    line-height: 40rpx;
+    color: #888;
+    overflow: auto;
+}
+
+.question-text text {
+    display: block;
+}
+
+.question-imgs {
+    margin-top: 22rpx;
+    height: 396rpx;
+    width: 100%;
+}
+
+.slide-img {
+    width: 100%;
+    height: 396rpx;
+}
+
+.start-check {
+    display: block;
+    margin: 90rpx auto 0;
+    padding: 0;
+    width: 670rpx;
+    height: 98rpx;
+    background-color: #20B35D;
+    font-size: 36rpx;
+    line-height: 98rpx;
+    color: #fff;
+    border: 1rpx solid #20B35D;
+    border-radius: 10rpx;
+    text-align: center;
+}
+
+.start-check {
+    border-color: #20B35D;
+}

@@ -1,0 +1,5 @@
+<view>
+    <view style="background:#fff" wx:for="{{list}}">
+        <doctor data-data="{{item}}" doctor="{{item}}"></doctor>
+    </view>
+</view>

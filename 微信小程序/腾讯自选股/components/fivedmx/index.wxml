@@ -1,0 +1,39 @@
+<template name="fivedmx">
+    <view class="chartPanel__main__data--show" style="margin-left:{{layout.canvasWidth}}px;width:{{layout.fiveDWidth}}px;height:{{layout.fiveDHeight}}px" wx:if="{{showFivedmx}}">
+        <view bindtap="bindTapDataArea" class="chartPanel__main__data__5d{{show_5d}}" data-status="5d" style="height:{{layout.fiveDListHeight}}px">
+            <block wx:for="{{positions}}" wx:for-index="idx" wx:for-item="position" wx:key="idx">
+                <view class="chartPanel__main__data__5d__row">
+                    <view class="chartPanel__main__data__5d__row__cell">{{position.t}}</view>
+                    <view class="chartPanel__main__data__5d__row__cell2{{position.updown}}">{{position.p}}</view>
+                    <view class="chartPanel__main__data__5d__row__cell3">{{position.v}}</view>
+                </view>
+                <view class="chartPanel__main__data__5d__line" wx:if="{{idx==4}}"></view>
+            </block>
+        </view>
+        <view bindtap="bindTapDataArea" class="chartPanel__main__data__mx{{show_mx}}" data-status="mx" style="height:{{layout.fiveDListHeight}}px">
+            <view wx:if="{{!noMingxi}}">
+                <view class="chartPanel__main__data__mx__row">
+                    <view class="chartPanel__main__data__mx__row__cell">时间</view>
+                    <view class="chartPanel__main__data__mx__row__cell2" style="text-align:center; text-indent:6px;">成交价</view>
+                    <view class="chartPanel__main__data__mx__row__cell3">成交量</view>
+                </view>
+                <scroll-view scrollY="true" style="height: {{layout.fiveDListHeight-16}}px;">
+                    <view class="chartPanel__main__data__mx__row mx" wx:for="{{mingxi}}" wx:for-index="idx" wx:for-item="mingxi" wx:key="idx">
+                        <view class="chartPanel__main__data__mx__row__cell">{{mingxi.time}}</view>
+                        <view class="chartPanel__main__data__mx__row__cell2">{{mingxi.price}}</view>
+                        <view class="chartPanel__main__data__mx__row__cell3">{{mingxi.volume}}<span class="chartPanel__main__data__mx__row__cell3{{mingxi.updown}} chartPanel__main__data__mx__row__cell3__bs">{{mingxi.sb}}</span>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="chartPanel__main__data__mx__nomx" wx:if="{{noMingxi}}">
+                暂无数据
+            </view>
+        </view>
+        <view bindtap="bindTapTab" class="chartPanel__main__data__tabbar" style="height:{{layout.fiveDTabHeight}}px; line-height:{{layout.fiveDTabHeight}}px">
+            <view class="chartPanel__main__data__tabbar__item{{fdcur}}" data-status="5d">五档</view>
+            <view class="chartPanel__main__data__tabbar__item{{mxcur}}" data-status="mx">明细</view>
+            <view animation="{{animationData3}}" class="chartPanel__main__data__tabbar__line{{cur_line}}" style="top:{{layout.fiveDTabHeight-2}}px;"></view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "待付款的订单",
+    "usingComponents": {
+        "service-due": "../../../components/shop/service-due/index",
+        "order-ensure": "../../../components/shop/order-ensure/index",
+        "form-view": "../../../components/form-view/index"
+    }
+}

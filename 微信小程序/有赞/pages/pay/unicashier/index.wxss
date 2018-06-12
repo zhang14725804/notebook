@@ -1,0 +1,89 @@
+@import "../../../components/pay/cashier/index.wxss";
+
+.container--unicashier {
+    padding: 15px 0;
+}
+
+.unicashier-total-price {
+    position: relative;
+}
+
+.unicashier-total-price .zan-field__input {
+    font-size: 24px;
+    line-height: 28px;
+    padding: 2px 0;
+}
+
+.unicashier-total-price .input-placeholder {
+    font-size: 14px;
+}
+
+.unicashier-discount {
+    display: flex;
+    align-items: center;
+    line-height: 14px;
+    padding: 9px 15px;
+}
+
+.unicashier-discount__icon {
+    width: 15px;
+    height: 15px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    font-size: 0;
+}
+
+.unicashier-discount__icon-success {
+    height: 10px;
+    vertical-align: middle;
+}
+
+.unicashier-discount__icon--checked {
+    border-color: #f44;
+}
+
+.unicashier-discount__text {
+    padding-left: 4px;
+    vertical-align: middle;
+    color: #999;
+    font-size: 12px;
+}
+
+.unicashier-ump__title {
+    padding-left: 5px;
+}
+
+.unicashier-ump__icon {
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    line-height: 14px;
+    border: 1px solid #f44;
+    text-align: center;
+    font-size: 10px;
+    color: #ff8282;
+}
+
+.unicashier-ump__content {
+    color: #f44;
+    font-size: 12px;
+}
+
+.unicashier-price {
+    padding: 5px 15px;
+}
+
+.unicashier-price__content {
+    color: #f44;
+    font-size: 24px;
+}
+
+.unicashier-price__flag {
+    font-size: 14px;
+}
+
+.unicashier-btns {
+    margin: 20px 15px;
+}

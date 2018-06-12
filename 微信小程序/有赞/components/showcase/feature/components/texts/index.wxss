@@ -1,0 +1,40 @@
+.sc-text {
+    position: relative;
+    padding: 0 10px;
+}
+
+.sc-text__content {
+    line-height: 44px;
+}
+
+.sc-text__icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #cbc9cc;
+}
+
+.text-transparent-btn {
+    display: block;
+    border-radius: 0;
+    background: transparent;
+    background-color: transparent;
+    border-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.text-transparent-btn::after {
+    display: none;
+    visibility: hidden;
+}
+
+.sc-text--has-link .sc-text__content {
+    padding-right: 20px;
+}
+
+.sc-text--has-line .sc-text__content {
+    border-bottom: 1rpx solid #e5e5e5;
+}

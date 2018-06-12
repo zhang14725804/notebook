@@ -1,0 +1,5 @@
+<template name="toast">
+    <view bindtap="hideToast" class="mod_toast" hidden="{{!show}}">
+        <view class="toast_txt" wx:for="{{title}}" wx:key="{{item}}">{{item}}</view>
+    </view>
+</template>

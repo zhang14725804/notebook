@@ -1,0 +1,15 @@
+<view catchtap="disableBubble" class="msxcx-pop msxcx-pop_share">
+    <view class="preview" wx:if="{{shareData.poster}}">
+        <image mode="widthFix" src="{{shareData.poster}}"></image>
+    </view>
+    <view class="actions {{!shareData.poster?'one':''}}">
+        <button class="item" formType="submit" openType="share">
+            <image src="http://i8.mifile.cn/webfile/h5/weixin/0301/share-1.png"></image>
+            <text>发送给朋友</text>
+        </button>
+        <button bindtap="saveImg" class="item" formType="submit" wx:if="{{shareData.poster}}">
+            <image src="http://i8.mifile.cn/webfile/h5/weixin/0301/share-2.png"></image>
+            <text>保存海报</text>
+        </button>
+    </view>
+</view>

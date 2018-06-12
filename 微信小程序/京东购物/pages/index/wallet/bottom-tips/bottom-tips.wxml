@@ -1,0 +1,11 @@
+<view class="bottom-tips" wx:if="{{tipsText&&tipsPath}}">
+    <view bindtap="onDisableTips" class="bottom-tips__disable">
+        <icon color="#828282" size="15" type="clear"></icon>
+    </view>
+    <view bindtap="onTapTips" class="bottom-tips__text" data-path="{{tipsPath}}">
+        <view class="line2">
+            <text>您刚刚在浏览{{tipsText}}，点击</text>
+            <text class="bottom-tips__link">继续浏览</text>
+        </view>
+    </view>
+</view>

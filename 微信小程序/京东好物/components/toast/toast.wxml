@@ -1,0 +1,10 @@
+<template name="toast">
+    <view class="shade-floor" wx:if="{{message}}">
+        <view class="message-box content-box">
+            <view class="message-box-icon">
+                <icon class="message-icon {{icon}}"></icon>
+            </view>
+            <text class="message-box-content">{{message}}</text>
+        </view>
+    </view>
+</template>

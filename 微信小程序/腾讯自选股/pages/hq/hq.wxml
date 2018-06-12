@@ -1,0 +1,81 @@
+<import src="wxml/templates.wxml"></import>
+<import src="/components/failureTip/index.wxml"></import>
+<view>
+    <template is="failureTip" data="{{...failureTip}}" wx:if="{{!(curTab==0&&hsnodata||curTab==1&&hknodata||curTab==2&&usnodata)}}"></template>
+    <view class="tab-nav hq ">
+        <view catchtap="bindTapTab" class="tab-nav-btn {{selected[0]}} hs" data-tab="0">沪深</view>
+        <view catchtap="bindTapTab" class="tab-nav-btn {{selected[1]}} hk" data-tab="1">港股</view>
+        <view catchtap="bindTapTab" class="tab-nav-btn {{selected[2]}} us" data-tab="2">美股</view>
+    </view>
+    <view class="{{colorType}}" style="margin-top: 76rpx;display:{{hsnodata?'none':'block'}}">
+        <swiper bindchange="bindChangeTab" current="{{curTab}}" duration="{{300}}" style="height:{{scrollHeight}}">
+            <swiper-item>
+                <scroll-view class="ZSTab hqtab selected " scrollY="true" style="height:{{scrollHeight}}">
+                    <view>
+                        <template is="marketZS__panelTemp" data="{{data:hszsData,cur:hscur,mkt:'hs'}}"></template>
+                    </view>
+                    <view>
+                        <template is="blocksWithTitleTemp" data="{{data:averatio,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                    <view>
+                        <template is="stocklistWithTitleTemp" data="{{data:chr0,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                    <view>
+                        <template is="stocklistWithTitleTemp" data="{{data:chr1,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                    <view>
+                        <template is="stocklistWithTitleTemp" data="{{data:trunrl,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                    <view>
+                        <template is="stocklistWithTitleTemp" data="{{data:dtzf,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view class="hqtab selected" scrollY="true" style="height:{{scrollHeight}};">
+                    <view>
+                        <template is="marketZS__panelTemp" data="{{data:hkzsData,cur:hkcur,mkt:'hk'}}"></template>
+                    </view>
+                    <view>
+                        <template is="blocksWithTitleTemp" data="{{data:hk_industry_list,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                    <view>
+                        <template is="stocklistWithTitleTemp" data="{{data:main_all_desc,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                    <view>
+                        <template is="stocklistWithTitleTemp" data="{{data:main_all_asc,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                    <view>
+                        <template is="stocklistWithTitleTemp" data="{{data:main_all_amount_desc,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                    <view>
+                        <template is="stocklistWithTitleTemp" data="{{data:gem_all_desc,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                    <view>
+                        <template is="stocklistWithTitleTemp" data="{{data:gem_all_asc,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                    <view>
+                        <template is="stocklistWithTitleTemp" data="{{data:gem_all_amount_desc,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view class="hqtab selected" scrollY="true" style="height:{{scrollHeight}}">
+                    <view>
+                        <template is="marketZS__panelTemp" data="{{data:uszsData,cur:uscur,mkt:'us'}}"></template>
+                    </view>
+                    <view>
+                        <template is="stocklistWithTitleTemp" data="{{data:zgg,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                    <view>
+                        <template is="stocklistWithTitleTemp" data="{{data:ustec,toggleClasses:toggleClasses}}"></template>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>
+<view class="nodata hq" style="margin-top: {{nodataTop}}" wx:if="{{(curTab==0&&hsnodata||curTab==1&&hknodata||curTab==2&&usnodata)&&showNodata}}">
+    <view class="nodata-icon"></view>
+    <view class="nodata-text">当前网络状况不佳</view>
+</view>

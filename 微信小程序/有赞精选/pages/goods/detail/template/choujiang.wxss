@@ -1,0 +1,16 @@
+.cj-cell {
+    border-top: 1rpx solid #e5e5e5;
+    border-bottom: 1rpx solid #e5e5e5;
+    padding: 20rpx 30rpx;
+}
+
+.cj-cell__title {
+    font-size: 28rpx;
+    color: #FF5050;
+    margin-bottom: 16rpx;
+}
+
+.cj-cell__desc {
+    font-size: 24rpx;
+    color: #999999;
+}

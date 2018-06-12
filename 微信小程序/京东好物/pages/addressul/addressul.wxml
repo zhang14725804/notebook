@@ -1,0 +1,24 @@
+<scroll-view class="my-order-viewport" scrollX="false" scrollY="true" style="height:{{screenHeight}}px;">
+    <view class="address-li {{i=='1'?'address-ul':''}} {{i==addressList.length?'bd-b':''}}" id="{{addressListData.id}}" wx:if="{{addressListData.id!=-1}}" wx:for="{{addressList}}" wx:for-index="i" wx:for-item="addressListData">
+        <view class="left" wx:if="{{i==0}}">
+            <image></image>
+        </view>
+        <view bindtap="chooseAddress" class="middle" id="{{addressListData.id}}">
+            <view class="user-info">
+                <view class="user-name" style="width:{{i==0?'280rpx':'340rpx'}}">{{addressListData.name}}</view>
+                <view class="user-phone">{{addressListData.mobile}}</view>
+            </view>
+            <view class="address {{i=='0'?'font-color':''}}">
+                <view class="default" wx:if="{{addressListData.addressDefault}}">默认</view>{{addressListData.where}}
+                </view>
+        </view>
+        <navigator bindtap="editAddress" class="right" hoverClass="none" redirect="true" url="../address/address?addressId={{addressListData.id}}&defaultFlag={{i==0?'1':'0'}}">
+            <view>
+                <image></image>
+            </view>
+        </navigator>
+    </view>
+    <button bindtap="newAddress" class="new-btn">
+        <image></image>新建地址
+    </button>
+</scroll-view>

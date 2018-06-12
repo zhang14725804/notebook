@@ -1,0 +1,39 @@
+@import "../../../../components/coupon/coupon_cell.wxss";
+
+@import "../../../../components/ZanAccount/index.wxss";
+
+@import "../../../../components/ZanAccount/bindPhoneNumber/bindPhoneNumber.wxss";
+
+.swiper-tab {
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    line-height: 80rpx;
+}
+
+.swiper-tab-list {
+    font-size: 30rpx;
+    display: inline-block;
+    width: 33.3%;
+    color: #777;
+}
+
+.on {
+    color: #f44;
+    border-bottom: 5rpx solid #f44;
+}
+
+.swiper-box {
+    position: absolute;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+.swiper-box view {
+    text-align: center;
+}
+
+.swiper-container {
+    width: 100%;
+}

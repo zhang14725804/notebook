@@ -1,0 +1,53 @@
+<template name="videoList">
+    <view class="m-scrollList-topList_inner">
+        <view bindtap="playSourceVideoEpisode" class="{{item.qipuId===qipuId?'m-scrollList-topList_item-select':'m-scrollList-topList_item'}}" data-qipu-id="{{item.qipuId}}" wx:for="{{videos}}" wx:key="qipuId">
+            <view class="m-scrollList-topList_imgBox">
+                <image class="m-scrollList-topList_img" src="{{item.imageUrl}}"></image>
+                <view class="m-scrollList-topList_update">
+                    <text class="m-scrollList-topList_updateTx">{{item.showContent}}</text>
+                </view>
+                <image class="c-icon-selectedPlay" src="/resource/images/c-icon-selectedPlay.png" wx:if="{{item.qipuId===qipuId}}"></image>
+                <template is="icon" data="{{isVip:item.payMark===1}}"></template>
+            </view>
+            <view class="m-scrollList-topList_info">
+                <view class="{{item.qipuId===qipuId?'m-scrollList-topList_title-select':'m-scrollList-topList_title'}}">
+                    <text>{{item.shortTitle}}</text>
+                </view>
+                <view class="m-scrollList-topList_itro">
+                    <text>{{item.vt}}</text>
+                </view>
+                <view class="m-scrollList-topList_playNum">
+                    <text>{{item.playCountCN}}次播放</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="sourceEpisodeTab">
+    <view animation="{{animation}}" class="m-box-cover" style="transform:translate3d(0px, 100%, 0px);-webkit-transform:translate3d(0px, 100%, 0px);">
+        <view bindtap="hideSourceEpisode" class="m-title">
+            <text class="m-title_h">选集</text>
+            <view class="m-title_more">
+                <image class="c-icon-close" height="15" src="/resource/images/c-icon-close.png" width="15"></image>
+            </view>
+        </view>
+        <view class="m-subTab">
+            <view class="m-subTab_year">
+                <text class="">{{currentYear}}</text>
+            </view>
+            <scroll-view bindscroll="bindSourceVideoTagScroll" class="m-subTab_month" scrollLeft="{{scrollLeft}}" scrollX="true">
+                <view class="m-subTab_month_item">
+                    <text bindtap="switchSourceTap" class="m-subTab_month_items {{index===selectedTabIndex?'select':''}}" data-index="{{index}}" wx:for="{{months}}" wx:key="index">{{item.text}}</text>
+                </view>
+            </scroll-view>
+        </view>
+        <scroll-view class="m-scrollList-topList" scrollTop="{{scrollTop}}" scrollY="true" style="height:{{height+'px'}}" wx:if="{{index===selectedTabIndex}}" wx:for="{{videos}}" wx:key="index">
+            <template is="videoList" data="{{videos:item,qipuId:qipuId}}"></template>
+        </scroll-view>
+    </view>
+</template>
+<template name="sourceEpisode">
+    <template is="scrollCard" data="{{...video,qipuId:qipuId,bindItemTap:bindItemTap,bindMoreTap:bindMoreTap}}"></template>
+</template>
+<import src="/components/template/icon.wxml"></import>
+<import src="/components/template/scrollCard.wxml"></import>

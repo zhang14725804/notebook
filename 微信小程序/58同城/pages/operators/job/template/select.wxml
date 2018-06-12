@@ -1,0 +1,11 @@
+<template name="list-block">
+    <view class="list-block">
+        <view class="list-title">
+            <icon catchtap="e_listBack" class="list-title-icon" data-back-type="0"></icon>{{listTitle}}</view>
+        <view class="list-item">
+            <view catchtap="e_listItemClick" class="item" data-key="{{item.key}}" data-name="{{listName}}" data-other="{{item.other||item}}" data-value="{{item.value}}" wx:for="{{listData}}" wx:key="key">
+          {{item.display||item.value}}
+        </view>
+        </view>
+    </view>
+</template>

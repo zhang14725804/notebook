@@ -1,0 +1,18 @@
+<template name="price-intro">
+    <view class="zan-popup price-intro-container zan-popup--bottom {{showPriceIntro&&'zan-popup--show'}}" wx:if="{{showPriceIntro}}">
+        <view bindtap="closePricePopup" class="zan-popup__mask"></view>
+        <view class="zan-popup__container">
+            <view class="header">
+        价格说明
+        <view bindtap="closePricePopup" class="zan-icon zan-icon-close" style="color: #999; font-size: 22px"></view>
+            </view>
+            <view class="intro">
+                <view>
+                    <text>划线价格：</text>划线的价格可能是商品的专柜价、吊牌价、正品零售价、指导价、曾经展示过的销售价等，仅供您参考。</view>
+                <view>
+                    <text>未划线价格：</text>未划线的价格是商品的销售标价，具体的成交价格可能因会员使用优惠券、积分等发生变化，最终以订单结算价格为准。</view>
+                <view>*此说明仅当出现价格比较时有效。若这件商品针对划线价格进行了特殊说明，以特殊说明为准。</view>
+            </view>
+        </view>
+    </view>
+</template>

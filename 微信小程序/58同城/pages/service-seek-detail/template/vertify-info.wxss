@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+.vertify-alert-wrap {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: rgba(0,0,0,0.6);
+}
+
+.vertify-alert {
+    text-align: center;
+    padding: 40rpx 24rpx;
+    position: absolute;
+    top: 26%;
+    width: 540rpx;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #fff;
+}
+
+.vertify-code-tip {
+    position: absolute;
+    height: 70rpx;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.vertify-code-text {
+    display: inline-block;
+    margin: auto;
+    background: rgba(0,0,0,0.85);
+    border-radius: 4rpx;
+    font-size: 24rpx;
+    color: #fff;
+    height: 70rpx;
+    line-height: 70rpx;
+    padding: 0 10rpx;
+}
+
+.vertify-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 68rpx;
+    height: 68rpx;
+}
+
+.vertify-close::before,.vertify-close:after {
+    position: absolute;
+    content: "";
+    width: 4rpx;
+    height: 36rpx;
+    background-color: #AAAAAA;
+    top: 20rpx;
+    right: 30rpx;
+    transform: rotate(45deg);
+}
+
+.vertify-close::before {
+    transform: rotate(-45deg);
+}
+
+.vertify-title {
+    font-size: 36rpx;
+    color: #333333;
+}
+
+.phone-num-tip {
+    font-size: 28rpx;
+    color: #666666;
+    margin-top: 30rpx;
+}
+
+.vertify-send-tip {
+    font-size: 24rpx;
+    color: #999999;
+    padding: 30rpx 0rpx;
+}
+
+.vertify-send-tip.resend-code {
+    color: #53bcde;
+}
+
+.vertify-form {
+    margin-bottom: 30rpx;
+    font-size: 28rpx;
+    line-height: 28rpx;
+}
+
+.vertify-input {
+    padding: 0 10rpx;
+    width: 200rpx;
+    font-size: 28rpx;
+    height: 80rpx;
+    border: 2rpx solid #d2d2d2;
+    -webkit-appearance: none;
+    display: inline-block;
+}
+
+.vertify-submit {
+    display: inline-block;
+    height: 80rpx;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    padding: 0 10rpx;
+    text-align: center;
+    width: 160rpx;
+    border: none;
+    background-color: #53bcde;
+    color: #fff;
+    margin-left: 40rpx;
+}

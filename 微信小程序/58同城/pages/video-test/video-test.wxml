@@ -1,0 +1,9 @@
+<view class="videoWrap">
+    <video autoplay controls bindfullscreenchange="fullScreenFun" bindpause="bindPauseFun" bindplay="bindPlayFun" id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400">
+        <cover-view catchtap="stopBtn" class="view-close-btn">
+            <cover-image class="view-close-img" src="https://img.58cdn.com.cn/weixin/img/video_close.png"></cover-image>
+        </cover-view>
+    </video>
+</view>
+<button catchtap="playBtn">播放</button>
+<button catchtap="stopBtn">暂停</button>

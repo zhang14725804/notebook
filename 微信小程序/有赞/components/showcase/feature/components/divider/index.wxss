@@ -1,0 +1,3 @@
+.feature-divider {
+    height: 1px;
+}

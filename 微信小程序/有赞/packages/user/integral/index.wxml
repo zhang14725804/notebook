@@ -1,0 +1,46 @@
+<import src="../../../components/ZanAccount/bindPhoneNumber/bindPhoneNumber.wxml"></import>
+<import src="../../../components/integral-store/goodItem.wxml"></import>
+<import src="../../../components/integral-store/banner.wxml"></import>
+<import src="../../../components/scroll-to-top/index.wxml"></import>
+<import src="../../../components/ZanAccount/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/tab/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/loadmore/index.wxml"></import>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+<view class="page-container {{deviceType}} {{themeClass}} {{isTabPage&&'page-is-tab-page'}}">
+    <scroll-view scrollWithAnimation bindscroll="onScroll" bindscrolltolower="onToLower" class="{{isFixed&&'fixed-tabs'}}" scrollTop="{{scrollPosition}}" scrollY="{{true}}">
+        <template is="bind_phone_number" data="{{bindTips:'积分未同步？绑定手机号试试'}}" wx:if="{{showPhoneTip}}"></template>
+        <template is="zan-account" data="{{...zanAccount}}"></template>
+        <view class="{{theme}} integral-store__container">
+            <template is="integral-banner-template" data="{{core:core,isStore:false,hasStore:hasStore}}"></template>
+            <view class="integral-store__tabs">
+                <template is="zan-tab" data="{{tab:tabs,fixed:fixedGoodsTag||false}}"></template>
+            </view>
+            <empty image="https://img.yzcdn.cn/public_files/2018/01/24/94944a6494616cc0781d3b168017299e.png" text="{{'暂无'+(tabs.selectedId==='integral'?'积分记录':'兑换记录')}}" wx:if="{{list.length===0&&!loading}}"></empty>
+            <view wx:if="{{tabs.selectedId==='integral'}}">
+                <view class="zan-card integral__item zan-cell" wx:for="{{list}}" wx:for-item="good" wx:key="index">
+                    <view class="integral__item-info zan-card__detail">
+                        <view class="zan-card__left-col zan-ellipsis--l2 zan-font-14 integral__item-info__title">
+                  {{good.description}}
+              </view>
+                        <view class="zan-card__detail-row  zan-c-gray-darker integral__item-info__detail">
+                            <view class="zan-card__right-col user-points__amount zan-font-16">{{good.amount>0?'+'+good.amount:good.amount}}</view>
+                            <view class="zan-card__left-col zan-font-12">
+                  {{good.created_at}}
+                </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view wx:if="{{tabs.selectedId==='goods'}}">
+                <navigator class="zan-cell goods__item zan-card" hoverClass="none" url="{{good.url}}" wx:for="{{list}}" wx:for-item="good" wx:key="index">
+                    <template is="is-good-item-template" data="{{...good}}"></template>
+                </navigator>
+            </view>
+            <template is="zan-loadmore" data="{{loading:loading}}"></template>
+        </view>
+        <view class="scroll-to-top__container" wx:if="{{showToTopBtn}}">
+            <template is="scroll-to-top" data></template>
+        </view>
+    </scroll-view>
+</view>

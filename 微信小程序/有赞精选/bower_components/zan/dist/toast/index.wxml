@@ -1,0 +1,3 @@
+<template name="zan-toast">
+    <view bindtap="clearZanToast" class="zan-toast" wx:if="{{zanToast.show}}">{{zanToast.title}}</view>
+</template>

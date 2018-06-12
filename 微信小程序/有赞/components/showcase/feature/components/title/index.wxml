@@ -1,0 +1,33 @@
+<template name="title-weixin">
+    <view class="sc-title sc-title--wx {{data.titleClass}}" style="text-align: {{data.showMethod}}">
+        <view class="sc-title__main">{{data.title}}</view>
+        <view class="sc-title__sub" wx:if="{{data.wxTitleDate||data.wxTitle||data.wxTitleAuthor}}">
+            <text class="sc-title__date">{{data.wxTitleDate}}</text>
+            <text class="sc-title__author">{{data.wxTitleAuthor}}</text>
+            <block wx:if="{{data.wxLinkData.link_type}}">
+                <view catchtap="title__handleClick" class="sc-title__link" data-component-index="{{index}}" data-type="wx" wx:if="{{data.wxLinkData.link_type!=='chat'}}">{{data.wxTitle}}</view>
+                <button class="title-link-transparent" openType="contact" wx:else>
+            {{data.wxTitle}}
+          </button>
+            </block>
+        </view>
+    </view>
+</template>
+<template name="title-tradition">
+    <view class="sc-title {{data.titleClass}}" style="background-color: {{data.color}}; text-align: {{data.showMethod}}">
+        <view class="sc-title__main">
+            <text>{{data.title}}</text>
+            <block wx:if="{{data.linkData.link_type}}">
+                <text class="sc-title__divider">-</text>
+                <view catchtap="title__handleClick" class="sc-title__link" data-component-index="{{index}}" data-type="link" wx:if="{{data.linkData.link_type!=='chat'}}">{{data.linkTitle}}</view>
+                <button class="title-link-transparent" openType="contact" wx:else>
+          {{data.linkTitle}}
+        </button>
+            </block>
+        </view>
+        <view class="sc-title__sub" wx:if="{{data.subTitle}}">{{data.subTitle}}</view>
+    </view>
+</template>
+<template name="theme-feature-title">
+    <template is="title-{{data.templateType}}" data="{{data:data,index:index}}"></template>
+</template>

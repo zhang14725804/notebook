@@ -1,0 +1,10 @@
+<view class="list-wrapper">
+    <view class="list-content" xmlns:wx="" wx:for="{{props.gridList}}" wx:for-item="group">
+        <view class="list-item" wx:for="{{group}}">
+            <view bindtap="_dispatch" class="list-link" data-bindtap="selectList" data-item="{{item}}" vIf="item.name">
+                <text class="icon {{'icon-'+item.menuId}}"></text>
+                <text class="text">{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+</view>

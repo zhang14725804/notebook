@@ -1,0 +1,10 @@
+{
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#FAFAFA",
+        "navigationBarTitleText": "景点详情",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f6f6f6",
+        "enablePullDownRefresh": true
+    }
+}

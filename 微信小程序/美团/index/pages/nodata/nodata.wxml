@@ -1,0 +1,11 @@
+<view class="main">
+    <view class="location-error-img">
+        <image src="https://p1.meituan.net/codeman/7205d3162bcb9be5e71bbc1753650dd624057.png"></image>
+    </view>
+    <view class="location-error-containter">
+        <text class="info">{{formalData.info}}</text>
+        <view class="location-error-btn" wx:if="{{errorType!=='userInfo'}}">
+            <text catchtap="{{formalData.eventName}}" class="btn">{{formalData.btnTxt}}</text>
+        </view>
+    </view>
+</view>

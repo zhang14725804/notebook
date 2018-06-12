@@ -1,0 +1,77 @@
+<template name="cardItem">
+    <view class="card-info card-0{{randomNum}}">
+        <view class="card-user">
+            <view class="user-info">
+                <view class="avatar_img" style="background-image: url('{{comment_info.user_avatar}}')"></view>
+                <text>{{comment_info.user_name}}</text>
+            </view>
+            <view class="comment-content">
+                <text class="comment-text" style="-webkit-line-clamp: 6;" wx:if="{{!reply}}">{{comment_info.comment_content}}</text>
+                <text class="comment-text" style="-webkit-line-clamp: 4;" wx:else>{{comment_info.comment_content}}</text>
+                <view class="img-list">
+                    <view class="imgList-line" wx:for="{{comment_info.comment_images}}" wx:for-index="comment_imgList_index" wx:for-item="itemLine" wx:key="comment_imgList">
+                        <view class="imgList-item productImg" data-src="{{item}}" style="background-image: url('{{item}}')" wx:for="{{itemLine}}" wx:for-index="comment_imgList_item" wx:key="comment_imgList_item"></view>
+                    </view>
+                </view>
+                <view class="product-name">
+                    <image class="icon" mode="widthFix" style="background:url('http://i8.mifile.cn/webfile/h5/weixin/0507/product-icon.png');background-size:cover;"></image>
+                    <text>{{goods_info.goods_name}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="authority" wx:if="{{reply}}">
+            <view class="line"></view>
+            <view class="reply_text">
+                <text>{{reply_name}} ：{{reply}}</text>
+            </view>
+        </view>
+    </view>
+</template>
+<view class="msxcx-widget-loading msxcx-widget-loading_big" wx:if="{{!loaded}}">
+    <text>加载中</text>
+</view>
+<view class="comment-index" style="height:{{sysInfo.windowHeight}}px" wx:else>
+    <view class="content">
+        <view class="card">
+            <view class="card-block" style="height:{{sysInfo.windowHeight-170}}px">
+                <block wx:for="{{list}}">
+                    <view bindtouchend="touchEnd" bindtouchmove="touchMove" bindtouchstart="touchStart" class="card-item card-i{{index}} {{item.move==='Right'?'move-right':item.move==='Left'?'move-left':''}}" data-id="{{item.comment_info.comment_id}}" wx:if="{{index==0}}">
+                        <template is="cardItem" data="{{...item}}"></template>
+                    </view>
+                    <view class="card-item card-i{{index}}" data-id="{{item.comment_info.comment_id}}" wx:else>
+                        <template is="cardItem" data="{{...item}}"></template>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="button">
+            <view class="button-info">
+                <view class="item item01">
+                    <button class="item-icon" openType="share">
+                        <image class="icon" mode="widthFix" style="background:url('http://i8.mifile.cn/webfile/h5/weixin/0507/share_icon.png');background-size:cover;"></image>
+                    </button>
+                    <text>分享</text>
+                </view>
+                <view class="item item02">
+                    <view bindtap="getLike" class="item-icon" data-action="0" data-id="{{comment_id}}" wx:if="{{!is_favorite}}">
+                        <image class="icon" mode="widthFix" style="background:url('http://i8.mifile.cn/webfile/h5/weixin/0507/like_icon.png'); background-size:cover;"></image>
+                        <view class="num num1" wx:if="{{favorite_num}}">{{favorite_num}}</view>
+                    </view>
+                    <view bindtap="getLike" class="item-icon" data-action="1" data-id="{{comment_id}}" style="background-image: url('http://i8.mifile.cn/webfile/h5/weixin/0507/icon_like_pressed.png');background-size:cover;" wx:else>
+                        <view class="num num2" wx:if="{{favorite_num}}">{{favorite_num}}</view>
+                    </view>
+                    <text>喜欢</text>
+                </view>
+                <view class="item item03">
+                    <view bindtap="addCard" class="item-icon" data-id="{{goodsId}}" wx:if="{{is_sale}}">
+                        <image class="icon" mode="widthFix" style="background:url('http://i8.mifile.cn/webfile/h5/weixin/0507/icon_buy.png'); background-size:cover;"></image>
+                    </view>
+                    <view class="item-icon" data-id="{{goodsId}}" wx:else>
+                        <image class="icon" mode="widthFix" style="background:url('http://i8.mifile.cn/webfile/h5/weixin/0507/icon_buy2.png'); background-size:cover;"></image>
+                    </view>
+                    <text>我也要</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

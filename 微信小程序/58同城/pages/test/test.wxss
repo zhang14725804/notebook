@@ -1,0 +1,4 @@
+.test-container {
+    border: 1rpx solid red;
+    height: 200rpx;
+}

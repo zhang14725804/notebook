@@ -1,0 +1,22 @@
+<template name="picverify">
+    <view class="picverify-layer">
+        <view class="picverify-block">
+            <view class="picverify-body">
+                <view class="picverify-tips">请输入图片验证码</view>
+                <view class="layer-input-block">
+                    <input bindinput="inputEvent" class="picverify-input" data-type="validcodeVal" name="validcode" placeholderStyle="color:#ccc;" value="{{validcodeVal}}"></input>
+                    <view catchtap="resetClick" class="reset-block" data-type="validcodeVal" hidden="{{validcodeVal?false:true}}">
+                        <icon class="reset"></icon>
+                    </view>
+                    <view bindtap="getVcodeUrl" class="pic-verify">
+                        <image class="pic-verify-url" src="{{validcodeUrl1}}"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="pic-verify-btn-block">
+                <button bindtap="cancelValidateCode" class="pic-verify-btn">取消</button>
+                <button bindtap="verifyclick" class="pic-verify-btn pic-verify-confirm">确定</button>
+            </view>
+        </view>
+    </view>
+</template>

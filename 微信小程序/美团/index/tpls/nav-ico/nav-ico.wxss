@@ -1,0 +1,44 @@
+.nav-view {
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    padding-top: 20rpx;
+}
+
+.nav-item {
+    float: left;
+    width: 20%;
+    text-align: center;
+    height: 150rpx;
+}
+
+.nav-icon {
+    width: 100rpx;
+    height: 107rpx;
+}
+
+.nav-name {
+    font-size: 24rpx;
+    color: #666;
+    text-align: center;
+    width: 100%;
+}
+
+.nav-icon-box {
+    height: 90rpx;
+}
+
+.nav-icon-button {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: inherit;
+    line-height: inherit;
+    font-size: inherit;
+    display: inline;
+    position: relative;
+}
+
+.nav-icon-button::after {
+    content: "";
+    display: none;
+}

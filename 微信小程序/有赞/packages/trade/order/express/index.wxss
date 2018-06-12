@@ -1,0 +1,84 @@
+.express__hd {
+    margin-top: 0;
+    padding: 15px;
+    border-top: 0 none;
+}
+
+.express-card__thumb {
+    width: 55px;
+    height: 55px;
+}
+
+.express-card__detail {
+    margin-left: 70px;
+}
+
+.express-card__title {
+    margin-bottom: 6px;
+}
+
+.exp-empty {
+    padding: 30px 0;
+    color: #999;
+    font-size: 14px;
+}
+
+.exp-item {
+    color: #999;
+    font-size: 14px;
+}
+
+.exp-item::after {
+    left: 42px;
+}
+
+.exp-item--active {
+    color: #44BB00;
+}
+
+.exp-item__line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 22px;
+    width: 1px;
+    background-color: #e5e5e5;
+}
+
+.exp-item__content {
+    padding-left: 27px;
+}
+
+.exp-item__title {
+    margin-bottom: 3px;
+}
+
+.exp-item__icon {
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 5px;
+    height: 5px;
+    background-color: #cacaca;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.exp-item--active .exp-item__icon {
+    width: 12px;
+    height: 12px;
+    background-image: url("https://b.yzcdn.cn/v2/image/wap/success_small@2x.png");
+    background-size: 12px 12px;
+}
+
+.exp-item--active .exp-item__title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 50%;
+    left: 22px;
+    width: 1px;
+    background-color: #fff;
+    z-index: 1;
+}

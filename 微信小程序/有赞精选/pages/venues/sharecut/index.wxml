@@ -1,0 +1,44 @@
+<import src="../common/swiper/index.wxml"></import>
+<import src="../common/go_top/index.wxml"></import>
+<import src="../../../templates/loadMore/loadMore.wxml"></import>
+<import src="../common/share_btn/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="../../../components/formidReciver/index.wxml"></import>
+<view bindtap="doLog" class="share-cut">
+    <view class="share-cut__banner">
+        <template is="swiper" data="{{swiperData:swiperData}}"></template>
+    </view>
+    <view class="share-cut__goods-item" wx:if="{{goodsData.length}}" wx:for="{{goodsData}}" wx:key="{{ index }}">
+        <navigator hoverClass="none" url="/pages/goods/detail/index?alias={{item.alias}}&teamName={{item.team_name}}">
+            <view class="share-cut__goods-image">
+                <image src="{{item.pic_url}}"></image>
+                <view class="share-cut__img-sold-1" wx:if="{{item.is_sold_out}}"></view>
+            </view>
+            <view class="share-cut__goods-detail">
+                <view class="share-dicount__goods-item-title">
+            {{item.title}}
+          </view>
+                <view class="share-cut__goods-item-group {{item.pv_stats<0?'hidden-tag':''}}">
+                    <text class="share-cut__group-icon"></text>
+                    <text>{{item.pv_stats}}人已参与</text>
+                </view>
+                <view class="share-cut__goods-origin-price">
+                    <text class="label">原价：</text>
+                    <text class="tag">￥</text>
+                    <text class="number">{{item.original_price}}</text>
+                </view>
+                <view class="share-cut__share-button {{item.is_sold_out?'sold-out-btn':''}}">
+                    <text>分享0元得</text>
+                </view>
+            </view>
+            <template is="formidReciver" data></template>
+        </navigator>
+    </view>
+    <template is="loadmore" data="{{loading:isRequest,nomore:nomore,nodata:nodata}}"></template>
+    <template is="go-top" data="{{visiable:goTopVisiable}}"></template>
+    <template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+    <template is="shareDialog" data="{{showShareDialog:showShareDialog,posterId:'40'}}"></template>
+    <template is="venuesShareBtn" data></template>
+    <canvas canvasId="normal-canvas" style="display: {{normalShareDisplay}};position: fixed; top: 10000px; left: 10000px; width: 750px; height: 980px;"></canvas>
+    <canvas canvasId="venues-share-poster" style="display: {{venuesShareDisplay}}; width: 750px; height: 980px; position: fixed; top: 0; left: 10000px; z-index: 1000;"></canvas>
+</view>

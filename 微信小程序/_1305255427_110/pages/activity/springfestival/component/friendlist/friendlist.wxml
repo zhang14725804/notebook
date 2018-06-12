@@ -1,0 +1,25 @@
+<view class="friend-list-container">
+    <view class="friend-list-title">{{isFriend?'帮了ta的老铁们':'帮了我的老铁们'}}</view>
+    <scroll-view class="friend-list-content" scrollY="true" style="height: {{activityInfo.friendList.length<4?activityInfo.friendList.length*174:522}}rpx;" wx:if="{{activityInfo.friendList.length>0}}">
+        <ul>
+            <li class="friend-list" wx:for="{{activityInfo.friendList}}">
+                <image src="{{item.headerImgUrl}}"></image>
+                <view class="list-info">
+                    <view>{{item.nickName}}</view>
+                    <view>在用{{item.productName}},值{{item.highPrice}}元</view>
+                </view>
+                <view class="list-getmoney">
+                    <view>
+                        <span style="color:#F24540;">
+                            <span style="font-size:50rpx;">{{item.amount}}</span>元</span>
+                    </view>
+                    <view>获得现金</view>
+                </view>
+            </li>
+        </ul>
+    </scroll-view>
+    <view class="not-first-entry" wx:else>
+        <image src="{{resource.images.dogcryImage}}"></image>
+        <view>哭唧唧，暂时还没有人帮你集哟</view>
+    </view>
+</view>

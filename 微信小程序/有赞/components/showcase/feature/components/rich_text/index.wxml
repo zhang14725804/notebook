@@ -1,0 +1,6 @@
+<template name="theme-feature-rich_text">
+    <view class="rich_text" style="background-color: {{data.bgColor||'white'}}; {{data.fullscreen===1?'':'padding: 15px 10px;'}}">
+        <cap-rich-text canvasId="{{'rich-text-'+index}}" html="{{data.html}}"></cap-rich-text>
+    </view>
+</template>
+<import src="../../../../wxParse/wxParse.wxml"></import>

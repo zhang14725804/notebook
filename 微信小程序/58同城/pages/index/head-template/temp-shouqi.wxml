@@ -1,0 +1,24 @@
+<template name="temp-shouqi">
+    <view class="search-temp-shouqi">
+        <view class="header-body">
+            <view catchtap="e_cityChange" class="citySets">
+                <text class="city" data-curr-city-id="{{currDispCityId}}">{{currCity}}</text>
+                <view catchtap="e_cityChange" class="filter-back" hidden="{{cityFilterShow}}">
+                    <view class="filter">
+                        <scroll-view class="filter-item" scrollY="true">
+                            <view catchtap="tapCityItem" class="filter-item-li {{idx==0?'first':''}} {{currDispCityId==f.dispCityId?'on':''}} {{f.dispCityId==-1?'char':''}}" data-city-id="{{f.cityId}}" data-disp-city-id="{{f.dispCityId}}" data-name="{{f.cityName}}" wx:for="{{cityList}}" wx:for-index="idx" wx:for-item="f" wx:key="index">{{f.cityName}}</view>
+                        </scroll-view>
+                    </view>
+                </view>
+            </view>
+            <view class="logo-info">
+                <text>{{userInfo.nickName}}</text>
+                <image class="logo" src="{{userInfo.avatarUrl}}"></image>
+            </view>
+        </view>
+        <view>
+            <template is="search-input" data></template>
+        </view>
+    </view>
+</template>
+<import src="../../common/search-input.wxml"></import>

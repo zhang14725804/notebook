@@ -1,0 +1,103 @@
+<template name="content-section">
+    <view class="content-section">
+        <view class="title-line">{{data.title}}</view>
+        <view class="time-line">
+            <text space="nbsp">{{data.publishTime}}  {{data.author}}</text>
+        </view>
+        <view class="count-line" wx:if="{{data.subscriptionsCount}}">
+            <text class="zan-icon zan-icon-play history-play"></text>{{data.subscriptionsCount||0}}</view>
+        <view class="content-text {{data.hideTextWithLayer?'':'no-after'}}" id="content-text">
+            <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+        </view>
+        <view class="buy-info" wx:if="{{!data.isShowFullContent&&data.hasFullContent}}">
+            <view class="buy-info-text">购买后即可查看全部图文详情</view>
+            <view bindtap="continueRead" class="buy-info-btn">继续阅读</view>
+        </view>
+    </view>
+    <view bindtap="goToColumn" class="column-section" wx:if="{{data.hasColumn}}">
+        <view class="right-link">
+            <text class="go-column">查看专栏</text>
+            <text class="zan-icon zan-icon-arrow redirect-arrow"></text>
+        </view>
+        <view class="column-info">
+            <image class="column-img" mode="aspectFill" src="{{data.column.cover}}"></image>
+            <view class="column-info-text">
+                <view class="column-title">{{data.column.title}}</view>
+                <view class="column-count">已更新{{data.column.contentsCount}}期</view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="buy-button">
+    <view class="fixed-btn">
+        <view bindtap="goToColumn" class="redirect-column {{sellerType===2||isShow?'theme-bg-color -full':'theme-vice-bg-color'}}" wx:if="{{hasColumn}}">
+      查看专栏
+    </view>
+        <view bindtap="buyContent" class="buy-btn theme-bg-color" wx:if="{{sellerType!==2&&!isShow}}">购买内容：￥{{price}}</view>
+    </view>
+</template>
+<template name="comment-list">
+    <view class="comment-list" wx:if="{{commentList.length>0}}">
+        <view bindtap="onClickWriteComment" class="comment-list__title {{needFix?'comment-list__title_fixed':''}}">
+            <text>精选留言</text>
+            <view class="comment-list__writebtn">
+                <text>写留言</text>
+                <view></view>
+            </view>
+        </view>
+        <view class="comment-list__comments">
+            <comment bind:onClickLike="onClickLike" bind:onDelComment="onDelComment" commentData="{{item}}" wx:for="{{commentList}}" wx:key="id"></comment>
+            <template is="zan-loadmore" data="{{loading:listLoading}}" wx:if="{{listLoading}}"></template>
+        </view>
+        <view class="divider"></view>
+        <view class="comment-list__bottom">
+      以上留言由作者筛选后显示
+    </view>
+    </view>
+    <view bindtap="onClickWriteComment" class="comment-list" wx:if="{{commentList.length===0}}">
+        <view class="comment-list__title comment-list__title_nobg">
+            <text></text>
+            <view class="comment-list__writebtn">
+                <text>写留言</text>
+                <view></view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="video-content">
+    <view class="header-video-wp">
+        <video bindended="videoEnd" bindplay="videoPlay" class="header-video" id="targetVideo" poster="{{video.poster}}" src="{{video.src}}"></video>
+        <view class="try-info" wx:if="{{!data.isShowFullContent}}">
+      {{video.src?'可以免费试看部分视频，购买后可以观看完整视频。':'当前内容需要购买后才能观看哦'}}
+    </view>
+    </view>
+    <template is="content-section" data="{{data:data,content:content}}"></template>
+</template>
+<template name="audio-content">
+    <view class="header-audio-wp" style="height: {{data.picture.height}}px; width: {{data.picture.wrapperWidth}}px;">
+        <image class="header-image" src="{{data.picture.cover}}" style="height: {{data.picture.height}}px; width: {{data.picture.width}}px;"></image>
+        <view class="try-info" wx:if="{{!data.isShowFullContent}}">
+      {{audioSrc?'可以免费试听部分音频，购买后可以收听完整内容。':'当前内容需要购买后才能收听哦'}}
+    </view>
+    </view>
+    <view class="mb10">
+        <cap-audio bind:audio-empty="audioEmpty" bind:audio-end="audioEnd" bind:audio-time-update="audioUpdateTime" isBackground="{{true}}" src="{{audioSrc}}" themeClass="{{themeClass}}" title="{{data.title}}"></cap-audio>
+    </view>
+    <template is="content-section" data="{{data:data,content:content}}"></template>
+</template>
+<template name="doc-content">
+    <template is="content-section" data="{{data:data,content:content}}"></template>
+</template>
+<import src="../../../bower_components/zan/dist/loadmore/index.wxml"></import>
+<import src="../../../components/copyright/index.wxml"></import>
+<import src="../../../components/wxParse/wxParse.wxml"></import>
+<view class="paid-content-wp {{themeClass}}">
+    <template is="doc-content" data="{{themeClass:themeClass,data:contentData,content:richContent}}" wx:if="{{contentData.mediaType===1}}"></template>
+    <template is="audio-content" data="{{audioSrc:audioSrc,themeClass:themeClass,data:contentData,content:richContent}}" wx:elif="{{contentData.mediaType===2}}"></template>
+    <template is="video-content" data="{{video:video,themeClass:themeClass,data:contentData,content:richContent}}" wx:elif="{{contentData.mediaType===3}}"></template>
+    <template is="comment-list" data="{{commentList:commentList,listLoading:listLoading,needFix:needFix}}"></template>
+    <template is="buy-button" data="{{isShow:contentData.isShowFullContent,hasColumn:contentData.hasColumn,price:contentData.price,sellerType:contentData.sellerType}}" wx:if="{{fetched}}"></template>
+</view>
+<template is="copyright" data="{{copyright:copyright,is_big_shop:is_big_shop,withFixBottom:true}}" wx:if="{{fetched}}"></template>
+<import src="../../../pages/common/wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

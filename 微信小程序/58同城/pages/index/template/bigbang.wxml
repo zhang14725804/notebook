@@ -1,0 +1,6 @@
+<template name="bigbang">
+    <view class="bigbang-box">
+        <image catchtap="e_bigbangClick" class="bigbang-image" data-appId="{{bigbangObj.appId||''}}" data-jumpType="{{bigbangObj.jumpType||''}}" data-url="{{bigbangObj.url}}" mode="aspectFill" src="{{bigbangObj.img}}"></image>
+        <view catchtap="e_bigbangClose" class="bigbang-close"></view>
+    </view>
+</template>

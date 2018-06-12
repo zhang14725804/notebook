@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "搜索",
+    "usingComponents": {
+        "searchbar": "./components/searchbar/index",
+        "searchlist": "./components/searchlist/index",
+        "searchfilter": "./components/searchfilter/index",
+        "quick-nav": "../../../components/quick-nav-wqvue/index"
+    }
+}

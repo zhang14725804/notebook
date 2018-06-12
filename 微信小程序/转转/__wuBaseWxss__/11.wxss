@@ -1,0 +1,54 @@
+.group-list {
+    font-family: 'PingFangSC-Regular';
+    overflow: hidden;
+    position: relative;
+    height: 108rpx;
+}
+
+.group-list .group-cate {
+    height: 108rpx;
+    width: 100%;
+    position: sticky;
+    top: 10rpx;
+}
+
+.group-list .cate-list {
+    display: inline-block;
+    background-color: #fff;
+    width: 100%;
+    height: 96rpx;
+    border-bottom: 1rpx solid #e7e7e7;
+    position: relative;
+}
+
+.group-list .cate-list-container {
+    width: 100%;
+    height: 96rpx;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 28rpx;
+    z-index: 10;
+}
+
+.group-list .cate-list-list {
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+}
+
+.group-list .cate-list-item {
+    display: inline-block;
+    font-size: 32rpx;
+    color: #504A4D;
+    line-height: 96rpx;
+    margin-right: 54rpx;
+    box-sizing: border-box;
+}
+
+.group-list .choosed-sec {
+    line-height: 92rpx;
+    color: #ff5647;
+    text-align: center;
+    border-bottom: 4rpx solid #ff5647;
+}

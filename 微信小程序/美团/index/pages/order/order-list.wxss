@@ -1,0 +1,56 @@
+.order-c {
+    box-sizing: border-box;
+    border-bottom: 2rpx solid #e5e5e5;
+    padding: 40rpx 24rpx;
+    font-size: 26rpx;
+    color: #999;
+    position: relative;
+}
+
+.order-c-bordertop {
+    border-top: 2rpx solid #e5e5e5;
+}
+
+.order-c .front-img-container {
+    position: absolute;
+    left: 24rpx;
+    top: 40rpx;
+    width: 76rpx;
+    height: 76rpx;
+    background: #f5f5f5;
+}
+
+.order-c .frontImg {
+    width: 76rpx;
+    height: 76rpx;
+    border-radius: 10rpx;
+}
+
+.desc {
+    margin-left: 96rpx;
+    margin-top: -4rpx;
+}
+
+.desc .title {
+    height: 50rpx;
+    line-height: 50rpx;
+    padding-right: 10rpx;
+}
+
+.desc .title .flex1 {
+    font-size: 32rpx;
+    color: #000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.desc .title .status {
+    color: #06c1ae;
+    font-size: 26rpx;
+}
+
+.desc .list {
+    height: 36rpx;
+    line-height: 36rpx;
+}

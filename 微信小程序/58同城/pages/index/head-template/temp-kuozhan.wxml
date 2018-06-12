@@ -1,0 +1,23 @@
+<template name="temp-kuozhan">
+    <view class="header">
+        <view class="header-kuozhan-body">
+            <view data-aaa="{{weatherShow}}" wx:if="{{weatherShow==true}}">
+                <form catchsubmit="e_weatherDetail" class="weather-form" reportSubmit="{{true}}">
+                    <button class="button-reset weather-brief" formType="submit">
+                        <view class="weather-line1">
+                            <text class="weather-temp">{{weatherBriefData.temperature.lowTmp}}~{{weatherBriefData.temperature.highTmp}}</text>℃<text class="weather-space">{{weatherBriefData.temperature.lwd}}</text>
+                        </view>
+                        <view class="weather-aqi" wx:if="{{weatherBriefData.aqiGrade}}">空气{{weatherBriefData.aqiGrade}}:{{weatherBriefData.airQuality}}</view>
+                    </button>
+                </form>
+            </view>
+            <view class="kz-city">
+                <view catchtap="e_cityChange" class="city-name">{{currCity}}</view>
+            </view>
+            <view catchtap="e_searchTap" class="kz-search-cont">
+                <icon class="search-logo" size="12" type="search"></icon>
+                <text class="search-key">{{initSearchData.value||initSearchData.key||'搜索'}}</text>
+            </view>
+        </view>
+    </view>
+</template>

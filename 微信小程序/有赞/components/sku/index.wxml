@@ -1,0 +1,95 @@
+<template name="component-sku">
+    <view catchtap="_catchComponentSKUTouch" catchtouchmove="_catchComponentSKUTouch" class="zan-popup zan-popup--bottom {{componentSKU.show?'zan-popup--show':''}} component-sku">
+        <view bindtap="_hideComponentSKUDialog" catchtouchmove="_catchComponentSKUTouch" class="zan-popup__mask"></view>
+        <view class="zan-popup__container component-sku--container">
+            <view class="component-sku__hd">
+                <image bindtap="_handleComponentSKUDialogImageTap" class="component-sku__image" mode="aspectFit" src="{{componentSKU.dialogGoodsImage}}"></image>
+                <view class="component-sku__content">
+                    <view class="component-sku__title zan-font-12 zan-ellipsis">{{componentSKU.goods.goods.title}}</view>
+                    <view class="component-sku__title zan-font-16 zan-c-red" wx:if="{{componentSKU.activity&&componentSKU.activity.type=='groupOn'}}">
+                        <text class="zan-font-12 component-sku__activity-text">{{componentSKU.use_ump?componentSKU.activity.activity_extra.join_num+'人拼团价：':'单人购买价：'}}
+                </text>
+                    </view>
+                    <view class="component-sku__title zan-font-16 zan-c-red" wx:if="{{componentSKU.btns.length===1&&componentSKU.btns[0]==='buyPoints'}}">
+                        <view class="component-sku__price">
+                            <view>{{componentSKU.selectedSKU.points||componentSKU.goods.sku.points_price}}</view>
+                            <view class="zan-text-deleted zan-font-12 zan-c-gray" style="margin: 5px 0 10px 0;">
+                    原价：¥ {{componentSKU.selectedSKU.price||componentSKU.goods.goods.price.desc||componentSKU.goods.sku.price||componentSKU.goods.sku.origin}}
+                  </view>
+                        </view>
+                    </view>
+                    <block wx:else>
+                        <view class="component-sku__title zan-font-16 zan-c-red component-sku-price">
+                            <text class="component-sku__price">¥ {{componentSKU.selectedSKU.price||componentSKU.goods.goods.price.desc||componentSKU.goods.sku.price||componentSKU.goods.sku.origin}}
+                  </text>
+                            <text class="sku-price-tag" wx:if="{{componentSKU.isMember}}">会员折扣</text>
+                        </view>
+                        <view class=" zan-text-deleted zan-font-12 zan-c-gray component-sku-origin-price" wx:if="{{componentSKU.isMember&&(componentSKU.selectedSKU.originPrice||componentSKU.goods.sku.originPrice)}}">{{componentSKU.selectedSKU.originPrice||componentSKU.goods.sku.originPrice}}</view>
+                    </block>
+                    <view catchtap="_hideComponentSKUDialog" class="component-sku__close">
+                        <view class="zan-icon zan-icon-close" style="color: #999; font-size: 22px"></view>
+                    </view>
+                </view>
+            </view>
+            <scroll-view class="component-sku__bd" scrollY="true">
+                <view class="zan-cell" wx:if="{{componentSKU.goods.sku&&!componentSKU.goods.sku.none_sku}}">
+                    <view class="zan-cell_bd">
+                        <view class="component-sku__sku-wrap {{componentSKU.goods.sku.tree.length==skuKeyIndex+1?'component-sku__sku-wrap--last-child':''}}" wx:for="{{componentSKU.goods.sku.tree}}" wx:for-index="skuKeyIndex" wx:for-item="skuKey" wx:key="id">
+                            <view class="component-sku__sku-key">{{skuKey.k}}:</view>
+                            <view class="component-sku__sku-value-wrap">
+                                <view bindtap="_handleComponentSKUValueTap" class="component-sku__sku-value-tag zan-tag {{componentSKU.selectedSKU['s'+skuKeyIndex+1]==skuValue.id?'zan-tag--danger component-sku__item--active':'zan-tag--plain'}} {{componentSKU.skuValueMap[skuValue.id]>0?'':'zan-tag--disabled'}}" data-disabled="{{componentSKU.skuValueMap[skuValue.id]==0}}" data-sku-key="s{{skuKeyIndex+1}}" data-sku-value-id="{{skuValue.id}}" wx:for="{{skuKey.v}}" wx:for-index="skuValueIndex" wx:for-item="skuValue" wx:key="{{ skuValue.id }}">
+                  {{skuValue.name}}
+                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="zan-cell {{componentSKU.goods.messages.length?'':'zan-cell--last-child'}}">
+                    <view class="zan-cell__bd stepper__wrap">
+                        <view class="stepper__label">
+                            <view>购买数量：</view>
+                            <view>
+                                <view class="zan-font-12 zan-c-gray-dark" wx:if="{{componentSKU.show_stock}}">
+                  剩余{{componentSKU.selectedSKU.stockNum==null?componentSKU.goods.sku.stock_num:componentSKU.selectedSKU.stockNum}}件
+                </view>
+                                <view class="zan-font-12 zan-c-red" wx:if="{{componentSKU.activity&&componentSKU.activity.type=='groupOn'&&componentSKU.use_ump&&componentSKU.activity.quota}}">拼团每人限购{{componentSKU.activity.quota}}件
+                </view>
+                                <view class="zan-font-12 zan-c-red" wx:elif="{{componentSKU.activity&&componentSKU.activity.type=='pointsGoods'&&componentSKU.use_ump&&componentSKU.activity.quota}}">每人限兑{{componentSKU.activity.quota}}件
+                </view>
+                                <view class="zan-font-12 zan-c-red" wx:elif="{{componentSKU.activity&&componentSKU.activity.type=='seckill'&&componentSKU.use_ump&&componentSKU.activity.quota}}">秒杀每人限购{{componentSKU.activity.quota}}件
+                  <text wx:if="{{componentSKU.activity.quotaUsed}}">，您已购买{{componentSKU.activity.quotaUsed}}件</text>
+                                </view>
+                                <view class="zan-font-12 zan-c-red" wx:elif="{{componentSKU.goods.goods.quota}}">每人限购{{componentSKU.goods.goods.quota}}件
+                  <text wx:if="{{componentSKU.goods.goods.quotaUsed}}">，您已购买{{componentSKU.goods.goods.quotaUsed}}件</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="stepper__btn">
+                            <template is="zan-stepper" data="{{min:1,stepper:componentSKU.stepperData.stepper,max:componentSKU.stepperData.maxQuantity,componentId:1}}"></template>
+                        </view>
+                    </view>
+                </view>
+                <template is="component-sku-message" data="{{messages:componentSKU.goods.messages}}"></template>
+            </scroll-view>
+            <view class="component-sku__ft">
+                <button class="zan-btn zan-btn--danger zan-btn--large zan-btn--disabled" disabled="{{true}}" wx:if="{{componentSKU.goods.sku.stock_num==0}}">已售罄</button>
+                <block wx:elif="{{componentSKU.btns.length==1}}">
+                    <block wx:for="{{componentSKU.btns}}" wx:for-item="btn" wx:key="unique">
+                        <button bindtap="_handleComponentSKUAddCart" class="zan-btn zan-btn--danger zan-btn--large {{componentSKU.buyButtonDisabled?'zan-btn--disabled':'sku-action__main-btn'}}" disabled="{{componentSKU.buyButtonDisabled}}" wx:if="{{btn=='cart'}}">下一步
+            </button>
+                        <button bindtap="_handleComponentSKUBuy" class="zan-btn zan-btn--danger zan-btn--large {{componentSKU.buyButtonDisabled?'zan-btn--disabled':'sku-action__main-btn'}}" disabled="{{componentSKU.buyButtonDisabled}}" wx:else>下一步
+            </button>
+                    </block>
+                </block>
+                <block wx:else>
+                    <button bindtap="_handleComponentSKUAddCart" class="zan-btn zan-btn--warn zan-btn--large {{componentSKU.buyButtonDisabled?'zan-btn--disabled':'sku-action__vice-btn'}}" disabled="{{componentSKU.buyButtonDisabled}}" wx:if="{{componentSKU.isSetShoppingCart&&componentSKU.goods.supportShoppingCart}}">加入购物车
+          </button>
+                    <button bindtap="_handleComponentSKUBuy" class="zan-btn zan-btn--danger zan-btn--large {{componentSKU.buyButtonDisabled?'zan-btn--disabled':'sku-action__main-btn'}}" disabled="{{componentSKU.buyButtonDisabled}}">立即购买
+          </button>
+                </block>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../../bower_components/zan/dist/stepper/index.wxml"></import>
+<import src="wxml/message.wxml"></import>

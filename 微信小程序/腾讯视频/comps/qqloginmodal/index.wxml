@@ -1,0 +1,15 @@
+<template name="qqloginmodal">
+    <view bindtap="onActionModalCancel" class="qqlogin-modal-mask {{isShowActionModal?'':'none'}}"></view>
+    <view class="qqlogin-modal {{isShowActionModal?'':'none'}} {{inBottom?'bottom-pos':''}}">
+        <view class="top">
+            <view class="texture"></view>
+            <image class="qqlogo" height="208" src="https://puui.qpic.cn/vupload/0_20171013/1507884043214/0" width="176"></image>
+            <view class="title">小程序支持QQ登录啦</view>
+            <view class="text">在“我的”里点击头像切换登录，快来试试吧！</view>
+        </view>
+        <view class="bottom">
+            <view bindtap="onActionModalCancel" class="cancel">{{cancelText||'以后再说'}}</view>
+            <view bindtap="onActionModalConfirm" class="action">{{actionText||'好的'}}</view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,11 @@
+<view class="mod_box mod_box_scroll">
+    <include src="./comps/box_title.wxml"></include>
+    <view class="mod_figures">
+        <scroll-view class="figures_list figures_list_h figures_scroll_list_h {{item._tplClass}}" scrollX="true">
+            <view bindtap="onPlay" class="list_scroll_item" data-cid="{{video.cid||''}}" data-id="{{video.itemId}}" data-index="{{index}}" data-modidx="{{modidx}}" data-type="{{video.itemtype}}" data-vid="{{video.vid||''}}" wx:for="{{item.list}}" wx:for-item="video" wx:key="itemId">
+                <include src="./comps/item.wxml"></include>
+                <include src="./comps/title.wxml"></include>
+            </view>
+        </scroll-view>
+    </view>
+</view>

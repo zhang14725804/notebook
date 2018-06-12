@@ -1,0 +1,172 @@
+/*! Import by _C[10], whose real path we cannot found. */
+.searchbar-bar {
+    height: 100rpx;
+    padding-left: 32rpx;
+    border-bottom: 1rpx solid #e0e0e0;
+}
+
+.searchbar-inpwrap {
+    border-radius: 16rpx;
+    background-color: #f5f7f9;
+    height: 72rpx;
+    width: 200rpx;
+    margin-top: 14rpx;
+}
+
+.searchbar-bar.filter {
+    border-bottom: 0;
+}
+
+.searchbar-search {
+    width: 72rpx;
+    background: url(https://i.gtimg.cn/qqlive/images/tinyapp/search_bar_search.svg) center center no-repeat;
+    background-size: 34rpx 34rpx;
+}
+
+.searchbar-input {
+    height: 100%;
+    width: 100%;
+    display: block;
+    font-size: 32rpx;
+    color: #222222;
+}
+
+.searchbar-button {
+    width: 134rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #666;
+    line-height: 100rpx;
+    color: #ff7000;
+}
+
+.searchbar-clear {
+    height: 72rpx;
+    width: 64rpx;
+    background: url(https://i.gtimg.cn/qqlive/images/tinyapp/search_clear.svg) center center no-repeat;
+    background-size: 32rpx 32rpx;
+}
+/*! Import end */
+@import "history.wxss";
+
+.searchbar-scroller {
+    position: absolute;
+    top: 110rpx;
+    bottom: 100rpx;
+}
+
+.searchbar .head {
+    font-size: 26rpx;
+    line-height: 26rpx;
+    color: #979797;
+    margin-top: 32rpx;
+    padding: 0 32rpx;
+    height: 26rpx;
+}
+
+.searchbar-list {
+}
+
+.searchbar-result {
+    display: block;
+    line-height: 96rpx;
+    margin-left: 32rpx;
+    padding-left: 54rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    color: #222222;
+    font-size: 30rpx;
+    position: relative;
+}
+
+.searchbar-result.label-none {
+    padding-left: 0;
+}
+
+.searchbar-layout {
+    position: absolute;
+    top: 100rpx;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+}
+
+.searchbar-layout.fold {
+    height: auto;
+    padding: 0;
+}
+
+.searchbar-index {
+    height: 32rpx;
+    width: 32rpx;
+    position: absolute;
+    border-radius: 6rpx;
+    background-color: #e6e6e6;
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    font-size: 22rpx;
+    line-height: 32rpx;
+    text-align: center;
+}
+
+.searchbar-index.first {
+    background-color: #e42b17;
+    color: white;
+}
+
+.searchbar-index.second {
+    background-color: #fe7202;
+    color: white;
+}
+
+.searchbar-index.third {
+    background-color: #ffb901;
+    color: white;
+}
+
+.search-label-wrap {
+    position: relative;
+    width: 0rpx;
+}
+
+.searchbar-label {
+    position: absolute;
+    display: block;
+    color: white;
+    font-size: 11px;
+    border-radius: 3px;
+    padding: 3px 3px;
+    height: 17px;
+    margin: auto;
+    left: 5px;
+    top: 0;
+    bottom: 0;
+    white-space: nowrap;
+    width: auto;
+}
+
+.searchbar-label .text {
+    display: block;
+    font-size: 11px;
+    line-height: 11px;
+    height: 11px;
+}
+
+.searchbar-indicator {
+    background: url(https://i.gtimg.cn/qqlive/images/tinyapp/search_indicator.svg) center center no-repeat;
+    background-size: 20rpx auto;
+    width: 40rpx;
+    position: absolute;
+    right: 32rpx;
+    top: 0;
+    bottom: 0;
+}
+
+.searchbar-indicator.up {
+    background-image: url(https://i.gtimg.cn/qqlive/images/tinyapp/search_indicator_up.svg);
+}
+
+.searchbar-indicator.down {
+    background-image: url(https://i.gtimg.cn/qqlive/images/tinyapp/search_indicator_down.svg);
+}

@@ -1,0 +1,18 @@
+<import src="/pages/play/include/markLabel.wxml"></import>
+<view class="mod_figures mod_figures_h">
+    <view class="mod_figure">
+        <view bindtap="changeVideo" class="list_item {{listItem.vid==currentVideo.vid?'current':''}}" data-listkey="{{dataItem.listKey}}" data-video="{{listItem.vid}}" wx:if="{{listIndex>=videoDataMap[dataItem.listKey].uiLocate&&listIndex<videoDataMap[dataItem.listKey].uiLocate+3}}" wx:for="{{videoDataMap[dataItem.listKey].videoList}}" wx:for-index="listIndex" wx:for-item="listItem" wx:key="vid">
+            <view class="figure">
+                <image class="figure_pic" src="{{listItem.poster.imageUrl}}"></image>
+                <template is="markLabelWithImage" data="{{markLabelMap:listItem.poster.markLabelMap}}"></template>
+            </view>
+            <view class="figure_info">
+                <view class="figure_title">{{listItem.poster.firstLine}}</view>
+                <view class="figure_count" wx:if="{{listItem.poster.secondLine}}">{{listItem.poster.secondLine}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view bindtap="layer" class="mod_more" data-key="{{dataItem.listKey}}" wx:if="{{videoDataMap[dataItem.listKey].videoList.length>3}}">
+    <view class="more_txt">全部</view>
+</view>

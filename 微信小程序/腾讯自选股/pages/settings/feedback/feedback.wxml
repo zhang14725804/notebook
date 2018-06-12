@@ -1,0 +1,51 @@
+<view class="bannerstip {{showBanner?'show':''}}">
+    <view class="exclamation"></view>
+      网络故障，提交失败
+      </view>
+<view class="feedback">
+    <view class="feedback__tip">可以在下面反馈问题给我们</view>
+    <form bindsubmit="formSubmit" class="feedback-form">
+        <view class="feedback__container--outer">
+            <view class="feedback__container">
+                <textarea bindinput="bindContentInput" name="content" placeholder="请输入问题内容..." placeholderStyle="color: #5e6670;margin:0;padding:0;" value="{{inputVal.content}}"></textarea>
+            </view>
+        </view>
+        <view class="feedback__container--toright">
+            <view class="feedback__tr">
+                <view class="feedback__col">
+                    <view>微信号</view>
+                </view>
+                <view class="feedback__col2">
+                    <view>
+                        <input bindinput="bindWechatInput" name="user_wechat" placeholder="选填，便于联系您" placeholderStyle="color: #5e6670;" value="{{inputVal.user_wechat}}"></input>
+                    </view>
+                </view>
+            </view>
+            <view class="feedback__tr">
+                <view class="feedback__col">
+                    <view>手机号</view>
+                </view>
+                <view class="feedback__col2">
+                    <view>
+                        <input bindinput="bindPhoneInput" maxlength="11" name="phone" placeholder="选填，便于联系您" placeholderStyle="color: #5e6670;" value="{{inputVal.phone}}"></input>
+                    </view>
+                </view>
+            </view>
+            <view class="feedback__tr">
+                <view class="feedback__col" style="letter-spacing: 30rpx;">
+                    <view>邮<span style="padding-right: 4rpx"></span>箱</view>
+                </view>
+                <view class="feedback__col2" style="border-bottom: none;">
+                    <view>
+                        <input bindinput="bindEmailInput" name="email" placeholder="选填，便于联系您" placeholderStyle="color: #5e6670;" value="{{inputVal.email}}"></input>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="feedback__container">
+            <button class="submitbtn" formType="submit" loading="{{loading}}">
+                <view style="padding:0 20rpx">提交</view>
+            </button>
+        </view>
+    </form>
+</view>

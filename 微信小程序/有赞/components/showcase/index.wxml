@@ -1,0 +1,10 @@
+<template name="showcase">
+    <view class="theme-{{type}}">
+        <template is="theme-{{type}}" data="{{themeClass:themeClass,CURRENT_GLOBAL_SHOP:CURRENT_GLOBAL_SHOP,isMultiStore:isMultiStore,type:type,richTextList:richTextList,banner:banner,tags:tags,goods:goods,systemInfo:systemInfo,scrollIntoView:scrollIntoView,scrollTop:scrollTop,fixedGoodsTag:fixedGoodsTag,theme:theme[type],extra:theme.extra}}"></template>
+    </view>
+    <template is="component-sku" data="{{componentSKU:componentSKU}}"></template>
+</template>
+<import src="../sku/index.wxml"></import>
+<import src="default/index.wxml"></import>
+<import src="takeAway/index.wxml"></import>
+<import src="feature/index.wxml"></import>

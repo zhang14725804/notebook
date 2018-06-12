@@ -1,0 +1,11 @@
+<template name="image-item">
+    <view class="im-msg im-msg-image {{item.ismine==='true'?'im-msg-me':'im-msg-other'}}" id="msg-{{index}}">
+        <view class="im-msg-time {{item.is_show_time==='false'?'im-msg-time-hide':''}}">
+            <view class="im-msg-time-content">{{item.format_time}}</view>
+        </view>
+        <view class="im-msg-main">
+            <view bindtap="onimagepreview" class="im-msg-content" data-url="{{item.content.url}}" style="background:url({{item.content.thumb_url}}) no-repeat 0 0; width:{{item.content.image_width}}px; height:{{item.content.image_height}}px; background-size:{{item.content.size}}"></view>
+            <image alt="" class="im-msg-avatar" error="handleImgFailLoad($event)" src="{{item.sender_info.avatar}}"></image>
+        </view>
+    </view>
+</template>

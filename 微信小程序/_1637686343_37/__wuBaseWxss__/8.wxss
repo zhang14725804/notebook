@@ -1,0 +1,28 @@
+.m-paopao-star {
+    width: 120rpx;
+    display: inline-block;
+    margin-right: 50rpx;
+}
+
+.m-paopao-star .star-icon {
+    display: block;
+    width: 100%;
+    height: 120rpx;
+    border-radius: 50%;
+}
+
+.m-scrollList-paopao {
+    height: 206rpx;
+    white-space: nowrap;
+}
+
+.m-paopao-star .star-name {
+    font-size: 26rpx;
+    color: #333333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 20rpx 0 40rpx;
+    display: block;
+    text-align: center;
+}

@@ -1,0 +1,85 @@
+@import "../../../../pages/trade/templates/self_fetch/self_fetch_detail.wxss";
+
+@import "../../../../components/copyright/index.wxss";
+
+.paid--success__panel {
+    margin-top: 0;
+    border-top: 0 none;
+}
+
+.paid--success__logo {
+    padding: 30px 0 10px;
+    text-align: center;
+}
+
+.paid--success__tips {
+    line-height: 20px;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.paid--success__price {
+    font-size: 20px;
+}
+
+.paid--success_self_fetch_tips {
+    height: 12px;
+    color: #666;
+    font-size: 12px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.paid__btns {
+    display: flex;
+    flex-direction: column;
+}
+
+.paid__btns .zan-btn {
+    width: 100%;
+}
+
+.fission-contaienr {
+    width: 100%;
+    background-color: #FEE5C5;
+    background-image: url(https://img.yzcdn.cn/public_files/2018/02/08/47f6779c5fa2875243220af16a493ef1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 460rpx;
+}
+
+.fission-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.fission-close {
+    position: absolute;
+    color: #999;
+    right: 20rpx;
+    top: 35rpx;
+    font-size: 24px;
+}
+
+.fission-tips {
+    padding-top: 40rpx;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: #ff4444;
+    display: block;
+}
+
+.fission-btn-container {
+    position: absolute;
+    bottom: 42rpx;
+    left: 40rpx;
+    right: 40rpx;
+}
+
+.fission-share-btn {
+    border-radius: 2px;
+    overflow: hidden;
+}

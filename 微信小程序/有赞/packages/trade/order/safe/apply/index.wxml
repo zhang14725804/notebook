@@ -1,0 +1,98 @@
+<import src="../../../../../components/copyright/index.wxml"></import>
+<import src="../../../../../bower_components/zan/dist/toast/index.wxml"></import>
+<view class="page-container {{deviceType}} {{themeClass}}">
+    <view class="container">
+        <block wx:if="{{!fetching}}">
+            <view class="apply-detail zan-panel zan-panel--without-margin-top">
+                <view class="apply-detail__row">
+                    <text class="zan-pull-left">商品名称:</text>
+                    <view class="apply-detail__content zan-right zan-ellipsis">{{goods_title}}</view>
+                </view>
+                <view class="apply-detail__row">
+                    <text class="zan-pull-left">付款金额:</text>
+                    <view class="apply-detail__content zan-right zan-c-red">￥ {{real_pay}}</view>
+                </view>
+                <view class="apply-detail__row">
+                    <text class="zan-pull-left">订单编号:</text>
+                    <view class="apply-detail__content zan-right">{{order_no}}</view>
+                </view>
+                <view class="apply-detail__row">
+                    <text class="zan-pull-left">交易时间:</text>
+                    <view class="apply-detail__content zan-right">{{pay_time}}</view>
+                </view>
+            </view>
+            <view class="zan-panel">
+                <view class="zan-cell zan-field">
+                    <view class="zan-field__title">
+            处理方式
+          </view>
+                    <picker bindchange="bindMethodChange" class="zan-field__input zan-cell__bd" mode="selector" range="{{methods}}" rangeKey="text" value="{{methodIndex}}">
+                        <view class="">{{methods[methodIndex].text}}</view>
+                    </picker>
+                    <view class="zan-arrow"></view>
+                </view>
+                <view class="zan-cell zan-field" wx:if="{{method==1}}">
+                    <view class="zan-field__title">
+            货物状态
+          </view>
+                    <picker bindchange="bindExpressChange" class="zan-field__input zan-cell__bd" mode="selector" range="{{expressList}}" rangeKey="text" value="{{expressIndex}}">
+                        <view class="">{{expressList[expressIndex].text}}</view>
+                    </picker>
+                    <view class="zan-arrow"></view>
+                </view>
+                <view class="zan-cell zan-field">
+                    <view class="zan-field__title">
+            退款原因
+          </view>
+                    <picker bindchange="bindReasonChange" class="zan-field__input zan-cell__bd" mode="selector" range="{{reasons}}" rangeKey="text" value="{{reasonIndex}}">
+                        <view class="">{{reasons[reasonIndex].text||'请选择退款原因'}}</view>
+                    </picker>
+                    <view class="zan-arrow"></view>
+                </view>
+                <view class="zan-cell zan-field">
+                    <view class="zan-field__title">
+            退款金额
+          </view>
+                    <input bindblur="onMoneyChange" class="zan-field__input zan-cell__bd" disabled="{{is_full_refund?'disabled':''}}" maxlength="20" placeholder="最多可退{{real_pay}}元" type="digit" value="{{moneyStr}}"></input>
+                </view>
+                <view class="zan-cell zan-field">
+                    <view class="zan-field__title">
+            手机号码
+          </view>
+                    <input bindblur="onPhoneChange" class="zan-field__input zan-cell__bd" maxlength="20" placeholder="便于卖家联系您" type="number" value="{{phone}}"></input>
+                </view>
+                <view class="zan-cell zan-field">
+                    <view class="zan-field__title">
+            备注信息
+          </view>
+                    <textarea autoHeight bindblur="onMessageChange" class="zan-cell__bd zan-field__input" maxlength="200" placeholder="最多可填写200字" value="{{message}}"></textarea>
+                </view>
+                <view class="zan-cell zan-field zan-cell--last-child">
+                    <view class="multi-upload__title zan-field__title">
+            图片举证
+          </view>
+                    <view class="zan-cell__bd">
+                        <view class="zan-c-gray-dark" wx:if="{{imgs.length==0}}">可上传{{MAX_PICTURES}}张图片</view>
+                        <view class="zan-c-gray-dark" wx:else>还能上传{{MAX_PICTURES-imgs.length}}张图片</view>
+                        <view>
+                            <view class="multi-upload__img-contain {{imgData.uploading?'multi-upload__img-contain--loading':''}}" wx:for="{{imgs}}" wx:for-item="imgData" wx:key="key">
+                                <image class="multi-upload__img" mode="aspectFit" src="{{imgData.srcPreview}}"></image>
+                                <icon catchtap="onImageDelete" class="multi-upload__clear" color="black" data-key="{{imgData.key}}" size="16" type="clear"></icon>
+                            </view>
+                            <view catchtap="onImageAdd" class="multi-upload__img-contain multi-upload__img-add" wx:if="{{imgs.length<MAX_PICTURES}}"></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <form bindsubmit="onSubmitClick" reportSubmit="true">
+                <view class="zan-btns">
+                    <button class="zan-btn zan-btn--danger" formType="submit">提交</button>
+                </view>
+            </form>
+        </block>
+    </view>
+    <template is="copyright" data="{{copyright:copyright,is_big_shop:is_big_shop}}"></template>
+</view>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+<import src="../../../../../pages/common/wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

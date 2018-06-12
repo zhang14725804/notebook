@@ -1,0 +1,44 @@
+<template name="zhaopin-company">
+    <view class="fang-block-house-intro marg-top" wx:if="{{info.paramMap&&(info.cateCode==4||info.cateCode==5)&&info.paramMap.company&&info.paramMap.scale&&info.paramMap.trade&&info.paramMap.workplace||info.cateCode==8&&info.paramMap.introduction}}">
+        <view class="house-intro-title">
+            <text>公司简介</text>
+        </view>
+        <view class="company-intro">
+            <view class="zhaopin-features" wx:if="{{info.cateCode==4||info.cateCode==5}}">
+                <view class="zhoaopin-tag" wx:if="{{info.paramMap.company}}">
+                    <text class="company-name-title">名称：</text>
+                    <text class="company-name">{{info.paramMap.company}}</text>
+                </view>
+                <view class="zhoaopin-tag" wx:if="{{info.paramMap.scale}}">
+                    <text class="scale-title">规模：</text>
+                    <text class="scale">{{info.paramMap.scale}}</text>
+                </view>
+                <view class="zhoaopin-tag" wx:if="{{info.paramMap.trade}}">
+                    <text class="industry-title">行业：</text>
+                    <text class="industry">{{info.paramMap.trade}}</text>
+                </view>
+                <view class="zhoaopin-tag" wx:if="{{info.paramMap.workplace}}">
+                    <text class="zhaopin-addr-title">地址：</text>
+                    <text class="zhopin-addr">{{info.paramMap.workplace}}</text>
+                </view>
+            </view>
+            <view class="zhaopin-features" wx:elif="{{info.cateCode==8}}">
+                <view class="zhoaopin-tag" wx:if="{{info.paramMap.company}}">
+                    <text class="company-name-title">名称：</text>
+                    <text class="company-name">{{info.paramMap.company}}</text>
+                </view>
+                <view class="zhoaopin-tag" wx:if="{{info.paramMap.dizhi}}">
+                    <text class="addr-title">地址：</text>
+                    <text class="addr">{{info.paramMap.dizhi}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="fang-reason {{spread?'kuozhan':''}} zhaopin-company-desc">
+            <text>{{info.paramMap.introduction}}</text>
+        </view>
+    </view>
+    <view catchtap="spreadReason" class="expand-btn" wx:if="{{isIntroSpread}}">
+        <text class="expand-text">{{spread?'收起信息':'展开信息'}}</text>
+        <icon class="{{spread?'pack-up':'pack-down'}}"></icon>
+    </view>
+</template>

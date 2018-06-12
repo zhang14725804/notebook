@@ -1,0 +1,21 @@
+<import src="list/index.wxml"></import>
+<view class="main-container">
+    <view class="nav-wrapper">
+        <view catchtap="e_research" class="nav-btn {{navActive===item.id?'nav-on':''}}" data-id="{{item.id}}" wx:for="{{navList}}" wx:key="index">
+        {{item.text}}
+      </view>
+    </view>
+    <scroll-view class="youxuan-container" scrollY="{{list&&list.length>0}}">
+        <template is="subscriptionlist" data="{{loading:loading,list:list,cateCode:cateCode,youxuan:youxuan}}"></template>
+        <view class="tips" wx:if="{{showEmptyInfo}}">
+            <view class="tips-icon"></view>
+            <text class="tips-desc">暂无订阅信息</text>
+        </view>
+    </scroll-view>
+    <view class="nav_bottom-wrapper">
+        <view class="nav-split"></view>
+        <view catchtap="e_add" class="nav_bottom" data-url="/pages/subscription/type/type">
+            <text>添加订阅</text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,126 @@
+.modal_alert_container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal_alert {
+    width: 270px;
+    border-radius: 6px;
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0 1px 10px 0 rgba(0,0,0,.3);
+    position: relative;
+}
+
+.modal_alert_mask {
+    background: rgba(0,0,0,.3);
+}
+
+.modal_alert_close {
+    padding: 12px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.modal_alert_close:after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url('https://img11.360buyimg.com/jdphoto/s22x22_jfs/t16012/349/1533608946/259/9af44593/5a535d0dNf7e219c7.png') 50% no-repeat;
+    background-size: 11px auto;
+}
+
+.modal_alert_icon {
+    width: 50px;
+    height: 50px;
+    margin: 25px auto 10px;
+    background-size: 50px auto;
+}
+
+.modal_alert_icon.icon_warn {
+    background-image: url('https://img11.360buyimg.com/jdphoto/s100x100_jfs/t16267/322/1467970915/907/18d124ec/5a535c95N253c705b.png');
+}
+
+.modal_alert_icon.icon_fail {
+    background-image: url('https://img11.360buyimg.com/jdphoto/s100x100_jfs/t14590/24/1612749386/961/16ee8e7c/5a535c99N15a76d33.png');
+}
+
+.modal_alert_icon.icon_success {
+    background-image: url('https://img11.360buyimg.com/jdphoto/s100x100_jfs/t15556/262/1496119829/1016/d39b4201/5a535cd0N8e1f0d4c.png');
+}
+
+.modal_alert_icon.icon_wait {
+    background-image: url('https://img11.360buyimg.com/jdphoto/s100x100_jfs/t14620/362/1614285493/1105/ba43325e/5a535ce3Nf859b64d.png');
+}
+
+.modal_alert_title {
+    padding: 0 30px;
+    height: 46px;
+    line-height: 92rpx;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.modal_alert_tip {
+    font-size: 12px;
+    color: #999;
+}
+
+.modal_alert_content {
+    font-size: 16px;
+    text-align: center;
+}
+
+.modal_alert_sub {
+    font-size: 12px;
+    text-align: center;
+}
+
+.modal_alert_tip,.modal_alert_content {
+    margin: 12px 15px;
+    max-height: 199px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.modal_alert_btns {
+    display: flex;
+    position: relative;
+}
+
+.modal_alert_btns:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    background-color: #e5e5e5;
+    height: 1rpx;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.modal_alert_btn {
+    height: 44px;
+    line-height: 88rpx;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    flex: 1;
+}
+
+.modal_alert_btn.br {
+    border-right: 1rpx solid #e5e5e5;
+}

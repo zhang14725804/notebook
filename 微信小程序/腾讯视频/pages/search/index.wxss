@@ -1,0 +1,378 @@
+@import "../../comps/searchbar/index.wxss";
+
+@import "../../comps/works/works.wxss";
+
+@import "result/correct.wxss";
+
+@import "result/com.wxss";
+
+@import "result/empty.wxss";
+
+.bg_con {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    margin: 0;
+    min-height: auto;
+}
+
+.flb {
+    display: flex;
+}
+
+.flb-vt {
+    display: flex;
+    flex-direction: column;
+}
+
+.flb-1 {
+    flex: 1;
+}
+
+.search.page {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 10;
+    background-color: #fff;
+    transition: opacity .3s ease-out;
+}
+
+.search .mod_loading.bottom {
+    position: relative;
+}
+
+.search-title {
+    color: #222;
+    line-height: 42rpx;
+    font-size: 30rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+
+.search-modtitle {
+    margin-top: 40rpx;
+    line-height: 48rpx;
+    font-size: 26rpx;
+    color: #979797;
+    padding-left: 32rpx;
+}
+
+.search-head {
+    line-height: 96rpx;
+    font-size: 26rpx;
+    color: #222;
+    padding: 0 32rpx;
+}
+
+.search-text {
+    color: #979797;
+    line-height: 42rpx;
+    font-size: 26rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+
+.search-hl {
+    color: #ff7000;
+}
+
+.search-button {
+    line-height: 96rpx;
+    height: 96rpx;
+    text-align: center;
+    color: #222;
+    font-size: 28rpx;
+    background-color: #f5f7fa;
+    border-radius: 10rpx;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0 32rpx;
+}
+
+.search-button-wrap {
+    position: relative;
+}
+
+.search-mod {
+    padding: 0 32rpx;
+    margin: 32rpx 0;
+    overflow: hidden;
+}
+
+.search-mod.loose {
+    margin-bottom: 54rpx;
+}
+
+.search-cover {
+    margin-right: 22rpx;
+    width: 260rpx;
+    height: 364rpx;
+    border-radius: 10rpx;
+    position: relative;
+    overflow: hidden;
+    background-color: #f5f7f9;
+}
+
+.search-cover .img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10rpx;
+}
+
+.search-cover.hori {
+    height: 148rpx;
+}
+
+.search-icon {
+    display: inline-block;
+    height: 30rpx;
+    width: 30rpx;
+    vertical-align: -2rpx;
+}
+
+.search-results-layout {
+    position: relative;
+}
+
+.search-results {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.search-filter {
+    padding-right: 32rpx;
+    border-bottom: 1rpx solid #e0e0e0;
+    position: relative;
+    z-index: 10;
+    background-color: #fff;
+    overflow: hidden;
+    min-height: 92rpx;
+}
+
+.search-filter .list {
+    color: #222;
+    font-size: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom: 24rpx;
+    background-color: #fff;
+    height: 80rpx;
+}
+
+.search-filter .item {
+    display: inline-block;
+    font-size: 28rpx;
+    padding: 0 18rpx;
+    margin-left: 24rpx;
+    text-align: center;
+    line-height: 56rpx;
+    height: 56rpx;
+}
+
+.search-filter .item.first {
+    margin-left: 32rpx;
+}
+
+.search-filter .item.last {
+    margin-right: 120rpx;
+}
+
+.search-filter .item.active {
+    border-radius: 10rpx;
+    background-color: #f5f7f9;
+    color: #ff7000;
+}
+
+.search-filter .dropdown {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0rpx;
+    width: 152rpx;
+    padding-right: 32rpx;
+    height: 80rpx;
+    background: linear-gradient(to right,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 100%);
+    z-index: 3;
+    text-align: right;
+}
+
+.search-filter .dropdown .icon {
+    background: url(https://i.gtimg.cn/qqlive/images/tinyapp/search_icon_more.svg) center center no-repeat;
+    background-size: 31rpx 12rpx;
+    display: inline-block;
+    width: 31rpx;
+    height: 100%;
+    transition: transform ease .3s;
+    transition: transform ease .3s,-webkit-transform ease .3s;
+}
+
+.search-filter .head {
+    padding-top: 10rpx;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+}
+
+.search-filter .more {
+    transition: margin-top ease .3s;
+    margin-top: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.search-filter .more.hidden {
+    margin-top: -240rpx;
+}
+
+.person .avatar {
+    height: 160rpx;
+    width: 160rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 26rpx;
+}
+
+.person .img {
+    width: 100%;
+    height: 100%;
+}
+
+.person .title {
+    font-size: 30rpx;
+    line-height: 42rpx;
+    color: #ff7000;
+}
+
+.person .search-text {
+    line-height: 40rpx;
+    max-height: 80rpx;
+}
+
+.tv .content {
+    min-height: 292rpx;
+}
+
+.tv .button {
+    padding: 0 24rpx;
+    height: 72rpx;
+    border-radius: 10rpx;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    line-height: 72rpx;
+    background-color: #ff7000;
+    display: inline-block;
+    margin-right: 16rpx;
+}
+
+.tv .button:last-child {
+    margin-right: 0;
+}
+
+.tv .selector {
+    padding-left: 30rpx;
+    padding-right: 16rpx;
+    height: 72rpx;
+    border-radius: 10rpx;
+    text-align: center;
+    font-size: 28rpx;
+    line-height: 72rpx;
+    display: inline-block;
+    background-color: #f5f7f9;
+    color: #222;
+}
+
+.tv .selector .icon {
+    width: 18rpx;
+    height: 28rpx;
+    margin-left: 14rpx;
+    display: inline-block;
+    background: url(https://i.gtimg.cn/qqlive/images/tinyapp/search_icon_down.png) center center no-repeat;
+    background-size: 18rpx 10rpx;
+}
+
+.tv .series {
+    margin-top: 30rpx;
+    font-size: 0;
+}
+
+.tv .series.numbers .search-button-wrap {
+    display: inline-block;
+}
+
+.tv .inb {
+    display: inline-block;
+}
+
+.tv .btn {
+    height: 96rpx;
+    width: 96rpx;
+    line-height: 96rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #666;
+    margin-left: 22rpx;
+    background-color: #f5f7f9;
+    border-radius: 8rpx;
+    position: relative;
+}
+
+.tv .btn.active {
+    color: #ff7000;
+}
+
+.tv .btn.first {
+    margin-left: 0;
+}
+
+.tv .series .mark {
+    height: 32rpx;
+    width: 40rpx;
+}
+
+.tv .search-button {
+    margin-bottom: 16rpx;
+}
+
+.tv .mark-text {
+    bottom: 10rpx;
+    color: #fff;
+    line-height: 24rpx;
+    font-size: 24rpx;
+    position: absolute;
+    max-width: 70%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.tv .mark-text.left {
+    left: 12rpx;
+}
+
+.tv .mark-text.right {
+    right: 12rpx;
+    color: #ff7000;
+}

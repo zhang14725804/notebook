@@ -1,0 +1,11 @@
+<view class="fission-partner">
+    <view class="take-result">
+        <view class="take-result-title">{{take.state==1?'抢光了':'你已经领过了'}}</view>
+        <view class="take-result-info">{{take.state==1?'祝你下次好运，加油哦':'每人只能领一张券，不能重复领哦'}}</view>
+    </view>
+    <view class="taken-btn-container">
+        <view bindtap="globalNavigate" class="taken-btn zan-btn zan-btn--danger zan-btn--large" data-type="switch" data-url="/pages/home/dashboard/index">
+      进店逛逛
+    </view>
+    </view>
+</view>

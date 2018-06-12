@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "提交订单",
+    "usingComponents": {
+        "formcover": "../../../index/components/formcover/formcover"
+    }
+}

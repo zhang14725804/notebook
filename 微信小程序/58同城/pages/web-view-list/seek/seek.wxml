@@ -1,0 +1,3 @@
+<view>
+    <web-view src="https://weixin.58.com/weixinredirect/?redirecturl=https://activity.58.com/wxsearch/demand/{{cateid}}"></web-view>
+</view>

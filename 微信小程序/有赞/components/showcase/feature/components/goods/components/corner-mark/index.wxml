@@ -1,0 +1,8 @@
+<template name="corner-mark">
+    <block wx:if="{{type!=4}}">
+        <view class="{{utils.getConerBackClass(type)}}"></view>
+        <view class="{{utils.getConerMarkClass(type)}}"></view>
+    </block>
+    <image class="sc-goods__corner-mark sc-goods__corner-mark--custom" mode="aspectFit" src="{{markImage}}" wx:else></image>
+</template>
+<wxs module="utils" src="index.wxs" />

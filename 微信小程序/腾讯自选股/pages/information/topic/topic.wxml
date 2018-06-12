@@ -1,0 +1,51 @@
+<import src="/components/loadingOrMore/index.wxml"></import>
+<view class="topics nodata" wx:if="{{nodata}}">
+    <view class="nodata-icon"></view>
+    <view class="nodata-text">当前网络状况不佳</view>
+</view>
+<view class="topics" wx:if="{{!nodata&&!loading}}">
+    <view class="topics_banner">
+        <image mode="aspectFill" src="{{specialData.thumbnails.imgurl==''?'https://mat1.gtimg.com/finance/images/stock/p/xcx/9fae7aabe9d533b6.png':specialData.thumbnails.imgurl}}"></image>
+    </view>
+    <view class="topics_title">
+        <view class="topics_title_con">
+            <span class="topic">摘要</span>
+            {{specialData.intro}}
+        </view>
+    </view>
+    <view class="topics_list">
+        <block wx:for="{{specialData.idlist}}" wx:for-index="sectionidx" wx:for-item="sectionItem" wx:key="sectionidx">
+            <view class="topics_list_section">
+                <view class="topics_list_section_inline Rectangle"></view>
+                <view class="topics_list_section_inline title">{{sectionItem.section}}</view>
+            </view>
+            <view bindtap="goNews" class="topics_list_item {{listidx==0?'first':''}}" data-articletype="{{listItem.articletype}}" data-id="{{listItem.id}}" data-source="{{listItem.source}}" data-time="{{listItem.time}}" data-timestamp="{{listItem.timestamp}}" wx:for="{{sectionItem.newslist}}" wx:for-index="listidx" wx:for-item="listItem" wx:key="listidx">
+                <view class="topics_list_item_con topics_inline">
+                    <view class="topics_list_item_con_content">{{listItem.title}}</view>
+                    <view class="topics_list_item_con_resource">
+                        <span>{{listItem.source}}</span>
+                        <span> | </span>
+                        <span>{{listItem.FormatTime}}</span>
+                    </view>
+                </view>
+                <view class="topics_list_item_img topics_inline">
+                    <image src="{{listItem.thumbnails_qqnews[0]}}"></image>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+<view class="whole-white-bg" wx:if="{{loading}}">
+    <view style="height:100rpx;width:100%;padding-top:100rpx;">
+        <view class="loadEffect rotate">
+            <view class="v v1"></view>
+            <view class="v v2"></view>
+            <view class="v v3"></view>
+            <view class="v v4"></view>
+            <view class="v v5"></view>
+            <view class="v v6"></view>
+            <view class="v v7"></view>
+            <view class="v v8"></view>
+        </view>
+    </view>
+</view>

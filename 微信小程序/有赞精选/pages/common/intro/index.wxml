@@ -1,0 +1,81 @@
+<view class="intro_container">
+    <view class="intro_topview">
+        <text class="intro_topview-title">一键生成，快速拥有</text>
+        <text class="intro_topview-subtitle">帮助商家提前布局微信新生态，抢占第一波红利</text>
+        <view bindtap="call" class="intro_topview-button">电话咨询</view>
+        <image class="intro_topview-image" src="https://img.yzcdn.cn/public_files/2017/06/15/d08fc15f29942a408e1e4e05f019e81f.jpg"></image>
+    </view>
+    <view class="intro_features">
+        <text class="intro_feature_title intro_feature_title-position">微信持续赋能小程序</text>
+        <text class="intro_feature_subtitle intro_feature_subtitle-position">全面提升网上营销、网上获取订单的新能力</text>
+        <image class="intro_feature_image" mode="aspectFit" src="https://img.yzcdn.cn/public_files/2017/06/15/86b6352458b71c2885ddb736da99a07f.png"></image>
+        <text class="intro_feature_title bold intro_feature_title-position">附近的小程序</text>
+        <text class="intro_feature_subtitle intro_feature_subtitle-position">不要让你的同行抢占先机</text>
+        <image class="intro_feature_image" mode="aspectFit" src="https://img.yzcdn.cn/public_files/2017/06/15/9434a76e3e1ab6cb6579d26e40def4aa.png"></image>
+        <text class="intro_feature_title bold intro_feature_title-position">关联公众号</text>
+        <text class="intro_feature_subtitle intro_feature_subtitle-position">公众号标配新功能</text>
+        <image class="intro_feature_image" mode="aspectFit" src="https://img.yzcdn.cn/public_files/2017/06/15/75179df8b72f592e42599fa0fe96de51.png"></image>
+        <text class="intro_feature_title bold intro_feature_title-position">微信搜一搜</text>
+        <text class="intro_feature_subtitle intro_feature_subtitle-position">随时随地，用什么搜什么</text>
+        <image class="intro_feature_image" mode="aspectFit" src="https://img.yzcdn.cn/public_files/2017/06/15/c3d51cc6fe7aea52305da6904b4fbedf.png"></image>
+        <text class="intro_feature_title bold intro_feature_title-position">广告投放</text>
+        <text class="intro_feature_subtitle intro_feature_subtitle-position">猜想：微信会支持广告投放推小程序吗</text>
+    </view>
+    <view class="intro_scroll_container">
+        <text class="intro_feature_title intro_feature_title-position">有赞为不同行业商家</text>
+        <text class="intro_feature_title intro_feature_title-position">提供小程序能力</text>
+        <text class="intro_feature_subtitle intro_feature_subtitle-position">与微信、微博营销形成合力，一站式解决方案</text>
+        <scroll-view class="intro_scrollview" scrollX="true">
+            <view class="intro_scrollview_subview">
+                <view class="intro_scroll_item" wx:for="{{wxapps}}" wx:key="{{index}}">
+                    <image class="intro_scroll_item-image" src="{{item.imageUrl}}"></image>
+                    <text class="intro_scroll_item-title">{{item.title}}</text>
+                    <view class="intro_scroll_item-line"></view>
+                    <text class="intro_scroll_item-subtitle">{{item.feature0}}</text>
+                    <text class="intro_scroll_item-subtitle">{{item.feature1}}</text>
+                    <text class="intro_scroll_item-subtitle">{{item.feature2}}</text>
+                    <text class="intro_scroll_item-subtitle">{{item.feature3}}</text>
+                    <text class="intro_scroll_item-subtitle">{{item.feature4}}</text>
+                    <text class="intro_scroll_item-subtitle">{{item.feature5}}</text>
+                </view>
+            </view>
+        </scroll-view>
+        <text bindtap="call" class="intro_telephone">电话咨询：0571 - 8522 5188</text>
+        <text class="intro_time">周一至周日 09:00 ~18:00</text>
+    </view>
+    <view class="miniapp_intro_container">
+        <view class="miniapp_intro_title">核心场景</view>
+        <view class="miniapp_intro_image_container">
+            <view class="miniapp_intro_item" wx:for="{{miniapp_intros}}" wx:key="{{index}}">
+                <image class="miniapp_intro_item_image" mode="aspectFit" src="{{item.image}}"></image>
+                <view class="miniapp_intro_item_name">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="flow_container">
+        <view class="flow_intro_title">接入流程</view>
+        <view class="flow_item_container" wx:for="{{flow_names}}" wx:key="{{index}}">
+            <view class="flow_text_container">
+                <view class="flow_circle">{{index+1}}</view>
+                <view class="flow_name">{{item}}</view>
+            </view>
+            <image class="flow_point" mode="aspectFit" src="https://img.yzcdn.cn/public_files/2017/06/15/17bf14c2fe1703a9e21cf3ed0583236f.png" wx:if="{{index<flow_names.length-1}}"></image>
+            <view class="flow_description" wx:if="{{index==flow_names.length-1}}">上线后随时修改，实时更新。有赞全程托管，不懂代码也能用</view>
+        </view>
+    </view>
+    <view class="shop_logo_container">
+        <view class="shop_logo_text">面对多种行业，量身定制</view>
+        <view class="shop_logo_hint">他们都在用有赞小程序</view>
+        <view class="shop_logo_item_container">
+            <view class="shop_logo_item" wx:for="{{shop_images}}" wx:key="{{ index }}">
+                <image class="shop_logo_item_image" mode="aspectFit" src="{{item}}"></image>
+            </view>
+        </view>
+    </view>
+    <view class="team_info_container">
+        <view bindtap="call" class="team_info_phone">电话咨询：0571 - 8522 5188</view>
+        <view class="team_info_date">周一至周日 09:00 - 18:00</view>
+        <view class="divider team_separate"></view>
+        <view class="team_info_youzan">Youzan.com © 2012-2017</view>
+    </view>
+</view>

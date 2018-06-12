@@ -1,0 +1,41 @@
+.wrapper {
+    text-align: center;
+    padding-bottom: 100px;
+    background-color: #9CD9EC;
+    padding-top: 10px;
+}
+
+.icon_cir {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #ff0;
+    border-radius: 99px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.item {
+    line-height: 3;
+    background-color: rgba(255,0,0,.1);
+    margin: 7px 0;
+}
+
+.after {
+    position: relative;
+}
+
+.after::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,0,0,.4);
+    z-index: 1;
+}
+
+.no_pe {
+    pointer-events: none;
+}

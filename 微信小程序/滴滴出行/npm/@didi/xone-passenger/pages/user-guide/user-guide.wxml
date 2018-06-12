@@ -1,0 +1,20 @@
+<view class="mod-p-price-rule must-be">
+    <view class="mod-page-rule">
+        <view class="mod-lists-inner">
+            <view class="car-item" xmlns:wx="" wx:for="{{state.navData}}" wx:for-item="carTypeItem">
+                <view bindtap="_dispatch" class="car-type-name" data-bindtap="spreadItem({{carTypeItem.product_id}})">
+                    <view class="car-title">{{carTypeItem.title}}</view>
+                    <view class="arrow-right arrow" wx:if="{{!carTypeItem.sub_navbar}}"></view>
+                    <view class="arrow-top arrow" wx:if="{{carTypeItem.sub_navbar&&carTypeItem.isSpread}}"></view>
+                    <view class="arrow-bottom arrow" wx:if="{{carTypeItem.sub_navbar&&!carTypeItem.isSpread}}"></view>
+                </view>
+                <view wx:if="{{carTypeItem.isSpread}}" wx:for="{{carTypeItem.sub_navbar}}" wx:for-item="carTypeData">
+                    <view bindtap="_dispatch" class="scene-name" data-bindtap="openItem({{carTypeData.price_token}})">
+                        <view class="car-sub-title">{{carTypeData.title}}</view>
+                        <view class="arrow-right arrow"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

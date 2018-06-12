@@ -1,0 +1,24 @@
+<view class="switch-promo {{list.length?'show':''}}">
+    <view bindtap="close" class="mask"></view>
+    <view class="wrap">
+        <view class="header">
+            切换促销
+            <view bindtap="close" class="close"></view>
+        </view>
+        <view class="body">
+            <view class="list">
+                <view bindtap="select" class="item" data-item-Id="{{itemId}}" data-pid="{{item.pid}}" data-sku-Id="{{skuId}}" data-vid="{{vid}}" wx:for="{{list}}" wx:key="pid">
+                    <view class="check_box {{item.sstate==1?'checked':''}}"></view>
+                     {{utils.getNoteText(item)}}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<wxs module="utils">
+module.exports = {
+    getNoteText: function(item) {
+        return [ "-100", "-300" ].indexOf(item.pid) != -1 ? "不参加促销(若您考虑用券或其他促销)" : item.pnote;
+    }
+};
+</wxs>

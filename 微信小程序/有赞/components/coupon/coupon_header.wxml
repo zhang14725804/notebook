@@ -1,0 +1,6 @@
+<template name="coupon-header">
+    <image class="header-sideline-left" mode="aspectFill" src="https://img.yzcdn.cn/public_files/2017/08/16/bf0e247ddc0ef26a05eefb3718105ee5.png"></image>
+    <image class="header-img" mode="aspectFill" src="https://img.yzcdn.cn/public_files/2017/08/16/ecfe644dfe84bc25b660cfe8aeed26db.png" wx:if="{{showHeaderImage}}"></image>
+    <view class="header-content">{{headerText}}</view>
+    <image class="header-sideline-right" mode="aspectFill" src="https://img.yzcdn.cn/public_files/2017/08/16/454364e81b93ad7070a867502cc9626a.png"></image>
+</template>

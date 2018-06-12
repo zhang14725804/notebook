@@ -1,0 +1,106 @@
+<include src="/pages/search/index.wxml"></include>
+<view class="body {{showSearch?'bg_con':''}} {{response.os}} {{envType=='dev'?'debug':''}}" style="background: linear-gradient(to bottom, {{maskColor}}, {{maskColor}}), {{headPoster.bgcolor}}">
+    <view class="header">
+        <view class="logo" style="background-image:url({{icon_logo}})"></view>
+        <view bindtap="onSearchShow" class="btn_search" data-stat="search:entry_index" style="background-image:url({{icon_search}})"></view>
+    </view>
+    <view class="mod_loading {{response.loading?'':'none'}}">
+        <view class="icon_loading"></view>
+    </view>
+    <view bindtap="onRefresh" class="mod_empty {{response.empty?'':'none'}}">
+        <view class="icon_empty"></view>
+        <view class="empty_title">{{response.emptyTitle}}</view>
+        <view class="empty_text">{{response.emptyText}}</view>
+        <view class="empty_btn">刷新</view>
+    </view>
+    <view bindtap="onPlayLive" class="headline {{response.empty?'none':''}} {{response.loading?'none':''}}  {{headPoster.posterMask?'cover_mask':''}}" data-pid="{{headPoster.liveId}}" wx:if="{{!!headPoster.liveId}}">
+        <view class="headline_poster" style="background-image:url({{headPoster.poster}})"></view>
+        <view class="poster_mask_top"></view>
+        <view class="poster_mask_bottom" style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), {{headPoster.bgcolor}}"></view>
+        <view class="btn_play {{headPoster.posterBtnShow?'':'none'}}"></view>
+    </view>
+    <view bindtap="onPlay" class="headline {{response.empty?'none':''}} {{response.loading?'none':''}}  {{headPoster.posterMask?'cover_mask':''}}" data-cid="{{headPoster.playId}}" wx:else>
+        <view class="headline_poster" style="background-image:url({{headPoster.poster}})"></view>
+        <view class="poster_mask_top"></view>
+        <view class="poster_mask_bottom" style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), {{headPoster.bgcolor}}"></view>
+        <view class="btn_play {{headPoster.posterBtnShow?'':'none'}}"></view>
+    </view>
+    <swiper bindchange="swiperChange" class="card_swiper {{response.loading?'none':''}}  {{response.empty?'none':''}}" current="{{swiperIndex}}" duration="{{swiperDuration}}" interval="5000">
+        <block wx:for="{{resultContent}}" wx:for-item="contentItem" wx:key="unique">
+            <block wx:if="{{contentItem.modId=='type_30014'}}">
+                <swiper-item class="card_box card_box_hot" data-modid="{{contentItem.modId}}" wx:for="{{contentItem.list}}" wx:key="unique">
+                    <view bindtap="onPlay" class="card" data-cid="{{item.data.item_id}}">
+                        <view class="cover">
+                            <image class="cover_pic" src="{{item.data.image_url_vertical_small}}"></image>
+                            <view class="mark" style="background-image:url({{item.data.imgtagUrl}})"></view>
+                            <view class="figure_caption" wx:if="{{item.data.episode_updated}}">{{item.data.episode_updated}}</view>
+                            <view class="figure_caption figure_score" wx:elif="{{item.data.score}}">{{item.data.score}}</view>
+                        </view>
+                        <view class="title">{{item.data.title}}</view>
+                        <view class="desc" wx:if="{{item.data.sub_title}}">
+							“{{item.data.sub_title}}”
+						</view>
+                        <view class="desc desc_cartoon" wx:if="{{item.data.cartoon_aspect}}">
+							{{item.data.cartoon_aspect}}·{{item.data.cartoon_genre}}
+						</view>
+                        <view class="desc desc_guest" wx:elif="{{item.data.guests}}">
+							嘉宾：{{item.data.guests}}
+						</view>
+                        <view class="desc desc_guest" wx:elif="{{item.data.leading_actor}}">
+							主演：{{item.data.leading_actor}}
+						</view>
+                    </view>
+                </swiper-item>
+            </block>
+            <swiper-item class="card_box card_box_longvideo" data-modid="{{contentItem.modId}}" wx:elif="{{contentItem.modId=='longvideo'}}">
+                <view class="card">
+                    <view bindtap="onGoChannel" class="card_title {{contentItem.info.tag_id||contentItem.info.name_id?'':'noarrow'}}" data-metaname="{{contentItem.info.title}}" data-tagid="{{contentItem.info.tag_id}}" data-tagtype="{{contentItem.info.tag_type}}">{{contentItem.info.title}}</view>
+                    <view class="video_list video_list_v">
+                        <view bindtap="onPlay" class="video_item" data-cid="{{videoItem.data.item_id}}" wx:for="{{contentItem.list}}" wx:for-item="videoItem" wx:key="unique">
+                            <view class="figure">
+                                <image class="figure_pic" mode="scaleToFill" src="{{videoItem.data.image_url_vertical_small}}"></image>
+                                <view class="mark" style="background-image:url({{videoItem.data.imgtagUrl}})"></view>
+                            </view>
+                            <view class="video_title">{{videoItem.data.title}}</view>
+                            <view class="video_desc">{{videoItem.data.sub_title}}</view>
+                        </view>
+                    </view>
+                </view>
+            </swiper-item>
+            <swiper-item class="card_box card_box_watch {{contentItem.list.length>2?'card_box_large':'card_box_l'+contentItem.list.length}}" data-modid="{{contentItem.modId}}" wx:elif="{{contentItem.modId=='live_mod'}}">
+                <view class="card">
+                    <view class="card_title noarrow">{{contentItem.info.title}}</view>
+                    <view class="video_list video_list_h">
+                        <view bindtap="onPlayLive" class="video_item" data-pid="{{item.data.pid}}" wx:if="{{index<4}}" wx:for="{{contentItem.list}}" wx:key="unique">
+                            <view class="figure">
+                                <image class="figure_pic" mode="aspectFill" src="{{item.data.image_url}}"></image>
+                                <view class="figure_caption" wx:if="{{item.data.episode_updated}}">{{item.data.episode_updated}}</view>
+                                <view class="mark" style="background-image:url({{item.data.imgtagUrl}})"></view>
+                            </view>
+                            <view class="video_title">{{item.data.title}}</view>
+                            <view class="video_desc" wx:if="{{item.data.sub_title}}">{{item.data.sub_title}}</view>
+                        </view>
+                        <view class="video_item" wx:if="{{contentItem.list.length==3}}"></view>
+                    </view>
+                </view>
+            </swiper-item>
+            <swiper-item class="card_box card_box_watch card_box_l{{contentItem.list.length}}" data-modid="{{contentItem.modId}}" wx:else>
+                <view class="card">
+                    <view bindtap="onGoChannel" class="card_title" data-metaname="{{contentItem.info.title}}" data-nameid="{{contentItem.info.name_id}}" data-tagid="{{contentItem.info.tag_id}}" data-tagtype="{{contentItem.info.tag_type}}">{{contentItem.info.title}}</view>
+                    <view class="video_list video_list_h">
+                        <view bindtap="onPlay" class="video_item" data-cid="{{item.data.item_id}}" wx:for="{{contentItem.list}}" wx:key="unique">
+                            <view class="figure">
+                                <image class="figure_pic" mode="aspectFill" src="{{item.data.image_url_small}}"></image>
+                                <view class="figure_caption" wx:if="{{item.data.episode_updated}}">{{item.data.episode_updated}}</view>
+                                <view class="mark" style="background-image:url({{item.data.imgtagUrl}})"></view>
+                            </view>
+                            <view class="video_title">{{item.data.title}}</view>
+                            <view class="video_desc" wx:if="{{item.data.sub_title}}">{{item.data.sub_title}}</view>
+                        </view>
+                        <view class="video_item" wx:if="{{contentItem.list.length==3}}"></view>
+                    </view>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>

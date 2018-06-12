@@ -1,0 +1,29 @@
+<view class="searchbar {{search_focus?'searchbar-focus':''}}">
+    <view bindtap="bindSearchFocus" class="searchbar_label" wx:if="{{!search_focus}}">
+        <icon class="searchbar_icon" size="14" type="search"></icon>
+        <text>找攻略</text>
+    </view>
+    <view class="searchbar_form" wx:if="{{search_focus}}">
+        <view class="searchbar_inputgroup">
+            <icon class="searchbar_form_icon" size="14" type="search"></icon>
+            <input autoFocus="{{search_focus}}" bindconfirm="keywordConfirm" bindinput="keywordInput" class="searchbar_input" focus="{{search_focus}}" name="keyword" placeholder="找攻略" type="text" value="{{search_keyword}}"></input>
+            <view bindtap="bindSearchClear" class="searchbar_clear" hidden="{{!search_showclear}}">
+                <icon class="searchbar_clear_icon" size="14" type="clear"></icon>
+            </view>
+        </view>
+        <view bindtap="bindSearchBlur" class="searchbar_cancel" wx:if="{{search_bcancel}}">取消</view>
+    </view>
+    <scroll-view class="searchbar-result" scrollY="true" wx:if="{{search_focus}}">
+        <view bindtap="searchResultClick" class="searchbar-result_cell" data-id="{{item.id}}" data-ismdd="{{item.isMdd?1:0}}" data-title="{{item.title}}" wx:for="{{search_results}}">
+            <view class="searchbar_cellmdd" wx:if="{{item.isMdd}}">{{item.title}}</view>
+            <view class="searchbar_cellgl" wx:else>{{item.title}}</view>
+        </view>
+        <view class="weui-loadmore" hidden="{{!search_showloading}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在查找...</view>
+        </view>
+        <view class="weui-loadmore weui-loadmore_line" hidden="{{!search_nodatatip}}">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无相关内容</view>
+        </view>
+    </scroll-view>
+</view>

@@ -1,0 +1,16 @@
+<template name="phone_tips">
+    <view class="phone_tips" hidden="{{!mutiDialogFlag}}">
+        <view class="tips_title">提示</view>
+        <view class="tips_info">
+            <text class="c-des">您登录账号的手机号还关联着以下VIP账号，是否需要切换登录？</text>
+            <view bindtap="toggleAccountItem" class="info-link" data-list-index="{{index}}" wx:if="{{index<6}}" wx:for="{{mutiAccountList}}" wx:key="{{index}}">
+                <text class="c-name">{{item.name}}</text>
+                <image class="c-icon-uservip" src="/resource/images/c-icon-vipround.png"></image>
+            </view>
+        </view>
+        <view class="tips_btn">
+            <view bindtap="disableTips" class="c-btn-link" data-rseat="wx_login_nosuggest">不切换（不再提醒）</view>
+            <view bindtap="hideMutiAccountDialog" class="c-btn-link" data-rseat="wx_login_nosuggest2">取消</view>
+        </view>
+    </view>
+</template>

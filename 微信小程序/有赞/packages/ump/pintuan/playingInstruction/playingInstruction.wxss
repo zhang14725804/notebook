@@ -1,0 +1,41 @@
+.instruction__container {
+    color: #333;
+    background-color: #f8f8f8;
+    vertical-align: baseline;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    min-height: 676px;
+}
+
+.instruction__container .content__container {
+    padding: 50rpx 0rpx;
+    margin: 0 auto;
+}
+
+.instruction__container .content__container .tips__container {
+    padding: 0 20rpx;
+    margin-bottom: 40rpx;
+}
+
+.instruction__container .content__container .tips__container .title {
+    margin-bottom: 10rpx;
+    font-weight: bold;
+    font-size: 28rpx!important;
+    line-height: 36rpx;
+}
+
+.instruction__container .content__container .tips__container .tip {
+    font-size: 28rpx!important;
+}
+
+.instruction__container .content__container .tips__container .pic__container {
+    height: 805px;
+    padding: 0 20rpx;
+    text-align: center;
+    font-size: 14px!important;
+    max-width: 640px;
+    background: url("https://b.yzcdn.cn/v2/image/wap/ump/group_tuan/steps2@2x.png") center no-repeat;
+    background-size: 355px 805px;
+    background-color: #fff;
+}

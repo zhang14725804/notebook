@@ -1,0 +1,25 @@
+<view class="cap-paid-content {{themeClass}}">
+    <view bindtap="goToContent" class="content-item" data-alias="{{alias}}">
+        <view class="content-image-wp">
+            <image class="content-image" mode="aspectFill" src="{{cover}}"></image>
+            <image class="article-icon image-icon" src="https://img.yzcdn.cn/weapp/paidcontent/doc.png" wx:if="{{type===1}}"></image>
+            <image class="audio-icon image-icon" src="https://img.yzcdn.cn/weapp/paidcontent/music.png" wx:elif="{{type===2}}"></image>
+            <image class="video-icon image-icon" src="https://img.yzcdn.cn/weapp/paidcontent/video.png" wx:else></image>
+        </view>
+        <view class="content-count-wp">
+            <view class="content-desc">
+                <view class="content-title">{{title||''}}</view>
+                <view class="content-summary">{{time||''}} <text wx:if="{{columnTitle}}">{{columnTitle||''}}</text>
+                </view>
+            </view>
+            <view class="bottom-part">
+                <view class="cotent-count">
+          {{subCount?subCount+'人已'+['','读','听','看'][type]:' '}}
+        </view>
+                <view class="price-label theme-color" wx:if="{{price&&!isFree}}">￥{{price}}</view>
+                <view class="buy-time" wx:if="{{buyTime}}">购买时间：{{buyTime}}</view>
+                <view class="free-label theme-color" wx:if="{{isFree}}">免费试{{['','读','听','看'][type]}}</view>
+            </view>
+        </view>
+    </view>
+</view>

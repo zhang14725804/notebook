@@ -1,0 +1,4 @@
+<view class="floating" hidden="{{!showFloating}}">
+    <view bindtap="hideFloating" class="floating__close"></view>
+    <image bindload="imageLoaded" bindtap="gotoH5" class="floating__image" data-link="{{floating.link}}" data-rd="{{floating.rd}}" data-wxapp-link="{{floating.wxappLink}}" mode="aspectFill" src="{{floating.image}}"></image>
+</view>

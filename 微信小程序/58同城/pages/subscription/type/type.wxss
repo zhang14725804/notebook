@@ -1,0 +1,39 @@
+@import "../../../__wuBaseWxss__/5.wxss";
+
+.container-main {
+    background-color: #eeeeee;
+    height: 100vh;
+}
+
+.panel-type {
+    background-color: #fff;
+    border-bottom: 20rpx solid #eeeeee;
+}
+
+.panel-title {
+    font-size: 30rpx;
+    border-bottom: 1rpx solid #eeeeee;
+    line-height: 60rpx;
+    padding: 25rpx;
+}
+
+.item-type-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 24rpx;
+    text-align: center;
+    padding: 25rpx;
+}
+
+.item-type {
+    padding: 10rpx 40rpx;
+    color: #ff552e;
+    border: 1rpx solid #ff552e;
+    border-radius: 5rpx;
+    margin-right: 20rpx;
+}

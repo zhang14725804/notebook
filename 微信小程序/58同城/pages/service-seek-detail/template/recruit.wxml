@@ -1,0 +1,15 @@
+<template name="recruit">
+    <view catchtap="listClick" class="sub-post local" data-type="positionType">
+        <text class="label">职位类别</text>
+        <button class=" select-post select-local-name">{{positionType}}</button>
+        <button class="select-icon"></button>
+    </view>
+    <view class="sub-post user-info no-border-bottom">
+        <text class="label">职位名称</text>
+        <input bindinput="positionNameInput" class="register-input user-name" maxlength="24" placeholder="至少2字" type="text"></input>
+    </view>
+    <view class="sub-post user-info">
+        <text class="label">企业名称</text>
+        <input bindinput="companyNameInput" class="register-input phone" maxlength="24" placeholder="至少2字" type="text"></input>
+    </view>
+</template>

@@ -1,0 +1,31 @@
+<view class="qa-detail">
+    <scroll-view scrollY class="qa-detail-scroll">
+        <view class="qa-title-view">
+            <text class="qa-title">{{qaDetail.Question.Title}}</text>
+            <view class="qa-desc">{{qaDetail.Question.Description}}</view>
+        </view>
+        <view class="separatline"></view>
+        <view class="qa-answer">
+            <view class="qa-remind" wx:if="{{qaDetail.Answers.length>0}}">
+                *未能面诊，以下答案仅供参考，如有必要咨询顾问
+            </view>
+            <qa-answer anwser="{{item}}" wx:for="{{qaDetail.Answers}}" wx:key="{{item}}"></qa-answer>
+        </view>
+        <view class="qa-relevant">
+            <text class="qa-relevant-title">相关问答</text>
+            <view class="separatline" style="border-bottom: solid 4rpx #f5f5f5;"></view>
+            <view class="qa-relevant-content" wx:for="{{qaDetail.RelateQuestion}}" wx:key="{{item}}">
+                <view bindtap="onQaRelevantClick" data-id="{{item.Id}}">• {{item.Title}}</view>
+            </view>
+            <view bindtap="onRelevantMoreClick" class="qa-relevant-more">更多{{qaDetail.Question.SecondProjectName}}相关问答>></view>
+        </view>
+    </scroll-view>
+    <view class="bottom-layout">
+        <view class="icon-layout">
+            <image bindtap="onHomeClick" class="icon" mode="aspectFit" src="https://cdn-ssl.meb.com/wxa/v1/home-nav.png"></image>
+        </view>
+        <button class="button-layout contact-btn" openType="contact">
+            <text class="bottom-text">咨询一下</text>
+        </button>
+    </view>
+</view>

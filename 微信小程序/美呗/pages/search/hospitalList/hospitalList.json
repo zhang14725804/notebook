@@ -1,0 +1,8 @@
+{
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "更多医院",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+        "loadMore": "/components/loadMore/loadMore"
+    }
+}

@@ -1,0 +1,8 @@
+<template name="launchApp">
+    <view class="launchApp m-iqylink-guide">
+        <button appParameter="{{pluginParams}}" binderror="launchAppError" bindtap="joinClient" class="c-btn c-btn-block" data-launch-type="banner" openType="launchApp">
+            <image class="c-icon-logo" height="15" src="/resource/images/c-icon-logo.png" width="15"></image>
+            <text class="c-btn-tx">打开爱奇艺，提升3倍流畅度！</text>
+        </button>
+    </view>
+</template>

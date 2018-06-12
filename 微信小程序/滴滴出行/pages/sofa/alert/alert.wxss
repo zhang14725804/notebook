@@ -1,0 +1,89 @@
+.sofa-btn {
+    height: 100rpx;
+    line-height: 102rpx;
+    border: #979797;
+    border-radius: 4rpx;
+    font-size: 32rpx;
+    background: #fff;
+    color: #333;
+}
+
+.sofa-btn-primary {
+    background: #4a4c5b;
+    color: #fff;
+}
+
+.sofa-block-container {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    background: #fff;
+    text-align: center;
+    font-size: 40rpx;
+}
+
+.sofa-block-container image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 516rpx;
+    height: 620rpx;
+    margin-top: -340rpx;
+    margin-left: -258rpx;
+}
+
+.sofa-block-container p:first-child {
+    padding-top: 100rpx;
+}
+
+.sofa-block-title {
+    display: block;
+    height: 70rpx;
+    line-height: 72rpx;
+    color: #666;
+}
+
+.sofa-block-content {
+    display: block;
+    height: 65rpx;
+    line-height: 67rpx;
+    color: #333;
+}
+
+.sofa-block-sub-content {
+    display: block;
+    height: 40rpx;
+    line-height: 42rpx;
+    font-size: 28rpx;
+    color: #666;
+}
+
+.sofa-block-sub-content-first {
+    padding-top: 15rpx;
+}
+
+.sofa-block-link {
+    display: block;
+    height: 66rpx;
+    color: #fc9153;
+    font-size: 26rpx;
+}
+
+.sofa-block-footer {
+    position: absolute;
+    left: 20rpx;
+    right: 20rpx;
+    bottom: 20rpx;
+}
+
+.sofa-block-footer button {
+    margin-top: 20rpx;
+}
+
+.sofa-block-focus-on {
+    color: #fc9153;
+}

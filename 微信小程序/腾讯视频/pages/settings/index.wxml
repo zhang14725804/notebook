@@ -1,0 +1,23 @@
+<view class="body">
+    <view class="gap"></view>
+    <view class="list_block">
+        <view class="list_item" wx:for="{{configs}}" wx:for-item="configItem" wx:key="{{configItem.key}}">
+            <view class="item_text">{{configItem.text}}</view>
+            <switch bindchange="switchBooleanConfig" checked="{{configItem.reverse?!configItem.value:configItem.value}}" class="item_switch" color="#ff6f00" data-key="{{configItem.key}}"></switch>
+        </view>
+    </view>
+    <view class="gap"></view>
+    <view class="list_block">
+        <view bindtap="onClearCache" class="list_item">
+            <view class="item_text">清除缓存</view>
+            <view class="item_nomore">{{storageSize}}kb</view>
+        </view>
+    </view>
+    <view class="gap"></view>
+    <view class="list_block">
+        <view class="list_item">
+            <view class="item_text">意见反馈</view>
+            <contact-button class="feedback" sessionFrom="weapp" size="18" type="default-light"></contact-button>
+        </view>
+    </view>
+</view>

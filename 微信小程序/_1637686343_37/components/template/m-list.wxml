@@ -1,0 +1,364 @@
+<template name="m-list-vote">
+    <view class="m-box" wx:if="{{voteStatus.voteid&&voteStatus.mainTitle&&voteStatus.childs[0]&&voteStatus.childs[0].options&&voteStatus.childs[0].options.length>0}}">
+        <view class="m-vote-box">
+            <view class="m-vote-title">{{voteStatus.mainTitle}}</view>
+            <view class="m-vote-subtitle">
+                <text wx:if="{{voteStatus.showJoinUsersCount}}">{{voteStatus.showJoinUsersCount}}人参与，</text>投票后查看结果。</view>
+            <view class="m-vote-list {{voteStatus.hasJoinedVoteData==true?'m-voteOK':''}}">
+                <view class="m-vote-item {{item.todayHasJoined==true?'selected':''}}" wx:if="{{index<10}}" wx:for="{{voteStatus.childs[0].options}}" wx:key="index">
+                    <button bindtap="joinVote" class="m-vote-btn" data-card-order="{{order}}" data-vote-index="{{index}}" data-vote-oid="{{item.oid}}" disabled="{{disabled}}" wx:if="{{voteStatus.hasJoinedVoteData!==true}}">
+                        <text class="c-vote-star">{{item.text}}</text>
+                    </button>
+                    <progress active activeColor="{{item.todayHasJoined==true?'#a50701':'rgba(165, 7, 1, 0.35)'}}" backgroundColor="transparent" bindtap="{{voteStatus.remainVotesToday==-1||voteStatus.remainVotesToday>0?'joinVote':''}}" class="m-vote-btn" data-card-order="{{order}}" data-vote-index="{{index}}" data-vote-oid="{{item.oid}}" disabled="{{disabled}}" percent="{{item.percentage}}" strokeWidth="90" wx:else>
+                        <text class="c-vote-star">{{item.text}}</text>
+                        <text class="c-vote-num">{{item.showNum}}</text>
+                    </progress>
+                </view>
+                <view class="vote-share-tip">
+                    <form bindsubmit="getFormId" data-rseat="wx_dance_voteshare" reportSubmit="true">
+                        <button class="vote-share-btn" data-share-type="vote" formType="submit" openType="share">
+                            <image class="c-icon-vote-share" src="/resource/images/c-icon-vote-share.png"></image>
+                            <text>邀请好友参与投票</text>
+                        </button>
+                    </form>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="m-list-liveVideo">
+    <view class="m-list-liveVideo">
+        <view class="m-list-liveVideo_content">
+            <view class="m-list-liveVideo_imgBox">
+                <image class="m-topList_img" height="73" src="http://www.qiyipic.com/common/fix/wx-iqiyi/list-livevideo-list-bg.png" width="129"></image>
+            </view>
+            <view class="m-list-liveVideo_text">
+                <view class="m-list-liveVideo_text_title">ATP巴黎大师赛第6 日（中央球场）</view>
+                <view class="m-list-liveVideo_text_info">
+                    <text class="m-list-liveVideo_text_c-info">2017-11-11 9:30</text>
+                </view>
+            </view>
+            <button class="m-list-liveVideo-btn" hidden="{{true}}">
+                <image class="c-list-icon-liveVideo-time" src="/resource/images/c-list-icon-liveVideo-time.png"></image>
+                <text class="m-list-liveVideo-btn-text">预约</text>
+            </button>
+            <button class="m-list-liveVideo-btn liveVideo-btn-ok" hidden="">
+                <image class="c-list-icon-liveVideo-ok" src="/resource/images/c-list-icon-liveVideo-ok.png"></image>
+                <text class="m-list-liveVideo-btn-text">预约成功</text>
+            </button>
+        </view>
+        <view class="m-list-liveVideo_content">
+            <view class="m-list-liveVideo_imgBox">
+                <image class="m-topList_img" height="73" src="http://m.qiyipic.com/common/lego/20170109/65f810216114424396b43648f0fb29ba.jpg" width="129"></image>
+            </view>
+            <view class="m-list-liveVideo_text">
+                <view class="m-list-liveVideo_text_title">ATP巴黎大师赛第6 日（中央球场）</view>
+                <view class="m-list-liveVideo_text_info">
+                    <text class="m-list-liveVideo_text_c-info">2017-11-11 9:30</text>
+                </view>
+            </view>
+            <button class="m-list-liveVideo-btn" hidden="">
+                <image class="c-list-icon-liveVideo-time" src="/resource/images/c-list-icon-liveVideo-time.png"></image>
+                <text class="m-list-liveVideo-btn-text">预约</text>
+            </button>
+            <button class="m-list-liveVideo-btn liveVideo-btn-ok" hidden="{{true}}">
+                <image class="c-list-icon-liveVideo-ok" src="/resource/images/c-list-icon-liveVideo-ok.png"></image>
+                <text class="m-list-liveVideo-btn-text">预约成功</text>
+            </button>
+        </view>
+    </view>
+</template>
+<template name="m-topList-history">
+    <view class="m-topList-history">
+        <view class="m-topList-history_content">
+            <view class="m-topList-history_check" hidden="{{true}}">
+                <image class="m-topList-history_check_icon" hidden="{{true}}" src="/resource/images/c-icon-checked.png"></image>
+                <image class="m-topList-history_check_icon" hidden="" src="/resource/images/c-icon-checked-select.png"></image>
+            </view>
+            <view class="m-topList-history_imgBox">
+                <image class="m-topList_img" height="73" src="http://m.qiyipic.com/common/lego/20170109/65f810216114424396b43648f0fb29ba.jpg" width="129"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">01:22</text>
+                </view>
+            </view>
+            <view class="m-topList-history_text">
+                <view class="m-topList-history_text_title">夏至未至 第1集夏至未至 第1集夏至未至 第1集夏至未至 第1集夏至未至 第1集夏至未至 第1集</view>
+                <view class="m-topList-history_text_info">
+                    <text class="m-topList-history_text_c-info">剩余10:23</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="m-topList">
+    <view class="m-topList">
+        <view class="m-topList_content">
+            <view class="m-topList_imgBox">
+                <image class="m-topList_img" height="73" src="http://m.qiyipic.com/common/lego/20170109/65f810216114424396b43648f0fb29ba.jpg" width="129"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">01:22</text>
+                </view>
+            </view>
+            <view class="m-topList_text">
+                <view class="m-topList_text_title">
+                    <text class="c-text-green">郭敬明</text>乱入TFBOYS冒充小鲜肉乱入TFBOYS冒充小鲜肉乱入TFBOYS冒充小鲜肉</view>
+                <view class="m-topList_text_info">
+                    <text class="m-topList_text_c-info">上传者：职场新人职场新人职场新人职场新人职场新人职场新人职场新人职场新人</text>
+                    <text class="m-topList_text_c-info">发布时间：2016-11-09职场新人职场新人职场新人职场新人职场新人职场新人</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="m-titleList">
+    <view class="m-titleList">
+        <view class="m-titleList-content">
+            <view class="m-titleList-content_items">
+                <text>20170609 第9期 李晨撕名牌大爆发 热巴被弹飞落水热巴被弹飞落水</text>
+                <image alt="新" class="c-icon-new-s" height="18" hidden="" src="/resource/images/c-icon-new-s.png" width="18"></image>
+                <image alt="预告片" class="c-icon-ad-s" height="18" hidden="{{true}}" src="/resource/images/c-icon-ad-s.png" width="18"></image>
+            </view>
+            <view class="m-titleList-content_items">
+                <text>20170609 第9期 李晨撕名牌大爆发 热巴被弹飞落水</text>
+                <image alt="新" class="c-icon-new-s" height="18" hidden="{{true}}" src="/resource/images/c-icon-new-s.png" width="18"></image>
+                <image alt="预告片" class="c-icon-ad-s" height="18" hidden="" src="/resource/images/c-icon-ad-s.png" width="18"></image>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="m-numList">
+    <view class="m-numList">
+        <view class="m-numList-content">
+            <view class="m-numList-content_items">
+                <text>1</text>
+                <image alt="新" class="c-icon-new-s" height="18" hidden="" src="/resource/images/c-icon-new-s.png" width="18"></image>
+                <image alt="预告片" class="c-icon-ad-s" height="18" hidden="{{true}}" src="/resource/images/c-icon-ad-s.png" width="18"></image>
+            </view>
+            <view class="m-numList-content_items">
+                <text>2</text>
+                <image alt="新" class="c-icon-new-s" height="18" hidden="{{true}}" src="/resource/images/c-icon-new-s.png" width="18"></image>
+                <image alt="预告片" class="c-icon-ad-s" height="18" hidden="" src="/resource/images/c-icon-ad-s.png" width="18"></image>
+            </view>
+            <view class="m-numList-content_items">
+                <text>3</text>
+            </view>
+            <view class="m-numList-content_items">
+                <text>4</text>
+            </view>
+            <view class="m-numList-content_items">
+                <text>5</text>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="m-pic-text">
+    <view class="m-pic-text">
+        <view class="m-pic-text-content">
+            <view class="m-pic-text-content-img">
+                <image class="m-pic-text-content-img_image" height="153" src="http://pic0.qiyipic.com/image/20170329/fb/9b/a_100047657_m_601_m1_195_260.jpg" width="115"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/rescoure/images/c-icon-vip.png" width="22" wx:if="{{condition}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/rescoure/images/c-icon-pay.png" width="22" wx:if="{{condition}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/rescoure/images/c-icon-coupons.png" width="22" wx:if="{{condition}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{true}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{condition}}"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">更新至20集</text>
+                </view>
+            </view>
+            <view class="m-pic-text-content-details">
+                <view class="m-pic-text-content-details_title">
+                    <text class="c-text-green">道士下山</text>环保科技环保科技环保科技环保科技
+          <view class="c-rt">
+                        <view class="c-date-score">
+                            <text class="score-item">8.6</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="m-pic-text-content-details_info">
+                    <text>2016 电影 港台 华语</text>
+                </view>
+                <view class="m-pic-text-content-details_info">
+                    <text>导演：陈凯歌</text>
+                </view>
+                <view class="m-pic-text-content-details_info">
+                    <text>主演：王宝强 林志玲 范伟 张震 郭富城 王宝强 林志玲 范伟 张震 郭富城</text>
+                </view>
+                <view class="m-pic-text-content-details_info">
+                    <text>类型：剧情 动作 犯罪 悬疑</text>
+                </view>
+                <view class="m-pic-text-content-details_btn">
+                    <image class="c-playarrow" height="12" src="/resource/images/c-playarrow.png" width="10"></image>
+                    <text>立即播放</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="m-list-text">
+    <view class="m-list-text">
+        <view class="m-list-text-content">
+            <view class="m-list-text-items">
+                <view class="m-list-text-items-title">
+                    <text>三生三世十里桃花 第1集三生三世十里桃花 第1集三生三世十里桃花 第1集</text>
+                </view>
+                <view class="m-list-text-items-time">
+                    <text>剩余23：42</text>
+                </view>
+            </view>
+            <view class="m-list-text-items">
+                <view class="m-list-text-items-title">
+                    <text>三生三世十里桃花 第1集三生三世十里桃花三生三世十里桃花三生三世十里桃花</text>
+                </view>
+                <view class="m-list-text-items-time">
+                    <text>观看不足1分钟</text>
+                </view>
+            </view>
+            <view class="m-list-text-items">
+                <view class="m-   list-text-items-nolog">
+                    <text>暂无播放记录</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="m-list-horizontal">
+    <view class="m-list-horizontal_content">
+        <view class="m-list-horizontal_item">
+            <view class="m-list-horizontal_item-pic">
+                <image class="m-list_item-pic_image" height="105" mode="aspectFill" src="http://pic9.qiyipic.com/image/20170418/e5/d9/v_112158763_m_601_m1_284_160.jpg" width="187"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">01:01</text>
+                </view>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{true}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{condition}}"></image>
+            </view>
+            <view class="m-list-picTitle">
+                <text>标题文案最长两行截断</text>
+            </view>
+        </view>
+        <view class="m-list-horizontal_item">
+            <view class="m-list-horizontal_item-pic">
+                <image class="m-list_item-pic_image" height="105" mode="aspectFill" src="http://pic9.qiyipic.com/image/20170418/e5/d9/v_112158763_m_601_m1_284_160.jpg" width="187"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">01:01</text>
+                </view>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{condition}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{true}}"></image>
+            </view>
+            <view class="m-list-picTitle">
+                <text>标题文案最长两行截断</text>
+            </view>
+        </view>
+        <view class="m-list-horizontal_item">
+            <view class="m-list-horizontal_item-pic">
+                <image class="m-list_item-pic_image" height="105" mode="aspectFill" src="http://pic9.qiyipic.com/image/20170418/e5/d9/v_112158763_m_601_m1_284_160.jpg" width="187"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">01:01</text>
+                </view>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{true}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{condition}}"></image>
+            </view>
+            <view class="m-list-picTitle">
+                <text>标题文案最长两行截断</text>
+            </view>
+        </view>
+        <view class="m-list-horizontal_item">
+            <view class="m-list-horizontal_item-pic">
+                <image class="m-list_item-pic_image" height="105" mode="aspectFill" src="http://pic9.qiyipic.com/image/20170418/e5/d9/v_112158763_m_601_m1_284_160.jpg" width="187"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">01:01</text>
+                </view>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{condition}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{true}}"></image>
+            </view>
+            <view class="m-list-picTitle">
+                <text>标题文案最长两行截断</text>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="m-list">
+    <view class="m-list_content">
+        <view bindtap="link_video" class="m-list_item">
+            <view class="m-list_item-pic">
+                <image class="m-list_item-pic_image" height="165" mode="aspectFill" src="http://pic0.qiyipic.com/image/20170329/fb/9b/a_100047657_m_601_m1_195_260.jpg" width="124"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">01:22</text>
+                </view>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{condition}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{condition}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/rescoure/images/c-icon-vip.png" width="22" wx:if="{{condition}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/rescoure/images/c-icon-pay.png" width="22" wx:if="{{condition}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/rescoure/images/c-icon-coupons.png" width="22" wx:if="{{condition}}"></image>
+            </view>
+            <view class="m-list-picTitle">
+                <text>标题文案最长两行截断</text>
+            </view>
+        </view>
+        <view class="m-list_item">
+            <view class="m-list_item-pic">
+                <image class="m-list_item-pic_image" height="165" mode="aspectFill" src="http://pic0.qiyipic.com/image/20170329/fb/9b/a_100047657_m_601_m1_195_260.jpg" width="124"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">01:22</text>
+                </view>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{condition}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{true}}"></image>
+            </view>
+            <view class="m-list-picTitle">
+                <text>标题文案最长两行截断</text>
+            </view>
+        </view>
+        <view class="m-list_item">
+            <view class="m-list_item-pic">
+                <image class="m-list_item-pic_image" height="165" mode="aspectFill" src="http://pic0.qiyipic.com/image/20170329/fb/9b/a_100047657_m_601_m1_195_260.jpg" width="124"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">01:22</text>
+                </view>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{true}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{condition}}"></image>
+            </view>
+            <view class="m-list-picTitle">
+                <text>标题文案最长两行截断</text>
+            </view>
+        </view>
+        <view class="m-list_item">
+            <view class="m-list_item-pic">
+                <image class="m-list_item-pic_image" height="165" mode="aspectFill" src="http://pic0.qiyipic.com/image/20170329/fb/9b/a_100047657_m_601_m1_195_260.jpg" width="124"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">01:22</text>
+                </view>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{condition}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{true}}"></image>
+            </view>
+            <view class="m-list-picTitle">
+                <text>标题文案最长两行截断</text>
+            </view>
+        </view>
+        <view class="m-list_item">
+            <view class="m-list_item-pic">
+                <image class="m-list_item-pic_image" height="165" mode="aspectFill" src="http://pic0.qiyipic.com/image/20170329/fb/9b/a_100047657_m_601_m1_195_260.jpg" width="124"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">01:22</text>
+                </view>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{condition}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{condition}}"></image>
+            </view>
+            <view class="m-list-picTitle">
+                <text>标题文案最长两行截断</text>
+            </view>
+        </view>
+        <view class="m-list_item">
+            <view class="m-list_item-pic">
+                <image class="m-list_item-pic_image" height="165" mode="aspectFill" src="http://pic0.qiyipic.com/image/20170329/fb/9b/a_100047657_m_601_m1_195_260.jpg" width="124"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">01:22</text>
+                </view>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="22" wx:if="{{condition}}"></image>
+                <image class="c-picicon-red" height="13" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="22" wx:if="{{condition}}"></image>
+            </view>
+            <view class="m-list-picTitle">
+                <text>标题文案最长两行截断</text>
+            </view>
+        </view>
+    </view>
+</template>

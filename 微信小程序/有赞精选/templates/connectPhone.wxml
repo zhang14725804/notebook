@@ -1,0 +1,8 @@
+<template name="connectPhoneFooter">
+    <view bindtap="{{clickInterface.helpPhoneCall}}" class="bottom-nav" style="height: 130rpx; display: -webkit-flex; -webkit-justify-content: center; -webkit-align-items: center; background-color: #f4f4f4;">
+        <view style="display: -webkit-flex; -webkit-justify-content: center; -webkit-align-items: center;">
+            <image mode="aspectFit" src="https://img.yzcdn.cn/public_files/2016/12/08/01b2e20358e56f72dffaabc76f3c02bc.png" style="height: 32rpx; width: 26rpx; margin-right: 10rpx;"></image>
+            <view style="font-size: 24rpx; color: #3388FF;">电话客服：0571-89988550 (9:00-18:00)</view>
+        </view>
+    </view>
+</template>

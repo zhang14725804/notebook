@@ -1,0 +1,95 @@
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    background: rgba(0,0,0,0);
+    transition: opacity 200ms ease-in;
+}
+
+.maskShow {
+    opacity: 1;
+}
+
+.maskHidden {
+    opacity: 0;
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    height: auto;
+    width: 570rpx;
+    margin: auto;
+    transition: transform 800ms ease-in;
+    transition: transform 800ms ease-in,-webkit-transform 800ms ease-in;
+}
+
+.narrow {
+    transform: translate(570rpx,300rpx) scale(0.2);
+}
+
+.show {
+    transform: scale(1) translate(0,0);
+}
+
+.content-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    height: auto;
+    width: inherit;
+    margin: auto;
+    overflow: visible;
+}
+
+.content-close {
+    position: absolute;
+    top: -70rpx;
+    right: -10rpx;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.content-close-x {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 35rpx;
+    height: 35rpx;
+    margin: auto;
+    transform: rotate(45deg);
+}
+
+.content-close-x::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 49%;
+    width: 100%;
+    height: 1rpx;
+    background-color: #ccc;
+}
+
+.content-close-x::after {
+    content: '';
+    position: absolute;
+    left: 49%;
+    top: 0;
+    width: 1rpx;
+    height: 100%;
+    background-color: #ccc;
+}

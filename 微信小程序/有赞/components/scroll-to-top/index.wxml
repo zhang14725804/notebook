@@ -1,0 +1,5 @@
+<template name="scroll-to-top">
+    <view bindtap="onScrollToTop" class="scroll-to-top">
+        <image src="https://img.yzcdn.cn/public_files/2018/01/20/db9310b914b6723c18aca9a2db8bdfca.png"></image>
+    </view>
+</template>

@@ -1,0 +1,35 @@
+<template name="m-from-search-before">
+    <view class="m-from-search-before">
+        <view class="m-from-search-before-box">
+            <view bindtap="showSearchLayout" class="m-from-search-before-content" data-rseat="wx_channel_searchButton">
+                <image class="c-icon-search-center" height="20" src="/resource/images/icon-search-gray.png" width="20"></image>
+                <view class="search-before-input" wx:if="{{hotquery&&hotquery.list.length}}">{{hotquery.list[0].query}}</view>
+                <view class="search-before-input" wx:else>搜索</view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="template/m-sortList-wrap.wxml"></import>
+<import src="template/m-subTab-channel.wxml"></import>
+<import src="template/m-list.wxml"></import>
+<import src="template/m-filmLibrary-loading.wxml"></import>
+<import src="/components/template/searchLayout.wxml"></import>
+<view class="container {{searchLayout.overflow}}">
+    <template is="m-from-search-before" data="{{hotquery:searchLayout.hotquery}}"></template>
+    <view class="m-box">
+        <template is="m-subTab-channel" data="{{channelTabs:channelInfos.channelTabs,channelTabIndex:channelInfos.channelTabIndex}}"></template>
+    </view>
+    <view class="filmLibraryBody">
+        <view class="m-box">
+            <view class="m-sortList">
+                <template is="m-sortList-wrap" data="{{curChannel:channelInfos.curChannel}}"></template>
+            </view>
+        </view>
+        <view class="m-list">
+            <template is="m-list" data="{{videos:videos,bindtapFn:'playVideo'}}" wx:if="{{!channelInfos.curChannel.issource}}"></template>
+            <template is="m-list-horizontal" data="{{videos:videos,bindtapFn:'playVideo'}}" wx:else></template>
+        </view>
+        <template is="searchLayout" data="{{searchLayout:searchLayout,scrollBodyHeight:scrollBodyHeight,keyword:keyword}}"></template>
+        <template is="m-filmLibrary-loading" data="{{load:load,errorHandler:'retryLoadPage'}}"></template>
+    </view>
+</view>

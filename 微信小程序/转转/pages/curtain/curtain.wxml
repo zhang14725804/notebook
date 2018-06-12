@@ -1,0 +1,11 @@
+<view class="pageFrame _18ffead _87ced8a">
+    <view class="navigationBar _18ffead"></view>
+    <view class="pageBody _18ffead">
+        <view class="_87ced8a"></view>
+    </view>
+    <view bindtap="$PageFrame$BackHome$onBackHome" bindtouchstart="$PageFrame$BackHome$onTouchstart" catchtouchmove="$PageFrame$BackHome$onTouchmove" class="backHome {{$PageFrame$BackHome$pageBodyReady?'ready':'unready'}} _757a836 _18ffead" style="background-image: url('{{$PageFrame$BackHome$backHome.icon}}'); {{$PageFrame$BackHome$backHome.extraStyle}}; transform: translate3d({{$PageFrame$BackHome$eleOffset.x}}px, {{$PageFrame$BackHome$eleOffset.y}}px, 0); " wx:if="{{$PageFrame$BackHome$backHome.show}}"></view>
+    <view bindtap="$PageFrame$ErrorTip$refresh" class="tip _f2dd71c _18ffead" wx:if="{{$PageFrame$ErrorTip$show}}">
+        <image class="error-icon _f2dd71c" src="{{$PageFrame$ErrorTip$icon}}"></image>
+        <view class="error-tip _f2dd71c">{{$PageFrame$ErrorTip$errorTip}}</view>
+    </view>
+</view>

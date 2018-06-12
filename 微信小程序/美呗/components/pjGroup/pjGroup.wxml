@@ -1,0 +1,37 @@
+<view class="modal-pj" wx:if="{{visible}}">
+    <view class="modal-header">
+        <view bindtap="onClose" class="close-modal">
+            <image class="close-img" mode="aspectFit" src="https://cdn-ssl.meb.com/wxa/v1/close.png"></image>
+        </view>
+        <text>选择要了解的项目</text>
+        <view bindtap="comfim" style="text-align: right;width:100rpx">确定</view>
+    </view>
+    <view class="pj-content">
+        <view class="btn-group">
+            <view bindtap="selectAll" class="select-all">全选</view>
+            <view bindtap="emptyAll" class="empty-all">清空</view>
+        </view>
+        <view class="selects flex-left">
+            <scroll-view class="pj-menu-container" scrollY="true">
+                <view bindtap="onTapMenu" class="menus" data-data="{{item}}" data-index="{{i}}" wx:for="{{datas}}" wx:for-index="i" wx:key="item">
+                    <view class="menus-inner">
+                        <text class="{{activeIndex==i?'active':''}}">{{item.ParentProject.ProjectName}}</text>
+                        <view class="menus-nums" wx:if="{{item.input.length}}">{{item.input.length}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+            <scroll-view class="pj-item-container" scrollY="true">
+                <view bindtap="onTapPj" class="pj-item" data-data="{{item}}" data-index="{{i}}" wx:for="{{childs}}" wx:for-index="i" wx:key="item">
+                    <view class="pj-image" style="background-image:url({{item.Picture}})">
+                        <image class="checked" src="https://cdn-ssl.meb.com/wxa/v1/pj-checked.png" wx:if="{{item.IsEnable}}"></image>
+                    </view>
+                    <view class="pj-desc">
+                        <view style="color:#333">{{item.ProjectName}}
+                        </view>
+                        <view class="pj-text">{{item.Describe}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>

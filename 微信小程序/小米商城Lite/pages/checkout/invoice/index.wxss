@@ -1,0 +1,58 @@
+textarea {
+    padding: 32rpx 0;
+    font-size: 28rpx;
+    height: 56rpx;
+}
+
+.tips {
+    margin-top: -10rpx;
+    padding-bottom: 24rpx;
+    color: #dddddd;
+    line-height: 34rpx;
+    font-size: 24rpx;
+}
+
+.tips .red {
+    color: #e97e3d;
+}
+
+.tips .paper-invoice-btn {
+    display: inline-block;
+    padding-top: 10rpx;
+}
+
+.mx-invioce-select {
+    display: flex;
+}
+
+.mx-invioce-select>view {
+    margin: 32rpx auto;
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    border: 1rpx solid #ebebeb;
+    border-radius: 7rpx;
+    text-align: center;
+    color: #888;
+}
+
+.mx-invioce-select>view:last-child {
+    margin-left: 30rpx;
+}
+
+.mx-invioce-select>view.on {
+    border-color: #ff6700;
+    color: #ff4a00;
+}
+
+.top-banner {
+    font-size: 22rpx;
+    padding-left: 60rpx;
+    color: #d07737;
+    line-height: 60rpx;
+    background-image: url(http://i8.mifile.cn/webfile/h5/weixin/0502/i.png);
+    background-position: 19rpx 16rpx;
+    background-repeat: no-repeat;
+    background-size: 32rpx 32rpx;
+    background-color: #fcf4c3;
+}

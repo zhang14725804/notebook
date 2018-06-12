@@ -1,0 +1,3 @@
+<page>
+    <view bindtap="{{a===1?'a':'b'}}"></view>
+</page>

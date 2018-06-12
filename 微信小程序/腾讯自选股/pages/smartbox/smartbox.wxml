@@ -1,0 +1,35 @@
+<import src="/components/failureTip/index.wxml"></import>
+<view>
+    <template is="failureTip" data="{{...failureTip}}"></template>
+    <view class="smartbox">
+        <view class="smartbox__panel">
+            <input bindinput="bindSmartboxChange" focus="{{autoFocus}}" placeholder="请输入股票代码/全拼/首字母" placeholderStyle="color: #5e626b;" style="height:60rpx; line-height:60rpx; padding-left:60rpx; font-family: -apple-system-font,HelveticaNeue,LucidaGrande,sans-serif; width:460rpx; color:#FFF;" type="text" value="{{smartboxval}}"></input>
+            <view bindtap="bindclearsmartbox" class="clear-btn" hidden="{{!clearBtnDisplay}}"></view>
+        </view>
+    </view>
+    <view class="history-tip" hidden="{{!historyShow}}">以下为历史查询记录</view>
+    <view class="smartboxList">
+        <view catchtap="bindGoQuote" class="smartboxList__tr" data-name="{{Item.name}}" data-symbol="{{Item.market+Item.code}}" hoverClass="other-navigator-hover" wx:for="{{searchData}}" wx:for-index="idx" wx:for-item="Item" wx:key="{{Item.market +Item.code}}">
+            <view class="smartboxList__tr__item{{Item.titleSize}}">
+                <view class="smartboxList__tr__item__market--us" wx:if="{{Item.market=='us'}}">US</view>
+                <view class="smartboxList__tr__item__market--hk" wx:elif="{{Item.market=='hk'}}">HK</view>
+                <view>{{Item.name}} <span class="smartboxList__code">{{Item.code}}</span>
+                </view>
+            </view>
+            <view class="smartboxList__tr__item2"></view>
+            <view catchtap="catchAddStock" class="{{Item.added==0?'smartboxList__tr__item3':'smartboxList__tr__item3--added'}}" data-symbol="{{Item.market+Item.code}}">
+                <view>{{Item.added==0?'':'已添加'}}</view>
+            </view>
+        </view>
+        <view class="egg {{egg}}">
+            <div style="width: 320px; margin: 30px auto 10px;">
+                <img src="http://mat1.gtimg.com/finance/images/stock/p/portfoliodemo/d3da6cbc446df534.gif"></img>
+            </div>
+            <div style="width: 150px; height:22px; line-height:22px; margin: 0 auto; background: #ff3b2f; color:#fff; text-align:center; font-size: 12px;">发现彩蛋领红包哦~</div>
+        </view>
+    </view>
+    <view catchtap="bindclearhistory" class="history-clear" wx:if="{{historyShow}}">清除搜索历史记录</view>
+</view>
+<modal bindcancel="bindModalCancel" bindconfirm="bindModalConfirm" cancelText="取消" confirmText="确认" hidden="{{modalHidden}}">
+  删除搜索历史记录？
+</modal>

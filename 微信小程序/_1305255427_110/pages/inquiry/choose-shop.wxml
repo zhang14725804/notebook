@@ -1,0 +1,22 @@
+<view class="page-container">
+    <block wx:if="{{status.didInited}}">
+        <scroll-view class="left-container" scrollY="true" wx:if="{{supportShopRegionList.length>0}}">
+            <view bindtap="handleOnTapRegionItem" class="left-item {{currentRegionIndex==index?'active':''}}" data-id="{{item.id}}" data-index="{{index}}" data-value="{{item.name}}" wx:for="{{supportShopRegionList}}">
+              {{item.name}}
+          </view>
+        </scroll-view>
+        <block wx:else></block>
+        <scroll-view bindscrolltolower="getMoreProducts" class="right-container" scrollY="true" wx:if="{{regionShopMappingList.length>0}}">
+            <view class="right-item" wx:for="{{regionShopMappingList[currentRegionIndex]}}">
+                <view bindtap="handleOnSelectShop" class="navigator" data-shop="{{item}}">{{item.name}}</view>
+            </view>
+        </scroll-view>
+        <scroll-view bindscrolltolower="getMoreProducts" class="only-right-container" scrollY="true" wx:else>
+            <view class="right-item" wx:for="{{allShopList}}">
+                <view bindtap="handleOnSelectShop" class="navigator" data-shop="{{item}}">{{item.name}}</view>
+            </view>
+        </scroll-view>
+    </block>
+    <block wx:else></block>
+</view>
+<image class="piwik-image-placeholder" src="{{piwikSource}}"></image>

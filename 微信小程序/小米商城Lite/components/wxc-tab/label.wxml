@@ -1,0 +1,3 @@
+<view bindtap="onSwitch" class="tab__label tab__navbar-title" style="width:{{width}}rpx" wx:if="{{width}}">
+    <slot></slot>
+</view>

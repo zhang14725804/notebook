@@ -1,0 +1,6 @@
+<view>
+    <view style="background:#fff">
+        <raiders bindtap="onTapRaiders" data="{{item}}" data-id="{{item.Id}}" wx:for="{{list}}"></raiders>
+    </view>
+    <loadMore visible="{{hasMore}}"></loadMore>
+</view>

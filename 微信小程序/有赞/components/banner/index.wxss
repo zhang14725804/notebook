@@ -1,0 +1,37 @@
+.banner {
+    position: relative;
+    height: 150px;
+    background: #fff;
+    color: #333;
+    overflow: hidden;
+}
+
+.banner__filter-blur {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    transform-origin: center center;
+}
+
+.banner__logo {
+    position: relative;
+    display: block;
+    margin: 20px auto 0;
+    width: 80px;
+    height: 80px;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+.banner__title {
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+}

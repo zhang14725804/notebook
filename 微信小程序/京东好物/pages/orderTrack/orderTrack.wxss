@@ -1,0 +1,122 @@
+page {
+    background-color: #f0f2f5;
+}
+
+view,test,button {
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+.bd-tb {
+    border-top: 1rpx solid #e7e7e7;
+    border-bottom: 1rpx solid #e7e7e7;
+}
+
+.bd-t {
+    border-top: 1rpx solid #e7e7e7;
+}
+
+.bd-b {
+    border-bottom: 1rpx solid #e7e7e7;
+}
+
+.display-none {
+    display: none;
+}
+
+.header-info {
+    padding: 26rpx 0 0 30rpx;
+    background-color: #ffffff;
+    border-top: 1rpx solid #e3e5e9;
+    border-bottom: 1rpx solid #e3e5e9;
+    box-sizing: border-box;
+}
+
+.header-info .line {
+    height: 28rpx;
+    line-height: 28rpx;
+    margin-bottom: 20rpx;
+}
+
+.header-info .line .label {
+    font-size: 28rpx;
+    color: #888888;
+}
+
+.header-info .line .txt {
+    font-size: 28rpx;
+    color: #000;
+}
+
+.track-path {
+    position: relative;
+    background-color: #ffffff;
+    border-top: 1rpx solid #e3e5e9;
+    border-bottom: 1rpx solid #e3e5e9;
+    margin-top: 28rpx;
+    margin-bottom: 30rpx;
+}
+
+.track-path .aside-line {
+    position: absolute;
+    top: 45rpx;
+    left: -35rpx;
+    width: 2rpx;
+    height: 100%;
+    background-color: #e3e5e9;
+}
+
+.track-path .last .aside-line {
+    height: 0;
+}
+
+.track-path .path-ul .path-li {
+    position: relative;
+    border-bottom: 1rpx solid #e3e5e9;
+    padding: 30rpx 60rpx 30rpx 0;
+    margin-left: 70rpx;
+}
+
+.track-path .path-ul .path-li.last {
+    border-bottom: none;
+}
+
+.track-path .path-ul .path-li .up-msg {
+    display: block;
+    font-size: 28rpx;
+    color: #888888;
+    line-height: 40rpx;
+}
+
+.track-path .path-ul .path-li.first .up-msg {
+    color: #000000;
+}
+
+.track-path .path-ul .path-li .down-msg {
+    display: block;
+    font-size: 28rpx;
+    color: #888888;
+    line-height: 28rpx;
+    margin-top: 16rpx;
+}
+
+.track-path .path-ul .path-li .icn-status {
+    position: absolute;
+    top: -1rpx;
+    left: 50%;
+    width: 12rpx;
+    height: 12rpx;
+    margin-left: -6rpx;
+    border-radius: 50%;
+    background-color: #e3e5e9;
+    z-index: 999;
+}
+
+.track-path .path-ul .path-li.first .icn-status {
+    top: -10rpx;
+    width: 32rpx;
+    height: 32rpx;
+    margin-left: -16rpx;
+    border-radius: 0;
+    background: url(http://commonst.360buyimg.com/common/wx-images/order/ordertrackcircle.png) 0 0 no-repeat;
+    background-size: 32rpx 32rpx;
+}

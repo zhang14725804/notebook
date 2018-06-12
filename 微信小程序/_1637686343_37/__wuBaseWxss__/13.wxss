@@ -1,0 +1,19 @@
+.m-tips {
+    width: 100%;
+    padding-top: 245rpx;
+    padding-bottom: 245rpx;
+    text-align: center;
+    background-color: #fff;
+}
+
+.c-icon-tips {
+    margin-bottom: 20rpx;
+}
+
+.m-tips_tx {
+    display: block;
+    width: 100%;
+    font-size: 26rpx;
+    color: #999;
+    line-height: 40rpx;
+}

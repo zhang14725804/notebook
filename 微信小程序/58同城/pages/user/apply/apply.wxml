@@ -1,0 +1,29 @@
+<view class="container-main">
+    <scroll-view bindscroll="e_scroll" bindscrolltolower="e_scrollToBottom" bindscrolltoupper="e_scrollToTop" class="container-list" scrollTop="{{scrollTop}}" scrollY="{{list.length>0}}">
+        <view catchtap="e_goToDetail" class="container-list-item" data-cate-code="{{item.cateCode}}" data-disp-cate-name="{{item.dispCateName}}" data-disp-local-name="{{item.dispLocalName}}" data-info-del="{{item.infoDel}}" data-info-id="{{item.infoId}}" wx:for="{{list}}" wx:key="key">
+            <view class="list-item-head">
+                <view class="head-title">{{item.jobTitle}}</view>
+                <view class="{{item.deliveryState=='被查看'?'head-view':'head-delivery'}}">{{item.deliveryState}}</view>
+            </view>
+            <view class="list-item-content">
+        {{item.companyName}}
+      </view>
+            <view class="list-item-foot">
+                <view class="foot-job_name">【职位类别】{{item.jobName}}</view>
+                <view class="foot-apply_date">{{item.date}}</view>
+            </view>
+        </view>
+        <view class="container-empty" wx:if="{{!list.length}}">
+            <view class="container-empty-icon"></view>
+            <text class="container-empty-desc">暂无数据</text>
+        </view>
+        <view class="loading-more" wx:if="{{hasMore}}">
+            <icon class="loading-icon"></icon>
+            <text>正在加载</text>
+        </view>
+        <view class="no-more-info {{hasMore||!list.length?'':'show'}}">
+      没有更多数据了
+    </view>
+        <view catchtap="e_goToTop" class="to_top" hidden="{{!showGoToTop}}">顶部</view>
+    </scroll-view>
+</view>

@@ -1,0 +1,38 @@
+<view class="container-main{{!unLogin?' container-main-logined':''}}">
+    <view class="avatar-container">
+        <view class="avatar-wrapper">
+            <view class="avatar-bg {{pic?'blur':!loading?'avatar-bg-default':''}}" style="background-image:{{pic?pic:'inhret'}};"></view>
+            <view class="avatar-border">
+                <view class="avatar" style="background-image:{{pic?pic:'inhret'}};"></view>
+            </view>
+        </view>
+        <view catchtap="e_login" class="avatar-info">
+      {{name}}
+    </view>
+    </view>
+    <view class="listWrapper">
+        <view class="list">
+            <view catchtap="e_goToResumeList" class="list-item">
+                <view class="list-item-icon icon-my_resume"></view>
+                <view class="list-item-text">我的简历</view>
+                <view class="list-item-more icon-more"></view>
+            </view>
+            <view catchtap="e_goToApplyList" class="list-item">
+                <view class="list-item-icon icon-my_apply"></view>
+                <view class="list-item-text">申请记录</view>
+                <view class="list-item-more icon-more"></view>
+            </view>
+            <view catchtap="e_goToSubscription" class="list-item">
+                <view class="list-item-icon icon-my_subscription"></view>
+                <view class="list-item-text">我的订阅</view>
+                <view class="list-item-more icon-more"></view>
+            </view>
+            <view catchtap="e_goToIM" class="list-item">
+                <view class="list-item-icon icon-my_im"></view>
+                <view class="list-item-text">我的微聊</view>
+                <view class="list-item-more icon-more"></view>
+            </view>
+        </view>
+    </view>
+    <view catchtap="e_logout" class="btn-logout" wx:if="{{!unLogin}}">退出登录</view>
+</view>

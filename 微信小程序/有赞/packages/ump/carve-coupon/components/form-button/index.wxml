@@ -1,0 +1,5 @@
+<form reportSubmit bindsubmit="submit" class="form">
+    <button class="btn-class" formType="submit" openType="{{openType}}">
+        <slot></slot>
+    </button>
+</form>

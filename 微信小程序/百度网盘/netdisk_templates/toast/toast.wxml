@@ -1,0 +1,10 @@
+<template name="toast">
+    <view class="self-wetoast {{show?'show':' '}}">
+        <view class="toast-mask"></view>
+        <view class="toast-wrap">
+            <view animation="{{toastAnimationData}}" class="toast-content-wrap">
+                {{content}}
+            </view>
+        </view>
+    </view>
+</template>

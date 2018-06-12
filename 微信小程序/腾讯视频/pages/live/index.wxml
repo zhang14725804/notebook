@@ -1,0 +1,111 @@
+<import src="/comps/toast/index.wxml"></import>
+<view class="mod_loading" wx:if="{{pageLoading}}">
+    <view class="icon_loading"></view>
+</view>
+<view class="mod_player_place">
+    <video bindended="__onTvpEnded" binderror="__onTvpError" bindfullscreenchange="__onTvpFullscreenChange" bindpause="__onTvpPause" bindplay="__onTvpPlay" bindtimeupdate="__onTvpTimeupdate" class="player_video" id="tvp" poster="{{horizontalPosterImgUrl}}" src="{{tvpUrl}}">
+        <cover-view class="player_video_poster" wx:if="{{liveStatus==3}}">
+            <cover-view class="poster_block">
+                <cover-view class="title">直播已结束</cover-view>
+                <cover-view bindtap="play" class="btn" data-query="{{playQuery}}" wx:if="{{liveEndInfo.cid}}">回看视频</cover-view>
+            </cover-view>
+        </cover-view>
+        <block wx:elif="{{liveStatus==2}}">
+            <cover-view class="player_video_poster" wx:if="{{!isWifi}}">
+                <cover-view class="poster_block">
+                    <cover-view class="title">　</cover-view>
+                    <cover-view bindtap="start" class="btn">使用流量观看</cover-view>
+                </cover-view>
+            </cover-view>
+        </block>
+        <cover-view class="player_video_poster" wx:elif="{{liveStatus==1}}">
+            <cover-view class="poster_block">
+                <cover-view class="title">{{title}}</cover-view>
+                <cover-view class="sub_title">直播开始时间 {{liveStartTime}}</cover-view>
+            </cover-view>
+        </cover-view>
+    </video>
+</view>
+<block wx:if="{{pageError}}"></block>
+<view class="page_before" hidden="{{pageLoading}}" wx:elif="{{liveStatus==1}}">
+    <template is="toast" data="{{...toast}}"></template>
+    <scroll-view scrollTop="{{scrollTop}}" scrollY="true" style="height: 100%;">
+        <view class="block">
+            <view class="hd">简介</view>
+            <view class="bd">{{introduction}}</view>
+        </view>
+        <view class="block">
+            <view class="hd">聊天室</view>
+            <view class="mod_list">
+                <view class="chat_item" id="chat{{item.commentId}}" wx:for="{{chatlist}}" wx:key="key">
+                    <view bindtap="reply" class="chat_avatar" data-id="{{item.commentId}}" data-nick="{{item.nick}}">
+                        <image alt="" src="{{item.avatar}}"></image>
+                    </view>
+                    <view class="chat_body">
+                        <view bindtap="reply" class="chat_meta" data-id="{{item.commentId}}" data-nick="{{item.nick}}">
+                            <view class="chat_name">{{item.nick}}</view>
+                            <view class="chat_time">{{item.time}}</view>
+                        </view>
+                        <view bindtap="reply" class="chat_content" data-id="{{item.commentId}}" data-nick="{{item.nick}}">{{item.content}}</view>
+                        <view class="chat_replys" wx:if="{{item.replys.length}}">
+                            <view bindtap="reply" class="chat_reply_item" data-id="{{item.commentId}}" data-nick="{{item.nick}}" wx:for="{{item.replys}}" wx:key="nick">
+                                <view class="chat_name">{{item.nick}}</view>
+                                <block wx:if="{{item.parentNick}}">
+                                    <view class="chat_reply">回复</view>
+                                    <view class="chat_name">{{item.parentNick}}</view>
+                                </block>
+                                <view class="chat_name">: </view>
+                                            {{item.content}}
+                                        </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<block wx:else>
+    <view class="mod_meta{{chatlist.length>4?' sticked':''}}">
+        {{onlineNumber}}人
+    </view>
+    <view class="page_live" hidden="{{pageLoading}}">
+        <template is="toast" data="{{...toast}}"></template>
+        <scroll-view bindscroll="onChatScroll" bindscrolltolower="onChatScrollToLower" bindscrolltoupper="onChatScrollToUpper" scrollIntoView="{{locateChat}}" scrollTop="{{scrollTop}}" scrollY="true" style="height: 100%;">
+            <view class="block">
+                <view class="mod_list">
+                    <view class="block" wx:if="{{!chatKey}}">
+                        <view class="hd">简介</view>
+                        <view class="bd">{{introduction}}</view>
+                    </view>
+                    <view class="mod_loading loadmore" wx:if="{{loadingMore}}">
+                        <view class="icon_loading"></view>
+                    </view>
+                    <view bindtap="reply" class="chat_item{{item.mine?' mine':''}}" data-mine="{{item.mine}}" data-nick="{{item.nick}}" id="chat{{item.commentId}}" wx:if="{{chatKey}}" wx:for="{{chatlist}}" wx:key="key">
+                        <view class="chat_avatar">
+                            <image alt="" src="{{item.avatar}}"></image>
+                        </view>
+                        <view class="chat_body">
+                            <view class="chat_meta">
+                                <view class="chat_name">{{item.nick}}</view>
+                                <block wx:if="{{item.parentNick}}">
+                                    <view class="chat_reply">回复</view>
+                                    <view class="chat_name">{{item.parentNick}}</view>
+                                </block>
+                            </view>
+                            <view class="chat_content">{{item.content}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</block>
+<view class="page_form" wx:if="{{liveStatus!=1?chatKey:commentKey}}">
+    <input bindblur="cancelreply" bindconfirm="send" confirmType="send" cursorSpacing="32" focus="{{focusinput}}" placeholder="{{focusnick?'回复 '+focusnick:'我来说两句'}}" placeholderStyle="text-align:center" type="text" value="{{sendtext}}"></input>
+</view>
+<view bindtap="refresh" class="mod_empty" hidden="{{!pageError}}">
+    <view class="icon_empty"></view>
+    <view class="empty_title">服务器出了点小问题({{pageError!==true?pageError:0}})</view>
+    <view class="empty_text">你可以刷新试试</view>
+    <view class="empty_btn">刷新</view>
+</view>

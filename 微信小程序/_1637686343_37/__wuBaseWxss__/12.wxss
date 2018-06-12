@@ -1,0 +1,203 @@
+.m-subTab {
+    width: 100%;
+    height: 68rpx;
+    padding-left: 30rpx;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.m-subTab-scroll {
+    height: 68rpx;
+    white-space: nowrap;
+}
+
+.m-subTab_item {
+    display: inline-block;
+    height: 67rpx;
+    margin-right: 60rpx;
+    line-height: 67rpx;
+    border-bottom: 3rpx solid transparent;
+    font-size: 30rpx;
+    text-align: center;
+}
+
+.m-subTab_item::last-child {
+    margin-right: 0;
+}
+
+.m-subTab_item.selected {
+    color: #00c000;
+    border-bottom: 3rpx solid #00c000;
+}
+
+.m-subTab_year {
+    display: inline-block;
+    font-size: 30rpx;
+    line-height: 30rpx;
+    text-align: center;
+    float: left;
+    padding: 19rpx 15px 19rpx 0;
+    position: relative;
+}
+
+.m-subTab_year::before {
+    content: "";
+    height: 30rpx;
+    width: 3rpx;
+    background-color: #999;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.m-subTab_month {
+    font-size: 30rpx;
+    overflow: hidden;
+}
+
+.m-subTab_month_item {
+    white-space: nowrap;
+    float: left;
+}
+
+.m-subTab_month_items {
+    display: inline-block;
+    width: 120rpx;
+    height: 67rpx;
+    line-height: 67rpx;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 3rpx solid transparent;
+    position: relative;
+}
+
+.m-subTab_month_items.select {
+    color: #00c000;
+}
+
+.m-subTab_month_items.select::before {
+    content: "";
+    width: 50%;
+    height: 3rpx;
+    background-color: #00c000;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.m-subTab-channel {
+    width: 100%;
+}
+
+.m-subTab-channel-scroll {
+    width: 100%;
+}
+
+.m-subTab-channel_item {
+    font-size: 32rpx;
+    line-height: 100rpx;
+    width: 25%;
+    text-align: center;
+    height: 100rpx;
+    box-sizing: border-box;
+    float: left;
+    position: relative;
+}
+
+.m-subTab-channel_item.selected {
+    color: #0bbe06;
+}
+
+.m-subTab-channel_item.selected::before {
+    content: "";
+    width: 30rpx;
+    height: 5rpx;
+    background-color: #00c000;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5rpx;
+}
+
+.m-subTab-playLog-box {
+    height: 89rpx;
+    width: 100%;
+    background-color: #fafafa;
+}
+
+.m-subTab-playLog {
+    width: 100%;
+    border-top: 1px solid #dcdcdc;
+    background-color: #f0f0f0;
+    height: 89rpx;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+}
+
+.m-subTab-playLog-content {
+    display: flex;
+}
+
+.m-subTab-playLog_item {
+    flex: 1;
+    text-align: center;
+    font-size: 28rpx;
+    color: #333;
+    line-height: 88rpx;
+    border-right: 1px solid #dcdcdc;
+}
+
+.m-subTab-playLog_item:last-child {
+    border-right: 0;
+}
+
+.m-subTab-short-box {
+    height: 82rpx;
+    width: 100%;
+}
+
+.m-subTab-short-content.m-subTab-short-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 51;
+}
+
+.m-subTab-short-content {
+    display: flex;
+    padding: 0 10rpx;
+    height: 82rpx;
+    border-bottom: 2rpx solid #f0f0f0;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.m-subTab-short_item {
+    text-align: center;
+    font-size: 32rpx;
+    color: #333;
+    padding: 0 30rpx;
+    line-height: 80rpx;
+    position: relative;
+}
+
+.m-subTab-short_item.selected {
+    color: #20bc22;
+}
+
+.m-subTab-short_item.selected::before {
+    content: "";
+    width: 30rpx;
+    height: 5rpx;
+    background-color: #20bc22;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5rpx;
+}

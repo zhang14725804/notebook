@@ -1,0 +1,42 @@
+.form-container {
+    padding: 20rpx;
+    background: #fff;
+    font-size: 30rpx;
+    text-align: center;
+}
+
+.form-container .banner {
+    width: 660rpx;
+    height: 525rpx;
+}
+
+.form-container .wx-login {
+    font-size: 32rpx;
+    color: #fff;
+    display: inline-block;
+    width: 660rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #1AAD19;
+    margin-top: 45rpx;
+}
+
+.form-container .wx-userinfo-btn {
+    display: inline-block;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+.form-container .wx-userinfo-btn:after {
+    border: none;
+}
+
+.form-container .second-login {
+    display: inline-block;
+    color: #5E729A;
+    font-size: 28rpx;
+    margin-top: 30rpx;
+    line-height: 30rpx;
+}

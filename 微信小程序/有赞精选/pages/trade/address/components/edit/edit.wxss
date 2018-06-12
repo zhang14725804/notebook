@@ -1,0 +1,20 @@
+.address-edit__item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.address-edit__pickers {
+    height: 28px;
+}
+
+.address-edit__picker {
+    display: inline-block;
+    width: 33%;
+    height: 28px;
+    overflow: hidden;
+}
+
+.address-edit__input {
+    height: 28px;
+    line-height: 28px;
+}

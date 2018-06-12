@@ -1,0 +1,7 @@
+<template name="m-subTab-channel">
+    <view class="m-subTab-channel">
+        <view class="m-subTab-channel-scroll">
+            <text bindtap="switchChannel" class="m-subTab-channel_item {{channelTabIndex==index?'selected':''}}" data-cid="{{item.channelId}}" data-cname="{{item.cname}}" data-isSource="{{item.issource}}" data-tab="{{index}}" wx:for="{{channelTabs}}" wx:key="key">{{item.cname}}</text>
+        </view>
+    </view>
+</template>

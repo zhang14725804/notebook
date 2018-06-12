@@ -1,0 +1,5 @@
+@import "../group-quality/group-quality.wxss";
+
+.floor-title {
+    border-bottom: 1rpx solid #f0f0f0;
+}

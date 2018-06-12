@@ -1,0 +1,6 @@
+<view class="footerfix">
+    <view class="footer footerfix_p">
+        <view class="footer_com">马蜂窝旅游攻略</view>
+        <view class="footer_copy">马蜂窝 版权所有©2017</view>
+    </view>
+</view>

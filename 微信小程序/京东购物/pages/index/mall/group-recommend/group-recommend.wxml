@@ -1,0 +1,16 @@
+<block wx:if="{{entries.length}}">
+    <view class="floor-title">更懂你</view>
+    <view class="group">
+        <view bind:tap="gotoUrl" class="group__item group__item-s" data-url="{{item.url}}" wx:for="{{entries}}" wx:key="url">
+            <view class="group-title">
+                <view class="group-title__dt">
+                    <text>{{item.title}}</text>
+                </view>
+                <view class="group-title__dd">{{item.des}}</view>
+            </view>
+            <view class="group-image">
+                <image class="group-image__cover bg_stamp" src="{{item.image}}"></image>
+            </view>
+        </view>
+    </view>
+</block>

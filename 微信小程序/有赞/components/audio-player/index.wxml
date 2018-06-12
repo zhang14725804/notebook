@@ -1,0 +1,17 @@
+<view class="cap-audio {{themeClass}}">
+    <view class="cap-audio__slider {{disabled?'disabled':''}}">
+        <text class="cap-audio__start-time">{{formatedCurrentTime}}</text>
+        <view class="cap-audio__slider-bar">
+            <text class="cap-slider__finished-part" style="background-color:{{finishedColor}}; width:{{percent}}%;"></text>
+            <view bind:touchcancel="onTouchEnd" bind:touchend="onTouchEnd" bind:touchmove="onTouchMove" bind:touchstart="onTouchStart" class="cap-audio__pivot" style="left: {{percent}}%;"></view>
+        </view>
+        <text class="cap-audio__end-time">{{formatedDuration}}</text>
+    </view>
+    <view class="cap-audio__ctrl">
+        <image bindtap="_audioRewind" class="cap-audio__rewind" src="https://img.yzcdn.cn/weapp/paidcontent/audio/speedup.png"></image>
+        <view bindtap="_audioStart" class="zan-icon zan-icon-play cap-audio__switch theme-color" wx:if="{{status!=='play'}}"></view>
+        <view bindtap="_audioPause" class="zan-icon zan-icon-pause cap-audio__switch theme-color" wx:else></view>
+        <image bindtap="_audioFastForward" class="cap-audio__ff" src="https://img.yzcdn.cn/weapp/paidcontent/audio/speedup.png"></image>
+        <image bindtap="_audioReset" class="cap-audio__reset" src="https://img.yzcdn.cn/weapp/paidcontent/audio/replay.png"></image>
+    </view>
+</view>

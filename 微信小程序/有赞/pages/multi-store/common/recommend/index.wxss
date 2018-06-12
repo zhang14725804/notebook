@@ -1,0 +1,35 @@
+.store-recommend__tip {
+    color: #FF6600;
+    border-top: 1rpx solid #e5e5e5;
+    margin-right: -15px;
+}
+
+.store-recommend__swiper {
+    padding: 15px 0;
+    box-sizing: content-box;
+    height: 80px;
+    background: #fff;
+    display: flex;
+    flex-flow: nowrap row;
+    white-space: nowrap;
+}
+
+.store-recommend__item {
+    width: 120px;
+    height: 80px;
+    background: #F8F8F8;
+    margin-right: 10px;
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+    padding: 12px 15px;
+    box-sizing: border-box;
+}
+
+.store-recommend__item:last-child {
+    margin-right: 0;
+}
+
+.store-recommend__item>view {
+    pointer-events: none;
+}

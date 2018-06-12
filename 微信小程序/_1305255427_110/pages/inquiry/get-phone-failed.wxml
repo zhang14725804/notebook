@@ -1,0 +1,52 @@
+<import src="../../components/wetoast/wetoast.wxml"></import>
+<template is="wetoast" data="{{...__wetoast__}}"></template>
+<view class="byself">
+    <view class="getphone-again">
+        <view class="getphone-again--text">
+      为了方便将钱款打到您的手机账户，需要获取您的手机号哦
+    </view>
+        <view class="getphone-again--btn">
+            <button bindgetphonenumber="getPhoneNumber" openType="getPhoneNumber" type="default">自动获取</button>
+        </view>
+    </view>
+    <view class="setphone-self">
+        <form bindsubmit="handleOnFormSubmit">
+            <view class="setphone-self--section">
+                <view class="section--infogroup">
+                    <view class="info-item">
+                        <input class="line-input" name="contactName" placeholder="请输入您的姓名" placeholderClass="phcolor" type="text" value="{{orderInfo.contactName}}"></input>
+                    </view>
+                    <view class="info-item">
+                        <input bindinput="handleOnPhoneNumberInput" class="info-phonenumber" name="phoneNumber" placeholder="请输入手机号" placeholderClass="phcolor" type="number" value="{{phoneNumber}}"></input>
+                        <view bindtap="handleOnTapCaptcha" class="info-getcaptch">
+                            <text>{{getCode}}</text>
+                        </view>
+                    </view>
+                    <view class="info-item">
+                        <input class="line-input" name="smsCaptcha" placeholder="请输入验证码" placeholderClass="phcolor" type="number"></input>
+                    </view>
+                </view>
+                <view class="setphone-btn">
+                    <button formType="submit" type="primary">提交</button>
+                </view>
+            </view>
+        </form>
+    </view>
+</view>
+<view bindtap="hideAllPopups" class="ahs-popup-container" data-type="popup" wx:if="{{ui.showCaptchaPopup}}">
+    <view class="captch-popup popup-wrap">
+        <form bindsubmit="checkImgCaptchSubmit">
+            <view class="captch-content">
+                <view class="captch-input-wrap {{isImgCaptchError?'error':''}}">
+                    <input class="captch-input" name="captch" placeholder="请输入右侧验证码" placeholderStyle="color:#BABABA" type="number"></input>
+                    <image catchtap="setCaptchUrl" class="captch-img" mode="aspectFit" src="{{captchImgUrl}}"></image>
+                </view>
+                <view class="captch-error {{isImgCaptchError?'show':''}}">验证码输入有误</view>
+            </view>
+            <view class="captch-bottom">
+                <button class="check-captch" formType="submit">获取短信验证码</button>
+            </view>
+        </form>
+    </view>
+</view>
+<image class="piwik-image-placeholder" src="{{piwikSource}}"></image>

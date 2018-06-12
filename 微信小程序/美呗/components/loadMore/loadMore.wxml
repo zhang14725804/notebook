@@ -1,0 +1,4 @@
+<view class="load-more {{backColor}}" wx:if="{{visible}}">
+    <image mode="aspectFit" src="https://cdn-ssl.meb.com/wxa/v1/loding.gif"></image>
+    <text>加载更多</text>
+</view>

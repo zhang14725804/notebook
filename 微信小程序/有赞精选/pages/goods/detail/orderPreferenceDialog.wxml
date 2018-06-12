@@ -1,0 +1,36 @@
+<template name="orderPreferenceDialog">
+    <view class="zan-popup zan-popup--bottom {{showOrderPrefernceDialog?'zan-popup--show':''}} order-preference-dialog">
+        <view bindtap="toggleOrderPreferenceDialog" catchtouchmove="catchTouchMove" class="zan-popup__mask"></view>
+        <view class="zan-popup__container">
+            <view class="order-preference-dialog__title">店铺活动</view>
+            <view class="order-preference-dialog__item" wx:if="{{cash_back}}">
+                <view class="order-preference-dialog__label">
+                    <view class="zan-tag zan-tag--primary zan-tag--small zan-tag--plain">返现</view>
+                </view>
+                <view class="order-preference-dialog__desc">
+          {{cash_back.start_time}}至{{cash_back.end_time}}期间，
+          在本店前{{cash_back.cashback_limit}}笔订单支付成功，可随机获得返现
+        </view>
+            </view>
+            <view class="order-preference-dialog__item" wx:if="{{meet_reduce&&meet_reduce.length}}">
+                <view class="order-preference-dialog__label">
+                    <view class="zan-tag zan-tag--danger zan-tag--small zan-tag--plain">满减</view>
+                </view>
+                <view class="order-preference-dialog__desc order-preference-dialog__meetreduce-desc">
+                    <view wx:for="{{meetReduceList}}" wx:key="index">
+                        <view wx:if="{{item.type==='STRING'}}">
+              {{item.title}}
+            </view>
+                        <view catchtap="handleActivityIntroAction" class="order-preference-dialog__action" data-action="{{item.action}}" data-payload="{{item.payload}}" wx:if="{{item.type==='ACTION'}}">
+              {{item.title}}
+            </view>
+                        <view wx:if="{{index<meetReduceList.length-1}}">
+              , 
+            </view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="toggleOrderPreferenceDialog" class="zan-btn zan-btn--danger zan-btn--large">关闭</view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,3 @@
+<view class="container" wx:if="{{canIUse}}">
+    <web-view src="{{url}}"></web-view>
+</view>

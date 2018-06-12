@@ -1,0 +1,35 @@
+.mod_appbanner {
+    flex: 0 0 auto;
+    height: 90rpx;
+    line-height: 90rpx;
+    padding: 0 20rpx;
+    background: white;
+    font-size: 12px;
+    display: flex;
+    border-top: 1px solid #efefef;
+}
+
+.mod_appbanner .logo {
+    display: inline-block;
+    margin-top: 20rpx;
+    margin-right: 15rpx;
+    width: 50rpx;
+    height: 50rpx;
+    background: url(https://puui.qpic.cn/vupload/0/common_logo_square.png/0) right center no-repeat;
+    background-size: 100% 100%;
+}
+
+.mod_appbanner .text {
+    flex: 1;
+}
+
+.mod_appbanner button {
+    padding: 0 20rpx;
+    margin: 20rpx 0 0 0;
+    height: 50rpx;
+    border-radius: 50rpx;
+    line-height: 50rpx;
+    background-color: rgb(255,96,34);
+    color: white;
+    font-size: 12px;
+}

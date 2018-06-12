@@ -1,0 +1,36 @@
+<template name="coupon_card">
+    <view bindtap="_onCouponCellTaped" class="coupon-cell {{coupon.component.type}} {{coupon.component.status}}" data-coupon="{{coupon}}" data-index="{{index}}">
+        <view class="up">
+            <view class="info1">
+                <view class="price_view" wx:if="{{coupon.component.yuan}}">
+                    <view class="symbol">¥ </view>
+                    <view class="yuan">{{coupon.component.yuan}}</view>
+                    <view class="cent" wx:if="{{coupon.component.cent}}">.{{coupon.component.cent}}</view>
+                </view>
+                <view class="discount_view" wx:elif="{{coupon.component.discount}}">
+                    <view class="discount_value">{{coupon.component.discount}}</view>
+                    <view class="discount_suffix">折</view>
+                </view>
+                <view class="threshold">{{coupon.component.condition}}</view>
+            </view>
+            <view class="dotted_line"></view>
+            <view class="info2">
+                <view class="zan-ellipsis title">{{coupon.component.name}}</view>
+                <view class="time">{{coupon.component.valid_time}}</view>
+                <view class="stamp" wx:if="{{coupon.component.status=='invalid'&&coupon.component.invalid_content.length>0}}">{{coupon.component.invalid_content}}</view>
+                <view catchtap="_onCouponButtonTaped" class="button {{coupon.component.type}}" data-coupon="{{coupon}}" data-index="{{index}}" wx:elif="{{!coupon.disable_button}}">
+              {{coupon.component.valid_content}}</view>
+            </view>
+            <view class="border_bottom_image"></view>
+            <image class="circle-bg" src="https://img.yzcdn.cn/public_files/2017/08/31/8ae4048a46cb861755a5179173385c21.png"></image>
+        </view>
+        <view catchtap="_onMoredescTaped" class="down" data-coupon="{{coupon}}" data-index="{{index}}">
+            <view class="desc {{coupon.show_more_desc?'':'zan-ellipsis'}}" wx:if="{{coupon.component.desclist.length<=1||!coupon.show_more_desc}}">{{coupon.component.desclist[0]||''}}</view>
+            <block wx:else>
+                <view class="desc" wx:for="{{coupon.component.desclist}}" wx:key="unique">{{item}}</view>
+            </block>
+            <view class="arrow {{coupon.show_more_desc?'arrowRotate0':'arrowRotate180'}}" wx:if="{{coupon.component.desclist.length>1||coupon.component.desclist[0].length>26}}"></view>
+        </view>
+        <view class="selected" wx:if="{{selected_coupon.id==coupon.id}}"></view>
+    </view>
+</template>

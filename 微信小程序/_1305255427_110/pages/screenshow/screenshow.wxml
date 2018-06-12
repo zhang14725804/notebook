@@ -1,0 +1,32 @@
+<template name="tips-template">
+    <block wx:if="{{content&&content.length}}">
+        <view catchtap="showTips" class="tips-icon icon-illustration" data-index="{{index}}"></view>
+        <view catchtap="hideTips" catchtouchmove="stopBubble" class="tips-wrap {{isShowTips?'':'hide'}}" data-index="{{index}}">
+            <view catchtap="stopBubble" class="tips-content">
+                <swiper class="tips-imgs" indicatorActiveColor="#ffffff" indicatorColor="rgba(0, 0, 0, .25)" indicatorDots="true">
+                    <swiper-item wx:for="{{imgs}}" wx:for-item="imgSrc">
+                        <image class="slide-img" src="{{imgSrc}}"></image>
+                    </swiper-item>
+                </swiper>
+                <view class="tips-text">
+                    <text wx:for="{{content}}" wx:for-item="text"> {{text}}</text>
+                </view>
+                <view bindtap="hideTips" class="tips-close icon-close" data-index="{{index}}"></view>
+            </view>
+        </view>
+    </block>
+</template>
+<view bindtouchend="pullEnd" bindtouchstart="pullstart" class="page-container">
+    <view class="sel-wrap {{isShowContent?'show':''}} {{isHideContent?'hide':''}}">
+        <view bindtap="selItem" class="sel-item {{item.isSelected?'active':''}} {{item.content?'with-icon':''}}" data-value="{{index}}" hoverClass="active" wx:for="{{selItemArr}}">
+            <text class="item-text">{{item.value}}</text>
+            <template is="tips-template" data="{{...item}}"></template>
+        </view>
+    </view>
+    <view class="pull-down icon-hand-movedown {{isShowContent?'':'show'}} {{isHideContent?'':'hide'}}">
+        检查纯白屏后下拉选择选项
+    </view>
+    <view class="pull-up  icon-hand-moveup {{isShowContent?'show':''}} {{isHideContent?'hide':''}}">
+        上拉返回纯白屏再次查看
+    </view>
+</view>

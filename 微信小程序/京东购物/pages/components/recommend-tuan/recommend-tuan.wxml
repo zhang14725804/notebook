@@ -1,0 +1,32 @@
+<view class="hot_recommend">
+    <view class="tuan_title_v2">
+        <text class="title">热门推荐</text>
+        <text bindtap="toPingouIndex" class="detial_rule">更多火热拼购</text>
+    </view>
+    <view class="xloading initloading" wx:if="{{listState=='init'}}"></view>
+    <view bindtap="refreshGoods" class="error_panel" wx:elif="{{listState=='error'}}">
+        <view class="error_retry">
+            <text>页面开小差，试试</text>
+            <button>刷新</button>
+        </view>
+    </view>
+    <view class="hot_goods" wx:if="{{listState=='loading'||listState=='end'}}">
+        <view bindtap="gotoDetail" class="goods_item" data-idx="{{idx}}" wx:for="{{list}}" wx:for-index="idx">
+            <image class="good_img x_bg" mode="widthFix" src="{{item.imagePath}}"></image>
+            <view class="good_title">{{item.name}}</view>
+            <view class="good_property">
+                <text class="tuan_min">{{item.tuan_capacity}}人团</text>
+                <text class="price" wx:if="{{item.bp>=0}}">￥<text class="price_int"> {{price(item.bp).int}}</text>
+                    <text>.{{price(item.bp).decimal}}</text>
+                </text>
+                <text class="no_price" wx:else>暂无价格</text>
+            </view>
+            <view class="tuan_num">
+                <text class="old_price">￥{{item.op}}</text>
+                <text class="al_tuan">已有{{item.ptuan_count}}人团</text>
+            </view>
+        </view>
+    </view>
+    <view class="xloading" style="height:40px" wx:if="{{listState=='loading'}}"></view>
+</view>
+<wxs module="price" src="../../../common/wxs/price.wxs" />

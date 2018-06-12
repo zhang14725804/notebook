@@ -1,0 +1,34 @@
+<view class="group">
+    <view class="group__item group__item-wear">
+        <view class="group-title">
+            <view class="group-title__dt">穿搭学院</view>
+            <view class="group-title__dd">教你拥有粉粉少女心</view>
+        </view>
+        <view class="group-image-wear">
+            <image class="group-image-wear__cover" src="http://jdc.jd.com/img/210x280"></image>
+            <image class="group-image-wear__cover" src="http://jdc.jd.com/img/86"></image>
+            <image class="group-image-wear__cover" src="http://jdc.jd.com/img/86"></image>
+            <image class="group-image-wear__cover" src="http://jdc.jd.com/img/86"></image>
+        </view>
+    </view>
+    <view class="group__column">
+        <view class="group__item group__item-s">
+            <view class="group-title">
+                <view class="group-title__dt">京致家</view>
+                <view class="group-title__dd">美好生活指南</view>
+            </view>
+            <view class="group-image">
+                <image class="group-image__cover" src="http://jdc.jd.com/img/148"></image>
+            </view>
+        </view>
+        <view class="group__item group__item-s">
+            <view class="group-title">
+                <view class="group-title__dt">京东拍卖</view>
+                <view class="group-title__dd">一元起拍</view>
+            </view>
+            <view class="group-image">
+                <image class="group-image__cover" src="http://jdc.jd.com/img/148"></image>
+            </view>
+        </view>
+    </view>
+</view>

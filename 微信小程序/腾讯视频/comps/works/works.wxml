@@ -1,0 +1,19 @@
+<template name="works">
+    <view class="search-head" wx:if="{{lines.length}}">
+        <template is="hltext" data="{{ text:lines[0] }}"></template>
+    </view>
+    <scroll-view class="works {{uiType===0?'hori':''}} {{uiType===2?'star':''}}" scrollLeft="{{scrollLeft}}" scrollX="true">
+        <view bindtap="onRoute" class="item {{index?'':'first'}} {{index===posterList.length-1?'last':''}}" data-stat="search_result:{{poster.action.reportKey||'result_'+(lines.length?'intend':'person')}}" data-url="{{poster.action.url}}" wx:for="{{posterList}}" wx:for-item="poster" wx:key="action.url">
+            <view class="cover">
+                <image class="img" src="{{poster.imageUrl}}"></image>
+                <view class="mark-info" wx:if="{{uiType===0&&mark.position==3&&mark.primeText}}" wx:for="{{poster.markLabelList||[]}}" wx:for-item="mark" wx:key="position">{{mark.primeText}}</view>
+            </view>
+            <view class="desc">
+                <view class="figure_desc_two_row">
+                    <template is="hltext" data="{{text:poster.firstLine}}"></template>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</template>
+<import src="/comps/hltext/hltext.wxml"></import>

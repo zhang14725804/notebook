@@ -1,0 +1,87 @@
+<view class="msxcx-widget-loading msxcx-widget-loading_big" wx:if="{{!loaded}}">
+    <view></view>
+    <text>加载中</text>
+</view>
+<block wx:else>
+    <view class="product">
+        <view class="img">
+            <image src="{{projectInfo.img_url}}"></image>
+        </view>
+        <view class="title">{{projectInfo.title}}</view>
+        <view class="desc">{{projectInfo.project_desc}}</view>
+        <view class="price">
+            <text class="p1">{{projectInfo.price}}</text>
+            <text class="p2" wx:if="{{projectInfo.savePrice}}">拼团省{{projectInfo.savePrice}}元</text>
+        </view>
+    </view>
+    <view class="result">
+        <view bindtap="toggleBook" class="book-icon-section flex-box {{bookInfo&&bookInfo.status===1?'booked':'not-book'}}">
+            <view class="book-icon"></view>
+        </view>
+        <image mode="widthFix" src="http://i8.mifile.cn/b2c-mimall-media/46ee08a3c06c934d75097b5e1028766f.png" wx:if="{{isWin}}"></image>
+        <text class="{{!isWin?'no':''}}">{{title}}</text>
+        <button bindtap="getDraw" class="btn" wx:if="{{canDrawPrize&&couponFlag&&!fanscard}}">立即抽奖</button>
+        <button class="btn disable" wx:if="{{canDrawPrize===false&&isWin===false&&couponFlag&&!fanscard}}">已抽奖</button>
+        <button bindtap="goMicard" class="btn btn-small" wx:if="{{isWin&&fanscard&&(fanscard.status==0||fanscard.status==1)}}">{{fanscard.status_desc}}</button>
+        <button class="btn btn-small disable" wx:if="{{isWin&&fanscard&&(fanscard.status==2||fanscard.status==3)}}">{{fanscard.status_desc}}</button>
+        <view bindtap="getMicard" class="notice-info" wx:if="{{!isWin&&fanscard&&fanscard.tip&&fanscard.status==0}}">{{fanscard.tip}}</view>
+        <view bindtap="goMicard" class="notice-info" wx:if="{{!isWin&&fanscard&&fanscard.tip&&fanscard.status==1}}">{{fanscard.status_desc}}</view>
+        <button class="btn disable" wx:if="{{!isWin&&fanscard&&fanscard.tip&&(fanscard.status==2||fanscard.status==3)}}">{{fanscard.status_desc}}</button>
+    </view>
+    <view class="winners" wx:if="{{list&&list.length}}">
+        <view class="title">
+            <text>幸运米粉</text>
+            <text>订单编号</text>
+        </view>
+        <view class="li" wx:if="{{index<listShowLens}}" wx:for="{{list}}">
+            <view class="user">
+                <image mode="widthFix" src="{{item.user_avatar}}"></image>{{item.user_name}}
+      </view>
+            <view class="order">{{item.order_id}}</view>
+        </view>
+        <button bindtap="showMore" class="btn" wx:if="{{list.length>listShowLens}}">查看更多></button>
+    </view>
+    <view class="banners" wx:if="{{adInfo&&adInfo.length}}">
+        <swiper autoplay="{{true}}" circular="{{true}}" indicatorActiveColor="rgba(255,255,255,.8)" indicatorColor="rgba(255,255,255,.4)" indicatorDots="{{adInfo.length>1?true:false}}" interval="{{4000}}">
+            <swiper-item wx:for="{{adInfo}}">
+                <view bindtap="bindTapAd" data-index="{{index}}" data-item="{{item}}">
+                    <image mode="widthFix" src="{{item.image_url}}"></image>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="recomment" wx:if="{{recommend&&recommend.length}}">
+        <view class="title">
+            <image mode="widthFix" src="http://i8.mifile.cn/webfile/h5/weixin/0331/r2.png" wx:if="{{isWin}}"></image>
+            <image mode="widthFix" src="http://i8.mifile.cn/webfile/h5/weixin/0331/r1.png" wx:else></image>
+        </view>
+        <view class="list">
+            <navigator bindtap="tapStat" class="item" data-index="{{index}}" url="/pages/pin/product/index?p={{item.project_id}}" wx:for="{{recommend}}">
+                <text class="tag">{{item.tag}}</text>
+                <image src="{{item.image}}"></image>
+                <view class="info">
+                    <view class="title">{{item.product_name}}</view>
+                    <view class="desc"></view>
+                    <view class="price">
+                        <text class="p1">{{item.groupon_price}}</text>
+                        <text class="util">元</text>
+                        <text class="p2">单买价{{item.market_price}}元</text>
+                    </view>
+                    <button type="mi">去开团</button>
+                </view>
+            </navigator>
+        </view>
+    </view>
+    <view class="mask flex-box flex-column justify-center align-center" wx:if="{{showDrawPop}}">
+        <view class="pop">
+            <view class="container">
+                <view class="title">恭喜你抽得</view>
+                <view class="coupon">
+                    <view class="title">{{prizeInfo.prize_name}}</view>
+                    <view class="desc">{{prizeInfo.prize_desc}}</view>
+                </view>
+            </view>
+            <view bindtap="closePop" class="confirm-btn" data-type="showDrawPop">确定</view>
+        </view>
+    </view>
+</block>

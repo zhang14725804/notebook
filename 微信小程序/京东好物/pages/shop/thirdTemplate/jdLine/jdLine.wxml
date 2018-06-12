@@ -1,0 +1,1 @@
+<view style="height:{{height}};width:{{width}};background-color:{{styles.backgroundColor}};border-width:{{styles.borderWidth}}px;border-type:{{styles.borderStyle=='solid'?'solid':'dotted'}};"></view>

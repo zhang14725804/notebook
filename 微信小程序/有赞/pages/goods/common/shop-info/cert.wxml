@@ -1,0 +1,21 @@
+<template name="shop-cert">
+    <view bindtap="toggleCertIntroPopup" class="zan-cell zan-bg-fff zan-cell--access  container--without-border" wx:if="{{shopCert&&shopCert.length}}">
+        <view class="zan-cell__bd">
+            <view class="shop-cert" wx:for="{{shopCert}}" wx:key="{{ index }}">
+                <view class="zan-icon zan-icon-passed" style="color: #666"></view> {{item.name}}
+      </view>
+        </view>
+    </view>
+    <view class="zan-popup price-intro-container zan-popup--bottom {{showCertIntro&&'zan-popup--show'}}">
+        <view bindtap="toggleCertIntroPopup" class="zan-popup__mask"></view>
+        <view class="zan-popup__container" style="width: 100%">
+            <view style="padding: 20px 15px 0;">
+                <view class="shop-cert" style="margin-bottom: 20px;color: #111;display: block" wx:for="{{shopCert}}" wx:key="{{ index }}">
+                    <view class="zan-icon zan-icon-passed" style="color: #44BB00;margin-right: 5px;"></view>{{item.name==='担保交易'?'担保交易模式':item.name}}
+          <view class="zan-font-12 zan-c-gray-darker" style="margin-left: 18px">{{item.intro}}</view>
+                </view>
+            </view>
+            <button bindtap="toggleCertIntroPopup" class="zan-btn zan-btn--danger">我知道了</button>
+        </view>
+    </view>
+</template>

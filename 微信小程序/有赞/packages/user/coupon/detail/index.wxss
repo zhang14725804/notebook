@@ -1,0 +1,8 @@
+@import "../../../../components/coupon/promo_detail_temp.wxss";
+
+@import "../../../../components/ZanAccount/index.wxss";
+
+.promo-container {
+    background-color: #f5f5f5;
+    z-index: -1;
+}

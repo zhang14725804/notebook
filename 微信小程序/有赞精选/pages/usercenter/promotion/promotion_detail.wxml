@@ -1,0 +1,8 @@
+<import src="../../../components/coupon/promo_detail_temp.wxml"></import>
+<import src="../../../components/ZanAccount/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<view class="promo-container" style="min-height: {{couponData.winHeight}}px; width: {{couponData.winWidth}}px;">
+    <template is="promotion_detail" data="{{...couponData}}"></template>
+</view>
+<template is="zan-account" data="{{...zanAccount}}"></template>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>

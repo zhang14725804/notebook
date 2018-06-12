@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "商品搜索",
+    "usingComponents": {
+        "date-picker": "../../../../components/datetime-picker/index",
+        "search": "../../../../components/search/index"
+    }
+}

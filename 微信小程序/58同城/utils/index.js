@@ -1,0 +1,1 @@
+module.exports = Object.assign({}, require("./weappEnv"), require("./tel400"), require("./EventHandle"), require("./performanceUtil"), require("./pageParamsUtil"), require("./tipsUtil"), require("./logUtil"), require("./request"), require("./pageInit"), require("./userData"));

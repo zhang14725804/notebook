@@ -1,0 +1,196 @@
+@import "../../../wxParse/wxParse.wxss";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 750rpx;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.top-layout {
+    padding: 31rpx;
+}
+
+.title-text {
+    color: #333;
+    font-size: 44rpx;
+    line-height: 40rpx;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    margin-top: 49rpx;
+    margin-bottom: 10px;
+}
+
+.name {
+    display: flex;
+    margin-left: 29rpx;
+    flex-direction: column;
+}
+
+.image {
+    width: 70rpx;
+    height: 70rpx;
+    margin-top: 4px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.doctor {
+    font-size: 30rpx;
+    color: #3d3d3d;
+    line-height: 44rpx;
+}
+
+.hospital {
+    font-size: 26rpx;
+    color: #929292;
+    line-height: 44rpx;
+}
+
+.bottom-layout {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 110rpx;
+}
+
+.icon-layout {
+    background-color: #fec0c2;
+    width: 140rpx;
+    height: 112rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.icon {
+    width: 62rpx;
+    height: 56rpx;
+}
+
+.button-layout {
+    display: flex;
+    background: #fd8185;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    border-radius: 0;
+}
+
+.bottom-text {
+    color: white;
+    font-size: 34rpx;
+    display: flex;
+    background: #fd8185;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.middle {
+    height: 120rpx;
+}
+
+.top-line {
+    height: 20rpx;
+}
+
+.about-item {
+    display: flex;
+    flex-direction: column;
+    margin-top: 31rpx;
+}
+
+.info {
+    display: flex;
+    width: 100%;
+    height: 88rpx;
+    padding-top: 32rpx;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-left: 41rpx;
+    left: 0;
+    background-color: white;
+}
+
+.doctor-name {
+    font-size: 26rpx;
+    color: #1c1c1c;
+    line-height: 36rpx;
+}
+
+.gray-text {
+    font-size: 26rpx;
+    left: 0;
+    color: #c3c3c3;
+    line-height: 36rpx;
+}
+
+.more-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40rpx;
+}
+
+.more-text {
+    font-size: 30rpx;
+    color: #fd8185;
+}
+
+.aside {
+    height: 110rpx;
+}
+
+.about-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.line-h {
+    width: 100%;
+    height: 12rpx;
+    background-color: #f5f5f5;
+}
+
+.text-layout {
+    padding: 34rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-text {
+    font-size: 36rpx;
+    color: #343434;
+    margin-bottom: 33rpx;
+    margin-top: 33rpx;
+}
+
+.line-about {
+    width: 100%;
+    height: 2rpx;
+    background-color: #d6d6d6;
+}
+
+.row-text {
+    display: flex;
+    flex-direction: row;
+}
+
+.about-title {
+    font-size: 30rpx;
+    color: #333;
+    margin-left: 31rpx;
+}

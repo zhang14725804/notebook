@@ -1,0 +1,24 @@
+<view catchtap="_jumpDetailEvent" class="item">
+    <view class="item-indicator">
+        <view class="item-indicator-connectLine {{isHideTopLine?'item-indicator-connectLine-hide':''}}"></view>
+        <image class="item-indicator-mood" src="https://cdn-ssl.meb.com/wxa/v1/dairy_face{{diary.Mood?diary.Mood:0}}_select.png"></image>
+        <view class="item-indicator-connectLine {{isHideBottomLine?'item-indicator-connectLine-hide':''}}"></view>
+    </view>
+    <view class="item-content">
+        <view class="item-content-content">
+            <text class="item-content-content-desc">{{diary.Content}}</text>
+            <view class="item-content-content-tagLoc_superview">
+                <view class="item-content-content-tagLoc" hidden="{{diary.AfterDay?false:true}}">
+                    <image class="item-content-content-tagLoc-pic" src="https://cdn-ssl.meb.com/wxa/v1/diary-tag.png"></image>
+                    <text class="item-content-content-tagLoc-text">{{diary.AfterDay}}</text>
+                </view>
+                <view class="item-content-content-tagLoc" hidden="{{diary.AreaName?false:true}}">
+                    <image class="item-content-content-tagLoc-pic" src="https://cdn-ssl.meb.com/wxa/v1/diary-loc.png"></image>
+                    <text class="item-content-content-tagLoc-text">{{diary.AreaName}}</text>
+                </view>
+            </view>
+        </view>
+        <image class="item-content-pic" data-index="0" data-urls="{{diary.Pictures}}" mode="aspectFill" src="{{diary.Pictures[0]}}"></image>
+    </view>
+    <image class="current-diary-loc" hidden="{{!isShowCurrentDiaryLoc}}" src="https://cdn-ssl.meb.com/wxa/v1/diary-here.png"></image>
+</view>

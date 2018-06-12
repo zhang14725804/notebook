@@ -1,0 +1,107 @@
+<import src="coupon/coupon.wxml"></import>
+<import src="empty_prompt/empty_prompt.wxml"></import>
+<import src="modal/modal.wxml"></import>
+<import src="../../../common/toast/toast.wxml"></import>
+<template is="toast" data="{{...toast}}"></template>
+<view class="coupon_nav">
+    <view class="coupon_navbar">
+        <view bindtap="turnPage" class="coupon_navbar_tab" data-index="{{0}}">
+            <view class="coupon_navbar_text {{currentPage==0?'cur':''}}">
+                <text>待使用</text>
+                <text class="num" wx:if="{{couponLengths[0]}}">{{couponLengths[0]}}</text>
+            </view>
+        </view>
+        <view bindtap="turnPage" class="coupon_navbar_tab" data-index="{{1}}">
+            <view class="coupon_navbar_text {{currentPage==1?'cur':''}}">
+                <text>赠送转让</text>
+                <text class="num" wx:if="{{couponLengths[1]}}">{{couponLengths[1]}}</text>
+            </view>
+        </view>
+        <view bindtap="turnPage" class="coupon_navbar_tab" data-index="{{2}}">
+            <view class="coupon_navbar_text {{currentPage==2?'cur':''}}">
+                <text>已使用</text>
+                <text class="num" wx:if="{{couponLengths[2]}}">{{couponLengths[2]}}</text>
+            </view>
+        </view>
+        <view bindtap="turnPage" class="coupon_navbar_tab" data-index="{{3}}">
+            <view class="coupon_navbar_text {{currentPage==3?'cur':''}}">
+                <text>已过期</text>
+                <text class="num" wx:if="{{couponLengths[3]}}">{{couponLengths[3]}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="coupon_filter" hidden="{{currentPage!=0}}" wx:if="{{!couponError[currentPage]&&finishLoading}}">
+        <view class="coupon_filter_tabs">
+            <view bindtap="switchFilterTab" class="coupon_filter_tab {{filterTabIndex==index&&item.selectedIndex>0?'active':''}}" data-tab-idx="{{index}}" wx:for="{{filterStatus}}" wx:key="name">
+                {{item.selectedIndex<1?item.name:item.status[item.selectedIndex]}}
+                <view class="icon_triangle bottom ml10"></view>
+            </view>
+            <view bindtap="switchFilterTab" class="coupon_filter_more" data-tab-idx="{{3}}">
+                <view class="icon_arrow {{filterTabIndex==3&&filterDetailToggle?'top':'bottom'}}"></view>
+            </view>
+        </view>
+        <view hidden="{{!filterDetailToggle}}">
+            <view class="coupon_filter_list" hidden="{{filterTabIndex!=tabIdx}}" wx:for="{{filterStatus}}" wx:for-index="tabIdx" wx:key="name">
+                <view bindtap="selectFilterItem" class="coupon_filter_item {{index!=item.status.length-1?'bb':''}} {{index==item.selectedIndex?'selected':''}}" data-index="{{index}}" data-tab-idx="{{tabIdx}}" wx:if="{{state}}" wx:for="{{item.status}}" wx:for-item="state" wx:key="*this">{{state}}</view>
+            </view>
+            <view class="coupon_filter_list" hidden="{{filterTabIndex!=3}}">
+                <view class="coupon_filter_btns">
+                    <view bindtap="navigateToRedeem" class="coupon_filter_btns_item">使用兑换码</view>
+                    <view bindtap="selectFilterItem" class="coupon_filter_btns_item" data-tab-idx="{{3}}">使用规则</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view bindtap="hideMask" class="mask_section {{maskToggle?'show':''}} {{modalToggle?'zindex1000':''}}"></view>
+<template is="modal_alert" data="{{modal:modal,modalToggle:modalToggle}}"></template>
+<scroll-view bindscrolltolower="loadNext" class="coupon_list" enableBackToTop="true" scrollTop="{{scrollTop}}" scrollY="true">
+    <view class="pt90" hidden="{{!( currentPage==0&&!couponError[currentPage] )}}"></view>
+    <template is="empty_prompt" data="{{ msg:['您还没有可用的优惠券','去戳底部领取更多好券吧'] }}" wx:if="{{noMorePage[currentPage]&&utils.calcCouponsAmount(couponList[currentPage],currentPage)==0&&!couponError[currentPage]}}"></template>
+    <view bindtap="loadAllCoupon" class="empty_msg" wx:if="{{couponError[currentPage]}}">
+        <view class="error_panel">
+            <view class="error_retry">
+                <text>{{couponError[currentPage]}}</text>
+                <button>刷新</button>
+            </view>
+        </view>
+    </view>
+    <view class="ipx_list_btm" wx:if="{{!couponError[currentPage]}}">
+        <view class="panel" hidden="{{!(currentPage==0)}}">
+            <view bind:touchend="touchend" bind:touchmove="touchmove" bind:touchstart="touchstart" bindtap="navigateToCouponDetail" class="coupon_item {{item.isShowDeleteBtn?'delete':''}} {{item.isShowDeleteAnimate?'animate':''}}" data-index="{{index}}" data-tab-index="{{item.tabIndex}}" data-type="{{0}}" wx:for="{{couponList[0]}}" wx:key="couponID">
+                <template is="tpl_coupon" data="{{getCDkey:getCDkey,shareBtnInfo:shareBtnInfo,coupon:item,couponIdx:index,mode:1,ppms:ppms}}"></template>
+                <view catchtap="deleteCoupon" class="coupon_item_delete" data-index="{{index}}" data-tab-index="{{item.tabIndex}}">删除</view>
+            </view>
+            <view bindtap="navigateToRedeem" class="coupon_blockbtn" wx:if="{{noMorePage[currentPage]}}">
+                <view>使用兑换码兑换京东优惠券</view>
+            </view>
+        </view>
+        <view class="panel" hidden="{{!(currentPage==1)}}">
+            <view bindtap="showSendRole" class="coupon_link" wx:if="{{couponList[1].length!=0}}">赠送转让规则</view>
+            <view bind:touchend="touchend" bind:touchmove="touchmove" bind:touchstart="touchstart" bindtap="navigateToCouponDetail" class="coupon_item {{item.isShowDeleteBtn?'delete':''}} {{item.isShowDeleteAnimate?'animate':''}}" data-index="{{index}}" data-tab-index="{{item.tabIndex}}" data-type="{{1}}" wx:for="{{couponList[1]}}" wx:key="couponID">
+                <template is="tpl_coupon" data="{{getCDkey:getCDkey,shareBtnInfo:shareBtnInfo,coupon:item,couponIdx:index,mode:1,ppms:ppms}}"></template>
+                <view catchtap="deleteCoupon" class="coupon_item_delete" data-index="{{index}}" data-tab-index="{{item.tabIndex}}">删除</view>
+            </view>
+        </view>
+        <view class="panel" hidden="{{!(currentPage==2)}}">
+            <view bind:touchend="touchend" bind:touchmove="touchmove" bind:touchstart="touchstart" bindtap="navigateToCouponDetail" class="coupon_item {{item.isShowDeleteBtn?'delete':''}} {{item.isShowDeleteAnimate?'animate':''}}" data-index="{{index}}" data-tab-index="{{item.tabIndex}}" data-type="{{2}}" wx:for="{{couponList[2]}}" wx:key="couponID">
+                <template is="tpl_coupon" data="{{getCDkey:getCDkey,shareBtnInfo:shareBtnInfo,coupon:item,couponIdx:index,mode:1,ppms:ppms}}"></template>
+                <view catchtap="deleteCoupon" class="coupon_item_delete" data-index="{{index}}" data-tab-index="{{item.tabIndex}}">删除</view>
+            </view>
+        </view>
+        <view class="panel" hidden="{{!(currentPage==3)}}">
+            <view bind:touchend="touchend" bind:touchmove="touchmove" bind:touchstart="touchstart" bindtap="navigateToCouponDetail" class="coupon_item {{item.isShowDeleteBtn?'delete':''}} {{item.isShowDeleteAnimate?'animate':''}}" data-index="{{index}}" data-tab-index="{{item.tabIndex}}" data-type="{{3}}" wx:for="{{couponList[3]}}" wx:key="couponID">
+                <template is="tpl_coupon" data="{{getCDkey:getCDkey,shareBtnInfo:shareBtnInfo,coupon:item,couponIdx:index,mode:1,ppms:ppms}}"></template>
+                <view catchtap="deleteCoupon" class="coupon_item_delete" data-index="{{index}}" data-tab-index="{{item.tabIndex}}">删除</view>
+            </view>
+        </view>
+    </view>
+    <view class="xloading" hidden="{{noMorePage[currentPage]}}"></view>
+</scroll-view>
+<view class="xloading full_page" hidden="{{!isLoading}}"></view>
+<view bindtap="navigateToCouponCenter" class="coupon_btn fixed_bottom">
+    <view>去领取更多好券</view>
+    <view class="ipx_white_btm"></view>
+</view>
+<quick-nav bottom="100" wxappPageUrl="coupon/list"></quick-nav>
+<wxs module="utils" src="utils.wxs" />

@@ -1,0 +1,22 @@
+@import "../../../components/ZanAccount/index.wxss";
+
+@import "../../../components/banner/index.wxss";
+
+@import "state-list/index.wxss";
+
+.uc-cell {
+    padding: 15px;
+}
+
+.uc-bind {
+    font-size: 12px;
+    color: #111;
+}
+
+.uc-bind__action {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 9px;
+    padding-right: 9px;
+    font-size: 12px;
+}

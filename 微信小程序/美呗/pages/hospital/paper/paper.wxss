@@ -1,0 +1,60 @@
+.doctor-paper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.doctor-paper-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 30rpx;
+}
+
+.doctor-paper-zgzs {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 690rpx;
+    border-radius: 20rpx;
+    box-shadow: 0rpx 0rpx 10rpx 10rpx #eee;
+}
+
+.doctor-paper-zgzs .image {
+    width: 690rpx;
+    height: 482rpx;
+}
+
+.doctor-paper-zgzs .image image {
+    width: 690rpx;
+    height: 482rpx;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+}
+
+.doctor-paper-zgzs .zgzs {
+    width: 690rpx;
+    height: 74rpx;
+    background: #fff;
+    border-bottom-left-radius: 20rpx;
+    border-bottom-right-radius: 20rpx;
+}
+
+.doctor-paper-zgzs .zgzs .zgzs-text {
+    padding-left: 30rpx;
+    font-size: 26rpx;
+    color: #333;
+    font-weight: 700;
+    line-height: 74rpx;
+}
+
+.doctor-paper-zgzs .zgzs .zgzs-number {
+    padding-left: 26rpx;
+    font-size: 26rpx;
+    color: #333;
+    font-weight: 700;
+    line-height: 74rpx;
+}
+
+.doctor-paper-last {
+    margin-bottom: 60rpx;
+}

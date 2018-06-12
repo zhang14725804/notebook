@@ -1,0 +1,42 @@
+<template name="tpl-page">
+    <view class="msxcx-sp" style="{{info.page.style}}">
+        <view bindtap="tapNavigate" class="{{content.class}}" data-open="{{content.navigator.open_type?content.navigator.open_type:'navigate'}}" data-url="{{content.navigator.url}}" style="{{content.style}}" wx:for="{{info.content}}" wx:for-item="content">
+            <view bindtap="tapNavigate" class="{{inner.class}}" data-open="{{inner.navigator.open_type?inner.navigator.open_type:'navigate'}}" data-url="{{inner.navigator.url}}" style="{{inner.style}}" wx:for="{{content.inner}}" wx:for-item="inner">
+                <block wx:for="{{inner.content}}">
+                    <image class="{{item.class}}" mode="{{item.mode?item.mode:'widthFix'}}" src="{{item.value}}" style="{{item.style}}" wx:if="{{item.type=='image'}}"></image>
+                    <video autoplay="{{item.autoplay?item.autoplay:false}}" class="{{item.class}}" controls="{{item.controls?item.controls:true}}" objectFit="fill" poster="{{item.poster?item.poster:''}}" src="{{item.value}}" style="{{item.style}}" wx:if="{{item.type=='video'}}"></video>
+                    <text class="{{item.class}}" style="{{item.style}}" wx:if="{{item.type=='text'}}">{{item.value}}</text>
+                    <view class="{{item.class}}" data-open="{{item.open_type?item.open_type:'navigate'}}" data-url="{{item.url}}" style="{{item.style}}" wx:if="{{item.type=='button'}}">
+                        <button class="{{item.btn_class}}" openType="{{item.btn_open_type?item.btn_open_type:''}}" style="{{item.btn_style}}" type="{{item.btn_type}}">{{item.value}}</button>
+                    </view>
+                    <view bindtap="{{item.bindtap}}" class="{{item.class}}" data-param="{{item.param}}" style="{{item.style}}" wx:if="{{item.type=='view'}}">{{item.value}}</view>
+                    <view class="{{item.type}} {{item.class}}" style="{{item.style}}" wx:if="{{item.type=='text-group'||item.type=='title-text'}}">
+                        <text class="{{text.class}}" style="{{text.style}}" wx:for="{{item.value}}" wx:for-item="text">{{text.value}}</text>
+                    </view>
+                    <swiper autoplay="{{item.value.autoplay?item.value.autoplay:true}}" circular="{{item.value.circular?item.value.circular:true}}" indicatorActiveColor="{{item.value.indicator_active_color?item.value.indicator_active_color:'rgba(255,255,255,.8)'}}" indicatorColor="{{item.value.indicator_color?item.value.indicator_color:'rgba(255,255,255,.4)'}}" indicatorDots="{{item.value.indicatorDots?item.value.indicatorDots:true}}" interval="{{item.value.interval?item.value.interval:4000}}" style="{{item.style}}" wx:if="{{item.type=='swiper'}}">
+                        <swiper-item wx:for="{{item.value.swiper_item}}" wx:for-item="it">
+                            <image bindtap="tapNavigate" class="slide-image" data-open="{{it.navigator.open_type?it.navigator.open_type:'navigate'}}" data-url="{{it.navigator.url}}" src="{{it.image}}" style="{{it.style}}"></image>
+                        </swiper-item>
+                    </swiper>
+                </block>
+            </view>
+        </view>
+    </view>
+    <block wx:if="{{info.page.footer}}">
+        <view class="msxcx-widget-seprator" wx:if="{{!info.page.footer.fixed}}">
+            <text wx:if="{{info.page.footer.text}}">{{info.page.footer.text}}</text>
+            <view wx:else></view>
+            <contact-button sessionFrom="mishop_wx" size="18" type="default-dark" wx:if="{{info.page.footer.kfbtn}}"></contact-button>
+        </view>
+        <block wx:else>
+            <view class="msxcx-layout-footer-placeholder"></view>
+            <view class="msxcx-layout-footer">
+                <view class="msxcx-widget-seprator">
+                    <text wx:if="{{info.page.footer.text}}">{{info.page.footer.text}}</text>
+                    <view wx:else></view>
+                    <contact-button sessionFrom="mishop_wx" size="18" type="default-dark" wx:if="{{info.page.footer.kfbtn}}"></contact-button>
+                </view>
+            </view>
+        </block>
+    </block>
+</template>

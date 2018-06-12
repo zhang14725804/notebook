@@ -1,0 +1,6 @@
+<view class="header">
+    <view class="header__title">
+        <image class="header__icon" src="{{icon}}"></image>{{title}}
+    </view>
+    <view class="header__desc">{{desc}}</view>
+</view>

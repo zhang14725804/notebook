@@ -1,0 +1,10 @@
+<view class="must-be">
+    <view class="complaint-container" id="container">
+        <view class="no-online-service">
+            <view class="icon"></view>
+            <view class="title">在线客服暂未开通</view>
+            <view class="second-title">请直接拨打客服电话</view>
+            <button bindtap="_dispatch" class="call-service" data-bindtap="callServiceHandle">客服电话</button>
+        </view>
+    </view>
+</view>

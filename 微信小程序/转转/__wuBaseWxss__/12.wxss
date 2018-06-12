@@ -1,0 +1,24 @@
+.title._461bda5 {
+    margin: 56rpx 24rpx 40rpx;
+    height: 32rpx;
+}
+
+.title-icon._461bda5 {
+    background-image: linear-gradient(-210deg,#FF9696 2%,#FF5555 100%);
+    display: inline-block;
+    width: 10rpx;
+    height: 30rpx;
+    margin-right: 12rpx;
+    vertical-align: middle;
+    float: left;
+}
+
+.title text._461bda5 {
+    float: left;
+    font-family: PingFangHK-Semibold;
+    font-size: 32rpx;
+    color: #504A4D;
+    line-height: 32rpx;
+    height: 32rpx;
+    vertical-align: middle;
+}

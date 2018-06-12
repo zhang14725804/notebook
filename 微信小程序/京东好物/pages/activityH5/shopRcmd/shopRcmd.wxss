@@ -1,0 +1,24 @@
+@import "../../shop/components/skuList/index.wxss";
+
+@import "../../shop/shop_template/shop_template.wxss";
+
+@import "../../shop/shop_template/floorTemplate.wxss";
+
+@import "../../../__wuBaseWxss__/5.wxss";
+
+page {
+    background-color: #f8f8f8;
+}
+
+.loadingFrame {
+    width: 750rpx;
+    height: 90rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 90rpx;
+    font-size: 22rpx;
+    background-color: #f8f8f8;
+    color: #848689;
+    text-align: center;
+}

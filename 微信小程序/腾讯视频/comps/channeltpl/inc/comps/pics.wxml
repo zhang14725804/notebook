@@ -1,0 +1,12 @@
+<view class="figures_list figures_list_h banner_after_figure">
+    <view bindtap="onPlay" class="list_item" data-cid="{{video.cid||''}}" data-id="{{video.itemId}}" data-index="{{index}}" data-modidx="{{modidx}}" data-type="{{video.itemtype}}" data-vid="{{video.vid||''}}" wx:if="{{video.pictype!=1&&!video._hide}}" wx:for="{{item.list}}" wx:for-item="video" wx:key="itemId">
+        <include src="./item.wxml"></include>
+        <include src="./title.wxml"></include>
+    </view>
+</view>
+<view bindtap="onChange" class="list_banner" data-modidx="{{modidx}}" wx:if="{{pageName!=='channel'&&item._change.changeSize&&item._change.changeTimes>1}}">
+    <view class="change">
+        <view class="icon"></view>
+        <view class="text">换一批试试</view>
+    </view>
+</view>

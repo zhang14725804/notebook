@@ -1,0 +1,121 @@
+@import "../../../../__wuBaseWxss__/20.wxss";
+
+.group {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    overflow: hidden;
+}
+
+.group__item {
+    position: relative;
+    border-right: 1rpx solid #f0f0f0;
+    border-bottom: 1rpx solid #f0f0f0;
+    box-sizing: border-box;
+}
+
+.group__item-s {
+    width: 50%;
+    height: 215rpx;
+}
+
+.group__item-s .group-image {
+    left: inherit;
+    right: 30rpx;
+}
+
+.group__item-s .group-title {
+    right: 170rpx;
+}
+
+.group__item-xs {
+    width: 25%;
+    height: 298rpx;
+}
+
+.group__item-xs .group-image {
+    left: 0;
+    right: 0;
+}
+
+.group__item-xs .group-image__cover {
+    margin: 0 auto;
+}
+
+.group__item-xs .group-title__dd {
+    width: 150rpx;
+}
+
+.group__item-m {
+    width: 50%;
+    height: 298rpx;
+}
+
+.group-title {
+    position: absolute;
+    top: 25rpx;
+    left: 30rpx;
+    right: 30rpx;
+    z-index: 1;
+}
+
+.group-title__dt {
+    font-size: 31rpx;
+    font-weight: bold;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.group-title__dt text {
+    font-weight: normal;
+    font-size: 28rpx;
+}
+
+.group-title__dd {
+    font-size: 24rpx;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.group-image {
+    position: absolute;
+    bottom: 30rpx;
+    left: 30rpx;
+    right: 30rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.group-image__cover {
+    display: block;
+    width: 148rpx;
+    height: 148rpx;
+    border-radius: 4rpx;
+}
+
+.group-brand {
+    position: absolute;
+    bottom: 30rpx;
+    left: 30rpx;
+    right: 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.group-brand__logo {
+    display: block;
+    width: 120rpx;
+    height: 60rpx;
+}
+
+.group-brand__cover {
+    display: block;
+    width: 174rpx;
+    height: 174rpx;
+    border-radius: 4rpx;
+}

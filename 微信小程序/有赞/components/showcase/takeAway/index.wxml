@@ -1,0 +1,76 @@
+<template name="theme-takeAway-banner">
+    <view class="banner  {{isMultiStore&&'is-multi-store'}}">
+        <view class="banner__filter-blur" style="background-image: url({{CURRENT_GLOBAL_SHOP.image||CURRENT_GLOBAL_SHOP.logo}})"></view>
+        <view class="banner__mask"></view>
+        <view class="banner__container">
+            <image class="banner__logo" src="{{CURRENT_GLOBAL_SHOP.image||CURRENT_GLOBAL_SHOP.logo}}"></image>
+            <view class="banner__bd">
+                <view class="banner__title">
+          {{CURRENT_GLOBAL_SHOP.name||CURRENT_GLOBAL_SHOP.shop_name}}
+          <navigator class="multi-store--selector" url="/packages/shop/multi-store/index/index">[切换]</navigator>
+                </view>
+                <view bindtap="toggleThemeTakeAwayBannerDialog" class="banner__notice zan-ellipsis" wx:if="{{banner.notice}}">
+                    <text class="banner__notice-text">公告：{{banner.notice}}</text>
+                </view>
+                <view bindtap="toggleThemeTakeAwayBannerDialog" class="banner__preference zan-ellipsis" wx:if="{{banner.preference}}">
+                    <text class="banner__preference-tag zan-tag zan-tag--danger">满减</text>
+                    <text class="banner__preference-text">{{banner.preference}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="zan-popup zan-popup--bottom {{banner.showDialog?'zan-popup--show':''}}">
+        <view bindtap="toggleThemeTakeAwayBannerDialog" class="zan-popup__mask"></view>
+        <view class="zan-popup__container banner-popup__container" style="z-index: 13;">
+            <view class="banner-popup__item" wx:if="{{banner.preference}}">
+                <view class="banner-popup__item-hd">满减</view>
+                <view class="banner-popup__item-bd">{{banner.preference}}</view>
+            </view>
+            <view class="banner-popup__item" wx:if="{{banner.notice}}">
+                <view class="banner-popup__item-hd">公告</view>
+                <view class="banner-popup__item-bd">{{banner.notice}}</view>
+            </view>
+            <view bindtap="toggleThemeTakeAwayBannerDialog" class="zan-btn zan-btn--large zan-btn--danger">完成</view>
+        </view>
+    </view>
+</template>
+<template name="theme-takeAway">
+    <template is="theme-takeAway-banner" data="{{CURRENT_GLOBAL_SHOP:CURRENT_GLOBAL_SHOP,isMultiStore:isMultiStore,banner:banner}}"></template>
+    <view class="main-container">
+        <scroll-view class="tag-list" scrollY="true" scrollIntoView="{{tagItemIntoView}}">
+            <view bindtap="handleThemeTakeAwayTagTap" class="tag-item {{item.id===theme.selectedTagId?'tag-item--active':''}}" data-tag-id="{{item.id}}" data-tag-index="{{index}}" id="tag-item-{{item.id}}" style="{{tags.list.length-1==index?'border-bottom: 0':''}}" wx:for="{{tags.list}}" wx:key="tagId">
+                <view class="zan-ellipsis--l3" style="line-height: 18px; max-height: 54px;">
+          {{item.title}}
+        </view>
+                <view class="tag-list__quantity" wx:if="{{tags.choosedNum[index]>0}}">
+          {{tags.choosedNum[index]}}
+        </view>
+            </view>
+            <view style="height: 120px"></view>
+        </scroll-view>
+        <scroll-view bindscroll="handleThemeTakeAwayGoodsListScroll" class="tag-goods" scrollIntoView="{{theme.goodsListIntoView}}" scrollY="true">
+            <view wx:for="{{tags.list}}" wx:key="id">
+                <view class="tag-goods__hd" id="tag-goods-{{item.id}}">{{item.title}}</view>
+                <view class="tag-goods_bd" wx:if="{{goods[item.id]&&goods[item.id].list&&goods[item.id].list.length}}">
+                    <view catchtap="ThemeTakeAwayHandleShowGoodsDetail" class="goods-item" data-alias="{{goods.alias}}" wx:for="{{goods[item.id].list}}" wx:for-index="goodsIndex" wx:for-item="goods" wx:key="id">
+                        <image class="goods-image" data-goods-index="{{goodsIndex}}" data-tag-index="{{index}}" src="{{goods.pic_url}}"></image>
+                        <view class="goods-container">
+                            <view class="goods-title zan-ellipsis">{{goods.title}}</view>
+                            <view class="goods-price">¥ {{goods.price}}</view>
+                        </view>
+                        <input-number bind:change="ThemeTakeAwayhandleGoodsBuy" bind:overlimit="ThemeTakeAwayhandleGoodsOverlimit" class="takeout-input" data-alias="{{goods.alias}}" disabled="{{goods.sold_status==2}}" isMinusShow="{{theme.choosedGoods[goods.alias].num>0}}" isValueShow="{{theme.choosedGoods[goods.alias].num>0}}" max="{{theme.choosedGoods[goods.alias].noneSku?theme.choosedGoods[goods.alias].stockNum:theme.MAX_VALUE}}" min="{{theme.choosedGoods[goods.alias].noneSku?0:theme.choosedGoods[goods.alias].num}}" value="{{theme.choosedGoods[goods.alias].num}}"></input-number>
+                    </view>
+                </view>
+                <view class="tag-goods__empty" wx:elif="{{goods[item.id].nodata}}">
+          暂无商品哦~
+        </view>
+                <view class="tag-goods__empty" wx:else>
+          商品加载中...
+        </view>
+            </view>
+            <view style="height: 120px"></view>
+        </scroll-view>
+        <takeaway-bottom allChoosedNum="{{theme.allChoosedNum}}" allChoosedPrice="{{theme.allChoosedPrice}}" bind:toggleCart="toggleThemeTakeAwayCart" class="takeaway-bottom" iphonexClass="bottom-bar-container" startFee="{{theme.takeAwayStartFee}}" takeoutCartData="{{theme.takeoutCartData}}" wx:if="{{!CURRENT_GLOBAL_SHOP.isMultiStore||CURRENT_GLOBAL_SHOP.is_opening}}"></takeaway-bottom>
+        <takeaway-cart bind:clearCart="clearThemeTakeAwayCart" bind:goodsNumChange="handleThemeTakeAwayGoodsNumChange" bind:toggleCart="toggleThemeTakeAwayCart" iphonexClass="bottom-bar-container" showTakeoutCart="{{theme.showTakeoutCart}}" takeoutCartData="{{theme.takeoutCartData}}"></takeaway-cart>
+    </view>
+</template>

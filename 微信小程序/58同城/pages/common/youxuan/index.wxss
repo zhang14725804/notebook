@@ -1,0 +1,222 @@
+@import "../tel/index.wxss";
+
+.question-list {
+    margin-top: 16rpx;
+    background: #f2f4f5;
+}
+
+.question-list-item {
+    background: #fff;
+    padding: 28rpx 20rpx;
+    margin-bottom: 16rpx;
+}
+
+.list-item-title {
+    color: #292929;
+    font-size: 32rpx;
+    line-height: 48rpx;
+    font-weight: bold;
+}
+
+.list-item-user-info {
+    color: #999;
+    font-size: 28rpx;
+    line-height: 34rpx;
+    vertical-align: middle;
+    padding: 16rpx 0;
+    overflow: hidden;
+}
+
+.list-item-answer-num {
+    float: right;
+}
+
+.list-item-content {
+    font-size: 30rpx;
+    line-height: 44rpx;
+    color: #464646;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.li-item {
+    padding: 30rpx;
+    border-bottom: 1rpx solid #EAEAEA;
+    font-size: 24rpx;
+    color: #999;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.li-item .li-pic {
+    width: 210rpx;
+    height: 160rpx;
+    margin-right: 20rpx;
+}
+
+.li-item .li-body {
+    width: 460rpx;
+    -webkit-box-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+
+.li-item .piclogo {
+    display: inline-block;
+    position: relative;
+    top: -2rpx;
+    line-height: 24rpx;
+    font-size: 26rpx;
+    padding: 3rpx;
+    border-radius: 6rpx;
+    margin-right: 10rpx;
+    color: #09bb07;
+    border: 1rpx solid #09bb07;
+}
+
+.li-item .title {
+    font-size: 32rpx;
+    color: #000;
+    letter-spacing: 0;
+    height: 34rpx;
+    line-height: 36rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 600;
+}
+
+.li-item .detail-line {
+    margin-top: 15rpx;
+    line-height: 24rpx;
+    height: 24rpx;
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+
+.li-item .detail-line text {
+    margin-right: 12rpx;
+}
+
+.li-item .detail-line .line:after {
+    content: '';
+    display: inline-block;
+    height: 20rpx;
+    border-right: 1rpx solid #eee;
+    margin-left: 12rpx;
+}
+
+.li-item .line-2 {
+    width: 350rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.li-item .detail-box {
+    margin-top: 15rpx;
+    line-height: 24rpx;
+}
+
+.li-item .detail-price {
+    margin-top: 15rpx;
+    line-height: 32rpx;
+    height: 32rpx;
+    color: #ff552e;
+    font-size: 34rpx;
+}
+
+.li-item .detail-price .price-unit {
+    font-size: 22rpx;
+    padding-left: 10rpx;
+}
+
+.li-item .button-reset {
+    position: absolute;
+    right: 30rpx;
+    bottom: 30rpx;
+    width: 120rpx;
+    height: 60rpx;
+    border: 1rpx solid #ff552e;
+    border-radius: 30rpx;
+    font-size: 26rpx;
+    color: #ff552e;
+    background: none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.li-pic-info {
+    height: 160rpx;
+}
+
+.li-pic-info .li-body {
+    height: 160rpx;
+}
+
+.li-item-info .detail-line,.li-item-info .detail-price {
+    margin-top: 22rpx;
+}
+
+.li-item-info .line-2 {
+    width: 560rpx;
+}
+
+.xs-item .title {
+    padding-bottom: 15rpx;
+}
+
+.xs-item .label {
+    display: inline-block;
+    font-size: 20rpx;
+    line-height: 22rpx;
+    color: #FF552E;
+    padding: 3rpx 5rpx;
+    border: 1rpx solid #FF552E;
+    border-radius: 10rpx;
+    margin-right: 15rpx;
+    position: relative;
+    top: -6rpx;
+}
+
+.xs-item .li-des {
+    color: #AAAAAA;
+    font-size: 24rpx;
+}
+
+.xs-item .li-prize {
+    font-size: 22rpx;
+    color: #FF552E;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-top: 15rpx;
+}
+
+.xs-item .li-prize .xs-logo {
+    width: 36rpx;
+    height: 36rpx;
+    background-color: #09bb07;
+    margin-right: 10rpx;
+}
+
+.xs-item .li-prize .price {
+    font-size: 34rpx;
+    margin: 0 10rpx;
+}

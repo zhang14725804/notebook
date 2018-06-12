@@ -1,0 +1,21 @@
+.youzan-app__shop-new.container:before {
+    height: 0;
+}
+
+.shop-new__fields {
+    background: #fff;
+    margin-top: 20px;
+}
+
+.shop-new__field-tip {
+    color: #666;
+    font-size: 12px;
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+.shop-new__code-btns button {
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+}

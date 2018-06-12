@@ -1,0 +1,40 @@
+.multi-upload__title {
+    align-self: flex-start;
+}
+
+.multi-upload__img-contain {
+    position: relative;
+    float: left;
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 60px;
+    height: 60px;
+}
+
+.multi-upload__img-contain--loading:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.2) url("https://b.yzcdn.cn/v2/image/loader@2x.gif") center center no-repeat;
+    background-size: 16px 16px;
+}
+
+.multi-upload__img-add {
+    background: transparent url("https://img.yzcdn.cn/public_files/2016/12/20/2937218b768d94864cfbc16900bc237c.png") center no-repeat;
+    background-size: 60px 60px;
+}
+
+.multi-upload__img {
+    width: 60px;
+    height: 60px;
+}
+
+.multi-upload__clear {
+    position: absolute;
+    right: -18px;
+    top: -18px;
+    padding: 10px;
+}

@@ -1,0 +1,24 @@
+<import src="../common/search-input.wxml"></import>
+<import src="../common/search-module.wxml"></import>
+<view wx:if="{{isSearchModuleShow}}">
+    <template is="search-input" data wx:if="{{loaded}}"></template>
+    <view catchtap="e_goToSubscription" class="gotoSubscription" wx:if="{{cateCode==='4'}}">
+    点此订阅优选职位入口
+  </view>
+    <scroll-view class="srcoll-body" scrollY="true">
+        <view class="page-body">
+            <view class="catelist {{idx===list.length-1?'last':''}}" wx:for="{{list}}" wx:for-index="idx" wx:for-item="listItem" wx:key="idx">
+                <view class="cate-parent">
+                    <icon class="cate-p-icon"></icon>
+                    <text>{{listItem.cateName}}</text>
+                </view>
+                <view class="cateItem">
+                    <view catchtap="e_cateListTap" class="cate-child {{(cateidx+1)%4==0?'cateright':''}}" data-cate-id="{{cateItem.cateId}}" data-url="../list/list?cateId={{cateItem.cateId}}&dispCateId={{cateItem.dispCateId}}&cateIdParent={{listItem.cateId||''}}&cateCode={{cateCode}}&paramValue={{cateItem.paramValue}}&parentDispCateId={{listItem.dispCateId}}" wx:for="{{listItem.cateList}}" wx:for-index="cateidx" wx:for-item="cateItem" wx:key="cateidx">
+                {{cateItem.cateName}}
+              </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<template is="searchModule" data="{{isSearchModuleShow:isSearchModuleShow,showSearchResult:showSearchResult,searchResult:searchResult,hotWords:hotWords,searchWords:searchWords,key:key}}" wx:if="{{!isSearchModuleShow}}"></template>

@@ -1,0 +1,219 @@
+.content-view {
+    height: auto;
+    margin: 0 auto;
+    width: 702rpx;
+}
+
+.content-view {
+    height: 728rpx;
+    margin: 0 auto;
+    width: 702rpx;
+    background-size: 702rpx 728rpx;
+    background-image: url(https://img.yzcdn.cn/public_files/2017/08/28/15472ea432d67be507f7bc8fe34892bb.png);
+}
+
+.type-is__9.content-view {
+    background-image: url(https://img.yzcdn.cn/public_files/2017/08/24/7462c578db898b553547731a52dac47b.png);
+}
+
+.type-is__7.content-view {
+    background-image: url(https://img.yzcdn.cn/public_files/2017/08/24/0519190a536b34aa6729bde8c731453d.png);
+}
+
+.sold-out-view {
+    margin-top: 5rpx;
+    overflow: hidden;
+    float: right;
+}
+
+.sold-out-img {
+    margin-top: -25rpx;
+    margin-right: -50rpx;
+}
+
+.stamp {
+    width: 220rpx;
+    height: 220rpx;
+    background: url("https://img.yzcdn.cn/public_files/2017/08/04/3748e88aacb36fe0e9d71fc233131670.png") center no-repeat;
+    background-size: 220rpx;
+    transform: rotate(-30deg);
+    color: #9e9e9e;
+    font-size: 40rpx;
+    text-align: center;
+    line-height: 220rpx;
+}
+
+.stamp_got::after {
+    content: '已领取';
+}
+
+.stamp_cash::after {
+    content: '已兑换';
+}
+
+.stamp_over::after {
+    content: '已抢完';
+}
+
+.stamp_used::after {
+    content: '已使用';
+}
+
+.stamp_expired::after {
+    content: '已失效';
+}
+
+.stamp_unqualified::after {
+    content: '不可领';
+}
+
+.detail-qr-code {
+    position: absolute;
+    top: 210rpx;
+    right: 60rpx;
+    height: 55rpx;
+    width: 55rpx;
+    z-index: 1;
+    display: none;
+}
+
+.detail-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 500rpx;
+    padding: 30rpx 40rpx;
+    box-sizing: border-box;
+}
+
+.detail-content-title {
+    flex: 1;
+    margin-top: 38rpx;
+}
+
+.detail-coupon-name {
+    font-size: 40rpx;
+    color: #fff;
+    line-height: 40rpx;
+}
+
+.underline {
+    width: 72rpx;
+    height: 1rpx;
+    background-color: #fff;
+    margin-top: 20rpx;
+}
+
+.detail-price-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    color: #fff;
+}
+
+.detail-price-tag {
+    font-size: 52rpx;
+    margin-right: 15rpx;
+    line-height: 52rpx;
+}
+
+.detail-price-roundnum {
+    position: relative;
+    top: 13rpx;
+    font-size: 54px;
+    line-height: 54px;
+}
+
+.detail-price-decimal {
+    font-size: 26px;
+    line-height: 26px;
+}
+
+.detail-condition {
+    position: relative;
+    font-size: 24rpx;
+    opacity: 0.8;
+    line-height: 24rpx;
+    margin-left: 7rpx;
+}
+
+.detail-price-expire {
+    position: relative;
+    font-size: 23rpx;
+    color: #fff;
+    opacity: 0.7;
+    margin-top: 17px;
+}
+
+.detail-promocode {
+    position: relative;
+    font-size: 23rpx;
+    color: #fff;
+    opacity: 0.7;
+    visibility: hidden;
+}
+
+.detail-instruction-view {
+    border-bottom-left-radius: 17rpx;
+    border-bottom-right-radius: 17rpx;
+    padding-bottom: 20rpx;
+    min-height: 180rpx;
+    max-height: 220rpx;
+}
+
+.detail-instruction-container {
+    width: 100%;
+    line-height: 30rpx;
+    margin: 40rpx 0;
+    padding: 0 40rpx;
+    height: 140rpx;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.detail-instruction {
+    position: relative;
+    font-size: 27rpx;
+    z-index: 1;
+}
+
+.detail-ins-content {
+    position: relative;
+    top: 10rpx;
+    color: #b4b4b4;
+    font-size: 24rpx;
+    z-index: 1;
+}
+
+.share-btn {
+    display: flex;
+    background-color: #fff;
+    font-size: 32rpx;
+    justify-content: center;
+    align-items: center;
+    height: 90rpx;
+    width: 100%;
+}
+
+.use-btn,.cash-btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 90rpx;
+    background-color: #f44;
+    margin-top: 20rpx;
+    font-size: 32rpx;
+    color: #fff;
+}
+
+.detail-button-view {
+    width: 706rpx;
+    margin: 0 auto;
+    margin-top: 60rpx;
+}
+
+.line {
+    min-height: 16px;
+}

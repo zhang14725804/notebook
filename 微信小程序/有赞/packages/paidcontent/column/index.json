@@ -1,0 +1,6 @@
+{
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "cap-paid-content": "../../../components/paidcontent/content/index"
+    }
+}

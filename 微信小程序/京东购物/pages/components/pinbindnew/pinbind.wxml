@@ -1,0 +1,8 @@
+<view bindtap="gotoAccountPage" class="mod_pinbind" wx:if="{{show}}">
+    <view class="mod_pinbind_icon"></view>
+    <view class="mod_pinbind_main">
+        <view class="mod_pinbind_main_title">{{title}}</view>
+        <view class="mod_pinbind_main_text">{{text}}</view>
+    </view>
+    <view class="mod_pinbind_btn">{{btnText}}</view>
+</view>

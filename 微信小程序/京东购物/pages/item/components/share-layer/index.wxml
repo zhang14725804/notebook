@@ -1,0 +1,49 @@
+<view class="share-layer">
+    <view bindtap="closeShareLayer" class="share-layer__mask" wx:if="{{showShareLayerFlag}}"></view>
+    <view class="share-layer__main {{showShareLayerFlag?'show':''}}">
+        <view class="share-layer__header">
+            <view class="share-layer__header-l">分享</view>
+            <view bindtap="closeShareLayer" class="share-layer__header-r">
+                <view class="icon-close"></view>
+            </view>
+        </view>
+        <view class="share-layer__content">
+            <view class="share-layer__options">
+                <view class="share-layer__options-item">
+                    <button plain class="share-button" openType="share">
+                        <view class="icon-wrapper">
+                            <image class="icon-wechat" src="https://img11.360buyimg.com/jdphoto/s54x44_jfs/t21997/71/201643734/2076/79aece2e/5b03c067Nf546a0b8.png"></image>
+                        </view>
+                        <view class="item-name">分享给好友</view>
+                    </button>
+                </view>
+                <view bindtap="showShareDetail" class="share-layer__options-item">
+                    <view class="icon-wrapper">
+                        <image class="icon-timeline" src="https://img11.360buyimg.com/jdphoto/s50x50_jfs/t16987/316/2602751555/2606/78c4b26c/5b03c067Nc17c53b2.png"></image>
+                    </view>
+                    <view class="item-name">分享到朋友圈</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="share-layer__main shop {{showShareDetailFlag?'show':''}}">
+        <view class="share-layer__header">
+            <view class="share-layer__header-l">分享到朋友圈</view>
+            <view bindtap="closeShareDetail" class="share-layer__header-r">
+                <view class="icon-close"></view>
+            </view>
+        </view>
+        <view class="share-layer__content">
+            <view class="share-layer__detail">
+                <view class="share-layer__preview">
+                    <view bindtap="doPreviewImage" class="image-wrapper {{previewImgUrl?'show':''}}">
+                        <image class="preview-img" mode="widthFix" src="{{previewImgUrl}}" wx:if="{{previewImgUrl}}"></image>
+                        <canvas canvasId="preview-canvas" class="preview-canvas"></canvas>
+                    </view>
+                </view>
+                <view bindtap="doSaveImage" class="share-layer__btn-save">保存图片</view>
+                <view class="share-layer__tips">保存图片到手机后，您可到朋友圈分享该商品图片</view>
+            </view>
+        </view>
+    </view>
+</view>

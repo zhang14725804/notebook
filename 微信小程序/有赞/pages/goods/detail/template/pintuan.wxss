@@ -1,0 +1,42 @@
+.pt-container {
+    margin: 10px 0px 10px 0px;
+    background-color: #fff;
+}
+
+.pt-desc--header {
+    font-size: 28rpx;
+    color: #333;
+    height: 72rpx;
+    line-height: 72rpx;
+    padding-left: 30rpx;
+}
+
+.pt-desc--footer {
+    font-size: 24rpx;
+    color: #333;
+    height: 40rpx;
+    padding-left: 30rpx;
+}
+
+.pt-cell__image {
+    width: 68rpx;
+    height: 68rpx;
+    border-radius: 34rpx;
+}
+
+.pt-cell__detail {
+    font-size: 24rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20rpx;
+}
+
+.pt-cell__btn {
+    position: absolute;
+    right: 30rpx;
+    border-radius: 4rpx;
+    width: 118rpx;
+    height: 58rpx;
+    line-height: 58rpx;
+}

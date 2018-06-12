@@ -1,0 +1,53 @@
+.cell-view {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20rpx;
+    background-color: white;
+}
+
+.cell-left-view {
+    display: flex;
+    flex-direction: column;
+    width: 160rpx;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+.cell-right-view {
+    display: flex;
+    flex-direction: column;
+}
+
+.cell-head-image {
+    width: 100rpx;
+    height: 100rpx;
+    margin-top: 33rpx;
+    border-radius: 50%;
+}
+
+.cell-score-text {
+    font-size: 34rpx;
+    color: #ff8083;
+    margin-top: 29rpx;
+}
+
+.cell-name-text {
+    font-size: 32rpx;
+    color: #333;
+    margin-top: 35rpx;
+    margin-right: 10rpx;
+}
+
+.cell-address-text {
+    font-size: 26rpx;
+    color: #666;
+    margin-top: 19rpx;
+    margin-right: 10rpx;
+}
+
+.cell-case-number-text {
+    font-size: 26rpx;
+    color: #333;
+    margin-top: 42rpx;
+    margin-bottom: 35rpx;
+}

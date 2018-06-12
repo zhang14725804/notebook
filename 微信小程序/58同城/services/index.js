@@ -1,0 +1,1 @@
+module.exports = Object.assign({}, require("./login"), require("./storage"), require("./gpsLocation"));

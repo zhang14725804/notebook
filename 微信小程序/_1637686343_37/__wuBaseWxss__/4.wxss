@@ -1,0 +1,7 @@
+.m-filmLibrary-loading {
+    font-size: 26rpx;
+    height: 120rpx;
+    color: #999;
+    line-height: 120rpx;
+    text-align: center;
+}

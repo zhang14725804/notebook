@@ -1,0 +1,6 @@
+<template name="empty_prompt">
+    <view class="empty_prompt">
+        <view class="empty_prompt_icon"></view>
+        <text class="empty_prompt_text">{{msg}}</text>
+    </view>
+</template>

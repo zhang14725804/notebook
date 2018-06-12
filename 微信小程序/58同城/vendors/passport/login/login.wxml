@@ -1,0 +1,6 @@
+<import src="../template/init.wxml"></import>
+<import src="template/mobile_login.wxml"></import>
+<import src="template/user_login.wxml"></import>
+<import src="template/picverify.wxml"></import>
+<template is="{{code}}" data="{{typeBtnShow:typeBtnShow,userPicverifyCodeShow:userPicverifyCodeShow,form:form}}"></template>
+<template is="picverify" data="{{...form}}" wx:if="{{picverifyCodeShow}}"></template>

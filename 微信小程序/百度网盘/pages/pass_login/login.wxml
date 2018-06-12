@@ -1,0 +1,16 @@
+<view>
+    <view class="hd-logo"></view>
+    <view class="bd-content bd-form">
+        <form>
+            <view class="section ">
+                <input bindinput="phoneInput" class="bd-phonenum" maxlength="13" placeholder="请输入手机号（无需注册）" type="number" value="{{telnum}}"></input>
+                <label bindtap="clearValue" class="input-clearValue" style="display:{{clearIcon}}"></label>
+            </view>
+            <view class="bd-loginbtn">
+                <button bindtap="loginbtn" class="getcode-btn" style="color:{{btnColor}}">获取手机号验证码</button>
+            </view>
+            <view></view>
+        </form>
+    </view>
+    <view class="bd-toast" style="display:{{toast?'block':''}}">{{toasttxt}}</view>
+</view>

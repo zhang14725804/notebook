@@ -1,0 +1,29 @@
+<view class="mod_box">
+    <view class="mod_hd">
+        <view bindtap="onChangeLabel" class="mod_title{{item.type==='type_30014'?'':' icon_forward'}}" data-metaname="{{item.meta.title}}" data-tagid="{{item.meta.tag_id}}" data-tagtype="{{item.meta.tag_type}}" data-type="{{item.type}}">{{item.meta.title}}
+        </view>
+    </view>
+    <view class="mod_figures">
+        <view class="figures_list">
+            <view bindtap="toPlayPage" class="list_item" data-id="{{el.itemId}}" data-index="{{i}}" data-modidx="{{modIndex}}" data-stat="{{page==='hot'?'play:channel_hot-'+curId:''}}" wx:for="{{item.list}}" wx:for-index="i" wx:for-item="el" wx:key="modIndex">
+                <view class="figure">
+                    <image class="figure_pic" src="{{el.image_url}}"></image>
+                    <view class="mark" style="background-image:url({{el.imgtagUrl}})" wx:if="{{el.imgtagUrl}}"></view>
+                    <view class="figure_caption" wx:if="{{curId==100113||curId==100119}}">{{el.episode_updated}}</view>
+                    <view class="figure_caption figure_date" wx:if="{{curId==100109}}">{{el.publish_date}}</view>
+                    <view class="figure_caption figure_score" wx:if="{{curId==100173}}">{{el.score}}</view>
+                </view>
+                <block wx:if="{{page!=='hot'}}">
+                    <view class="figure_title">{{el.title}}</view>
+                    <view class="figure_desc" wx:if="{{el.sub_title}}">{{el.sub_title}}</view>
+                </block>
+                <view class="figure_detail_two_row" wx:else>
+                    <view class="figure_title_two_row">
+                        <view class="title">{{el.title}}</view>
+                        <view class="desc" wx:if="{{el.sub_title}}">{{el.sub_title}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,41 @@
+<view class="container">
+    <view class="p-loading" xmlns:wx="" wx:if="{{state.showLoading}}"></view>
+    <view class="p-error" wx:if="{{!!state.errmsg}}">{{state.errmsg}}</view>
+    <view id="main" wx:if="{{!state.errmsg&&!state.showLoading}}">
+        <view class="swipe" id="mySwipe">
+            <view class="content-wrap">
+                <view class="detail-wrap">
+                    <view class="detail-list">
+                        <view class="li" wx:for="{{state.pagedata.fee_detail}}" wx:for-index="detail_index" wx:for-item="detail" wx:key="detail_key">
+                            <view class="li-whole-item" style="color:{{detail.color}}">
+                                <text class="left"> {{detail.title}} </text>
+                                <text class="right"> {{detail.value}} </text>
+                            </view>
+                            <view class="li-detail-items" wx:if="{{detail.children&&detail.children.length>0}}">
+                                <view class="li-detail-item" style="color:{{detail.color}}" wx:for="{{detail.children}}" wx:for-index="children_index" wx:for-item="children" wx:key="children_key">
+                                    <text class="left" style="color: {{children.color}}"> {{children.title}} </text>
+                                    <text class="right" style="color: {{children.color}}"> {{children.value}} </text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="fee-total">
+                        <view class="total-amount">
+                            <text class="big-size">{{state.pagedata.sum.value}}</text>
+                            <text class="n-font-size">元</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="price-tips">
+                    <view class="price-remark">
+                        <view class="text">预估费用仅供参考，实际费用可能会因交通情况、天气等因素而不同。</view>
+                    </view>
+                    <view bindtap="_dispatch" class="price-rule" data-bindtap="onCheckPriceRule">
+                        <text class="text">计价规则详情</text>
+                        <text class="mfic mfic-click"></text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

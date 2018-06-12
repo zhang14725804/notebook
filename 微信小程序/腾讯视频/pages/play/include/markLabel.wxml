@@ -1,0 +1,8 @@
+<template name="markLabelWithoutImage">
+    <view class="mark" style="background-image: url({{markItem.markImageUrl}})" wx:if="{{markItem.markImageUrl}}" wx:for="{{markLabelMap}}" wx:for-item="markItem" wx:key="position"></view>
+</template>
+<template name="markLabelWithImage">
+    <view class="mark" style="background-image: url({{markLabelMap[1].markImageUrl}})" wx:if="markLabelMap[1]"></view>
+    <view class="figure_caption" wx:if="{{markLabelMap[2].primeText}}">{{markLabelMap[2]?markLabelMap[2].primeText:''}}</view>
+    <view class="figure_caption" wx:elif="{{markLabelMap[3].primeText}}">{{markLabelMap[3].primeText}}</view>
+</template>

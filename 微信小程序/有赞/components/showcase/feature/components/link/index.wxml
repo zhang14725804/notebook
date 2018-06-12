@@ -1,0 +1,10 @@
+<template name="theme-feature-link">
+    <view class="sc-related-link">
+        <view class="sc-related-link__item" wx:for="{{data.links}}" wx:for-index="listIndex" wx:key="{{ item.linkUrl }}-{{ listIndex }}">
+            <navigator class="sc-related-link__link" url="{{item.linkUrl}}">
+                <text class="sc-related-link__title" wx:if="{{item.linkTitle}}">{{item.linkTitle}}</text>
+                <text class="zan-icon zan-icon-arrow sc-related-link__icon"></text>
+            </navigator>
+        </view>
+    </view>
+</template>

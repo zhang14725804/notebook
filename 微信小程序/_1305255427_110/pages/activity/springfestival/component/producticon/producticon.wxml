@@ -1,0 +1,22 @@
+<view class="producticon-container">
+    <view class="producticon-item {{item.isCollected?'':' uncollected'}}" wx:if="{{!isSwiper}}" wx:for="{{activityData.card}}" wx:key="item.id">
+        <view class="li-title">
+            <image class="head-image" src="{{item.headerImage}}"></image>
+            <p>
+        {{item.isCollected?item.friendName+'的'+item.productName:defaultCard.content}}
+      </p>
+        </view>
+        <image class="product-icon" src="{{item.imgUrl}}"></image>
+    </view>
+    <scroll-view class="producticon-swiper" scrollX="true" wx:if="{{isSwiper}}">
+        <view class="producticon-item-crosswise {{item.isCollected?'':' uncollected'}} " wx:for="{{activityData.card}}" wx:key="item.id">
+            <view class="li-title-crosswise">
+                <image class="head-image-crosswise" src="{{item.headerImage}}"></image>
+                <p>
+            {{item.isCollected?item.friendName:defaultCard.content}}
+            </p>
+            </view>
+            <image class="product-icon-crosswise" src="{{item.imgUrl}}"></image>
+        </view>
+    </scroll-view>
+</view>

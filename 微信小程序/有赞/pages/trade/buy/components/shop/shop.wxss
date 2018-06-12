@@ -1,0 +1,198 @@
+@import "../../../../../__wuBaseWxss__/15.wxss";
+
+.shop__shopname {
+    height: 50px;
+    line-height: 50px;
+    padding-left: 15px;
+}
+
+.shop__message {
+    padding: 8px 15px;
+}
+
+.shop__message__title {
+    line-height: 1.4rem;
+}
+
+.shop__message__container {
+    padding-left: 82px;
+}
+
+.ump-dialog__content {
+    min-height: 180px;
+}
+
+.ump-dialog__list {
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.shop__empty-block {
+    padding: 31px 0 20px;
+    border-top: 1rpx solid #e5e5e5;
+    text-align: center;
+}
+
+.shop__empty-icon {
+    height: 84px;
+    background: url("https://img.yzcdn.cn/public_files/2016/11/30/031ac6541509ccc171e2bf2b9e8da405.png") no-repeat center;
+    background-size: 80px 84px;
+}
+
+.shop__empty-tips {
+    padding: 20px 0;
+    font-size: 14px;
+    color: #999;
+}
+
+.shop__empty-btn {
+    height: 35px;
+    line-height: 35px;
+    margin-right: 0px;
+}
+
+.deliveryDialog_container {
+    width: 100%;
+}
+
+.zan-popup__container {
+    width: 100%;
+}
+
+.deliveryDialog {
+    height: 150px;
+    margin: 0 0 0 44px;
+    border-bottom: 1rpx solid #e5e5e5;
+    overflow: hidden;
+}
+
+.deliveryDialog_close-icon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.deliveryDialog_bottom-checked-text {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    color: #333;
+    font-size: 14px;
+}
+
+.message__contact-button {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    opacity: 0;
+}
+
+.delivery-dialog_title {
+    display: flex;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 16px;
+    padding-right: 10px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.delivery-dialog_title_text {
+    flex-grow: 1;
+}
+
+.delivery-dialog_title_close {
+    width: 20px;
+}
+
+.delivery-dialog_content {
+    padding: 0 5px;
+}
+
+.delivery-dialog_row {
+    display: flex;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.delivery-dialog_row .checkbox {
+    align-self: center;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
+
+.checkbox .disabled {
+    height: 16px;
+    width: 16px;
+    margin-top: 5px;
+    border-radius: 8px;
+    display: inline-block;
+    border: 1px solid #E5E5E5;
+    background-color: #F8F8F8;
+}
+
+.delivery-dialog_row .postage {
+    flex-grow: 1;
+    padding: 10px 0;
+}
+
+.postage .price {
+    line-height: 25px;
+    height: 25px;
+}
+
+.postage .description {
+    font-size: 12px;
+    color: #999999;
+}
+
+.postage .warn {
+    font-size: 12px;
+    color: #FF6600;
+}
+
+.zan-cell.local-delivery-info {
+    display: block;
+}
+
+.local-delivery-desc {
+    font-size: 12px;
+    color: #666666;
+    line-height: 1.4;
+}
+
+.local-delivery-pic {
+    margin-top: 14px;
+    width: 100%;
+    height: 750rpx;
+}
+
+.idcard__desc {
+    width: 75px;
+}
+
+.goods-presale {
+    background-color: #fafafa;
+}
+
+.goods-presale_desc {
+}
+
+.goods-presale_info {
+    text-align: right;
+}
+
+.presale-flag {
+    display: inline-block;
+    border-radius: 2px;
+    line-height: 13px;
+    padding: 1px 5px;
+    font-size: 10px;
+    color: #fff;
+    background-color: #4b0;
+}

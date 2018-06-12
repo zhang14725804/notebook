@@ -1,0 +1,68 @@
+.cap-slider__bar {
+    position: relative;
+    margin: 0 8px;
+    height: 4px;
+    border-radius: 4.5px;
+    background: #cacaca;
+}
+
+.cap-slider__finished-portion,.cap-slider__loaded-portion {
+    border-radius: 4.5px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.cap-slider__pivot {
+    position: absolute;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    border: 3px solid #fff;
+    box-shadow: 0 1px 4px;
+    border-radius: 50%;
+    background-color: #cacaca;
+    transform: translate3d(0,-50%,0);
+}
+
+.cap-slider--sc-audio {
+    background-color: #f2f2f2;
+}
+
+.cap-slider--sc-audio .cap-slider__bar {
+    margin: 0 8px 0 0;
+    height: 2px;
+    border-radius: 0;
+    background-color: #f2f2f2;
+}
+
+.cap-slider--sc-audio .cap-slider__finished-portion {
+    border-radius: 0;
+}
+
+.cap-slider--sc-audio .cap-slider__pivot {
+    border: 1px solid #e5e5e5;
+    box-shadow: none;
+}
+
+.cap-slider.disabled .cap-slider--sc-audio .cap-slider__pivot {
+    pointer-events: none;
+}
+
+.cap-slider.disabled .cap-slider__pivot:after {
+    background: #eee;
+}
+
+.cap-slider--sc-audio .cap-slider__pivot:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background: #4b0;
+}

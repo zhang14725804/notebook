@@ -1,0 +1,61 @@
+.setting-container {
+    background: #15191f;
+    width: 100%;
+}
+
+.settings-panel {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    box-sizing: border-box;
+    width: 720rpx;
+    margin-left: 30rpx;
+    color: #f7fbff;
+    font-size: 30rpx;
+    height: 94rpx;
+    line-height: 94rpx;
+    border-bottom: 1rpx solid #20272d;
+}
+
+.settings-panel-left {
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+
+.settings-panel-right {
+    -webkit-box-flex: 1;
+    flex: 1;
+    text-align: right;
+    color: #5e6670;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.settings-tips {
+    display: inline-block;
+    margin-right: 25rpx;
+}
+
+.settings-arrow {
+    display: inline-block;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAWBAMAAAAC47AUAAAALVBMVEUAAABASVVASVVASVVASVVASVVASVVASVVASVVASVVASVVASVVASVVASVVASVXz4t7kAAAADnRSTlMA+UdhTfBcZ1jR1dKSj6bX82wAAABXSURBVAjXYyidxAAGcQ8bwPS8dxJgWvHdwwQQzSL3Tgws4PjuoQFUQBgq8A4swCT37jFUy7sDUAEBGA0VvwDhPodyDSDmPIaZCzcWYe86sLUId5VuAVMAgocnqi9BE+cAAAAASUVORK5CYII=) no-repeat;
+    width: 14rpx;
+    height: 22rpx;
+    background-size: 14rpx 22rpx;
+    background-size: contain;
+}
+
+.settings-plholder {
+    display: inline-block;
+    width: 30rpx;
+    height: 22rpx;
+}

@@ -1,0 +1,53 @@
+<import src="../../netdisk_templates/file_list/fileList.wxml"></import>
+<import src="../../netdisk_templates/bottom_modal/bottomModal.wxml"></import>
+<import src="../../netdisk_templates/toast/toast.wxml"></import>
+<import src="../../netdisk_templates/topTip/topTip.wxml"></import>
+<import src="../../netdisk_templates/dialog/dialog.wxml"></import>
+<view class="sharedir-wrap" style="height: {{systemInfo?systemInfo.windowHeightRpx+'rpx':'auto'}}" wx:if="{{sharedirData.fileName}}">
+    <scroll-view scrollY bindscrolltolower="loadMoreScrollLower" class="sharedir-scroll-view" lowerThreshold="72">
+        <view class="sharedir-header">
+            <view class="description-wrap">
+                <view class="description-title">
+                    <text>{{sharedirData.fileName}}</text>
+                </view>
+                <view class="description-subtitle">
+                    <text>{{sharedirData.memberNum}}个群成员 · {{sharedirData.updateTime}}</text>
+                </view>
+                <view class="avator-wrap">
+                    <view class="avator-item" style="background-image: url({{item}})" wx:if="{{index<5}}" wx:for="{{sharedirData.avator}}" wx:key="{{*this}}"></view>
+                    <button bindtap="sharedirAddPeople" class="avator-item avator-add" wx:if="{{sharedirData.isRoot}}"></button>
+                </view>
+            </view>
+            <form bindsubmit="formSubmit" reportSubmit="true">
+                <button class="formButtonNone" formType="submit">
+                    <view class="oper-button-wrap">
+                        <view bindtap="sharedirAddFile" class="oper-button">
+                            <view class="op-icon icon-add-file"></view>
+                            <text>添加文件</text>
+                        </view>
+                        <view bindtap="createNewFolder" class="oper-button">
+                            <view class="op-icon icon-create-folder"></view>
+                            <text>新建文件夹</text>
+                        </view>
+                        <view bindtap="batchEdit" class="oper-button">
+                            <view class="op-icon icon-batch-edit"></view>
+                            <text>批量管理</text>
+                        </view>
+                        <view bindtap="sharedirSetting" class="oper-button">
+                            <view class="op-icon icon-settings"></view>
+                            <text>共享设置</text>
+                        </view>
+                    </view>
+                </button>
+            </form>
+            <view class="oper-button-gap"></view>
+        </view>
+        <view class="sharedir-list">
+            <template is="fileList" data="{{fileListTabData:fileListTabData,emptymod:'sharedirlist'}}"></template>
+        </view>
+    </scroll-view>
+</view>
+<template is="bottomModal" data="{{bottomModalData:bottomModalData}}"></template>
+<template is="toast" data="{{...wetoast}}"></template>
+<template is="dialog" data="{{dialogData:dialogData}}"></template>
+<template is="topTip" data="{{tipData:tipData}}"></template>

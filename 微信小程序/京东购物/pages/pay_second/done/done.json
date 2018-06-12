@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "购买完成",
+    "usingComponents": {
+        "quick-nav": "/components/quick-nav/quick-nav",
+        "recommend": "/components/recommend/index",
+        "recommend-tuan": "/pages/components/recommend-tuan/recommend-tuan"
+    }
+}

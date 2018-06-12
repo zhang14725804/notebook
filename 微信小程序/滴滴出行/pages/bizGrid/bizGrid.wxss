@@ -1,0 +1,151 @@
+page {
+    background-color: #fff;
+}
+
+.list-wrapper {
+    width: 100%;
+    border-top: 1rpx solid rgba(0,0,0,.1);
+}
+
+.list-wrapper .list-content {
+    display: flex;
+    background: 0 0;
+    border-bottom: 1rpx solid rgba(0,0,0,.04);
+}
+
+.list-wrapper .list-content .list-item {
+    flex: 1;
+    height: 105px;
+    text-align: center;
+    border-right: 1rpx solid rgba(0,0,0,.04);
+}
+
+.list-wrapper .list-content .list-item:last-child {
+    border: none;
+}
+
+.list-wrapper .list-content .list-item:active {
+    background: 0 0;
+}
+
+.list-wrapper .list-content .list-item .list-link {
+    display: block;
+    box-sizing: border-box;
+    height: 100%;
+    padding-top: 28px;
+}
+
+.list-wrapper .list-content .list-item .list-link .icon {
+    display: block;
+    width: 40px;
+    height: 24px;
+    margin: 0 auto 16px;
+    background-size: 40px 24px;
+}
+
+.list-wrapper .list-content .list-item .list-link .icon.icon-gongjiao {
+    background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_bus@2x.png);
+}
+
+@media (min-device-pixel-ratio:3) {
+    .list-wrapper .list-content .list-item .list-link .icon.icon-gongjiao {
+        background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_bus@3x.png);
+    }
+}
+
+.list-wrapper .list-content .list-item .list-link .icon.icon-carmate {
+    background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_tailwind@2x.png);
+}
+
+@media (min-device-pixel-ratio:3) {
+    .list-wrapper .list-content .list-item .list-link .icon.icon-carmate {
+        background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_tailwind@3x.png);
+    }
+}
+
+.list-wrapper .list-content .list-item .list-link .icon.icon-flash {
+    background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_fast@2x.png);
+}
+
+@media (min-device-pixel-ratio:3) {
+    .list-wrapper .list-content .list-item .list-link .icon.icon-flash {
+        background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_fast@3x.png);
+    }
+}
+
+.list-wrapper .list-content .list-item .list-link .icon.icon-premium {
+    background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_luxury@2x.png);
+}
+
+@media (min-device-pixel-ratio:3) {
+    .list-wrapper .list-content .list-item .list-link .icon.icon-premium {
+        background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_luxury@3x.png);
+    }
+}
+
+.list-wrapper .list-content .list-item .list-link .icon.icon-dache {
+    background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_taxi@2x.png);
+}
+
+@media (min-device-pixel-ratio:3) {
+    .list-wrapper .list-content .list-item .list-link .icon.icon-dache {
+        background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_taxi@3x.png);
+    }
+}
+
+.list-wrapper .list-content .list-item .list-link .icon.icon-sofa {
+    background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_sofa@2x.png);
+}
+
+@media (min-device-pixel-ratio:3) {
+    .list-wrapper .list-content .list-item .list-link .icon.icon-sofa {
+        background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_sofa@3x.png);
+    }
+}
+
+.list-wrapper .list-content .list-item .list-link .icon.icon-driverservice {
+    background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_driver@2x.png);
+}
+
+@media (min-device-pixel-ratio:3) {
+    .list-wrapper .list-content .list-item .list-link .icon.icon-driverservice {
+        background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_driver@3x.png);
+    }
+}
+
+.list-wrapper .list-content .list-item .list-link .icon.icon-rentcar {
+    background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_rentcar@2x.png);
+}
+
+@media (min-device-pixel-ratio:3) {
+    .list-wrapper .list-content .list-item .list-link .icon.icon-rentcar {
+        background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_rentcar@3x.png);
+    }
+}
+
+.list-wrapper .list-content .list-item .list-link .icon.icon-unitaxi {
+    background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_taxi@2x.png);
+}
+
+@media (min-device-pixel-ratio:3) {
+    .list-wrapper .list-content .list-item .list-link .icon.icon-unitaxi {
+        background-image: url(https://webapp.didistatic.com/static/webapp/shield/product_icon_taxi@3x.png);
+    }
+}
+
+.list-wrapper .list-content .list-item .list-link .icon.icon-firstclass {
+    background-image: url(http://static.galileo.xiaojukeji.com/static/tms/shield/product_icon_firstclass@2x.png);
+}
+
+@media (min-device-pixel-ratio:3) {
+    .list-wrapper .list-content .list-item .list-link .icon.icon-firstclass {
+        background-image: url(http://static.galileo.xiaojukeji.com/static/tms/shield/product_icon_firstclass@3x.png);
+    }
+}
+
+.list-wrapper .list-content .list-item .list-link .text {
+    line-height: 1;
+    vertical-align: top;
+    font-size: $fontsize-small;
+    color: $color-light-grey;
+}

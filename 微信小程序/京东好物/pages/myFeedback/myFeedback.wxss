@@ -1,0 +1,144 @@
+.block-item {
+    background: #fff;
+    margin: 10rpx 0;
+    padding: 24rpx;
+}
+
+.block-item:first-child {
+    margin-top: 0;
+}
+
+.block-item.xs {
+    padding-top: 40rpx;
+    padding-bottom: 40rpx;
+}
+
+view.span {
+    display: inline-block;
+}
+
+page {
+    background: #efeff4;
+    font-family: Arial,Helvetica,sans-serif;
+    color: #232326;
+}
+
+.t-c {
+    text-align: center;
+}
+
+.text {
+    font-size: 28rpx;
+}
+
+.text .ignore {
+    color: #888;
+}
+
+.text .emphasize {
+    color: red;
+    font-size: 26rpx;
+}
+
+textarea {
+    background: #efeff4;
+    width: auto;
+    padding: 8rpx;
+}
+
+.input-wrapper {
+    display: inline-block;
+}
+
+input {
+    width: 100%;
+    border-bottom: solid 1rpx #f4f4f8;
+    font-size: 28rpx;
+    color: #000;
+}
+
+label {
+    display: inline-block;
+    margin-top: 17rpx;
+    margin-bottom: 17rpx;
+    font-size: 28rpx;
+}
+
+label.first {
+    margin-top: 0;
+}
+
+.btn-area .default {
+    background: #1aad19;
+    color: #fff;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+.btn-area .default button {
+    text-align: center;
+}
+
+.btn-wrapper {
+    margin: 70rpx 30rpx;
+}
+
+.btn-area {
+    padding: 0 20rpx;
+}
+
+button.no,button.yes {
+    line-height: 66rpx;
+    font-size: 32rpx;
+    margin: 0 18rpx;
+}
+
+button.no::after {
+    border-color: #000;
+}
+
+button.yes {
+    color: #1aad19;
+}
+
+button.yes::after {
+    border-color: #1aad19;
+}
+
+.two-btn-wrapper button.first {
+    margin-left: 20rpx;
+}
+
+.two-btn-wrapper button.last {
+    margin-right: 20rpx;
+}
+
+.my-feedback {
+    background: #efeff4;
+}
+
+.widget-arrow {
+    width: 30rpx;
+    height: 20rpx;
+    position: relative;
+    top: 1rpx;
+    margin-left: 3rpx;
+}
+
+.widget-arrow.open {
+    transform: rotateZ(90deg);
+}
+
+picker {
+    margin-top: 16rpx;
+}
+
+.block-item.lg {
+    padding-top: 16rpx;
+    padding-bottom: 70rpx;
+    margin-bottom: 71rpx;
+}
+
+textarea {
+    margin-bottom: 40rpx;
+}

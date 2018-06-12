@@ -1,0 +1,37 @@
+<template name="sharecutGoods">
+    <view class="sharecut-goods">
+        <navigator hoverClass="none" url="/pages/goods/detail/index?alias={{alias}}&teamName={{teamName}}">
+            <view class="sharecut-goods__image">
+                <image src="{{imageUrl}}"></image>
+                <view class="share-cut__img-sold-1" wx:if="{{isSoldOut}}"></view>
+            </view>
+            <view class="sharecut-goods__desc">
+                <view class="sharecut-goods__title">
+          {{title}}
+        </view>
+                <view class="clearfix">
+                    <view class="sharecut-goods_price-wrapper">
+                        <view class="sharecut-goods__current-price" wx:if="{{showPrice}}">
+                            <text>当前价：</text>
+                            <text class="tag">￥</text>
+                            <text class="price">{{currentPrice}}</text>
+                        </view>
+                        <view class="sharecut-goods__current-price" wx:else>
+                            <text class="price">最低可至0</text>
+                        </view>
+                        <view class="sharecut-goods__origin-price">
+              原价：￥{{originPrice}}
+            </view>
+                    </view>
+                    <view class="sharecut-goods__current-state">
+                        <view class="sharecut-goods__state" wx:if="{{sharePrice>0&&showPrice}}">已砍{{totalCutPrice}}元</view>
+                        <view class="sharecut-goods__state with-padding" wx:else>已砍{{totalCutPrice}}元</view>
+                        <view class="sharecut-goods__engage" wx:if="{{engageNum>0}}">已有{{engageNum}}人参加</view>
+                    </view>
+                </view>
+            </view>
+            <template is="formidReciver" data></template>
+        </navigator>
+    </view>
+</template>
+<import src="../../../../../components/formidReciver/index.wxml"></import>

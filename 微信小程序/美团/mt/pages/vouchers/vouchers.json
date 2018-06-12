@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "我的券包",
+    "usingComponents": {
+        "mt-back": "../../../index/components/mt-back/back",
+        "voucher": "../../components/voucher/voucher"
+    }
+}

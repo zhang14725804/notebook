@@ -1,0 +1,103 @@
+<import src="/comps/comment/index.wxml"></import>
+<import src="/comps/recommend/index.wxml"></import>
+<import src="/comps/feeds/index.wxml"></import>
+<import src="/comps/player/index.wxml"></import>
+<import src="/comps/toast/index.wxml"></import>
+<import src="/comps/playdesc/index.wxml"></import>
+<import src="/comps/topbar/index.wxml"></import>
+<import src="/comps/qqloginmodal/index.wxml"></import>
+<view class="mod_loading" wx:if="{{pageLoading}}">
+    <view class="icon_loading"></view>
+</view>
+<appbanner cid="{{cid}}" vid="{{currentVideo.vid}}"></appbanner>
+<template is="player" data="{{...tvp,commentLayerKey:commentLayerKey,pageError:pageError}}"></template>
+<canvas canvasId="top_tips_canvas" class="mod_top_tips" hidden="{{!showTips}}"></canvas>
+<view bindtap="anyClick" class="page_play u_bg_1" hidden="{{pageLoading||pageError}}" style="background-color:{{pageBgColor}};">
+    <view class="page_play_inner">
+        <scroll-view bindscrolltolower="onScrollToLower" scrollY="true" style="height: 100%;" upperThreshold="140">
+            <view class="mod_main">
+                <view class="u_bg_2" style="background-color:{{pageBgColor}};position: relative">
+                    <view bindtap="selectHD" class="hd_mask" hidden="{{!introduction.showHD}}"></view>
+                    <view class="mod_player_adtip" wx:if="{{tvp.progressDuration&&tvp.state!='error'&&tvp.state!='limit'&&tvp.state!='end'}}">
+                        <view class="player_adtip_text">{{tvp.progressSkipTime==-1?'VIP可跳广告':'广告倒计时'}} <view class="highlight">{{tvp.progressDuration-tvp.progressBaseTime-tvp.progressTime}}</view>秒</view>
+                        <view class="poster_button disabled" wx:if="{{tvp.progressSkipTime>tvp.progressTime+tvp.progressBaseTime}}">{{tvp.progressSkipTime-tvp.progressTime-tvp.progressBaseTime>0?tvp.progressSkipTime-tvp.progressTime-tvp.progressBaseTime:0}}秒后可跳过</view>
+                        <view bindtap="__onTvpSkip" class="poster_button" wx:if="{{tvp.progressSkipTime!=-1&&tvp.progressSkipTime<=tvp.progressTime+tvp.progressBaseTime}}">点击跳过</view>
+                        <view bindtap="payVip" class="poster_button" data-aid="1" wx:if="{{tvp.progressSkipTime==-1}}">开通会员</view>
+                    </view>
+                    <view bindtap="hideAdTips" class="mod_layer_adtip" hidden="{{!showAdTips||!(tvp.progressDuration&&tvp.state!='error'&&tvp.state!='limit')}}">
+                        <view class="triangle"></view>
+                        <view class="title">
+                            <view class="highlight">小程序限时特权：</view>可以跳过广告</view>
+                        <view class="content">发现 - 小程序 - 腾讯视频，可以再次享用~</view>
+                    </view>
+                    <template is="playdesc" data="{{...introduction,pageError:pageError,tvp:tvp,commentLayerKey:commentLayerKey}}"></template>
+                    <block wx:for="{{dataListDesc}}" wx:for-item="dataItem" wx:key="listKey">
+                        <view class="mod_box mod_line" wx:if="{{dataItem.listFlag<3}}">
+                            <view class="mod_hd">
+                                <view class="mod_title">
+                                    <view class="title_txt">{{dataItem.listTitle}}</view>
+                                    <view bindtap="layer" class="title_more" data-key="{{dataItem.listKey}}" wx:if="{{dataItem.listFlag==1&&videoDataMap[dataItem.listKey].uiType!=5}}">
+                                        <view class="more_txt">{{videoDataMap[dataItem.listKey].updateDetail}}</view>
+                                        <view class="icon_arrow"></view>
+                                    </view>
+                                    <view class="title_more" data-key="{{dataItem.listKey}}" wx:if="{{dataItem.listFlag==1&&videoDataMap[dataItem.listKey].uiType==5}}">
+                                        <view class="more_txt">{{videoDataMap[dataItem.listKey].count}}</view>
+                                    </view>
+                                    <view class="title_more" data-key="{{dataItem.listKey}}" wx:if="{{dataItem.listFlag==2}}">
+                                        <view class="more_txt">{{coverDataMap[dataItem.listKey].count}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="mod_bd" wx:if="{{dataItem.listFlag==1}}">
+                                <include src="/pages/play/include/video_0/block.wxml" wx:if="{{videoDataMap[dataItem.listKey].uiType==0}}"></include>
+                                <include src="/pages/play/include/video_1/block.wxml" wx:if="{{videoDataMap[dataItem.listKey].uiType==1}}"></include>
+                                <include src="/pages/play/include/video_2/block.wxml" wx:if="{{videoDataMap[dataItem.listKey].uiType==2}}"></include>
+                                <include src="/pages/play/include/video_5/block.wxml" wx:if="{{videoDataMap[dataItem.listKey].uiType==5}}"></include>
+                            </view>
+                            <view class="mod_bd" wx:if="{{dataItem.listFlag==2}}">
+                                <include src="/pages/play/include/cover/block.wxml"></include>
+                            </view>
+                        </view>
+                        <template is="recommend" data="{{...recommend}}" wx:if="{{dataItem.listFlag==3}}"></template>
+                    </block>
+                </view>
+                <view class="mod_comments" style="padding-bottom: 0;position: relative" wx:if="{{dataItem.listFlag==5}}" wx:for="{{dataListDesc}}" wx:for-item="dataItem" wx:key="listKey">
+                    <view bindtap="selectHD" class="hd_mask" hidden="{{!introduction.showHD}}"></view>
+                    <template is="comment" data="{{...comment}}"></template>
+                </view>
+            </view>
+        </scroll-view>
+        <template is="toast" data="{{...toast}}"></template>
+        <template is="playdesc-detail" data="{{...introduction,showLayer:showLayer,modLayerAnimation:modLayerAnimation,layerShadow:layerShadow,layerScrollTop:layerScrollTop,pageBgColor:pageBgColor}}"></template>
+        <view class="mod_layer u_bg_2 {{showLayer==dataItem.listKey?'':'none'}} {{modLayerAnimation?'ios8':''}}" style="background-color:{{pageBgColor}};" wx:if="{{dataItem.listFlag<3}}" wx:for="{{dataListDesc}}" wx:for-item="dataItem" wx:key="listKey">
+            <view class="mod_layer_inner">
+                <view class="mod_video_tit {{layerShadow?'shadow':''}}">
+                    <view class="video_tit">
+                        <view class="tit_txt">{{dataItem.listTitle}}</view>
+                        <view bindtap="layer" class="ly_close"></view>
+                    </view>
+                </view>
+                <view class="mod_layer_bd">
+                    <scroll-view bindscroll="onLayerScroll" bindscrolltolower="onLayerScrollBottom" data-flag="{{dataItem.listFlag}}" data-key="{{dataItem.listKey}}" scrollTop="{{layerScrollTop}}" scrollY="true" style="height: 100%;">
+                        <include src="/pages/play/include/video_0/detail.wxml" wx:if="{{dataItem.listFlag==1&&videoDataMap[dataItem.listKey].uiType==0}}"></include>
+                        <include src="/pages/play/include/video_1/detail.wxml" wx:if="{{dataItem.listFlag==1&&videoDataMap[dataItem.listKey].uiType==1}}"></include>
+                        <include src="/pages/play/include/video_2/detail.wxml" wx:if="{{dataItem.listFlag==1&&videoDataMap[dataItem.listKey].uiType==2}}"></include>
+                        <include src="/pages/play/include/video_5/detail.wxml" wx:if="{{dataItem.listFlag==1&&videoDataMap[dataItem.listKey].uiType==5}}"></include>
+                        <include src="/pages/play/include/cover/detail.wxml" wx:if="{{dataItem.listFlag==2}}"></include>
+                    </scroll-view>
+                </view>
+            </view>
+        </view>
+        <template is="recommend-layer" data="{{...recommend,recommendShowLayer:recommendShowLayer,layerShadow:layerShadow,layerScrollTop:layerScrollTop,modLayerAnimation:modLayerAnimation}}"></template>
+        <template is="comment-list" data="{{...comment,pageBgColor:pageBgColor}}"></template>
+        <template is="comment-edit" data="{{...comment,pageBgColor:pageBgColor}}"></template>
+        <template is="comment-reply-list" data="{{...comment,pageBgColor:pageBgColor}}"></template>
+    </view>
+</view>
+<template is="qqloginmodal" data="{{...qqloginmodal}}"></template>
+<view bindtap="refresh" class="mod_empty" hidden="{{!pageError}}">
+    <view class="icon_empty"></view>
+    <view class="empty_title">服务器出了点小问题({{pageError!==true?pageError:0}})</view>
+    <view class="empty_text">你可以刷新试试</view>
+    <view class="empty_btn">刷新</view>
+</view>

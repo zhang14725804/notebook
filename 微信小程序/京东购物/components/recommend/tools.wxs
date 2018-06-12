@@ -1,0 +1,71 @@
+var price = require("p_./common/wxs/price.wxs")();
+
+function getYDStyle(yd) {
+    return yd && yd.url ? "background-image:url({0});".replace("{0}", yd.url) : "";
+}
+
+function getYDPrice(val) {
+    var int = price(val / 100).int;
+    var decimal = price(val / 100).decimal;
+    return int.length > 3 ? {
+        int: int,
+        decimal: ""
+    } : {
+        int: int,
+        decimal: +decimal ? "." + decimal : ""
+    };
+}
+
+function getClsICON(v) {
+    var classes = {
+        0: "",
+        1: "icon_jd_market",
+        2: "icon_zy",
+        4: "icon_jdwl",
+        7: "icon_fp_pop",
+        8: "icon_fp_zy",
+        9: "icon_global",
+        10: "icon_global_zy",
+        11: "icon_jdjx"
+    };
+    return classes[(nt_0 = v, null == nt_0 ? undefined : "Number" === nt_0.constructor ? nt_0 : "" + nt_0)] || "";
+}
+
+function getPromotionTipText(v) {
+    return {
+        0: "",
+        1: "满减",
+        2: "券",
+        3: "闪购",
+        4: "新品",
+        5: "秒杀",
+        6: "拼购"
+    }[(nt_1 = v, null == nt_1 ? undefined : "Number" === nt_1.constructor ? nt_1 : "" + nt_1)] || "";
+}
+
+function formatMoney(v) {
+    var priceObj = price(v / 100);
+    var int = priceObj.int;
+    var decimal = priceObj.decimal;
+    if (decimal[0] === "0" && +decimal > 0) {
+        decimal = decimal;
+    } else if (decimal[1] === "0" && +decimal > 0) {
+        decimal = decimal[0];
+    } else if (+decimal > 0) {
+        decimal = decimal;
+    } else {
+        decimal = "";
+    }
+    return {
+        int: int,
+        decimal: decimal
+    };
+}
+
+module.exports = {
+    getYDStyle: getYDStyle,
+    getYDPrice: getYDPrice,
+    getClsICON: getClsICON,
+    getPromotionTipText: getPromotionTipText,
+    formatMoney: formatMoney
+};

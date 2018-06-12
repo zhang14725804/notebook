@@ -1,0 +1,352 @@
+@import "../checkout/index.wxss";
+
+page::before {
+    display: none;
+}
+
+.options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 80rpx;
+    height: 100%;
+    background: url(https://s1.mi.com/m/images/m/check_normal.png) center center no-repeat;
+    background-size: 32rpx 32rpx;
+}
+
+.options_checked_1 {
+    background-image: url(https://s1.mi.com/m/images/m/check_press.png);
+}
+
+.options_checked_2 {
+    background-image: none;
+}
+
+.msxcx-checkout-goods-list-item-line {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.msxcx-checkout-goods-list-item-line-move {
+    position: relative;
+    z-index: 2;
+    padding: 0 32rpx 0 0;
+    overflow: hidden;
+    background: #fff;
+    transition: left 80ms linear;
+}
+
+.msxcx-checkout-goods-list-item-line-content {
+    z-index: 1;
+    position: relative;
+    margin-left: 80rpx;
+    padding: 16rpx 0;
+}
+
+.msxcx-checkout-goods-list-item {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    padding: 0;
+}
+
+.msxcx-checkout-goods-list-item::before {
+    z-index: 9;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #e5e5e5;
+    transform: scaleY(.5);
+    transform-origin: 0 0;
+}
+
+.msxcx-checkout-goods-list-item::after {
+    display: none;
+}
+
+.msxcx-checkout-goods-list-item .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64rpx;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 64rpx 64rpx;
+}
+
+.msxcx-checkout-goods-list-item .goods-name {
+    margin-left: 80rpx;
+}
+
+.msxcx-checkout-goods-list-item .company {
+    color: #fff;
+    background: #58ae47;
+    font-size: 22rpx;
+    padding: 0 8rpx;
+    margin-right: 4rpx;
+}
+
+.msxcx-checkout-goods-list-item-child .goods-name,.msxcx-checkout-goods-list-item-child .price {
+    font-size: 24rpx;
+}
+
+.msxcx-checkout-goods-list-item-child .goods-name {
+    width: 400rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.msxcx-checkout-goods-list-item-child::before,.msxcx-checkout-goods-list-item-child .options {
+    display: none;
+}
+
+.msxcx-checkout-goods-list-item-child .msxcx-checkout-goods-list-item-line-move {
+    height: 96rpx;
+    overflow: hidden;
+    background: #fafafa;
+}
+
+.msxcx-checkout-goods-list-item-child .goods-name {
+    width: 400rpx;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.msxcx-checkout-goods-list-item-sub {
+    position: relative;
+    padding: 16rpx 32rpx 16rpx 80rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    font-size: 24rpx;
+    overflow: hidden;
+    z-index: 2;
+    background: #fafafa;
+}
+
+.msxcx-checkout-goods-list-item-sub .tag {
+    float: left;
+    width: 64rpx;
+    margin-right: 16rpx;
+    text-align: center;
+}
+
+.msxcx-checkout-goods-list-item-sub .goods-name {
+    margin-left: 80rpx;
+    width: 400rpx;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.msxcx-checkout-goods-list-item-sub .buy {
+    position: absolute;
+    top: 27rpx;
+    right: 32rpx;
+    padding: 0 16rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+    color: #fff;
+    background: #ff6700;
+    border-radius: 5rpx;
+}
+
+.msxcx-checkout-goods-list-item-sub image {
+    float: left;
+    margin-right: 16rpx;
+    width: 64rpx;
+    height: 64rpx;
+}
+
+.msxcx-checkout-goods-list-item-sub .image {
+    position: absolute;
+    top: 0;
+    left: 80rpx;
+    width: 64rpx;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 64rpx 64rpx;
+}
+
+.msxcx-checkout-goods-list-item-sub .price {
+    float: right;
+    margin-left: 16rpx;
+    font-size: 28rpx;
+    color: #ff4a00;
+    margin-right: 16rpx;
+}
+
+.msxcx-checkout-goods-list-item-sub .price .num {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.msxcx-checkout-goods-list-item_gray .goods-name {
+    color: #999;
+}
+
+.msxcx-checkout-goods-list-item_gray image {
+    opacity: .6;
+}
+
+.msxcx-checkout-goods-posit {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    width: 96rpx;
+    height: 100%;
+    background: #e8595b url(https://i8.mifile.cn/b2c-mimall-media/6f0b8fe65aed52ee7c2cc98491a6b9fe.png) center center no-repeat;
+    background-size: 32rpx 32rpx;
+}
+
+.mx-ttl {
+    padding: 8rpx 0;
+}
+
+.msxcx-layout-footer {
+    background: #fff;
+    line-height: 100rpx;
+}
+
+.msxcx-layout-footer button {
+    float: right;
+    width: 240rpx;
+}
+
+.msxcx-layout-footer .select-all {
+    position: relative;
+    float: left;
+    padding: 0 16rpx 0 80rpx;
+}
+
+.msxcx-layout-footer .amount {
+    float: right;
+    margin-right: 32rpx;
+    font-size: 32rpx;
+}
+
+.msxcx-layout-footer .amount text:last-child {
+    color: #ff4a00;
+}
+
+.msxcx-layout-footer .msxcx-widget-bigbtn-disabled {
+    background: #ccc;
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.4;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.service-pop {
+    overflow: hidden;
+    position: fixed;
+    left: 32rpx;
+    right: 32rpx;
+    top: 50%;
+    z-index: 2000;
+    background: #fff;
+    transform: translateY(-50%);
+    border-radius: 10rpx;
+}
+
+.service-close {
+    position: absolute;
+    right: 10rpx;
+    top: 10rpx;
+    width: 60rpx;
+    font-size: 40rpx;
+    text-align: center;
+    color: #333;
+}
+
+.service-header {
+    margin-top: 40rpx;
+    margin-bottom: 10rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #333;
+}
+
+.service-main {
+    display: flex;
+}
+
+.service-main-left {
+    display: block;
+    width: 60rpx;
+    height: 60rpx;
+    margin-right: 20rpx;
+}
+
+.service-main-right-title {
+    font-size: 28rpx;
+    line-height: 60rpx;
+    color: #333;
+}
+
+.service-main-right-intro {
+    font-size: 24rpx;
+}
+
+.radio-group {
+    margin-top: 12rpx;
+    margin-left: 10rpx;
+}
+
+.radio-group label {
+    display: inline-block;
+    color: #000!important;
+    font-size: 24rpx;
+    padding-left: 46rpx;
+    position: relative;
+}
+
+.radio-group label radio {
+    display: none;
+}
+
+.radio-group label .options {
+    width: 40rpx;
+    height: 40rpx;
+    top: -2rpx;
+}
+
+.radio-group navigator {
+    display: inline-block;
+    color: #ff6700;
+    font-size: 24rpx;
+    padding: 0 8rpx;
+}
+
+.service-pop-button {
+    width: 200rpx;
+    font-size: 26rpx;
+    margin: 10rpx auto 40rpx;
+}
+
+.service-pop-button-hilight {
+    color: #fff;
+    background: #ff6700;
+}
+
+.service-pop .service-item {
+    padding: 24rpx 30rpx;
+}

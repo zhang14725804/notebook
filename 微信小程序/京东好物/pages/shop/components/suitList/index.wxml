@@ -1,0 +1,80 @@
+<template name="addCar">
+    <view catchtap="addCard" class="suitCar" data-item="{{item}}">
+        <image src="../../shop_images/shop_icon_cart.png" style="width:48rpx;height:48rpx;"></image>
+        <text class="" style="margin-left:20rpx;color:white;font-size: 26rpx">加入购物车</text>
+    </view>
+</template>
+<template name="suitPrice">
+    <view style="margin-top:10rpx">
+        <view style="display:flex;flex-direction: row;align-items: center;">
+            <text style="font-size: 28rpx;margin-left:20rpx;color:#999999">套装价格:</text>
+            <text class="itemPrice_small" style="color:#f23230;margin-left:10rpx">￥<text class="itemPrice_big">{{preJDPrice}}</text>.{{sufJDPrice}}</text>
+            <text style="color:#999999;font-size: 28rpx;margin-left:40rpx;">原价:</text>
+            <text class="itemPrice_small" style="margin-left:20rpx;color:gray;text-decoration:line-through">{{origPrice}}</text>
+        </view>
+        <text style="padding:5rpx;margin-left:20rpx;border: 1px solid red;color:red;font-size:20rpx;border-radius: 4rpx;">立省{{savePrice}}元</text>
+    </view>
+</template>
+<template name="suitList">
+    <view class="promList" style="background-color:#ffffff">
+        <block wx:for="{{suitList||[]}}" wx:key="wareId+{{index}}">
+            <view style="width:750rpx;height:20rpx;background: #f8f8f8;border-top: 1px solid #e0e0e0;border-bottom: 1px solid #e0e0e0;" wx:if="{{index!==0}}"></view>
+            <view catchtap="suitListClick" class="suitSpaceBetween" data-index="{{index}}" data-item="{{item}}" style="height:88rpx;">
+                <view style="display:flex;flex-direction: row;">
+                    <text style="margin-left:20rpx;color:#232326;font-size:30rpx;">优惠套装 {{index+1}}</text>
+                    <text class="itemPrice itemPrice_small" style="color:red" wx:if="{{!item.open}}">￥<text class="itemPrice_big">{{item.preJDPrice}}</text>.{{item.sufJDPrice}}</text>
+                </view>
+                <image class="suitArrowImg" src="{{item.open?'../../shop_images/shop_arrow_up.png':'../../shop_images/shop_arrow_down.png'}}"></image>
+            </view>
+            <view style="display:flex;flex-direction: row;" wx:if="{{!item.open}}">
+                <image catchtap="suitListClick" class="suitItemImg" data-index="{{index}}" data-item="{{item}}" src="{{combItem.imgPath}}" wx:for="{{item.combList||[]}}" wx:for-index="combIndex" wx:for-item="combItem" wx:key="combList+{{index}}"></image>
+            </view>
+            <block wx:else>
+                <block wx:for="{{item.combList||[]}}" wx:for-index="combIndex" wx:for-item="combItem" wx:key="combList+{{index}}">
+                    <view style="margin-left:20rpx;width:730rpx;height:1rpx;background: #e0e0e0;" wx:if="{{combIndex!==0}}"></view>
+                    <view catchtap="skuClick" class="suitListItem" data-item="{{combItem}}" style="min-width: 750rpx;">
+                        <image class="suitItemImg" src="{{combItem.imgPath}}"></image>
+                        <text class="itemText" style="flex:1;color:#232326">{{combItem.wareName}}</text>
+                        <image class="suitArrowImg" src="../../shop_images/shop_arrow_right.png"></image>
+                    </view>
+                </block>
+                <view style="width:750rpx;height:1rpx;background: #e0e0e0;"></view>
+                <template is="suitPrice" data="{{...item}}"></template>
+                <template is="addCar" data="{{item:item}}"></template>
+            </block>
+        </block>
+    </view>
+</template>
+<template name="listItem">
+    <view class="itemBody">
+        <image class="itemImg" src="{{imgPath}}"></image>
+        <text class="itemText">{{wareName}}</text>
+        <view class="itemPromotionBody" wx:if="{{promName}}">
+            <text class="itemPromotion">{{promName}}</text>
+            <text class="itemPromotionText">{{promDesc}}</text>
+        </view>
+        <text class="itemPrice itemPrice_small">￥<text class="itemPrice_big">{{preJDPrice}}</text>.{{sufJDPrice}}</text>
+    </view>
+</template>
+<template name="promList">
+    <template is="suitTips" data="{{...otherMap}}"></template>
+    <view class="promList">
+        <view style="margin-left:20rpx;margin-top:{{index>1?20:0}}rpx" wx:for="{{otherMap.promList||wareList}}" wx:key="wareId+{{index}}">
+            <template is="listItem" data="{{...item}}"></template>
+        </view>
+    </view>
+    <view class="promListBottom">我是有底线的</view>
+</template>
+<template name="suitTips">
+    <view class="suitTips">
+        <view style="width:750rpx;display:flex;display: -webkit-flex;flex-direction: column;-webkit-flex-direction: column;overflow:hidden">
+            <view style="height:20rpx"></view>
+            <text class="tipText" wx:if="{{promTitle}}">{{promTitle}}</text>
+            <text class="{{promRuleOpen?'tipText':'tipText-clamp'}}">{{promRule}}</text>
+        </view>
+        <view bindtap="tipsClick" class="normal" style="top:{{promTitle?30:10}}rpx" wx:if="{{tipsLength>45}}">
+            <image src="{{promRuleOpen?'../../shop_images/shop_arrow_up.png':'../../shop_images/shop_arrow_down.png'}}" style="width: 38rpx;height: 38rpx;"></image>
+        </view>
+    </view>
+</template>
+<template is="suitList" data="{{suitList:suitList}}"></template>

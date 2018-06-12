@@ -1,0 +1,3 @@
+@import "../../common/venues_sub_tab/index.wxss";
+
+@import "../../common/venues_tab/index.wxss";

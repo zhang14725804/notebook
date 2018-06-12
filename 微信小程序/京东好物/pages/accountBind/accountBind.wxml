@@ -1,0 +1,13 @@
+<view class="user-head-img">
+    <image mode="scaleToFill" src="{{userImgUrl}}"></image>
+</view>
+<view class="user-nickname">
+    <text>{{nickname}}</text>
+</view>
+<view class="notice-txt">
+    <text>您的微信账号已绑定以上京东账号 是否直接登录？</text>
+</view>
+<view bindtap="autoClick" class="user-btns">
+    <button bindtap="doSure" class="jd-red-bg" data-eid="MLoginRegister_LittleWxConfirm" data-pname="/pages/accountBind/accountBind" type="primary">确认</button>
+    <button bindtap="otherWay" data-eid="MLoginRegister_LittleWxOther" data-pname="/pages/accountBind/accountBind" type="default">使用其他京东账号登录</button>
+</view>

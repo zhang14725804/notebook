@@ -1,0 +1,12 @@
+<import src="../../../../common/img_loader/img_loader.wxml"></import>
+<view class="carousel">
+    <swiper autoplay="{{true}}" bindchange="onSwiperChange" circular="{{true}}" class="carousel-swiper" current="{{swiperCurrent}}" indicatorDots="{{false}}" interval="3000">
+        <swiper-item bindtap="tapOnItem" class="carousel-swiper__item" data-url="{{item.url}}" wx:for="{{entries}}" wx:key="url">
+            <image class="carousel-swiper__image" mode="aspectFill" src="{{item.image}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="carousel-dot" wx:if="{{entries.length>1}}">
+        <view class="carousel-dot__item carousel-dot__item--{{index==swiperIdx?'cur':''}}" wx:for="{{entries}}" wx:key="image"></view>
+    </view>
+    <template is="img-loader" data="{{imgLoadList:imgLoadList}}"></template>
+</view>

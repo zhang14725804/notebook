@@ -1,0 +1,25 @@
+<template name="session-list">
+    <view bindtap="onGoChat" class="ss-item" data-url="../chat/chat?userid={{item.contact.user_id}}&usersource={{item.contact.user_source}}" wx:for="{{sessionList}}" wx:for-index="idx" wx:key="contact.user_id@contact.user_source">
+        <view class="ss-left">
+            <image class="avatar" src="{{item.contact.avatar}}"></image>
+            <text class="unread" wx:if="{{item.unread!==0}}">{{item.unread}}</text>
+        </view>
+        <view class="ss-right">
+            <view class="top">
+                <text class="name">{{item.contact.user_name}}</text>
+                <text class="time">{{item.msg.send_time}}</text>
+            </view>
+            <view class="lastmsg">
+                <text class="sending" wx:if="{{item.status==='SENDING'}}"></text>
+                <text class="failed" wx:if="{{item.status==='FAIL'}}"></text>
+                    {{item.lastMsg}}
+                </view>
+        </view>
+    </view>
+    <view class="im-loading" wx:if="{{loadStatus.showLoading}}">
+        <view class="icon" wx:if="{{loadStatus.loadInfo==''}}"></view>
+        {{loadStatus.loadInfo}}
+    </view>
+    <template is="logout" data="{{loginStatus:loginStatus}}"></template>
+</template>
+<import src="../../templates/common/logout.wxml"></import>

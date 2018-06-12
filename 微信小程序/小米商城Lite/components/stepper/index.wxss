@@ -1,0 +1,66 @@
+.zan-stepper {
+    color: #666;
+}
+
+.zan-stepper view {
+    display: inline-block;
+    line-height: 34rpx;
+    height: 40rpx;
+    text-align: center;
+    min-width: 40rpx;
+    box-sizing: border-box;
+    vertical-align: middle;
+    font-size: 30rpx;
+    border: 1rpx solid #48615b;
+}
+
+.zan-stepper .zan-stepper__minus {
+    color: #48615b;
+    border-radius: 100rpx;
+    position: relative;
+}
+
+.zan-stepper .zan-stepper__text {
+    border: none;
+    color: #48615b;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    height: 50rpx;
+    width: 50rpx;
+    min-height: auto;
+    font-size: 32rpx;
+    line-height: 50rpx;
+}
+
+.zan-stepper .zan-stepper__plus {
+    color: #48615b;
+    border-radius: 100rpx;
+    background-color: #d7dfdf;
+    border-color: #d7dfdf;
+}
+
+.zan-stepper .zan-stepper__minus.zan-stepper--disabled {
+    visibility: hidden;
+}
+
+.zan-stepper .zan-stepper--disabled {
+    background: #f8f8f8;
+    color: #bbb;
+    border-color: #e8e8e8;
+}
+
+.zan-stepper--small view {
+    min-width: 36px;
+    line-height: 18px;
+}
+
+.zan-stepper--small .zan-stepper__text {
+    width: 36px;
+    line-height: 28px;
+    height: 28px;
+}
+
+.disappear {
+    visibility: hidden;
+}

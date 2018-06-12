@@ -1,0 +1,27 @@
+<template name="mobile_backfill">
+    <form bindsubmit="formSubmit">
+        <view class="risk-tips">
+            <icon class="tips-logo"></icon>你的账户存在安全风险，请完成以下验证</view>
+        <view class="form-body">
+            <view class="risk-backfill fill-block fill-block-no-border">
+                <view class="label">手机号</view>
+                <view class="fill-input-block">
+                    <input class="fill-input" data-type="mobileVal" disabled="true" maxlength="11" name="mobile" placeholder="请输入手机号" placeholderStyle="color:#ccc;" type="number" value="{{mobileVal}}"></input>
+                </view>
+                <view catchtap="verifyclick" class="fill-right-block fill-with-left-border {{verifyColorFlag?'verifyon':''}}">
+                    {{verifytext}}
+                </view>
+            </view>
+            <view class="risk-backfill fill-block">
+                <view class="label">动态码</view>
+                <view class="fill-input-block">
+                    <input bindinput="inputEvent" class="fill-input" data-type="mobilecodeVal" name="mobilecode" placeholder="请输入动态码" placeholderStyle="color:#ccc;" value="{{mobilecodeVal}}"></input>
+                    <view catchtap="resetClick" class="reset-block" data-type="mobilecodeVal" hidden="{{mobilecodeVal?false:true}}">
+                        <icon class="reset"></icon>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <button class="risk-submit" formType="submit">登录</button>
+    </form>
+</template>

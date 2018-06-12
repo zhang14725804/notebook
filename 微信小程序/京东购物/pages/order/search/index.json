@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "我的订单",
+    "usingComponents": {
+        "box": "../components/base-box/index",
+        "search-bar": "../components/search-bar/index",
+        "order-list": "../components/order-list/index",
+        "i-button": "../../components/button/index",
+        "quick-nav": "/components/quick-nav/quick-nav"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "账户余额",
+    "usingComponents": {
+        "quick-nav": "/components/quick-nav/quick-nav"
+    }
+}

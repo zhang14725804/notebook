@@ -1,0 +1,20 @@
+<view class="msxcx-widget-loading msxcx-widget-loading_big" wx:if="{{!loaded}}">
+    <view></view>
+    <text>加载中</text>
+</view>
+<view class="refund-box" wx:else>
+    <view class="refund-box__hd">选择退款原因</view>
+    <view class="refund-box__bd">
+        <view class="refund-options-list">
+            <text bindtap="selectCause" class="option {{item.on?'sel':''}}" data-id="{{item.reason_id}}" wx:for="{{options}}">{{item.reason_desc}}</text>
+        </view>
+        <view class="refund-cause">
+            <textarea bindinput="handleVal" placeholder="详细描述退款原因"></textarea>
+        </view>
+        <view class="refund-tip">
+            <image mode="widthFix" src="https://i8.mifile.cn/b2c-mimall-media/f10ff6a187688ed3cd8822df854581b8.png"></image> 
+        退款申请通过后，支付金额将原路退回，订单中使用的优惠券/礼物码/F码/购买资格，无法退回。
+      </view>
+        <button bindtap="refundSubmit" class="refund-submit-btn" type="mi">立即申请</button>
+    </view>
+</view>

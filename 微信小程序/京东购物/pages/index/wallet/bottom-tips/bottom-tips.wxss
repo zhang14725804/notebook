@@ -1,0 +1,49 @@
+@import "../../../../__wuBaseWxss__/22.wxss";
+
+.bottom-tips {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 44px;
+    z-index: 251;
+    background-color: rgba(0,0,0,.7);
+}
+
+.bottom-tips__disable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+}
+
+.bottom-tips__text {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    flex: 1;
+    padding-right: 34px;
+    align-items: center;
+    font-size: 14px;
+    color: white;
+    line-height: 18px;
+}
+
+.bottom-tips__text::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 17px;
+    right: 12px;
+    width: 10px;
+    height: 10px;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px 2px 0 0;
+    transform: rotate(45deg);
+}
+
+.bottom-tips__link {
+    color: #3985ff;
+}

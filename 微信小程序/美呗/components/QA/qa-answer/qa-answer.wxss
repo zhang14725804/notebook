@@ -1,0 +1,58 @@
+@import "../../../wxParse/wxParse.wxss";
+
+.qa-anwser {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 70rpx;
+}
+
+.qa-anwser-top-separatline {
+    margin-left: 100rpx;
+    border-bottom: solid 1px #f5f5f5;
+}
+
+.qa-anwser-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30rpx;
+}
+
+.qa-anwser-user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.qa-anwser-user image {
+    width: 50rpx;
+    height: 50rpx;
+    border: 2rpx solid rgba(245,245,245,0.6);
+    border-radius: 25rpx;
+    background: #f5f5f5;
+}
+
+.qa-anwser-user text {
+    font-size: 26rpx;
+    color: #999;
+    margin-left: 20rpx;
+}
+
+.qa-comment-best {
+    font-size: 24rpx;
+    color: #fcc27e;
+}
+
+.qa-comment-all {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.qa-anwser-desc {
+    font-size: 28rpx;
+    letter-spacing: 3rpx;
+    margin-left: 100rpx;
+    color: #333;
+}

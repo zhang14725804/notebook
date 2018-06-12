@@ -1,0 +1,32 @@
+<view class="content-view">
+    <view class="flter-view">
+        <view class="flter-item-view">
+            <view bindtap="onTapMenu" class="flter-item-sub-view" data-type="city">
+                <text class="flter-text">{{filterMenuModalView.cityName}}</text>
+                <image class="flter-img" src="{{imageBaseUri}}down-icon.png"></image>
+            </view>
+        </view>
+        <view class="flter-item-link-view"></view>
+        <view class="flter-item-view">
+            <view bindtap="onTapMenu" class="flter-item-sub-view" data-type="project">
+                <text class="flter-text">{{filterMenuModalView.projectName}}</text>
+                <image class="flter-img" src="{{imageBaseUri}}down-icon.png"></image>
+            </view>
+        </view>
+        <view class="flter-item-link-view"></view>
+        <view class="flter-item-view">
+            <view bindtap="onTapMenu" class="flter-item-sub-view" data-type="sort">
+                <text class="flter-text">{{filterMenuModalView.sortName}}</text>
+                <image class="flter-img" src="{{imageBaseUri}}down-icon.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="doctor-list-container">
+        <dcItem doctor="{{item}}" wx:for="{{doctorList}}" wx:key="{{item.id}}"></dcItem>
+        <empty wx:if="{{!doctorList.length&&inited}}"></empty>
+    </view>
+    <loadMore backColor="white" visible="{{HasMore}}"></loadMore>
+    <city bind:changeCity="changeCity" bind:close="closeCity" datas="{{citys}}" visible="{{!filterMenuModalView.cityViewHident}}"></city>
+    <project bind:changeProject="changeProject" bind:closeProject="{{closeProject}}" datas="{{projects}}" visible="{{!filterMenuModalView.projectViewHident}}"></project>
+    <sort bind:closeProject="{{closeSort}}" bind:selectedEvent="changeSort" sortData="{{sorts}}" visible="{{!filterMenuModalView.sortViewHident}}"></sort>
+</view>

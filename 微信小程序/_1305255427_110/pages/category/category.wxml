@@ -1,0 +1,66 @@
+<block wx:if="{{!searchmodel}}">
+    <view class="top-searchbar">
+        <view class="view-searchbar">
+            <view bindtap="toggleSearchModel" class="nav-serchbar">
+                <text class="icon-search"></text>
+                <view class="text-searchbar">搜索您要卖的品牌、机型</view>
+            </view>
+        </view>
+    </view>
+    <view class="page-container">
+        <view class="top-scroll-view">
+            <scroll-view class="top-container" scrollLeft="{{scroll_left}}" scrollWithAnimation="true" scrollX="true">
+                <view bindtap="tapcategorysItem" class="top-item {{item.checked?'active':''}}" data-id="{{item.id}}" data-value="{{item.value}}" wx:for="{{categorys}}" wx:key="{{item.id}}">{{item.value}}</view>
+            </scroll-view>
+        </view>
+        <view class="bottom-container">
+            <scroll-view class="left-container" scrollY="true">
+                <view bindtap="tapBrandItem" class="left-item {{item.checked?'active':''}}" data-id="{{item.id}}" data-index="{{index}}" data-value="{{item.name}}" wx:for="{{brands}}" wx:key="{{item.id}}">
+          {{item.name}}
+        </view>
+            </scroll-view>
+            <scroll-view bindscrolltolower="getMoreProducts" class="right-container" scrollY="true">
+                <view class="right-item" hoverClass="hover-active" wx:for="{{products}}" wx:key="{{item.id}}">
+                    <navigator bindtap="handleTapClickThis" class="my-own-device-container" hoverClass="hover-active" openType="redirect" url="{{'../detail/detail?isfromcategory=true&productId='+item.id+'&categoryId='+categoryId}}" wx:if="{{item.isMyOwn===true}}">
+                        <view class="info-container">
+                            <image class="my-own-image" src="{{item.imgUrl}}"></image>
+                            <view class="my-intro-container">
+                                <text class="tip-title">本机机型</text>
+                                <view class="right-top-container">立即估价</view>
+                                <view class="device-name">{{item.name}}</view>
+                            </view>
+                        </view>
+                    </navigator>
+                    <navigator class="{{products[0].isMyOwn===true&&index===1?'main-icon-before first':''}}{{products[0].isMyOwn===true&&index===2?'main-icon-before second':''}}{{products[0].isMyOwn===true&&index===3?'main-icon-before third':''}}{{!products[0].isMyOwn&&index===0?'main-icon-before first':''}}{{!products[0].isMyOwn&&index===1?'main-icon-before second':''}}{{!products[0].isMyOwn&&index===2?'main-icon-before third':''}}" hoverClass="hover-active" openType="redirect" url="{{'../detail/detail?isfromcategory=true&productId='+item.id+'&categoryId='+categoryId}}" wx:else>
+            {{item.name}}
+          </navigator>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</block>
+<view class="page-containermodel" wx:else>
+    <view class="top-searchbarmodel">
+        <view class="view-searchbarmodel">
+            <text class="icon-search"></text>
+            <input bindinput="searchbar_input" class="input-searchbar" confirmType="search" focus="{{searchbarfocus}}" placeholder="搜索您要卖的品牌、机型" value="{{searchbar_inputvalue}}"></input>
+            <image bindtap="searchbar_clear" class="clear-btn" src="{{icon_clear}}"></image>
+        </view>
+        <view bindtap="toggleSearchModel" class="nav-serchbar-canel">取消</view>
+    </view>
+    <view class="scroll-container">
+        <scroll-view bindscrolltolower="getMoreProducts" class="scroll-view-container {{brandNumber===0?'hidden':''}}" scrollY="true">
+            <view class="container-item {{item.checked?'':'hidden'}}" wx:if="{{item.pageIndex<=2&&item.pageIndex>0}}" wx:for="{{searchmodelProducts}}" wx:key="{{item.id}}">
+                <navigator class="main-icon-before" openType="redirect" url="{{'../detail/detail?isfromcategory=true&productId='+item.id+'&productName='+item.name+'&productImg='+item.imgUrl+'&categoryId='+item.categoryId}}">
+                    <view class="item-name">
+              {{item.name}}
+              <view class="item-price">
+                最高：￥{{item.topPrice}}
+              </view>
+                    </view>
+                </navigator>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<image class="piwik-image-placeholder" src="{{piwikSource}}"></image>

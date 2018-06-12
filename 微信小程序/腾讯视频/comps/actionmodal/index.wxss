@@ -1,0 +1,40 @@
+.action-modal-mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,.3);
+}
+
+.action-modal {
+    z-index: 2;
+    border-radius: 20rpx;
+    background-color: white;
+    position: fixed;
+    bottom: 16rpx;
+    right: 16rpx;
+    left: 16rpx;
+    box-shadow: 0 0 5rpx 1rpx rgba(0,0,0.5);
+    height: 249rpx;
+}
+
+.action-modal-mask.none,.action-modal.none {
+    display: none;
+}
+
+.action-modal .action,.action-modal .cancel {
+    line-height: 124rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #222;
+}
+
+.action-modal .action {
+    color: #fc6f00;
+    border-bottom: 1rpx solid #e9e9eb;
+}
+
+.action-modal .cancel {
+}

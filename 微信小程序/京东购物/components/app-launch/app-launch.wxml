@@ -1,0 +1,10 @@
+<view class="app-launch" wx:if="{{isShow}}">
+    <view class="app-launch__logo">
+        <image src="//st.360buyimg.com/item/images/index/top-jdlogo.png"></image>
+    </view>
+    <view class="app-launch__txt">
+        <text class="app-launch__txtf line1">打开京东APP购物</text>
+        <text class="app-launch__txts line1">多·快·好·省</text>
+    </view>
+    <button appParameter="{{parameter}}" binderror="launchAppError" bindtap="clickUmp" class="app-launch__btn line1" openType="launchApp">立即打开</button>
+</view>

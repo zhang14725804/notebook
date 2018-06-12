@@ -1,0 +1,33 @@
+<import src="/comps/topbar/index.wxml"></import>
+<view class="body">
+    <template is="topbar" data="{{pageLabel:pageLabel}}" wx:if="{{isShareOpen}}"></template>
+    <view bindtap="onFetchAgain" class="mod_empty mod_empty_white {{status.empty?'':'none'}}">
+        <view class="icon_empty"></view>
+        <view class="empty_title">出了点小问题 ({{status.ret}})</view>
+        <view class="empty_text">我们正在紧张地修复</view>
+        <view class="empty_btn">刷新</view>
+    </view>
+    <view class="mod_figures">
+        <view class="mod_figure{{showtype==='v'?'':' mod_figure_h'}}">
+            <view bindtap="onPlay" class="item" data-id="{{item.itemId}}" data-index="{{index}}" wx:for="{{content}}" wx:key="{{itemId}}">
+                <view class="figure_pic_mod">
+                    <image class="figure_pic" src="{{showtype==='v'?item.image_url_vertical:item.image_url}}"></image>
+                    <view class="mark" style="background-image:url({{item.imgtagUrl}})" wx:if="{{item.imgtagUrl}}"></view>
+                    <block wx:if="{{curId==100113||curId==100119}}">
+                        <view class="figure_caption" wx:if="{{item.episode_updated}}">{{item.episode_updated}}</view>
+                    </block>
+                    <block wx:if="{{curId==100109}}">
+                        <view class="figure_caption figure_date" wx:if="{{item.publish_date}}">{{item.publish_date}}</view>
+                    </block>
+                    <block wx:if="{{curId==100173}}">
+                        <view class="figure_caption figure_score" wx:if="{{item.score}}">{{item.score}}</view>
+                    </block>
+                </view>
+                <view class="figure_title figure_title_two_row">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="mod_loading{{status.loading?content.length?' loadmore':'':' hide'}}">
+        <view class="icon_loading"></view>
+    </view>
+</view>

@@ -1,0 +1,16 @@
+<view class="verification-page">
+    <view class="rule">
+        <text>设置密码需要验证你的手机号码{{state.formatCell}}</text>
+    </view>
+    <view class="code-ctn">
+        <text class="code-label">验证码</text>
+        <input bindinput="_dispatch" data-bindinput="handleCodeInput" maxlength="4" placeholder="请输入验证码" placeholderClass="placeholder" type="number" value="{{state.code}}"></input>
+        <text bindtap="_dispatch" class="code-btn retina-border-all {{state.codeBtnDisabled?'disabled':''}}" data-bindtap="sendCode">{{state.codeBtnText}}</text>
+    </view>
+    <view class="btn-ctn">
+        <view bindtap="_dispatch" class="mf-btn {{button.state.classes}}" data-bindtap="handleClick" data-path="button">
+            <view class="{{button.state.icon}}"></view>
+  {{button.props.text}}
+</view>
+    </view>
+</view>

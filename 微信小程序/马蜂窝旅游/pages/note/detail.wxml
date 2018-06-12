@@ -1,0 +1,64 @@
+<image class="banner" src="{{cover.url}}" style="width:{{imgAutoSizes['banner'].width}};height:{{imgAutoSizes['banner'].height}}" wx:if="{{cover.url}}"></image>
+<view bindtouchmove="handletouchmove" class="notes-wrapper">
+    <view class="notes-title">
+        <text>{{title}}</text>
+    </view>
+    <view class="notes-meta">
+        <text class="strong">{{time}}</text>
+        <text>
+            <text class="strong">{{data.pv}}</text> 浏览 · <text class="strong">{{data.reply}}</text> 回复</text>
+    </view>
+    <view class="notes-author">
+        <view class="author">
+            <image class="avatar" src="{{author.avatar}}"></image>
+            <view class="info">
+                <view class="nickname">{{author.name}}<text class="level">Lv{{author.level}}</text>
+                </view>
+                <view class="social-data">{{author.data.note}}篇游记，{{author.data.fans}}粉丝</view>
+            </view>
+        </view>
+        <view bindtap="placeClick" class="place" data-id="{{place.id}}" wx:if="{{place.name}}">
+            <text class="size2" wx:if="{{place.name_length<=2}}">{{place.name}}</text>
+            <text class="size3" wx:if="{{place.name_length==3}}">{{place.name}}</text>
+            <text class="size4" wx:if="{{place.name_length==4}}">{{place.name}}</text>
+            <text class="size5" wx:if="{{place.name_length>=5}}">{{place.name}}</text>
+        </view>
+    </view>
+    <view class="notes-point" wx:if="{{ext}}">
+        <text class="legend">我的出行信息</text>
+        <view class="clearfix">
+            <text class="point time" wx:if="{{ext.start}}">出发时间 {{ext.start}}</text>
+            <text class="point people" wx:if="{{ext.who}}">人物 {{ext.who}}</text>
+            <text class="point cost" wx:if="{{ext.cost}}">人均费用 {{ext.cost}}</text>
+            <text class="point day" wx:if="{{ext.days}}">出行天数 {{ext.days}}</text>
+        </view>
+    </view>
+    <view class="notes-detail">
+        <block wx:for="{{content}}">
+            <view class="tit" wx:if="{{item.type==='paragraph'}}">{{item.content.sn}}</view>
+            <view class="txt" wx:if="{{item.type==='txt'}}">
+                <text decode="true">{{item.content}}</text>
+            </view>
+            <view class="photo" wx:if="{{item.type==='image'}}">
+                <view class="photo-wrap">
+                    <image bindtap="bindImgPreview" data-url="{{item.content.retina_imgurl}}" mode="widthFix" src="{{item.content.imgurl}}"></image>
+                </view>
+                <view class="photo-bar" wx:if="{{item.content.ext.name}}">
+                    <text class="location">{{item.content.ext.name}}</text>
+                </view>
+            </view>
+            <view class="video" wx:if="{{item.type==='video'}}">
+                <video controls="true" src="{{item.content.url}}"></video>
+            </view>
+        </block>
+    </view>
+    <view class="notes-end">
+        <view class="n-cp">本游记著作权归@{{author.name}}所有，任何转载请联系作者。</view>
+        <view>- THE END -</view>
+    </view>
+</view>
+<view class="questions_footer {{isIphoneX?'fix-iphonex-button':''}}">
+    <button bindtap="toIndex" class="questions_footer_index">首页</button>
+    <view class="questions_footer_icon"></view>
+    <button class="questions_footer_share" openType="share">分享</button>
+</view>

@@ -1,0 +1,20 @@
+<template name="searchbar">
+    <view class="searchbar">
+        <view class="searchbar-bar flb {{filter?'filter':''}}">
+            <view class="searchbar-inpwrap flb flb-1">
+                <view class="searchbar-search"></view>
+                <input autoFocus="{{autofocus}}" bindblur="onSearchbarBlur" bindconfirm="onSearchbarConfirm" bindfocus="onSearchbarFocus" bindinput="onSearchbarInput" class="searchbar-input flb-1" debounceTime="300" focus="{{focus}}" maxlength="140" placeholder="请输入片名、主演或导演" type="text" value="{{word2}}"></input>
+                <view bindtap="onSearchbarClear" class="searchbar-clear" wx:if="{{word||word2}}"></view>
+            </view>
+            <view bindtap="onSearchbarCancel" class="searchbar-button" style="display: {{word&&isAndroid&&isFocus?'none':''}}">取消</view>
+            <view bindtap="onSearchButtonClick" class="searchbar-button" style="display: {{word&&isAndroid&&isFocus?'':'none'}}">搜索</view>
+        </view>
+        <scroll-view class="searchbar-layout {{showLayout?'':'fold'}}" scrollY="true">
+            <include src="/comps/searchbar/smart.wxml"></include>
+            <view style="display: {{!smartResults.length&&showLayout?'':'none'}}">
+                <include src="/comps/searchbar/history.wxml"></include>
+                <include src="/comps/searchbar/rank.wxml"></include>
+            </view>
+        </scroll-view>
+    </view>
+</template>

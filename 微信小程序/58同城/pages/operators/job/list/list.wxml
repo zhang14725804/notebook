@@ -1,0 +1,18 @@
+<import src="../../../common/wx-list.wxml"></import>
+<view class="main-container">
+    <view class="top-container">
+        <view class="top-container-text text-title">{{industryName}}的平均工资是</view>
+        <view class="top-container-text text-salary">
+            <text class="symbol" wx:if="{{salaryAvg}}">￥</text>{{salaryAvg}}
+      </view>
+        <view class="text-desc-border">
+            <view class="top-container-text text-desc">以下是为您选择的高薪职位</view>
+        </view>
+    </view>
+    <view class="list-body">
+        <template is="wxList" data="{{flag:true,list:list,cateCode:cateCode,animation:animation,hasMore:hasMore,searchKey:searchKey,telNum:telNum,isTelAlertShow:isTelAlertShow,telCountTime:telCountTime}}"></template>
+        <view class="show-all-wrap" wx:if="{{!loading}}">
+            <view catchtap="e_showAll" class="show-all{{isIphoneX?' show-all-iphonex':''}}">点此查看全部信息</view>
+        </view>
+    </view>
+</view>

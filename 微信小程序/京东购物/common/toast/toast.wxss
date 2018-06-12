@@ -1,0 +1,25 @@
+.toast {
+    position: fixed;
+    left: 175rpx;
+    top: 50%;
+    transform: translateY(-61.8%);
+    z-index: 332;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 15px;
+    width: 400rpx;
+    border-radius: 5px;
+    background: rgba(0,0,0,.7);
+}
+
+.toast icon {
+    margin-bottom: 10px;
+}
+
+.toast text {
+    word-break: break-all;
+    font-size: 14px;
+    color: #fff;
+}

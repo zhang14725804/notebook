@@ -1,0 +1,5 @@
+<view class="mod_appbanner" hidden="{{!show}}">
+    <view class="logo"></view>
+    <view class="text">提升三倍流畅度，打开腾讯视频</view>
+    <button appParameter="{{scheme}}" openType="launchApp">前往APP</button>
+</view>

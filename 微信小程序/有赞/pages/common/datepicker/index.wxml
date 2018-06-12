@@ -1,0 +1,24 @@
+<view class="datepicker">
+    <view class="header">
+        <view bindtap="onCancelTap" class="cancel">取消</view>
+        <view class="title">{{title}}</view>
+    </view>
+    <view class="nav">
+        <text class="week" wx:for="{{weekDay}}" wx:for-index="idx" wx:for-item="week" wx:key="idx">{{week}}</text>
+    </view>
+    <scroll-view class="month-panel" scrollY="true">
+        <view class="monthboxs" wx:for="{{monthList}}" wx:for-index="idx" wx:for-item="month" wx:key="month.description">
+            <view class="description">{{month.description}}</view>
+            <view class="day-row" wx:for="{{month.rows}}" wx:for-index="idx1" wx:for-item="row" wx:key="idx1">
+                <block wx:for="{{row}}" wx:for-index="idx2" wx:for-item="day" wx:key="idx2">
+                    <view bindtap="{{day.enabled?'onDayTap':''}}" class="day {{day.enabled?'':'disabled '}}{{day.selected?'selected ':''}}" data-date="{{day.date}}" wx:if="{{!day.fake}}">
+            {{day.description}}
+          </view>
+                    <view class="day fake" wx:if="{{day.fake}}"></view>
+                </block>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<import src="../wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

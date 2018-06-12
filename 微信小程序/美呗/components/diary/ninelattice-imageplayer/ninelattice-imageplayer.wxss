@@ -1,0 +1,162 @@
+.imageplayer {
+    display: flex;
+    width: 100vw;
+    padding: 20rpx;
+    justify-content: space-between;
+}
+
+.imageplayer image-player {
+    width: 230rpx;
+    height: 230rpx;
+}
+
+.imageplayer-1 {
+    height: 100vw;
+}
+
+.imageplayer-1 image-player {
+    width: 710rpx;
+    height: 710rpx;
+}
+
+.imageplayer-2 {
+    height: 385rpx;
+    align-items: center;
+}
+
+.imageplayer-2 image-player {
+    width: 345rpx;
+    height: 345rpx;
+}
+
+.imageplayer-3 {
+    height: 510rpx;
+}
+
+.mageplayer-3-view-first,.mageplayer-3-view-first image-player {
+    width: 470rpx;
+    height: 470rpx;
+}
+
+.imageplayer-3 view {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 230rpx;
+    height: 470rpx;
+}
+
+.imageplayer-4 {
+    flex-direction: column;
+    height: 990rpx;
+}
+
+.mageplayer-4-view-first,.mageplayer-4-view-first image-player {
+    width: 710rpx;
+    height: 710rpx;
+}
+
+.imageplayer-4 view {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 230rpx;
+}
+
+.imageplayer-5 {
+    flex-direction: column;
+    height: 630rpx;
+}
+
+.imageplayer-5-view-first {
+    display: flex;
+    justify-content: space-between;
+    height: 350rpx;
+}
+
+.imageplayer-5-view-first image-player {
+    width: 350rpx;
+    height: 350rpx;
+}
+
+.imageplayer-5-view-flast {
+    display: flex;
+    justify-content: space-between;
+    height: 230rpx;
+}
+
+.imageplayer-6 {
+    flex-direction: column;
+    height: 750rpx;
+}
+
+.imageplayer-6-view-first {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 470rpx;
+}
+
+.mageplayer-7-view-first-first,.mageplayer-7-view-first-first image-player {
+    width: 470rpx;
+    height: 470rpx;
+}
+
+.imageplayer-6-view-first view {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 230rpx;
+    height: 470rpx;
+}
+
+.imageplayer-6-view-flast {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10rpx;
+    height: 230rpx;
+}
+
+.imageplayer-7 {
+    flex-direction: column;
+    height: 1230rpx;
+}
+
+.mageplayer-7-view-first,.mageplayer-7-view-first image-player {
+    width: 710rpx;
+    height: 710rpx;
+}
+
+.imageplayer-7-view {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 230rpx;
+}
+
+.imageplayer-8 {
+    flex-direction: column;
+    height: 870rpx;
+}
+
+.imageplayer-8-view-first {
+    display: flex;
+    justify-content: space-between;
+    height: 350rpx;
+}
+
+.imageplayer-8-view-first image-player {
+    width: 350rpx;
+    height: 350rpx;
+}
+
+.imageplayer-8-view {
+    display: flex;
+    justify-content: space-between;
+    height: 230rpx;
+}
+
+.imageplayer-9 {
+    height: 760rpx;
+    flex-wrap: wrap;
+}

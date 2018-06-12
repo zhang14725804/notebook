@@ -1,0 +1,49 @@
+<template name="emptyList">
+    <view class="empty-list-wrap normal-empty-dir-wrap" wx:if="{{emptymod==='dirlist'}}">
+        <view class="empty-icon"></view>
+        <view class="empty-text">
+            文件夹空空的
+        </view>
+        <button bindtap="dirAddFiles" class="empty-add-file">添加文件</button>
+    </view>
+    <view class="empty-list-wrap share-empty-dir-wrap" wx:if="{{emptymod==='sharedirlist'}}">
+        <view class="empty-icon"></view>
+        <view class="empty-text">
+            文件夹空空的
+        </view>
+        <button bindtap="sharedirAddFile" class="empty-add-file">添加文件</button>
+    </view>
+    <view class="empty-list-wrap normal-empty-list-wrap" wx:if="{{emptymod==='mainlist'}}">
+        <view class="empty-icon"></view>
+        <view class="empty-title">
+            这里空空的
+        </view>
+        <view class="empty-text">
+            <text>先在「共享文件」里创建共享、和朋友
+</text>
+            <text>一起上传文件吧~</text>
+        </view>
+    </view>
+    <view class="empty-list-wrap upload-empty-list-wrap" wx:if="{{emptymod==='selectlist'}}">
+        <view class="empty-icon"></view>
+        <view class="empty-text">
+            文件夹空空的
+        </view>
+        <button bindtap="localUpload" class="empty-add-file">添加本地文件</button>
+    </view>
+    <view class="empty-list-wrap upload-empty-list-wrap" wx:if="{{emptymod==='batchEditList'}}">
+        <view class="empty-icon"></view>
+        <view class="empty-text">
+            文件夹空空的
+        </view>
+    </view>
+    <view class="empty-list-wrap share-empty-list-wrap" wx:if="{{emptymod==='sharelist'}}">
+        <view class="empty-icon"></view>
+        <view class="empty-title">
+            共享文件
+        </view>
+        <view class="empty-text">
+            和家人、朋友、同事一起管理
+        </view>
+    </view>
+</template>

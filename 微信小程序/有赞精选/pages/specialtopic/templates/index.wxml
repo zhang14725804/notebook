@@ -1,0 +1,13 @@
+<template name="banner">
+    <image class="banner" data-banner-id="top" mode="aspectFill" src="{{image_url+'?imageView2/2/w/600/h/0/q/90/format/jpg/interlace/1'}}" wx:if="{{image_url}}"></image>
+</template>
+<template name="item">
+    <view bindtap="onItemClick" class="goods-item" data-chunk-index="{{chunkIndex}}" data-item-index="{{index}}" data-section-index="{{sectionIndex}}">
+        <view class="goods-item__image-wrap {{sold_status===2?'soldout':''}}">
+            <image class="goods-item__image" lazyLoad="true" src="{{image_url+'?imageView2/2/w/600/h/0/q/90/format/jpg/interlace/1'}}" style="width: {{size}}px;height: {{size}}px;" wx:if="{{image_url}}"></image>
+            <view class="goods-item__image-mask"></view>
+        </view>
+        <view class="goods-item__title">{{title}}</view>
+        <view class="goods-item__price">¥{{price}}</view>
+    </view>
+</template>

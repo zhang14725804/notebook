@@ -1,0 +1,51 @@
+<view class="wrapper">
+    <view bindtap="{{!isLogined?'toLogin':''}}" class="header">
+        <view class="photo">
+            <image src="{{isLogined&&user&&user.imgUrl?user.imgUrl:defaultHeaderPng}}"></image>
+        </view>
+        <view class="p-info">
+            <view class="p-info-item">
+                <text class="txt">{{isLogined?user.petName:'登录/注册'}}</text>
+                <text class="icn icn-gender {{user.sex==2?'':user.sex==0?'male':'female'}}" wx:if="{{isLogined}}"></text>
+            </view>
+            <block wx:if="{{havePointsFloor}}">
+                <import src="./operatorPoints/operatorPoints.wxml"></import>
+                <template is="operatorPoints" data="{{isLogined:isLogined,user:user}}"></template>
+            </block>
+            <block wx:else>
+                <view class="p-info-item p-info-jingdou" wx:if="{{isLogined&&user.jingBean}}">
+                    <icon class="icon-jingdou"></icon>京豆{{user.jingBean}}</view>
+            </block>
+        </view>
+        <view bindtap="logout" class="btn-area" wx:if="{{isLogined}}">
+            <text class="txt" wx:if="{{isLogined}}">退出登录</text>
+        </view>
+        <text class="not-login" wx:if="{{!isLogined}}"></text>
+    </view>
+    <view bindtap="jumpNav" class="item-list">
+        <view class="item" data-navtype="n-order">
+            <text class="txt" data-navtype="n-order">我的订单</text>
+            <text class="icn icn-right" data-navtype="n-order"></text>
+        </view>
+        <view class="item" data-navtype="n-coupon">
+            <text class="txt" data-navtype="n-coupon">我的优惠券</text>
+            <text class="icn icn-right" data-navtype="n-coupon"></text>
+        </view>
+        <view class="item" data-navtype="n-service">
+            <text class="txt" data-navtype="n-service">退换/售后</text>
+            <text class="icn icn-right" data-navtype="n-service"></text>
+        </view>
+        <view class="item" data-navtype="n-feedback">
+            <text class="txt" data-navtype="n-feedback">反馈</text>
+            <text class="icn icn-right" data-navtype="n-feedback"></text>
+        </view>
+        <block wx:if="{{haveAboutFloor}}">
+            <import src="./zdm/zdmAbout.wxml"></import>
+            <template is="zdmAbout" data></template>
+        </block>
+    </view>
+</view>
+<view class="technical-support">
+    <image class="technical-support-icon" src="http://commonst.360buyimg.com/common/wx-images/JKP_logo.png"></image>
+    <view class="technical-support-text">京东开普勒提供技术支持</view>
+</view>

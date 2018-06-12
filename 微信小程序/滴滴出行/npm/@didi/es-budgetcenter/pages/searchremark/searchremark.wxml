@@ -1,0 +1,12 @@
+<view class="budgetSearchHtml">
+    <ul class="listBox" id="remarkSuggest" style="height:652px,overflowY:scroll">
+        <block wx:if="{{remarklist.props.list.length>0}}">
+            <li catchtap="_dispatch" class="list" data-catchtap="selectRemark" data-name="{{item.reason}}" data-path="remarklist" data-require="{{item.status}}" wx:for="{{remarklist.props.list}}" wx:key="remarkListData">
+                <p>{{item.reason}}</p>
+            </li>
+        </block>
+        <li class="nobd" wx:if="{{remarklist.props.list.length==0}}">
+            <text class="h3">查不到用车备注，请联系管理员</text>
+        </li>
+    </ul>
+</view>

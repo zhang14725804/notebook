@@ -1,0 +1,101 @@
+.box {
+    box-sizing: border-box;
+    border-radius: 8rpx;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.full {
+    width: 100%;
+}
+
+.large-box {
+    width: 100%;
+    height: 92rpx;
+    font-size: 32rpx;
+    line-height: 92rpx;
+}
+
+.large-box_border {
+    line-height: 88rpx;
+}
+
+.small-box {
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 120rpx;
+    padding: 0 30rpx;
+    height: 60rpx;
+    font-size: 28rpx;
+    line-height: 60rpx;
+}
+
+.small-box_border {
+    line-height: 56rpx;
+    padding: 0 28rpx;
+}
+
+.opacity-60 {
+    opacity: 0.6;
+}
+
+.opacity-70 {
+    opacity: 0.7;
+}
+
+.opacity-30 {
+    opacity: 0.3;
+}
+
+.primary {
+    color: rgba(255,255,255,1);
+    background-color: #E93B3D;
+}
+
+.primary-hover {
+    color: rgba(255,255,255,.6);
+}
+
+.primary-disable {
+    color: rgba(255,255,255,0.3);
+}
+
+.default {
+    color: rgba(51,51,51,1);
+    background: white;
+    border: 2rpx solid #ccc;
+}
+
+.default-disable {
+    color: rgba(51,51,51,0.3);
+    background: white;
+}
+
+.large-default-hover {
+    color: rgba(51,51,51,0.6);
+    background: #ddd;
+}
+
+.small-default-hover {
+    color: rgba(51,51,51,0.7);
+    background: #ccc;
+}
+
+.default-red {
+    color: #E93B3D;
+    background: white;
+    border: 2rpx solid #E93B3D;
+}
+
+.default-red-hover {
+    opacity: 0.7;
+    background: #E93B3D;
+    color: rgba(255,255,255,0.7);
+}
+
+.default-red-disable {
+    color: rgba(51,51,51,0.3);
+    background: white;
+    border: 2rpx solid #ccc;
+}

@@ -1,0 +1,5 @@
+<template name="town-nav">
+    <view class="town-nav-wrap">
+        <view catchtap="e_navChange" class="town-nav-item {{item.checked?'checked':''}} {{item.id!=='-1'?'on':''}}" data-index="{{index}}" wx:for="{{townNavList}}" wx:key="index">{{item.name||item.defaultName}}</view>
+    </view>
+</template>

@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "品牌清仓",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "quick-nav": "../../../components/quick-nav/quick-nav",
+        "BrandDetailBanner": "../components/brand_detail_banner/brand_detail_banner",
+        "DetailDes": "../components/detail_des/detail_des",
+        "RowList": "../components/row_list/row_list",
+        "PingBottom": "../components/ping_bottom/ping_bottom"
+    }
+}

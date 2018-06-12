@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "订单详情",
+    "usingComponents": {
+        "dialog": "/food/components/dialog/dialog",
+        "loading": "/food/components/loading/loading"
+    }
+}

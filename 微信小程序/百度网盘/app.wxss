@@ -1,0 +1,204 @@
+@import "netdisk_templates/toast/toast.wxss";
+
+@import "netdisk_templates/empty_list/emptyList.wxss";
+
+.icon-add-file {
+    background-image: url('https://pan.baidu.com/h5-static/mini-program/images/ic_add_files_v130.png');
+}
+
+.icon-add-member {
+    background-image: url('https://pan.baidu.com/h5-static/mini-program/images/ic_add_members_v130.png');
+}
+
+.icon-settings {
+    background-image: url('https://pan.baidu.com/h5-static/mini-program/images/ic_settings_v130.png');
+}
+
+.icon-create-folder {
+    background-image: url('https://pan.baidu.com/h5-static/mini-program/images/ic_new_folder.png');
+}
+
+.icon-batch-edit {
+    background-image: url('https://pan.baidu.com/h5-static/mini-program/images/ic_batch_edit.png');
+}
+
+.icon-addto-member {
+    background-image: url('https://pan.baidu.com/h5-static/mini-program/images/ic_addto_member.png');
+}
+
+.icon-rename {
+    background-image: url('https://pan.baidu.com/h5-static/mini-program/images/ic_rename.png');
+}
+
+.icon-delete {
+    background-image: url('https://pan.baidu.com/h5-static/mini-program/images/ic_delete.png');
+}
+
+.icon-sharedir-rename {
+    background-image: url('https://pan.baidu.com/h5-static/mini-program/images/ic_mine_more.png');
+}
+
+.formButtonNone {
+    background: #fff;
+    border: none;
+    outline: none;
+    border-color: #fff;
+    display: inline;
+    padding: 0;
+    text-align: inherit;
+    line-height: normal;
+}
+
+.formButtonNone::after {
+    content: none;
+}
+
+page {
+    display: block;
+    min-height: 100%;
+    background-color: #fff;
+    font-family: PingFang SC,Helvetica,sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+    color: transparent;
+    width: 0;
+    height: 0;
+}
+
+.bd-content {
+    padding: 0 30rpx;
+    display: block;
+}
+
+.bd-toast {
+    position: fixed;
+    background: rgba(0,0,0,0.70);
+    border-radius: 2px;
+    padding: 32rpx 34rpx;
+    box-sizing: border-box;
+    color: #fff;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+    z-index: 1020;
+}
+
+.input-clearValue {
+    width: 32rpx;
+    height: 32rpx;
+    background: url('https://wappass.baidu.com/static/wpsecurity/img/wechat/close.png') no-repeat center center;
+    background-size: 32rpx 32rpx;
+    position: absolute;
+    right: 28rpx;
+    top: 50%;
+    margin-top: -16rpx;
+    display: none;
+    z-index: 1000;
+}
+
+.input-eye {
+    width: 31rpx;
+    height: 24rpx;
+    background: url('https://wappass.baidu.com/static/wpsecurity/img/wechat/eye_close.png') no-repeat center center;
+    background-size: 31rpx 24rpx;
+    display: block;
+    position: absolute;
+    right: 28rpx;
+    top: 50%;
+    margin-top: -12rpx;
+    z-index: 1000;
+}
+
+.submit-btn {
+    background: #3c76ff;
+    border-radius: 2px;
+    color: #90b6ff;
+    font-size: 36rpx;
+    margin-top: 50rpx;
+}
+
+.bd-input {
+    margin-right: 15rpx;
+    background-color: #fff;
+    border-radius: 2px;
+    font-size: 32rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding: 0 28rpx;
+    width: 60%;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.bd-input:after {
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid rgba(0,0,0,0.2);
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+.bd-username,.bd-password {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: #fff;
+    position: relative;
+    height: 100rpx;
+    font-size: 32rpx;
+    line-height: 100rpx;
+    padding: 0 28rpx;
+}
+
+.input-eye-open {
+    background: url('https://wappass.baidu.com/static/wpsecurity/img/wechat/eye_open.png') no-repeat center center;
+    background-size: 31rpx 24rpx;
+}
+
+.bd-title {
+    font-size: 30rpx;
+    line-height: 42rpx;
+    margin-top: 80rpx;
+    display: block;
+    margin-bottom: 50rpx;
+}
+
+.bd-bottom {
+    color: #969696;
+    font-size: 32rpx;
+    margin: 48rpx 0 20rpx;
+    display: block;
+}
+
+.ignore-set {
+    text-align: right;
+    font-size: 32rpx;
+    display: block;
+    text-decoration: underline;
+    margin-top: 20rpx;
+    color: #969696;
+}
+
+.input-pass,.input-username {
+    height: 100%;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    flex: 1;
+    flex-basis: 0;
+}
+
+.bd-codetxt {
+    white-space: nowrap;
+}

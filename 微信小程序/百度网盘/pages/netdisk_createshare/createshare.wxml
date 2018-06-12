@@ -1,0 +1,18 @@
+<import src="../../netdisk_templates/toast/toast.wxml"></import>
+<view class="createshare-wrap">
+    <view class="title">设置共享名称</view>
+    <view bindtap="clearErrorText" class="input-wrap">
+        <input bindblur="bindKeyBlur" bindinput="bindKeyInput" class="dialog-input" confirmType="done" focus="true" maxlength="255" placeholder="请输入共享的名称" placeholderClass="dialog-input-placeholder" selectionEnd="{{dialogData.selectionEnd}}" selectionStart="0" type="text" value="{{dialogData.value}}">
+            <view catchtap="handleClearInput" class="input-cancel" data-btn="clear"></view>
+        </input>
+    </view>
+    <view class="input-subline"></view>
+    <view class="dialog-subtitle error" wx:if="{{dialogData.errorText!=='legal'&&dialogData.showErrorText}}">
+        <text>{{dialogData.errorText}}</text>
+    </view>
+    <view class="dialog-subtitle" wx:else>
+        <text>举例：学习资料、新西兰之旅、家有萌宝等</text>
+    </view>
+    <button catchtap="handleInputConfirm" class="create-confirm" data-buttonfrom="createGroup" openType="{{dialogData.errorText==='legal'?'share':''}}">创建共享</button>
+</view>
+<template is="toast" data="{{...wetoast}}"></template>

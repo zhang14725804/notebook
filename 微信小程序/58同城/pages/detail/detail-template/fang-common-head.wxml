@@ -1,0 +1,13 @@
+<template name="fang-common-head">
+    <view class="fang-block fang-title-block">
+        <view class="title-left">
+            <view class="fang-block2">
+                <text class="fang-title">{{info.title}}</text>
+            </view>
+            <view class="fang-block1">
+                <text class="fang-date">更新：{{info.updateDate}}</text>
+                <text class="pv" wx:if="{{info.count>=0}}">浏览 ：{{info.count}}次</text>
+            </view>
+        </view>
+    </view>
+</template>

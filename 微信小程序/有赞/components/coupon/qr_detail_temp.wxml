@@ -1,0 +1,58 @@
+<template name="qr-detail">
+    <view bindtap="onDetailLongPressed" class="qr-detail-container" style="height: {{winHeight}}px; width: {{winWidth}}px;">
+        <view class="qr-detail-bg" style="background-image: url({{promoType=='promocard'?'https://img.yzcdn.cn/public_files/2017/08/10/e1abe1323c941b550b1e9dd3641909c8.png':'https://img.yzcdn.cn/public_files/2017/08/10/6279a4d409daf18d8310cfd32f8f0e09.png'}});" wx:if="{{curVisibility}}">
+            <view class="qr-detail-upper" wx:if="{{curVisibility}}">
+                <view class="qr-detail-bar-code" style="background-image: url({{verify_bar}})"></view>
+                <view class="qr-detail-qr-code" style="background-image: url({{verify_qr}})"></view>
+                <view class="qr-detail-qr-number">{{verifyCode}}</view>
+                <view class="qr-detail-hint">请向收银员出示</view>
+            </view>
+            <view class="qr-detail-lower" wx:if="{{curVisibility}}">
+                <view class="qr_detail-lower-container">
+                    <view class="qr-detail-name-view">
+                        <view class="qr-detail-name">
+            名称
+          </view>
+                        <view class="qr-detail-name-content">
+            {{name}}
+          </view>
+                    </view>
+                    <view class="qr-detail-value-view">
+                        <view class="qr-detail-name">
+            面值
+          </view>
+                        <view class="qr-detail-name-content" wx:if="{{thisType===0}}">
+            ¥ {{value}}
+          </view>
+                        <view class="qr-detail-name-content" wx:else>
+            {{discount}} 折
+          </view>
+                    </view>
+                    <view class="qr-detail-limit-view">
+                        <view class="qr-detail-name">
+            使用限制
+          </view>
+                        <view class="qr-detail-name-content">
+          {{conditionString}}
+          </view>
+                    </view>
+                    <view class="qr-detail-expire-view">
+                        <view class="qr-detail-name">
+            有效期
+          </view>
+                        <view class="qr-detail-name-content">
+            {{start_at}} 至 {{end_at}}
+          </view>
+                    </view>
+                </view>
+            </view>
+            <view class="qr-detail-footer-view">
+                <view class="qr-detail-footer-container">
+                    <view class="line left-line"></view>
+                    <view class="qr-detail-footer">截屏保存至相册</view>
+                    <view class="line right-line"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

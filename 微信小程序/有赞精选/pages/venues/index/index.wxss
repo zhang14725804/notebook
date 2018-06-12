@@ -1,0 +1,137 @@
+@import "../common/go_top/index.wxss";
+
+@import "../components/tab/index.wxss";
+
+@import "../components/home/index.wxss";
+
+@import "../components/hold/index.wxss";
+
+@import "../components/custom/index.wxss";
+
+@import "../components/activity/index.wxss";
+
+.venues1111 .seckill-goods {
+    background-color: #FFD200;
+    margin: 0;
+}
+
+.venues1111 .seckill__time-item {
+    color: #9E7400;
+}
+
+.venues1111 .seckill__time-icon {
+    background-image: url('https://img.yzcdn.cn/public_files/2017/10/25/6cb9382494370e852eb38145d1192381.png');
+}
+
+.venues1111 .seckill__time-now {
+    color: #FFD200;
+    background-color: #FF470D;
+}
+
+.venues1111 .goods-fengqiang__fix {
+    padding-bottom: 10rpx;
+}
+
+.venues1111 .goods-fengqiang__item {
+    background-color: #fff;
+    border-radius: 5.5rpx;
+}
+
+.venues1111 .goods-fengqiang__title,.venues1111 .goods-fengqiang__footer {
+    box-sizing: border-box;
+    padding: 0 10rpx;
+}
+
+.venues1111 .goods-fengqiang__footer {
+    padding-bottom: 10rpx;
+}
+
+.venues1111 .goods-fengqiang__buy-btn {
+    margin-right: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.venues1111 .goods-fengqiang__img-wrap {
+    border: none;
+}
+
+.venues1111 .goods-fengqiang_img {
+    height: 220rpx;
+    width: 220rpx;
+}
+
+.venues1111 .limit-discount {
+    background-color: #FF6130;
+    margin: 0;
+}
+
+.venues1111 .goods-group {
+    background-color: #FFD200;
+    margin: 0;
+}
+
+.venues1111 .goods-group__container {
+    padding: 0 15rpx 15rpx;
+}
+
+.venues1111 .seckill-goods .block-title,.venues1111 .goods-group .block-title {
+    color: #fff;
+}
+
+.venues1111 .goods-group__fix+.goods-group__fix {
+    margin-top: 10rpx;
+}
+
+.venues1111 .goods-group__item {
+    background-color: #fff;
+}
+
+.venues1111 .goods-group__fix:first-child {
+    border-top: none;
+}
+
+.venues1111 .goods-group__fix {
+    border-left: none;
+}
+
+.venues1111 .goods-group__navigator {
+    border-right: 8rpx solid #FFD200;
+    border-bottom: 8rpx solid #FFD200;
+}
+
+.venues1111 .goods-group__item {
+    border-right: 8rpx solid #FFD200;
+    border-bottom: 8rpx solid #FFD200;
+}
+
+.venues1111 .goods-group__item:nth-child(3n) {
+    border-right: none;
+}
+
+@import "../common/share_btn/index.wxss";
+
+@import "../../../bower_components/zan/dist/toast/index.wxss";
+
+.venes-contaienr {
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.venes-contaienr .zui-loadmore__tips {
+    background-color: transparent!important;
+}
+
+::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+    color: transparent;
+}
+
+.page-loading {
+    background-image: url('https://img.yzcdn.cn/public_files/2017/11/02/7970220b2d2194905a775277e77a4207.png');
+    background-size: 256rpx 80rpx;
+    height: 100vh;
+    background-position: center 421rpx;
+    background-repeat: no-repeat;
+}

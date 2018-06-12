@@ -1,0 +1,47 @@
+<import src="/components/replyBox/index.wxml"></import>
+<view class="edit">
+    <view class="text-area-container">
+        <textarea autoFocus="{{autoFocus}}" bindblur="bindblur" bindconfirm="bindconfirm" bindfocus="bindfocus" bindinput="bindinpute" confirmType="send" focus="{{focusflag}}" maxlength="-1" placeholder="{{placeholder}}" showConfirmBar="{{keyBoardShowEmoji}}" value="{{replyText}}"></textarea>
+    </view>
+    <view class="edit_operateArea">
+        <view class="edit_media" wx:if="{{previewImages.length}}">
+            <view class="edit_preview" wx:if="{{previewImages.length}}">
+                <view class="edit_preview_item" wx:for="{{previewImages}}" wx:key="{{index}}">
+                    <image catchtap="previewImage" data-idx="{{index}}" data-src="{{item}}" mode="aspectFill" src="{{item}}">
+                        <view catchtap="delImage" class="edit_preview_item_del" data-idx="{{index}}" data-src="{{item}}" wx:if="{{item}}"></view>
+                    </image>
+                    <progress percent="{{uploadTask[index].progress}}"></progress>
+                </view>
+                <view bindtap="chooseImage" class="edit_preview_item edit_preview_add" wx:if="{{previewImages.length<9}}"></view>
+            </view>
+        </view>
+        <view class="edit_operate">
+            <view catchtap="chooseImage" class="edit_operate_view edit_operate_image" id="image" wx:if="{{shouldAddImage}}">
+                <view>
+                    <view class="edit_operate_inline edit_operate_icon edit_operate_icon_image"></view>
+                    <view class="edit_operate_inline edit_operate_text">插入图片</view>
+                </view>
+                <view class=" edit_operate_icon edit_operate_icon_arrow"></view>
+            </view>
+            <view catchtap="showEmoji" class="edit_operate_view edit_operate_emoji" id="emoji">
+                <view>
+                    <view class="edit_operate_inline edit_operate_icon edit_operate_icon_emoji"></view>
+                    <view class="edit_operate_inline edit_operate_text">插入表情</view>
+                </view>
+                <view class=" edit_operate_icon edit_operate_icon_arrow"></view>
+            </view>
+            <view class="edit_operate_view edit_operate_send">
+                <view bindtap="submitComment" class="edit_operate_send_sendBtn {{replyText||previewImages.length||hasInput?'':'grey'}}" data-op="{{replyText||previewImages.length}}">发送</view>
+            </view>
+        </view>
+    </view>
+    <view class="swiper_container {{isIphoneX?'iphoneX':''}}" wx:if="{{showEmojiFlag}}">
+        <swiper indicatorActiveColor="rgba(138,103,71,1)" indicatorColor="rgba(198,178,172,1)" indicatorDots="{{indicatorDots}}">
+            <swiper-item wx:for="{{emojiArr}}" wx:for-index="pid" wx:for-item="ItemData" wx:key="pid">
+                <view class="panel panel{{pid}}">
+                    <view bindtap="tapEmoji" class="emoji_btn" data-name="{{item}}" wx:for="{{ItemData.list}}" wx:for-index="idx" wx:key="idx"></view>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>

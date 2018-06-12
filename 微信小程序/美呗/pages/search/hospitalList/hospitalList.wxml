@@ -1,0 +1,18 @@
+<view>
+    <view style="background:#fff">
+        <view class="list-view" wx:for="{{list}}" wx:for-index="i" wx:key="item">
+            <view bindtap="onTapHosipital" class="cell-view" data-data="{{item}}">
+                <view class="cell-left-view">
+                    <image class="cell-head-image" mode="aspectFill" src="{{item.Image}}"></image>
+                    <text class="cell-score-text">{{item.ComprehensiveScore}}</text>
+                </view>
+                <view class="cell-right-view">
+                    <text class="cell-name-text">{{item.Name}}</text>
+                    <text class="cell-address-text">{{item.Address}}</text>
+                    <text class="cell-case-number-text">案例  {{item.CaseNumber}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <loadMore visible="{{hasMore}}"></loadMore>
+</view>

@@ -1,0 +1,6 @@
+<view class="mod_box">
+    <include src="./comps/box_title.wxml"></include>
+    <view class="mod_figures">
+        <include src="./comps/pics.wxml"></include>
+    </view>
+</view>

@@ -1,0 +1,84 @@
+.swiper_item {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper_item_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lunbotu_swiper .wx-swiper-dots.wx-swiper-dots-horizontal {
+    margin-bottom: -16rpx;
+}
+
+.lunbotu_swiper .wx-swiper-dot {
+    width: 16rpx;
+    height: 16rpx;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 2rpx;
+    margin-right: 2rpx;
+}
+
+.lunbotu_swiper .wx-swiper-dot-active {
+    width: 16rpx;
+    height: 16rpx;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-radius: 10rpx;
+    border-style: solid;
+    border-width: 2rpx;
+    border-color: rgba(0,0,0,0.3);
+    margin-left: 2rpx;
+    margin-right: 2rpx;
+}
+
+.slunbotu_swiper .wx-swiper-dot::before {
+}
+
+.lunbotu_swiper .wx-swiper-dot-active::before {
+    background: rgba(0,0,0,0.3);
+}
+
+.lunbotu_dotview {
+    width: 100%;
+    margin-bottom: 20rpx;
+}
+
+.lunbotu_dotview {
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lunbotu_dotview .dot {
+    margin: 0 6rpx 0 7rpx;
+    width: 12rpx;
+    height: 12rpx;
+    background: rgba(0,0,0,0.3);
+    border-radius: 6rpx;
+}
+
+.lunbotu_dotview .dot_active {
+    margin: 0 6rpx 0 7rpx;
+    width: 16rpx;
+    height: 16rpx;
+    background: #fff;
+    border-radius: 10rpx;
+    border-style: solid;
+    border-width: 2rpx;
+    border-color: rgba(0,0,0,0.3);
+}
+
+.interval-view {
+    height: 10rpx;
+    background-color: white;
+}

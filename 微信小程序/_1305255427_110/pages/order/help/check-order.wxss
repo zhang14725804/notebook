@@ -1,0 +1,70 @@
+page {
+    font-family: 'PingFangSC-Light','PingFang SC','Microsoft Yahei';
+}
+
+.phone-type {
+    width: 100%;
+    padding-left: 20rpx;
+    white-space: nowrap;
+}
+
+.phone-type view {
+    display: inline-block;
+    font-size: 32rpx;
+    line-height: 100rpx;
+    text-align: center;
+    color: #757575;
+    margin-right: 60rpx;
+}
+
+.phone-type .first {
+    margin-left: 0;
+}
+
+.phone-type .selected {
+    color: #ffbb00;
+    border-bottom: 6rpx solid #ffbb00;
+}
+
+.process {
+    position: relative;
+    min-height: 337rpx;
+    margin-bottom: 90rpx;
+    padding-left: 30rpx;
+}
+
+.process-first {
+    margin-top: 90rpx;
+}
+
+.process image {
+    width: 379rpx;
+    height: 337rpx;
+    margin-right: 63rpx;
+}
+
+.process-alt {
+    display: inline-block;
+    vertical-align: top;
+    width: 247rpx;
+}
+
+.process.reverse image {
+    position: absolute;
+    right: 0;
+    margin-right: 30rpx;
+}
+
+.process-alt-num {
+    height: 112rpx;
+    line-height: 112rpx;
+    box-sizing: border-box;
+    border-bottom: 6rpx solid #ffbb00;
+    margin-bottom: 28rpx;
+    font-size: 80rpx;
+    width: 90rpx;
+}
+
+.process-alt-text {
+    font-size: 30rpx;
+}

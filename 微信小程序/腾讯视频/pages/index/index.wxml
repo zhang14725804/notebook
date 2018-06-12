@@ -1,0 +1,8 @@
+<include src="/pages/search/index.wxml"></include>
+<view class="body">
+    <view bindtap="onSearchShow" class="search_box" data-stat="search:entry_index">
+        <view class="icon"></view>
+        <view class="text">请输入片名、主演或导演</view>
+    </view>
+    <include src="/comps/channeltpl/index.wxml"></include>
+</view>

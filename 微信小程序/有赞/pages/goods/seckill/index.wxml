@@ -1,0 +1,77 @@
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/toptips/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/actionsheet/index.wxml"></import>
+<import src="../../../components/copyright/index.wxml"></import>
+<import src="../../../components/ZanAccount/index.wxml"></import>
+<import src="../../../components/ZanAccount/bindPhoneNumber/bindPhoneNumber.wxml"></import>
+<import src="../../../components/sku/index.wxml"></import>
+<import src="../../multi-store/common/store-switch/index.wxml"></import>
+<import src="../../multi-store/common/store-business/index.wxml"></import>
+<import src="../common/goods-detail/bottom_button.wxml"></import>
+<import src="../common/goods-detail/detail.wxml"></import>
+<import src="../../common/wsc-page/index.wxml"></import>
+<view class="page-container {{themeClass}} {{deviceType}}">
+    <view class="feature-page__top-hook"></view>
+    <template is="multi-store-switch" data="{{CURRENT_GLOBAL_SHOP:CURRENT_GLOBAL_SHOP}}" wx:if="{{isMultiStore}}"></template>
+    <template is="store-business-status" data="{{business:CURRENT_GLOBAL_SHOP.business_hours_advanced_text}}" wx:if="{{CURRENT_GLOBAL_SHOP.isMultiStore&&CURRENT_GLOBAL_SHOP.is_opening==0}}"></template>
+    <service-due statusText="{{CURRENT_GLOBAL_SHOP.service.status_text}}" wx:if="{{CURRENT_GLOBAL_SHOP.isServiceDue}}"></service-due>
+    <template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+    <template is="zan-account" data="{{...zanAccount}}"></template>
+    <view class="container" style="min-height: 0" wx:if="{{showBindPhoneNumber}}">
+        <template is="bind_phone_number" data="{{bindTips:bindTips}}"></template>
+    </view>
+    <view class="container">
+        <template is="detail--seckill" data="{{virtualStatus:virtualStatus,shopSetting:shopSetting,redirectToWebView:redirectToWebView,CURRENT_GLOBAL_SHOP:CURRENT_GLOBAL_SHOP,toggleCertIntroPopup:toggleCertIntroPopup,showCertIntro:showCertIntro,stores:stores,isMultiStore:isMultiStore,soldOutRecommend:soldOutRecommend,redrectToStore:redrectToStore,sku:sku,bookNum:bookNum,activity:activity,goods:goods,countdown:countdown,timelimitedDiscount:timelimitedDiscount,delivery:delivery,shopCert:shopCert,orderPreference:orderPreference,isSkNotice:!isSkStart&&!isSkEnd,isSkCheckBook:isSkCheckBook,clickStandardCell:clickStandardCell,shopName:shopName,showPriceIntro:showPriceIntro,showExpressIntroPopup:showExpressIntroPopup,richTextList:richTextList,theme:theme,componentSKU:componentSKU}}"></template>
+        <view class="bottom-info" wx:if="{{bottomInfoText}}">{{bottomInfoText}}</view>
+        <view class="bottom-bar-container">
+            <button class="zan-btn zan-btn--warn zan-btn--large zan-btn--loading" wx:if="{{isLoading}}"></button>
+            <block wx:else>
+                <template is="message-button" data="{{isSetContact:isSetContact,userInfo:userInfo,userInfoDeny:userInfoDeny,kdt_id:kdt_id,goods:goods,page_path:page_path,size:'md',businessId:im.businessId}}" wx:if="{{!(isSkEnd||!isSkStock&&isSkStart)}}"></template>
+                <template is="cart-button" data="{{isSetShoppingCart:isSetShoppingCart,cartCount:cartCount,size:'md'}}" wx:if="{{!(isSkEnd||!isSkStock&&isSkStart)}}"></template>
+                <button class="zan-btn zan-btn--large disabled-btn" wx:if="{{goods.purchaseLimit}}">仅限特定会员购买</button>
+                <block wx:else>
+                    <button bindtap="clickPurchaseBtn" class="zan-btn zan-btn--warn zan-btn--large goods-action__vice-btn" wx:if="{{isStock&&!( isSkStart&&(!isSkCheckBook||isSkBooked) )&&!isSkEnd}}">
+            原价购买
+          </button>
+                    <button bindtap="clickBookSeckillBtn" class="zan-btn zan-btn--danger zan-btn--large goods-action__main-btn {{isLoadingQuestion?'zan-btn--loading':''}}" wx:if="{{!isSkStart&&!isSkEnd&&isSkCheckBook&&!isSkBooked}}">
+            立即预约
+          </button>
+                    <button bindtap="clickPurchaseBtn" class="zan-btn zan-btn--danger zan-btn--large goods-action__main-btn" data-is-seckill="{{true}}" wx:if="{{isSkStock&&isSkStart&&(!isSkCheckBook||isSkBooked)}}">
+            立即抢购
+          </button>
+                    <button bindtap="goHomePage" class="zan-btn zan-btn--warn zan-btn--large goods-action__vice-btn" wx:if="{{!isSkStock||isSkEnd}}">
+            查看店铺其他商品
+          </button>
+                </block>
+            </block>
+        </view>
+        <view class="question-pop-up" wx:if="{{isPopupVisible}}">
+            <view class="question-dialog">
+                <view class="dialog-title-wp">
+                    <view class="dialog-title">
+                        <image class="wrong-face" src="https://b.yzcdn.cn/weapp/seckill/wrong-face.png" wx:if="{{wrongKey!==''}}"></image>
+            {{wrongKey===''?'答对问题，完成预约':'哎哟，答案不对哦'}}
+            <icon bindtap="closePopup" class="icon-close" color="#fff" size="20" type="cancel"></icon>
+                    </view>
+                </view>
+                <view class="dialog-desc-wp">
+                    <view class="question-name">请听题，{{questionDesc}}</view>
+                    <view bindtap="chooseAnswer" class="question-item {{selectedKey===item.key?'active':''}} {{wrongKey===item.key?'wrong':''}}" data-key="{{item.key}}" wx:for="{{questionItemList}}">
+                        <text>{{item.key}}. {{item.content}}</text>
+                        <view class="item-wrong-icon" wx:if="{{wrongKey===item.key}}"></view>
+                        <view class="zan-icon zan-icon-success item-check-icon" wx:if="{{selectedKey===item.key}}"></view>
+                    </view>
+                    <button bindtap="confirmAnswer" class="dialog-click-btn zan-btn zan-btn--danger zan-btn--large {{isBookLoading?'zan-btn--loading':''}}">
+            提交答案
+          </button>
+                </view>
+            </view>
+        </view>
+    </view>
+    <template is="zan-toptips" data="{{zanTopTips:zanTopTips}}"></template>
+    <template is="copyright" data="{{copyright:copyright,is_big_shop:is_big_shop,withFixBottom:true}}" wx:if="{{goods}}"></template>
+    <template is="component-sku" data="{{componentSKU:componentSKU}}"></template>
+    <template is="zan-actionsheet" data="{{...actionsheet}}"></template>
+    <template is="wsc-page" data="{{wscpage:wscpage}}"></template>
+    <share-goods alias="{{shareImage.alias}}" bind:failed="onShareImageError" bind:finished="onShareImageFinished" bind:saved="closeActionSheet" goodsImage="{{shareImage.goodsImage}}" joinNum="{{shareImage.joinNum}}" minPrice="{{shareImage.minPrice}}" originPrice="{{shareImage.originPrice}}" price="{{shareImage.price}}" show="{{shareImage.show}}" showPrice="{{shareImage.showPrice}}" title="{{shareImage.title}}" type="{{shareImage.type}}"></share-goods>
+</view>

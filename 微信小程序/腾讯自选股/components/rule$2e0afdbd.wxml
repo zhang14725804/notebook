@@ -1,0 +1,14 @@
+<template name="rule$2e0afdbd">
+    <view class="_div data-v-434f6ce6 {{msgBoxClassName}}" id="hotpost-rule">
+        <view class="_div data-v-434f6ce6 rule-mask"></view>
+        <view class="_div data-v-434f6ce6 rule-container">
+            <view class="_div data-v-434f6ce6 rule-title">{{title}}</view>
+            <view class="_div data-v-434f6ce6 rule-content">
+                <view class="_div data-v-434f6ce6 item">截止5月31日24:00，获得点赞最多的金句，其发帖用户可获1888元现金红包，其余金句发帖用户可获得500元现金红包。</view>
+                <view class="_div data-v-434f6ce6 item">5月和6月，自选股金句活动定期开展，每周五评选出本周金句并发放最高1888元金句红包，请持续关注。发帖路径：任意行情页-点击左下角[评论]-进入行情评论版。</view>
+                <view class="_div data-v-434f6ce6 item">点赞或分享本页面金句的用户，有机会领取18元小红包，一共200个名额。截止5月28日在行情评论版单帖获10赞以上的用户，也可领取现金红包1个。以上请在6月1日来自选股-行情评论版-公告区查询中奖信息。</view>
+            </view>
+        </view>
+        <view bindtap="handleProxy" class="_div data-v-434f6ce6 rule-close" data-comkey="{{$k}}" data-eventid="{{'0'}}"></view>
+    </view>
+</template>

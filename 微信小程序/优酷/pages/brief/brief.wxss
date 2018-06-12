@@ -1,0 +1,500 @@
+@import "../../__wuBaseWxss__/4.wxss";
+
+@import "../../__wuBaseWxss__/0.wxss";
+
+@import "../../__wuBaseWxss__/2.wxss";
+
+@import "../../__wuBaseWxss__/3.wxss";
+
+text {
+    white-space: pre-line;
+}
+
+.container {
+    width: 750rpx;
+    overflow-x: hidden;
+}
+
+.border-bottom {
+    border-bottom: 2rpx solid #ebebeb;
+}
+
+.module-name {
+    height: 36rpx;
+    line-height: 36rpx;
+    font-size: 34rpx;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+}
+
+button {
+    border: none;
+    padding: 0;
+    line-height: 0;
+    background-color: #fff;
+    border-radius: 0;
+}
+
+button::after {
+    content: '';
+    border: none;
+}
+
+.module {
+    position: relative;
+    padding: 15px 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.net-cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.change-recommend {
+    padding: 0;
+    font-size: 13px;
+    font-weight: bolder;
+    color: #2692ff;
+    display: inline-block;
+    position: relative;
+}
+
+.gradientbg {
+    background: linear-gradient(-180deg,rgba(0,0,0,0) 5%,rgba(0,0,0,0.7) 99%);
+    height: 90rpx;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+}
+
+.vtitle {
+    color: #000;
+    font-size: 28rpx;
+    padding-left: 18rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    line-height: 28rpx;
+    height: 28rpx;
+}
+
+.vdec {
+    color: #999;
+    font-size: 24rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 18rpx;
+    display: block;
+    line-height: 24rpx;
+    height: 24rpx;
+    padding-top: 10rpx;
+}
+
+.item-score {
+    font-size: 36rpx;
+    font-weight: 600;
+    color: #FF6600;
+    position: absolute;
+    right: 32rpx;
+    bottom: 12rpx;
+    height: 36rpx;
+    z-index: 3;
+    line-height: 36rpx;
+}
+
+.score-small {
+    font-size: 22rpx;
+    right: 12rpx;
+    height: 24rpx;
+    line-height: 23rpx;
+}
+
+.drawlist {
+    display: flex;
+    flex-flow: row wrap;
+    width: 762rpx;
+    overflow: hidden;
+}
+
+.title {
+    line-height: 32rpx;
+    font-weight: 700;
+    margin-top: 40rpx;
+    margin-bottom: 30rpx;
+    background: url(http://gw.alicdn.com/tfs/TB14wQHXAyWBuNjy0FpXXassXXa-28-28.png) no-repeat 18rpx 8rpx;
+    background-size: 28rpx 28rpx;
+    background-position-y: 0;
+    padding-left: 64rpx;
+    color: #000;
+    font-size: 32rpx;
+}
+
+.playtime {
+    font-size: 20rpx;
+    color: #f2f2f2;
+    position: absolute;
+    right: 10rpx;
+    bottom: 10rpx;
+    z-index: 3;
+}
+
+.drawlist .item-movie {
+    width: 372rpx;
+    overflow: hidden;
+    height: 332rpx;
+    margin-right: 6rpx;
+    float: left;
+}
+
+.drawlist .item-movie .picwrap {
+    overflow: hidden;
+    margin-bottom: 20rpx;
+    position: relative;
+}
+
+.drawlist .item-movie .pic {
+    display: block;
+    width: 100%;
+    height: 210rpx;
+}
+
+.PHONE_BASE_C .item-movie {
+    width: 246rpx;
+    height: 492rpx;
+}
+
+.PHONE_BASE_C .item-movie .picwrap {
+    height: 370rpx;
+}
+
+.PHONE_BASE_C .item-movie .pic {
+    height: 370rpx;
+}
+
+.PHONE_BASE_E {
+    position: relative;
+    overflow: auto;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 40rpx 0 0 0;
+}
+
+.PHONE_BASE_E .item-movie-e {
+    display: inline-block;
+    height: 322rpx;
+    width: 354rpx;
+    margin-right: 6rpx;
+    position: relative;
+}
+
+.PHONE_BASE_E .picwrap {
+    overflow: hidden;
+    margin-bottom: 20rpx;
+    position: relative;
+    height: 200rpx;
+}
+
+.PHONE_BASE_E .pic {
+    width: 100%;
+    height: 100%;
+}
+
+.brief-container .brief-item {
+    margin-bottom: 15px;
+}
+
+.brief-container .brief-layer {
+    width: 750rpx;
+    height: 211px;
+    position: relative;
+    overflow: hidden;
+}
+
+.brief-container .brief-tags {
+    margin: 10px 0 10px 10px;
+    position: relative;
+    overflow: hidden;
+    height: 28px;
+}
+
+.brief-container .tags-layer {
+    float: left;
+    width: 500rpx;
+    overflow: hidden;
+    height: 100%;
+}
+
+.brief-container .tags-button {
+    display: inline-block;
+    background-color: #F5F5F5;
+    border-radius: 8rpx;
+    text-align: center;
+    line-height: 16px;
+    padding: 4px 18rpx;
+    margin-right: 20rpx;
+}
+
+.brief-container .tags-button text {
+    height: 16px;
+    line-height: 16px;
+    display: inline-block;
+    font-size: 24rpx;
+    color: #000;
+    overflow: hidden;
+    margin-top: 2px;
+}
+
+.brief-container .share-layer {
+    float: right;
+    height: 28px;
+    width: 38px;
+    background: url('http://img.alicdn.com/tfs/TB1SbPwn41YBuNjy1zcXXbNcXXa-36-30.png') no-repeat;
+    background-size: 18px 15px;
+    background-position: 10px 8px;
+}
+
+.brief-container .up-layer {
+    float: right;
+    height: 28px;
+    width: 36px;
+    min-height: 28rpx;
+    background: url('http://img.alicdn.com/tfs/TB1ABQcn4GYBuNjy0FnXXX5lpXa-32-35.png') no-repeat center;
+    background-size: 16px 18px;
+    background-position: 10px 5px;
+}
+
+.brief-container .up-active {
+    background: url('http://img.alicdn.com/tfs/TB1lgEYqXOWBuNjy0FiXXXFxVXa-32-35.png') no-repeat center;
+    background-size: 16px 18px;
+    background-position: 10px 5px;
+}
+
+.brief-container .gradientbg2 {
+    background: linear-gradient(to bottom,rgba(0,0,0,0.02) 14%,rgba(0,0,0,0.5) 99%);
+    height: 100rpx;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+}
+
+.brief-container .gradientbg {
+    background: linear-gradient(to top,rgba(0,0,0,0.02) 14%,rgba(0,0,0,0.5) 99%);
+    height: 100rpx;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+}
+
+.brief-container .brief-player {
+    position: absolute;
+    width: 100%;
+    height: 211px;
+    z-index: 999;
+}
+
+.brief-container .player-background {
+    width: 100%;
+    height: 100%;
+}
+
+.brief-container .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    display: block;
+    z-index: 3;
+}
+
+.brief-container .play-image {
+    width: 90rpx;
+    height: 90rpx;
+}
+
+.brief-container .brief-text {
+    display: block;
+    color: #fff;
+    position: absolute;
+    z-index: 3;
+    left: 30rpx;
+    text-align: center;
+    line-height: 33rpx;
+    font-size: 24rpx;
+}
+
+.brief-container .brief-title {
+    line-height: 40rpx;
+    font-size: 32rpx;
+    top: 30rpx;
+    text-align: left;
+}
+
+.brief-container .brief-playcount {
+    display: block;
+    color: #fff;
+    text-align: left;
+    line-height: 24rpx;
+    font-size: 24rpx;
+    opacity: .8;
+    margin-top: 20rpx;
+}
+
+.brief-container .brief-duration {
+    color: #F2F2F2;
+    line-height: 24rpx;
+    font-size: 24rpx;
+    bottom: 20rpx;
+    right: 20rpx;
+    text-align: right;
+}
+
+.brief-container .brief-uptips {
+    color: #666666;
+    text-align: center;
+    width: 100%;
+    font-size: 24rpx;
+    line-height: 24rpx;
+    padding: 18rpx 0;
+}
+
+.brief-container .brief-uptips text {
+    color: #2692FF;
+}
+
+.brief-container .play-end {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 4;
+}
+
+.brief-container .end-openapp {
+    position: relative;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: block;
+}
+
+.brief-container .openapp-button {
+    display: block;
+    position: relative;
+    width: 250rpx;
+    font-size: 24rpx;
+    line-height: 33rpx;
+    color: #fff;
+    background-color: #2692FF;
+    border-radius: 10rpx;
+    padding: 20rpx;
+}
+
+.brief-container .end-replay {
+    background-image: url('http://img.alicdn.com/tfs/TB1MoU1p1OSBuNjy0FdXXbDnVXa-30-30.png');
+    background-size: 30rpx 30rpx;
+    position: relative;
+    background-repeat: no-repeat;
+    margin-top: 44rpx;
+    text-align: center;
+    background-position-x: 315rpx;
+}
+
+.brief-container .end-replay-text {
+    display: block;
+    color: #fff;
+    position: relative;
+    margin-left: 34rpx;
+    line-height: 30rpx;
+    font-size: 22rpx;
+}
+
+.brief-container .endshow-playimg {
+    width: 48rpx;
+    height: 48rpx;
+    position: absolute;
+    z-index: 2;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.brief-container .endshow-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 16rpx;
+}
+
+.brief-container .endshow-tips {
+    line-height: 30rpx;
+    opacity: .6;
+    font-size: 22rpx;
+    color: #FFFFFF;
+    text-align: left;
+    text-shadow: 0 0 10rpx rgba(0,0,0,0.5);
+    margin-left: 55rpx;
+}
+
+.brief-container .endshow-picwrap {
+    width: 250rpx;
+    height: 140rpx;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    margin-left: 55rpx;
+}
+
+.brief-container .endshow-pic {
+    height: 100%;
+    width: 100%;
+}
+
+.brief-container .endshow-desc {
+    display: inline-block;
+    margin-left: 18rpx;
+}
+
+.brief-container .endshow-title {
+    text-align: left;
+    color: #fff;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    height: 40rpx;
+}
+
+.brief-container .endshow-dec {
+    text-align: left;
+    color: #fff;
+    opacity: .8;
+    font-size: 24rpx;
+    line-height: 33rpx;
+    height: 33rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 10rpx;
+}

@@ -1,0 +1,17 @@
+@import "../../venues/components/activity/index.wxss";
+
+@import "../../venues/common/share_btn/index.wxss";
+
+@import "../../venues/common/go_top/index.wxss";
+
+@import "../../venues/common/seckill_tab/index.wxss";
+
+@import "../../venues/common/goods_groupon/index.wxss";
+
+.discount-wrapper {
+    padding-bottom: 1rpx;
+}
+
+.discount-wrapper .goods-list {
+    padding-top: 116rpx;
+}

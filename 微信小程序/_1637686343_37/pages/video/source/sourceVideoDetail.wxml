@@ -1,0 +1,24 @@
+<template name="sourceVideoDetail">
+    <view bindtap="switchDesc" class="m-film">
+        <view class="m-film_title">
+            <image class="c-videoTitle-icon" src="http://www.qiyipic.com/common/fix/wx-iqiyi/rx-title-icon.png" wx:if="{{albumQipuId==valid_album_id}}"></image>
+            <text wx:if="{{isFeatureFilm}}">{{albumName}}：{{shortTitle}}</text>
+            <text wx:else>{{shortTitle}}</text>
+            <image animation="{{filmAnimation}}" class="c-icon-bottom" src="/resource/images/c-icon-bottom.png" wx:if="{{hosts||guests||desc}}"></image>
+        </view>
+        <view class="m-film_update" wx:if="{{tags}}">
+            <text>类型：{{tags}}</text>
+        </view>
+        <view class="m-film_details" wx:if="{{showDesc&&(hosts||guests||desc)}}">
+            <view wx:if="{{hosts}}">
+                <text>主持：{{hosts}}</text>
+            </view>
+            <view wx:if="{{guests}}">
+                <text>嘉宾：{{guests}}</text>
+            </view>
+            <view class="m-film_intro" wx:if="{{desc}}">
+                <text>本集简介：{{desc}}</text>
+            </view>
+        </view>
+    </view>
+</template>

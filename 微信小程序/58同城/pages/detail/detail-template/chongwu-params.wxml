@@ -1,0 +1,20 @@
+<template name="chongwu-params">
+    <view class="fang-block ersc-cw-block marg-top" wx:if="{{info.paramMap.price||info.paramMap.breed||info.paramMap.dogage||info.paramMap.vaccine}}">
+        <view class="fang-tag ersc-cw" wx:if="{{info.paramMap.price}}">
+            <text class="tab-label">价格：</text>
+            <text class="tab-title">{{info.paramMap.price}}{{info.paramMap.price!='面议'?info.priceUnit:''}}</text>
+        </view>
+        <view class="fang-tag ersc-cw" wx:if="{{info.paramMap.breed}}">
+            <text class="tab-label">类别：</text>
+            <text class="tab-title">{{info.paramMap.breed}}</text>
+        </view>
+        <view class="fang-tag    ersc-cw" wx:if="{{info.paramMap.dogage}}">
+            <text class="tab-label">年龄：</text>
+            <text class="tab-title">{{info.paramMap.dogage}}</text>
+        </view>
+        <view class="fang-tag    ersc-cw" wx:if="{{info.paramMap.vaccine}}">
+            <text class="tab-label">疫苗：</text>
+            <text class="tab-title">{{info.paramMap.vaccine}}</text>
+        </view>
+    </view>
+</template>

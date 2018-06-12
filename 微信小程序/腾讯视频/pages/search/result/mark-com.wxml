@@ -1,0 +1,3 @@
+<template name="search_mark_com">
+    <text class="mark-text" wx:if="{{mark.position==3}}" wx:for="{{marks}}" wx:for-item="mark" wx:key="position">{{mark.primeText}}</text>
+</template>

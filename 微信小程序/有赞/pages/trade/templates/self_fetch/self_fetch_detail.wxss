@@ -1,0 +1,167 @@
+.paid-status.success {
+    background: #fff;
+}
+
+.selffetch-voucher-pop {
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1000;
+    transition: opacity 300ms ease;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0px);
+    visibility: visible;
+    border-radius: 4px;
+    background: white;
+    width: 310px;
+    padding: 15px;
+    opacity: 1;
+}
+
+.selffetch-voucher-pop .close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background-image: url("https://b.yzcdn.cn/v2/image/wap/success_small@2x.png");
+    background-size: 15px 15px;
+}
+
+.selffetch-voucher-pop .h3 {
+    line-height: 40px;
+    padding: 0 10px 0 25px;
+    margin: 0 10px;
+    border-bottom: 1px dashed #e5e5e5;
+    background: url("https://img.yzcdn.cn/public_files/2017/07/26/96fb6323abb3fdbae899ba549aac5a1e.png") no-repeat left center;
+    background-size: 15px 15px;
+}
+
+.selffetch-voucher-pop .close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background-image: url("https://img.yzcdn.cn/public_files/2017/07/26/2c09d7110867780b06954b17e802114a.png");
+    background-size: 15px 15px;
+}
+
+.selffetch-voucher {
+    border: 1px solid #e5e5e5;
+    background-color: #f8f8f8;
+    margin: 0 10px;
+    position: relative;
+}
+
+.selffetch-voucher .h3 {
+    line-height: 54px;
+    padding: 0 10px 0 25px;
+    margin: 0 10px;
+    border-bottom: 1px dashed #e5e5e5;
+    background: url("https://img.yzcdn.cn/public_files/2017/07/26/96fb6323abb3fdbae899ba549aac5a1e.png") no-repeat left center;
+    background-size: 15px 15px;
+}
+
+.selffetch-voucher .left-circle,.selffetch-voucher .right-circle {
+    background-color: #e5e5e5;
+    width: 6px;
+    height: 12px;
+    position: absolute;
+    top: 49px;
+}
+
+.selffetch-voucher .left-circle::before,.selffetch-voucher .right-circle::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 10px;
+    top: 1px;
+    background-color: #f8f8f8;
+}
+
+.selffetch-voucher .left-circle {
+    left: -1px;
+    border-radius: 0 12px 12px 0;
+}
+
+.selffetch-voucher .left-circle::before {
+    left: 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.selffetch-voucher .right-circle {
+    right: -1px;
+    border-radius: 12px 0 0 12px;
+}
+
+.selffetch-voucher .right-circle::before {
+    right: 0;
+    border-radius: 10px 0 0 10px;
+}
+
+.voucher-container {
+    max-height: 360px;
+    max-height: 80vh;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.voucher-code {
+    padding: 0 10px;
+    border-bottom: 1px dashed #e5e5e5;
+    text-align: center;
+}
+
+.voucher-code .p {
+    color: #666;
+    margin: 12px 0;
+}
+
+.voucher-code .img {
+    width: 140px;
+    height: 140px;
+}
+
+.voucher-address {
+    padding: 10px;
+    border-bottom: 1px dashed #e5e5e5;
+}
+
+.voucher-address .p {
+    color: #333;
+    line-height: 2;
+}
+
+.voucher-goods-info {
+    padding: 10px;
+}
+
+.voucher-goods-info .p {
+    color: #333;
+    line-height: 2;
+}
+
+.voucher-tip-save {
+    color: #FF6600;
+    font-size: 14px;
+    position: absolute;
+    right: 20rpx;
+    top: -1px;
+    width: 100px;
+    line-height: 55px;
+    text-align: right;
+}
+
+.font-size-14 {
+    font-size: 14px!important;
+}
+
+.font-size-18 {
+    font-size: 18px!important;
+}

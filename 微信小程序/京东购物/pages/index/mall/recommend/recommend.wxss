@@ -1,0 +1,11 @@
+@import "../../../../__wuBaseWxss__/20.wxss";
+
+.floor-title {
+    z-index: 1;
+    border-bottom: 1rpx solid #f0f0f0;
+}
+
+.recommend {
+    margin-top: -30rpx;
+    padding-bottom: 30rpx;
+}

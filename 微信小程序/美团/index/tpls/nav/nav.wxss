@@ -1,0 +1,31 @@
+.nav {
+    background: #fff;
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    z-index: 10000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0;
+    text-align: center;
+    border-bottom: 1px #e5e5e5 solid;
+}
+
+.nav-btn {
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    font-weight: 500;
+    color: #222;
+    height: 88rpx;
+}
+
+.nav-btn .active {
+    color: #06C1AE;
+}
+
+.nav .active {
+    color: #06c1ae;
+    border-bottom: 6rpx solid #06c1ae;
+}

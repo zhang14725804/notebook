@@ -1,0 +1,19 @@
+<template name="bottomModal">
+    <view bindtap="closeBottomModal" class="bottom-modal-container {{bottomModalData.isShow?'':'hidden-modal'}}">
+        <view class="modal-background"></view>
+        <view class="modal-content">
+            <view class="modal-title">
+                <text>{{bottomModalData.title}}</text>
+            </view>
+            <view class="modal-op-box">
+                <button catchtap="handleTapBottomModalItem" class="formButtonNone modal-item" data-tapfunc="{{item.tapFunc}}" openType="{{item.openType?item.openType:''}}" wx:for="{{bottomModalData.buttons}}" wx:key="text">
+                    <view class="op-icon {{item.icon}}"></view>
+                    {{item.text}}
+                </button>
+            </view>
+            <view catchtap="closeBottomModal" class="modal-cancel">
+                <text>取消</text>
+            </view>
+        </view>
+    </view>
+</template>

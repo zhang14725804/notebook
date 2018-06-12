@@ -1,0 +1,176 @@
+.theme-taglist-left {
+    position: relative;
+    max-height: 100vh;
+    padding-left: 80px;
+    background-color: #f2f2f2;
+}
+
+.taglist-left__nav {
+    width: 80px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow: auto;
+    background: #f2f2f2;
+}
+
+.taglist-left__container {
+    max-height: 100vh;
+}
+
+.taglist-left__nav-tab {
+    font-size: 12px;
+    line-height: 1.4;
+    box-sizing: border-box;
+    color: #666;
+    background: #f8f8f8;
+    word-break: break-all;
+    overflow: hidden;
+    border-left: 3px solid transparent;
+    padding: 17px 15px 17px 13px;
+}
+
+.taglist-left__nav-tab.-active {
+    color: #333;
+    font-weight: 700;
+    border-color: #f44;
+    background: #fff;
+}
+
+.taglist-left__item {
+    box-sizing: border-box;
+    position: relative;
+    color: #555;
+    font-size: 16px;
+    border-bottom: 1rpx solid #f2f2f2;
+    background: #fff;
+    height: 80px;
+    padding: 10px 15px 10px 70px;
+}
+
+.taglist-left__scroll-nav {
+    width: 80px;
+}
+
+.taglist-left__scroll-nav::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+    color: transparent;
+}
+
+.taglist-left__scroll-nav.-fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.taglist-left__scroll-nav.-bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.taglist-left__group-title {
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    padding: 0 10px 0 15px;
+    background: #f8f8f8;
+    color: #666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.taglist-left__empty-group {
+    height: 54px;
+    line-height: 54px;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    background: #fff;
+}
+
+.taglist-left__item-img-holder {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 60px;
+    height: 60px;
+}
+
+.taglist-left__item-img {
+    width: 100%;
+    height: 100%;
+}
+
+.taglist-left__item-img-holder {
+    background: #f8f8f8;
+}
+
+.taglist-left__item-img-holder--sold-out::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://img.yzcdn.cn/public_files/2017/11/20/fab60eb5be80315a6dd19f91fbd1dca9.png);
+    background-color: rgba(0,0,0,0.3);
+    background-position: center;
+    background-size: 35px 35px;
+    background-repeat: no-repeat;
+}
+
+.taglist-left__item-content-wp {
+    padding-left: 10px;
+}
+
+.taglist-left__item-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px;
+}
+
+.taglist-left__item-title-holder {
+    width: 100%;
+    height: 16px;
+    background: #f8f8f8;
+}
+
+.taglist-left__item-price {
+    color: #f44;
+    margin-top: 8px;
+    margin-left: -3px;
+    font-size: 16px;
+    line-height: 18px;
+    width: 100%;
+}
+
+.taglist-left__item-price-holder {
+    width: 120px;
+    height: 16px;
+    margin-top: 8px;
+    background: #f8f8f8;
+}
+
+.taglist-left__item-cart {
+    position: absolute;
+    color: #f44;
+    font-size: 20px;
+    padding: 10px;
+    right: 5px;
+    bottom: 0px;
+}
+
+.taglist-left__item-cart.-disabled {
+    color: #f6f6f6;
+}

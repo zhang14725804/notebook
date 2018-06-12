@@ -1,0 +1,16 @@
+<view class="wrap" wx:if="{{price&&dealId}}">
+    <view class="label">支付金额</view>
+    <view class="price">¥{{prehandle.formatePrice(price)}}</view>
+</view>
+<view class="error_retry full_page" wx:if="{{!dealId}}">
+    <text>没有传入dealId或dealId为空</text>
+</view>
+<wxs module="prehandle">
+var formatePrice = function(price) {
+    return parseFloat(price / 100).toFixed(2);
+};
+
+module.exports = {
+    formatePrice: formatePrice
+};
+</wxs>

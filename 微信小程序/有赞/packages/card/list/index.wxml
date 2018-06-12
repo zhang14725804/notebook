@@ -1,0 +1,41 @@
+<import src="../../../components/ZanAccount/bindPhoneNumber/bindPhoneNumber.wxml"></import>
+<import src="../../../components/ZanAccount/index.wxml"></import>
+<view class="page-container {{deviceType}} {{themeClass}} {{isTabPage&&'page-is-tab-page'}}">
+    <view class="membercard-list container">
+        <view class="bind-container" wx:if="{{!hasMobile}}">
+            <template is="bind_phone_number" data="{{bindTips:'会员卡未同步？绑定手机号试试'}}"></template>
+        </view>
+        <navigator class="top-banner" hoverClass="none" openType="navigate" url="/packages/card/setting/index">
+            <image class="header-img" mode="aspectFit" src="{{userInfo.avatarUrl}}"></image>
+            <view class="user-info">
+                <view class="user-name">{{userInfo.nickName}}</view>
+                <view class="user-phone">{{mobile}}</view>
+            </view>
+            <view class="user-settings">
+        设置
+      </view>
+            <view class="zan-arrow"></view>
+        </navigator>
+        <scroll-view class="card-panel" scrollY="true" wx:if="{{loaded&&cardList.length>0}}">
+            <navigator class="card-container" hoverClass="none" openType="navigate" url="/packages/card/detail/index?alias={{cardIns.card.card_alias}}" wx:for="{{cardList}}" wx:for-index="idx" wx:for-item="cardIns" wx:key="idx">
+                <view class="card-info" style="background-color: {{cardIns.card.cover_url?'none':cardIns.card.color_str}};background-image:{{cardIns.card.cover_url?'url('+cardIns.card.cdn_url+')':'none'}}">
+                    <view class="card-title">{{cardIns.card.name}}</view>
+                    <view class="card-more">
+                        <view class="card-desc">{{cardIns.card.rights_info}}</view>
+                        <view class="card-status">{{cardIns.state_str}}</view>
+                    </view>
+                    <image class="card-default" mode="aspectFit" src="https://b.yzcdn.cn/v2/image/scrm/wap/icon/default-card@2x.png" wx:if="{{cardIns.is_default}}"></image>
+                </view>
+            </navigator>
+        </scroll-view>
+        <view class="no-card" wx:if="{{loaded&&cardList.length==0}}">
+            <view>
+                <image class="no-card-img" mode="aspectFit" src="https://b.yzcdn.cn/v2/image/wxd/empty-notice.png"></image>
+            </view>
+            <view>暂无会员卡</view>
+        </view>
+        <template is="zan-account" data="{{...zanAccount}}"></template>
+    </view>
+</view>
+<import src="../../../pages/common/wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

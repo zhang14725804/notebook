@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "日记详情",
+    "usingComponents": {
+        "comment": "../../../components/diary/comment/comment",
+        "ninelattice-imageplayer": "../../../components/diary/ninelattice-imageplayer/ninelattice-imageplayer",
+        "loadMore": "/components/loadMore/loadMore"
+    }
+}

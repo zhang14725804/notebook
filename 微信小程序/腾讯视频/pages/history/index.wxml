@@ -1,0 +1,97 @@
+<view class="body">
+    <view class="mod_loading history_loading" wx:if="{{control.loading&&!control.pullDown}}">
+        <view class="icon_loading"></view>
+    </view>
+    <view class="mod_box mod_line {{control.showEdit?'editable':''}}" wx:if="{{!control.loading}}">
+        <view catchtap="onTapAll" class="mod_bd">
+            <view class="mod_title" wx:if="{{response.recordList.length>0}}">{{control.currentTitle}}</view>
+            <view bindtap="onTapHistory" bindtouchmove="onTouchMovePlaylistItem" bindtouchstart="onTouchStartPlaylistItem" class="mod_figures mod_figures_h {{listItem._selected==1&&!control.showEdit?'active':''}}" data-cid="{{listItem.cid}}" data-idx="{{listItem._index}}" data-selected="{{listItem._selected}}" data-type="{{listItem._type}}" data-url="{{listItem.poster&&listItem.poster.action&&listItem.poster.action.url}}" data-vid="{{listItem.vid}}" wx:for="{{response.todayList}}" wx:for-index="{{listItem._index}}" wx:for-item="listItem" wx:key="vid">
+                <view catchtap="onSelect" class="figure_tool_del {{listItem._selected==1?'current':''}}" data-cid="{{listItem.cid}}" data-idx="{{listItem._index}}" data-selected="{{listItem._selected}}" data-type="{{listItem._type}}" data-url="{{listItem.poster&&listItem.poster.action&&listItem.poster.action.url}}" data-vid="{{listItem.vid}}"></view>
+                <view class="mod_figure">
+                    <view class="list_item">
+                        <view class="figure">
+                            <image class="figure_pic" src="{{listItem.poster.imageUrl}}"></image>
+                            <view class="mark" style="{{markItem.background.image}}" wx:for="{{listItem.poster.markLabelList}}" wx:for-item="markItem" wx:key="*this"></view>
+                        </view>
+                        <view class="figure_content">
+                            <view class="figure_title" style="{{listItem.poster.secondLine?'-webkit-line-clamp : 1':'-webkit-line-clamp : 2'}}">{{listItem.poster.firstLine}}
+                            </view>
+                            <view class="figure_count">{{listItem.poster.secondLine}}</view>
+                            <view class="figure_count">
+                                <view class="play_from_icon" style="background-image: url({{listItem.playFromIcon}});"></view>{{listItem.poster.thirdLine}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view catchtap="onDelete" class="figure_tool" data-idx="{{listItem._index}}" data-type="{{listItem._type}}" wx:if="{{!control.showEdit}}">删除</view>
+            </view>
+            <view class="mod_title" wx:if="{{response.todayList.length>0&&response.yestodayList.length>0}}">昨天</view>
+            <view bindtap="onTapHistory" bindtouchmove="onTouchMovePlaylistItem" bindtouchstart="onTouchStartPlaylistItem" class="mod_figures mod_figures_h {{listItem._selected==1&&!control.showEdit?'active':''}}" data-cid="{{listItem.cid}}" data-idx="{{listItem._index}}" data-selected="{{listItem._selected}}" data-type="{{listItem._type}}" data-url="{{listItem.poster&&listItem.poster.action&&listItem.poster.action.url}}" data-vid="{{listItem.vid}}" wx:for="{{response.yestodayList}}" wx:for-index="{{listItem._index}}" wx:for-item="listItem" wx:key="vid">
+                <view catchtap="onSelect" class="figure_tool_del {{listItem._selected==1?'current':''}}" data-cid="{{listItem.cid}}" data-idx="{{listItem._index}}" data-selected="{{listItem._selected}}" data-type="{{listItem._type}}" data-url="{{listItem.poster&&listItem.poster.action&&listItem.poster.action.url}}" data-vid="{{listItem.vid}}"></view>
+                <view class="mod_figure">
+                    <view class="list_item">
+                        <view class="figure">
+                            <image class="figure_pic" src="{{listItem.poster.imageUrl}}"></image>
+                            <view class="mark" style="{{markItem.background.image}}" wx:for="{{listItem.poster.markLabelList}}" wx:for-item="markItem" wx:key="*this"></view>
+                        </view>
+                        <view class="figure_content">
+                            <view class="figure_title" style="{{listItem.poster.secondLine?'-webkit-line-clamp : 1':'-webkit-line-clamp : 2'}}">{{listItem.poster.firstLine}}
+                            </view>
+                            <view class="figure_count">{{listItem.poster.secondLine}}</view>
+                            <view class="figure_count">
+                                <view class="play_from_icon" style="background-image: url({{listItem.playFromIcon}});"></view>{{listItem.poster.thirdLine}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view catchtap="onDelete" class="figure_tool" data-idx="{{listItem._index}}" data-type="{{listItem._type}}" wx:if="{{!control.showEdit}}">删除</view>
+            </view>
+            <view class="mod_title" wx:if="{{(response.todayList.length>0||response.yestodayList.length>0)&&response.earlyList.length>0}}">更早</view>
+            <view bindtap="onTapHistory" bindtouchmove="onTouchMovePlaylistItem" bindtouchstart="onTouchStartPlaylistItem" class="mod_figures mod_figures_h {{listItem._selected==1&&!control.showEdit?'active':''}}" data-cid="{{listItem.cid}}" data-idx="{{listItem._index}}" data-selected="{{listItem._selected}}" data-type="{{listItem._type}}" data-url="{{listItem.poster&&listItem.poster.action&&listItem.poster.action.url}}" data-vid="{{listItem.vid}}" wx:for="{{response.earlyList}}" wx:for-index="{{listItem._index}}" wx:for-item="listItem" wx:key="vid">
+                <view catchtap="onSelect" class="figure_tool_del {{listItem._selected==1?'current':''}}" data-cid="{{listItem.cid}}" data-idx="{{listItem._index}}" data-selected="{{listItem._selected}}" data-type="{{listItem._type}}" data-url="{{listItem.poster&&listItem.poster.action&&listItem.poster.action.url}}" data-vid="{{listItem.vid}}"></view>
+                <view class="mod_figure">
+                    <view class="list_item">
+                        <view class="figure">
+                            <image class="figure_pic" src="{{listItem.poster.imageUrl}}"></image>
+                            <view class="mark" style="{{markItem.background.image}}" wx:for="{{listItem.poster.markLabelList}}" wx:for-item="markItem" wx:key="*this"></view>
+                        </view>
+                        <view class="figure_content">
+                            <view class="figure_title" style="{{listItem.poster.secondLine?'-webkit-line-clamp : 1':'-webkit-line-clamp : 2'}}">{{listItem.poster.firstLine}}
+                            </view>
+                            <view class="figure_count">{{listItem.poster.secondLine}}</view>
+                            <view class="figure_count">
+                                <view class="play_from_icon" style="background-image: url({{listItem.playFromIcon}});"></view>{{listItem.poster.thirdLine}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view catchtap="onDelete" class="figure_tool" data-idx="{{listItem._index}}" data-type="{{listItem._type}}" wx:if="{{!control.showEdit}}">删除</view>
+            </view>
+            <view class="tips_con" style="margin-top: {{control.emptyMarginTop}}px" wx:if="{{!control.loading&&!control.pullDown&&response.recordList.length==0}}">
+                <view class="icon_empty"></view>
+                <view class="tips">{{response.emptyTitle}}</view>
+                <view class="suggestion">{{response.emptyDetail}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="fixed_tool  {{control.showEdit?'editable':''}}" wx:if="{{!control.loading&&response.recordList.length>0}}">
+        <view catchtap="onShowEdit" class="tool_before">
+            <view class="tool_unit tool_unit_edit">编辑</view>
+        </view>
+        <view class="tool_after {{control.isAndroid?'android':''}}">
+            <view catchtap="onHideEdit" class="tool_unit tool_unit_cancel">取消</view>
+            <view catchtap="onSelectAll" class="tool_unit tool_unit_all">
+                <view wx:if="{{control.selectedCount==response.todayList.length+response.yestodayList.length+response.earlyList.length}}">
+                  取消全选
+              </view>
+                <view wx:if="{{control.selectedCount<response.todayList.length+response.yestodayList.length+response.earlyList.length}}">
+                  全选
+              </view>
+            </view>
+            <view catchtap="onDeleteMulti" class="tool_unit tool_unit_del">
+              删除
+              ({{control.selectedCount}})
+          </view>
+        </view>
+    </view>
+</view>

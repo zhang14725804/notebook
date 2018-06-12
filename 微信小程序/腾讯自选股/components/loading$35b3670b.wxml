@@ -1,0 +1,7 @@
+<template name="loading$35b3670b">
+    <view class="_div data-v-1c773b42 {{loadingbarClassName}}" id="hotpost-loadingbar">
+        <view class="_div data-v-1c773b42 flashy_loading">
+            <view class="_div data-v-1c773b42 rotate"></view>
+        </view>
+    </view>
+</template>

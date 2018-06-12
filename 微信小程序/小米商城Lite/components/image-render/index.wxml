@@ -1,0 +1,4 @@
+<view style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;overflow:hidden">
+    <canvas canvasId="{{viewId}}" disableScroll="true" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px"></canvas>
+    <canvas canvasId="realCanvas" disableScroll="true" style="width:{{realWidth}}px;height:{{realHeight}}px"></canvas>
+</view>

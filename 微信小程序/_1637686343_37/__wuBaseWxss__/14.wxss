@@ -1,0 +1,72 @@
+.phone_tips {
+    position: fixed;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+    margin-left: -295rpx;
+    transform: translateY(-60%);
+    text-align: center;
+    width: 590rpx;
+    border-radius: 20rpx;
+    padding-top: 40rpx;
+    box-sizing: border-box;
+    font-size: 26rpx;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.phone_tips .tips_title {
+    font-size: 36rpx;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 24rpx;
+}
+
+.phone_tips .c-des {
+    display: block;
+    line-height: 40rpx;
+    padding: 26rpx 60rpx 28rpx 60rpx;
+    border-bottom: 1rpx solid #f0f0f0;
+}
+
+.phone_tips .info-link {
+    line-height: 100rpx;
+    height: 100rpx;
+    color: #0bbe06;
+    border-bottom: 1rpx solid #f0f0f0;
+}
+
+.phone_tips .info-link .c-name {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.phone_tips .c-icon-uservip {
+    display: inline-block;
+    vertical-align: middle;
+    width: 54rpx;
+    height: 32rpx;
+    line-height: 1;
+    margin-left: 10rpx;
+}
+
+.phone_tips .tips_btn .c-btn-link {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 100rpx;
+    width: 50%;
+    height: 100rpx;
+}
+
+.phone_tips .tips_btn .c-btn-link:nth-child(2) {
+    border-left: 1px solid #f0f0f0;
+    box-sizing: border-box;
+}
+
+.phone_tips .tips_btn .c-btn-link-block {
+    width: 100%;
+}

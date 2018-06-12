@@ -1,0 +1,89 @@
+<template name="youzan-popup">
+    <view class="order-dialog zan-popup zan-popup--bottom {{youzanDialog.show?'zan-popup--show':''}}">
+        <view catchtap="hideYouzanDialog" class="zan-popup__mask"></view>
+        <view class="zan-popup__container">
+            <view class="order-dialog__header zan-popup__header">
+                <text>申请有赞客服介入</text>
+            </view>
+            <view class="order-dialog__content">
+                <view class="zan-cell zan-field__item">
+                    <view class="zan-field__title">
+            维权理由
+          </view>
+                    <view class="zan-field__input zan-cell__bd">
+                        <input bindblur="onYouzanDialogTextChange" placeholder="有赞客服将尽快为您处理" type="text" value="{{youzanDialog.message}}"></input>
+                    </view>
+                </view>
+                <view class="zan-cell zan-field__item zan-cell--last-child">
+                    <view class="multi-upload__title zan-field__title">图片举证</view>
+                    <view class="zan-field__input zan-cell__bd">
+                        <view class="zan-c-gray-dark" wx:if="{{youzanDialog.imgs.length==0}}">可上传{{MAX_PICTURES}}张图片</view>
+                        <view class="zan-c-gray-dark" wx:else>还能上传{{MAX_PICTURES-youzanDialog.imgs.length}}张图片</view>
+                        <view>
+                            <view class="multi-upload__img-contain {{imgData.uploading?'multi-upload__img-contain--loading':''}}" wx:for="{{youzanDialog.imgs}}" wx:for-item="imgData" wx:key="key">
+                                <image class="multi-upload__img" mode="aspectFit" src="{{imgData.srcPreview}}"></image>
+                                <icon catchtap="onYouzanImageDelete" class="multi-upload__clear" color="black" data-key="{{imgData.key}}" size="16" type="clear"></icon>
+                            </view>
+                            <view catchtap="chooseYouzanImages" class="multi-upload__img-contain multi-upload__img-add" wx:if="{{youzanDialog.imgs.length<MAX_PICTURES}}"></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="order-dialog__action">
+                <button catchtap="hideYouzanDialog" class="order-dialog__action-btn zan-btn zan-btn--last-child">取消</button>
+                <button catchtap="submitYouzanDialog" class="order-dialog__action-btn zan-btn zan-btn--danger zan-btn--last-child">提交</button>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="message-dialog">
+    <view class="order-dialog zan-popup zan-popup--bottom {{messageDialog.show?'zan-popup--show':''}}">
+        <view catchtap="hideMessageDialog" class="zan-popup__mask"></view>
+        <view class="zan-popup__container">
+            <view class="order-dialog__header zan-popup__header">
+                <text>我要留言</text>
+            </view>
+            <view class="order-dialog__content">
+                <view class="zan-cell zan-field__item">
+                    <view class="zan-field__title">
+            留言信息
+          </view>
+                    <view class="zan-field__input zan-cell__bd">
+                        <input bindblur="onMessageDialogTextChange" placeholder="请尽可能详细地提交留言信息" type="text" value="{{messageDialog.message}}"></input>
+                    </view>
+                </view>
+                <view class="zan-cell zan-field__item zan-cell--last-child">
+                    <view class="multi-upload__title zan-field__title">图片信息</view>
+                    <view class="zan-field__input zan-cell__bd">
+                        <view class="zan-c-gray-dark" wx:if="{{messageDialog.imgs.length==0}}">可上传{{MAX_PICTURES}}张图片</view>
+                        <view class="zan-c-gray-dark" wx:else>还能上传{{MAX_PICTURES-messageDialog.imgs.length}}张图片</view>
+                        <view>
+                            <view class="multi-upload__img-contain {{imgData.uploading?'multi-upload__img-contain--loading':''}}" wx:for="{{messageDialog.imgs}}" wx:for-item="imgData" wx:key="key">
+                                <image class="multi-upload__img" mode="aspectFit" src="{{imgData.srcPreview}}"></image>
+                                <icon catchtap="onMessageImageDelete" class="multi-upload__clear" color="black" data-key="{{imgData.key}}" size="16" type="clear"></icon>
+                            </view>
+                            <view catchtap="chooseMessageImages" class="multi-upload__img-contain multi-upload__img-add" wx:if="{{messageDialog.imgs.length<MAX_PICTURES}}"></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="order-dialog__action">
+                <button catchtap="hideMessageDialog" class="order-dialog__action-btn zan-btn zan-btn--last-child">取消</button>
+                <button catchtap="submitMessageDialog" class="order-dialog__action-btn zan-btn zan-btn--danger zan-btn--last-child">提交</button>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="btns">
+    <view class="zan-btns">
+        <block wx:for="{{btns}}" wx:for-item="btnType" wx:key="unique">
+            <button catchtap="modifySafe" class="zan-btn zan-btn--danger" wx:if="{{btnType=='modify'}}">修改退款申请</button>
+            <button catchtap="closeSafe" class="zan-btn" wx:if="{{btnType=='close'}}">撤销退款申请</button>
+            <button catchtap="showYouzanDialog" class="zan-btn" wx:if="{{btnType=='youzan'}}">申请有赞客服介入</button>
+            <button catchtap="backToOrder" class="zan-btn" wx:if="{{btnType=='order'}}">查看订单详情</button>
+        </block>
+        <button catchtap="showMessageDialog" class="zan-btn" wx:if="{{selectedId==2}}">我要留言</button>
+    </view>
+    <template is="message-dialog" data="{{messageDialog:messageDialog,MAX_PICTURES:MAX_PICTURES}}"></template>
+    <template is="youzan-popup" data="{{youzanDialog:youzanDialog,MAX_PICTURES:MAX_PICTURES}}"></template>
+</template>

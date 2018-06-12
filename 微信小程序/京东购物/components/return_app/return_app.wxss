@@ -1,0 +1,18 @@
+.retuan_app {
+    position: fixed;
+    z-index: 261;
+    right: 0;
+    bottom: 200px;
+    width: 50px;
+    height: 50px;
+    background-image: url(https://img11.360buyimg.com/jdphoto/s90x90_jfs/t20650/226/110110880/2229/7e8c8d57/5afce420N72196dcd.png);
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+}
+
+.retuan_app .desc {
+    font-size: 24rpx;
+    height: 36px;
+    line-height: 36px;
+    margin-left: 20px;
+}

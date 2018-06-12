@@ -1,0 +1,28 @@
+<template name="newsListPanel">
+    <view class="newsPanel__title " wx:if="{{nList.length>0}}">
+        <view class="newsPanel__title__line"></view>
+        <view class="newsPanel__title__t">相关新闻</view>
+    </view>
+    <view class="newsPanel  {{isIphoneX?'newsPanel__iphonex':''}}">
+        <view bindtap="bindTapNews" class="newsPanel__tr withborder" data-articletype="{{item.articletype}}" data-idx="{{index}}" data-nid="{{item.id}}" hoverClass="other-navigator-hover" wx:for="{{nList}}" wx:key="{{id}}">
+            <view class="newsPanel__tr__item">{{item.title}}</view>
+            <view class="newsPanel__tr__item2">
+                <view class="newsPanel__tr__item__source">{{item.src}}</view>
+                <view class="newsPanel__tr__item__date">{{item.date}}</view>
+            </view>
+        </view>
+        <view bindtap="bindNewsMore" class="newsMore" style="height:16rpx;" wx:if="{{showMore}}">{{moreNewsBtn}}</view>
+        <view style="height:100rpx;width:100%;">
+            <view class="loadEffect {{rotate}}" wx:if="{{showLoading}}">
+                <view class="v v1"></view>
+                <view class="v v2"></view>
+                <view class="v v3"></view>
+                <view class="v v4"></view>
+                <view class="v v5"></view>
+                <view class="v v6"></view>
+                <view class="v v7"></view>
+                <view class="v v8"></view>
+            </view>
+        </view>
+    </view>
+</template>

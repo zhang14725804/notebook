@@ -1,0 +1,25 @@
+<template name="CommonReward$71414bdb">
+    <view class="_div data-v-6d9c8204 commonReward card-bg">
+        <view class="_div data-v-6d9c8204 user-info">
+            <view class="_div data-v-6d9c8204 user-img">
+                <image class="_img data-v-6d9c8204 image" src="{{reward.user_image}}"></image>
+            </view>
+            <view class="_div data-v-6d9c8204 user-name">{{reward.user_name}}</view>
+        </view>
+        <view class="_div data-v-6d9c8204 reward-text-h1 common-h1">
+            <view class="_div data-v-6d9c8204 reward-text-h1-container">
+                <view class="_div data-v-6d9c8204 left"></view>
+                <view class="_div data-v-6d9c8204 text">恭喜您获得</view>
+                <view class="_div data-v-6d9c8204 right"></view>
+            </view>
+        </view>
+        <view class="_div data-v-6d9c8204 reward-prize">
+            <label class="_span data-v-6d9c8204 num">{{reward.prize}}</label>
+            <label class="_span data-v-6d9c8204 yuan">元</label>
+        </view>
+        <view class="_div data-v-6d9c8204 reward-text-h2 common-h2">
+            <view class="_div data-v-6d9c8204 p">感谢支持金句活动</view>
+            <view class="_div data-v-6d9c8204 p">请继续互动发言，后续活动更精彩</view>
+        </view>
+    </view>
+</template>

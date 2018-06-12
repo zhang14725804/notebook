@@ -1,0 +1,2 @@
+<web-view bindmessage="bindMessage" src="https://m.aihuishou.com/m/index.html#/account"></web-view>
+<image class="piwik-image-placeholder" src="{{piwikSource}}"></image>

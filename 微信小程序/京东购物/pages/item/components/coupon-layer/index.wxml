@@ -1,0 +1,28 @@
+<view class="coupon-layer">
+    <view bindtap="closeCoupon" class="coupon-layer__mask" wx:if="{{showCouponLayerFlag}}"></view>
+    <view class="coupon-layer__main {{showCouponLayerFlag?'show':''}}">
+        <view class="coupon-layer__header">
+            <view class="coupon-layer__header_l">优惠券</view>
+            <image bindtap="closeCoupon" class="coupon-layer__header_r" src="/assets/images/sku_panel_close.png"></image>
+        </view>
+        <view class="coupon-layer__content">
+            <view class="coupon_item {{item.type}}" wx:for="{{coupons}}" wx:key="encryptedKey">
+                <view class="coupon_item_wrap">
+                    <view class="coupon_item_pri">
+                        <view class="coupon_item_pri_num">{{item.money}}</view>
+                        <view class="tips">{{item.desc1}}</view>
+                    </view>
+                    <view class="coupon_item_info">
+                        <view class="coupon_item_info_head">
+                            <view class="type">{{item.typeName}}</view>
+                            {{item.desc2}}
+                        </view>
+                        <view bindtap="drawCoupon" class="coupon_item_info_btn {{item.didGet?'disabled':''}}" data-get="{{item.didGet}}" data-index="{{index}}" data-key="{{item.key}}" data-roleid="{{item.roleId}}" data-type="{{item.couponstyle}}">{{item.didGet?'已领取':'立即领取'}}
+                        </view>
+                        <view class="coupon_item_info_date">{{item.time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

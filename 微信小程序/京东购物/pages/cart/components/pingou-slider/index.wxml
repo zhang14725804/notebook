@@ -1,0 +1,29 @@
+<view class="pingou_slider" wx:if="{{list.length}}">
+    <view class="pingou_slider_title" wx:if="{{lineTitle}}">
+        <view class="pingou_slider_title_text">{{lineTitle}}</view>
+    </view>
+    <view class="pingou_slider_wrap">
+        <view class="header" wx:if="{{titleText||linkText}}">
+            <view class="title" wx:if="{{titleText}}">{{titleText}}</view>
+            <view bind:tap="onItemTap" class="link" wx:if="{{linkText}}">{{linkText}} </view>
+        </view>
+        <scroll-view class="list" scrollX="true">
+            <view bind:tap="onItemTap" class="item" wx:for="{{list}}" wx:key="sSkuId">
+                <view class="item_img bg_stamp">
+                    <image lazyLoad="true" src="{{item.sImg200x200}}"></image>
+                </view>
+                <view class="item_info">
+                    <view class="text" wx:if="{{tuanLimit[item.sSkuId]}}">{{tuanLimit[item.sSkuId]}}人拼</view>
+                    <view class="price">￥{{item.dwChPrice}}</view>
+                </view>
+                <view class="item_price">单买价 <view class="item_price_del">￥{{item.dwPCPrice}}</view>
+                </view>
+            </view>
+            <view class="item more">
+                <view bind:tap="onItemTap" class="more_wrap">
+                    <view class="more_text">查看更多</view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

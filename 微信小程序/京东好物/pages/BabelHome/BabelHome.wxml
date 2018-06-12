@@ -1,0 +1,33 @@
+<import src="lunbotu/lunbotu_template.wxml"></import>
+<import src="ptShangpin/ptShangpin.wxml"></import>
+<import src="hotZone/hotZone.wxml"></import>
+<import src="../template/template.wxml"></import>
+<import src="tolerancePage/tolerancePage.wxml"></import>
+<view class="pt-hasNoData" style="height:{{winHeight}}px;" wx:if="{{requestError}}">
+    <image class="pt-img-wifi" src="../../pages/shop/shop_images/shop_wifi.png"></image>
+    <view class="fontWifi">网络请求失败</view>
+    <view bindtap="_reloadCurrentPage" class="fontReload">重新加载</view>
+</view>
+<block wx:else>
+    <view wx:if="{{showTolerancePage}}">
+        <template is="tolerancePage" data="{{shopWareList:shopWareList}}"></template>
+    </view>
+    <view class="babelHomeView" wx:else>
+        <block wx:for="{{babelHomeData.floorList}}" wx:for-index="idx" wx:key="index">
+            <view wx:if="{{item.template==='guanggao_lunbo'}}">
+                <template is="lunbotu" data="{{item:item,lunbo_url:item.adsList,tmpIdx:idx,lbtIdx:lunboIndexMap[idx],lunbo_selectedIndex:lunboIndexMap[idx]==='0'?lbt_index1:lunboIndexMap[idx]==='1'?lbt_index2:lunboIndexMap[idx]==='2'?lbt_index3:lunboIndexMap[idx]==='3'?lbt_index4:lunboIndexMap[idx]==='4'?lbt_index5:null,tmp_bgColor:item.backgroundColor,hasBorder:item.externalBorder==='1',styleHeight:item.styleHeight}}"></template>
+            </view>
+            <view wx:elif="{{item.template==='shangpin_putong'}}">
+                <template is="pt_tmp_name" data="{{ptShangpinModel:item,ptShangpinGroupModel:item.waresList,ptSelectedGroupInfo:ptSelectedGroupMap[idx],tmpIdx:idx}}"></template>
+            </view>
+            <view wx:elif="{{item.template==='hotzone'}}">
+                <template is="hz_tmp_name" data="{{item:item,hotZoneModel:item.hotZone,picWidth:item.width,picHeight:item.height}}"></template>
+            </view>
+            <view>
+                <template is="error_template_name" data></template>
+            </view>
+            <template is="babelInterval" data="{{backgroundColor:item.backgroundColor}}" wx:if="{{!item.template==='hotzone'}}"></template>
+        </block>
+    </view>
+</block>
+<template is="toast" data="{{...toastData}}" wx:if="{{toastIsShow}}"></template>

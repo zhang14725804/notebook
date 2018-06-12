@@ -1,0 +1,27 @@
+<view class="sms-login">
+    <view class="title">登录</view>
+    <view class="input-wrapper">
+        <view class="phone-input">
+            <input bindfocus="_dispatch" bindinput="_dispatch" class="input" data-bindfocus="onFocus" data-bindinput="onInput" data-path="phoneInput" focus="{{phoneInput.state.focus}}" maxlength="{{phoneInput.state.maxlength}}" placeholder="请输入手机号" type="number" value="{{phoneInput.state.phone}}"></input>
+            <view bindtap="_dispatch" class="close mfic mfic-wrong" data-bindtap="clearInput" data-path="phoneInput" xmlns:wx="" wx:if="{{phoneInput.state.phone.length>0&&phoneInput.props.needClose}}"></view>
+        </view>
+        <view class="sms-input">
+            <input bindinput="_dispatch" class="input" data-bindinput="onInput" maxlength="4" placeholder="请输入验证码" type="number"></input>
+            <view class="sms-btn">
+                <view bindtap="_dispatch" class="mf-btn {{smsBtn.state.classes}}" data-bindtap="handleClick" data-path="smsBtn">
+                    <view class="{{smsBtn.state.icon}}"></view>
+  {{smsBtn.props.text}}
+</view>
+            </view>
+        </view>
+    </view>
+    <view class="btn-wrapper">
+        <view bindtap="_dispatch" class="mf-btn {{loginBtn.state.classes}}" data-bindtap="handleClick" data-path="loginBtn">
+            <view class="{{loginBtn.state.icon}}"></view>
+  {{loginBtn.props.text}}
+</view>
+    </view>
+    <view class="warning {{warningCard.state.show?'show':''}}">
+        <view class="warning-title">{{warningCard.props.msg}}</view>
+    </view>
+</view>

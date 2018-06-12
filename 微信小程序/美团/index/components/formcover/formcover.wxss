@@ -1,0 +1,22 @@
+.customform {
+    width: inherit;
+    height: inherit;
+    display: inline;
+}
+
+.customform-button {
+    width: inherit;
+    height: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: inherit;
+    line-height: inherit;
+    font-size: inherit;
+    display: inline;
+    text-align: left;
+}
+
+.customform-button::after {
+    content: "";
+    display: none;
+}

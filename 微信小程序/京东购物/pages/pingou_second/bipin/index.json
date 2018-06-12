@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "今日必拼",
+    "usingComponents": {
+        "quick-nav": "../../../components/quick-nav/quick-nav",
+        "RowList": "../components/row_list/row_list",
+        "RenQiTuan": "../common/renqituan/renqituan"
+    }
+}

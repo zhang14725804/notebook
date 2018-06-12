@@ -1,0 +1,152 @@
+<template name="home">
+    <view class="{{page.content[0]==='banner1111'?'venues1111':''}}">
+        <block wx:for="{{page.content}}" wx:for-item="type" wx:key="{{ key }}">
+            <swiper autoplay circular class="venues-swiper" duration="300" indicatorActiveColor="#FF4444" indicatorColor="rgba(255, 255, 255, .6)" indicatorDots="{{page.data.banner&&page.data.banner.length>1}}" interval="5000" wx:if="{{type==='banner'}}">
+                <swiper-item wx:for="{{page.data.banner||[]}}" wx:key="{{key}}">
+                    <navigator class="venues-swiper__navigator" hoverClass="none" url="{{item.url}}">
+                        <view class="form-id-row">
+                            <template is="formidReciver" data="{{pageUrl:item.url,position:'1-1'}}"></template>
+                        </view>
+                        <image class="venues-swiper__img" src="{{item.hd_img}}"></image>
+                    </navigator>
+                </swiper-item>
+            </swiper>
+            <image class="venues1111-banner" src="{{page.data.banner1111&&page.data.banner1111[0]&&page.data.banner1111[0].hd_img}}" wx:if="{{type==='banner1111'}}"></image>
+            <view bindtap="onTopicTapped" class="seckill-goods" data-type="seckill-goods" wx:elif="{{type==='seckill-goods'}}">
+                <view class="seckill__header">
+                    <view class="block-title">秒杀疯抢</view>
+                    <view class="seckill__time" wx:if="page.data.seckill">
+                        <view class="seckill__time-item seckill__time-now">
+                            <text class="seckill__time-icon"></text> 当前场 {{page.data.seckill[0]&&page.data.seckill[0].name+':00'}}</view>
+                        <view class="seckill__time-item">下一场 {{page.data.seckill[1]&&page.data.seckill[1].name+':00'}}</view>
+                    </view>
+                </view>
+                <scroll-view scrollWithAnimation scrollX class="goods-fengqiang">
+                    <view class="goods-fengqiang__fix">
+                        <navigator class="goods-fengqiang__item {{goods.is_sold_out?'sold':''}}" hoverClass="none" url="{{'/pages/goods/detail/index?alias='+goods.alias+'&teamName='+goods.team_name}}" wx:for="{{page.data.seckillGoods}}" wx:for-item="goods" wx:key="{{ key }}">
+                            <view class="goods-fengqiang__img-wrap">
+                                <image class="goods-fengqiang_img" src="{{goods.pic_url+'?imageView2/2/w/600/h/0/q/90/format/jpg/interlace/1'}}"></image>
+                                <view class="form-id-row">
+                                    <template is="formidReciver" data="{{pageUrl:'/pages/goods/detail/index?alias='+goods.alias+'&teamName='+goods.team_name,position:'1-2'}}"></template>
+                                </view>
+                                <view class="goods-fengqiang__sold-mask"></view>
+                            </view>
+                            <view class="goods-fengqiang__title">{{goods.title}}</view>
+                            <view class="goods-fengqiang__footer">
+                                <view class="goods-fengqiang__origin-price">
+                                    <text wx:if="{{goods.original_price}}">￥{{goods.original_price}}</text>
+                                </view>
+                                <view class="goods-fengqiang__price">
+                                    <view class="goods-fengqiang__price-ico">￥</view>{{goods.sale_price}}
+                </view>
+                                <view class="goods-fengqiang__buy-btn">{{goods.is_sold_out?'已抢完':'开抢'}}</view>
+                            </view>
+                        </navigator>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="limit-discount" wx:elif="{{type==='limit-discount'}}">
+                <navigator class="limit-discount__link" hoverClass="none" url="{{item.url}}" wx:for="{{page.data.grouponLimit}}" wx:key="{{ index }}">
+                    <view class="form-id-row">
+                        <template is="formidReciver" data="{{pageUrl:item.url,position:'1-'+index+3}}"></template>
+                    </view>
+                    <image class="limit-discount__img" src="{{item.hd_img+'?imageView2/2/w/600/h/0/q/90/format/gif'}}"></image>
+                </navigator>
+            </view>
+            <view bindtap="onTopicTapped" class="hot-sale" data-type="hot-sale" wx:elif="{{type==='hot-sale'}}">
+                <view class="block-title center">今日爆款</view>
+                <view class="hot-sale__tags" wx:if="{{page.data.hotSale.tabs}}">
+                    <view class="hot-sale__tags-item-fix" wx:for="{{page.data.hotSale.tabs}}" wx:for-item="tab" wx:key="{{ index }}">
+                        <view bindtap="bindHotSaleTabTap" class="hot-sale__tags-item {{page.data.hotSale.tabs[index].id==page.data.hotSale.selectedId?'selected':''}}" data-id="{{page.data.hotSale.tabs[index].id}}">{{tab.alias}}</view>
+                    </view>
+                </view>
+                <view class="hot-sale__row" wx:if="{{page.data.hotSaleGoods&&page.data.hotSaleGoods.length>0}}">
+                    <navigator class="hot-sale__goods-item {{goods.is_sold_out?'sold':''}}" hoverClass="none" url="{{'/pages/goods/detail/index?alias='+goods.alias+'&teamName='+goods.team_name}}" wx:for="{{page.data.hotSaleGoods}}" wx:for-item="goods" wx:key="{{ key }}">
+                        <view class="hot-sale__img-wrap">
+                            <view class="form-id-row">
+                                <template is="formidReciver" data="{{pageUrl:'pages/venues/index/index',position:'1-7'}}"></template>
+                            </view>
+                            <image class="hot-sale__hot-sale__img" src="{{goods.pic_url+'?imageView2/2/w/600/h/0/q/90/format/jpg/interlace/1'}}"></image>
+                            <view class="hot-sale__sold-mask"></view>
+                        </view>
+                        <view class="hot-sale__title">{{goods.title}}</view>
+                        <view class="hot-sale__price-wrap">
+                            <view class="hot-sale__price">
+                                <text class="hot-sale__price-ico">￥</text>{{goods.sale_price}}</view>
+                            <view class="hot-sale__origin-price">
+                                <text wx:if="{{goods.original_price}}">￥{{goods.original_price}}</text>
+                            </view>
+                        </view>
+                        <view class="hot-sale__footer">
+                            <view class="hot-sale__sold-number">
+                已售
+                <text class="hot-sale__number">{{goods.sold_num}}</text>
+                件
+              </view>
+                            <view class="hot-sale__buy-btn">{{goods.is_sold_out?'去看看':'开抢'}}</view>
+                        </view>
+                    </navigator>
+                </view>
+                <template is="loadmore" data="{{loading:true,nomore:page.data.hotSale.nomore,nodata:page.data.hotSale.nodata}}"></template>
+            </view>
+            <view bindtap="onTopicTapped" class="douzaiqiang" data-type="douzaiqiang" wx:elif="{{type==='douzaiqiang'}}">
+                <view class="block-title center">大家都在抢</view>
+                <navigator class="groupon-goods clearfix" hoverClass="none" url="{{'/pages/goods/detail/index?alias='+goods.alias+'&teamName='+goods.team_name}}" wx:for="{{page.data.douzaiqiangGoods}}" wx:for-item="goods" wx:key="{{ index }}">
+                    <view class="groupon-goods__img">
+                        <image src="{{goods.pic_url+'?imageView2/2/w/600/h/0/q/90/format/jpg/interlace/1'}}"></image>
+                        <view class="groupon-goods__img-tip">{{goods.condition_num||0}} 人团</view>
+                        <view class="groupon-goods__img-sold" wx:if="{{goods.is_sold_out}}"></view>
+                    </view>
+                    <view class="groupon-goods__desc">
+                        <view class="groupon-goods__desc-title">{{goods.title}}</view>
+                        <view class="groupon-goods__desc-price">
+                            <view class="activity">{{goods.sale_price}}</view>
+                            <view class="origin">
+                                <text wx:if="{{goods.original_price}}">{{goods.original_price}}</text>
+                            </view>
+                        </view>
+                        <view class="clearfix">
+                            <view class="groupon-goods__desc-sold">已团 <text> {{goods.groupon_num||0}} </text> 件</view>
+                            <view class="groupon-goods__desc-action {{goods.is_sold_out?'slod-out':''}}">{{goods.is_sold_out?'去看看':'去开团'}}</view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+            <view bindtap="onTopicTapped" class="goods-group" data-type="goods-group" wx:if="{{type==='goods-group'&&page.data.goodsGroupGoods&&page.data.goodsGroupGoods.length>0}}">
+                <view class="block-title">精挑细选</view>
+                <view class="goods-group__container">
+                    <view class="goods-group__fix" wx:if="{{page.data.goodsGroupGoods[index]&&page.data.goodsGroupGoods[index].length!==0}}" wx:for="{{page.data.goodsGroupGoods}}" wx:key="{{ index }}">
+                        <view bindtap="bindGoodsGroupBannerTap" class="goods-group__navigator" data-name="{{page.data.goodsGroupInfos[index].name}}" hoverClass="none">
+                            <view class="form-id-row">
+                                <template is="formidReciver" data="{{pageUrl:'pages/venues/otherIndex/index',position:'1-6-'+index+1}}"></template>
+                            </view>
+                            <image class="goods-group__navigator-img" src="{{page.data.goodsGroupInfos[index].ads&&page.data.goodsGroupInfos[index].ads[0].hd_img}}"></image>
+                        </view>
+                        <navigator class="goods-group__item {{goods.is_sold_out?'sold':''}}" hoverClass="none" url="{{'/pages/goods/detail/index?alias='+goods.alias+'&teamName='+goods.team_name}}" wx:for="{{page.data.goodsGroupGoods[index]}}" wx:for-index="idx" wx:for-item="goods" wx:key="{{ key }}">
+                            <view class="goods-group__img-wrap">
+                                <view class="form-id-row">
+                                    <template is="formidReciver" data="{{pageUrl:'pages/venues/otherIndex/index',position:'1-6-'+index+1}}"></template>
+                                </view>
+                                <image class="goods-group_img" src="{{goods.pic_url+'?imageView2/2/w/600/h/0/q/90/format/jpg/interlace/1'}}"></image>
+                                <view class="goods-group__sold-mask"></view>
+                            </view>
+                            <view class="goods-group__title">{{goods.title}}</view>
+                            <view class="goods-group__footer">
+                                <view class="goods-group__origin-price">
+                                    <text wx:if="{{goods.original_price}}">￥{{goods.original_price}}</text>
+                                </view>
+                                <view class="goods-group__price">
+                                    <view class="goods-group__price-ico">￥</view>{{goods.sale_price}}
+                </view>
+                                <view class="goods-group__bug-btn-1">{{goods.is_sold_out?'去看看':'开抢'}}</view>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</template>
+<import src="../../common/title/index.wxml"></import>
+<import src="../../../../templates/loadMore/loadMore.wxml"></import>
+<import src="../../../../components/formidReciver/index.wxml"></import>

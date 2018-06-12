@@ -1,0 +1,30 @@
+<template name="scrollCard">
+    <view class="m-box" wx:if="{{videos&&videos.length>0}}">
+        <view bindtap="{{bindMoreTap}}" class="m-title">
+            <text class="m-title_h">{{title}}</text>
+            <view class="m-title_more" wx:if="{{more}}">
+                <text class="m-title_moreTx">查看更多</text>
+                <image class="c-icon-more" height="15" src="/resource/images/c-icon-arrow.png" width="15"></image>
+            </view>
+        </view>
+        <scroll-view class="m-scrollList" scrollLeft="{{scrollLeft}}" scrollX="true">
+            <view class="m-scrollList-inner">
+                <view bindtap="{{bindItemTap}}" class="m-scrollList_item {{item.qipuId===qipuId?'selected':''}}" data-qipu-id="{{item.qipuId}}" wx:for="{{videos}}" wx:key="index">
+                    <view class="m-scrollList_imgBox">
+                        <image class="m-scrollList_img" height="73" mode="aspectFill" src="{{item.imageUrl}}" width="130"></image>
+                        <view class="m-scrollList_update">
+                            <text class="m-scrollList_updateTx">{{item.showContent}}</text>
+                        </view>
+                        <image class="c-icon-selectedPlay" height="25" src="/resource/images/c-icon-selectedPlay.png" width="25" wx:if="{{item.qipuId===qipuId}}"></image>
+                        <template is="icon" data="{{...item.icon}}" wx:if="{{icon}}"></template>
+                    </view>
+                    <view class="m-scrollList_title">
+                        <text wx:if="{{isSubject&&isSubject===true}}">{{item.mainTitle}}</text>
+                        <text wx:else>{{item.shortTitle}}</text>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</template>
+<import src="/components/template/icon.wxml"></import>

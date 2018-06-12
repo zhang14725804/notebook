@@ -1,0 +1,181 @@
+.container-share {
+    background: url(https://img.58cdn.com.cn/weixin/img/wechat-app/shareBg.png) no-repeat center/100%;
+    height: 100vh;
+    padding-top: 112rpx;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.share-con {
+    width: 630rpx;
+    height: 702rpx;
+    background-color: #fff;
+    padding: 50rpx;
+    box-sizing: border-box;
+    box-shadow: 0rpx 3rpx 20rpx 0rpx #dde6ee;
+}
+
+.current,.shareTo {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #999999;
+    letter-spacing: 0;
+    line-height: 28rpx;
+    text-align: center;
+    position: relative;
+}
+
+.current::before,.shareTo::before {
+    content: ' ';
+    position: absolute;
+    width: 153rpx;
+    height: 1rpx;
+    background-color: #ddd;
+    top: 12rpx;
+    left: 0;
+}
+
+.current::after,.shareTo::after {
+    content: ' ';
+    position: absolute;
+    width: 153rpx;
+    height: 1rpx;
+    background-color: #ddd;
+    top: 12rpx;
+    right: 0rpx;
+}
+
+.current {
+    padding-bottom: 36rpx;
+}
+
+.title {
+    font-family: PingFangSC-Regular;
+    font-size: 36rpx;
+    color: #000000;
+    line-height: 52rpx;
+    height: 260rpx;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    margin-bottom: 27rpx;
+    text-align: center;
+}
+
+.shareWx {
+    height: 106rpx;
+    padding-top: 71rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.share-btn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.share-btn .share-icon {
+    width: 60rpx;
+    height: 60rpx;
+    margin-bottom: 16rpx;
+}
+
+.share-btn .share-word {
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+    color: #AAAAAA;
+    line-height: 30rpx;
+}
+
+.share-btn2 {
+    padding-left: 124rpx;
+}
+
+.code-pic {
+    width: 245rpx;
+    height: 249rpx;
+    margin-top: 79rpx;
+}
+
+.canvas-wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background-color: rgba(0,0,0,0.5);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.canvas-box {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    background-color: red;
+}
+
+#myCanvas {
+    width: 540rpx;
+    background-color: #fff;
+}
+
+.share-alert-btn {
+    background: #FF552E url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAV1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////+ORg7oAAAAHHRSTlMAzhD3ND++q/C1BuIfmF8m6IDGZ9afjod2SCxvlovxOwAAAVtJREFUOMtt09sOgyAMgOECyhQUD9O5ub7/c67CoCj+FybqF4ixQJ50vbCqWfTqJNz3maTAmGq7G1LPiH2msJ6qq9mQOqn6oTaTE6kRo2KEqCUb/4YVI5yTMn4dVoxIxR1fiBfFCKdgKoWFYqSqsJDWep5n8W9ZvlIwQnEYue/DUUfxlzDCDz1oMTUBK0Yt3aqTYZXQaMCdDavuj8ZBwhrNGy4FZIfnCjoac4ts90UBy990a4G8edOG0Hjz7awuUTCoQHkzWCwRmQk9snR9krlBi/SGthOHGfEGTXKLP6YPpkQ8HSs4t5NhVBp0AGQCGqqT6aNRkn9wWzXVncHHcdwSwky9FMWjAiKhQxljgKNbGY4lI1JhKmiZhhpHa/egt4hYcVtcco6oVLPhMUyIVJ0pIfNjzojUM60jTx/xUgmx2q6DWE0JofJK1FDWtSpT+gP3SbfqpVFW9A7yfqInQpmq2xgZAAAAAElFTkSuQmCC) no-repeat 44rpx center;
+    background-size: 36rpx 36rpx;
+    border-radius: 100rpx;
+    width: 340rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: left;
+    padding-left: 100rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-top: 40rpx;
+}
+
+.share-alert-btn text {
+    font-size: 28rpx;
+    color: #FFFFFF;
+}

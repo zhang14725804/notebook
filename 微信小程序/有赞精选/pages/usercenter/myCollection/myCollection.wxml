@@ -1,0 +1,26 @@
+<import src="../../../templates/loadMore/loadMore.wxml"></import>
+<import src="../../../templates/loadFail/loadFail.wxml"></import>
+<import src="../../../templates/toast/toast.wxml"></import>
+<view style="position: fixed; left: 0; right: 0; top: 0; background-color: #E2E2E2; height: 1rpx;"></view>
+<view class="container container--without-border">
+    <scroll-view bindscrolltolower="handleScrollToLower" scrollY="true" style="padding: 0rpx; height: {{windowHeight}}px; width: {{windowWidth}}px;" wx:if="{{!loadFail}}">
+        <view bindtap="itemClick" class="item" data-item-index="{{idx}}" wx:for="{{goodsList}}" wx:for-index="idx" wx:key="{{idx}}">
+            <view class="item-header">
+                <image class="item-header-image" src="{{item.logo}}"></image>
+                <view class="item-header-info">
+                    <text class="item-header-info-name">{{item.shop_name}}</text>
+                    <view class="certificate-contaimer" wx:if="{{item.cer&&item.cer.length}}">
+                        <view class="shop-cert" wx:for="{{item.cer}}" wx:for-item="subItem" wx:key="{{ index }}">
+                            <view class="zan-icon zan-icon-certificate" style="color: #06BF04"></view> {{subItem}}
+              </view>
+                    </view>
+                </view>
+            </view>
+            <view class="item-content">
+                <image catchtap="onGoodTap" class="item-content-image" data-alias="{{childItem.alias}}" data-shopname="{{item.shop_name}}" mode="scaleToFill" src="{{childItem.pic_url}}" wx:for="{{item.goods_brief_list}}" wx:for-index="idx" wx:for-item="childItem" wx:key="{{idx}}"></image>
+            </view>
+        </view>
+        <template is="loadmore" data="{{loading:loading,nomore:nomore,nodata:nodata}}"></template>
+    </scroll-view>
+    <template is="loadFailView" data="{{icon_network_error:icon_network_error,clickInterface:clickInterface,width:windowWidth,height:windowHeight}}" wx:if="{{loadFail}}"></template>
+</view>

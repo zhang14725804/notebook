@@ -1,0 +1,32 @@
+<view bind:tap="gotoUrl" class="selected" data-url="{{firstItem.titleUrl}}">
+    <view class="selected-title">
+        <view class="selected-title__dt">{{firstItem.title}}</view>
+        <view class="selected-title__dd">{{firstItem.des}}</view>
+    </view>
+    <view catch:tap="gotoUrl" class="selected-coupon" data-url="{{firstItem.couponUrl}}" wx:if="{{coupon}}">{{coupon}}</view>
+    <view class="selected-image">
+        <view class="selected-image__item selected-image__item--{{index==0?'before':'after'}}" wx:for="{{firstItem.images}}" wx:key="url">
+            <image catch:tap="gotoUrl" class="bg_stamp" data-url="{{item.url}}" src="{{item.cover}}"></image>
+        </view>
+    </view>
+    <view class="selected-keyword">
+        <view catch:tap="gotoUrl" class="selected-keyword__item" data-url="{{item.url}}" wx:for="{{keywords}}" wx:key="image">
+            <image src="{{item.image}}" wx:if="{{item.image}}"></image>
+            <text wx:else>{{item.text}}</text>
+        </view>
+    </view>
+</view>
+<view class="group">
+    <view bind:tap="gotoUrl" class="group__item group__item-{{index<2?'m':'xs'}}" data-url="{{item.images[0].url}}" wx:for="{{items}}" wx:key="title">
+        <view class="group-title">
+            <view class="group-title__dt">{{item.title}}</view>
+            <view class="group-title__dd">{{item.des}}</view>
+        </view>
+        <view class="group-image" wx:if="{{index<2}}">
+            <image catch:tap="gotoUrl" class="group-image__cover bg_stamp" data-url="{{item1.url}}" src="{{item1.cover}}" wx:for="{{item.images}}" wx:for-item="item1" wx:key="url"></image>
+        </view>
+        <view class="group-image" wx:else>
+            <image catch:tap="gotoUrl" class="group-image__cover bg_stamp" data-url="{{item.images[0].url}}" src="{{item.images[0].cover}}"></image>
+        </view>
+    </view>
+</view>

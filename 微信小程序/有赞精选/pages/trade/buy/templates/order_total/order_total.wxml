@@ -1,0 +1,26 @@
+<template name="order_total">
+    <view class="zan-panel zan-cell order-total zan-cell--last-child">
+        <view class="zan-cell__bd">
+            <view>
+                <text>商品金额</text>
+                <text class="zan-pull-right zan-c-gray-darker">¥ {{payment_strs.goodsPay}}</text>
+            </view>
+            <view>
+                <text>运费</text>
+                <text class="zan-pull-right zan-c-gray-darker">+ ¥ {{showSelfFetch?'0.00':payment_strs.postage}}</text>
+            </view>
+            <view wx:if="{{payment.changePrice}}">
+                <text>商家改价</text>
+                <text class="zan-pull-right zan-c-gray-darker">+ ¥ {{payment_strs.changePrice}}</text>
+            </view>
+            <view wx:if="{{payment.activity}}">
+                <text>活动优惠</text>
+                <text class="zan-pull-right zan-c-gray-darker">- ¥ {{payment_strs.activity}}</text>
+            </view>
+            <view wx:if="{{coupons.selected&&coupons.selected.id}}">
+                <text>优惠</text>
+                <text class="zan-pull-right zan-c-gray-darker">- ¥ {{coupons.selected.priceStr}}</text>
+            </view>
+        </view>
+    </view>
+</template>

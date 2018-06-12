@@ -1,0 +1,111 @@
+Object.defineProperty(exports, "__esModule", {
+    value: !0
+}), exports.default = [ {
+    labelId: "777789291349671938",
+    showStyle: "0",
+    labelName: "全新",
+    lableType: "2",
+    labelDesc: "全新标签",
+    labelImage: "http://img.58cdn.com.cn/zhuanzhuan/zz/labels/new_list@3x.png",
+    width: "90",
+    height: "45"
+}, {
+    labelId: "777789291349671938",
+    showStyle: "1",
+    labelName: "全新",
+    lableType: "2",
+    labelDesc: "全新标签",
+    labelImage: "http://img.58cdn.com.cn/zhuanzhuan/zz/labels/new_infodetail@3x.png",
+    width: "90",
+    height: "51"
+}, {
+    labelId: "780365611845812226",
+    showStyle: "0",
+    labelName: "支持验机",
+    lableType: "2",
+    labelDesc: "服务标签",
+    labelImage: "http://img.58cdn.com.cn/zhuanzhuan/zz/labels/service_youpin_youjiyanji@2x.png",
+    width: "141",
+    height: "30"
+}, {
+    labelId: "780365611845812228",
+    showStyle: "0",
+    labelName: "游戏担保交易",
+    lableType: "2",
+    labelDesc: "服务标签",
+    labelImage: "http://img.58cdn.com.cn/zhuanzhuan/zz/labels/service_game_trade@2x.png",
+    width: "138",
+    height: "30"
+}, {
+    labelId: "778899970827747330",
+    showStyle: "0",
+    labelName: "微信好友",
+    lableType: "1",
+    labelDesc: "关系标签",
+    labelImage: "http://img.58cdn.com.cn/zhuanzhuan/zz/labels/friend@3x.png",
+    width: "131",
+    height: "45"
+}, {
+    labelId: "8046585786612480443",
+    showStyle: "0",
+    labelName: "实名认证",
+    lableType: "1",
+    labelDesc: "实名认证",
+    labelImage: "http://img.58cdn.com.cn/zhuanzhuan/zz/labels/zhima_label_normal@3x.png",
+    width: "300",
+    height: "90"
+}, {
+    labelId: "8046585786612480443",
+    showStyle: "1",
+    labelName: "实名认证",
+    lableType: "1",
+    labelDesc: "实名认证",
+    labelImage: "http://img.58cdn.com.cn/zhuanzhuan/zz/labels/zhima_label_level_1@3x.png",
+    width: "120",
+    height: "45"
+}, {
+    labelId: "8046585786612480443",
+    showStyle: "2",
+    labelName: "实名认证",
+    lableType: "1",
+    labelDesc: "实名认证",
+    labelImage: "http://img.58cdn.com.cn/zhuanzhuan/zz/labels/zhima_label_level_2@3x.png",
+    width: "120",
+    height: "45"
+}, {
+    labelId: "8046585786612480443",
+    showStyle: "3",
+    labelName: "实名认证",
+    lableType: "1",
+    labelDesc: "实名认证",
+    labelImage: "http://img.58cdn.com.cn/zhuanzhuan/zz/labels/zhima_label_level_3@3x.png",
+    width: "240",
+    height: "90"
+}, {
+    labelId: "8046585786612480443",
+    showStyle: "4",
+    labelName: "实名认证",
+    lableType: "1",
+    labelDesc: "实名认证",
+    labelImage: "http://img.58cdn.com.cn/zhuanzhuan/zz/labels/zhima_label_level_4@3x.png",
+    width: "120",
+    height: "45"
+}, {
+    labelId: "8046585786612480443",
+    showStyle: "5",
+    labelName: "实名认证",
+    lableType: "1",
+    labelDesc: "实名认证",
+    labelImage: "http://img.58cdn.com.cn/zhuanzhuan/zz/labels/zhima_label_level_5@3x.png",
+    width: "120",
+    height: "45"
+}, {
+    labelId: "904189291049673344",
+    showStyle: "0",
+    labelName: "转转有书",
+    lableType: "2",
+    labelDesc: "转转有书",
+    labelImage: "http://img.58cdn.com.cn/zhuanzhuan/zz/labels/zzyoushu1@2x.png",
+    width: "96",
+    height: "28"
+} ];

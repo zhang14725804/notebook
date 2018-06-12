@@ -1,0 +1,32 @@
+<template name="zan-tab-list">
+    <view bindtap="_handleZanTabChange" class="zan-tab__item {{item.isHot?'zan-tab__hot':''}} {{tab.selectedId==item.id?'zan-tab__item--selected':''}}" data-alias="{{item.alias}}" data-component-id="{{componentId}}" data-item-id="{{item.id}}" data-name="{{item.name}}" data-type="{{item.type}}" wx:if="{{item.id!='all'}}" wx:for="{{tab.list}}" wx:key="id">
+        <view class="zan-tab__title">
+      {{item.alias}}
+      <view>
+                <template is="formidReciver" data="{{position:index+1,pageUrl:'pages/venues/index/index?id='+item.id+'&type='+item.type}}"></template>
+            </view>
+        </view>
+        <image class="icon" src="https://img.yzcdn.cn/public_files/2017/10/25/480e3ed22012f3839e5c80d70af5dec3.gif"></image>
+    </view>
+</template>
+<template name="venues-tab">
+    <view class="zan-tab-fix" wx:if="{{tab&&tab.list&&tab.list.length>0}}">
+        <view class="zan-tab">
+            <scroll-view scrollWithAnimation scrollX scrollLeft="{{tabScroll}}" wx:if="{{tab.scroll}}">
+                <view class="zan-tab__bd zan-tab__bd--scroll {{fixed?'zan-tab__bd--fixed':''}}">
+                    <template is="zan-tab-list" data="{{tab:tab,componentId:componentId}}"></template>
+                </view>
+            </scroll-view>
+            <view class="zan-tab__bd {{fixed?'zan-tab__bd--fixed':''}}" wx:else>
+                <template is="zan-tab-list" data="{{tab:tab,componentId:componentId}}"></template>
+            </view>
+        </view>
+    </view>
+    <view bindtap="_handleZanTabChange" class="zan-tab__title zan-tab__fixed {{tab.selectedId==tab.list[0].id?'zan-tab__item--selected':''}}" data-alias="{{tab.list[0].alias}}" data-component-id="{{componentId}}" data-item-id="{{tab.list[0].id}}" data-name="{{tab.list[0].name}}" data-type="{{tab.list[0].type}}" wx:if="{{tab&&tab.list&&tab.list.length>0}}">
+    {{tab.list[0].alias}}
+    <view>
+            <template is="formidReciver" data="{{position:1,pageUrl:'pages/venues/index/index?id='+tab.list[0].id+'&type='+tab.list[0].type}}"></template>
+        </view>
+    </view>
+</template>
+<import src="../../../../components/formidReciver/index.wxml"></import>

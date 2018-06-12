@@ -1,0 +1,188 @@
+.component-sku--container {
+    width: 100%;
+}
+
+.component-sku__hd {
+    margin: 0 0 0 15px;
+    padding-bottom: 12px;
+    border-bottom: 1rpx solid #e5e5e5;
+    overflow: hidden;
+    min-height: 70px;
+}
+
+.component-sku__hd .component-sku__content {
+    margin-left: 90px;
+    margin-top: 10px;
+}
+
+.component-sku__bd {
+    max-height: 50vh;
+    position: relative;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1;
+}
+
+.component-sku__ft {
+    display: flex;
+    margin-top: 1px;
+}
+
+.component-sku__ft .zan-btn {
+    flex: 1;
+}
+
+.component-sku__image {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+}
+
+.component-sku__title {
+    color: #333333;
+    margin-right: 40px;
+}
+
+.component-sku__close {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.component-sku__sku-key {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.component-sku__sku-wrap {
+    margin-bottom: 15px;
+}
+
+.component-sku__sku-value-wrap {
+    margin-bottom: -10px;
+}
+
+.component-sku__sku-value-wrap .zan-tag--disabled {
+    pointer-events: none;
+}
+
+.component-sku__sku-value-tag {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 5px 14px;
+    min-width: 40px;
+    color: #333;
+    border: 1rpx solid #999;
+}
+
+.component-sku__sku-value-tag.zan-tag--danger {
+    color: #fff;
+    border: 1rpx solid #f44;
+}
+
+.component-sku__sku-wrap--last-child {
+    margin-bottom: 0;
+}
+
+.stepper__wrap {
+    display: flex;
+}
+
+.stepper__label {
+    flex: 1;
+}
+
+.component-sku__message-required {
+    position: relative;
+}
+
+.component-sku__message-required::before {
+    position: absolute;
+    content: ' ';
+    font-size: 0;
+    display: inline-block;
+    left: -7px;
+    top: 7px;
+    background: #f44;
+    vertical-align: baseline;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+}
+
+.component-sku__select-photo {
+    display: inline-block;
+    height: 12px;
+    line-height: 12px;
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    border: 1rpx solid #cacaca;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.component-sku__select-photo view {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 12px;
+    line-height: 12px;
+    vertical-align: baseline;
+}
+
+.sku-member-price {
+    display: block;
+}
+
+.sku-member-price .component-sku__price {
+    display: inline-block;
+}
+
+.sku-member-price .sku-price-tag {
+    display: inline-block;
+}
+
+.sku-price-tag {
+    margin-bottom: 3px;
+    padding: 0 5px;
+    line-height: 16px;
+    font-size: 10px;
+    border-radius: 2px;
+    vertical-align: middle;
+    display: inline-block;
+    color: #f44;
+    width: 52px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #f44;
+}
+
+.component-sku-price {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 10px;
+}
+
+.component-sku-price {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.component-sku-price .component-sku__price {
+    margin-right: 4px;
+}
+
+.component-sku__message-title {
+    flex: 1;
+    max-width: 80px;
+}

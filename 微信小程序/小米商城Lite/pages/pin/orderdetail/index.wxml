@@ -1,0 +1,168 @@
+<view class="msxcx-widget-loading msxcx-widget-loading_big" wx:if="{{!loaded}}">
+    <view></view>
+    <text>加载中</text>
+</view>
+<block wx:else>
+    <view class="mx-order-status " wx:if="{{statusDesc}}">
+        <block wx:if="{{!couponInfo}}">
+            <text>{{statusDesc}}</text>
+            <text wx:if="{{statusLongDesc}}">{{statusLongDesc}}</text>
+            <navigator class="winner-btn" url="/pages/pin/winners/index?p={{projectId}}&g={{groupId}}" wx:if="{{lotteryView&&!fanscard}}">中奖名单</navigator>
+            <view bindtap="goMicard" class="winner-btn" wx:if="{{fanscard&&(fanscard.status==0||fanscard.status==1)}}">{{fanscard.status_desc}}</view>
+            <view class="winner-btn" wx:if="{{fanscard&&(fanscard.status==2||fanscard.status==3)}}">{{fanscard.status_desc}}</view>
+        </block>
+        <view class="flex-box justify-between align-center" wx:else>
+            <text>{{couponInfo.desc}}</text>
+            <navigator class="get-prize-btn{{couponInfo.status==0?' disable':''}}" url="/pages/pin/award/index?p={{projectId}}&g={{groupId}}&order_id={{orderId}}">{{couponInfo.button_desc}}</navigator>
+        </view>
+    </view>
+    <block wx:if="{{status===2&&groupStatus===1}}">
+        <view class="msxcx-layout-mod__ohd">拼单信息</view>
+        <view class="msxcx-layout-mod">
+            <view class="msxcx-layout-mod__bd" style="overflow:hidden;">
+                <navigator class="mx-group-box msxcx-widget-list__item_arrow" openType="navigate" url="../product/index?p={{projectId}}&g={{groupId}}">
+                    <view class="mx-group-info">
+                        <block wx:if="{{groupStatus===1&&needLens>0}}">
+                            <view class="title">拼单中，还差<text class="num">{{needLens}}</text>人</view>
+                            <view class="time" wx:if="{{groupCdStr}}">
+                  ，还剩 {{groupCdStr.h}} : {{groupCdStr.m}} : {{groupCdStr.s}}
+                </view>
+                        </block>
+                        <view class="title" wx:if="{{groupStatus===1&&needLens<=0}}">正在成团中</view>
+                        <block wx:elif="{{groupStatus===2}}">
+                            <view class="title">已成团</view>
+                            <view class="time">，{{groupFinishTime}} 已达成</view>
+                        </block>
+                        <block wx:elif="{{groupStatus===3}}">
+                            <view class="title">拼团失败</view>
+                            <view class="time">，已到期 截至 {{groupExpireTime}}</view>
+                        </block>
+                    </view>
+                    <view class="mx-group-player ">
+                        <view class="list">
+                            <view class="player {{item.user_avatar?'uavatar':''}}" wx:for="{{playerList}}">
+                                <block wx:if="{{item}}">
+                                    <view class="avatar" style="background-image: url('{{item.user_avatar}}')" wx:if="{{item.user_avatar}}"></view>
+                                    <text class="master" wx:if="{{index===0}}">团长</text>
+                                </block>
+                                <text class="no" wx:else>?</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </block>
+    <view class="msxcx-layout-mod__ohd">订单信息</view>
+    <view class="msxcx-layout-mod">
+        <view class="msxcx-layout-mod__bd">
+            <view class="msxcx-widget-list">
+                <view class="msxcx-widget-list__item">
+                    <view class="msxcx-p-order-detail-label-text">
+                        <label>下单日期：</label>
+                        <text>{{orderTime}}</text>
+                    </view>
+                </view>
+                <view class="msxcx-widget-list__item">
+                    <view class="msxcx-p-order-detail-label-text">
+                        <label>订单编号：</label>
+                        <text>{{orderId}}</text>
+                    </view>
+                </view>
+                <view class="msxcx-widget-list__item">
+                    <view class="msxcx-p-order-detail-label-text">
+                        <label>收货地址：</label>
+                        <view class="msxcx-widget-text">
+                            <view>{{address.tel}} {{address.consignee}} 收</view>
+                            <view>{{address.province.name}} {{address.city.name}} {{address.district.name}} {{address.area.name}} {{address.address}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="msxcx-widget-list__item">
+                    <view class="msxcx-p-order-detail-label-text">
+                        <label>收货时间：</label>
+                        <text>{{bestTime}}</text>
+                    </view>
+                </view>
+                <view class="msxcx-widget-list__item">
+                    <view class="msxcx-p-order-detail-label-text">
+                        <label>发票信息：</label>
+                        <view class="msxcx-widget-text">
+                            <view wx:if="{{invoice.invoice_title!=''}}">
+                                <label wx:if="{{invoice.invoice_type}}">{{invoice.invoice_type}}：</label>{{invoice.invoice_title}}</view>
+                            <view wx:if="{{invoice.invoice_company_code}}">
+                                <label>企业税号：</label>{{invoice.invoice_company_code}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="msxcx-layout-mod__ohd">购物清单</view>
+    <view class="msxcx-layout-mod">
+        <view class="msxcx-layout-mod__bd">
+            <view class="msxcx-widget-list">
+                <view class="msxcx-widget-list__item">
+                    <view class="msxcx-checkout-goods-list-item">
+                        <image class="product-icon" mode="aspectFit" src="{{goodsImg}}"></image>
+                        <text class="price">
+                            <text class="num" wx:if="{{goodsNum>0}}">{{goodsNum}} × {{goodsPrice}}</text>
+                        </text>
+                        <view class="goods-name">
+                            <text>{{goodsName}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="msxcx-layout-mod__ohd">订单金额</view>
+    <view class="msxcx-layout-mod">
+        <view class="msxcx-layout-mod__hd">
+            <view class="msxcx-layout-mod__hd_left">订单金额</view>
+            <view class="msxcx-layout-mod__hd_right">
+                <text class="msxcx-p-checkout-total-fee">
+                    <text wx:if="{{status===1}}">应付</text> {{amount}}元
+        </text>
+            </view>
+        </view>
+        <view class="msxcx-layout-mod__bd">
+            <view class="msxcx-widget-list">
+                <view class="msxcx-widget-list__item">
+                    <view class="msxcx-p-checkout-fee-list-item">
+                        <text class="fee-name">商品总价</text>
+                        <text class="fee">{{amount}}元</text>
+                    </view>
+                </view>
+                <view class="msxcx-widget-list__item">
+                    <view class="msxcx-p-checkout-fee-list-item">
+                        <text class="fee-name">运费</text>
+                        <text class="fee">{{shipment}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <block wx:if="{{(status===2||status===3)&&refundDesc}}">
+        <view class="msxcx-layout-mod__ohd">退款提示</view>
+        <view class="msxcx-layout-mod">
+            <view class="msxcx-layout-mod__bd">
+                <view style="padding:32rpx 0;">
+                    <view>
+                        <text>{{refundDesc}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="msxcx-layout-footer-placeholder" wx:if="{{status===1||status===2}}"></view>
+    <view class="msxcx-layout-footer" wx:if="{{status===1}}">
+        <button bindtap="orderPay" class="msxcx-widget-bigbtn" type="primary">使用微信支付</button>
+    </view>
+    <view class="msxcx-layout-footer msxcx-layout-footer_pin" wx:elif="{{status===2}}">
+        <navigator openType="navigate" url="../refund/index?orderId={{orderId}}&projectId={{projectId}}&groupId={{groupId}}" wx:if="{{canRefund}}">
+            <button class="btn">申请退款</button>
+        </navigator>
+        <button class="btn btn-primary" openType="share">邀请好友</button>
+    </view>
+</block>

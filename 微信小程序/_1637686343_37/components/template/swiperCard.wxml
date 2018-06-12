@@ -1,0 +1,23 @@
+<template name="swiperCard">
+    <swiper-item class="m-swiperList_item">
+        <view class="m-swiperList_item-wrap">
+            <view class="m-swiperList_cover">
+                <image class="m-swiperList_img" height="100" mode="aspectFill" src="{{imageUrl}}" width="75"></image>
+                <image class="c-icon-play" data-qipu-id="{{qipuId}}" height="55" mode="aspectFit" src="/resource/images/c-icon-play.png" width="55"></image>
+                <template is="icon" data="{{isVip:isVip,isQiyiProduced:isQiyiProduced,isExclusive:isExclusive,isCoupon:isCoupon,isPaid:isPaid}}"></template>
+            </view>
+            <view class="m-swiperList_info">
+                <text class="m-swiperList_info-h2">{{contentA}}</text>
+                <text class="m-swiperList_info-p">{{contentB}}</text>
+                <text class="m-swiperList_info-p">{{contentC}}</text>
+                <text class="m-swiperList_info-p">{{contentD}}</text>
+                <view class="c-rt" wx:if="{{isMovie}}">
+                    <view class="c-date-score">
+                        <text class="score-item">{{showContent}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </swiper-item>
+</template>
+<import src="/components/template/icon.wxml"></import>

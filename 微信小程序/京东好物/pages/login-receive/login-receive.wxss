@@ -1,0 +1,91 @@
+page {
+    font-size: 30rpx;
+    background: #f0eff5;
+}
+
+button {
+    line-height: 88rpx;
+}
+
+.info-box {
+    margin-top: 67rpx;
+    margin-bottom: 60rpx;
+    background: #fff;
+    border-top: 1rpx solid #e5e5e7;
+    border-bottom: 1rpx solid #e5e5e7;
+    padding-left: 30rpx;
+}
+
+.label-input {
+    position: relative;
+    padding: 28rpx 0;
+    height: 31rpx;
+}
+
+.label-input text,.label-input input {
+    width: 400rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    vertical-align: middle;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.label-input text {
+    width: 180rpx;
+    margin-top: -6rpx;
+    font-size: 32rpx;
+}
+
+.label-input input {
+    margin-top: -5rpx;
+    font-size: 32rpx;
+    display: inline-block;
+    position: absolute;
+    z-index: 10;
+}
+
+.text-placeholder {
+    color: #b2b2b2;
+}
+
+.icon-clear {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    margin-left: 5rpx;
+    right: 30rpx;
+    top: 25rpx;
+    font-size: 0;
+}
+
+.btn-box {
+    padding: 0 30rpx;
+}
+
+.btn-disabled {
+    opacity: 0.5;
+}
+
+.jd-red-bg {
+    background: #f23030;
+    color: #ffffff;
+}
+
+.other-btn-box span {
+    color: #6a7fa6;
+    text-decoration: underline;
+}
+
+.warn-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70rpx;
+    line-height: 70rpx;
+    background: #e54340;
+    color: #fff;
+    text-align: center;
+    font-size: 30rpx;
+}

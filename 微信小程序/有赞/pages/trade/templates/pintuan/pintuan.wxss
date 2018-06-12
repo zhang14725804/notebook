@@ -1,0 +1,54 @@
+.pintuan__container {
+    position: relative;
+    height: 88rpx;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+    font-size: 14px;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    border: 1rpx solid #E5E5E5;
+    background-color: #fff;
+}
+
+.pintuan__img {
+    width: 34rpx;
+    height: 28rpx;
+    background-image: url("https://img.yzcdn.cn/public_files/2017/09/21/6674e5b041d002ce31b6d633cdaa655a.png");
+    background-size: 34rpx 28rpx;
+    margin-right: 20rpx;
+}
+
+.pintuan__tips {
+    font-size: 28rpx;
+    text-align: center;
+    color: #333333;
+}
+
+.pintuan__leader {
+    position: absolute;
+    right: 20rpx;
+    top: 30rpx;
+    color: #666666;
+    max-width: 150px;
+    overflow: hidden;
+    height: 15px;
+}
+
+.pintuan__checkbox {
+    width: 36rpx;
+    height: 36rpx;
+    background-size: 36rpx 36rpx;
+    margin-right: 20rpx;
+    color: #FF4444;
+}
+
+.pintuan_checkbox--unchecked {
+    background-image: url("https://img.yzcdn.cn/public_files/2017/09/27/6244b57cd789f4493206c412fa55b324.png");
+}
+
+.pintuan_checkbox--checked {
+    background-image: url("https://img.yzcdn.cn/public_files/2017/10/19/3331aeeafdd3ba2479751ae643fafc1b.png");
+}

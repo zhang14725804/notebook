@@ -1,0 +1,26 @@
+<view class="msxcx-widget-loading msxcx-widget-loading_big" wx:if="{{!loaded}}">
+    <view></view>
+    <text>加载中</text>
+</view>
+<block wx:else>
+    <view style="margin-bottom:72rpx;" wx:if="{{activity_id==4}}">
+        <image mode="widthFix" src="{{img}}" style="display:block;width:100%;"></image>
+    </view>
+    <view class="mx-hb-title" wx:else>
+        <view class="slogan" style="background-image:url({{img}});"></view>
+        <view class="avatar">
+            <image src="{{avatar}}"></image>
+        </view>
+    </view>
+    <text class="mx-hb-sub-title">送你 {{award_list.length}} 张优惠券</text>
+    <view class="mx-hb">
+        <view wx:for="{{award_list}}" wx:for-item="award">{{award}}</view>
+    </view>
+    <view class="mx-hb-footer-placeholder"></view>
+    <view class="mx-hb-footer">
+        <view>
+            <navigator url="/pages/coupon/index">我的优惠券</navigator>
+            <navigator openType="switchTab" url="/pages/index/index">去商城逛逛</navigator>
+        </view>
+    </view>
+</block>

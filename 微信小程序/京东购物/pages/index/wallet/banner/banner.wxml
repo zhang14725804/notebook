@@ -1,0 +1,11 @@
+<view class="banner" hidden="{{!firstBanner&&!secondBanner}}">
+    <view class="banner__floor" wx:if="{{firstBanner}}">
+        <image class="banner__image" mode="aspectFill" src="{{firstBanner.image}}"></image>
+        <view bindtap="gotoH5" class="banner__hot-area" data-link="{{firstBanner.link}}"></view>
+    </view>
+    <view class="banner__floor" wx:if="{{secondBanner}}">
+        <image class="banner__image" mode="aspectFill" src="{{secondBanner.image}}"></image>
+        <view bindtap="gotoH5" class="banner__hot-area" data-link="{{secondBanner.linkLeft}}"></view>
+        <view bindtap="gotoH5" class="banner__hot-area" data-link="{{secondBanner.linkRight}}"></view>
+    </view>
+</view>

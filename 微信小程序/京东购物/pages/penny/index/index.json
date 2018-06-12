@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "1分钱抽奖",
+    "usingComponents": {
+        "PingBottom": "../common/ping_bottom/ping_bottom",
+        "quick-nav": "../../../components/quick-nav/quick-nav",
+        "recommend-tuan": "../../components/recommend-tuan/recommend-tuan"
+    }
+}

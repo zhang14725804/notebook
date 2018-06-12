@@ -1,0 +1,71 @@
+"use strict";
+
+var constants = require("p_./components/showcase/feature/components/groupon/components/item/constants.wxs")();
+
+function hasStock(goods) {
+    return goods.goodsInfo.totalStock > 0;
+}
+
+function isShowBuyBtn(showBuyBtn, size) {
+    return showBuyBtn == constants.SHOW_BUY_BTN.SHOW && size != constants.SIZE.SMALL;
+}
+
+function isShowTitle(showTitle) {
+    return showTitle === constants.SHOW_TITLE.SHOW;
+}
+
+function getGoodsClass(goods) {
+    var classStr = "";
+    if (!hasStock(goods)) {
+        classStr += " cap-ump-groupon-goods--soldout";
+    }
+    if (goods.isEnd) {
+        classStr += " cap-ump-groupon-goods--end";
+    }
+    return classStr;
+}
+
+function isShowGrouponNum(showGrouponNum, goods) {
+    return showGrouponNum && showGrouponNum === constants.SHOW_GROUP_NUMS.SHOW && goods.groupNums > 0;
+}
+
+function getGoodsBodyClass(buyBtnType, showBuyBtn, size) {
+    var classStr = "cap-ump-groupon-goods__body--btn-" + buyBtnType;
+    if (!isShowBuyBtn(showBuyBtn, size)) {
+        classStr += " cap-ump-groupon-goods__body--no-btn";
+    }
+    return classStr;
+}
+
+function getActivityTagText(size) {
+    return size === constants.SIZE.SMALL ? "人团" : "人拼团价";
+}
+
+function getMinActivityPrice(price) {
+    price = price || "";
+    var reg = getRegExp("(\\d+)(\\.\\d+)");
+    var result = reg.exec(price.toString());
+    if (!result) {
+        return {};
+    }
+    return {
+        yuan: result[1],
+        cent: result[2]
+    };
+}
+
+function getButtonText(goods) {
+    return hasStock(goods) ? "去开团" : "去看看";
+}
+
+module.exports = {
+    getGoodsClass: getGoodsClass,
+    hasStock: hasStock,
+    isShowGrouponNum: isShowGrouponNum,
+    isShowTitle: isShowTitle,
+    isShowBuyBtn: isShowBuyBtn,
+    getGoodsBodyClass: getGoodsBodyClass,
+    getActivityTagText: getActivityTagText,
+    getMinActivityPrice: getMinActivityPrice,
+    getButtonText: getButtonText
+};

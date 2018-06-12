@@ -1,0 +1,18 @@
+<block wx:for="{{modList}}" wx:for-index="modidx" wx:key="modId">
+    <include src="./inc/focus.wxml" wx:if="{{item._tplType==='FOCUS'}}"></include>
+    <include src="./inc/lpic_rtext.wxml" wx:elif="{{item._tplType==='LPIC_RTEXT'}}"></include>
+    <include src="./inc/hpics.wxml" wx:elif="{{item._tplType==='HPICS'}}"></include>
+    <include src="./inc/focus_hpics.wxml" wx:elif="{{item._tplType==='FOCUS_HPICS'}}"></include>
+    <include src="./inc/scroll_hpics.wxml" wx:elif="{{item._tplType==='SCROLL_HPICS'}}"></include>
+    <include src="./inc/scroll_vpics.wxml" wx:elif="{{item._tplType==='SCROLL_VPICS'}}"></include>
+</block>
+<view bindtap="onFetchAgain" class="mod_empty mod_empty_white {{!modList.length&&status.ret?'':'none'}}">
+    <view class="icon_empty"></view>
+    <view class="empty_title">出了点小问题 ({{status.ret}})</view>
+    <view class="empty_text" wx:if="{{status.seqNum}}">seqNum:{{status.seqNum}}</view>
+    <view class="empty_text">我们正在紧张地修复</view>
+    <view class="empty_btn">刷新</view>
+</view>
+<view class="mod_loading{{status.loading?modList.length?' loadmore':'':' hide'}}">
+    <view class="icon_loading"></view>
+</view>

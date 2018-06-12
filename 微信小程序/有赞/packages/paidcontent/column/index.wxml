@@ -1,0 +1,43 @@
+<import src="../../../bower_components/zan/dist/tab/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/loadmore/index.wxml"></import>
+<import src="../../../components/wxParse/wxParse.wxml"></import>
+<view class="paid-column-wp {{themeClass}}" wx:if="{{fetched}}">
+    <view class="column-desc-card">
+        <image class="main-image" mode="aspectFill" src="{{picture.cover}}"></image>
+        <view class="column-desc-wp">
+            <view>
+                <view class="column-title">{{title||''}}</view>
+                <view class="column-summary">{{summary||''}}</view>
+            </view>
+            <view class="column-bottom-content">
+                <view class="column-author" wx:if="{{author}}">作者：{{author}}</view>
+                <view class="column-update">更新：{{contentsCount}}期</view>
+                <view class="column-subscribe" wx:if="{{subscriptionsCount}}">订阅：{{subscriptionsCount||0}}</view>
+                <view class="column-price">价格：<text class="price-text theme-color">￥ {{price}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="column-content-card">
+        <template is="zan-tab" data="{{tab:tab,componentId:'paid'}}" wx:if="{{!isSubscription}}"></template>
+        <view class="desc-part" wx:if="{{tab.selectedId==='desc'}}">
+            <template is="wxParse" data="{{wxParseData:richPreviewContent.nodes}}"></template>
+        </view>
+        <view class="content-part" id="content-list" wx:elif="{{contentList.length}}">
+            <cap-paid-content alias="{{item.alias}}" count="{{item.count}}" cover="{{item.picture.cover}}" isFree="{{!isSubscription&&item.isFree}}" noBorder="{{index===data.list.length-1}}" subCount="{{item.subCount}}" summary="{{item.summary}}" time="{{item.createdTime}}" title="{{item.title}}" type="{{item.mediaType}}" wx:for="{{contentList}}" wx:key="id"></cap-paid-content>
+            <template is="zan-loadmore" data="{{loading:listLoading}}" wx:if="{{listLoading}}"></template>
+            <view class="no-more" wx:if="{{noMore}}">没有更多</view>
+        </view>
+        <view class="no-item" wx:else>
+            <text wx:if="{{noMore}}">该专栏还没有设置内容哦</text>
+            <template is="zan-loadmore" data="{{loading:true}}" wx:else></template>
+        </view>
+    </view>
+    <view bindtap="buyColumn" class="buy-btn theme-bg-color" wx:if="{{!isSubscription}}">
+    购买专栏：￥{{price}}
+  </view>
+</view>
+<import src="../../../components/copyright/index.wxml"></import>
+<template is="copyright" data="{{copyright:copyright,is_big_shop:is_big_shop,withFixBottom:true}}" wx:if="{{fetched}}"></template>
+<import src="../../../pages/common/wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

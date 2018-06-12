@@ -1,0 +1,8 @@
+<template name="m-login-cover">
+    <view bindtap="closeLoginMask" class="cover"></view>
+    <view class="m-login-bottom">
+        <view bindtap="gologin" class="iqiyi-login" data-type="username">爱奇艺账号登录</view>
+        <view bindtap="gologin" class="wechat-login" data-type="weixin">微信登录</view>
+        <view bindtap="closeLoginMask" class="c-login-cancel">取消</view>
+    </view>
+</template>

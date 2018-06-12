@@ -1,0 +1,8 @@
+<template name="search_correct">
+    <view class="correct">
+        <view>已为您智能匹配至：<text bindtap="onSearchbarTrigger" class="search-hl" data-correct="true" data-stat="search:correct_corrected" data-value="{{matchResult}}">{{matchResult}}</text>
+        </view>
+        <view>仍然搜索：<text bindtap="onSearchbarTrigger" class="search-hl" data-correct="true" data-stat="search:correct_wrong" data-value="{{searchKey}}">{{searchKey}}</text>
+        </view>
+    </view>
+</template>

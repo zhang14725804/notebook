@@ -1,0 +1,115 @@
+@import "../../../__wuBaseWxss__/4.wxss";
+
+@import "../../../app.wxss";
+
+.detail_guess {
+    margin-top: 15px;
+}
+
+.detail_guess__title {
+    box-sizing: border-box;
+    width: 100%;
+    height: 44px;
+    padding-left: 10px;
+    line-height: 44px;
+    vertical-align: middle;
+    border-bottom: 1rpx solid #ddd;
+}
+
+.detail_guess__swiper {
+    height: calc(500rpx + 142px);
+}
+
+.detail_guess__swiper.small {
+    height: calc(250rpx + 71px);
+}
+
+.detail_guess__swiper-item {
+    width: 100%;
+}
+
+.detail_guess__swiper-item-name {
+    padding: 0 5px;
+    margin: 5px 0 0;
+    height: 3em;
+    font-size: 12px;
+}
+
+.detail_guess__swiper-item-price {
+    padding: 0px 5px;
+    font-size: 10px;
+    color: #E93B3D;
+}
+
+.detail_guess__swiper-item-price text {
+    font-size: 16px;
+}
+
+.detail_guess__swiper-item-ul {
+    display: flex;
+}
+
+.detail_guess__swiper-item-li {
+    width: 250rpx;
+}
+
+.detail_guess__swiper-item-li .wrap {
+    position: relative;
+    padding-top: 100%;
+    height: 70px;
+    box-sizing: border;
+    border-bottom: 1rpx solid #ddd;
+    border-right: 1rpx solid #ddd;
+}
+
+.detail_guess__swiper-item-li .wrap image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 248rpx;
+    height: 250rpx;
+}
+
+.detail_guess__swiper-item .loadMore {
+    display: flex;
+    width: 249rpx;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1rpx solid #ddd;
+    border-right: 1rpx solid #ddd;
+}
+
+.detail_guess__swiper-item .loadMore .more {
+    width: 54px;
+    height: 20px;
+    margin: 0 auto;
+}
+
+.detail_guess__swiper-item .loadMore .more_icon {
+    width: 21px;
+    height: 21px;
+    margin: 0 auto;
+}
+
+.detail_guess__swiper-dots {
+    height: 60rpx;
+    line-height: 60rpx;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.detail_guess__swiper-dots .dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 6px;
+    background: #ccc;
+    margin-right: 5px;
+}
+
+.detail_guess__swiper-dots .dot.cur {
+    width: 10px;
+    background: #E93B3D;
+}

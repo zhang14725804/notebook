@@ -1,0 +1,7 @@
+<view class="order-ensure__tip-container" wx:if="{{hasSecured}}">
+    <text>本订单享受 </text>
+    <image class="secured" mode="aspectFit" src="https://b.yzcdn.cn/public_files/2018/04/19/24b1840864e6712300f975f7342f1599.png" wx:if="{{hasSecured}}"></image>
+    <text class="vertical-line" wx:if="{{hasSecured&&hasGuaranted}}"> | </text>
+    <image class="guaranted" mode="aspectFit" src="https://img.yzcdn.cn/public_files/2016/01/05/f32fc608cf4173bffa3c23b0ad682bf9.png" wx:if="hasGuaranted"></image>
+    <text> 保险保障</text>
+</view>

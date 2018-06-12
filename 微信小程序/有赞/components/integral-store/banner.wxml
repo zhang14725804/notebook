@@ -1,0 +1,26 @@
+<template name="integral-banner-template">
+    <view class="integral-store__banner {{!isStore&&!hasStore&&'not-store'}}">
+        <view class="integral-store__integral-count">
+            <view>
+                <view class="integral-store__label">可用积分</view>
+                <view>{{core}}</view>
+                <view class="integral-store__entry" wx:if="{{hasStore}}">
+                    <navigator hoverClass="none" url="/packages/ump/integral-store/index">
+            积分商城<view class="zan-icon-arrow zan-icon"></view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+        <view class="integral-store__nav" wx:if="{{isStore}}">
+            <view>
+                <navigator hoverClass="none" url="/packages/user/integral/index?tab=integral">积分记录<view class="zan-icon-arrow zan-icon"></view>
+                </navigator>
+            </view>
+            <view class="col-line"></view>
+            <view>
+                <navigator hoverClass="none" url="/packages/user/integral/index?tab=goods">兑换记录<view class="zan-icon-arrow zan-icon"></view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,45 @@
+<template name="edit">
+    <view class="address-edit zan-panel">
+        <view class="address-edit__item zan-cell zan-field">
+            <text class="zan-field__title">收货人</text>
+            <input bindblur="onInputChange" class="address-edit__input zan-field__input zan-cell__bd" data-type="user_name" placeholder="名字" value="{{edit_data.user_name||''}}"></input>
+        </view>
+        <view class="address-edit__item zan-cell zan-field">
+            <text class="zan-field__title">联系电话</text>
+            <input bindblur="onInputChange" class="address-edit__input zan-field__input zan-cell__bd" data-type="tel" maxlength="20" placeholder="手机或固定电话" type="number" value="{{edit_data.tel||''}}"></input>
+        </view>
+        <view class="address-edit__item zan-cell zan-field">
+            <view class="zan-field__title zan-pull-left">收货地区</view>
+            <view class="zan-field__input address-edit__pickers zan-cell__bd">
+                <picker bindchange="onAreaChange" class="address-edit__picker" data-type="province" mode="selector" range="{{area.province}}" rangeKey="text" value="{{edit_data.provinceIndex}}">
+                    <view class="picker">
+            {{area.province[edit_data.provinceIndex].text}}
+          </view>
+                </picker>
+                <picker bindchange="onAreaChange" class="address-edit__picker" data-type="city" mode="selector" range="{{area.city}}" rangeKey="text" value="{{edit_data.cityIndex}}">
+                    <view class="picker">
+            {{area.city[edit_data.cityIndex].text}}
+          </view>
+                </picker>
+                <picker bindchange="onAreaChange" class="address-edit__picker" data-type="county" mode="selector" range="{{area.county}}" rangeKey="text" value="{{edit_data.countyIndex}}">
+                    <view class="picker">
+            {{area.county[edit_data.countyIndex].text}}
+          </view>
+                </picker>
+            </view>
+        </view>
+        <view class="address-edit__item zan-cell zan-field">
+            <text class="zan-field__title">详细地址</text>
+            <input bindblur="onInputChange" class="address-edit__input zan-field__input zan-cell__bd" data-type="address_detail" placeholder="街道门牌信息" value="{{edit_data.address_detail||''}}"></input>
+        </view>
+        <view class="address-edit__item zan-cell zan-field zan-cell--last-child">
+            <text class="zan-field__title">邮政编码</text>
+            <input bindblur="onInputChange" class="address-edit__input zan-field__input zan-cell__bd" data-type="postal_code" placeholder="邮政编码(选填)" value="{{edit_data.postal_code||''}}"></input>
+        </view>
+    </view>
+    <view class="zan-btns">
+        <button catchtap="onAddressSave" class="zan-btn zan-btn--primary">保存</button>
+        <button catchtap="onAddressDelete" class="zan-btn" wx:if="{{status=='edit'}}">删除收货地址</button>
+        <button catchtap="onAddressBack" class="zan-btn zan-btn--last-child">取消</button>
+    </view>
+</template>

@@ -1,0 +1,42 @@
+<import src="head-template/temp-shouqi.wxml"></import>
+<import src="../common/verify-pic.wxml"></import>
+<import src="../common/youxuan/index.wxml"></import>
+<import src="../common/search-module.wxml"></import>
+<import src="../common/tel/index.wxml"></import>
+<import src="template/head.wxml"></import>
+<import src="template/tablist.wxml"></import>
+<import src="template/dateinfo.wxml"></import>
+<import src="../wenda/question/template/list/list.wxml"></import>
+<import src="../detail/detail-template/apply-resume-list.wxml"></import>
+<import src="./template/banner.wxml"></import>
+<import src="./template/bigbang.wxml"></import>
+<view class="bac-orange" wx:if="{{isSearchModuleShow}}">
+    <scroll-view bindscroll="scrollContain" catchscrolltolower="bindSwipeBottom" class="index-container" scrollTop="{{scrollHeight}}" scrollY="{{true}}">
+        <template is="head" data="{{currDispCityId:currDispCityId,currCity:currCity,cityList:cityList,name:name,initSearchData:initSearchData}}"></template>
+        <template is="tablist" data="{{headconfig:headconfig}}"></template>
+        <view class="grey-divide" wx:if="{{weatherBriefData.condition||banners.length>0}}"></view>
+        <template is="dateinfo" data="{{weatherAlmanac:weatherAlmanac,weatherBriefData:weatherBriefData}}" wx:if="{{weatherBriefData.condition}}"></template>
+        <view class="white-divide" wx:if="{{banners.length>0&&!weatherBriefData.condition}}"></view>
+        <template is="banner" data="{{banners:banners}}" wx:if="{{banners.length>0}}"></template>
+        <view class="grey-divide"></view>
+        <view class="index-list">
+            <view class="list-desc" wx:if="{{yxList.length>0}}">猜你喜欢</view>
+            <template is="youxuanlist" data="{{yxList:yxList,cateCode:cateCode,youxuan:youxuan,hasMore:hasMore,animation:animation,telNum:telNum,isTelAlertShow:isTelAlertShow}}" wx:if="{{yxList.length>0}}"></template>
+            <view class="tips" wx:if="{{yxList.length===0&&!loading}}">
+                <view class="tips-icon"></view>
+                <text class="tips-desc">暂无推荐信息～</text>
+            </view>
+        </view>
+    </scroll-view>
+    <template is="verifyPic" data="{{verifyPic:verifyPic,btnFlag:btnFlag,verifyValue:verifyValue,verifyValue:verifyValue,verifyFocus:verifyFocus}}" wx:if="{{verifyLoad}}"></template>
+</view>
+<template is="searchModule" data="{{isSearchModuleShow:isSearchModuleShow,showSearchResult:showSearchResult,searchResult:searchResult,hotWords:hotWords,searchWords:searchWords,key:key,initSearchData:initSearchData}}" wx:if="{{!isSearchModuleShow}}"></template>
+<view bindtouchstart="e_closeMask" class="mask-android" wx:if="{{showAndroidMask}}">
+    <view class="mask-android-content"></view>
+</view>
+<template is="tel-alert" data="{{telNum:telNum,telCountTime:telCountTime}}" wx:if="{{isTelAlertShow}}"></template>
+<view class="un-read-msg-tip" data-aaa="{{unReadMsgCount}}" data-bbb="{{imCount}}" wx:if="{{unReadMsgCount>0||imCount>0}}">
+    <text>私信{{unReadMsgCount+imCount}}</text>
+</view>
+<template is="apply-resume-list" data="{{resumes:resumes}}" wx:if="{{showResumeList}}"></template>
+<template is="bigbang" data="{{currDispCityId:currDispCityId,bigbangObj:bigbangObj,showBigbang:showBigbang}}" wx:if="{{showBigbang}}"></template>

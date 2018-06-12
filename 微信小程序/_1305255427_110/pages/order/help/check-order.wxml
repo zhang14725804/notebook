@@ -1,0 +1,55 @@
+<view class="section section-first">
+    <view class="section--title">
+        <text>方法一</text>
+    </view>
+    <view class="process process-first">
+        <image mode="aspectFit" src="{{imagePath+'check/1-1.png'}}"></image>
+        <view class="process-alt">
+            <view class="process-alt-num">
+                <text>01</text>
+            </view>
+            <view class="process-alt-text">
+                <text>搜索并关注“爱回收”微信公众号</text>
+            </view>
+        </view>
+    </view>
+    <view class="process reverse">
+        <view class="process-alt">
+            <view class="process-alt-num">
+                <text>02</text>
+            </view>
+            <view class="process-alt-text">
+                <text>进入会员中心，点击订单查询</text>
+            </view>
+        </view>
+        <image mode="aspectFit" src="{{imagePath+'check/1-2.png'}}"></image>
+    </view>
+</view>
+<view class="section">
+    <view class="section--title">
+        <text>方法二</text>
+    </view>
+    <view class="process process-first">
+        <image mode="aspectFit" src="{{imagePath+'check/2-1.png'}}"></image>
+        <view class="process-alt">
+            <view class="process-alt-num">
+                <text>01</text>
+            </view>
+            <view class="process-alt-text">
+                <text>微信首页查找“服务”</text>
+            </view>
+        </view>
+    </view>
+    <view class="process reverse">
+        <view class="process-alt">
+            <view class="process-alt-num">
+                <text>02</text>
+            </view>
+            <view class="process-alt-text">
+                <text>进入服务通知，查找订单信息</text>
+            </view>
+        </view>
+        <image mode="aspectFit" src="{{imagePath+'check/2-2.png'}}"></image>
+    </view>
+</view>
+<image class="piwik-image-placeholder" src="{{piwikSource}}"></image>

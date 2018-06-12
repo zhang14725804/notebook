@@ -1,0 +1,53 @@
+.error__container {
+    padding: 22vh 0;
+}
+
+.error__icon {
+    height: 130px;
+    background: transparent url("https://b.yzcdn.cn/v2/image/wap/shop_closed2@2x.png") center no-repeat;
+    background-size: 138px 129px;
+}
+
+.error__texts {
+    padding-top: 30px;
+    margin: 0 15px;
+    line-height: 1.8;
+}
+
+.closed-title {
+    color: #333;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+.closed-tip {
+    color: #666;
+    line-height: 20px;
+    margin-bottom: 60px;
+}
+
+.closed-button {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+    padding: 11px 10px;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+}
+
+.service-phone {
+    text-align: center;
+    color: #87b6e9;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 44px;
+    line-height: 44px;
+}

@@ -1,0 +1,65 @@
+<import src="../common/images-swiper.wxml"></import>
+<import src="../common/error.wxml"></import>
+<import src="../common/verify-pic.wxml"></import>
+<import src="./detail-template/fang-common-head.wxml"></import>
+<import src="./detail-template/fang-params-block.wxml"></import>
+<import src="./detail-template/detail-bottom.wxml"></import>
+<import src="./detail-template/ershouche-params.wxml"></import>
+<import src="./detail-template/common-desc-block.wxml"></import>
+<import src="./detail-template/fang-housedesc.wxml"></import>
+<import src="./detail-template/fang-rommate.wxml"></import>
+<import src="./detail-template/ershou-params.wxml"></import>
+<import src="./detail-template/chongwu-params.wxml"></import>
+<import src="./detail-template/zhaopin/zhaopin-head.wxml"></import>
+<import src="./detail-template/zhaopin/zhaopin-company.wxml"></import>
+<import src="./detail-template/apply-resume-list.wxml"></import>
+<import src="../common/tel/index.wxml"></import>
+<view class="container-detail{{isIphoneX?' container-detail-iphonex':''}}">
+    <view class="container-top {{!videoShow&&detail.largerPicShow?'':'nosrcoll-container'}}" wx:if="{{detail.loading}}">
+        <block wx:if="{{detail.info.cateCode==1||detail.info.cateCode==2||detail.info.cateCode==3}}">
+            <template is="images-swiper" data="{{...detail,videoSrc:videoSrc,videoShow:videoShow}}" wx:if="{{detail.info.pic.length>0}}"></template>
+            <template is="fang-common-head" data="{{...detail}}"></template>
+            <template is="fang-rommate" data="{{...detail,rommateType:rommateType,rommateList:rommateList}}" wx:if="{{detail.info.cateCode==1}}"></template>
+            <template is="fang-params-block" data="{{...detail}}"></template>
+            <template is="fang-housedesc" data="{{...detail}}"></template>
+        </block>
+        <block wx:elif="{{detail.info.cateCode==4||detail.info.cateCode==5||detail.info.cateCode==8}}">
+            <template is="zhaopin-head" data="{{...detail}}"></template>
+            <template is="common-desc-block" data="{{...detail}}"></template>
+            <template is="zhaopin-company" data="{{...detail}}"></template>
+        </block>
+        <block wx:elif="{{detail.info.cateCode==6}}">
+            <template is="images-swiper" data="{{...detail,videoSrc:videoSrc,videoShow:videoShow}}" wx:if="{{detail.info.pic.length>0}}"></template>
+            <template is="fang-common-head" data="{{...detail}}"></template>
+            <template is="ershouche-params" data="{{...detail}}"></template>
+            <template is="common-desc-block" data="{{...detail}}"></template>
+        </block>
+        <block wx:elif="{{detail.info.cateCode==7}}">
+            <template is="images-swiper" data="{{...detail,videoSrc:videoSrc,videoShow:videoShow}}" wx:if="{{detail.info.pic.length>0}}"></template>
+            <template is="fang-common-head" data="{{...detail}}"></template>
+            <template is="chongwu-params" data="{{...detail}}"></template>
+            <template is="common-desc-block" data="{{...detail}}"></template>
+        </block>
+        <block wx:elif="{{detail.info.cateCode==10}}">
+            <template is="images-swiper" data="{{...detail,videoSrc:videoSrc,videoShow:videoShow}}" wx:if="{{detail.info.pic.length>0}}"></template>
+            <template is="fang-common-head" data="{{...detail}}"></template>
+            <template is="ershou-params" data="{{...detail}}"></template>
+            <template is="common-desc-block" data="{{...detail}}"></template>
+        </block>
+        <block wx:else>
+            <template is="images-swiper" data="{{...detail,videoSrc:videoSrc,videoShow:videoShow}}" wx:if="{{detail.info.pic.length>0}}"></template>
+            <template is="fang-common-head" data="{{...detail}}"></template>
+            <template is="common-desc-block" data="{{...detail}}"></template>
+        </block>
+    </view>
+    <template is="detail-bottom" data="{{...detail,hideApplyButton:hideApplyButton,applied:applied,isIphoneX:isIphoneX}}" wx:if="{{detail.loading}}"></template>
+    <button appParameter="{{launchApppro}}" binderror="launchAppError" bindtap="launchTap" class="launchapp" openType="launchApp" wx:if="{{isShowLaunch}}">
+        打开APP查看
+    </button>
+    <view class="page-body" wx:if="{{isErrorShow}}">
+        <template is="error" data></template>
+    </view>
+    <template is="apply-resume-list" data="{{resumes:resumes}}" wx:if="{{showResumeList}}"></template>
+    <template is="verifyPic" data="{{verifyPic:verifyPic,btnFlag:btnFlag,verifyValue:verifyValue,verifyValue:verifyValue,verifyFocus:verifyFocus}}" wx:if="{{verifyLoad}}"></template>
+    <template is="tel-alert" data="{{telNum:telNum,telCountTime:telCountTime}}" wx:if="{{isTelAlertShow}}"></template>
+</view>

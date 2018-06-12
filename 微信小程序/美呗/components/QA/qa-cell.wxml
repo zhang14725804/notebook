@@ -1,0 +1,11 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<view catchtap="_jumpDetailEvent" class="qa-cell">
+    <view class="qa-title">{{qaData.Title}}</view>
+    <view class="qa-author">
+        <image src="https://cdn-ssl.meb.com/wxa/v1/qa-default-avatar.png"></image>
+        <text>{{qaData.Nickname}}</text>
+    </view>
+    <view class="qa-desc">
+        <template is="wxParse" data="{{wxParseData:Content.nodes}}"></template>
+    </view>
+</view>

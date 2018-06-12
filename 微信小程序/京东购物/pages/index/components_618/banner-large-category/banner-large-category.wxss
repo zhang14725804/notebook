@@ -1,0 +1,71 @@
+@import "../../../../__wuBaseWxss__/20.wxss";
+
+.banner {
+    z-index: 0;
+    position: relative;
+    width: 750rpx;
+    height: 346rpx;
+    display: flex;
+    align-items: flex-start;
+}
+
+.banner--mall {
+    margin-top: -30rpx;
+}
+
+.banner__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+
+.banner__image--show {
+    opacity: 1;
+}
+
+.banner__item {
+    flex: 1;
+    min-width: 0;
+    height: 290rpx;
+}
+
+.banner__calendar {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    padding: 0 22rpx;
+    height: 40rpx;
+    max-width: 80%;
+    line-height: 40rpx;
+    border-radius: 40rpx;
+    font-size: 24rpx;
+    color: #fff;
+}
+
+.banner__calendar-title {
+    position: relative;
+    display: inline;
+    font-weight: bold;
+    padding-right: 10rpx;
+}
+
+.banner__calendar-title::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 9rpx;
+    bottom: 9rpx;
+    width: 1rpx;
+    background-color: #fff;
+}
+
+.banner__calendar-text {
+    display: inline;
+    padding-left: 10rpx;
+}

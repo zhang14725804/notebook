@@ -1,0 +1,45 @@
+.empty_prompt {
+    background: #f7f7f7;
+    padding: 70px 50px 0 50px;
+    text-align: center;
+}
+
+.empty_prompt_icon {
+    display: block;
+    position: relative;
+    margin: 0 auto 12px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #d6d6da;
+}
+
+.empty_prompt_icon:before {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    width: 33px;
+    height: 33px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+}
+
+.empty_prompt_icon:after {
+    content: '';
+    position: absolute;
+    top: 59px;
+    left: 53px;
+    width: 17px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+
+.empty_prompt_text {
+    margin-top: 12px;
+    line-height: 1.2;
+    color: #666;
+    font-size: 16px;
+}

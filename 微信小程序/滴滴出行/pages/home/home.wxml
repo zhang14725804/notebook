@@ -1,0 +1,1109 @@
+<view class="home">
+    <view class="navigator-wrapper">
+        <view class="navigator {{navigator.state.showList?'shown-list':''}}">
+            <view class="nav-wrapper">
+                <view bindtap="_dispatch" class="avatar-wrapper" data-bindtap="avatarClick" data-path="navigator">
+                    <view class="avatar">
+                        <view class="mfic mfic-person"></view>
+                        <view class="sideRedPoint" hidden="{{!navigator.state.sideRedPoint}}"></view>
+                    </view>
+                </view>
+                <view class="line"></view>
+                <view class="tab-wrapper">
+                    <view class="nav-mask mask-left"></view>
+                    <view class="nav-mask mask-right"></view>
+                    <scroll-view bindscroll="_dispatch" bindscrolltolower="_dispatch" class="tab-list" data-bindscroll="scroll" data-bindscrolltolower="scroll2Lower" data-path="navigator" scrollLeft="{{navigator.state.scrollLeft}}" scrollWithAnimation="true" scrollX="true">
+                        <view class="tab-item" xmlns:wx="" wx:for="{{navigator.props.navList}}">
+                            <view bindtap="_dispatch" class="tab-name {{item.itemClass}}" data-bindtap="selectTab" data-id="{{item.menuNumId}}" data-item="{{item}}" data-path="navigator" id="{{'tab-item-'+item.menuNumId}}">
+                                <text>{{item.name}}</text>
+                                <image src="{{item.hot?item.hot.icon:''}}" wx:if="{{item.isTopic}}"></image>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </view>
+                <view bindtap="_dispatch" class="more-wrapper" data-bindtap="toggleList" data-path="navigator" hidden="{{!navigator.state.showMore}}">
+                    <view class="more">
+                        <view class="mfic mfic-second-type-change" ref="moreicon"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bizs">
+        <view class="didiproto" wx:if="{{biz.__k==='didiproto'}}">
+            <view class="didiproto-map" style="flex: {{biz.state.hack}}">
+                <view>
+                    <view class="{{biz.initMap.map.state.hideShadow?'map-container':''}}">
+                        <map bindcallouttap="_dispatch" bindcontroltap="_dispatch" bindmarkertap="_dispatch" bindregionchange="_dispatch" bindtap="_dispatch" bindupdated="_dispatch" class="map-sdk-view" controls="{{biz.initMap.map.state.controls}}" data-bindcallouttap="callouttap" data-bindcontroltap="controltap" data-bindmarkertap="markertap" data-bindregionchange="regionchange" data-bindtap="bindtap" data-bindupdated="bindupdated" data-path="biz.initMap.map" id="{{biz.initMap.map.props.id}}" latitude="{{biz.initMap.map.state.latitude}}" longitude="{{biz.initMap.map.state.longitude}}" markers="{{biz.initMap.map.state.markers}}" polyline="{{biz.initMap.map.state.polyline}}" scale="{{biz.initMap.map.state.scale}}" style="{{biz.initMap.map.props.style}}">
+                            <cover-view class="probe-callout" style="{{biz.initMap.map.state.controlTip.style}}" wx:if="{{biz.initMap.map.state.controlTip&&biz.initMap.map.state.controlTip.show&&biz.initMap.map.state.controlTip.text}}">
+                                <cover-view class="callout-text-container">
+                                    <cover-view class="callout-text">{{biz.initMap.map.state.controlTip.text}}</cover-view>
+                                </cover-view>
+                                <cover-view class="probe-callout-img">
+                                    <cover-image class="callout-arrow" src="{{biz.initMap.map.state.triImg}}"></cover-image>
+                                </cover-view>
+                            </cover-view>
+                            <cover-view class="map-top-shadow" wx:if="{{!biz.initMap.map.state.hideShadow}}">
+                                <cover-image class="map-top-shadow-img" src="{{biz.initMap.map.state.mapShadowTop}}"></cover-image>
+                            </cover-view>
+                            <cover-view class="map-btm-shadow" wx:if="{{!biz.initMap.map.state.hideShadow}}">
+                                <cover-image class="map-btm-shadow-img" src="{{biz.initMap.map.state.mapShadowBtm}}"></cover-image>
+                            </cover-view>
+                        </map>
+                    </view>
+                </view>
+            </view>
+            <view class="didiproto-main">
+                <view class="didiproto-scenes">
+                    <view class="sceneWrap">
+                        <view hidden="{{biz.sceneWrap.props.sceneTypes.length<2||biz.sceneWrap.props.canEstimate}}">
+                            <view class="scene-switch-warp">
+                                <view class="tab-container">
+                                    <view bindtap="_dispatch" class="{{biz.sceneWrap.sceneSwitch.state.currentActId==item.id?'active item-tab':'item-tab'}}" data-bindtap="tabClick({{item.id}})" data-path="biz.sceneWrap.sceneSwitch" wx:for="{{biz.sceneWrap.sceneSwitch.state.sceneArray}}">
+                                        <text>{{item.name}}</text>
+                                    </view>
+                                    <view bindtap="_dispatch" class="item-tab more-tab" data-bindtap="moreClick" data-path="biz.sceneWrap.sceneSwitch" wx:if="{{biz.sceneWrap.sceneSwitch.state.moreIsShow}}">
+                                        <view class="more-tab-item "></view>
+                                        <view class="more-tab-item "></view>
+                                        <view class="more-tab-item "></view>
+                                    </view>
+                                </view>
+                                <view bindtap="_dispatch" class="operator-wrap " data-bindtap="operaClick({{biz.sceneWrap.sceneSwitch.props.sceneProperty.operaObj.id}})" data-path="biz.sceneWrap.sceneSwitch" wx:if="{{biz.sceneWrap.sceneSwitch.state.operaIsShow}}">
+                                    <view class="operator-item">
+                                        <view class="arrow-right"></view>
+                                        <view class="arrow-right-border"></view>
+                                        <view class="operator-text mfic">{{biz.sceneWrap.sceneSwitch.props.sceneProperty.operaObj.name}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="scene-form-component">
+                            <view class="extraTipWrap didiproto-form-wrap {{biz.sceneWrap.extraTipWrap.props.isFull?'full-row':''}}" style="order: {{biz.sceneWrap.extraTipWrap.props.orderIndex}}" wx:if="{{biz.sceneWrap.extraTipWrap.__k==='extraTipWrap'}}">
+                                <view class="didiproto-filght-guide" wx:if="{{biz.sceneWrap.extraTipWrap.extraTip.__k==='flightGuide'}}">
+                                    <text>接机员免费引导</text>
+                                    <view class="mfic mfic-tips-icon"></view>
+                                    <view class="flight-guide-switch">
+                                        <switch bindchange="_dispatch" checked="{{biz.sceneWrap.extraTipWrap.extraTip.props.checked}}" color="{{biz.sceneWrap.extraTipWrap.extraTip.props.color||'#fc9153'}}" data-bindchange="switchChange" data-path="biz.sceneWrap.extraTipWrap.extraTip"></switch>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="timePickerWrap didiproto-form-wrap {{biz.sceneWrap.timePickerWrap.props.isFull?'full-row':''}}" style="order: {{biz.sceneWrap.timePickerWrap.props.orderIndex}}" wx:if="{{biz.sceneWrap.timePickerWrap.__k==='timePickerWrap'}}">
+                                <view bindtap="_dispatch" class="timepicker-order-express" data-bindtap="onClick" data-path="biz.sceneWrap.timePickerWrap.timepicker" wx:if="{{biz.sceneWrap.timePickerWrap.timepicker.__k==='timepickerExpress'}}">
+                                    <view class="section">
+                                        <picker bindchange="_dispatch" bindcolumnchange="_dispatch" data-bindchange="changeHandler" data-bindcolumnchange="columnChangeHandler" data-path="biz.sceneWrap.timePickerWrap.timepicker.timepickernew" mode="multiSelector" range="{{biz.sceneWrap.timePickerWrap.timepicker.timepickernew.state.timeArray}}" rangeKey="text" value="{{biz.sceneWrap.timePickerWrap.timepicker.timepickernew.state.value}}">
+                                            <view class="mfic {{biz.sceneWrap.timePickerWrap.timepicker.props.icon}}"></view>
+                                            <view class="title">{{biz.sceneWrap.timePickerWrap.timepicker.props.title}}</view>
+                                        </picker>
+                                    </view>
+                                </view>
+                                <view bindtap="_dispatch" class="picker-order-express" data-bindtap="onClick" data-path="biz.sceneWrap.timePickerWrap.timepicker" wx:if="{{biz.sceneWrap.timePickerWrap.timepicker.__k==='pickerExpress'}}">
+                                    <picker bindchange="_dispatch" bindcolumnchange="_dispatch" data-bindchange="onPickerChange" data-bindcolumnchange="onColumnChange" data-path="biz.sceneWrap.timePickerWrap.timepicker" mode="{{biz.sceneWrap.timePickerWrap.timepicker.state.mode}}" range="{{biz.sceneWrap.timePickerWrap.timepicker.props.dataList}}" rangeKey="text" value="{{biz.sceneWrap.timePickerWrap.timepicker.state.indexs}}">
+                                        <view class="mfic {{biz.sceneWrap.timePickerWrap.timepicker.props.icon}}"></view>
+                                        <view class="title">
+                                            <view class="mf-special-text {{biz.sceneWrap.timePickerWrap.timepicker.specialText.props.classname}}">
+                                                <text class="{{item.classname}}" style="{{item.style}}" wx:for="{{biz.sceneWrap.timePickerWrap.timepicker.specialText.state.textArr}}" wx:key="{{item.index}}">{{item.text}}</text>
+                                            </view>
+                                        </view>
+                                    </picker>
+                                </view>
+                            </view>
+                            <view class="callCarWrap didiproto-form-wrap {{biz.sceneWrap.callCarWrap.props.isFull?'full-row':''}}" style="order: {{biz.sceneWrap.callCarWrap.props.orderIndex}}" wx:if="{{biz.sceneWrap.callCarWrap.__k==='callCarWrap'}}">
+                                <view bindtap="_dispatch" class="didiproto-order-express {{biz.sceneWrap.callCarWrap.orderExpress.state.isSecond}}" data-bindtap="onClick" data-path="biz.sceneWrap.callCarWrap.orderExpress">
+                                    <view class="inner-container {{biz.sceneWrap.callCarWrap.orderExpress.state.selected?'selected':''}}">
+                                        <view class="mfic {{biz.sceneWrap.callCarWrap.orderExpress.state.icon}} {{biz.sceneWrap.callCarWrap.orderExpress.state.largeIcon}}"></view>
+                                        <view class="title">
+                                            <view class="mf-special-text {{biz.sceneWrap.callCarWrap.orderExpress.specialText.props.classname}}">
+                                                <text class="{{item.classname}}" style="{{item.style}}" wx:for="{{biz.sceneWrap.callCarWrap.orderExpress.specialText.state.textArr}}" wx:key="{{item.index}}">{{item.text}}</text>
+                                            </view>
+                                        </view>
+                                        <view class="sub-title">{{biz.sceneWrap.callCarWrap.orderExpress.state.sTitle}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="carTypeWrap didiproto-form-wrap {{biz.sceneWrap.carTypeWrap.props.isFull?'full-row':''}}" style="order: {{biz.sceneWrap.carTypeWrap.props.orderIndex}}" wx:if="{{biz.sceneWrap.carTypeWrap.__k==='carTypeWrap'}}">
+                                <view bindtap="_dispatch" class="didiproto-order-express {{biz.sceneWrap.carTypeWrap.carType.state.isSecond}}" data-bindtap="onClick" data-path="biz.sceneWrap.carTypeWrap.carType" wx:if="{{biz.sceneWrap.carTypeWrap.carType.__k==='orderExpress'}}">
+                                    <view class="inner-container {{biz.sceneWrap.carTypeWrap.carType.state.selected?'selected':''}}">
+                                        <view class="mfic {{biz.sceneWrap.carTypeWrap.carType.state.icon}} {{biz.sceneWrap.carTypeWrap.carType.state.largeIcon}}"></view>
+                                        <view class="title">
+                                            <view class="mf-special-text {{biz.sceneWrap.carTypeWrap.carType.specialText.props.classname}}">
+                                                <text class="{{item.classname}}" style="{{item.style}}" wx:for="{{biz.sceneWrap.carTypeWrap.carType.specialText.state.textArr}}" wx:key="{{item.index}}">{{item.text}}</text>
+                                            </view>
+                                        </view>
+                                        <view class="sub-title">{{biz.sceneWrap.carTypeWrap.carType.state.sTitle}}</view>
+                                    </view>
+                                </view>
+                                <view class="didiproto-orderCheck" wx:if="{{biz.sceneWrap.carTypeWrap.carType.__k==='orderCheck'}}">
+                                    <view bindtap="_dispatch" class="didiproto-order-express {{_v1.state.isSecond}}" data-bindtap="onClick" data-path="biz.sceneWrap.carTypeWrap.carType.listItems.{{_v1.__k}}" wx:for="{{biz.sceneWrap.carTypeWrap.carType.listItems}}" wx:for-index="_k1" wx:for-item="_v1" wx:key="__k">
+                                        <view class="inner-container {{_v1.state.selected?'selected':''}}">
+                                            <view class="mfic {{_v1.state.icon}} {{_v1.state.largeIcon}}"></view>
+                                            <view class="title">
+                                                <view class="mf-special-text {{_v1.specialText.props.classname}}">
+                                                    <text class="{{item.classname}}" style="{{item.style}}" wx:for="{{_v1.specialText.state.textArr}}" wx:key="{{item.index}}">{{item.text}}</text>
+                                                </view>
+                                            </view>
+                                            <view class="sub-title">{{_v1.state.sTitle}}</view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="swiper-select-wrap" wx:if="{{biz.sceneWrap.carTypeWrap.carType.__k==='swiperSelectWrap'}}">
+                                    <view class="swiper-container">
+                                        <view class="canvas-image" wx:if="{{biz.sceneWrap.carTypeWrap.carType.state.renderSwiper}}">
+                                            <view class="mf-canvas-swiper">
+                                                <canvas bindtouchcancel="_dispatch" bindtouchend="_dispatch" bindtouchmove="_dispatch" bindtouchstart="_dispatch" canvasId="mf-canvas-image" data-bindtouchcancel="ontouchend" data-bindtouchend="ontouchend" data-bindtouchmove="ontouchmove" data-bindtouchstart="ontouchstart" data-path="biz.sceneWrap.carTypeWrap.carType.imageSwiper" disableScroll="true"></canvas>
+                                            </view>
+                                        </view>
+                                        <view bindtap="_dispatch" class="swiper-select-more" data-bindtap="lookMore" data-path="biz.sceneWrap.carTypeWrap.carType" hidden="{{!biz.sceneWrap.carTypeWrap.carType.state.showMore}}">
+                                            <view class="more-text">{{biz.sceneWrap.carTypeWrap.carType.props.moreOptions.tip}}</view>
+                                            <view class="mfic mfic-click"></view>
+                                        </view>
+                                    </view>
+                                    <view class="swiper-select-dot">
+                                        <view class="dot-title">{{biz.sceneWrap.carTypeWrap.carType.state.current.name}}</view>
+                                        <view class="dot-sub-tip" hidden="{{!biz.sceneWrap.carTypeWrap.carType.state.current.subTitle}}">{{biz.sceneWrap.carTypeWrap.carType.state.current.subTitle}}</view>
+                                        <view class="dot-container" wx:if="{{biz.sceneWrap.carTypeWrap.carType.props.showDot}}">
+                                            <view class="dot-item {{index===biz.sceneWrap.carTypeWrap.carType.state.current.index?'active':''}}" wx:for="{{biz.sceneWrap.carTypeWrap.carType.state.curDataList}}"></view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="priceWrap didiproto-form-wrap full-row" style="order: {{biz.sceneWrap.priceWrap.props.orderIndex}}" wx:if="{{biz.sceneWrap.priceWrap.__k==='priceWrap'}}">
+                                <view class="price-loading-wrapper">
+                                    <view>
+                                        <view bindtap="_dispatch" class="mf-part-loading" data-bindtap="clickHandler" data-path="biz.sceneWrap.priceWrap.priceLoading" wx:if="{{biz.sceneWrap.priceWrap.priceLoading.state.isShow}}">
+                                            <view class="mf-part-loading-bar" wx:if="{{biz.sceneWrap.priceWrap.priceLoading.props.status==='pending'}}">
+                                                <view class="mf-part-loading-first"></view>
+                                                <view class="mf-part-loading-second"></view>
+                                                <view class="mf-part-loading-three"></view>
+                                            </view>
+                                            <view class="mf-part-loading-text" wx:if="{{biz.sceneWrap.priceWrap.priceLoading.props.status==='fail'}}">
+      {{biz.sceneWrap.priceWrap.priceLoading.props.errorMsg}}
+    </view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view style="visibility: {{biz.sceneWrap.priceWrap.props.estimateStatus!=='success'?'hidden':'visible'}}">
+                                    <view class="didiproto-price-tag-container {{biz.sceneWrap.priceWrap.price.props.items.length===1?'single-child':''}}">
+                                        <view bindtap="_dispatch" class="didiproto-price-tag {{_v2.state.isSecond?'is-second':''}} {{_v2.state.selected?'is-selected':''}}" data-bindtap="onClick" data-path="biz.sceneWrap.priceWrap.price.listItems.{{_v2.__k}}" wx:for="{{biz.sceneWrap.priceWrap.price.listItems}}" wx:for-index="_k2" wx:for-item="_v2" wx:key="__k">
+                                            <view class="title" wx:if="{{_v2.state.title}}"> {{_v2.state.title}}</view>
+                                            <view class="price">
+                                                <view class="dynamic mfic {{_v2.state.dynamicIcon}}"></view>
+                                                <view class="text">
+                                                    <view class="mf-special-text {{_v2.specialText.props.classname}}">
+                                                        <text class="{{item.classname}}" style="{{item.style}}" wx:for="{{_v2.specialText.state.textArr}}" wx:key="{{item.index}}">{{item.text}}</text>
+                                                    </view>
+                                                </view>
+                                            </view>
+                                            <view class="sub-title" wx:if="{{_v2.state.sTitle.length}}">
+                                                <text wx:for="{{_v2.state.sTitle}}">{{item}}</text>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="poolSeatWrap didiproto-form-wrap {{biz.sceneWrap.poolSeatWrap.props.isFull?'full-row':''}}" hidden="{{!biz.sceneWrap.poolSeatWrap.state.isShow}}" style="order: {{biz.sceneWrap.poolSeatWrap.props.orderIndex}}" wx:if="{{biz.sceneWrap.poolSeatWrap.__k==='poolSeatWrap'}}">
+                                <view bindtap="_dispatch" class="didiproto-order-express {{biz.sceneWrap.poolSeatWrap.orderExpress.state.isSecond}}" data-bindtap="onClick" data-path="biz.sceneWrap.poolSeatWrap.orderExpress">
+                                    <view class="inner-container {{biz.sceneWrap.poolSeatWrap.orderExpress.state.selected?'selected':''}}">
+                                        <view class="mfic {{biz.sceneWrap.poolSeatWrap.orderExpress.state.icon}} {{biz.sceneWrap.poolSeatWrap.orderExpress.state.largeIcon}}"></view>
+                                        <view class="title">
+                                            <view class="mf-special-text {{biz.sceneWrap.poolSeatWrap.orderExpress.specialText.props.classname}}">
+                                                <text class="{{item.classname}}" style="{{item.style}}" wx:for="{{biz.sceneWrap.poolSeatWrap.orderExpress.specialText.state.textArr}}" wx:key="{{item.index}}">{{item.text}}</text>
+                                            </view>
+                                        </view>
+                                        <view class="sub-title">{{biz.sceneWrap.poolSeatWrap.orderExpress.state.sTitle}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="payTypeWrap didiproto-form-wrap" hidden="{{biz.sceneWrap.payTypeWrap.state.hidePayType}}" style="order: {{biz.sceneWrap.payTypeWrap.props.orderIndex}}" wx:if="{{biz.sceneWrap.payTypeWrap.__k==='payTypeWrap'}}">
+                                <view bindtap="_dispatch" class="didiproto-order-express {{biz.sceneWrap.payTypeWrap.orderExpress.state.isSecond}}" data-bindtap="onClick" data-path="biz.sceneWrap.payTypeWrap.orderExpress">
+                                    <view class="inner-container {{biz.sceneWrap.payTypeWrap.orderExpress.state.selected?'selected':''}}">
+                                        <view class="mfic {{biz.sceneWrap.payTypeWrap.orderExpress.state.icon}} {{biz.sceneWrap.payTypeWrap.orderExpress.state.largeIcon}}"></view>
+                                        <view class="title">
+                                            <view class="mf-special-text {{biz.sceneWrap.payTypeWrap.orderExpress.specialText.props.classname}}">
+                                                <text class="{{item.classname}}" style="{{item.style}}" wx:for="{{biz.sceneWrap.payTypeWrap.orderExpress.specialText.state.textArr}}" wx:key="{{item.index}}">{{item.text}}</text>
+                                            </view>
+                                        </view>
+                                        <view class="sub-title">{{biz.sceneWrap.payTypeWrap.orderExpress.state.sTitle}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="locationWrap didiproto-form-wrap full-row" style="order: {{biz.sceneWrap.locationWrap.props.orderIndex}}" wx:if="{{biz.sceneWrap.locationWrap.__k==='locationWrap'}}">
+                                <view class="location" wx:if="{{biz.sceneWrap.locationWrap.location.__k==='normal'}}">
+                                    <view bindtap="_dispatch" class="location-item location-from {{biz.sceneWrap.locationWrap.location.props.fromStation.displayname||biz.sceneWrap.locationWrap.location.props.fromStation.downgradeName?'location-item-inputed':''}}" data-bindtap="loactionClick('from')" data-path="biz.sceneWrap.locationWrap.location">
+                                        <view class="location-field border-bottom-1px">{{biz.sceneWrap.locationWrap.location.state.fromTxt}}</view>
+                                    </view>
+                                    <view bindtap="_dispatch" class="location-item location-to {{biz.sceneWrap.locationWrap.location.props.toStation.displayname||!biz.sceneWrap.locationWrap.location.props.fromStation.displayname&&!biz.sceneWrap.locationWrap.location.props.fromStation.downgradeName?'location-item-inputed':''}}" data-bindtap="loactionClick('to')" data-path="biz.sceneWrap.locationWrap.location">
+                                        <view class="location-field">{{biz.sceneWrap.locationWrap.location.state.toTxt}}</view>
+                                        <view catchtap="_dispatch" class="mf-tips-container {{biz.sceneWrap.locationWrap.location.tip.props.direction?biz.sceneWrap.locationWrap.location.tip.props.direction:''}}" data-catchtap="guessClick" data-path="biz.sceneWrap.locationWrap.location.tip" style="{{biz.sceneWrap.locationWrap.location.tip.props.outstyles}}" wx:if="{{biz.sceneWrap.locationWrap.location.tip.state.tipShow}}">
+                                            <view class="mf-tips-wrap">
+                                                <view class="mf-triangle-wrap" style="top: {{biz.sceneWrap.locationWrap.location.tip.props.offsetTop?biz.sceneWrap.locationWrap.location.tip.props.offsetTop+'px':0}};bottom: {{biz.sceneWrap.locationWrap.location.tip.props.offsetBottom?biz.sceneWrap.locationWrap.location.tip.props.offsetBottom+'px':0}}">
+                                                    <view class="mf-triangle"></view>
+                                                </view>
+                                                <view catchtap="_dispatch" class="mf-close-btn mfic-narrow-cancel" data-catchtap="closeClick" data-path="biz.sceneWrap.locationWrap.location.tip"></view>
+                                                <view class="mf-msg">{{biz.sceneWrap.locationWrap.location.tip.props.guessTipTxt}}</view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="receive-flight-location-wrap" wx:if="{{biz.sceneWrap.locationWrap.location.__k==='receiveFlight'}}">
+                                    <view bindtap="_dispatch" class="receive-flight-info" data-bindtap="goFlightPage" data-path="biz.sceneWrap.locationWrap.location">
+                                        <view class="receive-flight-icon">
+                                            <view class="mfic mfic-send-plane"></view>
+                                        </view>
+                                        <view class="receive-flight-start-wrapper" wx:if="{{biz.sceneWrap.locationWrap.location.props.flightInfo.flightCode}}">
+                                            <view class="receive-flight-from">
+                                                <text class="receive-flight-left">{{biz.sceneWrap.locationWrap.location.props.flightInfo.flightCode}}</text>
+                                            </view>
+                                            <view class="receive-flight-arrive">
+                                                <text class="receive-flight-left">{{biz.sceneWrap.locationWrap.location.props.flightInfo.arriveTime.text}}</text>
+                                                <text>到达{{biz.sceneWrap.locationWrap.location.props.flightInfo.arriveName}}</text>
+                                            </view>
+                                        </view>
+                                        <view class="receive-flight-start-placeholder" wx:else>请输入航班号</view>
+                                    </view>
+                                    <view class="receive-flight-location" hidden="{{biz.sceneWrap.locationWrap.location.state.hiddenLocation}}">
+                                        <view class="location">
+                                            <view bindtap="_dispatch" class="location-item location-from {{biz.sceneWrap.locationWrap.location.location.props.fromStation.displayname||biz.sceneWrap.locationWrap.location.location.props.fromStation.downgradeName?'location-item-inputed':''}}" data-bindtap="loactionClick('from')" data-path="biz.sceneWrap.locationWrap.location.location">
+                                                <view class="location-field border-bottom-1px">{{biz.sceneWrap.locationWrap.location.location.state.fromTxt}}</view>
+                                            </view>
+                                            <view bindtap="_dispatch" class="location-item location-to {{biz.sceneWrap.locationWrap.location.location.props.toStation.displayname||!biz.sceneWrap.locationWrap.location.location.props.fromStation.displayname&&!biz.sceneWrap.locationWrap.location.location.props.fromStation.downgradeName?'location-item-inputed':''}}" data-bindtap="loactionClick('to')" data-path="biz.sceneWrap.locationWrap.location.location">
+                                                <view class="location-field">{{biz.sceneWrap.locationWrap.location.location.state.toTxt}}</view>
+                                                <view catchtap="_dispatch" class="mf-tips-container {{biz.sceneWrap.locationWrap.location.location.tip.props.direction?biz.sceneWrap.locationWrap.location.location.tip.props.direction:''}}" data-catchtap="guessClick" data-path="biz.sceneWrap.locationWrap.location.location.tip" style="{{biz.sceneWrap.locationWrap.location.location.tip.props.outstyles}}" wx:if="{{biz.sceneWrap.locationWrap.location.location.tip.state.tipShow}}">
+                                                    <view class="mf-tips-wrap">
+                                                        <view class="mf-triangle-wrap" style="top: {{biz.sceneWrap.locationWrap.location.location.tip.props.offsetTop?biz.sceneWrap.locationWrap.location.location.tip.props.offsetTop+'px':0}};bottom: {{biz.sceneWrap.locationWrap.location.location.tip.props.offsetBottom?biz.sceneWrap.locationWrap.location.location.tip.props.offsetBottom+'px':0}}">
+                                                            <view class="mf-triangle"></view>
+                                                        </view>
+                                                        <view catchtap="_dispatch" class="mf-close-btn mfic-narrow-cancel" data-catchtap="closeClick" data-path="biz.sceneWrap.locationWrap.location.location.tip"></view>
+                                                        <view class="mf-msg">{{biz.sceneWrap.locationWrap.location.location.tip.props.guessTipTxt}}</view>
+                                                    </view>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="scene-special-logic">
+                            <view class="sceneSpecialLogic"></view>
+                        </view>
+                    </view>
+                </view>
+                <view class="didiproto-footer-tip" hidden="{{biz.props.canEstimate}}">
+                    <view class="didi-footer-tip-wrap" wx:if="{{biz.footerTipWrap.state.tips.length}}">
+                        <view class="footer-tip-item" wx:for="{{biz.footerTipWrap.state.tips}}">{{item}}</view>
+                    </view>
+                </view>
+                <view class="didiproto-submit" hidden="{{!biz.props.canEstimate}}">
+                    <view bindtap="_dispatch" class="mf-btn {{biz.orderBtn.state.classes}}" data-bindtap="handleClick" data-path="biz.orderBtn">
+                        <view class="{{biz.orderBtn.state.icon}}"></view>
+  {{biz.orderBtn.props.text}}
+</view>
+                </view>
+            </view>
+        </view>
+        <view class="alift-page" wx:if="{{biz.__k==='alift'}}">
+            <view class="alift-main" wx:if="{{biz.state.showHomepage}}">
+                <view class="alift-menu" wx:if="{{biz.state.showMenu}}">
+                    <view bindtap="_dispatch" class="menu-passenger {{biz.props.tab==='passenger'?'menu-active':''}}" data-bindtap="onClickMenu" data-path="biz" data-tab="passenger">
+        乘客
+      </view>
+                    <view bindtap="_dispatch" class="menu-driver {{biz.props.tab==='driver'?'menu-active':''}}" data-bindtap="onClickMenu" data-path="biz" data-tab="driver">
+        车主
+        <view class="tab-tip" wx:if="{{biz.state.showTabTip}}">月赚1500元</view>
+                    </view>
+                </view>
+                <view class="alift-passenger {{biz.state.showMenu?'':'pt0'}}" hidden="{{biz.props.tab==='driver'}}">
+                    <view class="alift-passenger-body">
+                        <view class="alift-content">
+                            <view class="alift-eta">
+                                <view class="alift-eta-wrap">
+                                    <view class="alift-etacontainer">
+                                        <view class="order-handle-container" wx:if="{{biz.eta.state.etaFetchSuccess}}">
+                                            <view wx:if="{{!biz.eta.state.showOrders}}">
+                                                <view class="title">预约市内或跨城顺风车</view>
+                                                <view class="text">{{biz.eta.state.operateText}}</view>
+                                            </view>
+                                            <view class="title" wx:if="{{biz.eta.state.showOrders}}">
+                                                <view bindtap="_dispatch" class="order-handle" data-bindtap="onClickHandleOrder" data-orderid="{{biz.eta.state.orders&&biz.eta.state.orders[0]&&biz.eta.state.orders[0].orderid}}" data-path="biz.eta">
+                                                    <view>
+                                                        <text>你有</text>
+                                                        <text class="count">1</text>
+                                                        <text>个待处理订单</text>
+                                                    </view>
+                                                    <view class="text">
+                                                        <text>点击查看</text>
+                                                        <text class="text-arrow"></text>
+                                                    </view>
+                                                </view>
+                                            </view>
+                                        </view>
+                                        <view class="order-loading-container" wx:else>
+                                            <view>
+                                                <view bindtap="_dispatch" class="mf-part-loading" data-bindtap="clickHandler" data-path="biz.eta.loading" wx:if="{{biz.eta.loading.state.isShow}}">
+                                                    <view class="mf-part-loading-bar" wx:if="{{biz.eta.loading.props.status==='pending'}}">
+                                                        <view class="mf-part-loading-first"></view>
+                                                        <view class="mf-part-loading-second"></view>
+                                                        <view class="mf-part-loading-three"></view>
+                                                    </view>
+                                                    <view class="mf-part-loading-text" wx:if="{{biz.eta.loading.props.status==='fail'}}">
+      {{biz.eta.loading.props.errorMsg}}
+    </view>
+                                                </view>
+                                            </view>
+                                        </view>
+                                        <view class="invite" wx:if="{{biz.eta.state.showOperateIcon&&biz.eta.props.operateConfig.img}}">
+                                            <image alt="" bindtap="_dispatch" class="award shake-rotate" data-bindtap="onClickAward" data-path="biz.eta" src="{{biz.eta.props.operateConfig.img}}"></image>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="alift-location border-top-1px">
+                                <view class="location">
+                                    <view bindtap="_dispatch" class="location-item location-from {{biz.location.props.fromStation.displayname||biz.location.props.fromStation.downgradeName?'location-item-inputed':''}}" data-bindtap="loactionClick('from')" data-path="biz.location">
+                                        <view class="location-field border-bottom-1px">{{biz.location.state.fromTxt}}</view>
+                                    </view>
+                                    <view bindtap="_dispatch" class="location-item location-to {{biz.location.props.toStation.displayname||!biz.location.props.fromStation.displayname&&!biz.location.props.fromStation.downgradeName?'location-item-inputed':''}}" data-bindtap="loactionClick('to')" data-path="biz.location">
+                                        <view class="location-field">{{biz.location.state.toTxt}}</view>
+                                        <view catchtap="_dispatch" class="mf-tips-container {{biz.location.tip.props.direction?biz.location.tip.props.direction:''}}" data-catchtap="guessClick" data-path="biz.location.tip" style="{{biz.location.tip.props.outstyles}}" wx:if="{{biz.location.tip.state.tipShow}}">
+                                            <view class="mf-tips-wrap">
+                                                <view class="mf-triangle-wrap" style="top: {{biz.location.tip.props.offsetTop?biz.location.tip.props.offsetTop+'px':0}};bottom: {{biz.location.tip.props.offsetBottom?biz.location.tip.props.offsetBottom+'px':0}}">
+                                                    <view class="mf-triangle"></view>
+                                                </view>
+                                                <view catchtap="_dispatch" class="mf-close-btn mfic-narrow-cancel" data-catchtap="closeClick" data-path="biz.location.tip"></view>
+                                                <view class="mf-msg">{{biz.location.tip.props.guessTipTxt}}</view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="alift-chooser" hidden="{{!biz.state.showChooser}}">
+                                <view class="alift-chooser-wrap">
+                                    <view class="alift-choosercontainer">
+                                        <view class="alift-carpool border-top-1px">
+                                            <view bindtap="_dispatch" class="passenger-selector" data-bindtap="onClickPassengerCountBtn" data-path="biz.chooser">
+                                                <view class="passenger-txt passenger-half-border">
+                                                    <text class="mfic mfic-person txt-icon"></text>
+                                                    <text class="{{biz.chooser.props.passengerCount==-1?'':'filled'}}">{{biz.chooser.state.passengerText}}</text>
+                                                </view>
+                                            </view>
+                                            <view bindtap="_dispatch" class="time-selector" data-bindtap="onClickTimeBtn" data-path="biz.chooser">
+                                                <view class="time-txt">
+                                                    <text class="mfic mfic-time txt-icon"></text>
+                                                    <view class="time-wrap {{biz.chooser.state.timeTextFilled?'filled':''}}">
+                                                        <view class="default-text" wx:if="{{!biz.chooser.state.setupTime}}">{{biz.chooser.state.timeText}}</view>
+                                                        <view class="setup-time" wx:else>{{biz.chooser.state.setupTime}}</view>
+                                                        <view class="endup-time" wx:if="{{biz.chooser.state.endupTime&&biz.chooser.state.setupTime!==biz.chooser.state.endupTime}}">{{biz.chooser.state.endupTime}}</view>
+                                                    </view>
+                                                </view>
+                                            </view>
+                                        </view>
+                                        <view class="timepicker-start">
+                                            <view bindtap="_dispatch" class="alift-timepicker-mask {{biz.chooser.aliftTimepickerStart.state.maskClass}}" data-bindtap="maskclick" data-path="biz.chooser.aliftTimepickerStart" wx:if="{{biz.chooser.aliftTimepickerStart.state.maskShow}}"></view>
+                                            <view class="alift-timepicker {{biz.chooser.aliftTimepickerStart.state.visible}} {{biz.chooser.aliftTimepickerStart.props.classkey}}">
+                                                <view catchtouchmove="_dispatch" class="alift-picker-choose border-bottom-1px" data-catchtouchmove="prev" data-path="biz.chooser.aliftTimepickerStart">
+                                                    <view bindtap="_dispatch" class="cancel" data-bindtap="cancel" data-path="biz.chooser.aliftTimepickerStart">{{biz.chooser.aliftTimepickerStart.props.cancelText}}</view>
+                                                    <view bindtap="_dispatch" class="confirm" data-bindtap="select" data-path="biz.chooser.aliftTimepickerStart">{{biz.chooser.aliftTimepickerStart.props.confirmText}}</view>
+                                                    <view class="alift-picker-title">
+                                                        <view wx:if="{{biz.chooser.aliftTimepickerStart.props.title}}">
+        {{biz.chooser.aliftTimepickerStart.props.title}}
+      </view>
+                                                        <view wx:else>
+                                                            <view slot="title">
+                                                                <view class="title-head">
+                                                                    <text class="highlight">最早</text>
+                                                                    <text>出发时间</text>
+                                                                </view>
+                                                                <view class="title-tip">选择时间范围，车主更愿意接你</view>
+                                                            </view>
+                                                        </view>
+                                                    </view>
+                                                </view>
+                                                <picker-view bindchange="_dispatch" data-bindchange="changeHandler" data-path="biz.chooser.aliftTimepickerStart" indicatorStyle="height: 36px;" style="width: 100%; height: 200px; background-color: #fff;" value="{{biz.chooser.aliftTimepickerStart.state.value}}">
+                                                    <picker-view-column>
+                                                        <view style="text-align: center;line-height: 36px;font-size: 20px" wx:for="{{biz.chooser.aliftTimepickerStart.state.days}}">{{item.text}}</view>
+                                                    </picker-view-column>
+                                                    <picker-view-column>
+                                                        <view style="text-align: center;line-height: 36px;font-size: 20px" wx:for="{{biz.chooser.aliftTimepickerStart.state.hours}}">{{item.text}}</view>
+                                                    </picker-view-column>
+                                                    <picker-view-column>
+                                                        <view style="text-align: center;line-height: 36px;font-size: 20px" wx:for="{{biz.chooser.aliftTimepickerStart.state.minutes}}">{{item.text}}</view>
+                                                    </picker-view-column>
+                                                </picker-view>
+                                            </view>
+                                        </view>
+                                        <view class="timepicker-end">
+                                            <view bindtap="_dispatch" class="alift-timepicker-mask {{biz.chooser.aliftTimepickerEnd.state.maskClass}}" data-bindtap="maskclick" data-path="biz.chooser.aliftTimepickerEnd" wx:if="{{biz.chooser.aliftTimepickerEnd.state.maskShow}}"></view>
+                                            <view class="alift-timepicker {{biz.chooser.aliftTimepickerEnd.state.visible}} {{biz.chooser.aliftTimepickerEnd.props.classkey}}">
+                                                <view catchtouchmove="_dispatch" class="alift-picker-choose border-bottom-1px" data-catchtouchmove="prev" data-path="biz.chooser.aliftTimepickerEnd">
+                                                    <view bindtap="_dispatch" class="cancel" data-bindtap="cancel" data-path="biz.chooser.aliftTimepickerEnd">{{biz.chooser.aliftTimepickerEnd.props.cancelText}}</view>
+                                                    <view bindtap="_dispatch" class="confirm" data-bindtap="select" data-path="biz.chooser.aliftTimepickerEnd">{{biz.chooser.aliftTimepickerEnd.props.confirmText}}</view>
+                                                    <view class="alift-picker-title">
+                                                        <view wx:if="{{biz.chooser.aliftTimepickerEnd.props.title}}">
+        {{biz.chooser.aliftTimepickerEnd.props.title}}
+      </view>
+                                                        <view wx:else>
+                                                            <view slot="title">
+                                                                <view class="title-head">
+                                                                    <text class="highlight">最晚</text>
+                                                                    <text>出发时间</text>
+                                                                </view>
+                                                                <view class="title-tip">{{biz.chooser.state.edTimepickerTitle}}</view>
+                                                            </view>
+                                                        </view>
+                                                    </view>
+                                                </view>
+                                                <picker-view bindchange="_dispatch" data-bindchange="changeHandler" data-path="biz.chooser.aliftTimepickerEnd" indicatorStyle="height: 36px;" style="width: 100%; height: 200px; background-color: #fff;" value="{{biz.chooser.aliftTimepickerEnd.state.value}}">
+                                                    <picker-view-column>
+                                                        <view style="text-align: center;line-height: 36px;font-size: 20px" wx:for="{{biz.chooser.aliftTimepickerEnd.state.days}}">{{item.text}}</view>
+                                                    </picker-view-column>
+                                                    <picker-view-column>
+                                                        <view style="text-align: center;line-height: 36px;font-size: 20px" wx:for="{{biz.chooser.aliftTimepickerEnd.state.hours}}">{{item.text}}</view>
+                                                    </picker-view-column>
+                                                    <picker-view-column>
+                                                        <view style="text-align: center;line-height: 36px;font-size: 20px" wx:for="{{biz.chooser.aliftTimepickerEnd.state.minutes}}">{{item.text}}</view>
+                                                    </picker-view-column>
+                                                </picker-view>
+                                            </view>
+                                        </view>
+                                        <view bindtap="_dispatch" catchtouchmove="_dispatch" class="alift-passenger-count {{biz.chooser.props.showPassengerCounter?'show':''}}" data-bindtap="hidePassengerCounter" data-catchtouchmove="noop" data-path="biz.chooser">
+                                            <view class="passenger-selector-mask"></view>
+                                            <view catchtap="_dispatch" class="passenger-panel" data-catchtap="noop" data-path="biz.chooser">
+                                                <view class="selector-head">
+                                                    <view bindtap="_dispatch" class="btn-cancel" data-bindtap="hidePassengerCounter" data-path="biz.chooser">
+                                                        <text>取消</text>
+                                                    </view>
+                                                    <view class="selector-title">乘车人数</view>
+                                                </view>
+                                                <view class="selector-body">
+                                                    <view class="panel">
+                                                        <view catchtap="_dispatch" class="panel-list" data-catchtap="onPassengerCounterSelect" data-path="biz.chooser">
+                                                            <view class="panel-ceil border-top-1px {{biz.chooser.props.passengerCount===item?'active':''}}" data-count="{{item}}" wx:for="{{biz.chooser.state.seatNumberArray}}" wx:key="*this">{{item}}人</view>
+                                                        </view>
+                                                    </view>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="alift-rule" wx:if="{{biz.state.showRule}}">
+                                <view class="alift-rule-wrap">
+                                    <view class="alift-rulecontainer border-top-1px">
+                                        <view class="price-detail-container" wx:if="{{biz.rule.state.priceFetchSuccess}}">
+                                            <view class="price-detail-carpool" wx:if="{{biz.rule.state.canCarpool}}">
+                                                <view bindtap="_dispatch" class="price-detail price-detail-left {{biz.rule.props.isCarpool===true?'active':''}}" data-bindtap="toggleCarpool(true)" data-path="biz.rule">
+                                                    <view class="price-detail-title">
+                                                        <label class="title-carpool {{biz.rule.props.price.pay_carpool_rate.length>0?'align-right':''}}">拼座</label>
+                                                        <view class="carpool-rate-wrap" wx:if="{{biz.rule.props.price.pay_carpool_rate.length>0}}">
+                                                            <label class="carpool-rate {{biz.rule.props.price.pay_carpool_rate.length>2?'scaled':''}}">
+                  {{biz.rule.props.price.pay_carpool_rate}}
+                </label>
+                                                        </view>
+                                                    </view>
+                                                    <view class="price-detail-price">
+                                                        <text class="bill">{{biz.rule.props.price.carpool_bill}}</text>
+                                                        <text class="bill-unit">元</text>
+                                                        <text class="estimate-txt" wx:if="{{biz.rule.state.showEstimateTxt}}">起</text>
+                                                    </view>
+                                                </view>
+                                                <view bindtap="_dispatch" class="price-detail price-detail-right half-border {{biz.rule.props.isCarpool===false?'active':''}}" data-bindtap="toggleCarpool(false)" data-path="biz.rule">
+                                                    <view class="price-detail-title">
+                                                        <label class="title-nocarpool">不拼座</label>
+                                                    </view>
+                                                    <view class="price-detail-price">
+                                                        <text class="bill">{{biz.rule.props.price.no_carpool_bill}}</text>
+                                                        <text class="bill-unit">元</text>
+                                                    </view>
+                                                </view>
+                                            </view>
+                                            <view class="price-detail-noCarpool" wx:else>
+                                                <view class="noCarpool-bill {{biz.rule.props.price.coupon_minus>0?'has-coupon':''}}">
+          {{biz.rule.props.price.no_carpool_bill}}
+          <text class="noCarpool-unit">元</text>
+                                                </view>
+                                            </view>
+                                            <view class="coupon-minus" hidden="{{!biz.rule.state.couponMinusTxt}}">{{biz.rule.state.couponMinusTxt}}</view>
+                                        </view>
+                                        <view class="price-loading-container" wx:else>
+                                            <view>
+                                                <view bindtap="_dispatch" class="mf-part-loading" data-bindtap="clickHandler" data-path="biz.rule.loading" wx:if="{{biz.rule.loading.state.isShow}}">
+                                                    <view class="mf-part-loading-bar" wx:if="{{biz.rule.loading.props.status==='pending'}}">
+                                                        <view class="mf-part-loading-first"></view>
+                                                        <view class="mf-part-loading-second"></view>
+                                                        <view class="mf-part-loading-three"></view>
+                                                    </view>
+                                                    <view class="mf-part-loading-text" wx:if="{{biz.rule.loading.props.status==='fail'}}">
+      {{biz.rule.loading.props.errorMsg}}
+    </view>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="alift-footer">
+                            <view class="alift-order-wrap">
+                                <view class="alift-ordercontainer">
+                                    <form catchsubmit="_dispatch" data-catchsubmit="onOrderBtnClick" data-path="biz.order" reportSubmit="{{true}}">
+                                        <button class="alift-order-btn {{biz.order.state.createOrderPending?'disable':''}}" formType="submit">
+        预约顺风车
+      </button>
+                                    </form>
+                                    <view class="operate-area" hidden="{{!biz.order.state.showOperate}}">
+                                        <image class="operate-icon" src="../../components/alift/order/imgs/money@2x.png"></image>
+                                        <text bindtap="_dispatch" class="operate-txt" data-bindtap="onOperateLinkClick" data-path="biz.order">{{biz.order.state.operateTxt}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                            <div class="alift-new-operation">
+                                <div class="alift-driver-recruit">
+                                    <view class="alift-new-driver-recruit-container">
+                                        <view class="alift-new-driver-recruit-A {{'type-'+biz.driverRecruit.state.type}}" wx:if="{{biz.driverRecruit.props.version==='A'}}">
+                                            <view bindtap="_dispatch" class="alift-new-recruit" data-bindtap="onOperateLinkClick({{item.type}})" data-path="biz.driverRecruit" wx:if="{{item.isshow=='1'}}" wx:for="{{biz.driverRecruit.state.list}}" wx:key="{{ item.id }}">
+                                                <text class="{{'alift-new-'+item.icon}}"></text>
+                                                <view class="alift-new-recruit-name">
+        {{item.title}}
+      </view>
+                                                <view class="alift-new-recruit-desc">
+        {{item.desc}}
+      </view>
+                                                <text class="alift-new-recruit-arrow mfic-click"></text>
+                                            </view>
+                                        </view>
+                                        <view class="alift-new-driver-recruit-B" wx:else>
+                                            <view bindtap="_dispatch" class="operate-btn" data-bindtap="onOperateLinkClick('register_driver')" data-path="biz.driverRecruit">
+        我有车 我要顺路接人
+      </view>
+                                        </view>
+                                    </view>
+                                </div>
+                            </div>
+                        </view>
+                    </view>
+                    <view class="alift-slider-container">
+                        <swiper autoplay="true" circular="true" class="banner-swiper" duration="500" indicatorActiveColor="#fc9153" indicatorColor="#ccc" indicatorDots="true" interval="4000" wx:if="{{biz.banner.state.bannerList.length>1}}">
+                            <swiper-item wx:for="{{biz.banner.state.bannerList}}" wx:key="{{item.url}}">
+                                <view bindtap="_dispatch" class="swiper-image-wrap" data-bindtap="bannerClick" data-id="{{index}}" data-path="biz.banner">
+                                    <image class="slide-image" mode="widthFix" src="{{item.img}}"></image>
+                                </view>
+                            </swiper-item>
+                        </swiper>
+                        <image class="slide-image" click="bannerClick" data-id="0" mode="widthFix" src="{{biz.banner.state.bannerList[0].img}}" wx:elif="{{biz.banner.state.bannerList.length==1}}"></image>
+                    </view>
+                    <view class="alift-operatepop" wx:if="{{biz.state.showOperatepop}}">
+                        <view bindtap="_dispatch" class="operate" data-bindtap="onClickOperate" data-path="biz.operatepop" hidden="{{!biz.operatepop.state.showOperate}}">
+                            <view class="pop">
+                                <view class="alift-popup-wrap">
+                                    <view class="alift-popup-background"></view>
+                                    <view catchtap="_dispatch" class="alift-popup" data-catchtap="onPopupClick('cancel')" data-path="biz.operatepop.popup">
+                                        <view class="pop">
+                                            <view catchtap="_dispatch" class="imgWrap" data-catchtap="onPopupClick('jump')" data-path="biz.operatepop.popup">
+                                                <image mode="widthFix" src="{{biz.operatepop.popup.props.imageSrc}}"></image>
+                                            </view>
+                                            <view catchtap="_dispatch" class="close mfic-narrow-cancel" data-catchtap="onPopupClick('close')" data-path="biz.operatepop.popup"></view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <image bindload="_dispatch" class="hidden-image" data-bindload="ImageLoad" data-path="biz.operatepop" src="{{biz.operatepop.state.popItem.imgSrc}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <view class="alift-driver" hidden="{{biz.props.tab!=='driver'}}">
+                    <view class="alift-driver-container">
+                        <view class="alift-guidance-container" wx:if="{{biz.nearby.props.tab==='driver'&&biz.nearby.state.showGuidance}}">
+                            <image src="{{biz.nearby.state.guideImgUrl}}" style="width: {{biz.nearby.state.guideImgWidth}}; height: {{biz.nearby.state.guideImgHeight}}"></image>
+                            <image class="guide-logo-image" mode="aspectFit" src="{{biz.nearby.state.guideLogoImgUrl}}"></image>
+                            <image class="guide-text-image" mode="aspectFit" src="{{biz.nearby.state.bottomImgUrl}}"></image>
+                            <view class="alift-foot-container">
+                                <view bindtap="_dispatch" class="btn-registry" data-bindtap="onClickRegister" data-path="biz.nearby">
+                                    <view>
+          {{biz.nearby.state.operateTxt}}
+        </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="alift-nearby-container" wx:else>
+                            <view class="order-loading-container" wx:if="{{biz.nearby.state.nearbyFetchPending}}">
+                                <view>
+                                    <view bindtap="_dispatch" class="mf-part-loading" data-bindtap="clickHandler" data-path="biz.nearby.loading" wx:if="{{biz.nearby.loading.state.isShow}}">
+                                        <view class="mf-part-loading-bar" wx:if="{{biz.nearby.loading.props.status==='pending'}}">
+                                            <view class="mf-part-loading-first"></view>
+                                            <view class="mf-part-loading-second"></view>
+                                            <view class="mf-part-loading-three"></view>
+                                        </view>
+                                        <view class="mf-part-loading-text" wx:if="{{biz.nearby.loading.props.status==='fail'}}">
+      {{biz.nearby.loading.props.errorMsg}}
+    </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <block wx:else>
+                                <scroll-view class="has-orders" scrollY="true" style="height: {{biz.nearby.state.guideImgHeight}}" wx:if="{{biz.nearby.props.nearbyList.length}}">
+                                    <view class="title">
+          接附近顺路乘客, 轻松赚油费
+        </view>
+                                    <view class="body">
+                                        <view class="list">
+                                            <view class="ceil" wx:for="{{biz.nearby.props.nearbyList}}">
+                                                <view class="user-card">
+                                                    <view class="userinfo border-bottom-1px">
+                                                        <view class="head-img">
+                                                            <view class="img-wrap">
+                                                                <image class="default-head-image" src="{{biz.nearby.state.defaultHeadImgUrl}}"></image>
+                                                                <image class="lazy-load" src="{{item.passenger_info&&item.passenger_info.head_img_url}}" width="100%"></image>
+                                                            </view>
+                                                        </view>
+                                                        <view class="userinfo-detail">
+                                                            <view class="detail-head">
+                                                                <view class="name">
+                        {{item.passenger_info&&item.passenger_info.nick_name}}
+                      </view>
+                                                                <image class="label-ceil" src="{{item.passenger_info.icon_list[0]}}" wx:if="{{item.passenger_info&&item.passenger_info.icon_list}}"></image>
+                                                            </view>
+                                                            <view class="detail-content">
+                      {{item.passenger_info&&item.passenger_info.user_desc}}
+                    </view>
+                                                        </view>
+                                                    </view>
+                                                    <view class="routeinfo border-bottom-1px">
+                                                        <view class="setup-time">
+                                                            <view class="time-icon"></view>
+                                                            <view class="format-time ">
+                      {{item.departure_time}}
+                    </view>
+                                                            <block wx:if="{{item.trip_desc}}">
+                                                                <view class="street-name {{biz.nearby.state.systemClass}}" wx:for="{{item.trip_desc}}" wx:for-index="valIndex" wx:for-item="val">
+                          {{val.message}}
+                        </view>
+                                                            </block>
+                                                        </view>
+                                                        <view class="loc-start">
+                                                            <view class="start-place">
+                      {{item.from_name}}
+                    </view>
+                                                            <view class="street-name {{biz.nearby.state.systemClass}}">
+                      {{item.departure_distance}}
+                    </view>
+                                                        </view>
+                                                        <view class="loc-end">
+                                                            <view class="end-place">
+                      {{item.to_name}}
+                    </view>
+                                                            <view class="street-name {{biz.nearby.state.systemClass}}">
+                      {{item.business_area}}
+                    </view>
+                                                        </view>
+                                                        <view class="price" wx:if="{{item.price}}">
+                                                            <view class="price-amount inline-block">{{item.price}}</view>
+                                                            <view class="price-unit inline-block">元</view>
+                                                        </view>
+                                                    </view>
+                                                    <view class="card-footer">
+                                                        <view class="fill-detail inline-block">
+                    {{item.note_info&&item.note_info.message}}
+                  </view>
+                                                        <view bindtap="_dispatch" class="confirm-together-btn" data-bindtap="onClickComfirmGo" data-orderid="{{item.order_id}}" data-path="biz.nearby" data-routeid="item.route_id">
+                                                            <image class="confirm-icon" mode="widthFix" src="https://sfwb.didistatic.com/static/wb/resource/0b3af4db83c6bf13ec6d36bc5cd726e1.png"></image>确认同行
+                  </view>
+                                                    </view>
+                                                </view>
+                                            </view>
+                                        </view>
+                                        <view class="bottom-text">没有更多了</view>
+                                    </view>
+                                </scroll-view>
+                                <view class="no-orders" wx:else>
+                                    <image class="no-order-image" src="{{biz.nearby.state.noOrderImgUrl}}"></image>
+                                </view>
+                            </block>
+                            <view bindtap="_dispatch" class="alift-foot-container" data-bindtap="onClickDownLoad" data-path="biz.nearby">
+                                <view class="btn-registry">
+                                    <view wx:if="{{biz.nearby.state.isInstallApp}}">
+          打开滴滴，去接顺路乘客
+        </view>
+                                    <view vElse="v-else">
+          下载滴滴，去接顺路乘客
+        </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="alift-closecity" wx:else>
+                <view class="alift-closecity">
+                    <view class="alift-closecity-container">
+                        <view class="head" style="display:none">
+                            <image src="../../components/alift/closecity/imgs/closecity_title@2x.png" style="width: 100%;height: 100%"></image>
+                        </view>
+                        <view class="content" style="display:none">
+                            <image src="../../components/alift/closecity/imgs/closecity_bg@2x.jpg" style="width: 100%;height: 100%"></image>
+                        </view>
+                        <view class="alift-closecity-container">
+                            <view wx:if="{{biz.closecity.props.isClientOpen==1}}">
+                                <view class="alift-closecity-p1">顺风车服务已恢复</view>
+                                <view class="alift-closecity-p11">在当前App暂不可用</view>
+                                <view class="alift-closecity-p2">请打开滴滴出行App使用顺风车服务</view>
+                            </view>
+                            <view wx:else>
+                                <view class="alift-closecity-p1">滴滴顺风车服务</view>
+                                <view class="alift-closecity-p11">在当前城市暂不可用</view>
+                                <view class="alift-closecity-p2">请选择滴滴出行其他出行服务</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="toast-wrap {{biz.toast.props.show?'show':''}}" wx:if="{{!biz.toast.props.useCanvas}}">
+                <view class="toast-bg"></view>
+                <view class="toast-content" style="{{biz.toast.state.contentStyle}}">
+                    <image class="warn-icon" mode="aspectFit" src="../../components/alift/util/imgs/warn.png"></image>
+                    <view class="msg">{{biz.toast.props.title}}</view>
+                </view>
+            </view>
+            <view class="toast_canvas_wrapper {{biz.toast.props.show?'show':''}}" wx:if="{{biz.toast.props.useCanvas==true}}">
+                <canvas bindlongtap="_dispatch" bindtouchmove="_dispatch" bindtouchstart="_dispatch" canvasId="{{biz.toast.state.id}}" catchtap="_dispatch" class="toastconvas" data-bindlongtap="onLongtap" data-bindtouchmove="ontouchmove" data-bindtouchstart="onTouchstart" data-catchtap="canvasTap" data-path="biz.toast" disableScroll="true" style="width: {{biz.toast.state.width||0}}px; height: {{biz.toast.state.height||0}}px">
+                    <cover-view class="toast_inner_wrapper {{biz.toast.state.show?'show':''}}" id="toast_inner_wrapper" style="left:{{biz.toast.state.canvasSize.left||0}}px;top:{{biz.toast.state.canvasSize.top||0}}px;">
+                        <cover-view class="top_icon">
+                            <cover-image alt="" mode="aspectFit" src="../../components/alift/util/imgs/warn.png"></cover-image>
+                        </cover-view>
+                        <cover-view class="cover-toast-msg">{{biz.toast.props.title}}</cover-view>
+                    </cover-view>
+                </canvas>
+            </view>
+        </view>
+        <view class="daijia" wx:if="{{biz.__k==='daijia'}}">
+            <view class="daijia-map-wrap" style="flex: {{biz.state.hack}}">
+                <view>
+                    <view class="{{biz.daijiaMap.map.state.hideShadow?'map-container':''}}">
+                        <map bindcallouttap="_dispatch" bindcontroltap="_dispatch" bindmarkertap="_dispatch" bindregionchange="_dispatch" bindtap="_dispatch" bindupdated="_dispatch" class="map-sdk-view" controls="{{biz.daijiaMap.map.state.controls}}" data-bindcallouttap="callouttap" data-bindcontroltap="controltap" data-bindmarkertap="markertap" data-bindregionchange="regionchange" data-bindtap="bindtap" data-bindupdated="bindupdated" data-path="biz.daijiaMap.map" id="{{biz.daijiaMap.map.props.id}}" latitude="{{biz.daijiaMap.map.state.latitude}}" longitude="{{biz.daijiaMap.map.state.longitude}}" markers="{{biz.daijiaMap.map.state.markers}}" polyline="{{biz.daijiaMap.map.state.polyline}}" scale="{{biz.daijiaMap.map.state.scale}}" style="{{biz.daijiaMap.map.props.style}}">
+                            <cover-view class="probe-callout" style="{{biz.daijiaMap.map.state.controlTip.style}}" wx:if="{{biz.daijiaMap.map.state.controlTip&&biz.daijiaMap.map.state.controlTip.show&&biz.daijiaMap.map.state.controlTip.text}}">
+                                <cover-view class="callout-text-container">
+                                    <cover-view class="callout-text">{{biz.daijiaMap.map.state.controlTip.text}}</cover-view>
+                                </cover-view>
+                                <cover-view class="probe-callout-img">
+                                    <cover-image class="callout-arrow" src="{{biz.daijiaMap.map.state.triImg}}"></cover-image>
+                                </cover-view>
+                            </cover-view>
+                            <cover-view class="map-top-shadow" wx:if="{{!biz.daijiaMap.map.state.hideShadow}}">
+                                <cover-image class="map-top-shadow-img" src="{{biz.daijiaMap.map.state.mapShadowTop}}"></cover-image>
+                            </cover-view>
+                            <cover-view class="map-btm-shadow" wx:if="{{!biz.daijiaMap.map.state.hideShadow}}">
+                                <cover-image class="map-btm-shadow-img" src="{{biz.daijiaMap.map.state.mapShadowBtm}}"></cover-image>
+                            </cover-view>
+                        </map>
+                    </view>
+                </view>
+            </view>
+            <view class="scene-switch-container" wx:if="{{!(biz.props.toStation.lat||biz.props.toStation.displayname!=='')}}">
+                <view class="scene-switch-warp">
+                    <view class="tab-container">
+                        <view bindtap="_dispatch" class="{{biz.sceneSwitch.state.currentActId==item.id?'active item-tab':'item-tab'}}" data-bindtap="tabClick({{item.id}})" data-path="biz.sceneSwitch" wx:for="{{biz.sceneSwitch.state.sceneArray}}">
+                            <text>{{item.name}}</text>
+                        </view>
+                        <view bindtap="_dispatch" class="item-tab more-tab" data-bindtap="moreClick" data-path="biz.sceneSwitch" wx:if="{{biz.sceneSwitch.state.moreIsShow}}">
+                            <view class="more-tab-item "></view>
+                            <view class="more-tab-item "></view>
+                            <view class="more-tab-item "></view>
+                        </view>
+                    </view>
+                    <view bindtap="_dispatch" class="operator-wrap " data-bindtap="operaClick({{biz.sceneSwitch.props.sceneProperty.operaObj.id}})" data-path="biz.sceneSwitch" wx:if="{{biz.sceneSwitch.state.operaIsShow}}">
+                        <view class="operator-item">
+                            <view class="arrow-right"></view>
+                            <view class="arrow-right-border"></view>
+                            <view class="operator-text mfic">{{biz.sceneSwitch.props.sceneProperty.operaObj.name}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="location-wrap" wx:if="{{!(biz.props.toStation.lat||biz.props.toStation.displayname!=='')}}">
+                <view class="location">
+                    <view bindtap="_dispatch" class="location-item location-from {{biz.location.props.fromStation.displayname||biz.location.props.fromStation.downgradeName?'location-item-inputed':''}}" data-bindtap="loactionClick('from')" data-path="biz.location">
+                        <view class="location-field border-bottom-1px">{{biz.location.state.fromTxt}}</view>
+                    </view>
+                    <view bindtap="_dispatch" class="location-item location-to {{biz.location.props.toStation.displayname||!biz.location.props.fromStation.displayname&&!biz.location.props.fromStation.downgradeName?'location-item-inputed':''}}" data-bindtap="loactionClick('to')" data-path="biz.location">
+                        <view class="location-field">{{biz.location.state.toTxt}}</view>
+                        <view catchtap="_dispatch" class="mf-tips-container {{biz.location.tip.props.direction?biz.location.tip.props.direction:''}}" data-catchtap="guessClick" data-path="biz.location.tip" style="{{biz.location.tip.props.outstyles}}" wx:if="{{biz.location.tip.state.tipShow}}">
+                            <view class="mf-tips-wrap">
+                                <view class="mf-triangle-wrap" style="top: {{biz.location.tip.props.offsetTop?biz.location.tip.props.offsetTop+'px':0}};bottom: {{biz.location.tip.props.offsetBottom?biz.location.tip.props.offsetBottom+'px':0}}">
+                                    <view class="mf-triangle"></view>
+                                </view>
+                                <view catchtap="_dispatch" class="mf-close-btn mfic-narrow-cancel" data-catchtap="closeClick" data-path="biz.location.tip"></view>
+                                <view class="mf-msg">{{biz.location.tip.props.guessTipTxt}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="demand-confirm-wrap" wx:if="{{(biz.props.fromStation.lat||biz.props.fromStation.displayname!=='')&&(biz.props.toStation.lat||biz.props.toStation.displayname!=='')}}">
+                <view wx:if="{{biz.props.citySupport.advanceSwitch||biz.props.citySupport.daiJiaoSwitch}}">
+                    <view class="option-container border-top-1px ">
+                        <view bindtap="_dispatch" class="time-seclect-container" data-bindtap="onShowTimepicker" data-path="biz" wx:if="{{biz.props.citySupport.advanceSwitch}}">
+                            <view class="section">
+                                <picker bindchange="_dispatch" bindcolumnchange="_dispatch" data-bindchange="changeHandler" data-bindcolumnchange="columnChangeHandler" data-path="biz.timepicker" mode="multiSelector" range="{{biz.timepicker.state.timeArray}}" rangeKey="text" value="{{biz.timepicker.state.value}}">
+                                    <i class="mfic-time mfic"></i>
+                                    <text class="time-seclect">{{biz.state.timeSelectText}}</text>
+                                </picker>
+                            </view>
+                        </view>
+                        <view bindtap="_dispatch" class="border-left-1px daijia-tumb-container" data-bindtap="onShowDaijiaoDialog" data-path="biz" wx:if="{{biz.props.citySupport.daiJiaoSwitch}}">
+                            <i class="mfic-person mfic"></i>
+                            <text class="daijia-tumb">{{biz.state.daijiaoTumb}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="price-container border-bottom-1px" wx:if="{{biz.props.estimateFee.totalMoney==0||biz.props.estimateFee.totalMoney>0}}">
+                    <view class="loading-point" wx:if="{{biz.state.esLoading}}"></view>
+                    <view bindtap="_dispatch" class="item" data-bindtap="toEsTimateFeePage" data-path="biz" wx:else>
+                        <view class="price-detail">
+                            <view class="price-detail-price">
+                                <i class="mfic-rushup mfic" wx:if="{{biz.props.estimateFee.dynamicPrice}}"></i>约<span class="p-unit">{{biz.state.estimateFee}}</span>元
+          </view>
+                            <view class="price-detail-sub-container">
+                                <view class="price-detail-sub" wx:for="{{biz.state.memoInfoList}}" wx:key="unique">
+                                    <view class="text " wx:if="{{index<2}}">
+                {{item.memo}}
+              </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="price-container error-container border-bottom-1px" wx:if="{{biz.props.estimateFee.err}}">
+                    <view class="loading-point" wx:if="{{biz.state.esLoading}}"></view>
+                    <view bindtap="_dispatch" class="item-error" data-bindtap="estimateFeeClick" data-path="biz" wx:else>
+          暂无法获取预估价格
+      </view>
+                </view>
+                <view class="form-item border-bottom-1px" wx:if="{{biz.state.payListIsShow}}">
+                    <view bindtap="_dispatch" class="pay-wrapper " data-bindtap="selectPayWay" data-path="biz">
+                        <view class="section" wx:if="{{biz.state.payWay}}">
+                            <picker bindchange="_dispatch" data-bindchange="bindPickerChange" data-path="biz.payPicker" range="{{biz.payPicker.state.payMsgList}}" rangeKey="name" value="{{biz.payPicker.state.id}}">
+                                <view class="pay-way">
+                {{biz.state.payWay}}
+            </view>
+                            </picker>
+                        </view>
+                    </view>
+                </view>
+                <view class="publish-container">
+                    <button bindtap="_dispatch" class="mf-btn" data-bindtap="clickPublish" data-path="biz" disabled="{{biz.state.disabled||!biz.props.fromStation.displayname||!biz.props.toStation.displayname||!biz.state.unPublish}}" id="J_publish" type="primary">
+                        <block wx:if="{{biz.props.estimateFee&&biz.props.estimateFee.pickFeePrompt}}">试试远程司机</block>
+                        <block wx:else>呼叫代驾</block>
+                    </button>
+                </view>
+            </view>
+        </view>
+        <view class="rentcar" wx:if="{{biz.__k==='rentcar'}}">
+  rentcar
+</view>
+        <view class="sofa" wx:if="{{biz.__k==='sofa'}}">
+            <view class="sofa-block-welcome-content-container" wx:if="{{biz.props.welcome.isShow}}">
+                <view class="sofa-block-welcome-content-theme-image" wx:if="{{biz.welcome.welcomeContent.props.theme==='image'}}">
+                    <image src="{{biz.welcome.welcomeContent.props.backgroundImage}}"></image>
+                    <text class="sofa-block-welcome-content-title">
+      {{biz.welcome.welcomeContent.props.title}}
+    </text>
+                    <text class="sofa-block-welcome-content-sub-title">
+      {{biz.welcome.welcomeContent.props.subTitle}}
+    </text>
+                </view>
+                <swiper autoplay="{{true}}" circular="{{true}}" class="sofa-block-welcome-content-theme-text" duration="{{1200}}" interval="{{3000}}" wx:if="props.theme === 'text'">
+                    <swiper-item wx:for="{{biz.welcome.welcomeContent.props.list}}" wx:key="{{index}}">
+                        <view>
+                            <text class="sofa-block-welcome-content-title">
+          {{item.title}}
+        </text>
+                            <text class="sofa-block-welcome-content-sub-title">
+          {{item.subTitle}}
+        </text>
+                            <image mode="aspectFit" src="{{item.backgroundImage}}"></image>
+                        </view>
+                    </swiper-item>
+                </swiper>
+                <view class="sofa-block-welcome-content-footer">
+                    <button bindtap="_dispatch" data-bindtap="props.openCallBack" data-path="biz.welcome.welcomeContent">
+      {{biz.welcome.welcomeContent.state.btnTitle}}
+    </button>
+                </view>
+            </view>
+            <block wx:else>
+                <view class="sofa-map">
+                    <view class="sofa-map-wrap">
+                        <view class="{{biz.sofaMap.map.state.hideShadow?'map-container':''}}">
+                            <map bindcallouttap="_dispatch" bindcontroltap="_dispatch" bindmarkertap="_dispatch" bindregionchange="_dispatch" bindtap="_dispatch" bindupdated="_dispatch" class="map-sdk-view" controls="{{biz.sofaMap.map.state.controls}}" data-bindcallouttap="callouttap" data-bindcontroltap="controltap" data-bindmarkertap="markertap" data-bindregionchange="regionchange" data-bindtap="bindtap" data-bindupdated="bindupdated" data-path="biz.sofaMap.map" id="{{biz.sofaMap.map.props.id}}" latitude="{{biz.sofaMap.map.state.latitude}}" longitude="{{biz.sofaMap.map.state.longitude}}" markers="{{biz.sofaMap.map.state.markers}}" polyline="{{biz.sofaMap.map.state.polyline}}" scale="{{biz.sofaMap.map.state.scale}}" style="{{biz.sofaMap.map.props.style}}">
+                                <cover-view class="probe-callout" style="{{biz.sofaMap.map.state.controlTip.style}}" wx:if="{{biz.sofaMap.map.state.controlTip&&biz.sofaMap.map.state.controlTip.show&&biz.sofaMap.map.state.controlTip.text}}">
+                                    <cover-view class="callout-text-container">
+                                        <cover-view class="callout-text">{{biz.sofaMap.map.state.controlTip.text}}</cover-view>
+                                    </cover-view>
+                                    <cover-view class="probe-callout-img">
+                                        <cover-image class="callout-arrow" src="{{biz.sofaMap.map.state.triImg}}"></cover-image>
+                                    </cover-view>
+                                </cover-view>
+                                <cover-view class="map-top-shadow" wx:if="{{!biz.sofaMap.map.state.hideShadow}}">
+                                    <cover-image class="map-top-shadow-img" src="{{biz.sofaMap.map.state.mapShadowTop}}"></cover-image>
+                                </cover-view>
+                                <cover-view class="map-btm-shadow" wx:if="{{!biz.sofaMap.map.state.hideShadow}}">
+                                    <cover-image class="map-btm-shadow-img" src="{{biz.sofaMap.map.state.mapShadowBtm}}"></cover-image>
+                                </cover-view>
+                            </map>
+                        </view>
+                    </view>
+                </view>
+                <view class="sofa-order" hidden="{{biz.order.props.view==='location'}}">
+                    <view class="sofa-order-seat border-bottom-1px">
+                        <picker bindchange="_dispatch" class="sofa-order-seat-picker" data-bindchange="bindPickerChange" data-path="biz.order.seat" mode="selector" range="{{biz.order.seat.state.array}}" rangeKey="text" value="{{biz.order.seat.state.value}}">
+                            <i class="mfic mfic-person"></i>
+                            <text class="select">{{biz.order.seat.state.selectedItem||'1'}}个座位</text>
+                        </picker>
+                    </view>
+                    <view class="sofa-order-estimate border-bottom-1px">
+                        <view class="sofa-order-estimate-tps" wx:if="{{!biz.order.estimate.props.priceObj.loading}}">
+                            <view class="sofa-order-estimate-tps-item" wx:for="{{biz.order.estimate.props.priceObj.tps}}">
+                                <view class="eta">{{item.depart_time||0}}分钟后上车</view>
+                                <view bindtap="_dispatch" class="price {{index===0?' border-right-1px':''}}" data-bindtap="onPriceClick" data-path="biz.order.estimate" data-price-obj="{{item}}">
+                                    <text class="price-num">{{item.price/100||0}}</text>
+                                    <text class="price-text">元</text>
+                                </view>
+                                <view class="coupon" wx:if="{{biz.order.estimate.props.priceObj.coupon_price>0}}">券已抵扣{{biz.order.estimate.props.priceObj.coupon_price/100||0}}元</view>
+                            </view>
+                        </view>
+                        <view class="sofa-order-estimate-loading" wx:else>
+                            <view>
+                                <view bindtap="_dispatch" class="mf-part-loading" data-bindtap="clickHandler" data-path="biz.order.estimate.loading" wx:if="{{biz.order.estimate.loading.state.isShow}}">
+                                    <view class="mf-part-loading-bar" wx:if="{{biz.order.estimate.loading.props.status==='pending'}}">
+                                        <view class="mf-part-loading-first"></view>
+                                        <view class="mf-part-loading-second"></view>
+                                        <view class="mf-part-loading-three"></view>
+                                    </view>
+                                    <view class="mf-part-loading-text" wx:if="{{biz.order.estimate.loading.props.status==='fail'}}">
+      {{biz.order.estimate.loading.props.errorMsg}}
+    </view>
+                                </view>
+                            </view>
+                            <view class="loading-text" wx:if="{{biz.order.estimate.props.priceObj.loading}}">{{biz.order.estimate.state.errorMsg}}</view>
+                        </view>
+                    </view>
+                    <view class="sofa-order-submit">
+                        <view bindtap="_dispatch" class="mf-btn {{biz.order.submit.button.state.classes}}" data-bindtap="handleClick" data-path="biz.order.submit.button">
+                            <view class="{{biz.order.submit.button.state.icon}}"></view>
+  {{biz.order.submit.button.props.text}}
+</view>
+                    </view>
+                </view>
+                <view hidden="{{biz.props.view==='order'}}">
+                    <view class="location">
+                        <view bindtap="_dispatch" class="location-item location-from {{biz.location.props.fromStation.displayname||biz.location.props.fromStation.downgradeName?'location-item-inputed':''}}" data-bindtap="loactionClick('from')" data-path="biz.location">
+                            <view class="location-field border-bottom-1px">{{biz.location.state.fromTxt}}</view>
+                        </view>
+                        <view bindtap="_dispatch" class="location-item location-to {{biz.location.props.toStation.displayname||!biz.location.props.fromStation.displayname&&!biz.location.props.fromStation.downgradeName?'location-item-inputed':''}}" data-bindtap="loactionClick('to')" data-path="biz.location">
+                            <view class="location-field">{{biz.location.state.toTxt}}</view>
+                            <view catchtap="_dispatch" class="mf-tips-container {{biz.location.tip.props.direction?biz.location.tip.props.direction:''}}" data-catchtap="guessClick" data-path="biz.location.tip" style="{{biz.location.tip.props.outstyles}}" wx:if="{{biz.location.tip.state.tipShow}}">
+                                <view class="mf-tips-wrap">
+                                    <view class="mf-triangle-wrap" style="top: {{biz.location.tip.props.offsetTop?biz.location.tip.props.offsetTop+'px':0}};bottom: {{biz.location.tip.props.offsetBottom?biz.location.tip.props.offsetBottom+'px':0}}">
+                                        <view class="mf-triangle"></view>
+                                    </view>
+                                    <view catchtap="_dispatch" class="mf-close-btn mfic-narrow-cancel" data-catchtap="closeClick" data-path="biz.location.tip"></view>
+                                    <view class="mf-msg">{{biz.location.tip.props.guessTipTxt}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="bus" wx:if="{{biz.__k==='bus'}}">
+            <view class="realtime-wrap" wx:if="{{biz.state.mode=='realtime'}}">
+                <view class="realtime-map-wrap">
+                    <view class="{{biz.realtime.realMap.innerRealMap.state.hideShadow?'map-container':''}}">
+                        <map bindcallouttap="_dispatch" bindcontroltap="_dispatch" bindmarkertap="_dispatch" bindregionchange="_dispatch" bindtap="_dispatch" bindupdated="_dispatch" class="map-sdk-view" controls="{{biz.realtime.realMap.innerRealMap.state.controls}}" data-bindcallouttap="callouttap" data-bindcontroltap="controltap" data-bindmarkertap="markertap" data-bindregionchange="regionchange" data-bindtap="bindtap" data-bindupdated="bindupdated" data-path="biz.realtime.realMap.innerRealMap" id="{{biz.realtime.realMap.innerRealMap.props.id}}" latitude="{{biz.realtime.realMap.innerRealMap.state.latitude}}" longitude="{{biz.realtime.realMap.innerRealMap.state.longitude}}" markers="{{biz.realtime.realMap.innerRealMap.state.markers}}" polyline="{{biz.realtime.realMap.innerRealMap.state.polyline}}" scale="{{biz.realtime.realMap.innerRealMap.state.scale}}" style="{{biz.realtime.realMap.innerRealMap.props.style}}">
+                            <cover-view class="probe-callout" style="{{biz.realtime.realMap.innerRealMap.state.controlTip.style}}" wx:if="{{biz.realtime.realMap.innerRealMap.state.controlTip&&biz.realtime.realMap.innerRealMap.state.controlTip.show&&biz.realtime.realMap.innerRealMap.state.controlTip.text}}">
+                                <cover-view class="callout-text-container">
+                                    <cover-view class="callout-text">{{biz.realtime.realMap.innerRealMap.state.controlTip.text}}</cover-view>
+                                </cover-view>
+                                <cover-view class="probe-callout-img">
+                                    <cover-image class="callout-arrow" src="{{biz.realtime.realMap.innerRealMap.state.triImg}}"></cover-image>
+                                </cover-view>
+                            </cover-view>
+                            <cover-view class="map-top-shadow" wx:if="{{!biz.realtime.realMap.innerRealMap.state.hideShadow}}">
+                                <cover-image class="map-top-shadow-img" src="{{biz.realtime.realMap.innerRealMap.state.mapShadowTop}}"></cover-image>
+                            </cover-view>
+                            <cover-view class="map-btm-shadow" wx:if="{{!biz.realtime.realMap.innerRealMap.state.hideShadow}}">
+                                <cover-image class="map-btm-shadow-img" src="{{biz.realtime.realMap.innerRealMap.state.mapShadowBtm}}"></cover-image>
+                            </cover-view>
+                        </map>
+                    </view>
+                </view>
+                <view class="realtime-bottom-wrap">
+                    <view bindtap="_dispatch" class="searchbox" data-bindtap="jumpTosuggest" data-path="biz.realtime.searchBox">
+                        <image class="search-icon" src="../../components/bus/realtime/searchBox/imgs/search.png"></image>
+                        <text class="search-text">输入目的地或公交线路</text>
+                    </view>
+                    <view class="recommend">
+                        <block wx:if="{{biz.realtime.recommend.props.recommendList.length==0}}">
+                            <view class="recommend-not-normal" wx:if="{{biz.realtime.recommend.props.isFetchingRecommend}}">
+                                <view>
+                                    <view bindtap="_dispatch" class="mf-part-loading" data-bindtap="clickHandler" data-path="biz.realtime.recommend.loading" wx:if="{{biz.realtime.recommend.loading.state.isShow}}">
+                                        <view class="mf-part-loading-bar" wx:if="{{biz.realtime.recommend.loading.props.status==='pending'}}">
+                                            <view class="mf-part-loading-first"></view>
+                                            <view class="mf-part-loading-second"></view>
+                                            <view class="mf-part-loading-three"></view>
+                                        </view>
+                                        <view class="mf-part-loading-text" wx:if="{{biz.realtime.recommend.loading.props.status==='fail'}}">
+      {{biz.realtime.recommend.loading.props.errorMsg}}
+    </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view bindtap="_dispatch" class="recommend-not-normal" data-bindtap="tryAgain" data-path="biz.realtime.recommend" wx:elif="{{biz.realtime.recommend.props.errCode=='NET_FAILD_ERR'}}">网络错误，请检查后重试</view>
+                            <view class="recommend-not-normal" wx:elif="{{biz.realtime.recommend.props.errCode=='NO_RECOMMEND'}}">暂无合适的推荐路线</view>
+                        </block>
+                        <view class="recommend-content" wx:else>
+                            <view class="recommend-tab">
+                                <scroll-view bindscroll="_dispatch" class="recommend-list" data-bindscroll="scrollHandler" data-path="biz.realtime.recommend" scrollLeft="{{biz.realtime.recommend.state.scrollLeft}}" scrollWithAnimation="true" scrollX="true">
+                                    <view bindtap="_dispatch" class="recommend-item {{biz.realtime.recommend.props.recommendIndex==idx?'selected':''}}" data-bindtap="selectLine" data-index="{{idx}}" data-path="biz.realtime.recommend" wx:for="{{biz.realtime.recommend.props.recommendList}}" wx:for-index="idx" wx:for-item="recommend" wx:key="recommend">{{recommend.name}}</view>
+                                </scroll-view>
+                            </view>
+                            <view class="recommend-card">
+                                <view bindtap="_dispatch" class="recommend-detail" data-bindtap="jumpLineDetail" data-path="biz.realtime.recommend">
+                                    <view class="line-name-dis">
+                                        <span>{{biz.realtime.recommend.props.curRecommend.selected_stop.name}}</span>
+                                        <span class="line-stop-distance">(距我{{biz.realtime.recommend.props.curRecommend.selected_stop.distance}})</span>
+                                    </view>
+                                    <view class="line-dest">开往{{biz.realtime.recommend.props.curRecommend.terminal_station_name}}</view>
+                                    <view class="line-eta" wx:if="{{biz.realtime.recommend.props.curRecommend.eta}}">
+                                        <view class="real-bus" wx:if="{{biz.realtime.recommend.props.curRecommend.eta.real_bus}}">
+                                            <span class="bus-arrival" wx:if="{{biz.realtime.recommend.props.curRecommend.eta.time==0}}">{{biz.realtime.recommend.props.curRecommend.eta.description}}</span>
+                                            <block wx:else>
+                                                <span class="bus-time">{{biz.realtime.recommend.props.curRecommend.eta.description}}</span>
+                                                <span class="bus-unit">分钟</span>
+                                            </block>
+                                            <image class="bus-signal" src="../../components/bus/realtime/recommend/img/bus_signal.gif" wx:if="{{biz.realtime.recommend.props.curRecommend.eta.show_icon}}"></image>
+                                        </view>
+                                        <view style="color:{{biz.realtime.recommend.props.curRecommend.eta.color}}" wx:else>
+              {{biz.realtime.recommend.props.curRecommend.eta.description}}
+            </view>
+                                    </view>
+                                </view>
+                                <view bindtap="_dispatch" class="exchange-line" data-bindtap="exchangeLine" data-path="biz.realtime.recommend" wx:if="{{biz.realtime.recommend.props.curRecommend.pair_id}}">
+                                    <view class="exchange-wrap">
+                                        <image src="../../components/bus/realtime/recommend/img/home_icon_exchange@2x.png"></image>
+                                    </view>
+                                </view>
+                                <view bindtap="_dispatch" class="exchange-line" data-bindtap="exchangeLineGray" data-path="biz.realtime.recommend" wx:else>
+                                    <view class="exchange-wrap">
+                                        <image src="../../components/bus/realtime/recommend/img/home_icon_exchange_gray@2x.png"></image>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view wx:elif="{{biz.state.mode=='transfer'}}">
+  transfer
+</view>
+        </view>
+    </view>
+</view>

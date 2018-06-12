@@ -1,0 +1,20 @@
+<template name="swiperListCard">
+    <view bindtap="playRecord" class="m-swiper_list_item" data-id="{{id}}" data-tvid="{{tvId}}" data-type="{{videoType}}">
+        <view class="m-swiper_item-wrap">
+            <view class="m-swiper_cover">
+                <image class="m-swiper_img" height="100" mode="aspectFill" src="{{videoImageUrl?videoImageUrl:imgUrl}}" width="75"></image>
+                <view class="m-swiper_time" hidden="{{videoType==2}}">{{showDuration}}</view>
+            </view>
+            <view class="m-swiper_info">
+                <text wx:if="{{videoType!=1&&subType==2}}">{{sourceName}}</text>
+                <text wx:elif="{{videoType!=1&&subType==7}}">{{videoName||albumName}}</text>
+                <text wx:elif="{{videoType!=1&&subType==1}}">{{albumName}}</text>
+                <text wx:else>{{content}}</text>
+            </view>
+            <view class="m-swiper_play_time" hidden="{{videoType==2}}">
+                <text>{{playTime}}</text>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../../../components/template/icon.wxml"></import>

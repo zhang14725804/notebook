@@ -1,0 +1,12 @@
+<template name="virtual-card">
+    <view class="virtual-card-info__container with-border--bottom" wx:if="{{!verifyTicket.hide}}">
+        <view style="flex: 1">
+            <view class="text-nowrap-clip">统一核销码：{{verifyTicket.code}}</view>
+            <view class="text-nowrap-clip">商品有效期：{{verifyTicket.validity}}</view>
+            <view class="zan-c-gray">点击右侧二维码查看凭证</view>
+        </view>
+        <navigator class="qrcode-snapshot" url="/packages/trade/cert/verify-ticket/index?order_no={{order_no}}"></navigator>
+    </view>
+    <template is="order-customer" data="{{customer:customer,access:false,oneline:true}}" wx:if="{{showCustomer}}"></template>
+</template>
+<import src="../../../../../components/order-address/customer/index.wxml"></import>

@@ -1,0 +1,17 @@
+.my-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+}
+
+.detail-content {
+    color: #464646;
+    font-size: 28rpx;
+    padding: 0rpx;
+    display: block;
+}
+
+.detail-img {
+    width: 100%;
+}

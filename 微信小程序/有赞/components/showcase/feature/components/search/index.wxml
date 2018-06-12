@@ -1,0 +1,18 @@
+<template name="theme-feature-search">
+    <view class="search-view" data-feature-index="{{featureIndex}}">
+        <view bindtap="search_handleSearchBarTap" data-feature-index="{{data.featureIndex}}">
+            <search alignLeft="{{true}}" disabled="{{true}}" inputStyle="height: 56rpx; border-radius: 8rpx;" placeholder="{{data.hotSearchKeys[0]||'搜索商品'}}" searchStyle="height: 88rpx; padding: 0 30rpx; background-color: {{data.searchbg}};"></search>
+        </view>
+        <view class="hot-search-view" wx:if="{{data.showSearch}}">
+            <search alignLeft="{{true}}" bindcancel="search_handleCancelTap" bindchange="search_handleInput" bindsearch="search_handleSearch" cancelStyle="font-size: 28rpx; color: #666;" focus="{{true}}" inputStyle="height: 56rpx; border-radius: 8rpx;" keyword="{{data.searchText}}" placeholder="{{data.hotSearchKeys[0]||'搜索商品'}}" searchStyle="height: 88rpx; padding: 0 30rpx; background: #f2f2f2;" useCancel="{{true}}"></search>
+            <view wx:if="{{data.hotSearchKeys.length>1}}">
+                <view class="hot-search-title">热门搜索</view>
+                <ul class="hot-search-list">
+                    <li bindtap="search_handleItemTap" data-text="{{item}}" wx:if="{{index>0}}" wx:for="{{data.hotSearchKeys}}" wx:key="*this">
+            {{item}}
+          </li>
+                </ul>
+            </view>
+        </view>
+    </view>
+</template>

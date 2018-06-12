@@ -1,0 +1,19 @@
+<view class="floor-title">兴趣圈子<view class="floor-title__more">更多</view>
+</view>
+<view class="circle-list">
+    <view class="circle-list__item" wx:for="{{entries}}">
+        <view class="circle-list__cover">
+            <image class="circle-list__cover-image" src="http://jdc.jd.com/img/335x180"></image>
+            <view class="circle-list__cover-text">{{item.text}}</view>
+        </view>
+        <view class="circle-list__info">
+            <view class="circle-list__info-name">{{item.name}}</view>
+            <view class="circle-list__info-follow">{{item.follow}}人关注</view>
+        </view>
+    </view>
+</view>
+<scroll-view class="circle-slide" scrollX="true">
+    <view class="circle-slide__item" wx:for="{{[1,2,3,4,5,6]}}">
+        <image class="circle-slide__image" src="http://jdc.jd.com/img/204x120"></image>
+    </view>
+</scroll-view>

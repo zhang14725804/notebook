@@ -1,0 +1,14 @@
+{
+    "backgroundTextStyle": "#fe7899",
+    "navigationBarBackgroundColor": "#ff9e6f",
+    "navigationBarTextStyle": "#fff",
+    "usingComponents": {
+        "filter": "/components/filters/filter",
+        "diary": "/components/diary/diary",
+        "city": "/components/city/city",
+        "pjGroup": "/components/pjGroup/pjGroup",
+        "loadMore": "/components/loadMore/loadMore",
+        "empty": "/components/empty/empty"
+    },
+    "enablePullDownRefresh": false
+}

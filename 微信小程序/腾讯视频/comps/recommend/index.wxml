@@ -1,0 +1,59 @@
+<template name="recommend-layer">
+    <view class="mod_layer u_bg_2 {{recommendShowLayer?'':'none'}} {{modLayerAnimation?'ios8':''}}" style="background-color:{{pageBgColor}};">
+        <view class="mod_layer_inner">
+            <view class="mod_video_tit {{layerShadow?'shadow':''}}">
+                <view class="video_tit">
+                    <view class="tit_txt">{{title}}</view>
+                    <view bindtap="recommendLayer" class="ly_close"></view>
+                </view>
+            </view>
+            <view class="mod_layer_bd">
+                <scroll-view bindscroll="onLayerScroll" bindscrolltolower="recommendOnScrollBottom" scrollTop="{{layerScrollTop}}" scrollY="true" style="height: 100%;">
+                    <view class="mod_figures mod_figures_h">
+                        <view class="mod_figure">
+                            <view bindtap="changePlay" class="list_item" data-cid="{{listItem.cid}}" data-recommend="true" wx:for="{{list}}" wx:for-item="listItem" wx:key="cid">
+                                <view class="figure">
+                                    <image class="figure_pic" src="{{listItem.poster.imageUrl}}"></image>
+                                    <template is="markLabelWithImage" data="{{markLabelMap:listItem.poster.markLabelMap}}"></template>
+                                </view>
+                                <view class="figure_info">
+                                    <view class="figure_title">{{listItem.poster.firstLine}}</view>
+                                    <view class="figure_count">{{listItem.poster.secondLine}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="recommend">
+    <view class="mod_box mod_line">
+        <view class="mod_hd">
+            <view class="mod_title">
+                <view class="title_txt">{{title}}</view>
+            </view>
+        </view>
+        <view class="mod_bd">
+            <view class="mod_figures mod_figures_h">
+                <view class="mod_figure">
+                    <view bindtap="changePlay" class="list_item" data-cid="{{listItem.cid}}" data-recommend="true" wx:if="{{index<3}}" wx:for="{{list}}" wx:for-item="listItem" wx:key="cid">
+                        <view class="figure">
+                            <image class="figure_pic" src="{{listItem.poster.imageUrl}}"></image>
+                            <template is="markLabelWithImage" data="{{markLabelMap:listItem.poster.markLabelMap}}"></template>
+                        </view>
+                        <view class="figure_info">
+                            <view class="figure_title">{{listItem.poster.firstLine}}</view>
+                            <view class="figure_count">{{listItem.poster.secondLine}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="recommendLayer" class="mod_more" wx:if="{{list.length>3}}">
+        <view class="more_txt">全部</view>
+    </view>
+</template>
+<import src="/pages/play/include/markLabel.wxml"></import>

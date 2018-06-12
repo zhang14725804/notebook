@@ -1,0 +1,10 @@
+<template name="express-list-cell">
+    <view bindtap="tapExpressPopupOrCell" class="zan-panel zan-panel--without-border">
+        <view class="zan-cell zan-cell--access zan-cell--last-child">
+            <view class="zan-cell__bd">
+        配送方式：{{delivery.support}}
+      </view>
+            <view class="zan-cell__ft" wx:if="{{delivery.length>1}}"></view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,45 @@
+<view class="history-container">
+    <view style="height: {{windowHeight-45}}px; width:100%" wx:if="{{isError}}">
+        <view class="play-error">
+            <image class="play-error-tips" src="{{$dataerror$errorType==='nodataerror'?'/image/nodata-error.png':'/image/connect-error.png'}}"></image>
+            <view class="play-error-text">{{$dataerror$errorContent}}</view>
+            <image bindtap="$dataerror$refrashData" class="play-refrash" src="/image/refrash.png" wx:if="{{$dataerror$errorType!=='nodataerror'}}"></image>
+        </view>
+    </view>
+    <view wx:else>
+        <scroll-view scrollY style="height: {{windowHeight-45}}px">
+            <view wx:if="{{item.length>0}}" wx:for="{{videoTimeList}}" wx:key="key">
+                <view class="history-title">
+                    <text class="title-name">{{titleArray[index]}}</text>
+                </view>
+                <view class="history-list">
+                    <view bindtap="onVideoHandler" class="history-list-item" data-wpyonvideohandler-a="{{videoitem}}" data-wpyonvideohandler-b="{{videoindex}}" data-wpyonvideohandler-c="{{index}}" wx:for="{{videoTimeList[index]}}" wx:for-index="videoindex" wx:for-item="videoitem" wx:key="key">
+                        <view class="select-image {{videoitem.selected?'select-active':''}}" hidden="{{!isEdit}}"></view>
+                        <view class="history-item-picwrap">
+                            <view class="history-item-process" wx:if="{{videoType==='history'}}">
+                                <view class="process" style="width: {{videoitem.playProcess}}%;"></view>
+                            </view>
+                            <image class="history-item-pic net-cover" src="{{videoitem.thumbnail}}"></image>
+                            <image class="history-item-pic" src="/image/play-horizontal-cover.png"></image>
+                        </view>
+                        <view class="history-item-desc" style="width:{{isEdit?'358':'430'}}rpx;">
+                            <text class="history-item-title">{{videoitem.title}}</text>
+                            <text class="history-item-subtitle" wx:if="{{videoType==='history'}}">已观看至{{videoitem.playProcess}}%</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="tabwrap">
+            <view class="botline"></view>
+            <view class="nav">
+                <view bindtap="selectTabs" class="item" data-wpyselecttabs-a="0" wx:if="{{!isEdit}}">编辑</view>
+                <block wx:else>
+                    <view bindtap="selectTabs" class="item item-edit" data-wpyselecttabs-a="1">取消</view>
+                    <view bindtap="selectTabs" class="item item-edit" data-wpyselecttabs-a="2">{{selectCount===videoList.length?'取消全选':'全选'}}</view>
+                    <view bindtap="selectTabs" class="item item-edit current" data-wpyselecttabs-a="3">删除 ({{selectCount}})</view>
+                </block>
+            </view>
+        </view>
+    </view>
+</view>

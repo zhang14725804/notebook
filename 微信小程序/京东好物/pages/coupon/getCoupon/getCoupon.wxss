@@ -1,0 +1,88 @@
+@import "../../../__wuBaseWxss__/10.wxss";
+
+page {
+    background: #efeff4;
+    height: 100%;
+    overflow: hidden;
+}
+
+.wrap {
+    width: 100%;
+    min-height: 100%;
+    background: #efeff4;
+    box-sizing: border-box;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+.get-coupon .button {
+    margin-left: 29rpx;
+    margin-right: 29rpx;
+    border: 1rpx #F23030 solid;
+    border-radius: 8rpx;
+    background-color: #ffffff;
+    font-size: 36rpx;
+    color: #F23030;
+    line-height: 2.555555555556;
+    text-align: center;
+}
+
+.get-coupon .button.couponDisabled {
+    background-color: rgb(191,191,191);
+    border-color: rgb(191,191,191);
+    color: #fff;
+}
+
+.get-coupon .coupon-box {
+    margin: 50rpx 29rpx 88rpx 29rpx;
+    width: auto;
+}
+
+.coupon-tip-msg {
+    margin: 20rpx 29px 0 29rpx;
+    font-size: 22rpx;
+    line-height: 24rpx;
+    color: #848689;
+}
+
+.coupon-tip {
+    width: 56rpx;
+    height: 88rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 32rpx;
+}
+
+.right-r {
+    padding-right: 0;
+}
+
+.info-icon {
+    display: block;
+    background: url(http://commonst.360buyimg.com/common/wx-images/info.png) 0 0 no-repeat;
+    background-size: 42rpx 42rpx;
+    width: 42rpx;
+    height: 42rpx;
+}
+
+.right-box {
+    position: relative;
+}
+
+.right-box .icn-coupon-status {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 110rpx;
+    height: 100rpx;
+}
+
+.right-box .icn-coupon-status.received {
+    background: url(http://newbuz.360buyimg.com/jingshop/coupon/icn.coupon.received.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.right-box .icn-coupon-status.empty {
+    background: url(http://newbuz.360buyimg.com/jingshop/coupon/icn.coupon.empty.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}

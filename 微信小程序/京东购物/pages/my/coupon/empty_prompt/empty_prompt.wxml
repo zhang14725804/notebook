@@ -1,0 +1,8 @@
+<template name="empty_prompt">
+    <view class="empty_prompt">
+        <view class="empty_prompt_icon"></view>
+        <view class="empty_prompt_tip">
+            <view class="empty_prompt_text" wx:for="{{msg}}" wx:key="*this">{{item}}</view>
+        </view>
+    </view>
+</template>

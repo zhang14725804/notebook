@@ -1,0 +1,22 @@
+<template name="vip_user_account">
+    <view class="mod_user_log cf">
+        <view class="pic">
+            <image src="{{avatar}}"></image>
+            <view class="avatar_icon wx" wx:if="{{loginType=='wx'}}"></view>
+            <view class="avatar_icon qq" wx:if="{{loginType=='qq'}}"></view>
+        </view>
+        <view class="msg">
+            <view class="tit">
+                <view class="name">{{nick}}</view>
+                <view class="u_icon_vip{{vipIcon}} vip_{{vipLevel}}"></view>
+            </view>
+            <view class="info">
+                <view class="txt" wx:if="{{isVip&&vipEndTime}}">有效期：
+            <text class="num">{{vipEndTime}}</text>
+                </view>
+                <view class="txt" wx:elif="{{vipEndTime}}">您的腾讯视频VIP已过期</view>
+                <view class="txt" wx:else>您还不是腾讯视频VIP</view>
+            </view>
+        </view>
+    </view>
+</template>

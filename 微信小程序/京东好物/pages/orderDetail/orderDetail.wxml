@@ -1,0 +1,184 @@
+<view class="pre-load-mask" style="width:{{windowWidth}}px;height:{{windowHeight}}px;" wx:if="{{!isShowContent}}"></view>
+<scroll-view class="order-detail-container" scrollTop="{{scrollTop}}" scrollY="true" style="height: {{windowHeight}}px;" wx:else>
+    <view class="order-info">
+        <view class="basic border-tb">
+            <view class="line">
+                <text class="lt">订单号：</text>
+                <text class="rt">{{orderDetail.newOrderInfo.orderId}}</text>
+            </view>
+            <view class="line last" wx:if="{{orderDetail.newOrderInfo.checkCode&&orderDetail.newOrderInfo.checkCode}}">
+                <text class="lt">自提提货码：</text>
+                <text class="rt">{{orderDetail.newOrderInfo.checkCode}}</text>
+            </view>
+            <view class="order-state">{{orderDetail.newOrderInfo.orderStatusShow}}</view>
+        </view>
+        <view class="order-process border-tb" wx:if="{{orderDetail.newOrderInfo.cancelProgressText||orderDetail.newOrderInfo.message||orderDetail.newOrderInfo.messageTime}}">
+            <view class="cancel-status" wx:if="{{orderDetail.newOrderInfo.cancelProgressText}}">
+                <view class="first-line">
+                    <icon class="icn-order-status"></icon>
+                    <text>取消/退款进度：{{cancelOrderProgress.status}}</text>
+                </view>
+                <view class="second-line">
+                    <text>{{cancelOrderProgress.message}}</text>
+                </view>
+                <view class="third-line">
+                    <text>{{cancelOrderProgress.time}}</text>
+                </view>
+                <icon class="icn-status"></icon>
+            </view>
+            <block wx:if="{{orderDetail.home_orderdetail_track618}}">
+                <view bindtap="jump2orderTrack" class="{{!orderDetail.newOrderInfo.cancelProgressText?'tracking':'tracking border-t'}}" data-url="{{orderDetail.newOrderInfo.trackUrl}}" wx:if="{{orderDetail.newOrderInfo.message||orderDetail.newOrderInfo.messageTime}}">
+                    <view class="first-line" wx:if="{{orderDetail.newOrderInfo.message}}">
+                        <icon class="icon-order-tracking"></icon>
+                        <text>{{orderDetail.newOrderInfo.message}}</text>
+                    </view>
+                    <view class="second-line" wx:if="{{orderDetail.newOrderInfo.messageTime}}">
+                        <text>{{orderDetail.newOrderInfo.messageTime}}</text>
+                    </view>
+                    <icon class="icon-tracking"></icon>
+                    <icon class="icon-right-arrow"></icon>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="{{!orderDetail.newOrderInfo.cancelProgressText?'tracking':'tracking border-t'}}" wx:if="{{orderDetail.newOrderInfo.message||orderDetail.newOrderInfo.messageTime}}">
+                    <view class="first-line" wx:if="{{orderDetail.newOrderInfo.message}}">
+                        <icon class="icon-order-tracking"></icon>
+                        <text>{{orderDetail.newOrderInfo.message}}</text>
+                    </view>
+                    <view class="second-line" wx:if="{{orderDetail.newOrderInfo.messageTime}}">
+                        <text>{{orderDetail.newOrderInfo.messageTime}}</text>
+                    </view>
+                    <icon class="icon-tracking"></icon>
+                    <icon class="icon-right-arrow"></icon>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="user-info border-tb">
+        <view class="first-line">
+            <text class="lt">{{orderDetail.newOrderInfo.customerName}}</text>
+            <text class="rt">{{orderDetail.newOrderInfo.mobile}}</text>
+        </view>
+        <view class="second-line">
+            <text>{{orderDetail.newOrderInfo.address}}</text>
+        </view>
+        <icon class="icn-user-head"></icon>
+    </view>
+    <view class="commodity-list border-tb">
+        <view class="shop-info">
+            <icon class="icn-pop-shop" wx:if="{{orderDetail.newOrderInfo.canGoToShop}}"></icon>
+            <icon class="icn-shop" wx:else></icon>
+            <text>{{orderDetail.newOrderInfo.shopName}}</text>
+            <block wx:if="{{showIM}}">
+                <view bindtap="goToChat" class="go-to-customer-service" wx:if="{{orderDetail.newOrderInfo.canGoToShop}}">
+                    <icon class="icon-pop-service"></icon>
+                    <view class="cart-text">联系卖家</view>
+                </view>
+                <view bindtap="goToChat" class="go-to-customer-service" wx:else>
+                    <icon class="icon-service"></icon>
+                    <view class="cart-text">联系京东</view>
+                </view>
+            </block>
+        </view>
+        <view class="list-ul">
+            <block wx:for="{{orderDetail.wareInfoList}}" wx:for-index="idx" wx:for-item="wareInfo">
+                <view class="list-li" wx:if="{{idx<3}}">
+                    <view class="com-img">
+                        <image src="{{wareInfo.imageurl}}" wx:if="{{wareInfo.imageurl}}"></image>
+                        <image src="http://commonst.360buyimg.com/common/wx-images/order/orderdetail/default.img.png" wx:else></image>
+                    </view>
+                    <view class="rt-com-info">
+                        <view class="first-line">
+                            <text class="wname max-two-line">{{wareInfo.wname}}</text>
+                            <text class="price">¥{{wareInfo.jdPrice}}</text>
+                        </view>
+                        <view class="second-line">
+                            <text>数量：{{wareInfo.num}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="list-li" style="display: {{canShowMore?'block':'none'}};" wx:else>
+                    <view class="com-img">
+                        <image src="{{wareInfo.imageurl}}"></image>
+                    </view>
+                    <view class="rt-com-info">
+                        <view class="first-line">
+                            <text class="wname max-two-line">{{wareInfo.wname}}</text>
+                            <text class="price">¥{{wareInfo.jdPrice}}</text>
+                        </view>
+                        <view class="second-line">
+                            <text>数量：{{wareInfo.num}}</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view bindtap="showMoreWareInfos" class="more-wares-area" wx:if="{{orderDetail.wareInfoList.length>3}}">
+                <text class="txt" wx:if="{{!canShowMore}}">还有{{orderDetail.wareInfoList.length-3}}件</text>
+                <text class="txt" wx:else>收起</text>
+                <icon class="icn-down-arrow" wx:if="{{!canShowMore}}"></icon>
+                <icon class="icn-up-arrow" wx:else></icon>
+            </view>
+        </view>
+    </view>
+    <view class="delivery-info border-tb">
+        <view class="payment-way">
+            <text class="lt-label">支付方式</text>
+            <text class="rt-msg">{{orderDetail.newOrderInfo.paymentType}}</text>
+        </view>
+        <view class="distribution-info">
+            <view class="first-line">
+                <text class="lt-label">{{orderDetail.newOrderInfo.deliveryMode}}</text>
+                <text class="rt-msg" wx:if="{{orderDetail.newOrderInfo.carrier}}">{{orderDetail.newOrderInfo.carrier}}</text>
+            </view>
+            <view class="second-line">
+                <text wx:for="{{orderDetail.newOrderInfo.deliveryDateList}}" wx:for-item="deliveryDate">{{deliveryDate}}</text>
+            </view>
+        </view>
+        <view class="invoice-info">
+            <view class="first-line">
+                <text class="lt-label">发票信息</text>
+                <text class="rt-msg">{{orderDetail.newOrderInfo.invoiceType}}</text>
+            </view>
+            <view class="second-line" wx:if="{{orderDetail.newOrderInfo.invoiceTitle||orderDetail.newOrderInfo.invoiceContent}}">
+                <text wx:if="{{orderDetail.newOrderInfo.invoiceTitle}}">发票抬头：{{orderDetail.newOrderInfo.invoiceTitle}}</text>
+                <text wx:if="{{orderDetail.newOrderInfo.invoiceContent}}">发票内容：{{orderDetail.newOrderInfo.invoiceContent}}</text>
+            </view>
+        </view>
+        <view class="price-info" wx:if="{{!orderDetail.newOrderInfo.isPreSaleOrder&&orderDetail.labelList&&orderDetail.labelList.length}}">
+            <view class="line" wx:for="{{orderDetail.labelList}}" wx:for-index="idx" wx:for-item="label">
+                <text class="lt-label" wx:if="{{idx==0}}">{{label.label}}</text>
+                <text class="lt-label" style="color:#000;" wx:else>{{label.label}}</text>
+                <text class="rt-msg">¥{{label.value}}</text>
+            </view>
+            <view class="summary">
+                <view class="first-line">
+                    <text>实付款：</text>
+                    <text class="red-text">¥{{orderDetail.newOrderInfo.shouldPay}}</text>
+                </view>
+                <view class="second-line">
+                    <text>下单时间：{{orderDetail.newOrderInfo.dataSubmit}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="hold-bottom" wx:if="{{isShowContent&&orderDetail.newOrderInfo.orderStatusId&&orderDetail.newOrderInfo.orderStatusId==1||orderDetail.newOrderInfo.orderStatusId==3}}"></view>
+    <view class="buttons-area" wx:if="{{isShowContent&&orderDetail.newOrderInfo.orderStatusId&&orderDetail.newOrderInfo.orderStatusId==1||orderDetail.newOrderInfo.orderStatusId==3}}">
+        <block wx:for="{{orderDetail.newOrderInfo.orderInfoButtons}}" wx:for-item="bt">
+            <form bindsubmit="goPay" class="red" data-factPrice="{{orderDetail.newOrderInfo.shouldPay}}" data-orderId="{{orderDetail.newOrderInfo.orderId}}" data-orderType="{{orderDetail.newOrderInfo.orderType}}" data-orderTypeCode="{{orderDetail.newOrderInfo.payTypeCode}}" reportSubmit="true" wx:if="{{bt.showLabelId=='2000'}}">
+                <button class="message-push-btn red" formType="submit">去支付</button>
+            </form>
+            <form bindsubmit="cancelOrder" class="black" data-orderid="{{orderDetail.newOrderInfo.orderId}}" reportSubmit="true" wx:if="{{bt.showLabelId=='1000'&&orderDetail.home_orderdetail_cancel618}}">
+                <button bindtap="" class="message-push-btn black" formType="submit">取消订单</button>
+            </form>
+            <form bindsubmit="confirmOrder" class="red" data-orderid="{{orderDetail.newOrderInfo.orderId}}" reportSubmit="true" wx:if="{{bt.showLabelId=='4000'&&orderDetail.home_orderdetail_confirm618&&orderDetail.newOrderInfo.confirmGoods}}">
+                <button class="message-push-btn red" formType="submit">确认收货</button>
+            </form>
+        </block>
+    </view>
+    <view class="mask" style="display: {{toast.toastShow?'block':'none'}};">
+        <view class="msg-box">
+            <text class="{{toast.toastMsgDown?'':'single'}}">{{toast.toastMsgUp}}</text>
+            <text wx:if="{{toast.toastMsgDown}}">{{toast.toastMsgDown}}</text>
+        </view>
+    </view>
+</scroll-view>

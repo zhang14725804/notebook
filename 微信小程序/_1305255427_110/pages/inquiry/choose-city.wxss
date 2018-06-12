@@ -1,0 +1,95 @@
+page {
+    background: #F3F2F9;
+}
+
+.section-current-city,.section-all-city {
+    background: #fff;
+}
+
+.section-current-city .page-content {
+    margin: 0 0 0 32rpx;
+}
+
+.scrollview-content {
+    height: 920rpx;
+    z-index: 20;
+}
+
+.page-title {
+    display: block;
+    padding: 0 0 0 32rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #5c626d;
+    font-size: 30rpx;
+    border-bottom: 1rpx solid #eee;
+}
+
+.section-all-city {
+    margin-top: 24rpx;
+}
+
+.city-item-wrapper {
+    padding: 0;
+    background: #fff;
+    margin: 0 0 0 32rpx;
+}
+
+.city-item {
+    height: 96rpx;
+    line-height: 96rpx;
+    font-size: 30rpx;
+    padding: 0;
+    margin: 0;
+    color: #0E0E0F;
+    border: 0;
+    background: #fff;
+}
+
+.city-item:active {
+    background: #F3F2F9;
+}
+
+.city-item-wrapper+.city-item-wrapper {
+    border-top: 1rpx solid #eee;
+}
+
+.search-index {
+    height: auto;
+    width: 40rpx;
+    top: 24%;
+    right: 30rpx;
+    font-size: 30rpx;
+    line-height: 40rpx;
+    position: fixed;
+    color: #fff;
+    background: rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.search-index view {
+    height: 40rpx;
+}
+
+.index-letter {
+    height: 150rpx;
+    width: 150rpx;
+    background: rgba(0,0,0,0.2);
+    color: #fff;
+    line-height: 150rpx;
+    font-size: 80rpx;
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    text-align: center;
+    border-radius: 10rpx;
+}
+
+.title-item {
+    border-bottom: 1rpx #EEEEEE solid;
+    color: rgba(0,0,0,0.2);
+    font-size: 50rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: left;
+}

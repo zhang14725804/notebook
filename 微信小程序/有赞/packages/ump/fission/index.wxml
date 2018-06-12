@@ -1,0 +1,6 @@
+<view class="page-container {{deviceType}} {{themeClass}} {{isTabPage&&'page-is-tab-page'}}">
+    <view class="fission container" wx:if="{{loaded}}">
+        <include src="template/sharer.wxml" wx:if="{{isSharer}}"></include>
+        <include src="template/partner.wxml" wx:if="{{!isSharer}}"></include>
+    </view>
+</view>

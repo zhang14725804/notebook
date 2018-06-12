@@ -1,0 +1,75 @@
+<template name="shop">
+    <view class="shop zan-panel">
+        <view class="shop__shopname zan-c-black">{{order.items[0].shop_info_result.shop_name||order.items[0].shop_info.shop_name}}</view>
+        <view class="goods-card zan-card goods-card--first" wx:for="{{order.items}}" wx:key="index">
+            <view class="zan-card__thumb">
+                <view class="goods-card__present-icon" wx:if="{{item.is_present!=0}}"></view>
+                <image catchtap="gotoGoodsDetail" class="zan-card__img" data-item="{{item}}" mode="aspectFit" src="{{item.image_url}}"></image>
+            </view>
+            <view class="zan-card__detail">
+                <view class="zan-card__detail-row">
+                    <view class="zan-card__right-col">
+            ￥{{item.pay_price}}
+          </view>
+                    <view class="zan-card__left-col zan-ellipsis--l2">
+            {{item.title}}
+          </view>
+                </view>
+                <view class="zan-card__detail-row zan-c-gray-darker">
+                    <view class="zan-card__right-col">x{{item.num}}</view>
+                    <view class="zan-card__left-col goods-card__detail-sku">
+            {{item.skuStr}}
+          </view>
+                </view>
+                <view wx:if="{{order.activity_type==19}}">
+                    <text class="activity-tag">享立减</text>
+                </view>
+                <view class="zan-card__detail-row zan-c-gray-darker" wx:if="{{item.message.length!=0||item.safe.show}}">
+                    <view class="zan-card__right-col">
+                        <view catchtap="showGoodsMessage" class="zan-btn zan-btn--mini {{item.safe.show?'':'zan-btn--last-child'}}" data-goodsid="{{item.goods_id}}" data-skuid="{{item.sku_id}}" wx:if="{{item.message.length!=0}}">查看留言</view>
+                        <view catchtap="jumpToSafe" class="zan-btn zan-btn--danger zan-btn--plain zan-btn--mini zan-btn--last-child" data-itemid="{{item.item_id}}" data-safeno="{{item.safe.safe_no}}" style="background: white;" wx:if="{{item.safe.show}}">{{item.safe.text}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="zan-cell order-panel">
+            <text class="zan-cell__bd order-panel__title">配送方式</text>
+            <view class="zan-cell__ft zan-c-gray-darker">
+                <view wx:if="{{order.isFreePostage&&!showSelfFetch}}">免运费</view>
+                <block wx:elif="{{showSelfFetch}}">
+                    <view>￥0.00</view>
+                    <view>到店自提</view>
+                </block>
+                <block wx:else>
+                    <view>￥{{order.postage}}</view>
+                    <view>快递发货</view>
+                </block>
+            </view>
+        </view>
+        <view class="zan-cell order-panel">
+            <view class="zan-cell__hd zan-c-black order-panel__title" style="width: 70px;">买家留言: </view>
+            <view class="zan-cell__bd">
+        {{order.buyer_msg||'无'}}
+      </view>
+        </view>
+        <view class="zan-cell order-panel {{!phoneNum?'zan-cell--last-child':''}}">
+            <text class="zan-cell__bd">合计</text>
+            <view class="zan-cell__ft zan-c-red">
+                <view>￥{{order.totalPriceStr}}</view>
+            </view>
+        </view>
+        <view class="contact-support zan-cell order-panel zan-cell--last-child zan-center" wx:if="{{supportChat&&chatBusinessId}}">
+            <view class="zan-cell__bd zan-c-blue shop__im">
+                <image class="shop__im-icon" src="https://img.yzcdn.cn/public_files/2016/12/02/8812ea19818110de677ac215286b3005.png"></image>
+                <text class="shop__im-desc">联系客服</text>
+                <button businessId="{{chatBusinessId}}" class="contact-support__btn" openType="contact" sendMessageImg="{{order.items[0].image_url}}" sendMessagePath="/pages/trade/result/index?orderNo={{order.order_no}}&num={{order.num}}&kdtId={{kdtId}}&title={{order.items[0].title}}" sendMessageTitle="{{titleStr}}" sessionFrom="{{kdtId}}" showMessageCard="{{true}}"></button>
+            </view>
+        </view>
+        <view catchtap="handleContactPhoneService" class="zan-cell order-panel zan-cell--last-child zan-center" wx:elif="{{phoneNum}}">
+            <view class="zan-cell__bd zan-c-blue shop__im">
+                <image class="shop__im-icon" src="https://img.yzcdn.cn/public_files/2016/12/02/8812ea19818110de677ac215286b3005.png"></image>
+                <text class="shop__im-desc">联系客服</text>
+            </view>
+        </view>
+    </view>
+</template>

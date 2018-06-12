@@ -1,0 +1,35 @@
+<scroll-view scrollY class="diaryBook">
+    <view class="diaryBook-author" wx:if="{{content.User.HeadImage}}">
+        <image class="diaryBook-author-icon" src="{{content.User.HeadImage}}"></image>
+        <text class="diaryBook-author-nickname">{{content.User.Nickname}}</text>
+    </view>
+    <view class="diaryBook-project" wx:if="{{content.BaseData.SurgeryTime}}">
+        <view class="diaryBook-project-item">
+            <text class="diaryBook-project-item-desc">手术时间</text>
+            <text class="diaryBook-project-item-content">{{content.BaseData.SurgeryTime}}</text>
+        </view>
+        <view class="diaryBook-project-item" wx:if="{{content.BaseData.Project.Name}}">
+            <text class="diaryBook-project-item-desc">项目类别</text>
+            <text class="diaryBook-project-item-content">{{content.BaseData.Project.Name}}</text>
+        </view>
+        <view bindtap="jumpHospitalDetail" class="diaryBook-project-item" data-id="{{content.BaseData.HospitalId}}" wx:if="{{content.BaseData.HospitalId&&content.BaseData.HospitalName}}">
+            <text class="diaryBook-project-item-desc">所在医院</text>
+            <text class="diaryBook-project-item-content ellipsis">{{content.BaseData.HospitalName}}</text>
+            <image class="diaryBook-project-item-arrow" src="https://cdn-ssl.meb.com/wxa/v1/arrow-right.png"></image>
+        </view>
+        <view bindtap="jumpDoctoryDetail" class="diaryBook-project-item" data-id="{{content.BaseData.DoctorId}}" wx:if="{{content.BaseData.DoctorId&&content.BaseData.DoctorName}}">
+            <text class="diaryBook-project-item-desc">主刀医生</text>
+            <text class="diaryBook-project-item-content">{{content.BaseData.DoctorName}}</text>
+            <image class="diaryBook-project-item-arrow" src="https://cdn-ssl.meb.com/wxa/v1/arrow-right.png"></image>
+        </view>
+        <view class="diaryBook-project-item1" wx:if="{{content.BeforePictures.length}}">
+            <text class="diaryBook-project-item-desc" style="margin-top:10rpx">术前照片</text>
+            <view class="diaryBook-project-item-pictures">
+                <image bindtap="imagePreview" class="diaryBook-project-item-pictures-item" data-index="{{item}}" data-urls="{{content.BeforePictures}}" src="{{item}}" wx:for="{{content.BeforePictures}}" wx:key="{{item}}"></image>
+            </view>
+        </view>
+    </view>
+    <view class="diaryBook-list">
+        <diaryBookItem bind:jumpDetailEvent="jumpDiaryDetail" data-id="{{item.Id}}" diary="{{item}}" isHideBottomLine="{{index==content.Diary.length-1}}" isHideTopLine="{{index==0}}" isShowCurrentDiaryLoc="{{item.Id==currentdiaryid}}" wx:for="{{content.Diary}}" wx:key="{{item.Id}}"></diaryBookItem>
+    </view>
+</scroll-view>

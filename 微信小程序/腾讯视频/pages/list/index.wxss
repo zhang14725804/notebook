@@ -1,0 +1,195 @@
+@import "../../__wuBaseWxss__/30.wxss";
+
+.body .mod_loading {
+    position: absolute;
+}
+
+.mod_loading.loadmore {
+    height: auto;
+    padding-bottom: 11px;
+}
+
+.mod_empty {
+    position: relative;
+}
+
+.nav {
+    padding: 6px 0;
+}
+
+.slide_list {
+    white-space: nowrap;
+    padding: 6px 16px;
+    overflow: auto;
+    height: 40px;
+    font-size: 0;
+}
+
+.slide_list .item {
+    display: inline-block;
+    min-width: 48px;
+    font-size: 14px;
+    padding: 0 10px;
+    margin-right: 4px;
+    line-height: 28px;
+    height: 28px;
+}
+
+.slide_list .item.current {
+    color: #ff7000;
+    background: #f5f7f9;
+    border-radius: 3px;
+}
+
+.mod_figures {
+    padding: 12px;
+    padding-bottom: 0;
+    border-top: 1rpx solid #e0e0e0;
+}
+
+.mod_figure {
+    width: 100%;
+}
+
+.mod_figure .item {
+    width: 33.3%;
+    padding: 0 4px;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    margin-bottom: 21px;
+    text-align: center;
+}
+
+.figure_pic {
+    width: 100%;
+    height: 306rpx;
+}
+
+.figure_pic_mod {
+    display: block;
+    font-size: 0;
+    position: relative;
+}
+
+.figure_title {
+    margin-top: 7px;
+}
+
+.mod_figures_h {
+    padding: 5px 16px;
+    box-sizing: border-box;
+    border-top: 1rpx solid #e0e0e0;
+}
+
+.mod_figure_h .item {
+    padding: 7px 0;
+    user-select: none;
+    overflow: hidden;
+    width: 100%;
+    height: 88px;
+}
+
+.figure_l {
+    position: relative;
+    float: left;
+    width: 130px;
+    height: 74px;
+}
+
+.figure_l .figure_pic {
+    width: 100%;
+    height: 100%;
+}
+
+.figure_r {
+    position: relative;
+    margin-left: 142px;
+    height: 74px;
+}
+
+.vertical_center {
+    width: 100%;
+    height: 100%;
+    display: box;
+    box-orient: vertical;
+    box-pack: center;
+    box-align: center;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.figure_title_r {
+    width: 100%;
+    font-size: 15px;
+    color: #222;
+    line-height: 27px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.figure_desc {
+    width: 100%;
+    font-size: 13px;
+    color: #979797;
+    line-height: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.actor {
+    width: 100%;
+    font-size: 13px;
+    color: #979797;
+    line-height: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.container_tips {
+    background: #fff;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tips_con {
+    width: 100%;
+}
+
+.icon_empty {
+    background: url(https://i.gtimg.cn/qqlive/images/tinyapp/empty.png) 0 0 no-repeat;
+    background-size: 100%;
+    display: block;
+    width: 280px;
+    height: 180px;
+    margin: 0 auto 5px;
+}
+
+.tips_con .tips {
+    font-size: 18px;
+    text-align: center;
+    color: #666666;
+    padding: 10px 0 8px 0;
+}
+
+.tips_con .suggestion {
+    font-size: 14px;
+    text-align: center;
+    color: #979797;
+}

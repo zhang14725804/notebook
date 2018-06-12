@@ -1,0 +1,27 @@
+<template name="tplGuessyoulike">
+    <view class="mod_recommend" wx:if="{{list&&list.length}}">
+        <view class="mod_recommend_title" wx:if="{{title}}">
+            <view class="mod_recommend_title_text">{{title}}</view>
+        </view>
+        <view class="mod_recommend_list">
+            <view bindtap="{{gotoDetails}}" class="mod_recommend_list_item" data-clk="{{item.clk}}" data-cover="{{item.img}}" data-name="{{item.t}}" data-pps="{{item.pps}}" data-price="{{item.jp}}" data-sku="{{item.sku}}" id="gyl_sku_{{item.sku}}" wx:for="{{list}}" wx:key="item.sku">
+                <view class="mrli_cover">
+                    <image lazyLoad="true" mode="aspectFit" src="{{item.img}}"></image>
+                </view>
+                <view class="mrli_info">
+                    <view class="mrli_info_name">{{item.t}}</view>
+                    <view class="mrli_info_price" wx:if="{{item.jp==-1}}">暂无定价</view>
+                    <view class="mrli_info_price" wx:else>¥<text>{{price(item.jp/100).int}}</text>.{{price(item.jp/100).decimal}}</view>
+                    <view catchtap="{{showSkuPanel}}" class="mrli_info_buy" data-clk="{{item.clk}}" data-sku="{{item.sku}}" wx:if="{{enableAdd2Cart!=0}}"></view>
+                </view>
+                <image binderror="{{onReported}}" bindload="{{onReported}}" src="{{report[item.sku]}}" style="width:0;height:0;display:block;" wx:if="{{report[item.sku]}}"></image>
+            </view>
+        </view>
+        <image binderror="{{onReported}}" bindload="{{onReported}}" src="{{report['show']}}" style="width:0;height:0;display:block;" wx:if="{{report['show']}}"></image>
+    </view>
+    <template is="sku_panel" data="{{...gyl_skupanel}}" wx:if="{{gyl_skupanel.show}}"></template>
+</template>
+<import src="../../../common/toast/toast.wxml"></import>
+<template is="toast" data="{{...toast}}"></template>
+<import src="../../components/sku_panel/sku_panel.wxml"></import>
+<wxs module="price" src="../../../common/wxs/price.wxs" />

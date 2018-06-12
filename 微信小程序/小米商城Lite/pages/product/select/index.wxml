@@ -1,0 +1,132 @@
+<view class="msxcx-widget-loading msxcx-widget-loading_big" wx:if="{{!loaded}}">
+    <view></view>
+    <text>加载中</text>
+</view>
+<block wx:else>
+    <view class="msxcx-layout-mod" style="margin-top:0;">
+        <view class="msxcx-layout-mod__bd">
+            <view class="msxcx-widget-list">
+                <view class="msxcx-widget-list__item">
+                    <view class="mx-product-lr">
+                        <view class="icon">
+                            <image bindtap="viewGallery" data-current="{{curGoodsInfo.img_url_webp?curGoodsInfo.img_url_webp:curGoodsInfo.img_url}}" src="{{curGoodsInfo.img_url_webp?curGoodsInfo.img_url_webp:curGoodsInfo.img_url}}"></image>
+                        </view>
+                        <view class="name">{{curGoodsInfo.name}}</view>
+                        <view class="mx-product-price {{curGoodsInfo.vipInfo.vip_price?'mx-product-price-vip':''}}">
+                            <text class="p1">{{curGoodsInfo.price}}元</text>
+                            <text class="shipment" wx:if="{{curGoodsInfo.shipment_text}}">{{curGoodsInfo.shipment_text}}</text>
+                            <text class="p2" wx:if="{{curGoodsInfo.price!=curGoodsInfo.market_price}}">{{curGoodsInfo.market_price}}元</text>
+                            <block wx:if="{{!curGoodsInfo.vipInfo.vip_price}}">
+                                <text class="msxcx-widget-tag msxcx-widget-tag_orange" wx:if="{{curGoodsInfo.reduce_price}}">{{curGoodsInfo.reduce_price}}</text>
+                            </block>
+                            <view class="vip-price" wx:else>
+                                <text class="vp">{{curGoodsInfo.vipInfo.vip_price}}元</text>
+                                <image class="vp-icon" mode="widthFix" src="{{vipPriceCfg.cfg.icon}}"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="msxcx-widget-list__item" wx:if="{{curGoodsInfo.activity&&curGoodsInfo.activity.length}}">
+                    <view class="mx-product-select mx-product-select_lr">
+                        <label>促销</label>
+                        <view class="item item_tag_text" wx:for="{{curGoodsInfo.activity}}" wx:key="unique">
+                            <view>{{item.typeDesc}}</view>
+                            <text>{{item.title}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="msxcx-layout-mod">
+        <view class="msxcx-layout-mod__bd">
+            <view class="msxcx-widget-list">
+                <block wx:if="{{!isBatched}}">
+                    <view class="msxcx-widget-list__item" wx:if="{{item.show}}" wx:for="{{buyOptions}}" wx:key="unique">
+                        <view class="mx-product-select">
+                            <label>{{item.name}}</label>
+                            <view class="ul">
+                                <view bindtap="tapSelect" class="{{option.on?'on':''}} {{option.is_stock||option.is_bigtap?'':'dashed'}} {{option.price?'line':''}}" data-cfg="{{item.prop_cfg_id}}" data-on="{{option.on}}" data-value="{{option.prop_value_id}}" hidden="{{!option.show}}" wx:for="{{item.list}}" wx:for-item="option" wx:key="valueId">
+                                    <text>{{option.name}}</text>
+                                    <text wx:if="{{option.price}}">{{option.price}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="msxcx-widget-list__item" wx:for="{{batchInfo}}" wx:for-index="itemIndex">
+                        <view class="mx-product-batch-title">
+                            <image src="{{item.curGoods.img_url}}"></image>
+                            <text>{{item.curGoods.name}}</text>
+                        </view>
+                        <view class="mx-product-select" wx:if="{{bo.show}}" wx:for="{{item.buy_option}}" wx:for-item="bo">
+                            <label>{{bo.name||'请选择'}}</label>
+                            <view class="ul">
+                                <view bindtap="tapSelect" class="{{boItem.on?'on':''}} {{!boItem.is_stock?'no-stock':''}}" data-cfg="{{bo.prop_cfg_id}}" data-index="{{itemIndex}}" data-on="{{boItem.on}}" data-value="{{boItem.prop_value_id}}" hidden="{{!boItem.show}}" wx:for="{{bo.list}}" wx:for-item="boItem" wx:key="valueId">
+                    {{boItem.name}} 
+                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <view class="msxcx-widget-list__item">
+                    <view class="mx-product-select mx-product-select_num">
+                        <label>购买数量</label>
+                        <view class="num">
+                            <view bindtap="changeNum" class="{{buyNum===1?'disabled':''}}" data-type="sub"></view>
+                            <view>{{buyNum}}</view>
+                            <view bindtap="changeNum" class="{{buyNum===curGoodsInfo.buy_limit?'disabled':''}}" data-type="add"></view>
+                        </view>
+                    </view>
+                </view>
+                <view class="msxcx-widget-list__item" wx:if="{{curGoodsInfo.service&&curGoodsInfo.service.length&&isPhoneService}}">
+                    <view class="mx-product-select mx-product-select_ins" wx:for="{{curGoodsInfo.service}}" wx:for-index="idx" wx:key="idx">
+                        <label>{{item.type_name}}  </label>
+                        <view class="ins-item" wx:if="{{item.service_info&&item.showService}}" wx:for="{{item.service_info}}" wx:for-index="idx1" wx:for-item="item1" wx:key="idx1">
+                            <view class="ul">
+                                <view bindtap="selectInsur" class="{{item1.selected?'on':''}} " data-serindex="{{idx1}}">{{item1.service_short_name}} {{item1.service_price}}元</view>
+                            </view>
+                            <view class="">
+                                <radio-group class="radio-group">
+                                    <label class="radio">
+                                        <radio bindtap="selectInsur" checked="{{item1.selected}}" data-serindex="{{idx1}}" value="insurance"></radio>
+                    我已阅读
+                  </label>
+                                    <view wx:for="{{item1.phone_accidentIns}}" wx:for-index="idx2" wx:for-item="item2" wx:key="idx2">
+                                        <navigator url="/pages/webview/index?url={{item2.url}}">
+                      {{item2.desc}}
+                    </navigator>
+                                        <text wx:if="{{idx2!==item1.phone_accidentIns.length-1}}">|</text>
+                                    </view>
+                                </radio-group>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="msxcx-layout-footer-placeholder"></view>
+    <view class="msxcx-layout-footer">
+        <button class="msxcx-widget-bigbtn" type="msxcx-btn-gray" wx:if="{{curGoodsInfo.action_button.sale_mode==='presales'}}">预售商品，请到小米商城App购买</button>
+        <block wx:elif="{{curGoodsInfo.action_button.sale_mode==='booking'}}">
+            <button bindtap="selectProduct" class="msxcx-widget-bigbtn stat-product-add-cart" data-goods-id="{{goods_id}}" type="mi" wx:if="{{curGoodsInfo.action_button.is_bigtap}}">确定</button>
+            <button bindtap="addCart" class="msxcx-widget-bigbtn stat-product-add-cart" disabled="{{curGoodsInfo.action_button.booking.finish?true:false}}" type="{{curGoodsInfo.action_button.booking.finish?'msxcx-btn-gray':'mi'}}" wx:else>
+                <text wx:if="{{!curGoodsInfo.action_button.booking.finish}}">{{curGoodsInfo.action_button.button_title}}</text>
+                <text wx:else>{{curGoodsInfo.action_button.booking.disable_name}}</text>
+            </button>
+        </block>
+        <navigator style="width: 100%;" url="/pages/prebook/index" wx:elif="{{curGoodsInfo.action_button.sale_mode==='reserve'||curGoodsInfo.action_button.sale_mode==='subscribe'}}">
+            <button class="msxcx-widget-bigbtn" type="msxcx-btn-hb">立即预约</button>
+        </navigator>
+        <button class="msxcx-widget-bigbtn" disabled="true" type="mi" wx:elif="{{curGoodsInfo.action_button.sale_mode==='webview'}}">{{curGoodsInfo.action_button.button_title}}</button>
+        <block wx:else>
+            <button bindtap="addCart" class="msxcx-widget-bigbtn" disabled="{{curGoodsInfo.is_stock?false:true}}" type="mi" wx:if="{{!curGoodsInfo.action_button.is_bigtap}}">
+                <text wx:if="{{curGoodsInfo.is_stock}}">确定</text>
+                <text wx:else>暂时缺货</text>
+            </button>
+            <button bindtap="selectProduct" class="msxcx-widget-bigbtn stat-product-add-cart" data-goods-id="{{goods_id}}" type="mi" wx:else>确定</button>
+        </block>
+    </view>
+</block>

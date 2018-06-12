@@ -1,0 +1,68 @@
+<import src="../../components/searchBar/searchBar.wxml"></import>
+<import src="../../components/searchTab/searchTab.wxml"></import>
+<import src="../../components/toast/toast.wxml"></import>
+<view class="content">
+    <template is="searchBar" data="{{...searchdata}}"></template>
+    <block wx:if="{{!searchdata.bfocus}}">
+        <template is="searchTab" data="{{...searchtabdata}}"></template>
+        <block wx:if="{{bgetproduct&&productList.length!=0}}">
+            <scroll-view scrollY bindscroll="gotoScroll" bindscrolltolower="getMore" class="search-list-scroll" scrollTop="{{scrollTop}}" style="height: {{scrollHeight-headHeight}}rpx;">
+                <view class="search-list-tip" wx:if="{{promotionTitle}}">以下商品参加：{{promotionTitle}}</view>
+                <view class="product-list">
+                    <view bindtap="gotoProductDetail" class="product-item" data-idx="{{productItem.pageIndex}}" data-wareid="{{productItem.wareId}}" wx:for="{{productList}}" wx:for-index="idx" wx:for-item="productItem" wx:key="productitem">
+                        <view class="product-image">
+                            <image mode="aspectFit" src="{{productItem.imageurl}}" wx:if="{{productItem.imageurl}}"></image>
+                            <image class="pimage" mode="aspectFit" src="{{productItem.imageurl}}" wx:if="{{!productItem.imageurl}}"></image>
+                            <view class="product-ext" wx:if="{{productItem.stockQuantity!=0}}">仅剩{{productItem.stockQuantity}}件</view>
+                            <view class="product-ext" wx:if="{{productItem.preSale}}">{{productItem.preSale?'预售':''}}</view>
+                            <view class="product-ext" wx:if="{{productItem.stockState}}">{{productItem.stockState?'无货':''}}</view>
+                        </view>
+                        <view class="product-info">
+                            <view class="product-title limit-lines">{{productItem.wname}}</view>
+                            <view class="product-price">
+                                <view class="price">
+                                    <view class="bi">¥</view>
+                                    <view class="big-price">{{productItem.bigPrice}}</view>
+                                    <view class="small-price">{{productItem.smallPrice}}</view>
+                                </view>
+                                <view class="coupon" wx:if="{{promotionitem}}" wx:for="{{productItem.promotionFlag}}" wx:for-index="promoidx" wx:for-item="promotionitem" wx:key="promotionlist">{{promotionitem}}</view>
+                                <view class="coupon" wx:if="{{productItem.upToSaving}}">{{productItem.upToSaving}}</view>
+                            </view>
+                            <view class="product-comment">
+                                <view class="tag" wx:if="{{productItem.self}}">{{productItem.self?'自营':''}}</view>
+                                <block wx:if="{{productItem.totalCount!='0'}}">
+                                    <view class="comment">{{productItem.totalCount}}条评价</view>
+                                    <view class="comment" wx:if="{{productItem.good}}">{{productItem.good}}好评</view>
+                                </block>
+                                <view class="comment" wx:if="{{productItem.totalCount=='0'}}">暂无评价</view>
+                            </view>
+                            <view catchtap="addCartFn" class="slist-cart-button" data-idx="{{productItem.pageIndex}}" data-wareid="{{productItem.wareId}}"></view>
+                        </view>
+                    </view>
+                </view>
+                <view class="product-nomore" wx:if="{{nomoreProduct}}">
+                    <view class="product-nomore-text">我是有底线的</view>
+                </view>
+            </scroll-view>
+            <view bindtap="gotop" class="gotop" wx:if="{{isShowTotopBtn}}"></view>
+        </block>
+        <view class="product-null" style="height: {{scrollHeight-headHeight}}rpx;" wx:if="{{!bgetproduct}}">
+            <image></image>
+            <view class="null-info2">数据加载中...</view>
+        </view>
+        <view class="product-null" style="height: {{scrollHeight-headHeight}}rpx;" wx:if="{{bgetproduct&&productList.length==0}}">
+            <image class="null-icon"></image>
+            <view class="null-info">抱歉，没有找到符合条件的商品</view>
+        </view>
+        <view class="search-list-btm-bar">
+            <view class="checked-info" wx:if="{{checkedInfoSum||checkedInfoTip}}">
+                <view class="checked-info-sum">{{checkedInfoSum}}</view>
+                <view class="checked-info-tip">{{checkedInfoTip}}</view>
+            </view>
+            <form bindsubmit="goBackCart" class="back-cart-btn" reportSubmit="true">
+                <button class="message-push-btn back-cart-btn" formType="submit">去购物车</button>
+            </form>
+        </view>
+    </block>
+    <template is="toast" data="{{...toastData}}"></template>
+</view>

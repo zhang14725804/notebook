@@ -1,0 +1,65 @@
+.wetoast {
+    display: none;
+}
+
+.wetoast_show {
+    display: block;
+}
+
+.wetoast__mask {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.wetoast__bd {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 5000;
+    width: 300rpx;
+    min-height: 240rpx;
+    max-width: 90%;
+    top: 50%;
+    margin-top: -120rpx;
+    left: 50%;
+    padding: 30rpx;
+    box-sizing: border-box;
+    transform: translateX(-50%);
+    background: rgba(40,40,40,0.75);
+    border-radius: 10rpx;
+    color: #FFFFFF;
+    word-wrap: break-word;
+    word-break: break-all;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.wetoast__bd.slim-container {
+    padding: 30rpx 30rpx;
+    min-height: auto;
+    width: 80%;
+}
+
+.wetoast__bd__img {
+    margin-top: 6rpx;
+}
+
+.wetoast__bd__img_desc {
+    width: 128rpx;
+    height: 128rpx;
+    vertical-align: middle;
+}
+
+.wetoast__bd__title {
+    margin-top: 10rpx;
+    font-size: 30rpx;
+}
+
+.wetoast__bd__title.no-top {
+    margin-top: 0;
+}

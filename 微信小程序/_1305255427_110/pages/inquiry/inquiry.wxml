@@ -1,0 +1,523 @@
+<import src="../../components/wetoast/wetoast.wxml"></import>
+<template is="wetoast" data="{{...__wetoast__}}"></template>
+<scroll-view class="scroll-view" scrollY="true">
+    <view class="wrapper {{ui.currentTab==1&&expressType==1||ui.currentTab==2&&productInfo.categoryId!=3?'height_130':'height_100'}}">
+        <view class="section-inquiry">
+            <view class="inquiry-price">
+                <view>
+                    <text class="inquiry-price--num">{{inquiryInfo.amount}}</text>
+                    <text class="inquiry-price--unit">元</text>
+                </view>
+                <view class="price-nextweek">
+                    <image class="price-nextweek--icon" src="{{inquiryInfo.nextWeekIcon}}"></image>
+                    <text>预计一周后下跌¥{{inquiryInfo.nextWeekPrice}}</text>
+                </view>
+            </view>
+            <view class="inquiry-right">
+                <form bindsubmit="handleOrderPrice" class="{{isSubscribe?'inquiry-order-money disabled':'inquiry-order-money'}}" reportSubmit="{{true}}" wx:if="{{isOpenSubscribe}}">
+                    <button bindgetphonenumber="getOrderPhoneNumber" formType="submit" openType="getPhoneNumber" wx:if="{{!userLogin&&!isSubscribe}}">
+          {{isSubscribe?'已订阅':'订阅价格'}}
+        </button>
+                    <button formType="submit" wx:else>
+          {{isSubscribe?'已订阅':'订阅价格'}}
+        </button>
+                </form>
+                <view bindtap="handleOnTapInquiryAgain" class="inquiry-again" wx:if="{{ui.showInquiryAgian}}">
+                    <text>重新询价</text>
+                </view>
+            </view>
+        </view>
+        <view class="price-under50" wx:if="{{inquiryInfo.amount<10&&!city.props.hasShop}}">
+            <view class="price-under50-content">
+                <text>很抱歉，您的订单金额不满10元，不能提交订单</text>
+                <text>推荐您使用爱回收的网页版中回收车提交订单</text>
+            </view>
+        </view>
+        <view class="tradeways" wx:if="{{inquiryInfo.amount>=10&&isShowTradeWay}}">
+            <view bindtap="swichNav" class="swiper-tablist first-tablist {{ui.currentTab==0?'on-current':''}}" data-current="0" wx:if="{{supportRecycleType['5']}}">门店回收</view>
+            <view bindtap="swichNav" class="swiper-tablist middle-tablist {{ui.currentTab==1?'on-current':''}}" data-current="1" wx:if="{{supportRecycleType['4']}}">快递回收</view>
+            <view bindtap="swichNav" class="swiper-tablist last-tablist {{ui.currentTab==2?'on-current':''}}" data-current="2" wx:if="{{supportRecycleType['1']}}">上门回收</view>
+        </view>
+        <navigator class="festival-tips" url="{{festivalTips.url}}" wx:if="{{ui.isShowfestivalTips}}">{{festivalTips.content}} <span catchtap="handleOnShowfestivalTips" class="festival-tips-span" wx:if="{{ui.isShowfestivalTips}}">×</span>
+        </navigator>
+        <view catchtap="handleonShowPopup" class="activityTips-tips" wx:if="{{ui.isShowSfTwentyFourTips}}">
+            <span class="activityTips-left-span">有奖活动</span>{{activityTips.content}} <span class="activityTips-right-span">></span>
+        </view>
+        <view class="section-tradetype" wx:if="{{ui.currentTab==0}}">
+            <view class="tradetype--infogroup">
+                <view class="info-item info_under50" wx:if="{{inquiryInfo.amount<10}}">
+                    <text>请前往附近门店回收</text>
+                </view>
+                <view bindtap="handleOnTapCitySelect" class="info-item info__city not-support-ondoor-wrap {{!city.data.supportShop?'shopborderbottom':''}}">
+                    <text>{{city.data.name}}</text>
+                    <text class="desc" hidden="{{!isCurCity}}">GPS定位</text>
+                    <text class="info-more">更改</text>
+                </view>
+                <view bindtap="handleOnTapShopSelect" class="info-item info__brief" wx:if="{{city.data.supportShop}}">
+                    <text>{{shop.data.name}}</text>
+                    <text class="info-more">更改</text>
+                </view>
+                <view class="info-item info__detail" wx:if="{{city.data.supportShop}}">
+                    <text bindtap="handleOnTapShopAddress" class="info--address" data-shop="{{shop.data}}">{{shop.data.name=='请选择门店'?'尚未选择门店，无门店地址':shop.data.address}}</text>
+                    <view bindtap="handleOnTapShopMobile" class="phone-wrapper" data-mobile="{{shop.data.mobile}}">
+                        <image class="phone-icon" src="{{phoneIcon}}"></image>
+                    </view>
+                </view>
+                <view class="info-item" wx:if="{{ui.showShopTime}}">
+                    <picker bindchange="handleStorePickerChange" bindcolumnchange="handleStorePickerColumnChange" mode="multiSelector" range="{{storeDateList}}" rangeKey="name" value="{{storeDateIndex}}">
+                        <text class="yuyueTime">预约时间:</text>
+            {{formartedStoreDate[dateStoreColumnIndex].name}}-{{formartedStoreTime[dateStoreColumnIndex][timeStoreColumnIndex].name}} 
+            <text class="info-more">更改</text>
+                    </picker>
+                </view>
+            </view>
+        </view>
+        <view class="nosupport-lowprice" wx:if="{{!city.data.supportShop&&ui.currentTab==0}}">
+            <view class="nosupport-tip">您定位的城市暂未提供门店回收服务，建议您选择其他回收方式，或者更改城市。</view>
+        </view>
+        <view class="block-ondoor-trade" wx:if="{{ui.currentTab==1}}">
+            <view class="ondoor-trade-wrap ">
+                <view>
+                    <view class="section-tradetype section-ondoor-trade">
+                        <view class="tradetype--infogroup">
+                            <view bindtap="bindChooseExpressType" class="info-item ondoor-title" data-type="1">
+                                <text class="express-type">顺丰上门取件</text>
+                                <navigator class="postage" url="./express-rule" wx:if="{{expressType==1}}">运费说明</navigator>
+                                <view class="radio {{expressType==1?'checked icon-radiobox-selected':'icon-radiobox-unselected'}}"></view>
+                            </view>
+                            <block wx:if="{{expressType==1}}">
+                                <view bindtap="handleOnTapSFCitySelect" class="info-item info__city">
+                                    <text>{{city.data.name}}</text>
+                                    <text class="desc" hidden="{{!isCurCity}}">GPS定位</text>
+                                    <text class="info-more">更改</text>
+                                </view>
+                                <view bindtap="handleOnTapSFStreetSelect" class="info-item info__city" wx:if="{{city.data.name!='请选择城市'}}">
+                                    <view class="info-address{{sfexpressInfo.street==''?'-noaddress':''}}">{{sfexpressInfo.street==''?'请点击选择地址':sfexpressInfo.street}}</view>
+                                    <view class="info-error">* 该地址不支持上门回收，请选择其它地址</view>
+                                    <text class="info-more">更改</text>
+                                </view>
+                                <view class="info-item" wx:if="{{city.data.name!='请选择城市'}}">
+                                    <input bindinput="bindSFBuildingInput" class="input-ondoor-address" placeholder="输入详细楼栋和门牌号" type="text" value="{{sfexpressInfo.building}}"></input>
+                                </view>
+                                <view class="info-item">
+                                    <input bindinput="bindSFNicknameInput" class="input-ondoor-address" placeholder="填写寄件人真实姓名" type="text" value="{{sfexpressInfo.nickName}}"></input>
+                                    <image bindtap="showTip" class="icon-show-tip" src="{{realnameIcon}}"></image>
+                                </view>
+                                <view class="info-item">
+                                    <picker bindchange="handleSFPickerChange" bindcolumnchange="handleSFPickerColumnChange" mode="multiSelector" range="{{sfondoorDateList}}" rangeKey="name" value="{{sfondoorDateIndex}}">
+                                        <text class="yuyueTime"> 预约时间：</text>
+                               {{formartedSFexpressDate[dateColumnIndex].name}}-{{formartedSFexpressTime[dateColumnIndex][timeColumnIndex].name}} 
+                           
+                          <text class="info-more">更改</text>
+                                    </picker>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="ondoor-trade-wrap" wx:if="{{city.data.isSupportCustomExpress}}">
+                <view>
+                    <view class="section-tradetype section-ondoor-trade">
+                        <view class="tradetype--infogroup tradetype--infogroup-self">
+                            <view bindtap="bindChooseExpressType" class="info-item ondoor-title ondoor-title-self" data-type="2">
+                                <text class="express-type">自己联系快递</text>
+                                <navigator class="postage" url="./express-rule" wx:if="{{expressType==2}}">运费说明</navigator>
+                                <view class="radio {{expressType==2?'checked icon-radiobox-selected':'icon-radiobox-unselected'}}"></view>
+                            </view>
+                            <view class="express-self" wx:if="{{expressType==2}}">
+                                <text>提交回收单后，寄件地址消息推送到您的手机</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="block-ondoor-trade" wx:if="{{ui.currentTab==2}}">
+            <view class="nosupport-lowprice" wx:if="{{inquiryInfo.amount<10}}">
+                <view class="nosupport-tip">机器未满10元订单仅支持门店回收</view>
+            </view>
+            <block wx:if="{{inquiryInfo.amount>=10}}">
+                <block wx:if="{{!city.data.supportOnDoor&&!city.data.supportMetro}}">
+                    <view class="not-support-ondoor-wrap">
+                        <view class="section-tradetype">
+                            <view class="tradetype--infogroup">
+                                <view bindtap="handleOnTapCitySelect" class="info-item info__city">
+                                    <text>{{city.data.name}}</text>
+                                    <text class="desc" hidden="{{!isCurCity}}">GPS定位</text>
+                                    <text class="info-more">更改</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="nosupport-lowprice">
+                        <view class="nosupport-tip">您定位的城市暂未提供上门服务，建议您选择其他回收方式，或者更改城市。</view>
+                    </view>
+                </block>
+                <block wx:if="{{city.data.supportOnDoor||city.data.supportMetro}}">
+                    <view class="ondoor-trade-wrap " wx:if="{{city.data.supportOnDoor}}">
+                        <view>
+                            <view class="section-tradetype section-ondoor-trade">
+                                <view class="tradetype--infogroup">
+                                    <view bindtap="bindChooseOndoorType" class="info-item ondoor-title" data-type="1">
+                                        <text class="express-type">上门交易</text>
+                                        <view class="radio {{ondoorType==1?'checked icon-radiobox-selected':'icon-radiobox-unselected'}}"></view>
+                                    </view>
+                                    <block wx:if="{{ondoorType==1}}">
+                                        <view bindtap="handleOnTapCitySelect" class="info-item info__city">
+                                            <text>{{city.data.name}}</text>
+                                            <text class="desc" hidden="{{!isCurCity}}">GPS定位</text>
+                                            <text class="info-more">更改</text>
+                                        </view>
+                                        <view bindtap="handleOnTapAddressSelect" class="info-item info__city {{ondoorMapInfo.props.supportOndoor?'':'not-support'}}">
+                                            <view class="info-address{{ondoorMapInfo.street==''?'-noaddress':''}}">{{ondoorMapInfo.street==''?'请点击选择地址':ondoorMapInfo.street}}</view>
+                                            <view class="info-error">* 该地址不支持上门回收，请选择其它地址</view>
+                                            <text class="info-more">更改</text>
+                                        </view>
+                                        <view class="info-item">
+                                            <input bindblur="bindOndoorAddressBlur" bindinput="bindOndoorAddressInput" class="input-ondoor-address" placeholder="输入详细地址" type="text" value="{{ondoorMapInfo.addresss}}"></input>
+                                        </view>
+                                        <view class="info-item">
+                                            <picker bindchange="handlePickerChange" range="{{ondoorDateList}}" value="{{ondoorDateIndex}}">
+                                                <text class="yuyueTime">预约时间:</text>
+                        {{ondoorDateList[ondoorDateIndex]}}
+                           
+                          <text class="info-more">更改</text>
+                                            </picker>
+                                        </view>
+                                    </block>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="ondoor-trade-wrap" wx:if="{{city.data.supportMetro}}">
+                        <view>
+                            <view class="section-tradetype section-ondoor-trade">
+                                <view class="tradetype--infogroup">
+                                    <view bindtap="bindChooseOndoorType" class="info-item ondoor-title" data-type="2">
+                                        <text class="express-type">地铁站交易</text>
+                                        <view class="radio {{ondoorType==2?'checked icon-radiobox-selected':'icon-radiobox-unselected'}}"></view>
+                                    </view>
+                                    <block wx:if="{{ondoorType==2}}">
+                                        <view bindtap="handleOnTapCitySelect" class="info-item info__city">
+                                            <text>{{city.data.name}}</text>
+                                            <text class="desc" hidden="{{!isCurCity}}">GPS定位</text>
+                                            <text class="info-more">更改</text>
+                                        </view>
+                                        <view class="info-item">
+                                            <picker bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" mode="multiSelector" range="{{multiArray}}" value="{{multiIndex}}">
+                                                <view class="picker">{{metroInfo.line.name}}{{metroInfo.site.name}}</view>
+                                                <text class="info-more">更改</text>
+                                            </picker>
+                                        </view>
+                                        <view class="info-item">
+                                            <picker bindchange="handlePickerChange" range="{{ondoorDateList}}" value="{{ondoorDateIndex}}">
+                                                <text class="yuyueTime">预约时间：</text>
+                        {{ondoorDateList[ondoorDateIndex]}}
+                           
+                          <text class="info-more">更改</text>
+                                            </picker>
+                                        </view>
+                                    </block>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </block>
+        </view>
+        <form bindsubmit="openSourceModal" reportSubmit="true">
+            <view class="foot-tip">
+                <image bindtap="bindiconisChecked" class="img-checkbox" src="{{ui.isServiesChecked?icon_selected:icon_unselected}}"></image>
+                <text>我已阅读并同意</text>
+                <view bindtap="handleOnTapServies" class="nav-to-servies">爱回收服务条款</view>
+                <text style="margin-left:0">，并且确认机器来源合法</text>
+            </view>
+            <view class="footer" wx:if="{{city.props.hasShop||ui.currentTab==1||ui.currentTab==2}}">
+                <view class="footer-btn {{ui.showPushInquiryMessage?'':'footer-btn-push'}}">
+                    <button class="submit-order-btn {{ui.isServiesChecked?'':'disabled'}}" formType="submit" type="primary" wx:if="{{ui.isServiesChecked&&userLogin&&ui.currentTab!=1}}">立即回收</button>
+                    <button class="submit-order-btn {{ui.isServiesChecked?'':'disabled'}}" type="default" wx:if="{{!ui.isServiesChecked}}">立即回收</button>
+                    <button bindgetphonenumber="getPhoneNumber" class="submit-order-btn" formType="submit" openType="getPhoneNumber" type="default" wx:if="{{ui.isServiesChecked&&!userLogin&&ui.currentTab==0&&shop.data.name!='请选择门店'&&city.data.name!='请选择城市'&&shop.data.mobile!='请选择门店'}}">立即回收</button>
+                    <button class="submit-order-btn store-type" formType="submit" type="default" wx:if="{{ui.isServiesChecked&&!userLogin&&ui.currentTab==0&&(shop.data.name=='请选择门店'||city.data.name=='请选择城市'||shop.data.mobile=='请选择门店')}}">立即回收</button>
+                    <button class="submit-order-btn {{ui.isServiesChecked?'':'disabled'}}" formType="submit" type="default" wx:if="{{ui.isServiesChecked&&ui.currentTab==1}}">立即回收</button>
+                    <button class="submit-order-btn {{ui.isServiesChecked?'':'disabled'}}" formType="submit" type="primary" wx:if="{{ui.isServiesChecked&&!userLogin&&ui.currentTab==2&&ondoorType==2&&(!metroInfo.line.id||!metroInfo.site.id)}}">立即回收</button>
+                    <button bindgetphonenumber="getPhoneNumber" class="submit-order-btn" formType="submit" openType="getPhoneNumber" type="default" wx:if="{{ui.isServiesChecked&&!userLogin&&ui.currentTab==2&&ondoorType==2&&metroInfo.line.id&&metroInfo.site.id}}">立即回收</button>
+                    <button class="submit-order-btn {{ui.isServiesChecked?'':'disabled'}}" formType="submit" type="default" wx:if="{{ui.isServiesChecked&&!userLogin&&ui.currentTab==2&&ondoorType==1&&(!ondoorMapInfo.street||!ondoorMapInfo.address||!ondoorMapInfo.props.supportOndoor)}}">立即回收</button>
+                    <button bindgetphonenumber="getPhoneNumber" class="submit-order-btn" formType="submit" openType="getPhoneNumber" type="default" wx:if="{{ui.isServiesChecked&&!userLogin&&ui.currentTab==2&&ondoorType==1&&ondoorMapInfo.street&&ondoorMapInfo.address&&ondoorMapInfo.props.supportOndoor}}">立即回收</button>
+                </view>
+            </view>
+        </form>
+    </view>
+    <view bindtap="hideAllPopups" class="ahs-popup-container" data-type="popup" hidden="{{!ui.showPushPopup}}">
+        <view class="push-popup popup-wrap">
+            <view class="push-popup-content">
+                <text>询价结果已经成功发送到您的微信</text>
+            </view>
+            <view bindtap="closePushPopup" class="push-popup-footer">
+                <text>确定</text>
+            </view>
+        </view>
+    </view>
+    <view bindtap="hideAllPopups" class="ahs-popup-container" data-type="popup" wx:if="{{ui.showSourcePopup}}">
+        <view class="radio-popup popup-wrap">
+            <view class="radio-popup-title">
+                <text>选择机器来源</text>
+                <view class="highlight">
+                    <text>请确保您的机器来源合法，爱回收网保证不收取任何赃机</text>
+                </view>
+                <view bindtap="handleOnTapExtraSumit" class="extra-submit-btn" wx:if="{{ui.showOtherSourceInput&&orderInfo.productSource!=''&&userLogin}}">确定</view>
+                <button bindgetphonenumber="getPhoneNumber" bindtap="handleOnSourceChange" class="extra2-submit-btn" data-source="{{orderInfo.productSource}}" openType="getPhoneNumber" wx:if="{{ui.showOtherSourceInput&&orderInfo.productSource!=''&&!userLogin}}">确定</button>
+            </view>
+            <form>
+                <view class="source-button">
+                    <button bindgetphonenumber="getPhoneNumber" class="source-button-item" data-source="{{item}}" openType="getPhoneNumber" type="default" wx:if="{{!userLogin}}" wx:for="{{productSources}}" wx:key="{{item}}">{{item}}</button>
+                    <button bindtap="getCouponsList" class="source-button-item" data-source="{{item}}" type="default" wx:if="{{userLogin}}" wx:for="{{productSources}}" wx:key="{{item}}">{{item}}</button>
+                </view>
+                <view bindtap="handleOnTapOtherSource" class="radio-popup-item " hoverClass="hover-class" wx:if="{{!ui.showOtherSourceInput}}">其他</view>
+                <view class="radio-popup-item with-input" wx:if="{{ui.showOtherSourceInput}}">
+                    <text>其他</text>
+                    <input bindinput="handleOnExtraInput" placeholder="请填写机器来源"></input>
+                </view>
+            </form>
+        </view>
+    </view>
+    <view class="popup-dialog {{coupon.popup?'popup-dialog--show':''}}">
+        <view bindtap="hideCouponPopup" class="popup-dialog__mask"></view>
+        <view class="popup-dialog__container">
+            <view class="popup-coupon-header">
+                <view bindtap="hideCouponPopup" class="popup-coupon-header_cancel">
+        取消
+      </view>
+                <view class="popup-coupon-header_title">
+        选择优惠券
+      </view>
+                <view bindtap="onSubmit" class="popup-coupon-header_confirm">
+        提交订单
+      </view>
+            </view>
+            <view class="popup-coupon-body">
+                <view bindtap="chooseCoupon" class="dont-use-coupon  icon-radiobox-{{!coupon.selectedId?'selected':'unselected'}}" data-code="">
+        不使用优惠券
+      </view>
+                <view class="coupons-body_title">
+        账号{{userPhone}}已领取的优惠券
+      </view>
+                <scroll-view scrollY class="coupons-body" scrollTop="{{scrollTop}}" style="height: 500rpx;">
+                    <view class="coupons-body_list">
+                        <view bindtap="chooseCoupon" class="coupons-body_item icon-radiobox-{{coupon.selectedId==item.couponCode?'selected':'unselected'}}" data-code="{{item.couponCode}}" wx:for="{{coupon.list}}" wx:key="{{item.couponCode}}">
+                            <view class="coupon-price">
+                                <view class="coupon-amount">
+                                    <text class="coupon-amount">{{item.amount}}</text>
+                                    <text class="coupon-amount__unit">元</text>
+                                </view>
+                                <view class="coupon-condition">
+                满{{item.minPriceLimit}}元可用
+              </view>
+                            </view>
+                            <view class="coupon-desc">
+                                <view class="coupon-title">
+                {{item.name}}
+              </view>
+                                <view class="coupon-date" wx:if="{{!item.endTime?false:true}}">
+                {{item.endTime}}到期
+              </view>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+    <view class="popup-dialog {{showPopup?'popup-dialog--show':''}}">
+        <view bindtap="toggleDialog" class="popup-dialog__mask"></view>
+        <view class="popup-dialog__container">
+            <view class="popup-header">
+                <view bindtap="toggleDialog" class="popup-header_cancel">
+        取消
+      </view>
+                <view class="popup-header_title">
+        授权手机号码
+      </view>
+                <view bindtap="manualInput" class="popup-header_confirm">
+        {{confirmText}}
+      </view>
+            </view>
+            <view class="popup-body">
+                <view class="auto-phone" wx:if="{{!writeByself}}">
+                    <view class="auto-phone_tip">
+                        <image src="{{autoInModalImage}}"></image>
+                        <view class="auto-tip-text">
+                            <text class="tip-1">请使用常用手机号码</text>
+                            <text class="tip-2">{{tipText}}</text>
+                        </view>
+                    </view>
+                    <view class="auto-phone_button">
+                        <button bindgetphonenumber="getPhoneNumberInPopup" openType="getPhoneNumber" type="primary">
+            自动获取
+          </button>
+                    </view>
+                </view>
+                <view class="info-form" wx:else>
+                    <view class="setphone-self">
+                        <form bindsubmit="handleOnFormSubmit">
+                            <view class="setphone-self--section">
+                                <view class="section--infogroup">
+                                    <view class="info-item">
+                                        <input class="line-input" name="contactName" placeholder="请输入姓名" placeholderClass="phcolor" type="text" value="{{contactName}}"></input>
+                                    </view>
+                                    <view class="info-item">
+                                        <input bindinput="handleOnPhoneNumberInput" class="info-phonenumber" name="phoneNumber" placeholder="请输入手机号码" placeholderClass="phcolor" type="number" value="{{phoneNumber}}"></input>
+                                        <view bindtap="handleOnTapCaptcha" class="info-getcaptch">
+                                            <text>{{getCode}}</text>
+                                        </view>
+                                    </view>
+                                    <view class="info-item" wx:if="{{captchImgUrl}}">
+                                        <input bindinput="handleOnCaptchCodeInput" name="captch" placeholder="请输入右侧图形码" placeholderClass="phcolor" style="height: 100rpx" type="number" value="{{captchCode}}"></input>
+                                        <view class="info-setaptch">
+                                            <image catchtap="setCaptchUrl" class="captch-img" mode="aspectFit" src="{{captchImgUrl}}"></image>
+                                        </view>
+                                    </view>
+                                    <view class="info-item">
+                                        <input class="line-input" focus="{{captchaFocus}}" name="smsCaptcha" placeholder="请输入短信验证码" placeholderClass="phcolor" style="height: 100rpx" type="number"></input>
+                                    </view>
+                                </view>
+                                <view class="setphone-btn">
+                                    <button formType="submit" type="default">提交</button>
+                                </view>
+                            </view>
+                        </form>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="popup-dialog {{showOrderPricePopUp?'popup-dialog--show':''}}">
+        <view bindtap="toggleDialogPrice" class="popup-dialog__mask"></view>
+        <view class="popup-dialog__container">
+            <view class="popup-header">
+                <view bindtap="toggleDialogPrice" class="popup-header_cancel">
+        取消
+      </view>
+                <view class="popup-header_title">
+        授权手机号码
+      </view>
+                <view bindtap="manualInputDialogPrice" class="popup-header_confirm">
+        {{confirmTextOrder}}
+      </view>
+            </view>
+            <view class="popup-body">
+                <view class="auto-phone" wx:if="{{!writeByselfPopUp}}">
+                    <view class="auto-phone_tip">
+                        <image src="{{autoInModalImage}}"></image>
+                        <view class="auto-tip-text">
+                            <text class="tip-1">请使用常用手机号码</text>
+                            <text class="tip-2">改机型价格变动，我们会消息通知您</text>
+                        </view>
+                    </view>
+                    <view class="auto-phone_button">
+                        <button bindgetphonenumber="getPhoneNumberInPopupByOrder" openType="getPhoneNumber" type="primary">
+            自动获取
+          </button>
+                    </view>
+                </view>
+                <view class="info-form" wx:else>
+                    <view class="setphone-self">
+                        <form bindsubmit="handleOnFormSubmitPopUp">
+                            <view class="setphone-self--section">
+                                <view class="section--infogroup">
+                                    <view class="info-item">
+                                        <input class="line-input" name="contactName" placeholder="请输入姓名" placeholderClass="phcolor" type="text" value="{{contactName}}"></input>
+                                    </view>
+                                    <view class="info-item">
+                                        <input bindinput="handleOnPhoneNumberInput" class="info-phonenumber" name="phoneNumber" placeholder="请输入手机号码" placeholderClass="phcolor" type="number" value="{{phoneNumber}}"></input>
+                                        <view bindtap="handleOnTapCaptcha" class="info-getcaptch">
+                                            <text>{{getCode}}</text>
+                                        </view>
+                                    </view>
+                                    <view class="info-item" wx:if="{{captchImgUrl}}">
+                                        <input bindinput="handleOnCaptchCodeInput" name="captch" placeholder="请输入右侧图形码" placeholderClass="phcolor" style="height: 100rpx" type="number" value="{{captchCode}}"></input>
+                                        <view class="info-setaptch">
+                                            <image catchtap="setCaptchUrl" class="captch-img" mode="aspectFit" src="{{captchImgUrl}}"></image>
+                                        </view>
+                                    </view>
+                                    <view class="info-item">
+                                        <input class="line-input" focus="{{captchaFocus}}" name="smsCaptcha" placeholder="请输入短信验证码" placeholderClass="phcolor" style="height: 100rpx" type="number"></input>
+                                    </view>
+                                </view>
+                                <view class="setphone-btn">
+                                    <button formType="submit" type="default">提交</button>
+                                </view>
+                            </view>
+                        </form>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="togglePostageModal" class="postage-modal" wx:if="{{showPostageModal}}">
+        <view class="postage-box">
+            <view class="postage-box_title">包邮服务详细说明</view>
+            <scroll-view scrollY class="postage-box_content">
+                <text>
+        1、全国各地除笔记本、无人机最高承担40元运费以外，其它物品如手机、平板、相机等爱回收最高承担25元运费。超额部分、包装费、保价费需用户承担。
+        </text>
+                <text>
+          2、邮寄机器时请选择快递到付，若用户使用寄付，则爱回收最高承担12元运费。
+        </text>
+                <text>  
+          3、山寨机、高仿机及丢失模式机器，爱回收不承担运费（如在质检过程中发现，退货费用需用户自理）。
+        </text>
+                <text>  
+          4、如用户设备有密码，但无法提供，所有运费需用户承担。
+        </text>
+            </scroll-view>
+            <view catchtap="togglePostageModal" class="postage-box_button">好的</view>
+        </view>
+    </view>
+    <view class="icon-redpacket" wx:if="{{ui.showReceiveCoupon}}">
+        <button bindgetphonenumber="getPhoneNumber" id="receiveCoupon" openType="getPhoneNumber"></button>
+        <image src="{{icon_redpacket}}"></image>
+    </view>
+    <view class="popup-dialog {{receiveCoupon.popup?'popup-dialog--show':''}}">
+        <view bindtap="hideAllReceivePopups" class="popup-dialog__mask"></view>
+        <view class="popup-dialog__container">
+            <view class="popup-coupon-header">
+                <view class="rpopup-coupon-header_title">
+        领取加价券
+      </view>
+            </view>
+            <view class="rpopup-coupon-body">
+                <scroll-view scrollY class="coupons-body" scrollTop="{{scrollTop}}" style="height: 500rpx;">
+                    <view class="coupons-body_list">
+                        <view class="coupons-body_item" data-code="" wx:for="{{receiveCoupon.list}}">
+                            <view class="coupon-price">
+                                <view class="coupon-amount">
+                                    <text class="coupon-amount">{{item.amount}}</text>
+                                    <text class="coupon-amount__unit">元</text>
+                                </view>
+                                <view class="coupon-condition">
+                满{{item.minPriceLimit}}元可用
+              </view>
+                            </view>
+                            <view class="rcoupon-desc">
+                                <view class="coupon-title">
+                {{item.name}}
+              </view>
+                                <view class="coupon-date" wx:if="{{!item.endTime?false:true}}">
+                {{item.endTime}}到期,请在下单时使用
+              </view>
+                            </view>
+                            <view class="coupon-received" wx:if="{{ui.show_IconReceived}}">
+                                <image src="{{icon_received}}"></image>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view bindtap="handleOnReceiveCoupon" class="coupon-btn">
+                <view>一键领取</view>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<ahs-alert buttonText="{{'确定'}}" content="{{'如果您订阅的机型涨价/跌价，我们将以服务消息的形式及时通知您。'}}" showAlert="{{showDialog}}" title="{{'价格订阅成功！'}}"></ahs-alert>

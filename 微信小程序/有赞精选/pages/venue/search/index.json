@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "goods-item": "../../../customer-components/goods-item/index"
+    }
+}

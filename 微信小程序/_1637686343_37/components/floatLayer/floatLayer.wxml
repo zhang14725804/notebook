@@ -1,0 +1,8 @@
+<template name="bottomCard-green">
+    <view class="m-bottomCard-tips-box">
+        <view animation="{{animation}}" bindtap="{{bindTap}}" class="m-bottomCard-tips-green">
+            <text class="bottomCard-tips-left">{{msg}}</text>
+            <text class="bottomCard-tips-right">{{tips}}</text>
+        </view>
+    </view>
+</template>

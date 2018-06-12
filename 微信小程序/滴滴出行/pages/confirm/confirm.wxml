@@ -1,0 +1,36 @@
+<block wx:if="{{state.confirmData}}">
+    <block wx:if="{{state.dpResult}}">
+        <view class="title">{{state.dpResult.dpTitle}}</view>
+        <view class="text">{{state.dpResult.dpReason}}</view>
+        <view class="circle">
+            <view class="circle_title">预估总价</view>
+            <view class="circle_money">
+                <view class="bottom-line">约</view>
+                <view class="circle_money_span">{{state.dpResult.dpTotalMoney}}</view>
+                <view class="bottom-line">元</view>
+            </view>
+            <view class="circle_times">已调价<view>{{state.dpResult.dpRatio}}</view>倍</view>
+        </view>
+        <button bindtap="_dispatch" class="submit mf-btn" data-bindtap="acceptPrice">接受调价，确认呼叫</button>
+    </block>
+    <block wx:if="{{state.pickupFeeConfirm}}">
+        <view class="title">{{state.pickupFeeConfirm.title}}</view>
+        <view class="text">{{state.pickupFeeConfirm.content}}</view>
+        <view class="circle">
+            <view class="circle_title">预估总价</view>
+            <view class="circle_money">
+                <view class="bottom-line">约</view>
+                <view class="circle_money_span">{{state.pickupFeeConfirm.totalFee}}</view>
+                <view class="bottom-line">元</view>
+            </view>
+            <view class="circle_times">含接驾费<view>{{state.pickupFeeConfirm.pickUpFee}}</view>元</view>
+        </view>
+        <view class="arrive_time">司机约<view class="arr_time">{{state.pickupFeeConfirm.eta}}</view>
+            <view>分钟</view>到达</view>
+        <button bindtap="_dispatch" class="submit mf-btn" data-bindtap="acceptPrice">接受接驾费，确认呼叫</button>
+    </block>
+    <button bindtap="_dispatch" class="cancel mf-btn white" data-bindtap="cancelPrice">稍后再试</button>
+</block>
+<view class="loading_wrap" xmlns:wx="" wx:else>
+    <view class="loading"></view>
+</view>

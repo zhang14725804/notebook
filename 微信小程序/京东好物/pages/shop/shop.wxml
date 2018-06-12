@@ -1,0 +1,104 @@
+<import src="shop_template/shop_template"></import>
+<import src="shop_template/floorTemplate"></import>
+<shopTab bindtabevent="onTabEvent" exType="{{switchKey}}" promList="{{promList}}" scrollTop="{{scrollTop}}" shopTabs="{{tabs}}" tabKey="{{tabKey}}">
+    <template is="shop_banner_search" data="{{logoType:logoType,imgUrl:imgUrl,shopID:shopID,winWidth:winWidth,isBanner:isBanner,shopInfo:shopInfo,searchText:searchText,bInputText:bInputText,bDisplayMask:bDisplayMask,needShieldShopCategory:needShieldShopCategory}}"></template>
+</shopTab>
+<view style="height:{{placeHeight}}rpx"></view>
+<activity activityList="{{allGoodList}}" wx:if="{{tabKey==='1006'}}"></activity>
+<view style="width:750rpx;flex:1" wx:elif="{{tabKey==='1001'}}">
+    <scroll-view bindscroll="couponScroll" scrollX="true" style="white-space: nowrap; width:750rpx;height:128rpx;background: #f8f8f8" wx:if="{{coupons&&coupons.length}}">
+        <view style="display: inline-block" wx:for="{{coupons}}" wx:for-index="idx">
+            <template is="floor_coupon" data="{{idx:idx,item:item,couponsCount:couponsCount}}"></template>
+        </view>
+    </scroll-view>
+    <block wx:for="{{floorData}}" wx:for-index="idx" wx:for-item="citem" wx:key="floors +{{idx}}">
+        <block wx:for="{{citem}}" wx:key="floor +{{index}}">
+            <view wx:if="{{item.moduleType==='PD_TEMPLATE'}}">
+                <template is="floor_gap" data></template>
+                <jdTemplate bind:clickTemplateItem="didClickFloorItem" thirdTemplates="{{item.containerData}}"></jdTemplate>
+            </view>
+            <view wx:elif="{{item.templateId===91}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_templateId91" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+            <view wx:elif="{{item.templateId===82}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_text" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+            <view wx:elif="{{item.templateId===83}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_templateId83" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+            <view wx:elif="{{item.templateId===17}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_templateId17" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+            <view wx:elif="{{item.templateId===84}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_templateId84" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+            <view wx:elif="{{item.templateId===18}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_templateId18" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+            <view wx:elif="{{item.templateId===16}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_templateId15" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+            <view wx:elif="{{item.templateId===11}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_templateId11" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+            <view wx:elif="{{item.templateId===19||item.templateId===73||item.templateId===74||item.templateId===53}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_templateId19" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+            <view wx:elif="{{item.templateId===6}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_templateId6" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+            <view wx:elif="{{item.templateId===7}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_templateId7" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+            <view wx:elif="{{item.templateId===8}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_templateId8" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+            <view wx:elif="{{item.templateId===9}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_templateId9" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+            <view wx:elif="{{item.templateId===132}}">
+                <template is="floor_gap" data></template>
+                <template is="floor_templateId132" data="{{...item.dsConfig,...item}}"></template>
+            </view>
+        </block>
+    </block>
+    <template is="floor_pull" data wx:if="{{floorData&&floorData.length}}"></template>
+</view>
+<block wx:else>
+    <skuList promList="{{promList}}" promoRule="{{promo}}" skuList="{{allGoodList}}" skuParam="{{requestParam}}" skuType="{{tabKey}}" wx:if="{{allGoodList&&allGoodList.length}}"></skuList>
+</block>
+<view class="loadingFrame" wx:if="{{state===1}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+</view>
+<view class="loadingFrame" wx:if="{{!hasNext&&allGoodList.length}}">
+    <view class="weui-loadmore__tips">我是有底线的~</view>
+</view>
+<view class="pt-hasNoData" wx:elif="{{!hasNext&&!allGoodList.length}}">
+    <image class="pt-img-noData" src="http://njst.360buyimg.com/jdreact/program/shop_joy.png"></image>
+    <view class="fontNodata">抱歉，暂无符合条件的商品</view>
+</view>
+<netError bindreloadevent="onReload" netState="{{state}}"></netError>
+<view bindtap="backtoTop" class="back-top" wx:if="{{isShowBackTop}}">
+    <image class="back-top-img" mode="" src="{{boolBack?imgUrl+'shop_butn_goup_pressed.png':imgUrl+'/shop_butn_goup_normal.png'}}"></image>
+</view>
+<view class="drawer_box_toast" wx:if="{{isShowToast}}">
+    <view class="toast_content">
+        <image class="" src="{{showToast.processStatus==='999'||showToast.processStatus===999?'http://njst.360buyimg.com/jdreact/program/shop_toast_icon_ok.png':'http://njst.360buyimg.com/jdreact/program/shop_toast_icon_warnning.png'}}" style="width:52rpx;height:52rpx; margin-top:35rpx; "></image>
+        <view class="toast_title" style="margin-top:20rpx;max-width:400rpx">{{showToast.desc}}</view>
+    </view>
+</view>
+<floatImage shopId="{{shopID}}" wx:if="{{isShowActivity}}"></floatImage>

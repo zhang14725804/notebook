@@ -1,0 +1,6 @@
+<template name="m-loadingEnd">
+    <view class="m-loadingEnd" wx:if="{{showFeedToast}}">
+        <text wx:if="{{recommend}}">已为您推荐{{recommend}}条新内容</text>
+        <text wx:if="{{!recommend}}">暂无新内容</text>
+    </view>
+</template>

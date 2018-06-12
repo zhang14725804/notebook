@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "取票、退票说明",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#F4F4F4",
+    "enablePullDownRefresh": false
+}

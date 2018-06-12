@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "按名称、地址搜索门店",
+    "usingComponents": {
+        "search": "../../../../components/search/index"
+    }
+}

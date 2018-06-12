@@ -1,0 +1,29 @@
+<view class="body">
+    <view class="line line_switch">
+        <text>切换到测试环境</text>
+        <switch bindchange="switchChange" checked="{{isTest}}" style="float:right"></switch>
+    </view>
+    <view class="line line_switch" wx:for="{{configs}}" wx:for-item="configItem" wx:key="{{configItem.key}}">
+        <text>{{configItem.text}}</text>
+        <switch bindchange="switchBooleanConfig" checked="{{configItem.reverse?!configItem.value:configItem.value}}" data-key="{{configItem.key}}" style="float:right"></switch>
+    </view>
+    <view class="line line_switch" wx:for="{{configs}}" wx:for-item="configItem" wx:key="{{configItem.key}}">
+        <input bindconfirm="golive" confirmType="send" placeholder="输入pid进入直播" placeholderStyle="text-align:center" type="text"></input>
+    </view>
+    <view class="line">
+        <text class="label">openid:</text>
+        <view class="content inp_content">
+            <input value="{{openid||'无'}}"></input>
+        </view>
+    </view>
+    <view class="line">
+        <text class="label">uin:</text>
+        <view class="content inp_content">
+            <input value="{{uin||'无'}}"></input>
+        </view>
+    </view>
+    <view class="line" wx:for="{{info}}" wx:key="unique">
+        <text class="label">{{item.name}}:</text>
+        <text class="content">{{item.value}}</text>
+    </view>
+</view>

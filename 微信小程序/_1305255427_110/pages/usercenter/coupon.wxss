@@ -1,0 +1,359 @@
+navigator {
+    margin-top: 0px;
+    border: none;
+    border-radius: none;
+    padding: 0;
+}
+
+.tradeways {
+    width: 100%;
+    height: 88rpx;
+    background: rgba(255,255,255,1);
+    box-shadow: 0px -1rpx 0px 0px rgba(222,222,222,1);
+    border-bottom: 2rpx solid #eee;
+    box-sizing: border-box;
+}
+
+.tradeways .swiper-tablist {
+    display: inline-block;
+    width: 33.3333%;
+    font-size: 30rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(102,102,102,1);
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+    position: relative;
+}
+
+.tradeways .swiper-tablist.active {
+    color: rgba(51,51,51,1);
+}
+
+.tradeways .swiper-tablist.active::after {
+    content: '';
+    width: 60rpx;
+    height: 6rpx;
+    background: rgba(255,232,0,1);
+    border-radius: 4rpx;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -30rpx;
+}
+
+.exchange {
+    height: 170rpx;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 40rpx 34rpx;
+    background: #ffffff;
+}
+
+.exchange input {
+    width: 472rpx;
+    height: 88rpx;
+    border: 2rpx solid #eee;
+    border-radius: 8px;
+    display: inline-block;
+    box-sizing: border-box;
+    padding-left: 34rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(51,51,51,1);
+    line-height: 40rpx;
+}
+
+.exchange span {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 176rpx;
+    height: 80rpx;
+    background: rgba(230,230,230,1);
+    border-radius: 8rpx;
+    margin-left: 34rpx;
+    font-size: 16px;
+    font-family: PingFangSC-Regular;
+    color: rgba(153,153,153,1);
+    line-height: 80rpx;
+    text-align: center;
+    margin-top: -20px;
+    transform: translateY(-6rpx);
+}
+
+.exchange span.active {
+    background: linear-gradient(90deg,rgba(255,240,59,1),rgba(255,214,41,1));
+    color: rgba(51,51,51,1);
+}
+
+.Content {
+    height: 1020rpx;
+    background: #f5f5f5;
+    display: none;
+}
+
+.Content.active {
+    height: 1118rpx;
+}
+
+.Content.iphoneX {
+    height: 1262rpx;
+}
+
+.Content.iphoneX.active {
+    height: 1360rpx;
+}
+
+.Content.show {
+    display: block;
+}
+
+.Content .singleCoupon {
+    margin: 34rpx;
+    height: 174rpx;
+    background: rgba(255,255,255,1);
+    box-shadow: 0px 2rpx 4rpx 0px rgba(0,0,0,0.1);
+    border-radius: 8rpx;
+    padding-top: 28rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.thirdContent .singleCoupon::before,.SecondContent .singleCoupon::before {
+    position: absolute;
+    content: '';
+    width: 682rpx;
+    height: 174rpx;
+    background: rgba(255,255,255,0.6);
+    left: 0;
+    top: 0;
+    z-index: 5;
+}
+
+.thirdContent .singleCoupon::after,.SecondContent .singleCoupon::after {
+    position: absolute;
+    content: '';
+    width: 128rpx;
+    height: 110rpx;
+    background: url("https://aihuishou-internal.oss-cn-hangzhou.aliyuncs.com/activity/minapp/tag-nouse.png") no-repeat center/cover;
+    right: 0;
+    top: 0;
+}
+
+.secondContent .singleCoupon::after {
+    background-image: url("https://aihuishou-internal.oss-cn-hangzhou.aliyuncs.com/activity/minapp/tag-down.png");
+}
+
+.couponLeft {
+    width: 220rpx;
+    text-align: center;
+    padding-top: 6rpx;
+    border-right: 2rpx dashed #ccc;
+    display: inline-block;
+    position: relative;
+}
+
+.couponLeft::before {
+    content: "";
+    display: inline-block;
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    border: 1px solid #eee;
+    position: absolute;
+    top: -40rpx;
+    right: -12rpx;
+    z-index: 1;
+}
+
+.couponLeft::after {
+    content: "";
+    display: inline-block;
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    border: 1px solid #eee;
+    position: absolute;
+    bottom: -34rpx;
+    right: -12rpx;
+    z-index: 1;
+}
+
+.couponLeft .money {
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(255,55,55,1);
+    line-height: 26rpx;
+    display: block;
+    margin: 0 auto;
+}
+
+.couponLeft .title {
+    font-size: 72rpx;
+    line-height: 60rpx;
+    display: inline-block;
+}
+
+.couponLeft .desc {
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(153,153,153,1);
+    line-height: 32rpx;
+}
+
+.couponRight {
+    width: 420rpx;
+    text-align: left;
+    display: inline-block;
+    margin-left: 38rpx;
+}
+
+.couponRight .name {
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(51,51,51,1);
+    line-height: 40rpx;
+    margin-bottom: 10rpx;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.couponRight .desc {
+    margin-top: 4rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(153,153,153,1);
+    line-height: 32rpx;
+    display: block;
+}
+
+.couponRight .desc {
+    margin-top: 4rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(153,153,153,1);
+    line-height: 32rpx;
+    display: block;
+}
+
+.couponRight .desc::before {
+    content: "";
+    display: inline-block;
+    width: 6rpx;
+    height: 6rpx;
+    background: rgba(153,153,153,1);
+    margin-right: 6rpx;
+    position: relative;
+    top: -6rpx;
+}
+
+.couponRight .desc.active::after {
+    content: "";
+    display: inline-block;
+    width: 24rpx;
+    height: 24rpx;
+    background: url("https://aihuishou-internal.oss-cn-hangzhou.aliyuncs.com/activity/minapp/icon-question.png") no-repeat center/cover;
+    margin-left: 10rpx;
+    position: relative;
+    top: 2rpx;
+}
+
+.footer {
+    font-size: 32rpx;
+    font-family: PingFangSC-Medium;
+    color: rgba(51,51,51,1);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 98rpx;
+    line-height: 98rpx;
+    background: linear-gradient(90deg,rgba(255,240,59,1),rgba(255,214,41,1));
+    text-align: center;
+}
+
+.no_coupon {
+    text-align: center;
+    padding-top: 160rpx;
+}
+
+.no_coupon image {
+    width: 152rpx;
+    height: 192rpx;
+}
+
+.no_coupon text {
+    font-size: 30rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(153,153,153,1);
+    line-height: 38rpx;
+    display: block;
+    margin: 42rpx auto 72rpx;
+}
+
+.no_coupon .backIndex {
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(51,51,51,1);
+    line-height: 88rpx;
+    width: 400rpx;
+    height: 88rpx;
+    background: linear-gradient(90deg,rgba(255,240,59,1),rgba(255,214,41,1));
+    border-radius: 16rpx;
+    display: inline-block;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background: rgba(0,0,0,0.4);
+}
+
+.mask .title {
+    font-size: 30rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(51,51,51,1);
+    background: #fff;
+    height: 88rpx;
+    line-height: 88rpx;
+    box-shadow: 0px -0.5px 0px 0px rgba(222,222,222,1);
+    border-radius: 28rpx 28rpx 0px 0px;
+    text-align: center;
+    border-bottom: 2rpx solid #eee;
+    position: absolute;
+    bottom: 636rpx;
+    left: 0;
+    right: 0;
+}
+
+.mask .title image {
+    width: 36rpx;
+    height: 36rpx;
+    position: absolute;
+    right: 26rpx;
+    top: 26rpx;
+}
+
+.mask .desc {
+    height: 636rpx;
+    background: #ffffff;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 40rpx;
+    padding-top: 0;
+    font-size: 30rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(153,153,153,1);
+    line-height: 50rpx;
+    position: absolute;
+    bottom: 0;
+}

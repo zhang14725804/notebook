@@ -1,0 +1,57 @@
+.container-main {
+    background-color: #fff;
+}
+
+.rommate-list {
+    height: 100vh;
+}
+
+.rommate-item {
+    padding: 25rpx 30rpx;
+    border-bottom: 1px solid #eee;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.rommate-item .info {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.rommate-item .info image {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+    margin-right: 30rpx;
+    background-image: url("https://img.58cdn.com.cn/weixin/img/wechat-app/avatar-default.png");
+    background-size: cover;
+}
+
+.rommate-item .info text {
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #333333;
+    letter-spacing: -0.77rpx;
+}
+
+.rommate-item .toChat {
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #FF552E;
+    letter-spacing: 0;
+    line-height: 25rpx;
+    height: 29rpx;
+    padding-left: 47rpx;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAdCAYAAAFasJVVAAAAAXNSR0IArs4c6QAAAqRJREFUWAntV01IVUEU/uZhhhWEuGjRQmkh4cKn1KoSJCTEoN29SEGFBP3QIsjWUUkh1aKluinRCCM3kbQoiiDauMgWQgb9QYGBJKkVBY3nvHnjnXtn7nv3Pe8DAwcuc+ac75w5Z+aceecJ6Tc/gkQXzCG9ZhkdGROg6QwEJuBnga8fkZuJFqyuEbmZQILthZiEdNoM1MemlE0IctHhUtRFxoRNvn4JfPmgtu07Fdo+scWwVn4lD++rjQoCx6MSY22fgyHUZDgIzY3MAej0ASXqaVPz4OUVaHrb2dHx9QxcAp6Or2xnEdLLXnMw7fSy7jIJw7pva6vSGMGRmnqc3vqIr59TKTk/pxAs4881EqXs2gnTFUICniiEkd6urcDfeexoAt5PA0I8E2NT++N07CSLQxbhV+XknKGrGXFPVDk23blVhqUKGuIsN7OZ6e5W5eP4kJLxkxoZtkcnLwJ12wJYfSNwtFetO7uBms1Ay95ArqlUSibNV8EOTbta4rz2DBWutUa6+r5hFeTiD6CnjX+9ncXuZOrjof5iiPqLE2jaDUxPErt6p7g/+VbLS5ql175F+tkbxZQKh1ZMu0Jy9SSx8dU+S2k4mC/z1NIyDZ+0jf/YKX4d+RXlL/pSciN6weNSAiZGdbBq/rlA5UYN6rE9gNG+hUH2KtlJcZM2N6s+ps1x9xbwaQbgGh+mwtKNDWMe3wPevAJ+LQFPHtgBmXYMOqi+9UQ3jsVBJrs+h2IlWetOJT3dINGTajBuYw01VWeBriPcDsdrzlDzOngF+PwuHuOQFLDoQOdZ0ms5CMgB+rajaoOEf0bg0HEgQ9nw4iFw56bEwne2/Yec7sem2qvi9vPf8RbDkrKcMk1Iv7UD+EethGxQfPGNupHz9GdixMSVQi8Dd1zfpTWT7dEAAAAASUVORK5CYII=);
+    background-repeat: no-repeat;
+    background-size: 37rpx 29rpx;
+    background-position: left center;
+}

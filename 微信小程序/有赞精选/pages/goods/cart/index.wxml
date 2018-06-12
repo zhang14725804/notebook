@@ -1,0 +1,151 @@
+<import src="../../../templates/copyright.wxml"></import>
+<import src="../../../bower_components/zan/dist/stepper/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="../../../components/followWechat/tips/followWechat.wxml"></import>
+<import src="../../../components/followWechat/followYZ.wxml"></import>
+<view class="container" style="min-height:96rpx">
+    <template is="followWechat" data="{{bindTips:bindTips}}"></template>
+</view>
+<template is="followYZ" data wx:if="{{showQrcode}}"></template>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+<view bindtouchstart="handleContainerTouchStart" class="container container--with-copyright" wx:if="{{fetched}}">
+    <block wx:if="{{shopList.length}}">
+        <view class="zan-panel zan-panel--without-margin-top" wx:if="{{shopList.length}}">
+            <view class="cart {{editMode[index]?'cart--edit-model':''}}" wx:for="{{shopList}}" wx:for-item="shop" wx:key="unique">
+                <view class="cart__hd" wx:if="{{shop.goods_list.length}}">
+                    <view bindtap="handleCheckedAllSingleShopTap" class="checkbox" data-shop-item="{{shop}}">
+                        <view class="checkbox-icon zan-icon zan-icon-checked" style="color: #ff4343; font-size: 18px;" wx:if="{{shopCheckedAll[index]}}"></view>
+                        <view class="checkbox-icon zan-icon zan-icon-check" style="color: #999; font-size: 18px;" wx:else></view>
+                    </view>
+                    <view class="shop-name zan-ellipsis">
+                        <view class="zan-icon zan-icon-store" style="color: #333;"></view>
+            {{shop.title}}
+          </view>
+                    <view bindtap="toogleEditMode" class="shop-opt" data-shop-item="{{shop}}">
+            {{editMode[index]?'完成':'编辑'}}
+          </view>
+                </view>
+                <view class="cart__bd">
+                    <view bindtouchend="handleGoodsTouchEnd" bindtouchstart="handleGoodsTouchStart" class="cart__item" data-goods-unique="{{goods.unique}}" wx:for="{{shop.goods_list}}" wx:for-item="goods" wx:key="unique">
+                        <view class="cart__item-bd {{move.translate&&move.unique===goods.unique?'cart__item-bd--translate':''}}">
+                            <view bindtap="handleCheckedGoodsTap" class="checkbox" data-goods-item="{{goods}}">
+                                <view class="checkbox-icon zan-icon zan-icon-checked" style="color: #ff4343; font-size: 18px;" wx:if="{{goods.checked}}"></view>
+                                <view class="checkbox-icon zan-icon zan-icon-check" style="color: #999; font-size: 18px;" wx:else></view>
+                            </view>
+                            <view class="cart__goods">
+                                <view class="zan-card">
+                                    <view class="zan-card__thumb">
+                                        <image class="zan-card__img" mode="aspectFill" src="{{goods.attachmentUrl}}"></image>
+                                    </view>
+                                    <view class="zan-card__detail">
+                                        <view class="goods__stepper-select">
+                                            <template is="zan-stepper" data="{{min:1,max:goods.maxNum,stepper:goods.num,size:'small',componentId:goods.unique}}"></template>
+                                        </view>
+                                        <view class="goods__title zan-ellipsis--l2">{{goods.title}}</view>
+                                        <view class="goods__sku zan-ellipsis">{{goods.skuStr}}</view>
+                                        <view class="goods__price">¥ {{goods.payPriceStr}}</view>
+                                        <view class="goods__stepper">X{{goods.num}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view bindtap="handleDeleteSingleGoods" class="cart__item-ft" data-goods-unique="{{goods.unique}}" data-is-delete="{{true}}">
+              删除
+            </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{unavailableGoodsList.length}}">
+            <view class="unavailable-title">以下商品无法一起购买</view>
+            <view class="zan-panel">
+                <view class="cart">
+                    <view class="cart__bd" style="padding-top: 10px;">
+                        <view bindtouchend="handleGoodsTouchEnd" bindtouchstart="handleGoodsTouchStart" class="cart__item" data-goods-unique="{{goods.unique}}" wx:for="{{unavailableGoodsList}}" wx:for-item="goods" wx:key="unique">
+                            <view class="cart__item-bd {{move.translate&&move.unique===goods.unique?'cart__item-bd--translate':''}}">
+                                <view class="cart__goods" style="margin-left: 15px;">
+                                    <view class="zan-card">
+                                        <view class="zan-card__thumb">
+                                            <image class="zan-card__img" mode="aspectFill" src="{{goods.attachmentUrl}}"></image>
+                                        </view>
+                                        <view class="zan-card__detail">
+                                            <view class="goods__title zan-ellipsis--l2">{{goods.title}}</view>
+                                            <view class="goods__sku zan-ellipsis">{{goods.skuStr}}</view>
+                                            <view class="goods__error-msg">{{goods.error_msg}}</view>
+                                            <view class="goods__quantity">X{{goods.num}}</view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view bindtap="handleDeleteSingleGoods" class="cart__item-ft" data-goods-unique="{{goods.unique}}" data-is-delete="{{true}}" data-is-unavailable-goods="{{true}}">
+                删除
+              </view>
+                        </view>
+                    </view>
+                    <view class="cart__ft clear-unavailable-goods">
+                        <button bindtap="handleClearUnavailableGoods" class="zan-btn zan-btn--warn zan-btn--small zan-btn--plain" style="width: 105px;">
+              清空失效商品
+            </button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="bottom-fixed zan-clearfix">
+            <view bindtap="handleCheckedAllTap" class="bottom-checked-all zan-clearfix">
+                <view class="checkbox" style="height: 50px;">
+                    <view class="checkbox-icon zan-icon zan-icon-checked" style="color: #ff4343; font-size: 18px;" wx:if="{{checkedAll}}"></view>
+                    <view class="checkbox-icon zan-icon zan-icon-check" style="color: #999; font-size: 18px;" wx:else></view>
+                </view>
+                <view class="bottom-checked-all__text">全选</view>
+            </view>
+            <view class="bottom-btn">
+                <button bindtap="handleDeleteMutliGoods" class="zan-btn zan-btn--large zan-btn--danger {{!checkedGoodsList.length?'zan-btn--disabled':''}}" disabled="{{!checkedGoodsList.length}}" wx:if="{{editMode[index]}}">
+            删除
+          </button>
+                <button bindtap="handleBuy" class="zan-btn zan-btn--large zan-btn--danger {{!checkedGoodsList.length?'zan-btn--disabled':''}}" disabled="{{!checkedGoodsList.length}}" wx:else>
+            结算
+          </button>
+            </view>
+            <view class="bottom-price-info" wx:if="{{!editMode[index]}}">
+                <view class="{{totalPrice?'zan-c-red':''}}">合计：¥ {{totalPriceStr}} </view>
+                <view>不含运费</view>
+            </view>
+        </view>
+    </block>
+    <view class="empty-cart" wx:else>
+        <image src="https://img.yzcdn.cn/public_files/2017/10/31/535107792db1104900fa78a5ff0338f0.png" style="width: 80px; height: 84px"></image>
+        <view class="zan-font-16 zan-c-gray-darker">购物车快饿瘪了 T.T</view>
+        <view class="zan-font-14 zan-c-gray-dark">快给我挑点宝贝</view>
+        <navigator class="zan-btn zan-btn--danger zan-btn--small zan-btn--plain" openType="switchTab" url="/pages/venue/home/index">
+        随便逛逛
+      </navigator>
+    </view>
+</view>
+<view bindtouchstart="handleContainerTouchStart">
+    <template is="copyright" data wx:if="{{fetched}}"></template>
+</view>
+<template is="zan-toast" data></template>
+<view class="zan-popup zan-popup--bottom {{showCartPayDialog?'zan-popup--show':''}} cartpay">
+    <view bindtap="handleCartPayDialog" class="zan-popup__mask"></view>
+    <view class="zan-popup__container cartpay__content">
+        <view class="zan-panel cartpay__panel">
+            <view class="zan-cell cartpay__head">
+                <view class="zan-cell__bd cartpay__title">请分开结算以下店铺商品</view>
+                <view bindtap="handleCartPayDialog" class="zan-cell__ft cartpay__close">
+                    <view class="zan-icon zan-icon-close"></view>
+                </view>
+            </view>
+            <view class="zan-cell" wx:for="{{checkedGoodsListByShop}}">
+                <view class="zan-cell__bd cartpay__shop">
+                    <view class="zan-cell__text cartpay__shopname">{{item.shop.title}}</view>
+                    <view class="zan-cell__desc cartpay__shopinfo">共 {{item.goodsNum}} 件  合计:
+            <view class="cartpay__price">￥{{item.totalPriceStr}}</view>
+                    </view>
+                </view>
+                <view bindtap="handleShopBuy" class="zan-cell__ft cartpay__paybtn" data-goods-list="{{item.goodsList}}">
+                    <button class="zan-btn zan-btn--small zan-btn--warn zan-btn--plain">去结算</button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

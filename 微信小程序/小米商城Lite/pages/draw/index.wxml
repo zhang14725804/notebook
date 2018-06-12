@@ -1,0 +1,11 @@
+<view class="container">
+    <dialog bind:cancelEvent="_cancel" bind:confirmEvent="_confirm" cancelText="知道了" confirm="谢谢你" content="我是小程序组件" id="dialog" title="q标题"></dialog>
+    <view style="overflow:hidden; background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/info-mioffice-res/family/ud/images/20180413/93801523592072525.png)">
+        <image mode="aspectFill" src="https://cdn.cnbj1.fds.api.mi-img.com/info-mioffice-res/family/ud/images/20180413/93801523592072525.png" style="width:200rpx;height:200rpx;display:block;overflow:hidden;border-radius:300rpx;margin:40rpx auto"></image>
+        <text style="color:#666;text-align:center;display: block;">{{ai}}</text>
+        <text style="color: #666;text-align:center;display: block;">这是文本这是文本</text>
+        <input autoFocus style="background-color:#fff;color: #666;width: 70%;margin:0 auto;margin-top: 70rpx;"></input>
+        <button bindtap="showDialog" style="background-color:#666;color: #fff;margin-top: 30rpx;width: 50%;border-radius: 30rpx;">立即领取v</button>
+        <image src="https://cdn.cnbj1.fds.api.mi-img.com/info-mioffice-res/family/ud/images/20180413/93801523592072525.png" style="width:100%;height:207px;display:inline-block;overflow:hidden"></image>
+    </view>
+</view>

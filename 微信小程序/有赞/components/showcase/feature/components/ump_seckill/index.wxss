@@ -1,0 +1,625 @@
+@import "countdown.wxss";
+
+.ump-seckill {
+    margin-bottom: 10px;
+}
+
+.ump-seckill-goods {
+    display: block;
+}
+
+.ump-seckill-goods .countdown .countdown__day,.ump-seckill-goods .countdown .countdown__hour,.ump-seckill-goods .countdown .countdown__minute,.ump-seckill-goods .countdown .countdown__second,.ump-seckill-goods .countdown .countdown__time-text {
+    margin: 0;
+    padding: 0;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    font-size: 10px;
+    text-align: center;
+}
+
+.ump-seckill-goods .countdown .countdown__margin-left {
+    margin-left: 4px;
+}
+
+.ump-seckill--big .ump-seckill-goods .countdown .countdown__margin-left {
+    margin-left: 6px;
+}
+
+.ump-seckill-goods .countdown .countdown__day--transparent {
+    background-color: transparent!important;
+    padding: 0 2px;
+    width: auto;
+    color: #fff;
+}
+
+.ump-seckill-goods .countdown .countdown__time-text--day {
+    padding: 0!important;
+    width: auto!important;
+}
+
+.ump-seckill-goods .countdown .countdown__time-text {
+    padding: 0 2px;
+}
+
+.ump-seckill--big .ump-seckill-goods .countdown .countdown__time-text {
+    padding: 0 5px;
+}
+
+.ump-seckill-goods .countdown .countdown__time-text:last-child {
+    display: none;
+}
+
+.ump-seckill--list .ump-seckill-goods__countdown--mirco .countdown__time-text:last-child {
+    display: inline-block;
+}
+
+.ump-seckill-goods__countdown-text {
+    display: inline-block;
+}
+
+.ump-seckill-goods__title {
+    color: #333;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.ump-seckill-goods__title .ump-seckill-goods__discount {
+    display: none;
+}
+
+.ump-seckill-goods__info {
+    display: inline-block;
+    margin-top: 6px;
+    line-height: 14px;
+    background-color: #fff;
+    border: 1px solid rgba(255,68,68,.1);
+    border-radius: 2px;
+    font-size: 0;
+}
+
+.ump-seckill-goods__info>text {
+    display: inline-block;
+    vertical-align: middle;
+    height: 14px;
+    line-height: 14px;
+    padding: 0 5px;
+    border-radius: 2px;
+    color: #f44;
+    font-size: 10px;
+    text-align: center;
+}
+
+.ump-seckill-goods__info>text:first-child {
+    background-color: rgba(255,68,68,.1);
+    border-radius: 0;
+}
+
+.ump-seckill-goods__stock--hide>text:first-child {
+    border-radius: 2px;
+}
+
+.ump-seckill-goods__discount {
+    display: inline-block;
+    vertical-align: middle;
+    height: 14px;
+    line-height: 14px;
+    padding: 0 5px;
+    border-radius: 2px;
+    background-color: rgba(255,68,68,.1);
+    color: #f44;
+    font-size: 10px;
+    text-align: center;
+}
+
+.ump-seckill-goods__header {
+    position: relative;
+}
+
+.ump-seckill-goods__content {
+    position: relative;
+}
+
+.ump-seckill-goods__price-symbol {
+    margin-right: 3px;
+}
+
+.ump-seckill--big .ump-seckill-goods__price-symbol {
+    margin-left: -5px;
+}
+
+.ump-seckill-goods__origin-price {
+    color: #999;
+    font-size: 10px;
+}
+
+.ump-seckill-goods__origin-price-symbol {
+    margin-right: 2px;
+}
+
+.ump-seckill-goods--end .ump-seckill-goods__mask:after,.ump-seckill-goods--soldout .ump-seckill-goods__mask:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-image: url(https://img.yzcdn.cn/v2/image/wsc-wap/showcase/end.png);
+    background-size: contain;
+}
+
+.ump-seckill-goods--soldout .ump-seckill-goods__mask:after {
+    background-image: url(https://img.yzcdn.cn/v2/image/wsc-wap/showcase/soldout.png);
+}
+
+.ump-seckill-goods__action {
+    width: 70px;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.ump-seckill--btn-0 .ump-seckill-goods__action,.ump-seckill--btn-2 .ump-seckill-goods__action {
+    line-height: 22px;
+}
+
+.ump-seckill--btn-0 .ump-seckill-goods__action {
+    border-radius: 20px;
+}
+
+.ump-seckill--btn-0 .ump-seckill-goods--not-start .ump-seckill-goods__action {
+    color: #4b0;
+    border-color: #4b0;
+}
+
+.ump-seckill--btn-1 .ump-seckill-goods__action {
+    color: #fff;
+    border-radius: 20px;
+}
+
+.ump-seckill--btn-2 .ump-seckill-goods__action {
+    color: #f44;
+    border: 1px solid #f44;
+    border-radius: 2px;
+}
+
+.ump-seckill--btn-2 .ump-seckill-goods--not-start .ump-seckill-goods__action {
+    color: #4b0;
+    border-color: #4b0;
+}
+
+.ump-seckill--btn-3 .ump-seckill-goods__action {
+    color: #fff;
+    border-radius: 2px;
+}
+
+.ump-seckill--btn-3 .ump-seckill-goods--not-start .ump-seckill-goods__action {
+    background: #4b0;
+}
+
+.ump-seckill-goods--preview .ump-seckill-goods--list .ump-seckill-goods__action,.ump-seckill-goods--preview .ump-seckill-goods--small .ump-seckill-goods__action {
+    width: 62px;
+    border-radius: 16px;
+}
+
+@media screen and (max-width:320px) {
+    .ump-seckill-goods--list .ump-seckill-goods__action,.ump-seckill-goods--small .ump-seckill-goods__action {
+        width: 62px;
+        border-radius: 16px;
+    }
+}
+
+.ump-seckill--big .ump-seckill-goods {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #fff;
+}
+
+.ump-seckill--big .ump-seckill-goods:last-child {
+    margin: 0;
+}
+
+.ump-seckill--big .ump-seckill-goods--end .ump-seckill-goods__mask:after,.ump-seckill--big .ump-seckill-goods--soldout .ump-seckill-goods__mask:after {
+    width: 100px;
+    height: 100px;
+}
+
+.ump-seckill--big .ump-seckill-goods__title {
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.ump-seckill--big .ump-seckill-goods__tag {
+    font-size: 16px;
+}
+
+.ump-seckill--big .ump-seckill-goods__tag-info {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 0 10px;
+    line-height: 40px;
+    overflow: hidden;
+    background: linear-gradient(90deg,#f44,#ff8b8b);
+    color: #fff;
+}
+
+.ump-seckill--big .ump-seckill-goods__tag-countdown {
+    float: right;
+    font-size: 10px;
+}
+
+.ump-seckill--big .ump-seckill-goods__tag-countdown .countdown__second {
+    min-width: 15px;
+    text-align: center;
+}
+
+.ump-seckill--big .ump-seckill-goods-countdown-text {
+    margin-right: 16px;
+    font-size: 11px;
+}
+
+.ump-seckill--big .ump-seckill-goods__countdown-text,.ump-seckill--big .countdown .countdown__day--transparent,.ump-seckill--big .countdown .countdown__time-text--day {
+    font-size: 11px;
+}
+
+.ump-seckill--big .ump-seckill-goods__detail {
+    margin-top: 10px;
+    line-height: 22px;
+    height: 22px;
+}
+
+.ump-seckill--big .ump-seckill-goods__price {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+.ump-seckill--big .ump-seckill-goods__price-yuan {
+    font-size: 22px;
+}
+
+.ump-seckill--big .ump-seckill-goods__origin-price {
+    display: inline-block;
+}
+
+.ump-seckill--big .ump-seckill-goods__origin-price .line-through {
+    text-decoration: line-through;
+}
+
+.ump-seckill--big .ump-seckill-goods__content {
+    margin-left: 5px;
+}
+
+.ump-seckill--big .ump-seckill-goods__action {
+    position: absolute;
+    right: 2px;
+    bottom: 0;
+}
+
+.ump-seckill--small {
+    margin-top: 7px;
+    padding: 0 12px;
+}
+
+.ump-seckill--small .ump-seckill-goods {
+    float: left;
+    width: 50%;
+    padding: 3px;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+.ump-seckill--small .ump-seckill-goods--end .ump-seckill-goods__mask:after,.ump-seckill--small .ump-seckill-goods--soldout .ump-seckill-goods__mask:after {
+    width: 88px;
+    height: 88px;
+}
+
+.ump-seckill--small .ump-seckill-goods--not-start .ump-seckill-goods__tag-countdown .countdown__second {
+    text-align: center;
+}
+
+.ump-seckill--small .ump-seckill-goods__header {
+    background: #fff;
+}
+
+.ump-seckill--small .ump-seckill-goods__title {
+    height: 36px;
+    line-height: 18px;
+    font-size: 12px;
+}
+
+.ump-seckill--small .ump-seckill-goods__title .ump-seckill-goods__discount {
+    display: inline-block;
+}
+
+.ump-seckill--small .ump-seckill-goods__info {
+    display: none;
+}
+
+.ump-seckill--small .ump-seckill-goods__content {
+    padding: 5px 10px 10px 10px;
+    background: #fff;
+}
+
+.ump-seckill--small .ump-seckill-goods__price {
+    margin: 0 5px 0 0;
+    font-size: 12px;
+}
+
+.ump-seckill--small .ump-seckill-goods__price-cent,.ump-seckill--small .ump-seckill-goods__price-yuan {
+    font-size: 18px;
+}
+
+.ump-seckill--small .ump-seckill-goods__origin-price {
+    font-size: 10px;
+}
+
+.ump-seckill--small .ump-seckill-goods__tag-countdown {
+    padding: 2px 0;
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+}
+
+.ump-seckill--small .ump-seckill-goods__tag-countdown .countdown__second {
+    text-align: center;
+}
+
+.ump-seckill--small .ump-seckill-goods__action {
+    float: right;
+}
+
+.ump-seckill--small .ump-seckill-goods__bottom {
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.ump-seckill--small .ump-seckill-goods__bottom .ump-seckill-goods__stock {
+    float: left;
+    line-height: 24px;
+    color: #999;
+    font-size: 10px;
+}
+
+.ump-seckill--small .ump-seckill-goods__bottom--hide-stock .ump-seckill-goods__action {
+    width: 100%;
+}
+
+.ump-seckill--small:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.ump-seckill--list {
+    position: relative;
+    padding: 0 0 0 15px;
+    background: #fff;
+}
+
+.ump-seckill--list .ump-seckill-goods {
+    display: block;
+    position: relative;
+    padding: 10px 0;
+}
+
+.ump-seckill--list .ump-seckill-goods:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    pointer-events: none;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.ump-seckill--list .ump-seckill-goods:last-child:after {
+    border: 0;
+}
+
+.ump-seckill--list .ump-seckill-goods__header {
+    float: left;
+    margin-right: 10px;
+    width: 110px;
+    height: 110px;
+}
+
+.ump-seckill--list .ump-seckill-goods__content {
+    position: relative;
+    padding: 0;
+    padding-right: 15px;
+    height: 110px;
+    overflow: hidden;
+}
+
+.ump-seckill--list .ump-seckill-goods__detail {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.ump-seckill--list .ump-seckill-goods__title {
+    max-height: 36px;
+    line-height: 18px;
+}
+
+.ump-seckill--list .ump-seckill-goods__price-symbol {
+    font-size: 12px;
+}
+
+.ump-seckill--list .ump-seckill-goods__price-cent,.ump-seckill--list .ump-seckill-goods__price-yuan {
+    font-size: 18px;
+}
+
+.ump-seckill--list .ump-seckill-goods__price {
+    margin-right: 5px;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.ump-seckill--list .ump-seckill-goods__origin-price {
+    margin-top: 9px;
+    font-size: 10px;
+}
+
+.ump-seckill--list .ump-seckill-goods__tag-countdown {
+    padding: 2px 0;
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+}
+
+.ump-seckill--list .ump-seckill-goods__tag-countdown .countdown__second {
+    text-align: center;
+}
+
+.ump-seckill--list .ump-seckill-goods__countdown--mirco {
+    position: absolute;
+    bottom: 36px;
+    right: 0;
+    width: 100px;
+    text-align: center;
+}
+
+.ump-seckill--list .ump-seckill-goods__countdown--mirco .countdown__day,.ump-seckill--list .ump-seckill-goods__countdown--mirco .countdown__hour,.ump-seckill--list .ump-seckill-goods__countdown--mirco .countdown__minute,.ump-seckill--list .ump-seckill-goods__countdown--mirco .countdown__second,.ump-seckill--list .ump-seckill-goods__countdown--mirco .countdown__time-text {
+    width: auto;
+    padding: 0;
+    color: #999;
+}
+
+.ump-seckill--list .ump-seckill-goods__action {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+}
+
+.ump-seckill--list .ump-seckill-goods--end .ump-seckill-goods__mask:after,.ump-seckill--list .ump-seckill-goods--soldout .ump-seckill-goods__mask:after {
+    width: 60px;
+    height: 60px;
+}
+
+.ump-seckill--list .ump-seckill-goods--not-start .ump-seckill-goods__countdown {
+    margin-left: 4px;
+    color: #4b0;
+}
+
+.ump-seckill--list:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width:320px) {
+    .ump-seckill--list .ump-seckill-goods__price {
+        font-size: 12px;
+    }
+
+    .ump-seckill--list .ump-seckill-goods__price-symbol {
+        font-size: 10px;
+    }
+
+    .ump-seckill--list .ump-seckill-goods__price-cent,.ump-seckill--list .ump-seckill-goods__price-yuan {
+        font-size: 14px;
+    }
+
+    .ump-seckill--list .ump-seckill-goods__action {
+        width: 65px;
+    }
+}
+
+.ump-seckill--preview.ump-seckill--list .ump-seckill-goods__origin-price {
+    display: block;
+}
+
+.countdown {
+    display: inline-block;
+}
+
+.countdown__day,.countdown__hour,.countdown__minute,.countdown__second {
+    display: inline-block;
+    margin: 0 3px;
+    padding: 0 3px;
+    line-height: 16px;
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+.countdown__time-text {
+    font-size: 12px;
+}
+
+.countdown--black {
+    color: #fff;
+}
+
+.countdown--black .countdown__day,.countdown--black .countdown__hour,.countdown--black .countdown__minute,.countdown--black .countdown__second {
+    background-color: #333;
+}
+
+.countdown--black .countdown__time-text {
+    color: #333;
+}
+
+.countdown--white {
+    color: #ff4343;
+}
+
+.countdown--white .countdown__day,.countdown--white .countdown__hour,.countdown--white .countdown__minute,.countdown--white .countdown__second {
+    background-color: #fff;
+}
+
+.countdown--white.ump-seckill-goods__countdown--normal .countdown__hour,.countdown--white.ump-seckill-goods__countdown--normal .countdown__minute,.countdown--white.ump-seckill-goods__countdown--normal .countdown__second {
+    background: linear-gradient(to bottom,#fff,#fff 50%,#eee 50%);
+}
+
+.countdown--white .countdown__time-text {
+    color: #fff;
+}
+
+.ump-seckill-goods__img-wrap {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+}
+
+.ump-seckill-goods__img {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+.ump-seckill-goods__img,.ump-seckill-goods__mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.ump-seckill-goods__mask {
+    background-color: rgba(0,0,0,.4);
+}

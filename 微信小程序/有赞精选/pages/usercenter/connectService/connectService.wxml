@@ -1,0 +1,13 @@
+<import src="../../../templates/connectPhone.wxml"></import>
+<import src="../../../templates/version/version.wxml"></import>
+<view style="position: fixed; left: 0; right: 0; top: 0; background-color: #E2E2E2; height: 1rpx;"></view>
+<view class="page background-color" style="height: {{windowHeight}}px; padding-top: 1rpx;">
+    <scroll-view class="background-color" scrollY="true" style="width: 100%; height: {{windowHeight-65}}px;">
+        <view wx:for="{{imageList}}" wx:for-index="idx" wx:key="{{idx}}">
+            <image class="detail-img" mode="aspectFill" src="{{item.url}}" style="height: {{item.height}}px; width: {{windowWidth}}" wx:if="{{item.height>0}}"></image>
+            <image bindload="onLoadImageFinish" class="detail-img" data-idx="{{idx}}" mode="aspectFill" src="{{item.url}}" style="height: item.height" wx:else></image>
+        </view>
+        <template is="version" data></template>
+    </scroll-view>
+    <template is="connectPhoneFooter" data="{{clickInterface:clickInterface}}"></template>
+</view>

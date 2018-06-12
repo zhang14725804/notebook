@@ -1,0 +1,11 @@
+<template name="icon">
+    <image alt="vip" class="{{vipClass?vipClass:'c-picicon-red'}}" height="20" mode="aspectFit" src="{{vipLogo?vipLogo:'/resource/images/c-icon-vip.png'}}" width="39" wx:if="{{isVip}}"></image>
+    <image alt="用券" class="c-picicon-red" height="20" mode="aspectFit" src="/resource/images/c-icon-coupons.png" width="39" wx:elif="{{isCoupon}}"></image>
+    <image alt="付费" class="c-picicon-red" height="20" mode="aspectFit" src="/resource/images/c-icon-pay.png" width="39" wx:elif="{{isPaid}}"></image>
+    <image alt="网球会员" class="c-icon-tennis" height="20" mode="aspectFit" src="/resource/images/c-icon-tennis.png" width="39" wx:elif="{{isTennisVip}}"></image>
+    <image alt="自制" class="c-picicon-red" height="20" mode="aspectFit" src="/resource/images/c-icon-zizhi.png" width="39" wx:elif="{{isQiyiProduced}}"></image>
+    <image alt="独播" class="c-picicon-red" height="20" mode="aspectFit" src="/resource/images/c-icon-dubo.png" width="39" wx:elif="{{isExclusive}}"></image>
+    <image alt="新" class="c-icon-new-s" height="18" src="/resource/images/c-icon-new-s.png" width="18" wx:elif="{{isNew}}"></image>
+    <image alt="预告片" class="c-icon-ad-s" height="18" src="/resource/images/c-icon-ad-s.png" width="18" wx:elif="{{isTrailer}}"></image>
+    <image alt="直播中" class="c-icon-live-on" height="20" src="/resource/images/c-icon-live-on.png" width="39" wx:elif="{{playStatus=='LIVE_TYPE'}}"></image>
+</template>

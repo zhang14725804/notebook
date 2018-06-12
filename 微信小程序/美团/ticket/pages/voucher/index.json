@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "抵用券",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#F6F6F6",
+    "enablePullDownRefresh": false
+}

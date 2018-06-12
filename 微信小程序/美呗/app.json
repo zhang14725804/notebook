@@ -1,0 +1,37 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/doctor/list/list",
+        "pages/doctor/detail/detail",
+        "pages/hospital/list/list",
+        "pages/hospital/detail/detail",
+        "pages/search/index",
+        "pages/signIn/index",
+        "pages/signIn/input/index",
+        "pages/diary/list/list",
+        "pages/diary/detail/detail",
+        "pages/knowledge/list/list",
+        "pages/knowledge/detail/detail",
+        "pages/raiders/list/list",
+        "pages/raiders/detail/detail",
+        "pages/center/center",
+        "pages/search/diaryList/diaryList",
+        "pages/search/hospitalList/hospitalList",
+        "pages/search/knowList/knowList",
+        "pages/question/list/list",
+        "pages/question/detail/detail",
+        "pages/search/raidersList/raidersList",
+        "pages/search/doctorList/doctorList",
+        "pages/search/qaList/qaList",
+        "pages/diary/otherList/otherList",
+        "pages/question/moreList/moreList",
+        "pages/hospital/otherList/otherList",
+        "pages/doctor/paper/paper",
+        "pages/hospital/paper/paper"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "美呗",
+        "navigationBarTextStyle": "black"
+    }
+}

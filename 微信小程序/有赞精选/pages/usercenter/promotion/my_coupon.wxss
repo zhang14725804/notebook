@@ -1,0 +1,102 @@
+@import "../../../components/coupon/coupon_cell.wxss";
+
+.empty-view-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-view-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.empty-view-img {
+    margin-bottom: 40rpx;
+}
+
+.empty-view-hint {
+    font-size: 27rpx;
+    line-height: 27rpx;
+    color: #999999;
+}
+
+@import "../../../components/ZanAccount/index.wxss";
+
+@import "../../../components/ZanAccount/bindPhoneNumber/bindPhoneNumber.wxss";
+
+.coupon-page-container {
+    flex-direction: column;
+}
+
+.swiper-tab {
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    line-height: 80rpx;
+}
+
+.swiper-tab-list {
+    font-size: 30rpx;
+    display: inline-block;
+    width: 33.3%;
+    color: #777;
+}
+
+.on {
+    color: #f44;
+    border-bottom: 5rpx solid #f44;
+}
+
+.swiper-box {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+
+.swiper-box view {
+    text-align: center;
+}
+
+.swiper-container {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.coupon-empty-view-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coupon-empty-view-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 200rpx;
+}
+
+.coupon-empty-view-img {
+    margin-bottom: 20rpx;
+}
+
+.coupon-empty-view-hint {
+    font-size: 27rpx;
+    line-height: 27rpx;
+    color: #999999;
+}
+
+.coupon-empty-view-button {
+    width: 86px;
+    height: 34px;
+    font-size: 14px;
+    line-height: 34px;
+    background: transparent;
+    color: #FF4444;
+    border: 2rpx #FF4444 solid;
+    border-radius: 2px;
+    margin-top: 30rpx;
+}

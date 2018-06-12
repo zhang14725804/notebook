@@ -1,0 +1,440 @@
+page {
+    background: #F3F2F9;
+    height: 100%;
+    font-family: 'PingFangSC-Light','PingFang SC','Microsoft Yahei';
+}
+
+.section-inquiry {
+    background: #ffffff;
+    text-align: center;
+    padding-bottom: 50rpx;
+    padding-top: 28rpx;
+}
+
+.product-name {
+    height: 45rpx;
+    line-height: 45rpx;
+    font-size: 32rpx;
+    color: #000;
+    margin-top: 25rpx;
+}
+
+.product-money {
+    font-size: 32rpx;
+    color: #5C626D;
+}
+
+.order-success-icon {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    width: 170rpx;
+    height: 170rpx;
+}
+
+.inquiry-price {
+    font-size: 32rpx;
+    color: #5C626D;
+    margin-left: 50rpx;
+    position: relative;
+}
+
+.inquiry-price:before {
+    background: #5C626D;
+    position: absolute;
+    content: '';
+    left: -25rpx;
+    top: 12rpx;
+    height: 24rpx;
+    width: 2rpx;
+}
+
+.inquiry-price--num {
+    font-size: 120rpx;
+}
+
+.show-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 96rpx;
+    padding-left: 30rpx;
+    font-size: 30rpx;
+    background-color: #3aba6f;
+}
+
+.show-detail-btn {
+    flex: 1;
+    text-align: left;
+    color: #fff;
+}
+
+.show-detail-btn text {
+    margin-left: 12rpx;
+}
+
+.show-detail-icon {
+    position: absolute;
+    right: 30rpx;
+    top: 35rpx;
+    color: #fff;
+}
+
+.banner {
+    height: 236rpx;
+    margin-left: 20rpx;
+    background: #fff;
+    line-height: 112rpx;
+}
+
+.outlets-banner-text:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    background-position: -558rpx -206rpx;
+    width: 131rpx;
+    height: 112rpx;
+    margin: 0;
+    margin-right: 26rpx;
+}
+
+.express-banner-text:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    background-position: -281rpx -216rpx;
+    width: 131rpx;
+    height: 98rpx;
+    margin: 0;
+    margin-right: 26rpx;
+}
+
+.banner-text-wrap {
+    padding-top: 61rpx;
+}
+
+.banner-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.banner-big-text {
+    font-size: 44rpx;
+    line-height: 62rpx;
+    margin-bottom: 8rpx;
+}
+
+.banner-small-text {
+    font-size: 32rpx;
+    line-height: 45rpx;
+    color: #000;
+}
+
+.orange {
+    color: #ffaa00;
+}
+
+.green {
+    color: #20B35D;
+}
+
+.show-inquiry-detail {
+    margin: 0 20rpx 0rpx;
+    background-color: #f9f9f9;
+    border-radius: 8rpx;
+    padding: 58rpx 39rpx;
+}
+
+.show-inquiry-detail .item {
+    margin-top: 36rpx;
+    font-size: 32rpx;
+    line-height: 45rpx;
+}
+
+.show-inquiry-detail .item-first {
+    margin-top: 0;
+}
+
+.show-inquiry-detail .detail-tips {
+    width: 160rpx;
+    color: #888;
+    display: inline-block;
+}
+
+.show-inquiry-detail .detail-value {
+    color: #000;
+    width: 473rpx;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.notes-text:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 46rpx;
+    height: 38rpx;
+    margin-right: 23rpx;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAmCAYAAAC76qlaAAAAAXNSR0IArs4c6QAAA7ZJREFUWAnVmV9IU1Ecx79nbXdem3+WY5mioknuJaI/YghRBkL1kNBLRBARFNJDBRXRQ0jv9RrVQ9FbL/VQREUolYmU/RFFMySKVALdnG5653a33c6dzF3vzm13u7uzDpzdc37/zuf83d0ZASNd6dt7qzuw8Uy9fWG6lgv1uixL96+29r9gmK6ZiMzNRXZEo9GbkFCTpLj27XTtc7/FlqzLz0ouLO122MXm0qZQ84bD8xu4RlGpL1iZYMJqtV4kXq/wFZLkUTbcNdaJZ3NKSXrZUxRGS4kTLeW7sLXsEHhrebqRWRJCxoh3ZlFSx9cDrvSxkTi28yKq7QLCcYJgfD1VE6WJ4XI9X4pTNZfhsG1KxLIajkgDiJIFHwQ7IGeamnkfBkIViXK+PnqDAvzidXQ13U6EtOQr8Oo4aZO4Wp1jbVgIr3iaBL4SP6+FuJRafmxwcwYsD51IgbHBjTaRim80kqa/BngBWtZE0qfQANfnrGllVr8VcfNyHGp2QKUotRWjmk8/JgNiCFMhr8r671U2uKJnf3fXr3XZy/B2/w3w65bPerXnpcG7eDT5Ti3WrJuzVBjNhWMiZiNBhgZYikXgjywwdVpC9ohrWeuWp09ZMCpgT/dFFDNGPBIX6bdvTHd02ZANnt5uVkHpmyYzSVSxGFti6rIVFmypZAuWyf7/AlfMJHupZOpujvr2jTuw2VGl23t4/gf6vCNM+4KB1xW7cbf5AhNCSxiT6Hv+y7OQN7Y6scEVU6J2yLU+Iczg4a/XaMxixAfnvjOhZQY2eK50ST9Gx+P0RLk6dC9pYfj5f21ORXfZ4BJjyBROGYsG3TPGpwbmLBVGy5zFiju7zme1xr/QNX7u8y1GtAKCu+3l2OfexoTQErqLnCix8nSDhpZNFDNZsBGfpK+tHb1dWZ3jI4GfKWhV79jgip6p7A1Vh+gXipxzTykw9ubMPfKyZyq+0Uia/kxwjqzTdNCnMJ+cCd5W0aKPbw2tmOCtVSdxp6ENB/goysnaXMpmGhP25qReO91HE1lCHOO+bgzMvsH74BQ+ijZE6F3hWidN8CQYgQVbKtoT+TgVRqILGPY+xYB/AP0LPozG+PQfPCYtcWVLGcGTHUg+OasDOyuPJXInFQbCk/g0/QQ9M28wKHL4LclXzOaQdzgbkhggPq8QliSJW5EYKIz7XmF0tofejBNwNpeBSKtd5Xh1Dg88roMJBSEkIoM/ouBHVpv+2zUK/phQ6CK/VzhBb3BX/gP6l7GJhAmnq/jBH8RVFT4jNpnLAAAAAElFTkSuQmCC);
+    background-position: 0 0;
+    background-size: 46rpx 38rpx;
+}
+
+.foot-note-group {
+    display: flex;
+}
+
+.foot-note {
+    flex: 1;
+    text-align: center;
+    font-size: 28rpx;
+    color: #5C626D;
+}
+
+.foot-note_question {
+    position: relative;
+}
+
+.foot-note_icon {
+    height: 70rpx;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.foot-note_text {
+    margin: 0 auto;
+    margin-top: 33rpx;
+    width: 170rpx;
+    text-align: center;
+}
+
+.icon-idcard {
+    width: 76rpx;
+    height: 56rpx;
+}
+
+.icon-clock {
+    width: 54rpx;
+    height: 67rpx;
+}
+
+.icon-power {
+    width: 44rpx;
+    height: 60rpx;
+}
+
+.icon-express {
+    width: 70rpx;
+    height: 50rpx;
+}
+
+.icon-questions {
+    width: 38rpx;
+    height: 38rpx;
+    position: absolute;
+    right: 50rpx;
+    top: 0;
+    display: none;
+}
+
+.foot-note .charge {
+    text-align: center;
+}
+
+.foot-note .big-icon {
+    text-align: center;
+    font-size: 56rpx;
+    margin-bottom: 30rpx;
+}
+
+.foot-note .small-icon {
+    position: relative;
+    margin-left: 12rpx;
+    color: #20B35D;
+}
+
+.foot-note .small-icon::after {
+    content: '';
+    position: absolute;
+    top: -10rpx;
+    bottom: -10rpx;
+    left: -10rpx;
+    right: -10rpx;
+}
+
+.foot-note .icon-lock {
+    font-size: 62rpx;
+    margin-top: -6rpx;
+}
+
+.foot-note .icon-inquiry-charge {
+    font-size: 64rpx;
+    margin-top: -8rpx;
+}
+
+.icon-next:before {
+    color: #fff!important;
+}
+
+.order-tip {
+    margin-top: 20rpx;
+    font-size: 28rpx;
+    color: #5C626D;
+    text-align: center;
+}
+
+.user-phone {
+    color: #ffbb00;
+    margin: 0 3rpx;
+}
+
+.section {
+    margin-top: 15rpx;
+    border: none;
+    padding: 62rpx 0 64rpx 0;
+}
+
+.section-title {
+    border: 0;
+    text-align: center;
+    padding-left: 0;
+    margin-bottom: 54rpx;
+}
+
+.section-title text {
+    color: #0e0e0f;
+    font-size: 32rpx;
+}
+
+.section-ondoor-tips {
+    margin-top: 24rpx;
+    color: #9b9da2;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    text-align: center;
+}
+
+.section-ondoor-tips text {
+    display: block;
+}
+
+.section-ondoor-tips .sm {
+    font-size: 24rpx;
+}
+
+.section-first {
+    padding-bottom: 40rpx;
+}
+
+.bottom-button {
+    width: 100%;
+    height: 120rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.bottom-button button {
+    height: 100%;
+    text-align: center;
+    color: #0e0e0f;
+    font-size: 32rpx;
+    line-height: 120rpx;
+    font-family: 'PingFangSC-Medium','PingFang SC','Microsoft Yahei';
+    border-radius: 0;
+}
+
+.bottom-button button:after {
+    width: 0;
+}
+
+.friendAssistance {
+    width: 100%;
+    height: 114rpx;
+    margin-top: 15rpx;
+}
+
+.friendAssistance navigator {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+}
+
+.friendAssistance image {
+    height: 100%;
+    width: 100%;
+}
+
+.mask-layer {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.friend-popup {
+    position: absolute;
+    z-index: 100;
+    width: 600rpx;
+    height: 835rpx;
+    top: 15%;
+    left: 10%;
+}
+
+.friend-popup-twoPacketAmount {
+    display: block;
+    margin-top: 478rpx;
+    margin-left: 80rpx;
+    text-align: left;
+    font-size: 24rpx;
+    color: #FF5151;
+}
+
+.friend-popup-container {
+    position: absolute;
+    text-align: center;
+    width: 600rpx;
+    height: 720rpx;
+    background-image: url('https://sr.aihuishou.com/activity/minapp/friendhelp/friend_assistance_popup.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 100;
+}
+
+.friend-popup-container navigator {
+    width: 548rpx;
+    height: 96rpx;
+    border-radius: 100rpx;
+    background: -webkit-gradient(linear,0 0,right 0,from(#FD924E),to(#FE6241));
+    color: #fff;
+    padding: 0;
+    margin: 58rpx auto 0 auto;
+    line-height: 96rpx;
+    font-size: 32rpx;
+}
+
+.popup-close {
+    position: absolute;
+    left: 50%;
+    margin-left: -31rpx;
+    bottom: 0rpx;
+    height: 62rpx;
+    width: 62rpx;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 60rpx;
+    text-align: center;
+    line-height: 62rpx;
+    background-image: url('https://sr.aihuishou.com/activity/minapp/icon-cancel.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 100;
+}

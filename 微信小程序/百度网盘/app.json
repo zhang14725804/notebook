@@ -1,0 +1,26 @@
+{
+    "pages": [
+        "pages/netdisk_index/index",
+        "pages/netdisk_upload/upload",
+        "pages/netdisk_batchEdit/batchEdit",
+        "pages/pass_login/login",
+        "pages/pass_checkcode/checkcode",
+        "pages/pass_smscheck/smscheck",
+        "pages/pass_setpassword/setpassword",
+        "pages/pass_userinfo/userinfo",
+        "pages/netdisk_dirdetail/dirdetail",
+        "pages/netdisk_sharedir/sharedir",
+        "pages/netdisk_setshare/setshare",
+        "pages/netdisk_sharesnapshots/sharesnapshots",
+        "pages/netdisk_previewaudio/previewaudio",
+        "pages/netdisk_createshare/createshare"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "backgroundColor": "#fff",
+        "navigationBarTitleText": "百度网盘",
+        "navigationBarTextStyle": "black"
+    },
+    "debug": true
+}

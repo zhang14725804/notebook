@@ -1,0 +1,25 @@
+<template name="carve-coupon-goods">
+    <view class="title">好货精选</view>
+    <view class="coupon-goods__list">
+        <view class="coupon-goods__item {{goods.length===1||goods.length===3&&index===2?'sample-card':''}}" wx:for="{{goods}}" wx:key="id">
+            <navigator class="coupon-goods__image" hoverClass="none" url="/pages/goods/detail/index?alias={{item.alias}}">
+                <image class="cap-ump-groupon-goods__image" lazyLoad="" mode="aspectFill" src="{{item.image}}"></image>
+            </navigator>
+            <view class="coupon-goods__info">
+                <view class="coupon-goods__title zan-ellipsis">{{item.title}}</view>
+                <view class="coupon-goods__buy-info">
+                    <view class="coupon-goods__price">
+                        <view>¥ {{item.price/100}}</view>
+                        <view class="zan-font-10">可用红包</view>
+                    </view>
+                    <navigator class="coupon-goods__buy" url="/pages/goods/detail/index?alias={{item.alias}}">
+                        <form-button type="carve-coupon">马上抢</form-button>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="globalNavigate" class="coupon-goods__all" data-type="{{all_goods_can_use?'switch':'navigate'}}" data-url="{{all_goods_can_use?'/pages/home/dashboard/index':'/packages/shop/goods/group/index?pageType=coupon&group_id='+couponGoodsId}}">
+        <form-button type="carve-coupon">查看全部商品</form-button>
+    </view>
+</template>

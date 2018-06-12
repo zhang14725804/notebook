@@ -1,0 +1,72 @@
+<template name="player">
+    <view bindtap="anyClick" hidden="{{state=='hidden'||pageError}}">
+        <view class="mod_player_place" hidden="{{state!='playing'&&state!='error'}}">
+            <view class="mod_player">
+                <video autoplay bindended="__onTvpEnded" binderror="__onTvpError" bindpause="__onTvpPause" bindplay="__onTvpPlay" bindtimeupdate="__onTvpTimeupdate" class="player_video" controls="{{!isad}}" danmuBtn="{{useDanmu&&!isad}}" data-contentid="{{contentid}}" data-src="{{url}}" direction="{{isVertical?0:90}}" enableDanmu="{{useDanmu&&DMIsOpen}}" hidden="{{state!='playing'}}" id="tvp" src="{{url}}"></video>
+                <view class="player_error_layer" hidden="{{state!='error'}}">
+                    <view class="player_error_text">{{videoError}}</view>
+                </view>
+            </view>
+            <image hidden src="{{reportUrl}}"></image>
+        </view>
+        <view class="mod_poster_placeholder" hidden="{{state=='playing'||state=='error'}}">
+            <view class="poster_placeholder poster_placeholder_vip" hidden="{{!(state=='stop'&&preview&&iswifi)}}">
+                <view class="poster_text">
+                    <view class="poster_text_line">{{vipText}}</view>
+                    <view class="poster_text_line">
+                        <view bindtap="tvpStartPlay" class="poster_button">{{btnText}}</view>
+                        <view bindtap="payVip" class="poster_button poster_button_vip" data-aid="2" wx:if="{{canPayVip&&!isvip}}">开通VIP会员
+                        </view>
+                    </view>
+                </view>
+                <view class="poster_mask_3"></view>
+                <image class="poster_pic" src="{{posterImage}}"></image>
+            </view>
+            <view class="poster_placeholder poster_placeholder_vip" hidden="{{!(state=='end'&&preview)}}">
+                <view class="poster_text">
+                    <view class="poster_text_line">{{vipText}}</view>
+                    <view class="poster_text_line">
+                        <view bindtap="replay" class="poster_button">重新试看</view>
+                        <view bindtap="payVip" class="poster_button poster_button_vip" data-aid="2" wx:if="{{canPayVip&&!isvip}}">开通VIP会员
+                        </view>
+                    </view>
+                </view>
+                <view class="poster_mask_3"></view>
+                <image class="poster_pic" src="{{posterImage}}"></image>
+            </view>
+            <view class="poster_placeholder poster_placeholder_vip" hidden="{{!(state=='stop'&&!iswifi)}}">
+                <view class="poster_text">
+                    <view class="poster_text_line">
+                        <view bindtap="tvpStartPlay" class="poster_button">
+                            <view class="icon_player_play"></view>
+                            使用流量播放
+                            <view class="hl">{{fileSize}}</view>
+                        </view>
+                    </view>
+                    <view class="poster_text_line sub_text" wx:if="{{unicom}}">
+                        大王卡用户可免流观看
+                    </view>
+                </view>
+                <view class="poster_mask_3"></view>
+                <image class="poster_pic" src="{{posterImage}}"></image>
+            </view>
+            <view bindtap="replay" class="poster_placeholder" hidden="{{!(state=='end'&&!preview)}}">
+                <image class="poster_pic" src="{{posterImage}}"></image>
+                <view class="btn_play"></view>
+                <view class="poster_mask_1" style="background-image: -webkit-linear-gradient(bottom,{{pageBgColor}},rgba(0,0,0,0));background-image: linear-gradient(to top,{{pageBgColor}},rgba(0,0,0,0));"></view>
+                <view class="poster_mask_2"></view>
+            </view>
+            <view class="poster_placeholder poster_placeholder_limit" hidden="{{!(state=='limit')}}">
+                <view class="poster_text">
+                    <view class="poster_text_line">{{vipText}}</view>
+                    <view class="poster_text_line">
+                        <view bindtap="payVip" class="poster_button poster_button_vip" data-aid="2" wx:if="{{canPayVip&&!isvip}}">开通VIP会员
+                        </view>
+                    </view>
+                </view>
+                <view class="poster_mask_3"></view>
+                <image class="poster_pic" src="{{posterImage}}"></image>
+            </view>
+        </view>
+    </view>
+</template>

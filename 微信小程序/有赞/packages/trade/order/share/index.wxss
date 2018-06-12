@@ -1,0 +1,129 @@
+@import "../../../../components/copyright/index.wxss";
+
+.order-share__container {
+    background: #f8f8f8;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.order-share__container.is-not-share {
+    background: rgba(0,0,0,0.6);
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+
+.order-share__container.is-not-share .mata {
+    color: #fff;
+}
+
+.circular {
+    width: 69px;
+    height: 58px;
+    margin: 10px 0;
+    align-self: center;
+}
+
+.mata {
+    font-size: 14px;
+    color: #f60;
+    width: 100%;
+    padding: 0 20px 10px;
+    box-sizing: border-box;
+    left: 0;
+    bottom: 0;
+}
+
+.share-good__base-info {
+    box-shadow: 0 0 5px #cacaca;
+    margin-left: 15px;
+    padding-bottom: 10px;
+    text-align: left;
+    width: 220px;
+}
+
+.share-good__base-info:last-child {
+    margin-right: 15px;
+}
+
+.share-good__pic {
+    width: 100%;
+    padding-bottom: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.share-good__pic>image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.share-good__title {
+    color: #333;
+    font-size: 14px;
+    padding: 0 10px;
+    height: 1.4em;
+    line-height: 1.4em;
+    width: 100%;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0.67em 0;
+}
+
+.share-good__price {
+    padding: 0 10px;
+    color: #f60;
+}
+
+.share-good__shop {
+    text-align: center;
+    margin: 10px auto 5px;
+}
+
+.share-good__active-btns {
+    display: flex;
+    margin-bottom: 0;
+    justify-content: center;
+    width: 190px;
+    margin: 0 auto;
+}
+
+.share-good__active-btns .zan-btn {
+    height: 36px;
+    line-height: 36px;
+    width: 90px;
+    font-size: 14px;
+}
+
+.share-good__active-btns .zan-btn+.zan-btn {
+    margin-left: 10px;
+}
+
+.order-share__scroll-container {
+    height: 400px;
+    white-space: nowrap;
+    position: absolute;
+    width: 100%;
+    top: 120px;
+}
+
+.order-share__scroll-container .share-good__base-info {
+    display: inline-block;
+}
+
+.order-share__scroll-container.only-one .share-good__base-info {
+    margin: 0 auto;
+    display: block;
+}
+
+.order-share__scroll-container.only-one .share-good__base-info:last-child {
+    margin: 0 auto;
+}

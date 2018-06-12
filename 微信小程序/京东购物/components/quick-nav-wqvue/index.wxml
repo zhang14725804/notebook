@@ -1,0 +1,14 @@
+<view class="quick-nav" wx:if="{{showModule}}">
+    <view bindtap="toggleStatus" class="quick-nav__mask {{fold?'':'quick-nav__mask--unfold'}} {{showMask?'quick-nav__mask--show':''}}"></view>
+    <view class="quick-nav__main {{fold?'':'quick-nav__main--unfold'}}" style="bottom: {{bottom}}px;">
+        <view catchtap="toggleStatus" class="quick-nav__ctrl {{fold?'':'quick-nav__ctrl--unfold'}}">
+            <view class="quick-nav__ctrl-text">{{fold?'快速导航':'收起'}}</view>
+        </view>
+        <view class="quick-nav__list">
+            <view bindtap="navTo" class="quick-nav__list-item" data-tourl="{{item.tourl}}" wx:for="{{navSets}}">
+                <image class="quick-nav__list-item-img" mode="aspectFill" src="{{item.wxappImg}}"></image>
+                <text class="quick-nav__list-item-text">{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,18 @@
+<view class="recommend{{video.playEnd?'':' hide'}}" style="{{!index?'margin-top: 0;':''}}">
+    <view class="mod">
+        <view bindtap="onRecClick" class="recommend_box" data-cid="{{video.coverEntry.cid}}" data-vid="{{video.coverEntry.vid}}" wx:if="{{video.coverEntry&&(video.coverEntry.vid||video.coverEntry.cid)}}">
+            <view class="recommend_pic">
+                <image src="{{video.coverEntry.imageUrl||'https://i.gtimg.cn/qqlive/images/20150608/pic_h.png'}}"></image>
+                <view class="play_icon"></view>
+            </view>
+            <view class="recommend_info">
+                <view class="title">{{video.coverEntry.firstLine}}</view>
+                <view class="cont two_row">{{video.coverEntry.secondLine}}</view>
+            </view>
+        </view>
+        <view bindtap="replay" class="mod_replay" data-index="{{index}}" data-vid="{{video.vid}}">
+            <view class="refresh_icon"></view>
+            <view class="txt">重新播放</view>
+        </view>
+    </view>
+</view>

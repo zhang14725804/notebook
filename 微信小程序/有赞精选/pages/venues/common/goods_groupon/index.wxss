@@ -1,0 +1,233 @@
+.clearfix::after {
+    display: table;
+    content: "";
+    clear: both;
+}
+
+.groupon-goods {
+    position: relative;
+    padding: 15rpx 20rpx;
+    background: #fff;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.groupon-goods__img {
+    position: relative;
+    float: left;
+    width: 236rpx;
+    height: 236rpx;
+    overflow: hidden;
+}
+
+.groupon-goods__img image {
+    width: 100%;
+    height: 100%;
+}
+
+.groupon-goods__img-tip {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,.7);
+    color: #fff;
+    text-align: center;
+    font-size: 24rpx;
+    line-height: 42rpx;
+}
+
+.groupon-goods__img-sold,.groupon-goods__img-sold-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    background-position: center;
+    background-size: 116rpx 116rpx;
+    background-repeat: no-repeat;
+}
+
+.groupon-goods__img-sold {
+    background-image: url("https://img.yzcdn.cn/public_files/2017/10/09/1012455562c70795ade9c74e288d3b85.png");
+}
+
+.groupon-goods__img-sold-1 {
+    background-image: url("https://img.yzcdn.cn/public_files/2017/10/20/258ed28b26c65e0068f5a81602bd5229.png");
+}
+
+.groupon-goods__img-vip {
+    position: absolute;
+    top: 0;
+    left: -6rpx;
+    width: 90rpx;
+    height: 32rpx;
+    background: #ff4444;
+    color: #fff;
+    font-size: 18rpx;
+    text-align: center;
+    transform: skew(-20deg);
+}
+
+.groupon-goods__img-vip text {
+    position: absolute;
+    top: 0;
+    left: 4rpx;
+    width: 100%;
+    line-height: 32rpx;
+    transform: skew(20deg);
+}
+
+.groupon-goods__desc {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin-left: 236rpx;
+    padding: 6rpx 0 0 20rpx;
+    height: 236rpx;
+}
+
+.groupon-goods__desc-title {
+    font-size: 28rpx;
+    line-height: 40rpx;
+    vertical-align: top;
+    height: 80rpx;
+    max-height: 80rpx;
+    color: #333;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.groupon-goods__desc-progress {
+    width: 380rpx;
+}
+
+.groupon-goods__desc-progress-bar,.groupon-goods__desc-progress-bar .fill {
+    width: 100%;
+    height: 22rpx;
+    border-radius: 22rpx;
+}
+
+.groupon-goods__desc-progress-bar {
+    position: relative;
+    background: #e4e4e4;
+    overflow: hidden;
+}
+
+.groupon-goods__desc-progress-bar .fill {
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right,#fd7300,#ff4444);
+    color: #fff;
+    font-size: 18rpx;
+    line-height: 22rpx;
+    text-align: center;
+    font-weight: 100;
+}
+
+.groupon-goods__desc-progress-detail {
+    margin-top: 10rpx;
+    font-size: 20rpx;
+}
+
+.groupon-goods__desc-progress-detail text {
+    color: #ff4444;
+}
+
+.groupon-goods__desc-progress-detail .sold {
+    float: left;
+}
+
+.groupon-goods__desc-progress-detail .remain {
+    float: right;
+}
+
+.groupon-goods__desc-follow,.groupon-goods__desc-buy-tips {
+    font-size: 22rpx;
+}
+
+.groupon-goods__desc-follow {
+    margin-bottom: 8rpx;
+}
+
+.groupon-goods__desc-follow text {
+    color: #ff4444;
+}
+
+.groupon-goods__desc-price {
+    float: left;
+}
+
+.groupon-goods__desc-price .activity,.groupon-goods__desc-price .origin {
+    display: inline-block;
+    line-height: 60rpx;
+    vertical-align: bottom;
+}
+
+.groupon-goods__desc-price .activity {
+    font-size: 32rpx;
+    color: #ff4444;
+}
+
+.groupon-goods__desc-price .activity::before {
+    display: inline-block;
+    content: "¥";
+    font-size: 24rpx;
+}
+
+.groupon-goods__desc-price .origin {
+    font-size: 24rpx;
+    color: #999;
+    margin-left: 10rpx;
+    text-decoration: line-through;
+}
+
+.groupon-goods__desc-price .origin::before {
+    display: inline-block;
+    content: "¥";
+    font-size: 20rpx;
+    text-decoration: line-through;
+}
+
+.groupon-goods__desc-action {
+    box-sizing: border-box;
+    float: right;
+    font-size: 28rpx;
+    color: #fff;
+    width: 140rpx;
+    line-height: 60rpx;
+    background: #ff4444;
+    border: 1px solid #ff4444;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.groupon-goods__desc-action.slod-out {
+    color: #ff4444;
+    border-color: #ff4444;
+    background: #fff;
+}
+
+.groupon-goods__desc-action.ready-buy {
+    border-color: #44bb00;
+    background: #44bb00;
+}
+
+.groupon-goods__desc-sold {
+    float: left;
+    line-height: 60rpx;
+    font-size: 20rpx;
+    color: #333;
+}
+
+.groupon-goods__desc-sold text {
+    color: #ff4444;
+}

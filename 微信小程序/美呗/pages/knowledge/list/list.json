@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "美呗知识",
+    "usingComponents": {
+        "know": "/components/knowledge/knowledge",
+        "project": "/components/project/project",
+        "sort": "/components/sortProject/sort-project",
+        "empty": "/components/empty/empty",
+        "loadMore": "/components/loadMore/loadMore"
+    }
+}

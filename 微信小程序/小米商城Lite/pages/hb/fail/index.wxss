@@ -1,0 +1,3 @@
+@import "../../discovery/index.wxss";
+
+@import "../index.wxss";

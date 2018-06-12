@@ -1,0 +1,37 @@
+.e-card__customer-info {
+    display: inline-block;
+    flex: 1;
+}
+
+.e-card__customer-item .zan-cell__bd {
+    display: flex;
+    justify-content: center;
+}
+
+.e-card__customer-item .zan-icon {
+    width: 24px;
+    line-height: 38px;
+}
+
+.e-card__customer-item .zan-icon.zan-icon-checked,.e-card__add-new-customer .zan-icon-add-o {
+    color: #3283fa;
+}
+
+.e-card__add-new-customer {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 2rpx solid #e5e5e5;
+    line-height: 30px;
+}
+
+.e-card__add-new-customer .add-icon {
+    width: 22px;
+    height: 22px;
+    background-size: 100% 100%;
+    position: relative;
+    top: 5px;
+    background-image: url(https://b.yzcdn.cn/v2/image/wap/address/add_address@2x.png);
+}

@@ -1,0 +1,785 @@
+@font-face {
+    font-family: "mofangicon";
+    src: url("https://webapp.didistatic.com/static/webapp/shield/mofang5icon-v9.woff") format('woff'),url("https://webapp.didistatic.com/static/webapp/shield/mofang5icon-v9.ttf") format('truetype'),url("https://webapp.didistatic.com/static/webapp/shield/mofang5icon-v9.svg#mofangicon") format('svg');
+}
+
+.mfic {
+    font-family: "mofangicon"!important;
+    font-size: 100%;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.mfic-female:before {
+    content: "\e601";
+}
+
+.mfic-male:before {
+    content: "\e602";
+}
+
+.mfic-pulldown:before {
+    content: "\e603";
+}
+
+.mfic-pullup:before {
+    content: "\e604";
+}
+
+.mfic-walkperson:before {
+    content: "\e605";
+}
+
+.mfic-wild-cancel:before {
+    content: "\e606";
+}
+
+.mfic-more:before {
+    content: "\e607";
+}
+
+.mfic-back:before {
+    content: "\e608";
+}
+
+.mfic-rushup:before {
+    content: "\e609";
+}
+
+.mfic-goright:before {
+    content: "\e60a";
+}
+
+.mfic-click:before {
+    content: "\e60b";
+}
+
+.mfic-exchange:before {
+    content: "\e60c";
+}
+
+.mfic-narrow-cancel:before {
+    content: "\e60d";
+}
+
+.mfic-pricedown:before {
+    content: "\e60e";
+}
+
+.mfic-priceup:before {
+    content: "\e60f";
+}
+
+.mfic-cantsee:before {
+    content: "\e610";
+}
+
+.mfic-cansee:before {
+    content: "\e611";
+}
+
+.mfic-complaints:before {
+    content: "\e612";
+}
+
+.mfic-map-model:before {
+    content: "\e613";
+}
+
+.mfic-important:before {
+    content: "\e614";
+}
+
+.mfic-dmoney:before {
+    content: "\e615";
+}
+
+.mfic-question:before {
+    content: "\e616";
+}
+
+.mfic-right:before {
+    content: "\e617";
+}
+
+.mfic-wrong:before {
+    content: "\e618";
+}
+
+.mfic-tips-icon:before {
+    content: "\e619";
+}
+
+.mfic-remove:before {
+    content: "\e61a";
+}
+
+.mfic-money:before {
+    content: "\e61b";
+}
+
+.mfic-add:before {
+    content: "\e61c";
+}
+
+.mfic-send-plane:before {
+    content: "\e61d";
+}
+
+.mfic-activity2:before {
+    content: "\e61e";
+}
+
+.mfic-pick-plane:before {
+    content: "\e61f";
+}
+
+.mfic-activity:before {
+    content: "\e620";
+}
+
+.mfic-walk:before {
+    content: "\e621";
+}
+
+.mfic-cross-city:before {
+    content: "\e622";
+}
+
+.mfic-barricades:before {
+    content: "\e623";
+}
+
+.mfic-index-typechange:before {
+    content: "\e624";
+}
+
+.mfic-notice:before {
+    content: "\e625";
+}
+
+.mfic-service-description:before {
+    content: "\e626";
+}
+
+.mfic-questionnaire:before {
+    content: "\e627";
+}
+
+.mfic-common-route:before {
+    content: "\e628";
+}
+
+.mfic-order:before {
+    content: "\e629";
+}
+
+.mfic-agreement:before {
+    content: "\e62a";
+}
+
+.mfic-ticket:before {
+    content: "\e62b";
+}
+
+.mfic-data:before {
+    content: "\e62c";
+}
+
+.mfic-testdrive-buycoupon:before {
+    content: "\e62d";
+}
+
+.mfic-coupons:before {
+    content: "\e62e";
+}
+
+.mfic-wallet-vouchers2:before {
+    content: "\e62f";
+}
+
+.mfic-wallet-vouchers1:before {
+    content: "\e630";
+}
+
+.mfic-form-sharetravel:before {
+    content: "\e631";
+}
+
+.mfic-dialog-unwifi:before {
+    content: "\e632";
+}
+
+.mfic-purse:before {
+    content: "\e633";
+}
+
+.mfic-dialog-smile:before {
+    content: "\e634";
+}
+
+.mfic-integral:before {
+    content: "\e635";
+}
+
+.mfic-dialog-cry:before {
+    content: "\e636";
+}
+
+.mfic-email:before {
+    content: "\e637";
+}
+
+.mfic-game:before {
+    content: "\e638";
+}
+
+.mfic-dialog-wifi:before {
+    content: "\e639";
+}
+
+.mfic-flash:before {
+    content: "\e63a";
+}
+
+.mfic-hot:before {
+    content: "\e63b";
+}
+
+.mfic-bbs:before {
+    content: "\e63c";
+}
+
+.mfic-side-message:before {
+    content: "\e63d";
+}
+
+.mfic-delete:before {
+    content: "\e63e";
+}
+
+.mfic-vip:before {
+    content: "\e63f";
+}
+
+.mfic-mute:before {
+    content: "\e640";
+}
+
+.mfic-warn:before {
+    content: "\e641";
+}
+
+.mfic-volume:before {
+    content: "\e642";
+}
+
+.mfic-bad:before {
+    content: "\e643";
+}
+
+.mfic-mobilephone:before {
+    content: "\e644";
+}
+
+.mfic-location:before {
+    content: "\e645";
+}
+
+.mfic-call-police:before {
+    content: "\e646";
+}
+
+.mfic-invoice:before {
+    content: "\e647";
+}
+
+.mfic-keyboard:before {
+    content: "\e648";
+}
+
+.mfic-wallet-balance:before {
+    content: "\e649";
+}
+
+.mfic-wallet-travelcard:before {
+    content: "\e64a";
+}
+
+.mfic-balance-pay:before {
+    content: "\e64b";
+}
+
+.mfic-road-condition:before {
+    content: "\e64c";
+}
+
+.mfic-navigation:before {
+    content: "\e64d";
+}
+
+.mfic-safe-pay:before {
+    content: "\e64e";
+}
+
+.mfic-discount:before {
+    content: "\e64f";
+}
+
+.mfic-clean:before {
+    content: "\e650";
+}
+
+.mfic-lock:before {
+    content: "\e651";
+}
+
+.mfic-unlock:before {
+    content: "\e652";
+}
+
+.mfic-edit:before {
+    content: "\e653";
+}
+
+.mfic-sweep:before {
+    content: "\e654";
+}
+
+.mfic-qr_code:before {
+    content: "\e655";
+}
+
+.mfic-subway:before {
+    content: "\e656";
+}
+
+.mfic-insurance-agreement:before {
+    content: "\e657";
+}
+
+.mfic-sofa:before {
+    content: "\e658";
+}
+
+.mfic-timepicker:before {
+    content: "\e659";
+}
+
+.mfic-bus:before {
+    content: "\e65a";
+}
+
+.mfic-double:before {
+    content: "\e65b";
+}
+
+.mfic-addressbook:before {
+    content: "\e65c";
+}
+
+.mfic-side-respect:before {
+    content: "\e65d";
+}
+
+.mfic-form-site:before {
+    content: "\e65e";
+}
+
+.mfic-time:before {
+    content: "\e65f";
+}
+
+.mfic-second-type-change:before {
+    content: "\e660";
+}
+
+.mfic-emoji:before {
+    content: "\e661";
+}
+
+.mfic-side-hiredriver:before {
+    content: "\e662";
+}
+
+.mfic-waiting:before {
+    content: "\e663";
+}
+
+.mfic-redpacket:before {
+    content: "\e664";
+}
+
+.mfic-side-reference:before {
+    content: "\e665";
+}
+
+.mfic-side-find:before {
+    content: "\e666";
+}
+
+.mfic-im-servicecard:before {
+    content: "\e667";
+}
+
+.mfic-evaluation-star:before {
+    content: "\e668";
+}
+
+.mfic-side-set:before {
+    content: "\e669";
+}
+
+.mfic-side-wallet:before {
+    content: "\e66a";
+}
+
+.mfic-sug-company:before {
+    content: "\e66b";
+}
+
+.mfic-side-trip:before {
+    content: "\e66c";
+}
+
+.mfic-sug-home:before {
+    content: "\e66d";
+}
+
+.mfic-side-credit:before {
+    content: "\e66e";
+}
+
+.mfic-security:before {
+    content: "\e66f";
+}
+
+.mfic-side-mall:before {
+    content: "\e670";
+}
+
+.mfic-tips-dialog:before {
+    content: "\e671";
+}
+
+.mfic-car:before {
+    content: "\e672";
+}
+
+.mfic-microcphone:before {
+    content: "\e673";
+}
+
+.mfic-search:before {
+    content: "\e674";
+}
+
+.mfic-good:before {
+    content: "\e675";
+}
+
+.mfic-tips-alert:before {
+    content: "\e676";
+}
+
+.mfic-im-picture:before {
+    content: "\e677";
+}
+
+.mfic-phrase:before {
+    content: "\e678";
+}
+
+.mfic-service:before {
+    content: "\e679";
+}
+
+.mfic-phone:before {
+    content: "\e67a";
+}
+
+.mfic-dialog-location:before {
+    content: "\e67b";
+}
+
+.mfic-like:before {
+    content: "\e67c";
+}
+
+.mfic-camera:before {
+    content: "\e67d";
+}
+
+.mfic-person:before {
+    content: "\e67e";
+}
+
+.mfic-exchange-card:before {
+    content: "\e67f";
+}
+
+.mfic-didilogo:before {
+    content: "\e680";
+}
+
+.mfic-dialog_icon:before {
+    content: "\e681";
+}
+
+.mfic-round_border:before {
+    content: "\e682";
+}
+
+.mfic-round_border_new:before {
+    content: "\e683";
+}
+
+.mfic-didian:before {
+    content: "\e684";
+}
+
+.mfic-kc-jj:before {
+    content: "\e685";
+}
+
+.mfic-kc-pc:before {
+    content: "\e686";
+}
+
+.mfic-kc-yx:before {
+    content: "\e687";
+}
+
+.mfic-zc-seven:before {
+    content: "\e688";
+}
+
+.mfic-zc-hh:before {
+    content: "\e689";
+}
+
+.mfic-zc-ss:before {
+    content: "\e68a";
+}
+
+.mfic-gantanhao:before {
+    content: "\e68b";
+}
+
+.mfic-simple-correct:before {
+    content: "\e68c";
+}
+
+.mfic-onsale:before {
+    content: "\e68d";
+}
+
+.mod-p-dynamic-confirm .main {
+    font-family: "PingFangSC-Regular","STHeitiSC-Medium","HelveticaNeue-Medium","Microsoft YaHei",arial,sans-serif;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mod-p-dynamic-confirm .main em {
+    color: #ff8903;
+    font-style: normal;
+}
+
+.mod-p-dynamic-confirm .main .em {
+    color: #ff8903;
+    font-style: normal;
+}
+
+.mod-p-dynamic-confirm .main #container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+    background-color: #fff;
+}
+
+.mod-p-dynamic-confirm .main #container .header {
+    text-align: center;
+}
+
+.mod-p-dynamic-confirm .main #container .h1 {
+    padding-top: 53px;
+    font-size: 25px;
+    color: #333;
+}
+
+.mod-p-dynamic-confirm .main #content {
+    padding-top: 6px;
+    text-align: left;
+}
+
+.mod-p-dynamic-confirm .main #content .desc {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    padding: 0 25px;
+    color: #666;
+}
+
+.mod-p-dynamic-confirm .main #content .org {
+    color: #ff8903;
+}
+
+.mod-p-dynamic-confirm .main #content .big {
+    font-size: 22px;
+}
+
+.mod-p-dynamic-confirm .main #content .price-info {
+    margin: 22px auto 0;
+    width: 97%;
+    min-height: 258px;
+    line-height: 1;
+    text-align: center;
+    color: #333;
+    display: block;
+    background: url("https://static.udache.com/passenger/apps/price/dynamic-confirm/images/icon-center@2x.d47eb92.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.mod-p-dynamic-confirm .main #content .price-info .ratio-text {
+    padding-top: 58px;
+    font-size: 17px;
+    line-height: 22px;
+    color: #666;
+}
+
+.mod-p-dynamic-confirm .main #content .price-info .ratio-detail {
+    padding-top: 24px;
+    font-size: 0;
+}
+
+.mod-p-dynamic-confirm .main #content .price-info .ratio-detail text {
+    display: inline-block;
+}
+
+.mod-p-dynamic-confirm .main #content .price-info .ratio-detail .des {
+    font-size: 12px;
+    color: #666;
+    padding-right: 4px;
+}
+
+.mod-p-dynamic-confirm .main #content .price-info .ratio-detail .bg {
+    text-indent: 1000px;
+    overflow: hidden;
+    background: no-repeat url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAZRJREFUSA29lj1OxDAQhe0Vt6GgQVpq6OhoEAdgJY5EAT2igI4KqEFLgwTHIcZvss9yjP8T8aTEa2vmfZnYzlobK/WPWpFlvl/UcLtR5uORQ7NbeImn9aY0KgTMvF4rFrtanyttrzky7/dqsBektVb6+Erp/RMlFZq3OwdDAAKR0CsfBg8UAgYkQH1wKh3/1gsNYfQkYwQenim8xlCt0BRMpsgyILdoMGdzoFmYV4wDgt4LrYVNKkQHaoW2wOA/qRADUC20FSbe2IZCidxyhgjnPvNTS3tYNr6fEP5OQcM49EswiYkl+mOp1+vHiJFdiYgtKTqHYVIJWlMZPauADF6irQKW5rHli1QElmCsuhaaBaZgmDNcoWqge2ES+zkYVyOeNtyL6GOcMfRjG62wBgaD1OrNVfoHWAvjE7dCJ8BWWA/UAXthrVAByukqcoZp+YIAnH29u9PgCPx84oO6thXGxBTU7BgC1EcXcpRjUi+M+SFUjomWIcL/ITR8PZufm0szbB/GgQXu8BJP600V/w/51Eu1vxysfEOd7DzgAAAAAElFTkSuQmCC") left bottom;
+    background-size: 14px auto;
+}
+
+.mod-p-dynamic-confirm .main #content .price-info .ratio-detail .signal {
+    position: relative;
+    font-size: 22px;
+    line-height: 18px;
+    width: 18px;
+    color: #fa8f54;
+}
+
+.mod-p-dynamic-confirm .main #content .price-info .ratio-detail .value {
+    font-family: "PingFangSC-Medium","STHeitiSC-Medium","HelveticaNeue-Medium","Microsoft YaHei",arial,sans-serif;
+    font-size: 50px;
+    color: #fc9153;
+    line-height: 13px;
+}
+
+.mod-p-dynamic-confirm .main #content .price-info .ratio-detail .unit {
+    padding-left: 3px;
+    font-size: 16px;
+    color: #fa8f54;
+}
+
+.mod-p-dynamic-confirm .main .price {
+    margin: 0 auto;
+    padding-top: 25px;
+    font-size: 17px;
+    line-height: 19px;
+    width: 72%;
+    text-align: center;
+    color: #666;
+}
+
+.mod-p-dynamic-confirm .main .member-message {
+    margin: 0 auto;
+    font-size: 14px;
+    color: #393939;
+    line-height: 20px;
+    width: 260px;
+    text-align: center;
+}
+
+.mod-p-dynamic-confirm .main .price .text {
+    display: block;
+}
+
+.mod-p-dynamic-confirm .main .ratio-detail .span2 {
+    font-family: "PingFangSC-Medium","STHeitiSC-Medium","HelveticaNeue-Medium","Microsoft YaHei",arial,sans-serif;
+    font-size: 50px;
+    color: #fa8f54;
+    line-height: 40px;
+}
+
+.mod-p-dynamic-confirm .main .ratio-detail .span3 {
+    padding-left: 4px;
+    font-size: 16px;
+    line-height: 1;
+    color: #fa8f54;
+}
+
+.mod-p-dynamic-confirm .main .tips {
+    font-size: 13px;
+    text-align: center;
+    color: #999;
+    padding-bottom: 10px;
+}
+
+.mod-p-dynamic-confirm .main .tip-icon {
+    width: 0.7rem;
+    height: 0.7rem;
+    display: inline-block;
+    padding: 0.1rem 0.3rem 0 0;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAgRJREFUSA29Vj1PAkEQvQ+wMGAv0YSExg4D/AYbEoy9FsbSxET/gPo/SGhILI0mNHb2BKSxM9Fo6KgkNnCH7y275DiX24N4TDLZvdmZ927fLjdY1prMNvH0er2d8Xh8iLzqZDIp2LadYw3mfczfMG2lUqmHYrH4xfgiW0jU6XRyvu/fovAU7i4CkHEPY8NxnOtSqdTX5WqJQFIDSRMFWV1RROwbZMcgewznOOFAu92+gCz3iC9LQqgsa4kRxp3bEXfCRPifFwgXRj3j7Hz4UXBnM0B5Jk0DyScATuDPUUTEoPTEVHkzInnwJrmeyuUyz66uACLGrMQUKUI6XuHRaPSOiOl2/SDnDn4A34WbzEun03lefbEj+TsxkRB0E34Gj0PCfFdiW0q6KqNRhnP5yGQyW5VKhSqcR+WG1gS2IMLhFUKLusft4XB40+12867rvuoSdDGFLYjwtrPboUtmDAUbGK7geXhsU9hKutiFqyYq6bTfp1VBg3VQQmAr6fgVTsQgncBW0rUSYZmCCmxBxH6CmJcAmSexp78j2bQaBqIBZKgh54Uu5wNDTUM1RCWdxaaFom9DIZf3pZtS2ZuIKUx869TDWtoEydg/cB0vIYuvyJcdWUuMYC8ixtyOFCh3lngrJxnfBvruYcq+E+c2MqfOmvBOEBem3ZFa5Phff7eCmInOfwHEOtJh5dfwogAAAABJRU5ErkJggg==") no-repeat;
+    background-size: 0.7rem 0.7rem;
+    line-height: 0.7rem;
+    vertical-align: middle;
+}
+
+.mod-p-dynamic-confirm .main .footer {
+    padding: 10px;
+}
+
+.mod-p-dynamic-confirm .main #agree,.mod-p-dynamic-confirm .main #wait,.mod-p-dynamic-confirm .main #guide {
+    position: relative;
+    display: block;
+    width: 91%;
+    height: 48px;
+    line-height: 48px;
+    font-size: 18px;
+    border: none;
+}
+
+.mod-p-dynamic-confirm .main #agree {
+    margin: auto;
+    color: #fff;
+    background-color: #4a4c5b;
+    border-radius: 2px;
+}
+
+.mod-p-dynamic-confirm .main #wait,.mod-p-dynamic-confirm .main #guide {
+    margin-top: 10px;
+    color: #333;
+    border-radius: 2px;
+    background: #fff;
+}
+
+.mod-p-dynamic-confirm .main #wait:after {
+    border-radius: 2px;
+}

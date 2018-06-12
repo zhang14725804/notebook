@@ -1,0 +1,18 @@
+{
+    "navigationBarTitleText": "首页",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "cap-slider": "../../../components/slider/index",
+        "cap-paid-column": "../../../components/paidcontent/column/index",
+        "cap-paid-content": "../../../components/paidcontent/content/index",
+        "service-due": "../../../components/shop/service-due/index",
+        "date-picker": "../../../components/datetime-picker/index",
+        "search": "../../../components/search/index",
+        "input-number": "../../../components/input-number/index",
+        "takeaway-bottom": "../../../components/showcase/takeAway/takeaway-bottom/index",
+        "takeaway-cart": "../../../components/showcase/takeAway/takeaway-cart/index",
+        "cap-rich-text": "../../../components/rich-text/index"
+    }
+}

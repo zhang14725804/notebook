@@ -1,0 +1,14 @@
+<view class="search-bar search-bar--{{cssModifier}}">
+    <view class="search-bar__inner">
+        <view class="search-bar__filter"></view>
+        <view bindtap="tapOnSearchBar" class="search-bar__input">
+            <view class="search-bar__input-box search-bar__input-box--{{cssModifier}}">
+                <text class="search-bar__input-text">{{searchKey?searchKey:'搜索喜欢的商品'}}</text>
+            </view>
+        </view>
+        <view bindtap="navigate" class="search-bar__shake" data-url="{{shakeEntrance.url}}" wx:if="{{shakeEntrance&&shakeEntrance.image}}">
+            <image class="search-bar__shake-image" mode="aspectFill" src="{{shakeEntrance.image}}"></image>
+        </view>
+        <view class="search-bar__filter" wx:else></view>
+    </view>
+</view>

@@ -1,0 +1,116 @@
+.top {
+    padding: 60rpx 0 60rpx 52rpx;
+    overflow: hidden;
+}
+
+.top .successIcon {
+    float: left;
+    width: 84rpx;
+    height: 84rpx;
+    margin-right: 22rpx;
+}
+
+.top text {
+    float: left;
+    font-size: 28rpx;
+    font-family: PingFangSC-Medium;
+    color: rgba(34,34,34,1);
+    line-height: 32rpx;
+}
+
+.top .successText {
+    font-size: 36rpx;
+    font-family: PingFangSC-Medium;
+    line-height: 40rpx;
+    margin-bottom: 20rpx;
+    display: block;
+}
+
+.shadow {
+    height: 16rpx;
+    background-color: #f8f8f8;
+}
+
+.info {
+    padding: 0 30rpx;
+}
+
+.info .shop_name {
+    font-size: 28rpx;
+    font-family: PingFangSC-Medium;
+    color: rgba(51,51,51,1);
+    line-height: 40rpx;
+    padding: 28rpx 0 4rpx;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+}
+
+.info .shop_address {
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(136,136,136,1);
+    line-height: 44rpx;
+}
+
+.info .contact {
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(19,128,255,1);
+    line-height: 40rpx;
+    display: block;
+    margin-top: 16rpx;
+    margin-bottom: 58rpx;
+}
+
+.contact .info_phone::after {
+    content: '';
+    width: 2rpx;
+    height: 20rpx;
+    background: rgba(216,216,216,1);
+    border-radius: 3rpx;
+    display: inline-block;
+    margin: 0 22rpx;
+}
+
+.info .title {
+    margin-top: 8rpx;
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(102,102,102,1);
+    line-height: 40rpx;
+    display: block;
+}
+
+.info .tips {
+    display: block;
+    margin: 48rpx 0 64rpx;
+    padding: 20rpx;
+    background-color: #F8F8F8;
+}
+
+.info .tips .tip_title {
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(51,51,51,1);
+    line-height: 40rpx;
+    display: block;
+}
+
+.info .tips .tip_desc {
+    font-size: 26rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(136,136,136,1);
+    line-height: 44rpx;
+}
+
+.info .back {
+    font-size: 32rpx;
+    font-family: PingFangSC-Medium;
+    color: rgba(51,51,51,1);
+    line-height: 96rpx;
+    height: 96rpx;
+    background: linear-gradient(90deg,rgba(255,240,59,1),rgba(255,214,41,1));
+    border-radius: 8rpx;
+    text-align: center;
+}

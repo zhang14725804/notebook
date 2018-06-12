@@ -1,0 +1,21 @@
+<template name="playlist">
+    <view class="mod_playlist">
+        <view class="mod_head">
+            <navigator hoverClass="none" url="/pages/playlist/index">
+                <view class="mod_title">我的看单</view>
+                <view class="arrow_right"></view>
+            </navigator>
+        </view>
+        <view catchtap="onTapPlaylistScrollList" class="mod_body {{response.videoAttentInfoList.length==0?'none':''}}">
+            <scroll-view bindscrolltolower="onPlaylistScrollToRight" class="figures_list figures_list_h" lowerThreshold="100" scrollX="true" wx:if="{{response.videoAttentInfoList.length>0}}">
+                <view catchtap="onTapPlaylist" class="list_item" data-cid="{{item.cid}}" data-url="{{item.poster&&item.poster.action&&item.poster.action.url}}" data-vid="{{item.vid}}" wx:for="{{response.videoAttentInfoList}}" wx:key="vid">
+                    <view class="figure">
+                        <image class="figure_pic" src="{{item.poster.imageUrl}}"></image>
+                        <view class="figure_caption" wx:if="{{item.shortTitle}}">{{item.shortTitle}}</view>
+                    </view>
+                    <view class="figure_title figure_title_two_row">{{item.poster.firstLine}}</view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</template>

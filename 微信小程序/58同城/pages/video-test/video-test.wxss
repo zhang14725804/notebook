@@ -1,0 +1,28 @@
+.videoWrap {
+    position: relative;
+    height: 500rpx;
+    display: block;
+    width: 100%;
+}
+
+#myVideo {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.view-close-btn {
+    background-color: red;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.view-close-img {
+    width: 40rpx;
+}
+
+button {
+    margin-top: 10rpx;
+}

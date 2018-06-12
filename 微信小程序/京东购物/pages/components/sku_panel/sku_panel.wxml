@@ -1,0 +1,47 @@
+<template name="sku_panel">
+    <view bindtap="{{_hideSkuPanel}}" class="sku_panel__mask"></view>
+    <view class="sku_panel__wrap sku_transision {{show?'on':''}}">
+        <view class="sku_panel__header">
+            <view class="sku_panel__header_img">
+                <image src="{{info.image}}"></image>
+            </view>
+            <view class="sku_panel__header_info">
+                <view class="sku_panel__header_price" wx:if="{{info.price[0]}}">
+                    ￥<text>{{info.price[0]}}</text>.{{info.price[1]}}
+                </view>
+                <view class="sku_panel__header_spec line2" wx:if="{{info.text}}">已选：<text>{{info.text}}</text>
+                </view>
+            </view>
+            <view bindtap="{{_hideSkuPanel}}" class="sku_panel__header_close">
+                <image src="/assets/images/sku_panel_close.png"></image>
+            </view>
+        </view>
+        <view class="sku_panel__content">
+            <view class="sku_panel__content_selection" wx:if="{{skuProps.length||info.text}}">
+                <view class="sku_panel__content_sku" wx:if="{{skuProp.value.length>=1}}" wx:for="{{skuProps}}" wx:for-item="skuProp">
+                    <view class="sku_panel__content_sku-name">{{skuProp.text}}</view>
+                    <view class="sku_panel__content_sku-select">
+                        <view bindtap="{{_changeSku}}" class="sku_panel__content_sku-item {{skuProp.current==item?'cur':''}} {{!skuProp.sale&&!skuProp.sku[idx]?'disabled':''}}" data-i="{{index}}" data-idx="{{idx}}" data-name="{{skuProp.name}}" data-val="{{item}}" wx:if="{{item}}" wx:for="{{skuProp.value}}" wx:for-index="idx">{{item}}</view>
+                    </view>
+                </view>
+                <view class="sku_panel__content_num" wx:if="{{numController}}">
+                    <view class="sku_panel__content_num-name">数量</view>
+                    <view class="sku_panel__content_num-calc num_picker">
+                        <view bindtap="{{_subNum}}" class="sub {{num.sub?'':'disabled'}}">
+                            <text>-</text>
+                        </view>
+                        <input bindblur="{{_inputNum}}" maxlength="3" type="number" value="{{num.total}}"></input>
+                        <view bindtap="{{_addNum}}" class="add {{num.add?'':'disabled'}}">
+                            <text>+</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="xloading sku_panel__content_center" wx:else></view>
+        </view>
+        <view class="sku_panel__tip" wx:if="{{itemTip}}">{{itemTip}}</view>
+        <view bindtap="{{_confirmSkuPanel}}" class="sku_panel__confirm {{canBuy?'':'disabled'}}">确认</view>
+    </view>
+</template>
+<import src="../common/toast/toast.wxml"></import>
+<template is="toast" data="{{...toast}}"></template>

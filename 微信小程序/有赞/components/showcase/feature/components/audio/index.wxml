@@ -1,0 +1,24 @@
+<template name="theme-feature-audio">
+    <view class="{{utils.getAudioClass(data.isLoaded,data.status)}}">
+        <view bind:tap="audio__trigger" class="{{utils.getAudioWeixinClass(data.bubble)}}" data-index="{{data.index}}" data-loop="{{data.loop}}" data-reload="{{data.reload}}" data-src="{{data.src}}" wx:if="{{data.isWeixinStyle}}">
+            <image alt="音频播放logo" class="cap-audio-logo" src="{{data.logo}}"></image>
+            <view class="cap-audio-bar">
+                <image class="cap-audio-animation" hidden="{{data.status!==1}}" src="{{data.playerImg}}"></image>
+                <text class="cap-audio-animation-static"></text>
+                <image class="cap-audio-loading" hidden="{{!data.isLoading}}" src="{{data.loadingIcon}}"></image>
+            </view>
+            <text class="cap-audio-time" wx:if="{{data.isLoaded}}">{{data.formatedDuration}}</text>
+        </view>
+        <view class="cap-audio--music" wx:else>
+            <text bind:tap="audio__trigger" class="cap-audio-btn {{utils.getStatusClass(data.status,data.reload)}}" data-index="{{data.index}}" data-loop="{{data.loop}}" data-reload="{{data.reload}}" data-src="{{data.src}}"></text>
+            <view class="cap-audio-info">
+                <view class="cap-audio-title">{{data.title}}</view>
+                <image class="cap-audio-loading" hidden="{{!data.isLoading}}" src="{{data.loadingIcon}}"></image>
+                <cap-slider bind:value-update="audio__updateProgress" color="#fff" data-index="{{data.index}}" disabled="{{!data.canPlay}}" finishedColor="#4b0" inactive="{{false}}" inactiveColor="#fff" pivotOffset="-2px" sliderClass="cap-slider--sc-audio" value="{{data.percentage}}"></cap-slider>
+                <text class="cap-audio-time" wx:if="{{data.isLoaded}}">{{data.formatedCurrentTime}}</text>
+                <text class="cap-audio-duration" wx:if="{{data.isLoaded}}">{{data.formatedDuration}}</text>
+            </view>
+        </view>
+    </view>
+</template>
+<wxs module="utils" src="index.wxs" />

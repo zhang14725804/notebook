@@ -1,0 +1,100 @@
+<template name="profilesPanel">
+    <view class="profilesPanel">
+        <view class="profilesPanel_item">
+            <view class="profilesPanel_header">
+                <view class="profilesPanel_header_left">公司简介</view>
+                <view class="profilesPanel_header_right"></view>
+            </view>
+            <view class="profilesPanel_content">
+                <view class="profilesPanel_content_tr1">
+                    <view class="profilesPanel_content_tr1_td1">所属行业</view>
+                    <view class="profilesPanel_content_tr1_td2">互联网</view>
+                </view>
+                <view class="profilesPanel_content_tr1">
+                    <view class="profilesPanel_content_tr1_td1">所属概念</view>
+                    <view class="profilesPanel_content_tr1_td2">虚拟现实</view>
+                </view>
+                <view class="profilesPanel_content_tr1">
+                    <view class="profilesPanel_content_tr1_td1">公司名称</view>
+                    <view class="profilesPanel_content_tr1_td2">乐视网信息技术(北京)股份有限公司</view>
+                </view>
+                <view class="profilesPanel_content_tr1">
+                    <view class="profilesPanel_content_tr1_td1">上市日期</view>
+                    <view class="profilesPanel_content_tr1_td2">乐视网信息技术(北京)2010-08-12</view>
+                </view>
+                <view class="profilesPanel_content_tr1">
+                    <view class="profilesPanel_content_tr1_td1">发行价格</view>
+                    <view class="profilesPanel_content_tr1_td2">25000.00万股</view>
+                </view>
+            </view>
+        </view>
+        <view class="profilesPanel_item">
+            <view class="profilesPanel_header">
+                <view class="profilesPanel_header_left">股东股本（2016-09-30）</view>
+                <view class="profilesPanel_header_right">流通股东</view>
+            </view>
+            <view class="profilesPanel_content">
+                <view class="profilesPanel_content_left">
+                    <view class="profilesPanel_content_tr2">
+                        <view class="profilesPanel_content_tr2_td1">总股本</view>
+                        <view class="profilesPanel_content_tr2_td2">198,168万股</view>
+                    </view>
+                    <view class="profilesPanel_content_tr2">
+                        <view class="profilesPanel_content_tr2_td1">股东人数</view>
+                        <view class="profilesPanel_content_tr2_td2">149,689户(较上期减15875)</view>
+                    </view>
+                    <view class="profilesPanel_content_tr2">
+                        <view class="profilesPanel_content_tr2_td1">人均持股</view>
+                        <view class="profilesPanel_content_tr2_td2">12,239股</view>
+                    </view>
+                </view>
+                <view class="profilesPanel_content_right">
+	    		>
+	    	</view>
+            </view>
+        </view>
+        <view class="profilesPanel_item">
+            <view class="profilesPanel_header">
+                <view class="profilesPanel_header_left">主营收入构成</view>
+                <view class="profilesPanel_header_right">单位:元</view>
+            </view>
+            <view class="profilesPanel_content">
+                <view class="profilesPanel_content_tr2">
+                    <view class="profilesPanel_content_tr2_td1">影视剧发行</view>
+                    <view class="profilesPanel_content_tr2_td2">198,168万股</view>
+                </view>
+                <view class="profilesPanel_content_tr2">
+                    <view class="profilesPanel_content_tr2_td1">股东人数</view>
+                    <view class="profilesPanel_content_tr2_td2">149,689户(较上期减15875)</view>
+                </view>
+                <view class="profilesPanel_content_tr2">
+                    <view class="profilesPanel_content_tr2_td1">人均持股</view>
+                    <view class="profilesPanel_content_tr2_td2">12,239股</view>
+                </view>
+            </view>
+        </view>
+        <view class="profilesPanel_item">
+            <view class="profilesPanel_header">
+                <view class="profilesPanel_header_left">分红送配</view>
+                <view class="profilesPanel_header_right"></view>
+            </view>
+            <view class="profilesPanel_content">
+                <view class="profilesPanel_content_tr3">
+                    <view class="profilesPanel_content_tr3_td1">年度</view>
+                    <view class="profilesPanel_content_tr3_td2">方案</view>
+                    <view class="profilesPanel_content_tr3_td3">除权日</view>
+                </view>
+                <view class="profilesPanel_content_tr3">
+                    <view class="profilesPanel_content_tr3_td1">2015</view>
+                    <view class="profilesPanel_content_tr3_td2">10派0.3</view>
+                    <view class="profilesPanel_content_tr3_td3">2016-05-09</view>
+                </view>
+                <view class="profilesPanel_content_tr3">
+                    <view class="profilesPanel_content_tr3_td1">2014</view>
+                    <view class="profilesPanel_content_tr3_td2">10派1.5</view>
+                    <view class="profilesPanel_content_tr3_td3">2016-05-09</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

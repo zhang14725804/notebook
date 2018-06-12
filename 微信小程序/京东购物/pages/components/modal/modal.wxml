@@ -1,0 +1,23 @@
+<view class="modal">
+    <view class="modal_main" wx:if="{{modal.show}}">
+        <view class="modal_mask"></view>
+        <view class="modal_content">
+            <view bindtap="close" class="modal_content_close">
+                <image src="/assets/images/moda_alert_close.png"></image>
+            </view>
+            <view class="modal_icon">
+                <image src="{{icon[modal.status]}}"></image>
+            </view>
+            <view class="modal_hd line1">
+                <text class="modal_title">{{modal.title}}</text>
+            </view>
+            <view class="modal_bd">
+                <view wx:for="{{modal.bd}}">{{item}}</view>
+            </view>
+            <view class="modal_ft">
+                <view bindtap="cancel" class="modal_btn default" data-action="{{modal.cancelAction}}" style="color: {{modal.cancelColor}}" wx:if="{{modal.cancelText}}">{{modal.cancelText}}</view>
+                <view bindtap="confirm" class="modal_btn primary" data-action="{{modal.confirmAction}}" style="color: {{modal.confrimColor}}">{{modal.confirmText}}</view>
+            </view>
+        </view>
+    </view>
+</view>

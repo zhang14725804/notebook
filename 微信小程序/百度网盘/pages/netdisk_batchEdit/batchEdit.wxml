@@ -1,0 +1,25 @@
+<import src="../../netdisk_templates/file_list/fileList.wxml"></import>
+<import src="../../netdisk_templates/toast/toast.wxml"></import>
+<import src="../../netdisk_templates/dialog/dialog.wxml"></import>
+<view class="batch-edit-holder" is_owner="{{isOwner}}">
+    <view class="bacth-bound">
+        <view bindtap="selectedAll" class="info-tab">{{isSelectedAll?'取消全选':'全选'}}</view>
+        <view class="info-tab">已选中{{selectedCount}}个文件</view>
+        <view bindtap="backForward" class="info-tab">后退</view>
+    </view>
+    <view class="batch-content" style="height:{{boxHeight}}rpx">
+        <template is="fileList" data="{{fileListTabData:fileListTabData,emptymod:'batchEditList'}}"></template>
+    </view>
+    <view class="bacth-bound">
+        <view bindtap="renameItems" class="bottom-menu {{selectList.length===1?'':'batch-disabled'}}">
+            <view class="batch-op-icon icon-rename"></view>
+            重命名
+        </view>
+        <view bindtap="deleteItems" class="bottom-menu {{selectList.length>0?'':'batch-disabled'}}">
+            <view class="batch-op-icon icon-delete"></view>
+            删除
+        </view>
+    </view>
+</view>
+<template is="toast" data="{{...wetoast}}"></template>
+<template is="dialog" data="{{dialogData:dialogData}}"></template>

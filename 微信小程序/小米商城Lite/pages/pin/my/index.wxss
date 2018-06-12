@@ -1,0 +1,96 @@
+@import "../tpl/index.wxss";
+
+@import "../../../__wuBaseWxss__/8.wxss";
+
+.mx-pin-order {
+    margin-top: 16rpx;
+    background: #fff;
+}
+
+.mx-pin-order-hd {
+    height: 80rpx;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    padding: 0 32rpx;
+    color: #888;
+    border-bottom: 1rpx solid #f3f3f3;
+}
+
+.mx-pin-order-bd {
+    min-height: 180rpx;
+    padding: 16rpx 32rpx 16rpx 220rpx;
+    position: relative;
+}
+
+.mx-pin-order-bd .img {
+    position: absolute;
+    top: 16rpx;
+    left: 32rpx;
+    width: 180rpx;
+    height: 180rpx;
+}
+
+.mx-pin-order-bd .name {
+    margin-top: 50rpx;
+    margin-right: 140rpx;
+    font-size: 32rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.mx-pin-order-bd .tags {
+    font-size: 24rpx;
+    color: #888;
+}
+
+.mx-pin-order-bd .more {
+    position: absolute;
+    top: 66rpx;
+    right: 32rpx;
+    color: #888;
+    text-align: right;
+}
+
+.mx-pin-order-bd .price {
+    display: block;
+    font-size: 28rpx;
+}
+
+.mx-pin-order-bd .num {
+    font-size: 24rpx;
+}
+
+.mx-pin-order-ft {
+    padding: 24rpx 32rpx;
+    height: 60rpx;
+    border-top: 1rpx solid #f3f3f3;
+    text-align: right;
+}
+
+.mx-pin-order-ft .btn {
+    display: inline-block;
+    width: 170rpx;
+    margin-left: 24rpx;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    background: #fff;
+    color: #999;
+}
+
+.mx-pin-order-ft .btn::after {
+    border-color: #999;
+}
+
+.mx-pin-order-ft .btn-primary {
+    color: #ff6700;
+}
+
+.mx-pin-order-ft .btn-primary::after {
+    border-color: #ff6700;
+}
+
+.mx-pin-order-hd text {
+    float: right;
+    color: #ff6700;
+}

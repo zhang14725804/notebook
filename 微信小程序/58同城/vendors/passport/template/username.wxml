@@ -1,0 +1,26 @@
+<template name="username">
+    <view class="user input-block">
+        <input bindfocus="focus" bindinput="inputEvent" class="input" data-type="userVal" id="userLoginName" name="username" placeholder="用户名/电子邮箱/手机号" placeholderStyle="color:#ccc;" type="text" value="{{userVal}}"></input>
+        <view bindtap="resetClick" class="reset-block code1-reset" data-type="userVal" hidden="{{userVal?false:true}}">
+            <icon class="reset"></icon>
+        </view>
+    </view>
+    <view class="pwd input-block">
+        <input bindfocus="focus" bindinput="inputEvent" class="input {{passwordHide?'pwdwarn':''}}" data-type="passwordVal" name="password" password="{{passwordHide}}" placeholder="请输入密码" placeholderStyle="color:#ccc;" value="{{passwordVal}}"></input>
+        <view catchtap="resetClick" class="reset-block code1-reset" data-type="passwordVal" hidden="{{passwordVal?false:true}}">
+            <icon class="reset"></icon>
+        </view>
+        <view bindtap="eyetap" class="fill-right-block eye nocenter">
+            <icon class="{{passwordHide?'password-icon closeeye':'password-icon'}} "></icon>
+        </view>
+    </view>
+    <view class="userPicverifyCode input-block" wx:if="{{userPicverifyCodeShow}}">
+        <input bindinput="inputEvent" class="input" data-type="userValidcodeVal" name="validcode" placeholder="请输入图片验证码" placeholderStyle="color:#ccc;" value="{{userValidcodeVal}}"></input>
+        <view catchtap="resetClick" class="reset-block code1-reset" data-type="userValidcodeVal" hidden="{{userValidcodeVal?false:true}}">
+            <icon class="reset"></icon>
+        </view>
+        <view bindtap="getVcodeUrl" class="pic-verify">
+            <image class="pic-verify-url" src="{{validcodeUrl2}}"></image>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,37 @@
+<view class="mod-p-cancel-trip must-be">
+    <view class="container">
+        <view class="content">
+            <view class="main">
+                <view class="main-cont">
+                    <view class="text">
+                        <view class="text-1 cancel-trip-text">
+                            <text class="" xmlns:wx="" wx:for="{{state.d.fee_msg}}" wx:for-index="item_fst_kindex" wx:for-item="item_fst_k" wx:key="key-fst-k">
+                                <text class="{{item_fst_k.color}}">{{item_fst_k.message}}</text>
+                            </text>
+                        </view>
+                        <view class="text-2 cancel-trip-text">
+                            <text class="" wx:for="{{state.d.fee_explain_msg}}" wx:for-index="item_fst_kindex" wx:for-item="item_fst_k" wx:key="key-fst-k">
+                                <text class="{{item_fst_k.color}}">{{item_fst_k.message}}</text>
+                            </text>
+                        </view>
+                    </view>
+                    <image class="icon" src="{{state.iconType}}" style="" wx:if="{{state.iconType}}"></image>
+                    <view class="strive-wrap" wx:if="{{state.d.icon_type==103}}">
+                        <view class="strive">{{state.currTimeMm}}:{{state.currTimeSs}}</view>
+                        <view class="distance" wx:if="{{state.d.advice_msg}}">
+                            <view class="bot">{{state.d.advice_msg}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="bottom">
+                <view bindtap="_dispatch" class="rule-text" data-bindtap="ruleLinkHandler">取消规则</view>
+                <view class="mfic mfic-click"></view>
+            </view>
+            <view class="button-group">
+                <view bindtap="_dispatch" class="wait" data-bindtap="waitHandler">{{state.d.uncancel_button}}</view>
+                <view bindtap="_dispatch" class="confirm" data-bindtap="confirmHandler">{{state.d.cancel_button}}</view>
+            </view>
+        </view>
+    </view>
+</view>

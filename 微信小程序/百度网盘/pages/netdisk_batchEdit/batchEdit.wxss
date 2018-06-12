@@ -1,0 +1,51 @@
+@import "../../netdisk_templates/file_list/fileList.wxss";
+
+@import "../../netdisk_templates/dialog/dialog.wxss";
+
+.batch-edit-holder {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.batch-edit-holder .bacth-bound {
+    z-index: 10;
+    height: 112rpx;
+    display: flex;
+    padding: 0 32rpx;
+    color: #333;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: 0rpx 0rpx 28rpx 0rpx rgba(212,221,236,.45);
+}
+
+.batch-edit-holder .bacth-bound .info-tab:nth-child(odd) {
+    font-size: 32rpx;
+    color: #3888ff;
+}
+
+.batch-edit-holder .bacth-bound .info-tab {
+    font-size: 34rpx;
+}
+
+.batch-edit-holder .bacth-bound .batch-op-icon {
+    width: 48rpx;
+    height: 48rpx;
+    background-size: 48rpx;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 8rpx;
+}
+
+.batch-edit-holder .bacth-bound .bottom-menu {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-size: 23rpx;
+    flex-direction: column;
+}
+
+.batch-edit-holder .bacth-bound .batch-disabled {
+    opacity: 0.3;
+}

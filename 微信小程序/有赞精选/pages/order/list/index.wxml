@@ -1,0 +1,18 @@
+<import src="../../../bower_components/zan/dist/tab/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/loadmore/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="./wxml/item.wxml"></import>
+<import src="../../../templates/copyright.wxml"></import>
+<view class="container order-list">
+    <view class="order-list__tab" wx:if="{{showTab}}">
+        <template is="zan-tab" data="{{tab:tab,componentId:'tab'}}"></template>
+    </view>
+    <scroll-view bindscrolltolower="fetchMore" class="order-list__list {{showTab?'order-list__list-padding':''}}" lowerThreshold="150" scrollY="true">
+        <view class="order-list__container">
+            <template is="item" data="{{list:list[tab.selectedId]['list'],selectedId:tab.selectedId,animation:animation}}"></template>
+            <template is="zan-loadmore" data="{{nodata:list[tab.selectedId].finished&&list[tab.selectedId]['list'].length==0,nomore:list[tab.selectedId].finished&&list[tab.selectedId]['list'].length>2,loading:!list[tab.selectedId].finished,nodata_str:'暂无订单'}}"></template>
+        </view>
+        <template is="copyright" data="{{withScroll:true,copyright:copyright,is_big_shop:is_big_shop}}"></template>
+    </scroll-view>
+</view>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>

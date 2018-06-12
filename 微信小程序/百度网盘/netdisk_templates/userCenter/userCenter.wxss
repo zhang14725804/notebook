@@ -1,0 +1,170 @@
+.usercenter-wrap {
+    width: 100%;
+    background: #f6f7f9;
+    height: 100%;
+    margin-top: 28rpx;
+}
+
+.userinfo-wrap {
+    width: 100%;
+    height: 324rpx;
+    background: #fff;
+    padding: 98rpx 32rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.userinfo-wrap .avatar-wrap {
+    width: 128rpx;
+    height: 128rpx;
+    border-radius: 50%;
+    margin-right: 32rpx;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: 128rpx 128rpx;
+    margin-top: -6rpx;
+    background-color: #ebebeb;
+}
+
+.userinfo-wrap .avatar-wrap .avatar-logo {
+    width: 56rpx;
+    height: 56rpx;
+    background-image: url('https://pan.baidu.com/h5-static/mini-program/images/ic_avatar_logo.png');
+    background-repeat: no-repeat;
+    background-size: 56rpx 56rpx;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: -8rpx;
+}
+
+.userinfo-wrap .userinfo {
+    width: calc(100% - 160rpx);
+    height: 128rpx;
+    line-height: 100%;
+}
+
+.userinfo-wrap .userinfo .userinfo-title .userinfo-name {
+    color: #333;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.userinfo-wrap .userinfo .userinfo-title .userinfo-typeIcon0 {
+    width: 68rpx;
+    height: 32rpx;
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/ic_non_member.png');
+    background-repeat: no-repeat;
+    background-size: 68rpx 32rpx;
+    display: inline-block;
+    margin-left: 24rpx;
+    vertical-align: middle;
+    margin-top: -3rpx;
+}
+
+.userinfo-wrap .userinfo .userinfo-title .userinfo-typeIcon1 {
+    width: 68rpx;
+    height: 32rpx;
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/ic_member.png');
+    background-repeat: no-repeat;
+    background-size: 68rpx 32rpx;
+    display: inline-block;
+    margin-left: 24rpx;
+    vertical-align: middle;
+    margin-top: -3rpx;
+}
+
+.userinfo-wrap .userinfo .userinfo-title .userinfo-typeIcon2 {
+    width: 68rpx;
+    height: 32rpx;
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/ic_super_member.png');
+    background-repeat: no-repeat;
+    background-size: 68rpx 32rpx;
+    display: inline-block;
+    margin-left: 24rpx;
+    vertical-align: middle;
+    margin-top: -3rpx;
+}
+
+.userinfo-wrap .userinfo .quota-des {
+    color: #333;
+    font-size: 24rpx;
+}
+
+.userinfo-wrap .userinfo .quota-wrap {
+    margin: 20rpx 0;
+}
+
+.userinfo-wrap .userinfo .quota-wrap .quota-default {
+    width: 100%;
+    height: 10rpx;
+    background-color: #ebebeb;
+    border-radius: 10rpx;
+}
+
+.userinfo-wrap .userinfo .quota-wrap .quota-e {
+    width: 0.01%;
+    height: 10rpx;
+    background-color: #4ce33c;
+    border-radius: 10rpx;
+    transition: width ease;
+}
+
+.userinfo-wrap .userinfo .quota-wrap .quota-n {
+    width: 0.01%;
+    height: 10rpx;
+    background-color: #fd9600;
+    border-radius: 10rpx;
+    transition: width ease;
+}
+
+.userinfo-wrap .userinfo .quota-wrap .quota-t {
+    width: 0.01%;
+    height: 10rpx;
+    background-color: #ff5455;
+    border-radius: 10rpx;
+    transition: width ease;
+}
+
+.usercenter-wrap .feedbackWrap {
+    background: #fff;
+    border: none;
+    outline: none;
+    border-color: #fff;
+    text-align: inherit;
+    line-height: 128rpx;
+    width: 100%;
+    height: 128rpx;
+    padding: 0 32rpx;
+    box-sizing: border-box;
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 32rpx;
+}
+
+.usercenter-wrap .feedbackWrap::after {
+    content: none;
+}
+
+.usercenter-wrap .feedbackWrap .feedbackMore {
+    width: 16rpx;
+    height: 28rpx;
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/ic_mine_more.png') no-repeat;
+    background-size: 16rpx 28rpx;
+    display: inline-block;
+}
+
+.usercenter-wrap .userCenterSlogen {
+    width: 100%;
+    height: 75rpx;
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/logo_slogan.png') no-repeat;
+    background-position: center;
+    background-size: 231rpx 75rpx;
+    position: fixed;
+    bottom: 32rpx;
+}

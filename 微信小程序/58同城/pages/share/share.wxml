@@ -1,0 +1,24 @@
+<import src="canvas/canvas.wxml"></import>
+<view class="container-share">
+    <view class="share-con">
+        <view class="current">
+            当前信息
+        </view>
+        <view class="title">
+            {{infoTitle}}
+        </view>
+        <view class="shareTo">
+            分享信息到
+        </view>
+        <view class="shareWx">
+            <form class="">
+                <button class="share-btn" hoverClass="none" openType="share">
+                    <image class="share-icon" mode="scaleToFill" src="https://img.58cdn.com.cn/weixin/img/wechat-app/shareToFriends.png"></image>
+                    <text class="share-word">分享好友</text>
+                </button>
+            </form>
+        </view>
+    </view>
+    <image class="code-pic" mode="scaleToFill" src="https://img.58cdn.com.cn/weixin/img/wechat-app/code.png"></image>
+</view>
+<template is="draw-canvas" data="{{canvasHeight:canvasHeight,canvasShow:canvasShow}}"></template>

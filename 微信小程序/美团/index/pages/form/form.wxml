@@ -1,0 +1,18 @@
+<form bindsubmit="formSubmit" reportSubmit="true">
+    <view class="form-container" style="{{isFormShow?'':'display: none;'}}">
+        <image class="bg" mode="{{image.mode}}" src="{{image.src}}" style="{{image.style}}"></image>
+        <button bindgetphonenumber="wxMobileLogin" bindtap="getLoginCode" class="go-button" openType="getPhoneNumber" style="{{go.style}}" wx:if="{{go.type===LOGIN_TYPE.wxMobileLogin}}">{{go.text}}</button>
+        <button bindtap="wxLogin" class="go-button" style="{{go.style}}" wx:elif="{{go.type===LOGIN_TYPE.wxLogin}}">{{go.text}}</button>
+        <button class="go-button" formType="submit" openType="{{go.type}}" style="{{go.style}}" wx:elif="true">{{go.text}}</button>
+        <view style="{{userPhoto.bgStyle}}" wx:if="{{userPhoto.show}}">
+            <image mode="{{userPhoto.mode}}" src="{{userPhoto.avatarUrl?userPhoto.avatarUrl:'http://p0.meituan.net/codeman/cb6a54c48c3503cd2e5381e969cb760515054.png'}}" style="{{userPhoto.mgStyle}}"></image>
+        </view>
+        <swiper autoplay="{{swiper.attr.autoplay}}" circular="{{swiper.attr.circular}}" displayMultipleItems="{{swiper.attr.displayMultipleItems}}" duration="{{swiper.attr.duration}}" interval="{{swiper.attr.interval}}" style="{{swiper.style}}" vertical="{{swiper.attr.vertical}}" wx:if="{{swiper.show&&noticeList&&noticeList.length}}">
+            <swiper-item wx:for="{{noticeList}}" wx:key="{{index}}">
+                <view style="{{swiper.sub.style}}">
+                    <text style="{{swiper.sub.text.style}}" wx:if="{{swiper.sub.text.show}}">{{item.mobile}}刚刚领取了{{item.name}}</text>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+</form>

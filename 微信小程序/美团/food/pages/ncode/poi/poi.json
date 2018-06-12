@@ -1,0 +1,14 @@
+{
+    "navigationBarTitleText": "商家详情",
+    "usingComponents": {
+        "dialog": "/food/components/dialog/dialog",
+        "loading": "/food/components/loading/loading",
+        "mode-card": "/food/components/modecard/modecard",
+        "tabs": "/food/components/tabs/tabs",
+        "deal-card": "/food/components/dealcard/dealcard",
+        "voucher-card": "/food/components/voucher/voucher",
+        "pai-card": "/food/components/paicard/paicard",
+        "tj-card": "/food/components/tjcard/tjcard",
+        "mt-back": "/index/components/mt-back/back"
+    }
+}

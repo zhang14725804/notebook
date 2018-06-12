@@ -1,0 +1,15 @@
+<view class="notes">
+    <view class="notes__h">
+        <view class="notes__h__name">{{name}}</view>
+        <view class="notes__h__price">
+            <view>最新价</view>
+            <view class="{{color}}">{{price}}</view>
+        </view>
+        <view class="notes__h__price">
+            <view>涨跌幅</view>
+            <view class="{{color}}">{{chgRatio}}</view>
+        </view>
+    </view>
+    <textarea autoFocus class="notes__c" placeholder="请输入您的购入理由和目标价位..."></textarea>
+    <button bindtap="bindSub" class="notes__button">提交</button>
+</view>

@@ -1,0 +1,66 @@
+<template name="quotePanel_cn_zs">
+    <view bindtap="bindQuotePanelToggle" class="quotePanel">
+        <view class="quotePanel__oldt">
+            <view class="quotePanel__oldt__l{{Updown?'--'+Updown:''}}">
+                <view class="quotePanel__oldt__l__price{{Price.length>7?Price.length>8?'--smaller':'--small':''}}">{{Price}}</view>
+                <view class="quotePanel__oldt__l__status" wx:if="{{Status!=''}}">
+           {{Status}}
+        </view>
+                <view class="quotePanel__oldt__l__others" wx:if="{{Status==''}}">
+                    <view>{{Chg}}</view>
+                    <view>{{ChgRatio}}</view>
+                </view>
+                <view class="quotePanel__oldt__l__date">
+                    <view wx:if="{{season}}">{{mktstatus}} {{TimeStamp}}({{season}})</view>
+                </view>
+            </view>
+            <view class="quotePanel__oldt__r">
+                <view class="quotePanel__oldt__r__col">
+                    <view class="quotePanel__oldt__r__col__w">
+                        <view class="quotePanel__oldt__r__col__i">上<span style="margin-left:24rpx;"></span>涨</view>
+                        <view class="quotePanel__oldt__r__col__v{{Zjs.length>=7?'--small':''}}">{{Zjs}}</view>
+                    </view>
+                    <view class="quotePanel__oldt__r__col__w">
+                        <view class="quotePanel__oldt__r__col__i">最<span style="margin-left:24rpx;"></span>高</view>
+                        <view class="quotePanel__oldt__r__col__v{{High.length>=7?'--small':''}}">{{High}}</view>
+                    </view>
+                </view>
+                <view class="quotePanel__oldt__r__col">
+                    <view class="quotePanel__oldt__r__col__w">
+                        <view class="quotePanel__oldt__r__col__i" style="text-indent:28rpx;">平<span style="margin-left:24rpx;"></span>盘</view>
+                        <view class="quotePanel__oldt__r__col__v{{Pjs.length>=7?'--small':''}}" style="text-indent:28rpx;">{{Pjs}}</view>
+                    </view>
+                    <view class="quotePanel__oldt__r__col__w">
+                        <view class="quotePanel__oldt__r__col__i" style="text-indent:28rpx;">最<span style="margin-left:24rpx;"></span>低</view>
+                        <view class="quotePanel__oldt__r__col__v{{Low.length>=7?'--small':''}}" style="text-indent:28rpx;">{{Low}}</view>
+                    </view>
+                </view>
+                <view class="quotePanel__oldt__r__col__last">
+                    <view class="quotePanel__oldt__r__col__w">
+                        <view class="quotePanel__oldt__r__col__i">下<span style="margin-left:24rpx;"></span>跌</view>
+                        <view class="quotePanel__oldt__r__col__v{{Djs.length>=7?'--small':''}}">{{Djs}}</view>
+                    </view>
+                    <view class="quotePanel__oldt__r__col__w">
+                        <view class="quotePanel__oldt__r__col__i">成交量</view>
+                        <view class="quotePanel__oldt__r__col__v{{Vol.length>=7?'--small':''}}">{{Vol}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view animation="{{heightAnimate}}" class="quotePanel__b2{{hqbox?'--show':''}}">
+            <view class="quotePanel__b2__col" style="padding-right: 40rpx;">
+                <view class="quotePanel__b2__col__i">今<span style="margin-left:24rpx;"></span>开</view>
+                <view class="quotePanel__b2__col__v{{Open.length>=7?'--small':''}}">{{Open}}</view>
+            </view>
+            <view class="quotePanel__b2__col" style="padding-right: 40rpx;">
+                <view class="quotePanel__b2__col__i">昨<span style="margin-left:24rpx;"></span>收</view>
+                <view class="quotePanel__b2__col__v{{PrevClose.length>=7?'--small':''}}">{{PrevClose}}</view>
+            </view>
+            <view class="quotePanel__b2__col">
+                <view class="quotePanel__b2__col__i">成交额</view>
+                <view class="quotePanel__b2__col__v{{Turnover.length>=7?'--small':''}}" style="text-align: right;">{{Turnover}}</view>
+            </view>
+        </view>
+        <view animation="{{toggleAnimate}}" class="quotePanel__toggle"></view>
+    </view>
+</template>

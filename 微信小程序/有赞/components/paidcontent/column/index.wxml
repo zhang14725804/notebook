@@ -1,0 +1,18 @@
+<view class="cap-paid-column {{themeClass}}">
+    <view bindtap="goToColumn" class="column-item {{noBorder?'no-border':''}}" data-alias="{{alias}}">
+        <image class="column-image" mode="aspectFill" src="{{cover}}"></image>
+        <view class="column-desc">
+            <view class="item-title main-text">{{title||''}}</view>
+            <view class="item-summary sub-text">{{summary||''}}</view>
+            <view class="column-count-wp">
+                <view>
+                    <text>已更新 {{count}} 期</text>
+                    <text wx:if="{{subCount}}"> | </text>
+                    <text wx:if="{{subCount}}">{{subCount}} 人订阅</text>
+                </view>
+                <view class="price-label theme-color" wx:if="{{price}}">￥{{price}}</view>
+                <view class="buy-time" wx:if="{{time}}">购买时间：{{time}}</view>
+            </view>
+        </view>
+    </view>
+</view>

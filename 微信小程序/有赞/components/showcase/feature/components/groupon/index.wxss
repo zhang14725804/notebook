@@ -1,0 +1,483 @@
+.cap-ump-groupon {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.cap-ump-groupon__view-more {
+    margin-top: 10px;
+    background: #fff;
+    line-height: 44px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.cap-ump-groupon__view-more-text {
+    position: relative;
+    color: #333;
+}
+
+.cap-ump-groupon__view-more-text:after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    right: -13px;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+    transform: rotate(45deg);
+}
+
+.cap-ump-groupon-goods {
+    position: relative;
+    padding: 10px;
+    background: #fff;
+}
+
+.cap-ump-groupon-goods__image-wrap {
+    position: relative;
+    padding-top: 100%;
+    width: 100%;
+    height: 0;
+}
+
+.cap-ump-groupon-goods__image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.cap-ump-groupon-goods__header {
+    position: relative;
+}
+
+.cap-ump-groupon-goods__groupon-nums {
+    box-sizing: border-box;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    padding: 0 5px 0 3px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 0 3px 3px 0;
+    background: rgba(0,0,0,.3);
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+}
+
+.cap-ump-groupon-goods__groupon-nums:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -9px;
+    width: 9px;
+    height: 18px;
+    background: url("https://img.yzcdn.cn/public_files/2017/11/22/22419433ff08421ad0cff3d88969b7a5.png") 0 0/contain no-repeat;
+}
+
+.cap-ump-groupon-goods__title {
+    color: #333;
+}
+
+.cap-ump-groupon-goods__body {
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.cap-ump-groupon-goods__discount {
+    display: inline-block;
+    padding: 0 5px;
+    margin-right: 5px;
+    color: #f44;
+    background: #ffecec;
+    line-height: 16px;
+    font-size: 11px;
+    border-radius: 16px;
+}
+
+.cap-ump-groupon-goods__goods-info {
+    position: relative;
+}
+
+.cap-ump-groupon-goods__groupon-price {
+    display: inline-block;
+    margin-right: 5px;
+    color: #f44;
+    font-weight: 700;
+}
+
+.cap-ump-groupon-goods__groupon-price-symbol,.cap-ump-groupon-goods__origin-price-symbol {
+    margin-right: 2px;
+}
+
+.cap-ump-groupon-goods__origin-price {
+    display: inline-block;
+    color: #999;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.cap-ump-groupon-goods__action {
+    text-align: center;
+    width: 68px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+}
+
+.cap-ump-groupon-goods__body--btn-0 .cap-ump-groupon-goods__action,.cap-ump-groupon-goods__body--btn-1 .cap-ump-groupon-goods__action {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 2rpx solid #f44;
+    border-radius: 20px;
+    background: #fff;
+    color: #f44;
+}
+
+.cap-ump-groupon-goods__body--btn-1 .cap-ump-groupon-goods__action {
+    background: #f44;
+    color: #fff;
+}
+
+.cap-ump-groupon-goods__modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.4);
+}
+
+.cap-ump-groupon-goods--end .cap-ump-groupon-goods__image-wrap:after,.cap-ump-groupon-goods--soldout .cap-ump-groupon-goods__image-wrap:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-image: url(https://img.yzcdn.cn/v2/image/wsc-wap/showcase/end.png);
+    background-size: contain;
+}
+
+.cap-ump-groupon-goods--soldout .cap-ump-groupon-goods__image-wrap:after {
+    background-image: url(https://img.yzcdn.cn/v2/image/wsc-wap/showcase/soldout.png);
+}
+
+.cap-ump-groupon--big .cap-ump-groupon-goods {
+    margin-bottom: 10px;
+}
+
+.cap-ump-groupon--big .cap-ump-groupon-goods:last-child {
+    margin-bottom: 0;
+}
+
+.cap-ump-groupon--big .cap-ump-groupon-goods--soldout .cap-ump-groupon-goods__image-wrap:after {
+    width: 100px;
+    height: 100px;
+}
+
+.cap-ump-groupon--big .cap-ump-groupon-goods--end .cap-ump-groupon-goods__image-wrap:after {
+    width: 100px;
+    height: 100px;
+}
+
+.cap-ump-groupon--big .cap-ump-groupon-goods__body--btn-0 .cap-ump-groupon-goods__action,.cap-ump-groupon--big .cap-ump-groupon-goods__body--btn-1 .cap-ump-groupon-goods__action {
+    right: 15px;
+    bottom: 10px;
+}
+
+.cap-ump-groupon--big .cap-ump-groupon-goods__title {
+    margin-bottom: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.cap-ump-groupon--big .cap-ump-groupon-goods__groupon-price-symbol {
+    font-size: 12px;
+}
+
+.cap-ump-groupon--big .cap-ump-groupon-goods__activity-tag {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 2px 6px;
+    height: 12px;
+    line-height: 12px;
+    vertical-align: 2px;
+    border-radius: 23px 0 0 23px;
+    background-color: #f44;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+
+.cap-ump-groupon--big .cap-ump-groupon-goods__body {
+    padding: 15px 5px 0;
+}
+
+.cap-ump-groupon--big .cap-ump-groupon-goods__groupon-price-yuan {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.cap-ump-groupon--big .cap-ump-groupon-goods__groupon-price-cent {
+    font-size: 12px;
+}
+
+.cap-ump-groupon--big .cap-ump-groupon-goods__activity-info {
+    position: relative;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    background: linear-gradient(270deg,#ff7979,#ff5f5f 50%,#f44);
+    color: #fff;
+}
+
+.cap-ump-groupon--preview .cap-ump-groupon--big .cap-ump-groupon-goods__action {
+    padding: 3px 10px;
+}
+
+.cap-ump-groupon--preview .cap-ump-groupon--big .cap-ump-groupon-goods__groupon-price-yuan {
+    font-size: 22px;
+}
+
+.cap-ump-groupon--preview .cap-ump-groupon--big .cap-ump-groupon-goods__activity-tag {
+    margin-right: 5px;
+}
+
+.cap-ump-groupon--preview .cap-ump-groupon--big .cap-ump-groupon-goods__origin-price {
+    margin-right: 2px;
+}
+
+.cap-ump-groupon--small {
+    padding: 0 12px;
+    margin-top: 7px;
+}
+
+.cap-ump-groupon--small .cap-ump-groupon-goods {
+    float: left;
+    padding: 3px;
+    width: 50%;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+.cap-ump-groupon--small .cap-ump-groupon-goods--soldout .cap-ump-groupon-goods__image-wrap:after {
+    width: 88px;
+    height: 88px;
+}
+
+.cap-ump-groupon--small .cap-ump-groupon-goods--end .cap-ump-groupon-goods__image-wrap:after {
+    width: 88px;
+    height: 88px;
+}
+
+.cap-ump-groupon--small .cap-ump-groupon-goods__title {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 18px;
+    height: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.cap-ump-groupon--small .cap-ump-groupon-goods__groupon-price {
+    line-height: 23px;
+}
+
+.cap-ump-groupon--small .cap-ump-groupon-goods__activity-tag {
+    display: inline-block;
+    margin-right: 8px;
+    color: #f44;
+    font-size: 12px;
+}
+
+.cap-ump-groupon--small .cap-ump-groupon-goods__groupon-price {
+    font-weight: 400;
+}
+
+.cap-ump-groupon--small .cap-ump-groupon-goods__body {
+    padding: 10px;
+}
+
+.cap-ump-groupon--small .cap-ump-groupon-goods__activity-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: -20px;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    background: rgba(0,0,0,.3);
+    white-space: nowrap;
+}
+
+.cap-ump-groupon--small .cap-ump-groupon-goods__origin-price {
+    display: block;
+    font-size: 10px;
+    line-height: 14px;
+}
+
+.cap-ump-groupon--small .cap-ump-groupon-goods__groupon-price-symbol {
+    font-size: 12px;
+}
+
+.cap-ump-groupon--small .cap-ump-groupon-goods__groupon-price-cent,.cap-ump-groupon--small .cap-ump-groupon-goods__groupon-price-yuan {
+    font-size: 16px;
+}
+
+.cap-ump-groupon--small:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.cap-ump-groupon--small~.cap-ump-groupon__view-more {
+    margin-top: 7px;
+}
+
+.cap-ump-groupon--list {
+    position: relative;
+    padding: 0 15px;
+    background: #fff;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods {
+    padding-left: 0;
+    padding-right: 0;
+    height: 110px;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    pointer-events: none;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods:last-child:after {
+    border: 0;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods--soldout .cap-ump-groupon-goods__image-wrap:after {
+    width: 60px;
+    height: 60px;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods--end .cap-ump-groupon-goods__image-wrap:after {
+    width: 60px;
+    height: 60px;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods__groupon-nums {
+    left: 14px;
+    bottom: 5px;
+    height: 14px;
+    line-height: 14px;
+    font-size: 10px;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods__groupon-nums:before {
+    left: -7px;
+    height: 14px;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods__activity-tag {
+    display: inline-block;
+    margin: 0 8px 12px 0;
+    padding: 2px 6px;
+    height: 12px;
+    line-height: 12px;
+    vertical-align: 2px;
+    border-radius: 23px 0 0 23px;
+    background-color: #f44;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods__origin-price {
+    display: block;
+    font-size: 10px;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods__header {
+    float: left;
+    margin-right: 10px;
+    width: 110px;
+    height: 110px;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods__body {
+    position: relative;
+    padding: 0;
+    height: 110px;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 14px;
+    line-height: 17px;
+    max-height: 34px;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods__groupon-price {
+    font-weight: 400;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods__goods-info {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    line-height: 20px;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods__groupon-price-symbol {
+    font-size: 12px;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods__groupon-price-cent,.cap-ump-groupon--list .cap-ump-groupon-goods__groupon-price-yuan {
+    font-size: 18px;
+}
+
+.cap-ump-groupon--list .cap-ump-gorupon-goods__body--btn-0 .cap-ump-groupon-goods__action {
+    background: #f44;
+    color: #fff;
+}
+
+.cap-ump-groupon--list .cap-ump-groupon-goods__body--btn-0 .cap-ump-groupon-goods__action,.cap-ump-groupon--list .cap-ump-groupon-goods__body--btn-1 .cap-ump-groupon-goods__action {
+    position: absolute;
+    border-radius: 16px;
+}
+
+.cap-ump-groupon--preview .cap-ump-groupon--list .cap-ump-groupon-goods__action {
+    padding: 3px 10px;
+}

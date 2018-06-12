@@ -1,0 +1,226 @@
+@import "../../../__wuBaseWxss__/4.wxss";
+
+@import "../../../app.wxss";
+
+.detail_tab {
+    margin-top: 15px;
+    display: flex;
+    height: 44px;
+    line-height: 44px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.detail_tab .tab_item {
+    flex: 1;
+    text-align: center;
+    background: #fff;
+    border-bottom: 1rpx solid #ddd;
+}
+
+.detail_tab .tab_item.cur {
+    color: #E93B3D;
+    border-bottom: 2px solid #E93B3D;
+}
+
+.description {
+    padding-bottom: 20px;
+}
+
+.description .xlist_item {
+    margin: 0;
+}
+
+.description .load_tips {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.description image {
+    display: block;
+}
+
+.section_intro {
+    padding-bottom: 10px;
+}
+
+.section_intro_video {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 250px;
+    margin: 10px 0;
+}
+
+.section_intro_title_wrap {
+    margin: 10px 0 5px;
+    position: relative;
+    text-align: center;
+    background: transparent;
+}
+
+.section_intro_line {
+    position: absolute;
+    top: 10px;
+    left: 15rpx;
+    height: 1rpx;
+    width: 720rpx;
+    background: #6A77B6;
+    z-index: 1;
+}
+
+.section_intro_title {
+    position: relative;
+    z-index: 2;
+    font-size: 16px;
+    margin-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #6A77B6;
+    background: #ffffff;
+    width: 190rpx;
+}
+
+.section_intro_title::before,.section_intro_title::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    display: block;
+    width: 1rpx;
+    background: #6A77B6;
+    height: 90%;
+    transform: rotate(30deg);
+}
+
+.section_intro_title::before {
+    left: 0;
+}
+
+.section_intro_title::after {
+    right: 0;
+}
+
+.intro_book_or_disk .sep_header {
+    margin: 15px 10px 10px;
+}
+
+.intro_book_or_disk .p {
+    display: block;
+    margin: 10px 0;
+    padding: 0 10px;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+.intro_book_or_disk image {
+    display: block;
+}
+
+.intro_others {
+    padding-top: 10px;
+}
+
+.section_specs {
+    padding: 0px 10px 10px;
+}
+
+.section_specs .sep_header {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.section_specs .xtable {
+    font-size: 12px;
+}
+
+.section_service {
+    padding: 0px 10px 10px;
+}
+
+.section_service .vary {
+    padding-top: 5px;
+}
+
+.section_service .sep_header {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.section_service .p {
+    display: block;
+    margin: 10px 0;
+    font-size: 12px;
+}
+
+.section_service .link {
+    display: inline;
+    color: #6a77b6;
+}
+
+.sep_header {
+    position: relative;
+    text-align: center;
+}
+
+.sep_header text {
+    position: relative;
+    padding: 0 .8em;
+    font-size: 14px;
+    color: #666;
+    background: #fff;
+}
+
+.sep_header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 0;
+    border-top: 1rpx solid #dfdfdf;
+}
+
+.xtable {
+    border-top: 1rpx solid #dfdfdf;
+    border-right: 1rpx solid #dfdfdf;
+    border-left: 1rpx solid #dfdfdf;
+}
+
+.xtable .xtable_tr {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #dfdfdf;
+}
+
+.xtable .xtable_tr.sep_line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 30%;
+    bottom: 0;
+    width: 0;
+    border-right: 1rpx solid #dfdfdf;
+}
+
+.xtable .xtable_td {
+    box-sizing: border-box;
+    padding: 8px 5px;
+    line-height: 1.3;
+    text-align: center;
+    word-break: break-all;
+}
+
+.xtable .xtable_td.title {
+    flex: 1;
+    padding: 10px 0;
+}
+
+.xtable .xtable_td.label {
+    width: 30%;
+}
+
+.xtable .xtable_td.content {
+    flex: 1;
+}

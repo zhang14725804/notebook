@@ -1,0 +1,55 @@
+<template name="tpl_coupon">
+    <view class="xcoupon type_{{coupon.type}} {{coupon.disabled==true||coupon.isDiscountCoupon?'disabled':''}} {{size=='mart'?'size_mart':''}} {{size=='small'?'size_small':''}}">
+        <view class="xcoupon_main">
+            <block wx:if="{{coupon.mode=='store'}}">
+                <text clsss="xcoupon_discount" wx:if="{{coupon.discountStair}}">{{coupon.discountStair}}折</text>
+                <text class="xcoupon_price" wx:else>¥<text>{{coupon.price}}</text>
+                </text>
+            </block>
+            <text class="xcoupon_price" wx:else>
+                <block wx:if="{{coupon.isDiscountCoupon}}">
+                    <block wx:if="{{coupon.discountInfo.info.length==1}}">
+                        <text class="text_big">{{coupon.discountInfo.info[0].discountRate*10}}</text>
+                        <text class="text_normal">折</text>
+                    </block>
+                    <text class="text_normal" wx:if="{{coupon.discountInfo.info.length>1}}">{{coupon.discountInfo.info[coupon.discountInfo.info.length-1].discountRate*10}}~{{coupon.discountInfo.info[0].discountRate*10}}折</text>
+                </block>
+                <block wx:else>¥<text>{{coupon.price}}</text>
+                </block>
+            </text>
+            <view class="xcoupon_msg">
+                <view class="xcoupon_condition">
+                    <block wx:if="{{coupon.mode!='store'}}">
+                        <block wx:if="{{coupon.isDiscountCoupon}}">
+                            <text class="xcoupon_condition_discount line3" wx:if="{{coupon.mode!='store'&&coupon.isDiscountCoupon}}">
+                                <text class="xcoupon_tag">{{coupon.type=='dong'?'东券':coupon.type=='jing'?'京券':coupon.type=='yun'?'运费券':''}}</text>
+                                <text class="vam">
+                                    <block wx:for="{{coupon.discountInfo.info}}" wx:key="{{index}}">满{{item.quota}}元享{{item.discountRate*10}}折，</block>最高立减{{coupon.discountInfo.high}}元
+                                </text>
+                            </text>
+                        </block>
+                        <view class="line1" wx:else>
+                            <text class="xcoupon_tag">{{coupon.type=='dong'?'东券':coupon.type=='jing'?'京券':coupon.type=='yun'?'运费券':''}}</text>
+                            <text class="xcoupon_condition_detail">{{!!coupon.conditionPrice&&coupon.conditionPrice!='0'?'满'+coupon.conditionPrice+'可用':'无金额门槛'}}</text>
+                        </view>
+                    </block>
+                    <text class="xcoupon_tag" wx:else>{{coupon.type=='dong'?'东券':coupon.type=='jing'?'京券':coupon.type=='yun'?'运费券':''}}</text>
+                </view>
+                <view class="xcoupon_kind line1">{{coupon.desc?coupon.desc:coupon.type=='yun'?'限京东自营商品（部分特殊商品运费除外）':'可购买京东全品类商品（特殊商品除外）'}}</view>
+            </view>
+        </view>
+        <view class="xcoupon_foot" wx:if="{{size!=='small'}}">
+            <text class="xcoupon_foot_text">{{coupon.platformType==0?'全平台':coupon.platformType==1?'限平台':''}}{{coupon.platformType==1&&coupon.areaType==2?'/地区':''}}<text class="xcoupon_date">{{coupon.date}}</text>
+            </text>
+            <text class="xcoupon_foot_text" wx:if="{{!coupon.isDiscountCoupon&&coupon.platformType==1}}">{{coupon.platformInfo}}</text>
+            <text class="xcoupon_foot_text" wx:if="{{!coupon.isDiscountCoupon&&coupon.areaType==2}}">{{coupon.areaDesc}}</text>
+            <text class="xcoupon_foot_text" wx:if="{{coupon.isDiscountCoupon}}">折扣券暂不支持在京东购物小程序版本使用</text>
+        </view>
+        <view class="xcoupon_foot" wx:if="{{size==='small'}}">
+            <text class="xcoupon_foot_text line1">{{coupon.desc?coupon.desc:'可购买京东全品类商品（特殊商品除外）'}}</text>
+        </view>
+        <view class="xcoupon_coner {{coupon.state=='got'?'col_blue':'col_grey'}}" wx:if="{{!!coupon.state}}">
+			{{coupon.stateName}}
+		</view>
+    </view>
+</template>

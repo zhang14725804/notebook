@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "美团",
+    "usingComponents": {
+        "mt-back": "../../../index/components/mt-back/back"
+    }
+}

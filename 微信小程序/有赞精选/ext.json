@@ -1,0 +1,10 @@
+{
+    "extEnable": true,
+    "extAppid": "wxf1fdc416d4ced1b3",
+    "ext": {
+        "appId": "wxf1fdc416d4ced1b3",
+        "themeType": 0,
+        "env": "prd",
+        "userVersion": "1.1.43"
+    }
+}

@@ -1,0 +1,20 @@
+<template name="cart-button">
+    <view catchtap="jumpToCart" class="shopping-cart {{cartCount?'shopping-cart--has-goods':''}} {{size==='md'?'btn-container--md':''}}" wx:if="{{isSetShoppingCart}}">
+        <view class="shopping-cart__icon zan-icon zan-icon-cart "></view>
+        <view class="shopping-cart__text">购物车</view>
+    </view>
+</template>
+<template name="message-button">
+    <view class="message-container {{size==='md'?'btn-container--md':''}}" style="position: relative" wx:if="{{isSetContact}}">
+        <view class="message__icon zan-icon zan-icon-chat"></view>
+        <view class="message__text">客服</view>
+        <button businessId="{{businessId}}" class="message__contact-button" openType="contact" sendMessageImg="{{goods.picture[0]}}" sendMessagePath="{{page_path}}" sendMessageTitle="{{goods.title}}" sessionFrom="{{kdt_id}}" showMessageCard="{{true}}" wx:if="{{userInfo||userInfoDeny}}"></button>
+        <button bindtap="fetchUserInfo" class="message__contact-button" wx:else></button>
+    </view>
+</template>
+<template name="home-button">
+    <view bindtap="bottomButton__handleClick" class="shopping-cart" style="{{border?'border-right: 1rpx solid #e5e5e5':''}}" wx:if="{{isSetHome}}">
+        <view class="shopping-cart__icon zan-icon zan-icon-home " style="margin-left: 0"></view>
+        <view class="shopping-cart__text">首页</view>
+    </view>
+</template>

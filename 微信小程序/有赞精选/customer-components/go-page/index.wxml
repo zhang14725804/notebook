@@ -1,0 +1,6 @@
+<navigator openType="{{isTab?'switchTab':'navigate'}}" url="{{url}}">
+    <view class="go-page">
+        <view class="go-page-bc"></view>
+        <view class="go-page-title">{{title}}</view>
+    </view>
+</navigator>

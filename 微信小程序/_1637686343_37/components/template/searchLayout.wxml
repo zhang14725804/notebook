@@ -1,0 +1,76 @@
+<template name="searchLayout">
+    <view class="m-box-search {{!searchLayout.fixed?'':'isNotFixed'}}" wx:if="{{searchLayout.status}}">
+        <template is="m-from-search" data="{{...searchLayout,keyword:keyword}}"></template>
+        <scroll-view class="scrollBody" scrollY="true" style="height:{{scrollBodyHeight+'px'}};" wx:if="{{!searchLayout.showResult}}">
+            <view class="defaultSearch" wx:if="{{searchLayout.defaultSearch}}">
+                <block wx:if="{{searchLayout.searchHistory&&searchLayout.searchHistory.list.length}}">
+                    <template is="m-search-title" data="{{title:searchLayout.searchHistory.title,showclear:true}}"></template>
+                    <template is="search-layer-list" data="{{searchHistory:searchLayout.searchHistory,rseat:'wx_search_history'}}"></template>
+                </block>
+                <block wx:if="{{searchLayout.hotquery&&searchLayout.hotquery.list.length}}">
+                    <template is="m-search-title" data="{{title:searchLayout.hotquery.title,showclear:false}}"></template>
+                    <template is="hotquery-list" data="{{hotquery:searchLayout.hotquery,rseat:'wx_search_hot'}}"></template>
+                </block>
+            </view>
+            <view class="suggestSearch" wx:if="{{searchLayout.suggestSearch}}">
+                <template is="search-layer-suggest" data="{{data:searchLayout.suggest}}"></template>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="m-content" wx:if="{{searchLayout.showResult}}">
+        <view class="searchResultBody" wx:if="{{searchResults&&searchResults.resultlist}}">
+            <block wx:for="{{searchResults.resultlist}}" wx:key="index">
+                <view class="m-box" wx:if="{{item.series}}">
+                    <template is="series" data="{{...item.series}}"></template>
+                    <template is="m-numList" data="{{...item.series}}"></template>
+                    <template is="m-search-paopao" data="{{wallBaseInfo:item.series.bubble,toMiniProgram:toMiniProgram}}"></template>
+                </view>
+                <view class="m-box" wx:if="{{item.movie}}">
+                    <template is="movie" data="{{...item.movie}}"></template>
+                </view>
+                <view class="m-box" wx:if="{{item.source}}">
+                    <template is="source" data="{{...item.source}}"></template>
+                    <template is="m-titleList" data="{{...item.source}}"></template>
+                    <template is="m-moreLink" data="{{...item.source}}"></template>
+                </view>
+                <template is="single" data="{{...item.single}}" wx:if="{{item.single}}"></template>
+                <view class="m-box m-box-star" wx:if="{{item.star&&toMiniProgram}}">
+                    <template is="star" data="{{...item.star,resultInd:index}}"></template>
+                </view>
+            </block>
+            <template is="m-result-loading" data="{{load:load,errorHandler:'retryLoadPage',invalidTips:'由于相关法律法规和政策，相关结果未予显示',tips:'抱歉，没有找到“搜索词”的相关视频 '}}"></template>
+        </view>
+    </view>
+</template>
+<template name="search-layer-suggest">
+    <view class="search-layer-suggest">
+        <view class="search-layer-suggest-content">
+            <view bindtap="toSearchResult" class="search-layer-suggest-items" data-from="suggest" data-index="{{item.index}}" data-key="{{item.key}}" data-query="{{item.name}}" data-source="{{item.source}}" data-vfrm="{{item.vfrm}}" wx:for="{{data}}" wx:key="index">
+                <text>{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="m-from-search">
+    <view class="m-from-search">
+        <view class="m-from-search-box">
+            <view class="m-from-search-content">
+                <image class="c-icon-search-layer" height="20" src="/resource/images/icon-search-gray.png" width="20"></image>
+                <input bindblur="blurhandle" bindconfirm="toSearchResult" bindfocus="inputFocus" bindinput="searchInputChange" class="search-input" confirmType="search" data-defaultkey="{{hotquery.list[0].query}}" placeholder="{{hotquery.list[0].query}}" placeholderStyle="color:#999" value="{{keyword}}" wx:if="{{page=='result'}}"></input>
+                <input bindblur="blurhandle" bindconfirm="toSearchResult" bindinput="searchInputChange" class="search-input" confirmType="search" data-defaultkey="{{hotquery.list[0].query}}" focus="true" placeholder="{{hotquery.list[0].query}}" placeholderStyle="color:#999" value="{{keyword}}" wx:else></input>
+                <image bindtap="clearInput" class="c-icon-close" height="18" src="/resource/images/icon-close.png" width="18" wx:if="{{clearState}}"></image>
+            </view>
+            <view bindtap="hideSearchLayout" class="m-from-search-text" data-page="{{page}}" wx:if="{{showcancel&&!showsearch}}">
+                <text>取消</text>
+            </view>
+            <view bindtap="toSearchResult" class="m-from-search-text" data-defaultkey="{{hotquery.list[0].query}}" data-page="{{page}}" data-query="{{search.keyword}}" wx:if="{{showcancel&&showsearch}}">
+                <text>搜索</text>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="/components/template/searchMyTitle.wxml"></import>
+<import src="/components/template/searchSlot.wxml"></import>
+<import src="../../subPackage/pages/searchResult/template/m-list.wxml"></import>
+<import src="/components/load/load.wxml"></import>
+<import src="/components/paopao/paopao.wxml"></import>

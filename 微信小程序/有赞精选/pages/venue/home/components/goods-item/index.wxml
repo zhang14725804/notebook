@@ -1,0 +1,28 @@
+<template name="goods-item">
+    <view bindtap="onTapItem" class="goods-item" data-id="{{id}}" data-url="{{pageUrl}}">
+        <view class="goods-item__image-wrap" style="width: {{width?width:200}}rpx; height: {{height?height:200}}rpx">
+            <image class="goods-item__image" src="{{pic_url}}" style="width: {{width?width:200}}rpx; height: {{height?height:200}}rpx"></image>
+            <view class="goods-item__groupon-wrap" wx:if="{{type==='groupon'}}">
+                <view class="goods-item__groupon">
+                    <view class="goods-item__groupon--label">已团</view>
+                    <view class="goods-item__groupon--content">{{groupon_num}}件</view>
+                </view>
+            </view>
+        </view>
+        <view class="form-id-row">
+            <template is="formidReciver" data="{{pageUrl:pageUrl,position:position}}"></template>
+        </view>
+        <view class="goods-item__content">
+            <view class="goods-item__title" wx:if="{{title}}">{{title}}</view>
+            <view class="goods-item__detail" wx:if="{{price||originPrice}}">
+                <view class="goods-item__price" wx:if="{{price}}">
+          ¥<text>{{price}}</text>
+                </view>
+                <view class="goods-item__old-price" wx:if="{{old_price}}">
+          ¥<text>{{old_price}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="../../../../../components/formidReciver/index.wxml"></import>

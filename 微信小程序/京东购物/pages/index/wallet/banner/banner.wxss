@@ -1,0 +1,24 @@
+.banner {
+    margin-top: 30rpx;
+}
+
+.banner__floor {
+    position: relative;
+    display: flex;
+    margin-top: 20rpx;
+    width: 100%;
+    height: 230rpx;
+}
+
+.banner__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 230rpx;
+    z-index: -1;
+}
+
+.banner__hot-area {
+    flex: 1;
+}

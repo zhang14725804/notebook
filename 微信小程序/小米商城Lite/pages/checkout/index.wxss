@@ -1,0 +1,179 @@
+.msxcx-checkout-goods-list-item {
+    position: relative;
+    padding: 16rpx 0;
+    line-height: 64rpx;
+    overflow: auto;
+}
+
+.msxcx-checkout-goods-list-item image {
+    float: left;
+    margin-right: 16rpx;
+    width: 64rpx;
+    height: 64rpx;
+}
+
+.msxcx-checkout-goods-list-item .goods-name {
+    padding: 12rpx 0;
+    font-size: 28rpx;
+    line-height: 40rpx;
+}
+
+.msxcx-checkout-goods-list-item .tag {
+    position: relative;
+    display: inline-block;
+    top: -1rpx;
+    vertical-align: middle;
+    margin: 0 0 0 16rpx;
+    padding: 0 8rpx;
+    min-width: 16rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    font-size: 20rpx;
+    border-radius: 5rpx;
+    background: #ccc;
+    text-align: center;
+    color: #fff;
+}
+
+.msxcx-checkout-goods-list-item .tag_orange {
+    background: #ff6700;
+}
+
+.msxcx-checkout-goods-list-item .tag_green {
+    background: #89c24b;
+}
+
+.msxcx-checkout-goods-list-item .price {
+    float: right;
+    margin-left: 16rpx;
+    font-size: 28rpx;
+    color: #ff4a00;
+}
+
+.msxcx-checkout-goods-list-item .price .num {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.msxcx-checkout-goods-list-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 80rpx;
+    right: 0;
+    border-top: 1px dashed #e5e5e5;
+    -webkit-transform: scaleY(.5);
+    -webkit-transform-origin: 0 0;
+}
+
+.msxcx-checkout-goods-list-item:first-child::after {
+    display: none;
+}
+
+.msxcx-checkout-goods-list-item_gray .goods-name {
+    color: #999;
+}
+
+.msxcx-checkout-goods-list-item_gray image {
+    opacity: .6;
+}
+
+.msxcx-p-checkout-total-fee {
+    color: #ff4a00;
+}
+
+.msxcx-p-checkout-total-fee text:first-child {
+    margin-right: 8rpx;
+    color: #999;
+    font-size: 28rpx;
+}
+
+.msxcx-p-checkout-total-fee text:last-child {
+    font-size: 24rpx;
+}
+
+.msxcx-p-checkout-fee-list-item {
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 28rpx;
+}
+
+.msxcx-p-checkout-fee-list-item .fee-name {
+    float: left;
+}
+
+.msxcx-p-checkout-fee-list-item .fee {
+    float: right;
+    color: #ff4a00;
+}
+
+.msxcx-p-checkout-fee-list-item .fee text {
+    font-size: 20rpx;
+}
+
+.mx-p-add-more {
+    color: #586C94;
+    text-align: center;
+    font-size: 28rpx;
+}
+
+.mx-ttl {
+    text-align: center;
+}
+
+.mx-ttl text {
+    display: inline-block;
+    padding: 0 16rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+    font-size: 24rpx;
+    color: #fff;
+    background: #d4d4d4;
+    border-radius: 5rpx;
+}
+
+.mx-ttl_yellow text {
+    background: rgba(255,241,170,.9);
+    color: #c17844;
+}
+
+.mx-unpay {
+    position: absolute;
+    bottom: 132rpx;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.mx-unpay text {
+    display: inline-block;
+    padding: 0 16rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+    font-size: 24rpx;
+    color: #586c94;
+    background: #d4d4d4;
+    border-radius: 5rpx;
+}
+
+.booking-tip {
+    margin: 32rpx 32rpx 0;
+    font-size: 24rpx;
+    color: #333;
+}
+
+.booking-tip icon {
+    margin-right: 8rpx;
+}
+
+.msxcx-layout-footer {
+    height: auto;
+}
+
+.tips {
+    background-color: #fef9ca;
+    color: #c8b681;
+    font-size: 26rpx;
+    padding-left: 20rpx;
+    line-height: 46rpx;
+}

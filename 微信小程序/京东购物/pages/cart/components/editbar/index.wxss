@@ -1,0 +1,59 @@
+.editor_bar {
+    z-index: 10;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 98rpx;
+    background: #fff;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    font-size: 14px;
+    display: flex;
+    box-sizing: border-box;
+    border-top: 1rpx solid #ddd;
+}
+
+.editor_bar .check_box {
+    width: 80rpx;
+    padding-top: 64rpx;
+    font-size: 10px;
+    text-align: center;
+    height: 30rpx;
+    color: #999;
+}
+
+.editor_bar .check_box::after {
+    top: 14rpx;
+}
+
+.editor_bar .check_box text {
+    margin-left: 4rpx;
+}
+
+.editor_bar .btns {
+    position: absolute;
+    right: 20rpx;
+    top: 16rpx;
+}
+
+.editor_bar .btns .btn {
+    display: inline-block;
+    margin-left: 10rpx;
+    width: 152rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 400;
+    border: 2rpx solid #CCCCCC;
+    border-radius: 8rpx;
+}
+
+.editor_bar .btns .remove {
+    border: 2rpx solid #E93B3D;
+    color: #fff;
+    background: #E93B3D;
+}

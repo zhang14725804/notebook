@@ -1,0 +1,22 @@
+<view class="qa-list">
+    <view class="qa-filterbar">
+        <view bindtap="projectFliterClick">
+            {{projectFilterName}} 
+            <image src="https://cdn-ssl.meb.com/wxa/v1/down-icon.png"></image>
+        </view>
+        <text style="color:#F5F5F5">|</text>
+        <view bindtap="questionSortClick">
+            {{questionSortName}} 
+            <image src="https://cdn-ssl.meb.com/wxa/v1/down-icon.png"></image>
+        </view>
+    </view>
+    <view class="qa-list-cells">
+        <view style="margin-bottom:20rpx" wx:for="{{qaList}}" wx:key="{{item}}">
+            <qa-cell bind:jumpDetailEvent="jumpDetailEvent" data-id="{{item.Id}}" qaData="{{item}}"></qa-cell>
+        </view>
+    </view>
+    <empty wx:if="{{qaList&&!qaList.length}}"></empty>
+    <loadMore visible="{{hasMore}}"></loadMore>
+    <sort-project bind:selectedEvent="selectedEvent" sortData="{{sortData}}" visible="{{questionSortVisiable}}"></sort-project>
+    <project bind:changeProject="onChangeProject" datas="{{projects}}" visible="{{projectFilterVisiable}}"></project>
+</view>

@@ -1,0 +1,56 @@
+<view class="p-loading" xmlns:wx="" wx:if="{{state.showLoading}}"></view>
+<view class="must-be" xmlns:wx="" wx:if="{{!state.showLoading}}">
+    <view class="complaint-container" id="container">
+        <view class="ncomplaint contpart" id="complaint" wx:if="{{state.showBl.complaint}}">
+            <view class="complt-luxury">
+                <img src="./images/kefu_icon.png"></img>
+                <view class="complt-luxury-tips1">在线客服暂未开通</view>
+                <view class="complt-luxury-tips2">请直接拔打客服电话</view>
+                <view bindtap="_dispatch" class="kefu-tel" data-bindtap="callServiceHandle">客服电话</view>
+            </view>
+            <view class="complt-cont">
+                <view class="complt-title">咨询客服</view>
+                <view class="kefu-cont">
+                    <view class="btn-kefu btn-online">
+                        <text bindtap="_dispatch" class="kefu-online" data-bindtap="onlineServiceHandle">在线客服</text>
+                    </view>
+                    <view class="btn-kefu btn-tel">
+                        <text bindtap="_dispatch" class="kefu-tel" data-bindtap="callServiceHandle">客服电话</text>
+                    </view>
+                </view>
+                <view class="complt-title complt-before">报告问题</view>
+                <view class="complt-box">
+                    <view bindtap="_dispatch" data-bindtap="showListHandle" wx:if="{{state.tags}}" wx:for="{{state.tags}}" wx:for-index="i">
+                        <view class="ful ul {{i==0?'first':'second'}} {{state.checkState.curShow===i?'on':''}} {{!!item.showlist?'open':''}}" data-index="{{i}}" data-show="{{item.list&&item.list.length}}" wx:if="{{item.list&&item.list.length}}">
+                            <view class="fli li">{{item.tag_name}}<icon class="arrow"></icon>
+                            </view>
+                        </view>
+                        <view class="subul {{!!item.showlist?'show':'hide'}}" wx:if="{{item.list&&item.list.length}}" wx:for="{{item.list}}" wx:for-index="j" wx:for-item="value">
+                            <text class="{{!!value.check?'on':''}}" data-id="{{value.tag_id}}" data-index="{{j}}" data-reason="{{value.is_reason}}">{{value.tag_name}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="extra {{state.checkState.curShow!==-1?'':'hide'}}">
+                    <text class="span">{{state.reason.reasonText}}</text>
+                    <input bindinput="_dispatch" data-bindinput="userReasonHandle" maxlength="-1" placeholder="告诉我们更多帮助更快核实（8字以上）" placeholderClass="psection" spellcheck="false"></input>
+                    <text class="em {{state.reason.textNum<0?'org':''}}" id="number"> {{state.reason.textNum}}</text>
+                </view>
+                <view class="btnwrap">
+                    <button bindtap="_dispatch" class="index-submit {{state.reason.textNum<493?'submitable':''}}" data-bindtap="submitMsgHandle" id="submit">匿名提交</button>
+                </view>
+            </view>
+        </view>
+        <view class="contpart" id="complaint-done" wx:if="{{state.showBl.complaintDone}}">
+            <view class="outer" id="outer">
+                <view class="expire" id="expire" wx:if="{{state.data.uneffective}}">
+                    <text class="exicon"></text>
+                    <text class="extext">很遗憾订单已过投诉期，敬请谅解～</text>
+                </view>
+            </view>
+            <view class="kefu-cont footer">
+                <text bindtap="_dispatch" class="kefu-online" data-bindtap="onlineServiceHandle">在线客服</text>
+                <text bindtap="_dispatch" class="kefu-tel" data-bindtap="callServiceHandle">客服电话</text>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,47 @@
+.order-pay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 0 none;
+    z-index: 2;
+}
+
+.order-pay__container {
+    overflow: hidden;
+    height: 50px;
+}
+
+.order-pay__price {
+    color: #f44;
+}
+
+.order-warning {
+    width: 100%;
+    background-color: #FFF7CC;
+    color: #FF6600;
+    font-size: 12px;
+    line-height: 33px;
+    padding: 10px 15px;
+    line-height: 15px;
+    box-sizing: border-box;
+}
+
+.order-pay__btn {
+    display: inline-block;
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 0;
+    margin-left: 10px;
+    border-radius: 0;
+}
+
+.disabled.order-pay__btn {
+    color: #999!important;
+    background-color: #e5e5e5!important;
+}
+
+.disabled.order-pay__btn::after {
+    border-color: #e5e5e5!important;
+}

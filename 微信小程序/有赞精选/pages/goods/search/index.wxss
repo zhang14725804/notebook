@@ -1,0 +1,111 @@
+@import "../../../components/copyright/index.wxss";
+
+@import "../../../components/sku/index.wxss";
+
+@import "search/index.wxss";
+
+.zan-card {
+    margin-left: 0;
+    width: auto;
+    padding: 5px 15px;
+    overflow: hidden;
+    position: relative;
+    font-size: 14px;
+}
+
+.zan-card__thumb {
+    width: 90px;
+    height: 90px;
+    float: left;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    background-size: cover;
+}
+
+.zan-card__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.zan-card__detail {
+    margin-left: 100px;
+    width: auto;
+    position: relative;
+}
+
+.zan-card__detail-row {
+    overflow: hidden;
+    line-height: 20px;
+    min-height: 20px;
+    margin-bottom: 3px;
+}
+
+.zan-card__right-col {
+    float: right;
+}
+
+.zan-card__left-col {
+    margin-right: 80px;
+}
+
+.search-goods__cell {
+    background: white;
+    opacity: 1;
+    padding: 10px 15px;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.search-goods__thumb {
+    height: 196rpx;
+    width: 196rpx;
+}
+
+.search-goods__detail {
+    margin-left: 216rpx;
+    height: 196rpx;
+}
+
+.search-goods__title {
+    font-size: 14px;
+}
+
+.search-goods__price {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.search-goods__cart {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 64rpx;
+    height: 64rpx;
+    background: url('https://img.yzcdn.cn/public_files/2017/02/14/98b2e227516f9c8e86d1e0a422718807.png') no-repeat center;
+    background-size: 64rpx;
+}
+
+.search-goods__emptytext {
+    font-size: 14px;
+    color: #a9a9a9;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    width: 140px;
+    height: 70px;
+    text-align: center;
+}

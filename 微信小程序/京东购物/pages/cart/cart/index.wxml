@@ -1,0 +1,102 @@
+<view bindtouchend="{{slideHandle.__recover}}" class="wrapper">
+    <view class="xloading full_page" wx:if="{{loading}}"></view>
+    <view bindtap="refresh" class="error_retry full_page" wx:if="{{hasError}}">
+        <text>页面开小差，试试</text>
+        <button>刷新</button>
+    </view>
+    <block wx:elif="{{!loading&&venders.length===0}}">
+        <view class="empty">
+            <view class="icon"></view>
+            <text>购物车空空如也，去逛逛吧~</text>
+        </view>
+        <banner></banner>
+        <recommend bind:afteraddcart="onRecommendAfterAdd2Cart" bind:click="onRecommendClick" bind:ready="onRecommendReady" options="{{recommendOptions}}" wx:if="{{!loading}}"></recommend>
+        <view bind:tap="back2top" class="back2top" hidden="{{editor.editable||!back2topVisabled}}"></view>
+    </block>
+    <scroll-view bind:scroll="onPageScroll" class="shop_list xlist {{version==='abtest'?'theme1':''}}" enableBackToTop="true" scrollIntoView="{{scrollIntoView}}" scrollY="true" wx:else>
+        <view id="top"></view>
+        <template is="tplEditTopBar" data="{{address:address,...editor,showQuickCleanButton:showQuickCleanButton,showQuickCleanTip:showQuickCleanTip}}" wx:if="{{venders.length}}"></template>
+        <template is="tplPinBindBar" data="{{...pinbind}}" wx:if="{{venders.length&&pinbind.show}}"></template>
+        <view class="shop_item xlist_group" wx:for="{{venders}}" wx:for-index="venderIndex" wx:for-item="vender" wx:key="vid">
+            <view class="shop_name xlist_item">
+                <template is="checkBox" data="{{editable:editor.editable,type:'shop',venderIndex:venderIndex,vid:vender.vid,checked:editor.editable?vender.editChecked:vender.checked}}"></template>
+                <view class="icon {{extra.vendersName[vender.vid].icon||vender.icon}}"></view>
+                <view bindtap="gotoShopPage" class="title {{vender.icon=='type_multi'?'multi':''}}" data-name="{{extra.vendersName[vender.vid].name||vender.vname}}" data-type="{{vender.icon}}" data-vid="{{vender.vid}}">{{extra.vendersName[vender.vid].name||vender.vname}}
+                    <view class="icon_arrow_right" wx:if="{{vender.icon=='type_3rd'}}"></view>
+                </view>
+                <view bindtap="showCouponsPanel" class="coupon" data-vid="{{vender.vid}}" wx:if="{{extra.coupons[vender.vid]}}">优惠券</view>
+            </view>
+            <view class="suit_item xlist_item {{util.getConnectLine(dataset.polyType)}}" wx:for="{{vender.list}}" wx:for-index="itemIndex" wx:for-item="dataset" wx:key="itemId">
+                <template is="tplVisualSuitItem" data="{{version:version,editable:editor.editable,slideHandle:slideHandle,venderIndex:venderIndex,itemIndex:itemIndex,vender:vender,dataset:dataset,MIN_NUM:MIN_NUM,MAX_NUM:MAX_NUM,cate:dataset.polyType,vid:vender.vid,extra:extra}}" wx:if="{{dataset.suits&&dataset.suits.length}}"></template>
+                <template is="tplSingleItem" data="{{version:version,editable:editor.editable,slideHandle:slideHandle,venderIndex:venderIndex,itemIndex:itemIndex,vender:vender,dataset:dataset,MIN_NUM:MIN_NUM,MAX_NUM:MAX_NUM,cate:dataset.polyType,vid:vender.vid,extra:extra}}" wx:elif="{{dataset.polyType==1}}"></template>
+                <template is="tplSuitItem" data="{{version:version,editable:editor.editable,slideHandle:slideHandle,venderIndex:venderIndex,itemIndex:itemIndex,vender:vender,dataset:dataset,MIN_NUM:MIN_NUM,MAX_NUM:MAX_NUM,cate:dataset.polyType,vid:vender.vid,extra:extra}}" wx:elif="{{dataset.polyType==2}}"></template>
+                <template is="tplManjianItem" data="{{version:version,editable:editor.editable,slideHandle:slideHandle,venderIndex:venderIndex,itemIndex:itemIndex,vender:vender,dataset:dataset,MIN_NUM:MIN_NUM,MAX_NUM:MAX_NUM,cate:dataset.polyType,vid:vender.vid,extra:extra}}" wx:elif="{{dataset.polyType==3}}"></template>
+                <template is="tplManZenItem" data="{{version:version,editable:editor.editable,slideHandle:slideHandle,venderIndex:venderIndex,itemIndex:itemIndex,vender:vender,dataset:dataset,MIN_NUM:MIN_NUM,MAX_NUM:MAX_NUM,cate:dataset.polyType,vid:vender.vid,extra:extra}}" wx:elif="{{dataset.polyType==4}}"></template>
+            </view>
+            <view class="addon_item_bar" wx:if="{{extra.coupons[vender.vid].addOnItemCoupon}}">
+                <view class="addon_item_coupon">{{extra.coupons[vender.vid].addOnItemCoupon}}</view>
+                <view class="addon_item_text">{{extra.coupons[vender.vid].addOnItemText}}</view>
+                <view bindtap="gotoCuoponPromotion" class="addon_item_go" data-batch-id="{{extra.coupons[vender.vid].pid}}" data-coupon-kind="{{extra.coupons[vender.vid].couponKind}}" wx:if="{{extra.coupons[vender.vid].showPromotion}}">去凑单</view>
+            </view>
+        </view>
+        <recommend bind:afteraddcart="onRecommendAfterAdd2Cart" bind:click="onRecommendClick" bind:ready="onRecommendReady" hidden="{{editor.editable}}" options="{{recommendOptions}}" wx:if="{{venders.length}}"></recommend>
+        <view class="footer"></view>
+        <view bind:tap="back2top" class="back2top" hidden="{{editor.editable||!back2topVisabled}}"></view>
+    </scroll-view>
+    <view class="summary_bar" hidden="{{guessyoulike.gyl_skupanel.hideSummaryBar}}" wx:if="{{venders.length!==0&&!editor.editable}}">
+        <template is="checkBox" data="{{type:'all',checked:summary.checked,text:'全选'}}"></template>
+        <view class="price">
+            <view class="v_center">
+                <view class="total">总计:
+                    <text>￥{{summary.price}}</text>
+                </view>
+                <view class="desc">总额 ￥{{summary.total}}， 立减 ￥{{summary.cashback}}</view>
+            </view>
+        </view>
+        <view bindtap="{{summary.details.length?'showConfirmPay':'gotoPay'}}" class="btn {{summary.checkedNum==0?'disabled':''}}">
+            去结算
+            <text>({{summary.checkedNum>99?'99+':summary.checkedNum}}件)</text>
+        </view>
+    </view>
+    <template is="tplEditBottomBar" data="{{...editbar,editor:editor}}" wx:if="{{venders.length!==0&&editor.editable}}"></template>
+    <view bindfocus="hideInputMask" class="input_mask" wx:if="{{shouldShowInputMask}}"></view>
+</view>
+<jx-switch-promo bind:select="onPromoSelected" promotion="{{promotion}}"></jx-switch-promo>
+<quick-clear bind:close="onQuickClearPanelClose" options="{{quickClearOptions}}"></quick-clear>
+<coupons bind:close="onCouponClose" bind:drawafter="onCouponDrawAfter" data="{{coupons}}"></coupons>
+<switch-price bind:close="onSwitchPricePanelClose" bind:select="onSwitchPriceSelected" options="{{switchPriceOpts}}"></switch-price>
+<address-layer addressList="{{addressOpts.list}}" adid="{{addressOpts.adid}}" areaid="{{addressOpts.areaid}}" bind:closeAddress="onAddressPanelClose" bind:switchAddress="onAddressChange" showAddressLayerFlag="{{addressOpts.show}}"></address-layer>
+<view class="xmodal" wx:if="{{showPay}}">
+    <view class="xmodal_mask"></view>
+    <view class="xmodal_content">
+        <view catchtap="hideConfirmPay" class="xmodal_hd">
+            <view class="xmodal_title">
+                您选中的商品包含 {{util.getSummaryTexts(summary.details)}}
+                <text class="xmodal_sub_title">需要和其他商品分开结算！</text>
+            </view>
+        </view>
+        <view class="xmodal_bd">
+            <view catchtap="onPayCheck" class="xmodal_bd_item" data-checked="{{item.checked}}" data-index="{{index}}" data-type="{{item.category}}" wx:for="{{summary.details}}" wx:key="category">
+                <view class="check_box {{item.checked?'checked':''}}"></view>
+                <view class="summary">{{item.text}}{{item.checkedNum}}件 共计：<view class="price">¥{{item.price}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="xmodal_ft">
+            <view bindtap="hideConfirmPay" class="xmodal_btn default">返回</view>
+            <view bindtap="gotoPay" class="xmodal_btn primary">结算</view>
+        </view>
+    </view>
+</view>
+<import src="templates.wxml"></import>
+<import src="../components/editbar/index.wxml"></import>
+<import src="../../components/sku_panel/sku_panel.wxml"></import>
+<template is="sku_panel" data="{{...skupanel}}" wx:if="{{skupanel.show}}"></template>
+<import src="../../../common/toast/toast.wxml"></import>
+<template is="toast" data="{{...toast}}"></template>
+<import src="../../../common/modal/modal.wxml"></import>
+<template is="modal" data="{{...modal}}"></template>
+<import src="../../components/message-box/index.wxml"></import>
+<template is="tplMessageBox" data="{{msgbox:msgbox}}"></template>
+<import src="../../components/pinbind/index.wxml"></import>
+<wxs module="util" src="index.wxs" />

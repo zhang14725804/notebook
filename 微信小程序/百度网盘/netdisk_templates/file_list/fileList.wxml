@@ -1,0 +1,65 @@
+<template name="fileList">
+    <view class="file-list-wrap" wx:if="{{fileListTabData.mod==='sharedir'}}">
+        <form bindsubmit="formSubmit" reportSubmit="true">
+            <button class="formButtonNone" formType="submit">
+                <view bindlongpress="handleLongPress" bindtouchend="handleFileTouchE" bindtouchstart="handleFileTouchS" class="file-item-wrap" data-index="{{index}}" style="{{fileItem.fileItemStyle}}" wx:for="{{fileListTabData.list}}" wx:for-item="fileItem" wx:key="{{fileItem.fs_id}}">
+                    <view bindtap="handleFileClick" class="file-item-main" data-index="{{index}}">
+                        <view class="file-icon">
+                            <image class="normal" src="{{fileListTabData.staticName}}mini-program/images/ic_share.png" wx:if="{{fileItem.isdir===1}}"></image>
+                            <image class="normal" src="{{fileListTabData.staticName}}mini-program/images/{{fileListTabData.fileCategory[fileItem.category]}}" wx:if="{{fileItem.isdir===0&&fileItem.category!=3}}"></image>
+                            <view class="normalImgWrap" wx:if="{{fileItem.isdir===0&&fileItem.category==3}}">
+                                <view class="normalImg" style="background:url({{fileItem.thumbs.url1}});background-position:center;background-repeat:no-repeat;background-size:cover;"></view>
+                            </view>
+                        </view>
+                        <view class="file-des">
+                            <view class="file-name">
+                                <text>{{fileItem.server_filename}}</text>
+                            </view>
+                            <view class="file-time">
+                                <text>{{fileItem.server_mtime}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="file-operator">
+                        <view bindtap="handleTapItemMore" class="op-more" data-index="{{index}}"></view>
+                    </view>
+                </view>
+            </button>
+        </form>
+        <template is="emptyList" data="{{emptymod:emptymod}}" wx:if="{{fileListTabData.list.length<=0&&fileListTabData.isLoading===false}}"></template>
+    </view>
+    <scroll-view scrollY bindscrolltolower="loadMoreScrollLower" class="file-list-wrap" lowerThreshold="72" wx:else>
+        <form bindsubmit="formSubmit" reportSubmit="true" wx:if="{{fileListTabData.list.length>0}}">
+            <button class="formButtonNone" formType="submit">
+                <view bindlongpress="handleLongPress" bindtouchend="handleFileTouchE" bindtouchstart="handleFileTouchS" class="file-item-wrap" data-index="{{index}}" style="{{fileItem.fileItemStyle}}" wx:for="{{fileListTabData.list}}" wx:for-item="fileItem" wx:key="{{fileItem.fs_id}}">
+                    <view bindtap="handleFileClick" class="file-item-main" data-index="{{index}}">
+                        <view class="file-icon">
+                            <image class="normal" src="{{fileListTabData.staticName}}mini-program/images/ic_folder.png" wx:if="{{fileItem.isdir===1&&fileItem.share%2===0}}"></image>
+                            <image class="normal" src="{{fileListTabData.staticName}}mini-program/images/ic_share.png" wx:if="{{fileItem.isdir===1&&fileItem.share%2===1}}"></image>
+                            <image class="normal" src="{{fileListTabData.staticName}}mini-program/images/{{fileListTabData.fileCategory[fileItem.category]}}" wx:if="{{fileItem.isdir===0&&fileItem.category!=3}}"></image>
+                            <view class="normalImgWrap" wx:if="{{fileItem.isdir===0&&fileItem.category==3}}">
+                                <view class="normalImg" style="background:url({{fileItem.thumbs.url1}});background-position:center;background-repeat:no-repeat;background-size:cover;"></view>
+                            </view>
+                        </view>
+                        <view class="file-des">
+                            <view class="file-name">
+                                <text>{{fileItem.server_filename}}</text>
+                            </view>
+                            <view class="file-time">
+                                <text>{{fileItem.server_mtime}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="file-operator">
+                        <view bindtap="handleTapItemMore" class="op-more" data-index="{{index}}" wx:if="{{fileListTabData.mod==='list'}}"></view>
+                        <view bindtap="handleFileSelect" class="op-select {{fileItem.isSelect?'active':''}}" data-index="{{index}}" wx:if="{{fileListTabData.mod==='select'||fileListTabData.mod==='batchEdit'}}"></view>
+                    </view>
+                </view>
+            </button>
+        </form>
+        <template is="emptyList" data="{{emptymod:emptymod}}" wx:if="{{fileListTabData.list.length<=0&&fileListTabData.isLoading===false}}"></template>
+    </scroll-view>
+</template>
+<import src="../empty_list/emptyList.wxml"></import>
+<import src="../../netdisk_templates/dialog/dialog.wxml"></import>
+<template is="dialog" data="{{dialogData:dialogData}}"></template>

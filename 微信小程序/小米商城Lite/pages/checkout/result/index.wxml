@@ -1,0 +1,33 @@
+<view class="msxcx-layout-error" wx:if="{{loaded&&success}}">
+    <icon size="100" type="success"></icon>
+    <view class="text">
+        <block wx:if="{{bookingInfo&&bookingInfo.pre_status===4&&bookingInfo.final_status===3}}">
+            <text class="main">预付款支付成功</text>
+            <text class="booing-time" wx:if="{{bookingInfo.finalTime}}">{{bookingInfo.finalTime}} 开始支付尾款</text>
+        </block>
+        <block wx:elif="{{prepay&&prepay.pre_status===4&&prepay.final_status===3}}">
+            <text class="main">预付款支付成功</text>
+            <text class="booing-time" wx:if="{{prepay.finalTime}}">{{prepay.finalTime}} 开始支付尾款</text>
+        </block>
+        <text class="main" wx:else>支付成功</text>
+    </view>
+    <image mode="widthFix" src="http://i8.mifile.cn/b2c-mimall-media/ce492a05820eea01bd8006a7999b9a47.jpg" style="display:block;width:100%;" wx:if="{{fans_card}}"></image>
+    <navigator openType="redirect" url="../../order/detail/index?order_id={{order_id}}">
+        <button class="msxcx-widget-btn" type="mi">订单详情</button>
+    </navigator>
+    <navigator openType="switchTab" url="/pages/index/index">
+        <button class="msxcx-widget-btn">返回首页</button>
+    </navigator>
+</view>
+<view class="msxcx-layout-error" wx:if="{{loaded&&!success}}">
+    <icon size="100" type="warn"></icon>
+    <view class="text">
+        <text class="main">支付失败</text>
+    </view>
+    <navigator openType="redirect" url="../../order/detail/index?order_id={{order_id}}">
+        <button class="msxcx-widget-btn" type="mi">订单详情</button>
+    </navigator>
+    <navigator openType="switchTab" url="/pages/index/index">
+        <button class="msxcx-widget-btn">返回首页</button>
+    </navigator>
+</view>

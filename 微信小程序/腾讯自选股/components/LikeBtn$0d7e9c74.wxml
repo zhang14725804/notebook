@@ -1,0 +1,7 @@
+<template name="LikeBtn$0d7e9c74">
+    <view bindtap="handleProxy" class="_div data-v-177b1eaa hotpost-buttonWrapper" data-comkey="{{$k}}" data-eventid="{{'0'}}" ref="buttonWrapper">
+        <view class="_div data-v-177b1eaa {{['plus',anim]}}"> +1 </view>
+        <view class="_div data-v-177b1eaa {{['likeBtn',anim]}}" wx:if="{{!hasLiked}}"></view>
+        <view class="_div data-v-177b1eaa {{['unlikeBtn',anim]}}" wx:else></view>
+    </view>
+</template>

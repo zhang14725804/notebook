@@ -1,0 +1,41 @@
+.copyright-container {
+    padding: 18px 0 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-size: 0;
+}
+
+.copyright--with-fix-bottom {
+    padding-bottom: 70px;
+}
+
+.copyright-image {
+    display: block;
+    margin: 0 auto;
+    height: 30px;
+    width: 110px;
+    padding-bottom: 3px;
+}
+
+.copyright-text {
+    position: relative;
+    line-height: 16px;
+    font-size: 12px;
+    color: #BFBFC3;
+}
+
+.copyright-text--customized {
+    padding-left: 14px;
+}
+
+.copyright-text--customized::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 12px;
+    background: url('https://img.yzcdn.cn/public_files/2018/01/19/344a25fb1afe9199f821829ce7a99a2d.png') no-repeat;
+    background-size: 10px 12px;
+}

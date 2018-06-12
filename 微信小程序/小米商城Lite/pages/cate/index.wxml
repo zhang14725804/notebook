@@ -1,0 +1,28 @@
+<view class="msxcx-widget-loading msxcx-widget-loading_big" wx:if="{{!loaded}}">
+    <view></view>
+    <text>加载中</text>
+</view>
+<block wx:else>
+    <view class="l">
+        <view bindtap="anchor" class="{{cate_id==chapter.category_id?'current':''}}" data-anchor="{{chapter.category_id}}" wx:if="{{chapter.category_list!=''&&chapter.category_list!=null}}" wx:for="{{list}}" wx:for-item="chapter">{{chapter.category_name}}</view>
+    </view>
+    <scroll-view bindscroll="scroll" bindscrolltolower="scrollbottom" scrollIntoView="{{toView}}" scrollWithAnimation="true" scrollY="true">
+        <view id="cate_{{chapter.category_id}}" wx:if="{{chapter.category_list!=''&&chapter.category_list!=null}}" wx:for="{{list}}" wx:for-item="chapter">
+            <block wx:for="{{chapter.category_list}}">
+                <view class="mx-cate-title" wx:if="{{item.view_type=='category_title'}}">
+                    <view>
+                        <text>{{item.body.category_name}}</text>
+                    </view>
+                </view>
+                <view class="mx-cate" wx:elif="{{item.view_type=='category_group'}}">
+                    <view bindtap="tapItem" data-cat="{{category}}" wx:for="{{item.body.items}}" wx:for-item="category">
+                        <view>
+                            <image src="{{category.img_url}}"></image>
+                        </view>
+                        <text>{{category.product_name}}</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+</block>

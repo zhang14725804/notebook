@@ -1,0 +1,20 @@
+<view class="mod-p-dynamic-tips must-be">
+    <view class="container" id="container">
+        <view class="tips-header">
+            <view class="tips-h1">
+                <view>叫车人数过多</view>
+            </view>
+            <view id="content">
+                <view class="desc">
+                    <view>当前区域车辆较少，您可以选择给司机加价</view>
+                    <view>有助于尽快出行，也可以稍等片刻叫车。</view>
+                </view>
+                <view class="price-info"></view>
+            </view>
+        </view>
+        <view class="tips-footer">
+            <view class="price-des">加价金额全部给到司机</view>
+            <view bindtap="_dispatch" class="confirm-button" data-bindtap="handleConfirm" id="confirm">我知道了</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,13 @@
+<template name="m-liveVideo-intro">
+    <view class="m-liveVideo-intro">
+        <view class="m-liveVideo-intro-items">
+            <text class="m-liveVideo-intro-title_h">{{program.name}}</text>
+        </view>
+        <view class="m-liveVideo-intro-items">
+            <text class="m-liveVideo-intro-items_p">开始时间：{{program.startTimeFormat}}</text>
+        </view>
+        <view class="m-liveVideo-intro-items">
+            <text class="m-liveVideo-intro-items_p">{{status==0?'预约':'在线'}}人数：{{subscribeCount}}人</text>
+        </view>
+    </view>
+</template>

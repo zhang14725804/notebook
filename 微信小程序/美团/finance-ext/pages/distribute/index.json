@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "美团",
+    "usingComponents": {
+        "midas-bp": "../../weixin-lib/component/midas-bp/midas-bp"
+    }
+}

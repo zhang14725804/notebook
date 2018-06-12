@@ -1,0 +1,144 @@
+@import "../../netdisk_templates/share_list/shareList.wxss";
+
+@import "../../netdisk_templates/file_list/fileList.wxss";
+
+@import "../../netdisk_templates/bottom_modal/bottomModal.wxss";
+
+@import "../../netdisk_templates/dialog/dialog.wxss";
+
+@import "../../netdisk_templates/userCenter/userCenter.wxss";
+
+@import "../../netdisk_templates/loading_list/loading_list.wxss";
+
+.swiper-tab {
+    width: 100%;
+    text-align: center;
+    height: 112rpx;
+    line-height: 112rpx;
+    font-size: 34rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0rpx 0rpx 28rpx 0rpx rgba(212,221,236,.45);
+    position: fixed;
+    top: 0;
+    background: #FFF;
+    z-index: 100;
+}
+
+.swiper-tab-replace {
+    width: 100%;
+    height: 112rpx;
+}
+
+.swiper-tab .tab-item {
+    font-size: 34rpx;
+    width: 33%;
+    display: inline-block;
+    color: #333;
+    height: 112rpx;
+    line-height: 112rpx;
+    font-weight: bold;
+    padding-top: 6rpx;
+    box-sizing: border-box;
+}
+
+.tab-item.on {
+    color: #3888FF;
+    font-weight: bold;
+}
+
+.tab-item.on .on-line {
+    width: 28rpx;
+    height: 4rpx;
+    margin: 0 auto;
+    background: #3888FF;
+    bottom: 10rpx;
+    margin-top: -20rpx;
+    border-radius: 6rpx;
+}
+
+.create-group-share {
+    width: 100%;
+    height: 100rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #3888FF;
+    border-radius: 0;
+    text-align: center;
+    line-height: 100rpx;
+}
+
+.create-group-share::after {
+    content: none;
+    border: none;
+}
+
+.create-group-share .add-group-symbol {
+    display: inline-block;
+    height: 26rpx;
+    width: 26rpx;
+    color: #FFF;
+    margin-right: 15rpx;
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/ic_create.png') no-repeat 0 0;
+    background-size: 26rpx;
+    background-position: center;
+}
+
+.create-group-share .add-group-text {
+    color: #FFF;
+    font-size: 34rpx;
+    font-weight: bold;
+}
+
+.nologin-wrap {
+    width: 100%;
+    height: 100%;
+    padding-top: 162rpx;
+}
+
+.nologin-wrap .nologin-title {
+    color: #333;
+    font-size: 58rpx;
+    text-align: center;
+    font-weight: bold;
+    line-height: 100%;
+}
+
+.nologin-wrap .nologin-subdes {
+    color: #333;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 100%;
+    margin-top: 32rpx;
+}
+
+.nologin-wrap .nologin-loginbtn {
+    width: 590rpx;
+    height: 100rpx;
+    margin: 0 auto;
+    margin-top: 240rpx;
+    background: #3888FF;
+    border-radius: 8rpx;
+    line-height: 100rpx;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.nologin-wrap .nologin-loginbtn .login-text {
+    color: #FFF;
+    font-size: 34rpx;
+}
+
+.nologin-wrap .nologin-loginbtn .login-icon {
+    margin-top: 34rpx;
+    margin-left: 12rpx;
+    width: 32rpx;
+    height: 32rpx;
+    background: url('https://pan.baidu.com/h5-static/mini-program/images/ic_button_right.png') no-repeat 0 0;
+    background-size: 32rpx auto;
+    background-position: center;
+}

@@ -1,0 +1,9 @@
+<template name="logout">
+    <view class="logout-container" wx:if="{{loginStatus.isShow}}">
+        <view class="logout-content">
+            <image class="logout-img" src="{{loginStatus.loginInfo.img}}"></image>
+            <view class="logout-tip">{{loginStatus.loginInfo.tip}}</view>
+            <view bindtap="onGoLogin" class="logout-btn">点击登录</view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,40 @@
+.more-cartype-page {
+    background-color: #fff;
+    height: 100%;
+}
+
+.more-cartype-page .cartype-item {
+    display: flex;
+    height: 44px;
+    padding: 13px 34px;
+    border-top: 1rpx solid rgba(0,0,0,.08);
+    margin-top: -1rpx;
+}
+
+.more-cartype-page .car-img {
+    width: 90px;
+    height: 100%;
+    background: center no-repeat;
+    background-size: contain;
+    margin-right: 20px;
+}
+
+.more-cartype-page .car-text {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+    line-height: 1;
+}
+
+.more-cartype-page>view {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.more-cartype-page .car-tip {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #999;
+}

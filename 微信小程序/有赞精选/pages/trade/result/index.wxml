@@ -1,0 +1,57 @@
+<import src="./wxml/top_info.wxml"></import>
+<import src="./wxml/shop.wxml"></import>
+<import src="./wxml/order_total.wxml"></import>
+<import src="./wxml/virtual_code.wxml"></import>
+<import src="../buy/components/coupon/coupon.wxml"></import>
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="../templates/self_fetch/self_fetch_detail.wxml"></import>
+<import src="../templates/pintuan/pintuan.wxml"></import>
+<import src="../../../templates/copyright.wxml"></import>
+<import src="../../../components/share/shareDialog.wxml"></import>
+<import src="../templates/identifyCard/identifyCard.wxml"></import>
+<view class="paid--success__panel zan-panel paid-success}}" wx:if="{{showSelfFetchPopup}}">
+    <template is="self_fetch_detail" data="{{showSelfFetchPopup:showSelfFetchPopup,orderSelfFetchInfo:orderSelfFetchInfo,goodsShowInfo:goodsShowInfo,realPay:realPay}}"></template>
+</view>
+<view class="container container--with-copyright" wx:if="{{!fetching}}">
+    <template is="shareDialog" data="{{showShareDialog:showShareDialog}}" wx:if="{{showShareDialog}}"></template>
+    <template is="goodsMiniCode" data></template>
+    <block wx:if="{{!fetching}}">
+        <template is="top_info" data="{{order:order,express:express,showExpress:showExpress,showSelfFetch:showSelfFetch,selfFetch:selfFetch,showSelfFetchPopup:showSelfFetchPopup,stateStr:stateStr,countdown:countdown}}"></template>
+        <template is="virtual_code" data="{{order:order,qrcode:qrcode}}" wx:if="{{qrcode.show&&order.order_state!='totuan'}}"></template>
+        <template is="identifyCard" data="{{order_no:order_no,identifyCardNo:identifyCardNo}}" wx:if="{{identifyCardNo!=''}}"></template>
+        <template is="pintuan" data="{{isLeader:isLeader,isLeaderSelcted:isLeaderSelcted,isOrderResult:isOrderResult,grouponColletcionNum:grouponColletcionNum,leaderName:leaderName}}" wx:if="{{order.order_state!='cancel'&&groupCollectServiceChosen}}"></template>
+        <template is="shop" data="{{order:order,kdtId:kdtId,titleStr:titleStr,phoneNum:phoneNum,showSelfFetch:showSelfFetch,supportChat:supportChat,chatBusinessId:chatBusinessId}}"></template>
+        <view class="zan-cell zan-cell--last-child order-panel zan-panel" wx:if="{{order.couponData.discountFee!='0.00'}}">
+            <text class="zan-cell__bd">优惠</text>
+            <view class="zan-cell__ft zan-c-gray-darker">
+                <view>{{order.couponData.group.name}}</view>
+                <view>{{order.couponData.group.condition}}</view>
+            </view>
+        </view>
+        <template is="order-total" data="{{order:order,isLeader:isLeader}}"></template>
+        <view class="order-info zan-panel">
+            <view class="zan-cell order-info__cell zan-cell--last-child">
+                <view class="zan-cell__bd zan-c-gray-dark zan-font-12">
+                    <view>订单编号：{{order.order_no}}</view>
+                    <view>创建时间：{{order.book_time}}</view>
+                    <view wx:if="{{order.pay_time}}">付款时间：{{order.pay_time}}</view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+<template is="copyright" data="{{copyright:copyright,is_big_shop:is_big_shop}}"></template>
+<view class="zan-cell__bd zan-right order-item__extra-row zan-cell zan-cell--last-child {{order.isAllowConfirmReceive||order.order_state!='topay'&&order.order_state!='cancel'||order.order_type=='10'&&order.order_state!='topay'&&order.close_state_str!='超时未付款'&&order.close_state_str!='商家取消'?'bottom-fixed':''}}">
+    <view class="order-item__actions zan-cell__bd zan-right">
+        <button catchtap="onPintuanDetailClick" class="order-item__action zan-btn zan-btn--small zan-btn--plain" style="border: 1rpx solid #cacaca" wx:if="{{order.order_type=='10'&&order.order_state!='topay'&&order.close_state_str!='超时未付款'&&order.close_state_str!='商家取消'}}">
+    拼团详情
+  </button>
+        <button catchtap="onShareClick" class="zan-btn zan-btn--danger zan-btn--small zan-btn--plain order-item__action" wx:if="{{order.order_state!='topay'&&order.order_state!='cancel'}}">
+    晒单有礼
+  </button>
+        <button catchtap="onConfirmReceiveClick" class="zan-btn zan-btn--danger zan-btn--small zan-btn--plain order-item__action" wx:if="{{order.isAllowConfirmReceive}}">
+    确认收货
+  </button>
+    </view>
+</view>

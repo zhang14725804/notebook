@@ -1,0 +1,561 @@
+<view class="msxcx-widget-loading msxcx-widget-loading_big" wx:if="{{!loaded}}">
+    <view></view>
+    <text>加载中</text>
+</view>
+<block wx:else>
+    <view class="msxcx-product">
+        <view class="msxcx-product-gallery" wx:if="{{!isGroupDetail}}">
+            <swiper autoplay="{{true}}" circular="{{true}}" indicatorActiveColor="rgba(255,255,255,.8)" indicatorColor="rgba(255,255,255,.4)" indicatorDots="{{galleryView.length>1?true:false}}" interval="{{4000}}">
+                <swiper-item wx:for="{{galleryView}}">
+                    <image class="slide-image" src="{{item}}"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="group-pro-section">
+            <view class="msxcx-pin-gallery group-gallery" wx:if="{{isGroupDetail&&productImg}}">
+                <image mode="widthFix" src="{{productImg}}"></image>
+            </view>
+            <view class="group-pro-info" wx:if="{{isGroupDetail}}">
+                <view class="product-name">
+          {{productInfo.title}}
+        </view>
+                <view class="product-intro">{{productInfo.desc}}
+        </view>
+                <view class="mx-product-price" wx:if="{{defaultGoodsInfo}}">
+                    <text class="p1">{{defaultGoodsInfo.group_price}}<text class="sub">元</text>
+                    </text>
+                    <text class="shipment" wx:if="{{productInfo.shipment==''}}">包邮</text>
+                    <text class="p2" hidden="{{!showMarketPrice}}">拼团省 {{defaultGoodsInfo.save_price}}元</text>
+                </view>
+                <view class="mx-product-price" wx:elif="{{productInfo}}">
+                    <text class="p1">{{productInfo.price}}</text>
+                    <text class="shipment" wx:if="{{productInfo.shipment==''}}">包邮</text>
+                </view>
+            </view>
+        </view>
+        <view class="msxcx-layout-mod detail_ad_info" wx:if="{{!isGroupDetail&&detailAdInfo&&detailAdInfo.length}}">
+            <view class="msxcx-layout-mod__bd msxcx-layout-mod__bd_nopadding mx-pin-ads">
+                <swiper autoplay="{{true}}" circular="{{true}}" indicatorActiveColor="rgba(255,255,255,.8)" indicatorColor="rgba(255,255,255,.4)" indicatorDots="{{detailAdInfo.length>1?true:false}}" interval="{{4000}}" style="height: {{detailAdInfo[0]&&detailAdInfo[0].h/1080*750}}rpx">
+                    <swiper-item wx:for="{{detailAdInfo}}">
+                        <view bindtap="bindTapAd" data-item="{{item}}">
+                            <image mode="widthFix" src="{{item.image_url}}"></image>
+                        </view>
+                    </swiper-item>
+                </swiper>
+            </view>
+        </view>
+        <view class="msxcx-product-info" wx:if="{{!isGroupDetail}}">
+            <view class="product-name align-product-name">
+                <view class="title-box">
+                    <text class="ext group-tag" wx:if="{{projectConfig.person_num}}">{{projectConfig.person_num}}人团</text>
+          {{productInfo.title}}
+        </view>
+                <view>
+                    <button class="share-icon" openType="share" plain="true" wx:if="{{showPyShare}}"></button>
+                    <button bindtap="share" class="share-icon" plain="true" wx:else></button>
+                </view>
+            </view>
+            <view class="product-intro">
+                <text class="ext">{{productInfo.extDesc}}</text>{{productInfo.desc}}
+      </view>
+            <view class="mx-product-price" wx:if="{{defaultGoodsInfo}}">
+                <text class="p1">{{defaultGoodsInfo.group_price}}<text class="sub">元</text>
+                </text>
+                <text class="shipment" wx:if="{{productInfo.shipment==''}}">包邮</text>
+                <text class="p2" hidden="{{!showMarketPrice}}">原价 {{defaultGoodsInfo.market_price}}元</text>
+            </view>
+            <view class="mx-product-price" wx:elif="{{productInfo}}">
+                <text class="p1">{{productInfo.price}}</text>
+                <text class="shipment" wx:if="{{productInfo.shipment==''}}">包邮</text>
+            </view>
+            <view bindtap="tapToggleTips" class="mx-product-more msxcx-widget-list__item_arrow" wx:if="{{!isGroupDetail&&projectConfig.project_type==0}}">
+                <label>玩法</label>
+                <view class="item item_text">
+                    <text>{{productInfo.tips}}</text>
+                </view>
+            </view>
+            <block wx:if="{{!isGroupDetail&&(projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3)}}">
+                <import src="../wxParse/wxParse.wxml"></import>
+                <view bindtap="tapToggleTips" class="mx-product-more point-product-more draw-group-pad">
+                    <view class="row clearfix">
+                        <label>抽奖规则</label>
+                        <view class="more"></view>
+                    </view>
+                    <view class="item item_text draw-group-arrow-pad">
+                        <view class="rule-info">
+                            <template is="wxParse" data="{{wxParseData:coupon_short_tips.nodes}}"></template>
+                        </view>
+                        <image class="arrow" src="http://i8.mifile.cn/b2c-mimall-media/2fb450e7b0d6a6ec571a7c8c50cb5e3b.png"></image>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="msxcx-layout-mod" wx:if="{{!isGroupDetail&&defaultGoodsInfo.goods_name}}">
+            <view class="msxcx-layout-mod__bd">
+                <view class="msxcx-widget-list">
+                    <view class="msxcx-widget-list__item {{goodsList.length>1?'msxcx-widget-list__item_arrow':''}}">
+                        <view bindtap="tapToggleVersion" class="mx-product-select mx-product-select_lr">
+                            <label>已选</label>
+                            <view class="item item_text">
+                                <text>{{defaultGoodsInfo.goods_name}}</text>
+                                <text class="sub">×{{buyNum}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="msxcx-layout-mod" style="position: relative" wx:if="{{isGroupDetail&&playerList.length}}">
+            <view bindtap="toggleBook" class="book-icon-section flex-box {{bookInfo&&bookInfo.status===1?'booked':'not-book'}}" wx:if="{{groupStatus===3||groupStatus===4||projectConfig.project_status!=1}}">
+                <view class="book-icon"></view>
+            </view>
+            <view class="msxcx-layout-mod__bd" style="overflow:hidden;">
+                <view class="mx-group-info">
+                    <block wx:if="{{groupStatus===1&&needLens>0&&defaultHasStock}}">
+                        <view class="title">
+            还差<text class="num">{{needLens}}</text>人成团</view>
+                        <view class="share-tips" wx:if="{{joined}}">{{share_tips}}</view>
+                        <view class="time" wx:if="{{groupCdStr}}">
+              还剩 <block wx:if="{{groupCdStr.h!='00'}}">
+                                <text class="time-item">{{groupCdStr.h}}</text> 时 </block>
+                            <block wx:if="{{groupCdStr.m!=='00'}}">
+                                <text class="time-item">{{groupCdStr.m}}</text> 分 </block>
+                            <block wx:if="{{groupCdStr.s!='00'}}">
+                                <text class="time-item">{{groupCdStr.s}}</text> 秒</block>
+                        </view>
+                        <view class="mx-group-player">
+                            <view class="list">
+                                <view class="player {{item.user_avatar?'uavatar':''}}" wx:for="{{playerList}}">
+                                    <block wx:if="{{item}}">
+                                        <view class="avatar" style="background-image: url('{{item.user_avatar}}')" wx:if="{{item.user_avatar}}"></view>
+                                        <text class="master" wx:if="{{index===0}}">团长</text>
+                                    </block>
+                                    <text class="no" wx:else>?</text>
+                                </view>
+                            </view>
+                        </view>
+                        <button class="btn" openType="share" type="mi" wx:if="{{showPyShare&&joined}}">邀请好友拼单</button>
+                        <button bindtap="share" class="btn" type="mi" wx:if="{{!showPyShare&&joined}}">邀请好友拼单</button>
+                        <view class="msxcx-layout-footer_btns" wx:if="{{!joined}}">
+                            <form bindsubmit="tapToggleVersion" data-mode="participator" data-select-type="buy" reportSubmit="true" style="width: 100%">
+                                <button class="msxcx-widget-bigbtn stat-product-add-cart" formType="submit" type="mi">
+                                    <text wx:if="{{!projectConfig.limit_new}}">我要参团</text>
+                                    <text wx:else>新人一键参团</text>
+                                </button>
+                                <input name="mode" style="display: none" value="participator"></input>
+                            </form>
+                        </view>
+                        <view class="divided-line"></view>
+                    </block>
+                    <block wx:if="{{groupStatus===1&&needLens<=0&&joined}}">
+                        <view class="title succ">正在成团中</view>
+                        <view class="mx-group-player">
+                            <view class="list">
+                                <view class="player {{item.user_avatar?'uavatar':''}}" wx:for="{{playerList}}">
+                                    <block wx:if="{{item}}">
+                                        <view class="avatar" style="background-image: url('{{item.user_avatar}}')" wx:if="{{item.user_avatar}}"></view>
+                                        <text class="master" wx:if="{{index===0}}">团长</text>
+                                    </block>
+                                    <text class="no" wx:else>?</text>
+                                </view>
+                            </view>
+                        </view>
+                        <block wx:if="{{projectConfig.project_type==0}}">
+                            <navigator class="btn btn-store" openType="switchTab" url="/pages/index/index">去商城逛逛</navigator>
+                            <navigator class="btn btn-more" openType="navigate" url="/pages/pin/index">其他拼团商品</navigator>
+                        </block>
+                        <block wx:elif="{{!defaultHasStock&&(projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3)}}">
+                            <navigator class="btn btn-store" openType="switchTab" url="/pages/index/index">去商城逛逛</navigator>
+                            <navigator class="btn btn-more" openType="navigate" url="/pages/pin/index">更多拼团产品</navigator>
+                        </block>
+                        <navigator class="btn btn-more" openType="navigate" url="/pages/pin/product/index?p={{projectConfig.project_id}}" wx:elif="{{defaultHasStock&&(projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3)}}">再开一团，提高中奖率</navigator>
+                    </block>
+                    <block wx:elif="{{groupStatus===2&&joined}}">
+                        <view class="title succ">
+                            <view class="smile"></view>
+              拼团成功
+            </view>
+                        <block wx:if="{{projectType===2&&groupCdStr}}">
+                            <view class="share-tips">{{share_tips}}</view>
+                            <view class="time">
+                还剩 <block wx:if="{{groupCdStr.h!='00'}}">
+                                    <text class="time-item">{{groupCdStr.h}}</text> 时 </block>
+                                <block wx:if="{{groupCdStr.m!='00'}}">
+                                    <text class="time-item">{{groupCdStr.m}}</text> 分 </block>
+                                <block wx:if="{{groupCdStr.s!='00'}}">
+                                    <text class="time-item">{{groupCdStr.s}}</text> 秒</block>
+                            </view>
+                        </block>
+                        <view class="time" wx:else>{{groupFinishTime}} 已达成</view>
+                        <view class="mx-group-player">
+                            <view class="list">
+                                <view class="player {{item.user_avatar?'uavatar':''}}" wx:for="{{playerList}}">
+                                    <block wx:if="{{item}}">
+                                        <view class="avatar" style="background-image: url('{{item.user_avatar}}')" wx:if="{{item.user_avatar}}"></view>
+                                        <text class="master" wx:if="{{index===0}}">团长</text>
+                                    </block>
+                                    <text class="no" wx:else>?</text>
+                                </view>
+                            </view>
+                        </view>
+                        <block wx:if="{{projectConfig.project_type==0}}">
+                            <navigator class="btn btn-store" openType="switchTab" url="/pages/index/index">去商城逛逛</navigator>
+                            <navigator class="btn btn-more" openType="navigate" url="/pages/pin/index">其他拼团商品</navigator>
+                        </block>
+                        <block wx:elif="{{!defaultHasStock&&(projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3)}}">
+                            <navigator class="btn btn-store" openType="switchTab" url="/pages/index/index">去商城逛逛</navigator>
+                            <navigator class="btn btn-more" openType="navigate" url="/pages/pin/index">更多拼团产品</navigator>
+                        </block>
+                        <navigator class="btn btn-store" openType="navigate" url="/pages/pin/product/index?p={{projectConfig.project_id}}" wx:elif="{{defaultHasStock&&(projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3)}}">再开一团，提高中奖率</navigator>
+                    </block>
+                    <block wx:elif="{{(groupStatus===2||groupStatus===1&&needLens<=0)&&!joined}}">
+                        <view class="title">
+                            <view class="cry"></view>
+              团已满
+            </view>
+                        <view class="time">来晚了一步哦～</view>
+                        <view class="mx-group-player">
+                            <view class="list">
+                                <view class="player {{item.user_avatar?'uavatar':''}}" wx:for="{{playerList}}">
+                                    <block wx:if="{{item}}">
+                                        <view class="avatar" style="background-image: url('{{item.user_avatar}}')" wx:if="{{item.user_avatar}}"></view>
+                                        <text class="master" wx:if="{{index===0}}">团长</text>
+                                    </block>
+                                    <text class="no" wx:else>?</text>
+                                </view>
+                            </view>
+                        </view>
+                        <navigator class="btn btn-store" openType="navigate" url="/pages/pin/product/index?p={{projectConfig.project_id}}" wx:if="{{groupStatus===1&&needLens<=0&&defaultHasStock||groupStatus===2&&defaultHasStock}}">我来开这个团</navigator>
+                        <navigator class="btn btn-store" openType="navigate" url="/pages/pin/index" wx:elif="{{groupStatus===1&&needLens<=0&&!defaultHasStock||groupStatus===2&&!defaultHasStock}}">逛逛其他拼团商品</navigator>
+                    </block>
+                    <block wx:elif="{{groupStatus===3||groupStatus===4}}">
+                        <view class="title">
+                            <view class="cry"></view>
+              拼团失败
+            </view>
+                        <view class="time">款项将原路退回</view>
+                        <view class="mx-group-player">
+                            <view class="list">
+                                <view class="player {{item.user_avatar?'uavatar':''}}" wx:for="{{playerList}}">
+                                    <block wx:if="{{item}}">
+                                        <view class="avatar" style="background-image: url('{{item.user_avatar}}')" wx:if="{{item.user_avatar}}"></view>
+                                        <text class="master" wx:if="{{index===0}}">团长</text>
+                                    </block>
+                                    <text class="no" wx:else>?</text>
+                                </view>
+                            </view>
+                        </view>
+                        <block wx:if="{{!joined}}">
+                            <navigator class="btn btn-store" openType="navigate" url="/pages/pin/product/index?p={{projectConfig.project_id}}" wx:if="{{groupStatus===3&&defaultHasStock}}">我来开这个团</navigator>
+                            <navigator class="btn btn-store" openType="navigate" url="/pages/pin/index" wx:elif="{{groupStatus===4||groupStatus===3&&!defaultHasStock}}">逛逛其他拼团商品</navigator>
+                        </block>
+                        <block wx:else>
+                            <block wx:if="{{defaultHasStock&&projectConfig.project_type==0}}">
+                                <block wx:if="{{groupStatus==3}}">
+                                    <navigator class="btn btn-store" openType="navigate" url="/pages/pin/index">其他拼团商品</navigator>
+                                    <navigator class="btn btn-more" openType="navigate" url="/pages/pin/product/index?p={{projectConfig.project_id}}">一键重开</navigator>
+                                </block>
+                                <navigator class="btn btn-store" openType="navigate" url="/pages/pin/index" wx:if="{{groupStatus==4}}">逛逛其他拼团商品</navigator>
+                            </block>
+                            <navigator class="btn btn-store" openType="navigate" url="/pages/pin/index" wx:elif="{{!defaultHasStock&&projectConfig.project_type==0}}">逛逛其他拼团商品</navigator>
+                            <block wx:if="{{!defaultHasStock&&(projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3)}}">
+                                <navigator class="btn btn-store" openType="switchTab" url="/pages/index/index">去商城逛逛</navigator>
+                                <navigator class="btn btn-more" openType="navigate" url="/pages/pin/index">更多拼团产品</navigator>
+                            </block>
+                            <block wx:if="{{defaultHasStock&&(projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3)}}">
+                                <block wx:if="{{groupStatus==3}}">
+                                    <navigator class="btn btn-store" openType="navigate" url="/pages/pin/index">其他拼团商品</navigator>
+                                    <navigator class="btn btn-more" openType="navigate" url="/pages/pin/product/index?p={{projectConfig.project_id}}">一键重开</navigator>
+                                </block>
+                                <navigator class="btn btn-store" openType="navigate" url="/pages/pin/index" wx:if="{{groupStatus==4}}">逛逛其他拼团商品</navigator>
+                            </block>
+                        </block>
+                    </block>
+                    <block wx:elif="{{groupStatus===1&&!defaultHasStock}}">
+                        <view class="title">
+                            <view class="cry"></view>
+              该团暂时无法参加
+            </view>
+                        <view class="time">活动火爆，商品紧张补货中</view>
+                        <view class="mx-group-player">
+                            <view class="list">
+                                <view class="player {{item.user_avatar?'uavatar':''}}" wx:for="{{playerList}}">
+                                    <block wx:if="{{item}}">
+                                        <view class="avatar" style="background-image: url('{{item.user_avatar}}')" wx:if="{{item.user_avatar}}"></view>
+                                        <text class="master" wx:if="{{index===0}}">团长</text>
+                                    </block>
+                                    <text class="no" wx:else>?</text>
+                                </view>
+                            </view>
+                        </view>
+                        <navigator class="btn btn-store" openType="switchTab" url="/pages/index/index">去商城逛逛</navigator>
+                        <navigator class="btn btn-more" openType="navigate" url="/pages/pin/index">更多拼团产品</navigator>
+                    </block>
+                </view>
+                <view class="msxcx-layout-mod" wx:if="{{adInfo&&adInfo.length}}">
+                    <view class="msxcx-layout-mod__bd msxcx-layout-mod__bd_nopadding mx-pin-ads">
+                        <swiper autoplay="{{true}}" circular="{{true}}" indicatorActiveColor="rgba(255,255,255,.8)" indicatorColor="rgba(255,255,255,.4)" indicatorDots="{{adInfo.length>1?true:false}}" interval="{{4000}}">
+                            <swiper-item wx:for="{{adInfo}}">
+                                <view bindtap="bindTapAd" data-item="{{item}}">
+                                    <image mode="widthFix" src="{{item.image_url}}"></image>
+                                </view>
+                            </swiper-item>
+                        </swiper>
+                    </view>
+                </view>
+                <block wx:if="{{(projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3)&&!isGroupDetail}}">
+                    <import src="../wxParse/wxParse.wxml"></import>
+                    <view bindtap="tapToggleTips" class="mx-product-more point-product-more draw-group-pad">
+                        <view class="row clearfix">
+                            <label>抽奖规则</label>
+                        </view>
+                        <view class="item item_text draw-group-arrow-pad">
+                            <view class="rule-info">
+                                <template is="wxParse" data="{{wxParseData:coupon_short_tips.nodes}}"></template>
+                            </view>
+                            <image class="arrow" src="http://i8.mifile.cn/b2c-mimall-media/2fb450e7b0d6a6ec571a7c8c50cb5e3b.png"></image>
+                        </view>
+                    </view>
+                </block>
+                <view bindtap="tapToggleTips" class="mx-product-more  msxcx-widget-list__item_arrow" wx:if="{{projectConfig.project_type==0&&isGroupDetail}}">
+                    <label>玩法</label>
+                    <view class="item item_text">
+                        <block wx:if="{{(projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3)&&isGroupDetail}}">
+                            <import src="../wxParse/wxParse.wxml"></import>
+                            <template is="wxParse" data="{{wxParseData:coupon_short_tips_group.nodes}}"></template>
+                        </block>
+                        <text class="fr" wx:else>{{productInfo.tips}}</text>
+                    </view>
+                </view>
+                <block wx:if="{{(projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3)&&isGroupDetail}}">
+                    <import src="../wxParse/wxParse.wxml"></import>
+                    <view bindtap="tapToggleTips" class="mx-product-more  point-product-more draw-group-pad">
+                        <view class="row clearfix">
+                            <label>抽奖规则</label>
+                        </view>
+                        <view class="item item_text draw-group-arrow-pad">
+                            <view class="rule-info">
+                                <template is="wxParse" data="{{wxParseData:coupon_short_tips.nodes}}"></template>
+                            </view>
+                            <image class="arrow" src="http://i8.mifile.cn/b2c-mimall-media/2fb450e7b0d6a6ec571a7c8c50cb5e3b.png"></image>
+                        </view>
+                    </view>
+                </block>
+                <navigator class="mx-product-more  msxcx-widget-list__item_arrow more-orange" openType="navigate" url="/pages/pin/index">
+                    <label>更多</label>
+                    <view class="item item_text fr">
+                        <text>其他拼团商品</text>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <view class="msxcx-layout-mod" wx:if="{{groupList&&groupList.length}}">
+            <view class="msxcx-layout-mod__hd">
+                <text class="msxcx-layout-mod__hd_left">以下米粉正在开团，可直接参与</text>
+            </view>
+            <view class="msxcx-layout-mod__bd">
+                <view class="msxcx-widget-list mx-group-list">
+                    <view class="msxcx-widget-list__item " wx:for="{{groupList}}" wx:for-index="i">
+                        <view class="mx-group-list-item">
+                            <view class="user-info" wx:if="{{index===0}}" wx:for="{{item.player_info}}" wx:for-item="player">
+                                <view class="avatar" style="background-image: url('{{item.user_avatar}}')" wx:if="{{item.user_avatar}}"></view>
+                                <text class="name">{{player.user_name}}</text>
+                            </view>
+                            <view class="group-info">
+                                <view>还差{{projectConfig.person_num-item.player_info.length}}人成团</view>
+                                <view class="time">
+                  剩余
+                  <text>{{groupListCd[i].h}}</text> :
+                  <text>{{groupListCd[i].m}}</text> :
+                  <text class="s">{{groupListCd[i].s}}</text>
+                                </view>
+                            </view>
+                            <button bindtap="tapToggleVersion" class="btn" data-g="{{item.group_id}}" data-mode="participator" data-select-type="buy" type="mi">去拼单</button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <block wx:if="{{showProductContent}}">
+            <view class="msxcx-layout-mod" wx:if="{{curComment&&curComment.detail&&curComment.comments_total>0}}">
+                <navigator class="msxcx-layout-mod__hd" openType="navigate" url="../../comment/index?id={{curComment.product_id}}">
+                    <text class="msxcx-layout-mod__hd_left">用户评价（{{curComment.comments_total}}）</text>
+                    <text class="msxcx-layout-mod__hd_right" style="font-size:24rpx;color:#999;">查看全部评价</text>
+                </navigator>
+                <view class="msxcx-layout-mod__bd msxcx-layout-mod__bd_nopadding">
+                    <view class="msxcx-p-comment-list">
+                        <view class="msxcx-p-comment-list__item">
+                            <image class="avatar" mode="widthFix" src="{{curComment.detail.user_avatar}}"></image>
+                            <view class="name">{{curComment.detail.user_name}}</view>
+                            <view class="content">{{curComment.detail.comment_content}}</view>
+                            <view class="image">
+                                <view wx:for="{{curComment.detail.comment_images}}" wx:for-item="image">
+                                    <image bindtap="viewImage" data-current="{{image}}" data-urls="{{curComment.detail.comment_images}}" mode="aspectFill" src="{{image}}"></image>
+                                </view>
+                            </view>
+                            <view class="sub">
+                                <text>{{curComment.detail.add_time}}</text>
+                            </view>
+                            <view class="reply" wx:if="{{curComment.detail.reply_content||curComment.detail.user_replys.length}}">
+                                <text wx:if="{{curComment.detail.reply_content}}">
+                                    <text class="orange">官方回复：</text>
+                  {{curComment.detail.reply_content}}
+                </text>
+                                <text wx:for="{{curComment.detail.user_replys}}" wx:for-item="r">
+                                    <text>{{r.user_name}}：</text>
+                  {{r.reply_content}}
+                </text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="msxcx-layout-mod" wx:if="{{item&&item.show}}" wx:for="{{productContent}}">
+                <view class="msxcx-layout-mod__bd msxcx-layout-mod__bd_nopadding" style="min-height:88rpx">
+                    <view class="msxcx-widget-navbar">
+                        <view bindtap="toggleTabs" class="{{item.show?'on':''}}" data-index="{{index}}" wx:for="{{productContent}}">
+                            <view>{{item.name}}</view>
+                        </view>
+                    </view>
+                    <view class="msxcx-product-desc msxcx-product-desc_app" wx:if="{{item.tab_content&&item.tab_content.length}}">
+                        <view class="msxcx-product-desc__item" wx:if="{{di<item.showMax}}" wx:for="{{item.tab_content}}" wx:for-index="di" wx:for-item="d">
+                            <image mode="widthFix" src="{{d.plain_view.img}}" wx:if="{{d.plain_view.img}}"></image>
+                        </view>
+                        <button bindtap="showAllContent" class="show-all-con-btn" wx:if="{{item.tab_content.length>item.showMax}}">查看更多图文详情 ></button>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:if="{{isGroupDetail}}">
+            <view class="msxcx-layout-mod" wx:if="{{recList&&recList.length}}">
+                <view class="msxcx-layout-mod__hd">为你推荐</view>
+                <view class="msxcx-layout-mod__bd msxcx-layout-mod__bd_nopadding">
+                    <view class="mx-index-1l2c">
+                        <view wx:for="{{recList}}" wx:for-item="rec">
+                            <navigator openType="navigate" url="/pages/product/index?id={{rec.product_id}}&posID=8">
+                                <view class="image">
+                                    <image class="pic" src="{{rec.img_url}}"></image>
+                                </view>
+                                <view class="mx-index-text-group">
+                                    <text class="name">{{rec.short_name}}</text>
+                                    <text class="sub">{{rec.short_title}}</text>
+                                    <text class="price" wx:if="{{rec.price!='0'}}">
+                                        <text class="p1{{is_multi_price?' p1_qi':''}}">{{rec.price_min}}元</text>
+                                        <text class="p2" wx:if="{{rec.price_min!=rec.market_price}}">{{rec.market_price}}元</text>
+                                    </text>
+                                </view>
+                            </navigator>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="msxcx-layout-footer-placeholder"></view>
+    <view class="msxcx-layout-footer ">
+        <block wx:if="{{isGroupDetail}}">
+            <view class="msxcx-layout-footer_btns" wx:if="{{!joined}}"></view>
+            <view class="msxcx-layout-footer_btns" wx:elif="{{joined}}">
+                <block wx:if="{{defaultHasStock&&projectConfig.project_type==0}}">
+                    <block wx:if="{{groupStatus==1}}">
+                        <navigator class="btn btn-store bg-white" openType="switchTab" url="/pages/index/index">回商城逛逛</navigator>
+                        <navigator class="btn btn-more bg-white" openType="navigate" url="/pages/pin/index">更多拼团产品</navigator>
+                    </block>
+                </block>
+                <block wx:if="{{defaultHasStock&&(projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3)}}">
+                    <block wx:if="{{groupStatus==1}}">
+                        <navigator class="btn btn-store bg-white" openType="switchTab" url="/pages/index/index">回商城逛逛</navigator>
+                        <navigator class="btn btn-more bg-white" openType="navigate" url="/pages/pin/index">更多拼团产品</navigator>
+                    </block>
+                </block>
+            </view>
+        </block>
+        <view class="not-group-footer" wx:else>
+            <navigator class="home" openType="navigate" url="/pages/pin/index">
+                <image alt="首页" src="https://i8.mifile.cn/webfile/h5/weixin/0317/9671521357879_.pic.jpg"></image>
+            </navigator>
+            <block wx:if="{{projectConfig.project_status==1&&projectConfig.project_type==0}}">
+                <button bindtap="goProductPage" class="alone msxcx-widget-bigbtn stat-product-add-cart msxcx-widget-bigbtn-pin left-radius-btn" data-mode="sponsor" type="mi" wx:if="{{defaultGoodsInfo.goods_id}}">
+                    <text class="price">{{defaultGoodsInfo.market_price}}元</text>
+                    <text class="desc">单独购买</text>
+                </button>
+                <button bindtap="tapToggleVersion" class="msxcx-widget-bigbtn stat-product-add-cart msxcx-widget-bigbtn-pin right-radius-btn" data-mode="sponsor" data-select-type="buy" type="mi">
+                    <text class="price">{{defaultGoodsInfo.group_price}}元</text>
+                    <text class="desc">一键开团</text>
+                </button>
+            </block>
+            <button bindtap="tapToggleVersion" class="msxcx-widget-bigbtn stat-product-add-cart msxcx-widget-bigbtn-pin msxcx-widget-bigbtn-point-pin both-radius-btn" data-mode="sponsor" data-select-type="buy" type="mi" wx:elif="{{projectConfig.project_status==1&&(projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3)}}">
+        {{defaultGoodsInfo.group_price}}元一键开团
+        
+      </button>
+            <button class="msxcx-widget-bigbtn both-radius-btn" disabled="true" type="msxcx-btn-hb" wx:else>
+                <text>暂时售罄</text>
+            </button>
+        </view>
+    </view>
+    <view bindtap="tapToggleVersion" class="msxcx-pop-mask {{versionShow?'active':''}}">
+        <view catchtap="disableBubble" class="msxcx-pop msxcx-pop_bot">
+            <scroll-view scrollY class="msxcx-pop__bd msxcx-pop__bd_nopadding">
+                <view class="version-list">
+                    <view class="mx-product-select">
+                        <label>选择商品版本</label>
+                        <view class="ul">
+                            <view catchtap="tapSelectGoods" class="line {{!item.stock?'dashed':''}} {{item.on?'on':''}}" data-gid="{{item.goods_id}}" data-stock="{{item.stock}}" wx:for="{{goodsList}}">
+                  {{item.goods_name}}
+              </view>
+                        </view>
+                    </view>
+                    <view class="mx-product-select mx-product-select_num">
+                        <label>购买数量</label>
+                        <view class="num">
+                            <view bindtap="changeNum" class="{{buyNum===1?'disabled':''}}" data-type="sub"></view>
+                            <view>{{buyNum}}</view>
+                            <view bindtap="changeNum" class="{{buyNum===projectConfig.product_max?'disabled':''}}" data-type="add"></view>
+                        </view>
+                    </view>
+                    <form bindsubmit="tapSubmit" reportSubmit="true">
+                        <button class="msxcx-widget-bigbtn" formType="submit" type="mi" wx:if="{{defaultGoodsInfo.stock}}">确定</button>
+                        <button class="msxcx-widget-bigbtn" disabled="true" type="msxcx-btn-hb" wx:else>暂时缺货</button>
+                    </form>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <view bindtap="tapToggleTips" class="msxcx-pop-mask {{tipsMoreShow?'active':''}}">
+        <view catchtap="disableBubble" class="msxcx-pop msxcx-pop_bot">
+            <view class="tips-wrapper">
+                <icon bindtap="tapToggleTips" color="rgb(183,183,183)" type="cancel"></icon>
+                <view class="title">拼单玩法</view>
+                <scroll-view scrollY class=" msxcx-pop__bd msxcx-pop__bd_nopadding">
+                    <block wx:if="{{(projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3)&&!isGroupDetail}}">
+                        <import src="../wxParse/wxParse.wxml"></import>
+                        <template is="wxParse" data="{{wxParseData:coupon_tips.nodes}}"></template>
+                    </block>
+                    <view wx:elif="isGroupDetail">
+                        <block wx:if="{{projectConfig.project_type==1||projectConfig.project_type==2||projectConfig.project_type==3}}">
+                            <import src="../wxParse/wxParse.wxml"></import>
+                            <template is="wxParse" data="{{wxParseData:coupon_tips.nodes}}"></template>
+                        </block>
+                        <text wx:else>{{productInfo.tipsMore}}</text>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+    <view class="mx-staff-share-mask" wx:if="{{showShareIcons}}">
+        <image bindtap="closeModal" class="close-icon" data-type="showShareIcons" src="http://i8.mifile.cn/webfile/h5/weixin/0315/close-icon.png"></image>
+        <view class="img-container">
+            <image class="pyq-img" src="{{shareData.pyqImageUrl}}"></image>
+        </view>
+        <view class="mx-staff-share">
+            <button openType="share">
+                <image src="http://i8.mifile.cn/webfile/h5/weixin/0301/share-1.png"></image>
+                <text>发送给朋友</text>
+            </button>
+            <button bindtap="shareFriends">
+                <image src="http://i8.mifile.cn/webfile/h5/weixin/0301/share-2.png"></image>
+                <text>分享至朋友圈</text>
+            </button>
+        </view>
+    </view>
+</block>

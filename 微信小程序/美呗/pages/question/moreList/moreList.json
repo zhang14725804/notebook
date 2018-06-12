@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "更多问答",
+    "usingComponents": {
+        "qa": "/components/QA/qa-cell",
+        "loadMore": "/components/loadMore/loadMore",
+        "empty": "/components/empty/empty"
+    }
+}

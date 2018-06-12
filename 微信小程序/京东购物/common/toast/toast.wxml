@@ -1,0 +1,6 @@
+<template name="toast">
+    <view class="toast" wx:if="{{content}}">
+        <icon color="#eee" size="50" type="{{icon}}" wx:if="{{icon!='none'}}"></icon>
+        <text>{{content}}</text>
+    </view>
+</template>

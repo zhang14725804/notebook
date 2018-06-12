@@ -1,0 +1,15 @@
+<template name="followYZ">
+    <view catchtap="onHideQrcodeView" class="gray-bg"></view>
+    <view class="qrcode-container">
+        <view class="h3 font-size-18">关注有赞，获取更多好物</view>
+        <view class="code-container">
+            <view catchlongpress="onSaveToGalleryTap" class="code">
+                <image class="img" style="background:url('https://img.yzcdn.cn/public_files/2017/10/11/9d70e8e30428434647d85358383f37f9.jpg') no-repeat center / contain"></image>
+                <view class="p font-size-14">长按图片保存至相册</view>
+            </view>
+            <view class="left-circle ::before"></view>
+            <view class="right-circle ::before"></view>
+        </view>
+    </view>
+    <view class="long-press-tips font-size-14">长按图片保存至相册</view>
+</template>

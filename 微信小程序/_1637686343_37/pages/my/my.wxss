@@ -1,0 +1,232 @@
+@import "../../__wuBaseWxss__/0.wxss";
+
+@import "../../__wuBaseWxss__/6.wxss";
+
+@import "../../__wuBaseWxss__/7.wxss";
+
+.c-login-pic {
+    font-size: 0;
+}
+
+.c-not-login_pic {
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 50%;
+    margin-top: 60rpx;
+}
+
+.c-user-login_box {
+    display: inline-block;
+    overflow: hidden;
+    margin: 40rpx 0 60rpx;
+}
+
+.c-user-login_btn {
+    width: 300rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-radius: 45rpx;
+    background-color: #0bbe06;
+    color: #fff;
+    font-size: 30rpx;
+    text-align: center;
+}
+
+.c-not-login_pic,.c-user-login_box {
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.m-user-name {
+    padding: 40rpx 30rpx 60rpx;
+    font-size: 30rpx;
+    color: #333;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.m-user-name .user-name {
+    display: inline-block;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.m-user-name .c-vip-icon {
+    width: 28rpx;
+    height: 26rpx;
+    margin-left: 16rpx;
+    vertical-align: top;
+    margin-top: 4rpx;
+}
+
+.tips-toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 31rpx 45rpx;
+    background: rgba(0,0,0,.7);
+    color: #fff;
+    font-size: 28rpx;
+    border-radius: 8rpx;
+}
+
+.cover {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.6);
+    z-index: 99;
+}
+
+.m-login-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 100;
+}
+
+.iqiyi-login,.wechat-login,.c-login-cancel {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #0bbe06;
+    border-bottom: 2rpx solid #f0f0f0;
+}
+
+.c-login-cancel {
+    color: #666;
+}
+
+.m-swiper_list {
+    width: 100%;
+    padding-left: 20rpx;
+    position: relative;
+    font-size: 0;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.m-swiper_list_item {
+    position: relative;
+    width: 210rpx;
+    height: 100%;
+    padding-right: 20rpx;
+    display: inline-block;
+}
+
+.m-swiper_item-wrap {
+    width: 100%;
+}
+
+.m-swiper_cover {
+    height: 120rpx;
+    width: 100%;
+    position: relative;
+}
+
+.m-swiper_img {
+    width: 100%;
+    height: 100%;
+}
+
+.m-swiper_time {
+    position: absolute;
+    bottom: 0;
+    right: 10rpx;
+    font-size: 22rpx;
+}
+
+.m-swiper_info {
+    width: 100%;
+    font-size: 28rpx;
+    padding: 20rpx 0 16rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.m-swiper_time {
+    color: #fff;
+}
+
+.m-swiper_play_time {
+    color: #CACACA;
+    font-size: 24rpx;
+    margin-bottom: 20rpx;
+    line-height: 1;
+}
+
+.m-list-no-item-nolog {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    justify-content: space-between;
+    font-size: 28rpx;
+    color: #999;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 78rpx;
+}
+
+.m-swiper-subscribe {
+    height: 200rpx;
+}
+
+.m-swiper-record {
+    height: 236rpx;
+}
+
+@import "../../__wuBaseWxss__/14.wxss";
+
+page {
+    height: 100%;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+}
+
+.container.container-overflow-hidden {
+    height: 100%;
+    overflow: hidden;
+}
+
+.m-box-my {
+    margin-top: 20rpx;
+    background-color: #fff;
+    display: block;
+    width: 100%;
+}
+
+.container-inner {
+    background-color: #fafafa;
+    padding-bottom: 20rpx;
+}
+
+.m-swiper-subscribe .m-swiper_list_item {
+    vertical-align: top;
+}
+
+.tips-toast {
+    padding: 0;
+    background: transparent;
+}

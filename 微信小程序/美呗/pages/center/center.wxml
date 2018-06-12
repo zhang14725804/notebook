@@ -1,0 +1,22 @@
+<view class="center">
+    <scroll-view>
+        <view class="headBg">
+            <image src="https://cdn-ssl.meb.com/wxa/v1/user-centertop-bg.png"></image>
+        </view>
+        <view>
+            <image class="headImg" src="{{headImage}}"></image>
+        </view>
+        <view>
+            <text class="userName">{{nickname}}</text>
+        </view>
+        <view>
+            <button bindtap="goLogin" class="loginButton {{isLogin?'hidden':''}}">点击立即登录</button>
+        </view>
+        <view>
+            <button class="loginButton {{isLogin?'':'hidden'}}">更多个人信息请下载美呗app查看</button>
+        </view>
+        <view>
+            <view bindtap="logout" class="flex-center logoutButton {{isLogin?'':'hidden'}}">退出登录</view>
+        </view>
+    </scroll-view>
+</view>

@@ -1,0 +1,6 @@
+<template name="failureTip">
+    <view class="bannerstip {{showBanner?'show':''}}">
+        <view class="exclamation"></view>
+      {{tip}} 
+    </view>
+</template>

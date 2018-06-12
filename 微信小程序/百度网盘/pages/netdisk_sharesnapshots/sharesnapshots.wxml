@@ -1,0 +1,28 @@
+<import src="../../netdisk_templates/snapShootList/snapShootList.wxml"></import>
+<import src="../../netdisk_templates/toast/toast.wxml"></import>
+<view class="snapshot-wrap">
+    <view class="shot-wrap-bg list" style="{{mediaBgStyle}}" wx:if="{{isMedia}}">
+        <view class="media-shot-wrap">
+            <image class="shot-show" src="{{showThumb}}" style="{{thumbStyle}}"></image>
+            <view class="video-head-projection" wx:if="{{mediaType=='video'}}"></view>
+            <view class="media-more" wx:if="{{isMediaMore==true}}"></view>
+            <view class="play-button" wx:if="{{mediaType=='video'}}"></view>
+            <view class="video-size" wx:if="{{mediaType=='video'}}">{{videoSize}}</view>
+            <view class="video-name-wrap" wx:if="{{mediaType=='video'}}">
+                <text class="video-name">{{videoName}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="shot-wrap-bg list" wx:else>
+        <template is="snapShootList" data="{{fileListTabData:fileListTabData}}"></template>
+    </view>
+    <view class="shot-name-wrap">
+        <view class="shot-tip">邀请好友加入</view>
+        <text class="shot-name">{{serverFilename}}</text>
+    </view>
+    <view class="bottom-wrap">
+        <button bindtouchend="snapshootTouchE" bindtouchstart="snapshootTouchS" class="shot-share-button" openType="share" style="{{snapshootBtnStyle}}">发送给微信群/好友</button>
+        <view class="shot-warn-tips">为保护隐私和安全，邀请将在24小时后失效</view>
+    </view>
+</view>
+<template is="toast" data="{{...wetoast}}"></template>

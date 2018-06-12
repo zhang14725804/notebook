@@ -1,0 +1,5 @@
+<template name="copyright">
+    <view class="copyright {{withScroll?'copyright--with-scroll':''}}">
+    有赞提供技术支持
+  </view>
+</template>

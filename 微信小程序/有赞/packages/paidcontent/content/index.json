@@ -1,0 +1,7 @@
+{
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "cap-audio": "../../../components/audio-player/index",
+        "comment": "../../../components/paidcontent/comment/index"
+    }
+}

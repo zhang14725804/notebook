@@ -1,0 +1,334 @@
+.sofa-btn {
+    height: 100rpx;
+    line-height: 102rpx;
+    border: #979797;
+    border-radius: 4rpx;
+    font-size: 32rpx;
+    background: #fff;
+    color: #333;
+}
+
+.sofa-btn-primary {
+    background: #4a4c5b;
+    color: #fff;
+}
+
+.sofa-block-container,.sofa-dynamic-container {
+    z-index: 999;
+    background: #fff;
+    position: absolute;
+    text-align: center;
+}
+
+.sofa-block-container {
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font-size: 40rpx;
+}
+
+.sofa-block-container image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 516rpx;
+    height: 620rpx;
+    margin-top: -340rpx;
+    margin-left: -258rpx;
+}
+
+.sofa-block-container p:first-child {
+    padding-top: 100rpx;
+}
+
+.sofa-block-title {
+    display: block;
+    height: 70rpx;
+    line-height: 72rpx;
+    color: #666;
+}
+
+.sofa-block-content {
+    display: block;
+    height: 65rpx;
+    line-height: 67rpx;
+    color: #333;
+}
+
+.sofa-block-sub-content {
+    display: block;
+    height: 40rpx;
+    line-height: 42rpx;
+    font-size: 28rpx;
+    color: #666;
+}
+
+.sofa-block-sub-content-first {
+    padding-top: 15rpx;
+}
+
+.sofa-block-link {
+    display: block;
+    height: 66rpx;
+    color: #fc9153;
+    font-size: 26rpx;
+}
+
+.sofa-block-footer {
+    position: absolute;
+    left: 20rpx;
+    right: 20rpx;
+    bottom: 20rpx;
+}
+
+.sofa-block-footer button {
+    margin-top: 20rpx;
+}
+
+.sofa-block-focus-on {
+    color: #fc9153;
+}
+
+.sofa-dynamic-container {
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font-size: 40rpx;
+}
+
+.sofa-dynamic-content {
+    display: block;
+    height: 65rpx;
+    line-height: 67rpx;
+    padding-top: 120rpx;
+    color: #333;
+    font-size: 50rpx;
+}
+
+.sofa-dynamic-sub-content {
+    display: block;
+    height: 66rpx;
+    line-height: 68rpx;
+    font-size: 28rpx;
+    color: #666;
+}
+
+.sofa-dynamic-main {
+    margin: 0 auto;
+    width: 718rpx;
+    height: 516rpx;
+    margin-top: 26rpx;
+    background: url(https://static.galileo.xiaojukeji.com/static/tms/sofa/sofa_confirm_bg.png) no-repeat;
+    background-size: 100%;
+}
+
+.sofa-dynamic-main p {
+    display: block;
+}
+
+.sofa-dynamic-main-title {
+    padding-top: 120rpx;
+    font-size: 34rpx;
+    color: #666;
+}
+
+.sofa-dynamic-main-multiple {
+    padding-top: 50rpx;
+    font-size: 32rpx;
+    color: #fa8f54;
+}
+
+.sofa-dynamic-main-multiple span {
+    font-size: 100rpx;
+    color: #fc9153;
+}
+
+.sofa-dynamic-main-price {
+    padding-top: 40rpx;
+    font-size: 34rpx;
+    color: #666;
+}
+
+.sofa-dynamic-main-price span {
+    color: #fc9153;
+}
+
+.sofa-dynamic-link {
+    display: block;
+    height: 66rpx;
+    color: #999;
+    font-size: 26rpx;
+}
+
+.sofa-dynamic-focus-on,.sofa-estimate-price p:last-child {
+    color: #fc9153;
+}
+
+.sofa-dynamic-footer {
+    position: absolute;
+    left: 50rpx;
+    right: 50rpx;
+    bottom: 20rpx;
+}
+
+.sofa-estimate-price-container,.sofa-eta-container {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    background: #fff;
+    position: absolute;
+}
+
+.sofa-dynamic-footer button {
+    margin-top: 20rpx;
+}
+
+.sofa-estimate-price {
+    padding-bottom: 44rpx;
+    border-bottom: 1rpx solid rgba(0,0,0,.08);
+}
+
+.sofa-estimate-price-container {
+    height: 100%;
+    padding: 250rpx 120rpx 0;
+    text-align: center;
+    font-size: 40rpx;
+}
+
+.sofa-estimate-price p {
+    display: flex;
+    height: 65rpx;
+    line-height: 67rpx;
+    font-size: 28rpx;
+}
+
+.sofa-estimate-price p span {
+    flex: 1;
+}
+
+.sofa-estimate-price p span:last-child {
+    text-align: right;
+}
+
+.sofa-estimate-price p span:first-child {
+    text-align: left;
+}
+
+.sofa-estimate-price p:first-child {
+    color: #666;
+}
+
+.sofa-estimate-price-current {
+    display: block;
+    padding-top: 65rpx;
+}
+
+.sofa-estimate-price-current span {
+    display: inline-block;
+    font-size: 28rpx;
+}
+
+.sofa-estimate-price-current span:first-child {
+    color: #333;
+    font-size: 80rpx;
+}
+
+.sofa-estimate-price-label,.sofa-estimate-price-link {
+    display: block;
+    color: #999;
+    font-size: 22rpx;
+}
+
+.sofa-estimate-price-label {
+    text-align: left;
+    padding-top: 30rpx;
+    line-height: 36rpx;
+}
+
+.sofa-estimate-price-link {
+    width: 155rpx;
+    margin: 0 auto;
+    padding: 36rpx 0;
+}
+
+.sofa-eta-container {
+    height: 100%;
+    text-align: center;
+    font-size: 40rpx;
+}
+
+.sofa-eta-title {
+    display: block;
+    height: 130rpx;
+    line-height: 132rpx;
+    padding-top: 285rpx;
+    color: #666;
+    font-size: 28rpx;
+}
+
+.sofa-eta-title-gap {
+    font-size: 32rpx;
+}
+
+.sofa-eta-title-label {
+    line-height: 210rpx;
+    font-size: 28rpx;
+}
+
+.sofa-eta-title span {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.sofa-eta-max-time,.sofa-eta-min-time {
+    color: #333;
+    font-size: 160rpx;
+}
+
+.sofa-eta-content {
+    display: block;
+    width: 228rpx;
+    height: 70rpx;
+    margin: 0 auto;
+    border-bottom: 1rpx solid #e0e0e0;
+    line-height: 72rpx;
+    color: #333;
+    font-size: 32rpx;
+}
+
+.sofa-eta-sub-content {
+    display: block;
+    height: 40rpx;
+    line-height: 42rpx;
+    font-size: 28rpx;
+    color: #666;
+}
+
+.sofa-eta-sub-content-first {
+    padding-top: 30rpx;
+}
+
+.sofa-eta-footer {
+    position: absolute;
+    left: 20rpx;
+    right: 20rpx;
+    bottom: 20rpx;
+}
+
+.sofa-eta-footer button {
+    margin-top: 20rpx;
+}
+
+.sofa-eta-focus-on {
+    color: #fc9153;
+}
+
+.sofa-eta-large-text {
+    font-size: 160rpx;
+}

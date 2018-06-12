@@ -1,0 +1,20 @@
+.content {
+    line-height: 100rpx;
+    font-size: 32rpx;
+    background-color: white;
+    color: #333333;
+    text-align: center;
+}
+
+.content__card {
+    border-bottom: 10rpx rgba(0,0,0,0.1) solid;
+}
+
+.content__friend-highlight {
+    color: red;
+}
+
+.component-share-dialog__container {
+    width: 100%;
+    z-index: 101;
+}

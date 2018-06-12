@@ -1,0 +1,265 @@
+.body {
+    padding-bottom: 60px;
+    color: #000000;
+}
+
+.mod_loading.history_loading {
+    background-color: #ffffff;
+}
+
+.icon_empty {
+    background: url(https://i.gtimg.cn/qqlive/images/tinyapp/empty.png) 0 0 no-repeat;
+    background-size: 100%;
+    display: block;
+    width: 560rpx;
+    height: 360rpx;
+    margin: 0 auto 10rpx;
+}
+
+.tips_con .tips {
+    font-size: 36rpx;
+    text-align: center;
+    color: #666666;
+    padding: 20rpx 0 16rpx 0;
+}
+
+.tips_con .suggestion {
+    font-size: 28rpx;
+    text-align: center;
+    color: #979797;
+}
+
+.mod_box {
+}
+
+.mod_bd {
+    padding-top: 15px;
+}
+
+.mod_title {
+    padding: 5px 16px;
+    font-size: 13px;
+    color: #666;
+}
+
+.mod_title_fixed {
+    width: 100%;
+    padding-top: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: transparent;
+    color: transparent;
+}
+
+.mod_title_fixed.show {
+    background: #fff;
+    color: #666;
+}
+
+.mod_figures {
+    position: relative;
+    width: 100%;
+    height: 74px;
+    overflow: hidden;
+    margin-bottom: 30rpx;
+}
+
+.mod_figure {
+    position: relative;
+    z-index: 2;
+    display: block;
+    font-size: 0;
+    padding: 0 16px;
+    transition: transform 0.2s ease;
+    transition: transform 0.2s ease,-webkit-transform 0.2s ease;
+    background-color: #fff;
+}
+
+.active .mod_figure {
+    transform: translate(-64px,0);
+}
+
+.mod_figure .list_item {
+    display: box;
+    box-orient: vertical;
+    box-pack: center;
+    box-align: center;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mod_figure .figure {
+    position: relative;
+    flex-shrink: 0;
+    width: 130px;
+    height: 74px;
+}
+
+.mod_figure .figure_content {
+    flex-shrink: 1;
+    width: 100%;
+    padding-left: 25rpx;
+}
+
+.mod_figure .figure_pic {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.mod_figure .figure_title {
+    margin-top: 0;
+    font-size: 15px;
+    line-height: 22px;
+    color: #000;
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-align: left;
+    white-space: normal;
+}
+
+.mod_figure .figure_count {
+    font-size: 13px;
+    line-height: 20px;
+    color: rgba(0,0,0,.6);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.play_from_icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: -1px;
+}
+
+.mod_empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 280px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.figure_tool {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 64px;
+    text-align: center;
+    text-align: center;
+    background-color: #F0423C;
+    color: #fff;
+    font-size: 16px;
+}
+
+.figure_tool_del {
+    visibility: hidden;
+    position: absolute;
+    left: 5px;
+    top: 0;
+    bottom: 0;
+    width: 55px;
+    background: url(http://i.gtimg.cn/qqlive/images/tinyapp/icon_checkbox.svg) center no-repeat;
+    background-size: 24px;
+    transition: visibility 0.3s ease;
+}
+
+.figure_tool_del.current {
+    background-image: url(http://i.gtimg.cn/qqlive/images/tinyapp/icon_checkbox_del.svg);
+}
+
+.editable .figure_tool_del {
+    visibility: visible;
+}
+
+.editable .mod_figure {
+    transform: translate(54px,0);
+    width: calc(100% - 54px);
+}
+
+.fixed_tool {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 10;
+    background-color: #fff;
+}
+
+.fixed_tool:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1rpx;
+    background-color: #E0E0E0;
+}
+
+.tool_before,.tool_after {
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 16px;
+    background-color: #fff;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.tool_after.android {
+    top: 50px;
+    transition: top 0.1s ease;
+}
+
+.tool_after {
+    top: 50px;
+    transition: top 0.3s ease;
+}
+
+.editable .tool_after {
+    top: 1px;
+}
+
+.tool_after .tool_unit {
+    width: 33.33%;
+    height: 50px;
+    line-height: 50px;
+}
+
+.fixed_tool .tool_unit_del {
+    color: #f53e35;
+}

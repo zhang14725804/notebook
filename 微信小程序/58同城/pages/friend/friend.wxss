@@ -1,0 +1,5 @@
+.loading {
+    text-align: center;
+    font-size: 20rpx;
+    padding-top: 30rpx;
+}

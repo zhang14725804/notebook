@@ -1,0 +1,184 @@
+.header {
+    width: 100%;
+    height: 290rpx;
+    background: linear-gradient(to bottom,#ff9e6f 1%,#fe5d9b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff9e6f", endColorstr="#fe5d9b", GradientType=1);
+    margin-bottom: 20rpx;
+}
+
+.search-container {
+    width: 750rpx;
+    padding: 10rpx 30rpx;
+    height: 100rpx;
+    margin-bottom: 44rpx;
+}
+
+.serach-inner {
+    width: 690rpx;
+    height: 100rpx;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.city {
+    font-size: 15px;
+    color: #333;
+    margin-left: 45rpx;
+}
+
+.footer {
+    width: 750rpx;
+    height: 100rpx;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 12rpx 100rpx;
+    border-top: 1rpx solid #dcdcdc;
+    font-size: 0;
+}
+
+.down {
+    margin-left: 20rpx;
+    width: 20rpx;
+    height: 13rpx;
+}
+
+.spilt {
+    margin-left: 30rpx;
+    width: 1rpx;
+    height: 40rpx;
+    background: #808080;
+}
+
+.search-input {
+    width: 400rpx;
+    margin-left: 20rpx;
+}
+
+.seach-icon {
+    margin-left: 30rpx;
+    width: 30rpx;
+}
+
+.menu-list {
+    width: 600rpx;
+    margin: 0 auto;
+}
+
+.menu-img {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.menu-item {
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+}
+
+.tab-bar-img {
+    width: 78rpx;
+    height: 78rpx;
+}
+
+.list-content {
+    width: 750rpx;
+    background: #fff;
+    margin-top: -30rpx;
+}
+
+.aside {
+    width: 100%;
+    height: 110rpx;
+}
+
+.nav {
+    height: 114rpx;
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+    background: #fff;
+    position: relative;
+}
+
+.nav-scroll {
+    width: 750rpx;
+    display: flex;
+    white-space: nowrap;
+}
+
+.nav-scroll view {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 56rpx;
+    text-align: center;
+}
+
+.nav-scroll view text {
+    font-size: 14px;
+    color: #999;
+}
+
+.nav-scroll view image {
+    display: block;
+    margin: 0 auto;
+    margin-top: 5rpx;
+}
+
+.nav-scroll view:first-child {
+    margin-left: 30rpx;
+}
+
+.nav-scroll view:last-child {
+    margin-right: 77rpx;
+}
+
+.color-border {
+    width: 60rpx;
+    height: 25rpx;
+}
+
+.nav-active {
+    color: #333!important;
+}
+
+.nav-more {
+    position: absolute;
+    width: 77rpx;
+    height: 114rpx;
+    background: #fff;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-image: url(https://cdn-ssl.meb.com/wxa/v1/project-bg.png);
+    background-size: 100% 100%;
+    background-position: -10rpx 0;
+}
+
+.more-img {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.ceiling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.empty-container {
+    width: 750rpx;
+    height: 600rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-img {
+    width: 300rpx;
+    height: 300rpx;
+}

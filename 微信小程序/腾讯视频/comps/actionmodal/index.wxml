@@ -1,0 +1,7 @@
+<template name="actionmodal">
+    <view bindtap="onActionModalCancel" class="action-modal-mask {{isShowActionModal?'':'none'}}"></view>
+    <view class="action-modal {{isShowActionModal?'':'none'}}">
+        <view bindtap="onActionModalConfirm" class="action">{{actionText||'确定'}}</view>
+        <view bindtap="onActionModalCancel" class="cancel">{{cancelText||'取消'}}</view>
+    </view>
+</template>

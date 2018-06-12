@@ -1,0 +1,8 @@
+{
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ff5555",
+    "navigationBarTitleText": "转转二手交易网",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+}

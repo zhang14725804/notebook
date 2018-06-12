@@ -1,0 +1,8 @@
+<template name="RewardHead$51740050">
+    <view class="_div data-v-9f6ea68e" id="hotpost-reward-header">
+        <view class="_div data-v-9f6ea68e top">
+            <view bindtap="handleProxy" class="_div data-v-9f6ea68e rule_btn" data-comkey="{{$k}}" data-eventid="{{'0'}}">领取说明</view>
+        </view>
+        <view class="_div data-v-9f6ea68e title"></view>
+    </view>
+</template>

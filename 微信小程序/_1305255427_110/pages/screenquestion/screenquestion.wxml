@@ -1,0 +1,19 @@
+<view class="page-container">
+    <view class="title">纯白屏检测时请确认是否有以下问题</view>
+    <view class="question-container" wx:for="{{showArr}}">
+        <view class="question-wrap {{item.isShow?'show':''}}">
+            <view bindtap="changeShow" class="sub-title " data-index="{{index}}">{{item.value}}</view>
+            <view class="question-content">
+                <view class="question-text">
+                    <text wx:for="{{item.content}}" wx:for-item="text">{{text}}</text>
+                </view>
+                <swiper class="question-imgs" indicatorActiveColor="#ffffff" indicatorColor="rgba(0, 0, 0, .25)" indicatorDots="true">
+                    <swiper-item wx:for="{{item.imgs}}">
+                        <image class="slide-img" src="{{item}}"></image>
+                    </swiper-item>
+                </swiper>
+            </view>
+        </view>
+    </view>
+    <button bindtap="skipNextPage" class="start-check" hoverClass="nav-hover">开始检测</button>
+</view>

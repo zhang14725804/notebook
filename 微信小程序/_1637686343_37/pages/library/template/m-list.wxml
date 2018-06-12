@@ -1,0 +1,33 @@
+<template name="m-list-horizontal">
+    <view class="m-list-horizontal_content">
+        <view bindtap="{{bindtapFn}}" class="m-list-horizontal_item" data-pagenum="{{item.pageNum}}" data-qipuid="{{item.qipuId}}" wx:for="{{videos.videolist}}" wx:key="index">
+            <view class="m-list-horizontal_item-pic">
+                <image class="m-list_item-pic_image" height="165" mode="aspectFill" src="{{item.imageUrl}}" width="124"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">{{item.rbContent}}</text>
+                </view>
+                <template is="icon" data="{{isVip:item.isVip,isQiyiProduced:item.isQiyiProduced,isExclusive:item.isExclusive,isCoupon:item.isCoupon,isPaid:item.isPaid}}"></template>
+            </view>
+            <view class="m-list-picTitle">
+                <text>{{item.mainTitle}}</text>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="m-list">
+    <view class="m-list_content">
+        <view bindtap="{{bindtapFn}}" class="m-list_item" data-pagenum="{{item.pageNum}}" data-qipuid="{{item.qipuId}}" wx:for="{{videos.videolist}}" wx:key="index">
+            <view class="m-list_item-pic">
+                <image class="m-list_item-pic_image" height="165" mode="aspectFill" src="{{item.imageUrl}}" width="124"></image>
+                <view class="m-list_c-rb">
+                    <text class="m-list_c-date">{{item.rbContent}}</text>
+                </view>
+                <template is="icon" data="{{isVip:item.isVip,isQiyiProduced:item.isQiyiProduced,isExclusive:item.isExclusive,isCoupon:item.isCoupon,isPaid:item.isPaid}}"></template>
+            </view>
+            <view class="m-list-picTitle">
+                <text>{{item.mainTitle}}</text>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="/components/template/icon.wxml"></import>

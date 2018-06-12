@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "助力砍价",
+    "enablePullDownRefresh": true,
+    "window": {
+        "onReachBottomDistance": -100
+    }
+}

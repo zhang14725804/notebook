@@ -1,0 +1,21 @@
+<view class="grid-selected" wx:if="{{entries.length}}">
+    <header desc="BETTER FOR YOU" icon="http://img11.360buyimg.com/jdphoto/s36x36_jfs/t7237/280/4628883842/586/94b5b1fb/5a085312Ned56cd1b.png" title="为你优选"></header>
+    <view bindtap="tapOnItem" class="grid-selected__more">更多优选</view>
+    <view class="grid-view" wx:if="{{entries.length>0}}">
+        <view bindtap="tapOnItem" class="grid-view__item" data-url="{{item.url}}" wx:for="{{entries}}" wx:key="id">
+            <view class="grid-view__item-name line1">{{item.name}}</view>
+            <view class="grid-view__item-desc line1">{{item.desc?'“ '+item.desc+' ”':''}}</view>
+            <view class="grid-view__item-cover">
+                <image class="grid-view__item-img" lazyLoad="true" mode="aspectFill" src="{{item.image}}"></image>
+            </view>
+            <view class="grid-view__item-flag line1" wx:if="{{item.flag}}">{{item.flag}}</view>
+        </view>
+    </view>
+    <view class="grid-view" wx:else>
+        <view class="grid-view__item" style="visibility: hidden;">
+            <view class="grid-view__item-name"></view>
+            <view class="grid-view__item-desc"></view>
+            <view class="grid-view__item-cover"></view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,9 @@
+<view class="container">
+    <view class="zan-panel zan-panel--without-border">
+        <view class="zan-cell">
+            <view class="zan-cell__bd">当前版本: {{userVersion}}</view>
+        </view>
+    </view>
+</view>
+<import src="../wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

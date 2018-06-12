@@ -1,0 +1,26 @@
+<import src="wxml/hk/quotePanel.wxml"></import>
+<import src="wxml/us/quotePanel.wxml"></import>
+<import src="wxml/cn/quotePanel_zs.wxml"></import>
+<import src="wxml/hk/quotePanel_zs.wxml"></import>
+<import src="wxml/us/quotePanel_zs.wxml"></import>
+<import src="wxml/cn/quotePanel.wxml"></import>
+<import src="/components/chart/index.wxml"></import>
+<import src="/components/newsList/index.wxml"></import>
+<import src="wxml/navPanel.wxml"></import>
+<import src="/components/remindPanel/index.wxml"></import>
+<import src="wxml/tabbar.wxml"></import>
+<import src="wxml/tools/noticePanel.wxml"></import>
+<import src="wxml/tools/capitalPanel.wxml"></import>
+<import src="wxml/tools/profilesPanel.wxml"></import>
+<import src="wxml/tools/financePanel.wxml"></import>
+<import src="/components/failureTip/index.wxml"></import>
+<view class="{{colorType}}">
+    <template is="failureTip" data="{{...failureTip}}"></template>
+    <template is="{{tmpl}}" data="{{heightAnimate:heightAnimate,toggleAnimate:toggleAnimate,hqbox:hqbox,...qtData,...mktstt,...zsData}}"></template>
+    <template is="remindPanel" data="{{...remindPanel}}"></template>
+    <template is="chartPanel" data="{{remind:remind.remindShow,...chart,fivedmx:fivedmx}}"></template>
+    <template is="tabbar" data="{{hqbox:hqbox}}"></template>
+    <template is="newsListPanel" data="{{...newsList,isIphoneX:isIphoneX}}"></template>
+    <template is="navPanel" data="{{stockAdded:stockAdded,hasNewComments:hasNewComments,isIphoneX:isIphoneX}}"></template>
+</view>
+<view bindtap="bindQuotePanelToggle" bindtouchmove="bindQuotePanelHide" class="maskStyle{{hqbox?'':'--hide'}}" hoverStyle="none"></view>

@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "",
+    "onReachBottomDistance": 120,
+    "usingComponents": {
+        "xModal": "./components/modal/modal"
+    }
+}

@@ -1,0 +1,57 @@
+@import "../../../__wuBaseWxss__/10.wxss";
+
+@import "../../../components/copyright/index.wxss";
+
+.order-list {
+    position: relative;
+}
+
+.order-list__tab {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 1rpx;
+    z-index: 1;
+}
+
+.order-list__list {
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.order-list__list-padding {
+    padding-top: 45px;
+}
+
+.order-list__container {
+    overflow: hidden;
+    min-height: 65vh;
+    min-height: calc(100vh - 185px);
+}
+
+.order-item {
+    padding-top: 5px;
+    line-height: 1.4;
+    font-size: 14px;
+    transition: all 1s ease;
+}
+
+.order-item--hide {
+    opacity: 0;
+}
+
+.order-item__hd {
+    padding: 10px 15px;
+}
+
+.order-item__extra-row {
+    padding: 10px 15px;
+}
+
+.order-item__actions {
+    margin-right: -10px;
+}
+
+.order-item__action {
+    margin-right: 10px;
+}

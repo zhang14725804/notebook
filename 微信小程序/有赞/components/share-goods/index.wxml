@@ -1,0 +1,12 @@
+<canvas canvasId="{{canvasId}}" class="share-canvas" style="width: 375px; height: 568px; display: {{showCanvas?'block':'none'}}"></canvas>
+<view class="zan-popup {{showModal?'zan-popup--show':''}} share-image__popup">
+    <view bindtap="closeShareImageModal" class="zan-popup__mask"></view>
+    <view class="zan-popup__container share-image__container">
+        <view bindtap="closeShareImageModal" class="share-image__close-btn"></view>
+        <image class="share-image--preview" src="{{src}}"></image>
+        <view class="share-image__info">保存图片后，可分享到朋友圈</view>
+        <view class="share-image__btn">
+            <view bindtap="clickSaveImage" class="zan-btn zan-btn--danger theme-bg-color">保存图片</view>
+        </view>
+    </view>
+</view>

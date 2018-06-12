@@ -1,0 +1,21 @@
+<template name="shop-info">
+    <view class="zan-panel zan-panel--without-border">
+        <view class="zan-card" style="padding: 10px 15px 17px">
+            <view class="zan-card__thumb" style="width: 50px;height: 50px;border-radius: 2px;">
+                <image src="{{CURRENT_GLOBAL_SHOP.logo}}" style="width: 50px;height: 50px"></image>
+            </view>
+            <view bindtap="shopInfo__handleShopClick" class="zan-card__detail" style="margin-left: 60px;display:flex;justify-content:center;min-height:50px;flex-direction:column;">
+                <view class="zan-cell zan-cell--access container--without-border" style="padding: 5px 0;">
+                    <view class="zan-cell__bd">
+            {{CURRENT_GLOBAL_SHOP.name||CURRENT_GLOBAL_SHOP.shop_name}}
+          </view>
+                    <view class="zan-cell__ft zan-c-gray-dark"></view>
+                </view>
+                <view class="zan-font-12 zan-c-gray-darker" wx:if="{{CURRENT_GLOBAL_SHOP.address&&isMultiStore}}">
+          {{CURRENT_GLOBAL_SHOP.distance}} {{CURRENT_GLOBAL_SHOP.address}}
+        </view>
+            </view>
+        </view>
+    </view>
+    <view class="divider" style="margin-left: 15px;"></view>
+</template>

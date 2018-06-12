@@ -1,0 +1,61 @@
+<import src="../../../bower_components/zan/dist/loadmore/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/dialog/index.wxml"></import>
+<view class="page-search">
+    <view class="search-view">
+        <view class="search-icon"></view>
+        <input bindconfirm="search" class="search-input" confirmType="search" focus="{{inputFocus}}" placeholder="搜索低价好物" type="text" value="{{inputValue}}"></input>
+        <navigator class="search-cancel" hoverClass="none" openType="switchTab" url="/pages/venue/home/index" wx:if="{{!isSearched}}">取消
+        </navigator>
+    </view>
+    <view class="search-null" wx:if="{{searchNull}}">
+        <view>抱歉，"{{inputValue}}"暂无搜索结果</view>
+        <view>试试其他热门商品推荐</view>
+    </view>
+    <view class="search-container" wx:if="{{!isSearching&&!isSearched}}">
+        <view class="search-recommend search-recent" wx:if="{{showRecentSearch}}">
+            <view class="container-tab">
+                <view class="container-title">最近搜索</view>
+                <view bindtap="clearRecent" class="delete-icon zan-icon zan-icon-delete"></view>
+            </view>
+            <view class="container-items container-items-recent">
+                <view bindtap="search" class="container-item" data-title="{{item}}" data-type="history" wx:for="{{recentSearch}}" wx:key="{{ index }}"> {{item}}
+                </view>
+            </view>
+            <template is="zan-dialog" data="{{zanDialog:zanDialog}}"></template>
+        </view>
+        <view class="search-recommend search-hot">
+            <view class="container-tab">
+                <view class="container-title">热门搜索</view>
+            </view>
+            <view class="container-items">
+                <view bindtap="search" class="container-item" data-title="{{item.content}}" data-type="hot" style="color: {{index===0||index===2?'#FF4444':'#333333'}}" wx:for="{{hotSearch}}" wx:key="{{ item.id }}"> {{item.content}}
+                </view>
+            </view>
+        </view>
+        <view class="search-recommend search-classify" wx:if="{{showClassify}}">
+            <view class="container-tab">
+                <view class="container-title">常用分类</view>
+            </view>
+            <view class="container-items">
+                <view bindtap="search" class="classify-item" data-tabid="{{item.id}}" data-title="{{item.title}}" style="background-image: url({{item.icon}});" wx:for="{{classifySearch}}" wx:key="{{ item.id }}">
+                    <view class="classify-item-title">{{item.title}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="associate-container" wx:elif="{{isSearching}}">
+        <view class="associate-item" wx:for="{{associateItems}}" wx:key="{{ item.id }}">
+            {{item.content}}
+        </view>
+    </view>
+    <view class="result-container" wx:elif="{{isSearched}}">
+        <scroll-view scrollY bindscrolltolower="loadMore" lowerThreshold="100" style="height: {{scrolllViewHeight}}rpx;">
+            <view class="goods-wrap">
+                <view class="goods-item" wx:for="{{searchResult}}" wx:key="{{ index }}">
+                    <goods-item price="{{item.price}}" salesNum="{{item.salesNum}}" thumbUrl="{{item.thumbUrl}}" title="{{item.title}}" url="{{item.url+'&banner_id='+bannerName+'~'+index+1}}"></goods-item>
+                </view>
+            </view>
+            <template is="zan-loadmore" data="{{...loadMoreStatus}}" wx:if="{{isLoadMore}}"></template>
+        </scroll-view>
+    </view>
+</view>

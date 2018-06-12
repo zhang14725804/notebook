@@ -1,0 +1,5 @@
+<template name="town-list">
+    <view class="town-detail-list-wrap">
+        <view catchtap="e_listItemTap" class="town-list-item {{item.checked?'on':''}}" data-name="{{item.name}}" data-town-id="{{item.id}}" id="town-{{index}}" wx:for="{{townDetailList}}" wx:key="index">{{item.name}}</view>
+    </view>
+</template>

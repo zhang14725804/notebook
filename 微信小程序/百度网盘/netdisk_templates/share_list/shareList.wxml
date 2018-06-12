@@ -1,0 +1,32 @@
+<template name="shareList">
+    <view class="share-list-wrap">
+        <scroll-view scrollY bindscrolltolower="scrollToLower" class="share-list" lowerThreshold="120" wx:if="{{shareListTabData.list.length>0}}">
+            <view class="share-list-item" wx:for="{{shareListTabData.list}}" wx:for-item="listItem" wx:key="{{*this}}">
+                <view bindtouchend="handleShareFileTouchE" bindtouchstart="handleShareFileTouchS" class="share-list-item-wrap" data-index="{{index}}" style="{{listItem.shareFileItemStyle}}">
+                    <view bindtap="handleTapShareItem" class="list-item-main" data-index="{{index}}">
+                        <view class="group-avatar-wrap">
+                            <view class="group-avatar {{listItem.group_num>4?'many':'few'}}">
+                                <view class="avatar-item" style="background-image: url({{avator}})" wx:if="{{avatorIndex<9}}" wx:for="{{listItem.avator}}" wx:for-index="avatorIndex" wx:for-item="avator" wx:key="{{*this}}"></view>
+                            </view>
+                        </view>
+                        <view class="description">
+                            <view class="title">
+                                <text>{{listItem.server_filename}}</text>
+                            </view>
+                            <view class="subtitle">
+                                <text class="member-and-date">{{listItem.group_num}}个群成员 · {{listItem.server_mtime_split}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="handleTapItemMore" class="list-item-more" data-index="{{index}}">
+                        <view class="more-icon"></view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <template is="emptyList" data="{{emptymod:emptymod}}" wx:if="{{shareListTabData.list.length<=0&&shareListTabData.isLoading===false}}"></template>
+    </view>
+</template>
+<import src="../empty_list/emptyList.wxml"></import>
+<import src="../../netdisk_templates/dialog/dialog.wxml"></import>
+<template is="dialog" data="{{dialogData:dialogData}}"></template>

@@ -1,0 +1,6 @@
+<view class="wx_dialog_container" hidden="{{!isShow}}">
+    <view class="wx-mask"></view>
+    <view class="wx-dialog" style="top:{{top}}">
+        <slot></slot>
+    </view>
+</view>

@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "医院详情",
+    "usingComponents": {
+        "hospital": "../../../components/hospital/hospital",
+        "diary": "../../../components/diary/diary",
+        "doctor": "../../../components/doctor/doctor",
+        "loadMore": "../../../components/loadMore/loadMore"
+    },
+    "enablePullDownRefresh": false
+}

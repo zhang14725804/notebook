@@ -1,0 +1,23 @@
+<view class="page-container">
+    <view class="top-searchbar">
+        <view class="view-searchbar">
+            <text class="icon-search"></text>
+            <input bindinput="searchbar_input" class="input-searchbar" confirmType="search" placeholder="点击输入，回收其他机型"></input>
+        </view>
+        <view bindtap="nav_navigateBack_click" class="nav-serchbar-canel">取消</view>
+    </view>
+    <view class="scroll-container">
+        <scroll-view bindscrolltolower="getMoreProducts" class="scroll-view-container {{brandNumber===0?'hidden':''}}" scrollY="true">
+            <view class="container-item {{item.checked?'':'hidden'}}" wx:if="{{item.pageIndex<=2&&item.pageIndex>0}}" wx:for="{{products}}">
+                <navigator class="main-icon-before" url="{{'../detail/detail?isfromcategory=true&productId='+item.id+'&productName='+item.name+'&productImg='+item.imgUrl}}">
+                    <view class="item-name">
+            {{item.name}}
+          </view>
+                    <view class="item-price">
+            最高回收价：￥{{item.topPrice}}
+          </view>
+                </navigator>
+            </view>
+        </scroll-view>
+    </view>
+</view>

@@ -1,0 +1,20 @@
+<view class="featured" hidden="{{hideModule}}" style="{{config.mainBg}}">
+    <view class="featured-header">
+        <view class="header">
+            <view class="header__title">
+                <image class="header__icon" src="http://img11.360buyimg.com/jdphoto/s36x36_jfs/t7237/280/4628883842/586/94b5b1fb/5a085312Ned56cd1b.png"></image>{{config.title}}
+			</view>
+            <view class="header__desc">BETTER FOR YOU</view>
+        </view>
+        <view bindtap="gotoUrl" class="featured-header__link" data-url="{{config.linkUrl}}" style="{{config.linkBg}}">{{config.linkText}}</view>
+    </view>
+    <view class="featured-list">
+        <view bindtap="gotoUrl" class="featured-list__item" data-url="{{item.url}}" wx:for="{{entries}}" wx:key="title">
+            <image class="featured-list__image" src="{{item.image}}"></image>
+            <view class="featured-list__info" style="{{config.infoBg}}">
+                <view class="featured-list__info-title">{{item.title}}</view>
+                <view class="featured-list__info-des">{{item.des}}</view>
+            </view>
+        </view>
+    </view>
+</view>

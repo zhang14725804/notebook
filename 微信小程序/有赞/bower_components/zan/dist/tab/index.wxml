@@ -1,0 +1,15 @@
+<template name="zan-tab-list">
+    <view bindtap="_handleZanTabChange" class="zan-tab__item {{selectedId==item.id?'zan-tab__item--selected':''}}" data-component-id="{{componentId}}" data-item-id="{{item.id}}" wx:for="{{list}}" wx:key="id">
+        <view class="zan-tab__title">{{item.title}}</view>
+    </view>
+</template>
+<template name="zan-tab">
+    <view class="zan-tab">
+        <scroll-view class="zan-tab__bd zan-tab__bd--scroll {{fixed?'zan-tab__bd--fixed':''}}" scrollX="true" style="height: {{tab.height||height?(tab.height||height)+'px':'auto'}}" wx:if="{{tab.scroll||scroll}}">
+            <template is="zan-tab-list" data="{{list:tab.list||list,selectedId:tab.selectedId||selectedId,componentId:componentId}}"></template>
+        </scroll-view>
+        <view class="zan-tab__bd {{fixed?'zan-tab__bd--fixed':''}}" wx:else>
+            <template is="zan-tab-list" data="{{list:tab.list||list,selectedId:tab.selectedId||selectedId,componentId:componentId}}"></template>
+        </view>
+    </view>
+</template>

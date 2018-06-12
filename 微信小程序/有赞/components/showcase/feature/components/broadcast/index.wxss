@@ -1,0 +1,60 @@
+.br-root-view {
+    height: 36px;
+    position: relative;
+    padding-left: 39px;
+    font-size: 0;
+}
+
+.br-img-container {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 14px;
+}
+
+.br-img {
+    width: 16px;
+    height: 14px;
+}
+
+.marquee-box {
+    position: relative;
+    height: 36px;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.broadcast__animation {
+    position: absolute;
+    line-height: 36px;
+    font-size: 12px;
+}
+
+@-webkit-keyframes broadcast_move {
+    0% {
+        transform: translateX(750rpx);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes broadcast_move {
+    0% {
+        transform: translateX(750rpx);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.broadcast__animation--show {
+    white-space: nowrap;
+    animation-name: broadcast_move;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}

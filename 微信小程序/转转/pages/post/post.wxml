@@ -1,0 +1,263 @@
+<view class="pageFrame _18ffead _450061e">
+    <view class="navigationBar _18ffead"></view>
+    <view class="pageBody _18ffead">
+        <form bindsubmit="$CrazyFormId$saveFormId" class="_bdca0bf _450061e" reportSubmit="true">
+            <button class="_bdca0bf" formType="submit">
+                <form bindsubmit="$CrazyFormId$saveFormId" class="_bdca0bf" reportSubmit="true">
+                    <button class="_bdca0bf" formType="submit">
+                        <form bindsubmit="$CrazyFormId$saveFormId" class="_bdca0bf" reportSubmit="true">
+                            <button class="_bdca0bf" formType="submit">
+                                <form bindsubmit="$CrazyFormId$saveFormId" class="_bdca0bf" reportSubmit="true">
+                                    <button class="_bdca0bf" formType="submit">
+                                        <form bindsubmit="$CrazyFormId$saveFormId" class="_bdca0bf" reportSubmit="true">
+                                            <button class="_bdca0bf" formType="submit">
+                                                <view class="_450061e">
+                                                    <form bindsubmit="onPost" class="post-container _450061e">
+                                                        <block wx:if="{{$TipBar$showTip}}">
+                                                            <view class="tipBar _6f68f0e">
+                                                                <image class="icon _6f68f0e" src="{{$TipBar$iconSrc}}" wx:if="{{$TipBar$iconSrc}}"></image>
+                                                                <view class="tip {{$TipBar$iconSrc?'iconPresent':''}} {{$TipBar$options.showClose?'closePresent':''}} _6f68f0e">{{$TipBar$options.content}}</view>
+                                                                <image bindtap="$TipBar$onClose" class="close _6f68f0e" src="https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/common/tipBar/close.png" wx:if="{{$TipBar$options.showClose}}"></image>
+                                                            </view>
+                                                            <view class="tipBar staticHolder _6f68f0e">
+                                                                <image class="icon _6f68f0e" src="{{$TipBar$iconSrc}}" wx:if="{{$TipBar$iconSrc}}"></image>
+                                                                <view class="tip {{$TipBar$iconSrc?'iconPresent':''}} {{$TipBar$options.showClose?'closePresent':''}} _6f68f0e">{{$TipBar$options.content}}</view>
+                                                                <image bindtap="$TipBar$onClose" class="close _6f68f0e" src="https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/common/tipBar/close.png" wx:if="{{$TipBar$options.showClose}}"></image>
+                                                            </view>
+                                                        </block>
+                                                        <view class="banner _7855f50 _450061e" wx:if="{{$Banner$bannerPresent&&!$Banner$bannerClose}}">
+                                                            <image class="img _7855f50" mode="aspectFill" src="{{$Banner$bannerSrc}}"></image>
+                                                            <image catchtap="$Banner$onClose" class="close _7855f50" src="https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/post/banner/close.png"></image>
+                                                        </view>
+                                                        <scroll-view class="nine-image {{'imgCount'+$nineImage$imageList.length}} _450061e" scrollX="true" style="width: 100%">
+                                                            <view bindtap="$nineImage$chooseImage" class="nine-image__input-box  {{$nineImage$isAble?'isAble':''}}" style="height:{{$nineImage$size}}rpx;width:{{$nineImage$size}}rpx;margin-left:{{$nineImage$distance}}rpx;margin-right:{{$nineImage$distance}}rpx" wx:if="{{$nineImage$showChoose}}">
+                                                                <view class="nine-image__input-icon"></view>
+                                                                <view class="nine-image__input-text">添加图片</view>
+                                                            </view>
+                                                            <view class="nine-image__file" style="margin-right:{{$nineImage$distance}}rpx" wx:for="{{$nineImage$imageList}}" wx:for-item="image" wx:key="{{image}}">
+                                                                <view catchtap="$nineImage$removeImage" class="nine-image__file-close" data-index="{{index}}"></view>
+                                                                <image catchtap="$nineImage$previewImage" class="nine-image__img" data-src="{{image.localPath}}" mode="aspectFill" src="{{image.localPath}}" style="height:{{$nineImage$size}}rpx;width:{{$nineImage$size}}rpx;"></image>
+                                                                <view class="cover" wx:if="{{index==0}}">封面</view>
+                                                                <view class="uploading" wx:if="{{image.uploadState=='uploading'}}">上传中</view>
+                                                                <view catchtap="$nineImage$retry" class="uploadFailed" data-wpyretry-a="{{index}}" wx:if="{{image.uploadState=='failed'}}">上传失败</view>
+                                                                <view catchtap="$nineImage$retry" class="uploadIdle" data-wpyretry-a="{{index}}" wx:if="{{image.uploadState=='idle'}}">点击上传</view>
+                                                            </view>
+                                                        </scroll-view>
+                                                        <view class="post-title-desc _450061e" wx:if="{{!isMini}}">
+                                                            <view class="post-title _450061e">
+                                                                <input bindblur="onTitleBlur" bindinput="onTitleInput" class="post-title-text _450061e" maxlength="{{title.maxLen}}" placeholder="{{title.placeholder}}" placeholderClass="title-placeholder" value="{{title.value}}"></input>
+                                                                <view class="post-title-limit _450061e">{{titleAvailLen}}</view>
+                                                            </view>
+                                                            <textarea autoFocus="{{$TextAreaEle$autoFocus}}" autoHeight="{{$TextAreaEle$autoHeight}}" bindblur="$TextAreaEle$onTextBlur" bindconfirm="$TextAreaEle$onConfirm" bindfocus="$TextAreaEle$onTextFocus" bindinput="$TextAreaEle$onTextInput" bindlinechange="$TextAreaEle$onLineChange" class="{{$TextAreaEle$class}} {{$TextAreaEle$platform}} _6e4be9a" cursor="{{$TextAreaEle$_cursor}}" cursorSpacing="{{$TextAreaEle$cursorSpacing}}" disabled="{{$TextAreaEle$disabled}}" fixed="{{$TextAreaEle$fixed}}" focus="{{$TextAreaEle$_focus}}" maxlength="{{$TextAreaEle$maxlength}}" placeholder="{{$TextAreaEle$placeholder}}" placeholderClass="{{$TextAreaEle$placeholderClass}}" placeholderStyle="{{$TextAreaEle$placeholderStyle}}" showConfirmBar="{{$TextAreaEle$showConfirmBar}}" value="{{$TextAreaEle$value}}" wx:if="{{$TextAreaEle$editing}}"></textarea>
+                                                            <scroll-view scrollY catchtap="$TextAreaEle$onBeginEdit" class="{{$TextAreaEle$class}} {{$TextAreaEle$platform}} {{$TextAreaEle$value?'':$TextAreaEle$placeholderClass||'textarea-placeholder'}} {{$TextAreaEle$value?'_textarea':'_textarea-placeholder'}} _6e4be9a" wx:if="{{!$TextAreaEle$editing}}">{{$TextAreaEle$value||$TextAreaEle$placeholder}}</scroll-view>
+                                                            <view bindtap="$TextAreaEle$onBlurModal" class="blurModal _6e4be9a" wx:if="{{$TextAreaEle$editing}}"></view>
+                                                            <view class="post-add-info _450061e" wx:if="{{!isMini}}">
+                                                                <view catchtap="onPosition" class="post-position _450061e">
+                                                                    <view class="post-position-icon _450061e"></view>
+                                                                    <view class="post-position-text _450061e">{{position.value||position.placeholder}}</view>
+                                                                </view>
+                                                                <view catchtap="toggleNewLabel" class="post-new-label _450061e">
+                                                                    <view class="post-new-label-text _450061e">全新宝贝</view>
+                                                                    <image class="post-new-label-icon _450061e" src="{{newLabelIcons[newLabelState]}}"></image>
+                                                                </view>
+                                                            </view>
+                                                        </view>
+                                                        <view class="post-category-price _450061e" wx:if="{{!isMini}}">
+                                                            <view catchtap="onCate" class="post-category-price-item post-category _450061e">
+                                                                <view class="post-category-price-item-title _450061e">分类</view>
+                                                                <view class="post-category-price-item-value {{category.value?'':'holder'}} _450061e">{{category.value||category.placeholder}}</view>
+                                                                <view class="post-category-price-item-btn _450061e"></view>
+                                                            </view>
+                                                            <view catchtap="onBasicParams" class="post-category-price-item post-category _450061e" wx:if="{{showBasicParams}}">
+                                                                <view class="post-category-price-item-title _450061e">基本参数</view>
+                                                                <view class="post-category-price-item-value {{postParams.paramsText?'':'holder'}} _450061e">{{postParams.paramsText||postParams.placeholder}}</view>
+                                                                <view class="post-category-price-item-btn _450061e"></view>
+                                                            </view>
+                                                            <view catchtap="onPrice" class="post-category-price-item post-category _450061e">
+                                                                <view class="post-category-price-item-title _450061e">价格</view>
+                                                                <view class="post-category-price-item-value {{price.value?'':'holder'}} _450061e">{{price.value||price.placeholder}}</view>
+                                                                <view class="post-category-price-item-btn _450061e"></view>
+                                                            </view>
+                                                            <view catchtap="onShowCircle" class="post-category-price-item post-price _450061e" wx:if="{{groupid!==''}}">
+                                                                <view class="post-category-price-item-title _450061e">圈子板块</view>
+                                                                <view class="post-category-price-item-value {{circle.value?'':'holder'}} _450061e">{{circle.value||circle.placeholder}}</view>
+                                                                <view class="post-category-price-item-btn _450061e"></view>
+                                                            </view>
+                                                            <view catchtap="onPrivilege" class="post-category-price-item _450061e" wx:if="{{privilege.show}}">
+                                                                <view class="post-category-price-item-title _450061e">使用特权</view>
+                                                                <view class="post-category-price-item-value {{privilege.value?'':'holder'}} _450061e">{{privilege.value||privilege.placeholder}}</view>
+                                                                <view class="post-category-price-item-btn _450061e"></view>
+                                                            </view>
+                                                        </view>
+                                                        <view class="post-category-price post-category-miniprice _450061e" wx:else>
+                                                            <view class="post-category-price-item post-category _450061e">
+                                                                <view class="post-category-price-item-title _450061e">宝贝标题</view>
+                                                                <view class="post-category-price-item-value _450061e">
+                                                                    <input bindblur="onTitleBlur" bindinput="onTitleInput" class="post-minititle-text _450061e" maxlength="{{title.maxLen}}" placeholder="{{title.placeholder}}" placeholderClass="minititle-placeholder" value="{{title.value}}"></input>
+                                                                </view>
+                                                            </view>
+                                                            <view catchtap="onPrice" class="post-category-price-item post-category _450061e">
+                                                                <view class="post-category-price-item-title _450061e">宝贝价格</view>
+                                                                <view class="post-category-price-item-value {{price.value?'':'holder'}} _450061e">{{price.value||price.placeholder}}</view>
+                                                            </view>
+                                                        </view>
+                                                        <view class="post-services _450061e" wx:if="{{!isMini}}">
+                                                            <view class="service _450061e" wx:for="{{services}}" wx:for-item="service" wx:key="serviceId">
+                                                                <view class="title _450061e">
+                                                                    <image class="icon _450061e" src="{{service.selected?service.enableIcon:service.disableIcon}}"></image>
+                                                                    <view class="name _450061e">{{service.serviceName}}</view>
+                                                                    <image catchtap="onServiceQuestion" class="question _450061e" data-wpyonservicequestion-a="{{index}}" src="{{service.detailEntryIcon}}"></image>
+                                                                </view>
+                                                                <view class="labels _450061e">
+                                                                    <view class="label _450061e" wx:for="{{service.serviceLabels}}" wx:for-item="label" wx:key="wording">{{label.wording}}</view>
+                                                                </view>
+                                                                <switch bindchange="onServiceSwitch" checked="{{service.selected}}" class="switch _450061e" data-wpyonserviceswitch-a="{{index}}" data-wpyonserviceswitch-b="{{$event}}"></switch>
+                                                            </view>
+                                                        </view>
+                                                        <view bindtap="threeDayoversell" class="threeDayoversell _450061e" wx:if="{{!isMini}}">三天必卖秘籍 ></view>
+                                                        <view class="post-submit {{isIphoneX?'iphone-x':''}} _450061e">
+                                                            <button class="post-submit-btn _450061e" formType="submit">发布</button>
+                                                        </view>
+                                                    </form>
+                                                    <view class="base-board _450061e">
+                                                        <view class="base-board-container" style="z-index: {{$BaseBoard$zIndex}}" wx:if="{{$BaseBoard$show}}">
+                                                            <view class="base-board-now">
+                                                                <text class="display-block">{{$BaseBoard$wishTitle}}</text>
+                                                                <view bindtap="$BaseBoard$textHandle" class="base-now-price" data-key="wish">
+                                                                    <text class="price-symbal">￥</text>
+                                                                    <text bindtap="$BaseBoard$textHandle" class="now-price{{$BaseBoard$selectText=='wish'?' select-symbal':''}}" data-key="wish">{{$BaseBoard$wishPrice}}</text>
+                                                                </view>
+                                                            </view>
+                                                            <view class="base-board-part">
+                                                                <text>{{$BaseBoard$originTitle}}</text>
+                                                                <view bindtap="$BaseBoard$textHandle" class="base-board-price" data-key="origin">
+                                                                    <text bindtap="$BaseBoard$textHandle" class="base-board-phtext" data-key="origin" wx:if="{{!$BaseBoard$originPrice}}">￥</text>
+                                                                    <text bindtap="$BaseBoard$textHandle" class="{{$BaseBoard$selectText=='origin'?'select-text':''}}" data-key="origin">{{$BaseBoard$originPrice}}</text>
+                                                                </view>
+                                                            </view>
+                                                            <view class="base-board-part">
+                                                                <text>运费</text>
+                                                                <view bindtap="$BaseBoard$textHandle" class="base-board-price" data-key="freight" style="width: 300rpx" wx:if="{{!$BaseBoard$isFree}}">
+                                                                    <text bindtap="$BaseBoard$textHandle" class="base-board-phtext" data-key="freight" wx:if="{{!$BaseBoard$freightPrice}}">待议</text>
+                                                                    <text bindtap="$BaseBoard$textHandle" class="{{$BaseBoard$selectText=='freight'?'select-text':''}}" data-key="freight">{{$BaseBoard$freightPrice}}</text>
+                                                                </view>
+                                                                <input disabled class="base-board-part-inlineinput freight" placeholder="￥0" wx:if="{{$BaseBoard$isFree}}"></input>
+                                                                <text class="base-free-freight">包邮</text>
+                                                                <text bindtap="$BaseBoard$freeHandle" class="base-free-icon{{$BaseBoard$isFree?' freight-free':' freight-private'}}"></text>
+                                                            </view>
+                                                            <view class="base-board-keys">
+                                                                <button bindtap="$BaseBoard$typeTap" class="base-board-key border-bottom border-right" data-index="{{index+1}}" hoverClass="{{$BaseBoard$keysHoverClass}}" wx:for="{{9}}" wx:key="{{index}}">
+          {{index+1}}
+        </button>
+                                                                <button class="base-board-key border-bottom border-right"></button>
+                                                                <button bindtap="$BaseBoard$typeTap" class="base-board-key border-bottom border-right" data-index="0" hoverClass="{{$BaseBoard$keysHoverClass}}">0</button>
+                                                                <button bindtap="$BaseBoard$hideTap1" class="base-board-key border-bottom border-right">
+                                                                    <image src="https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/post/keyboard.png"></image>
+                                                                </button>
+                                                            </view>
+                                                            <view class="base-board-handles">
+                                                                <button bindtap="$BaseBoard$backTap" class="base-board-handle border-bottom">
+                                                                    <image src="https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/post/close.png"></image>
+                                                                </button>
+                                                                <button bindtap="$BaseBoard$confirmTap" class="base-board-handle border-bottom next">{{$BaseBoard$confirmText}}</button>
+                                                            </view>
+                                                        </view>
+                                                        <view bindtap="$BaseBoard$hideTap" class="base-board-mask" style="z-index: {{$BaseBoard$zIndex-1}};background-color: {{$BaseBoard$maskColor}};opacity: {{$BaseBoard$maskOpacity}}" wx:if="{{$BaseBoard$show}}"></view>
+                                                    </view>
+                                                    <view class="wetoast {{$BaseBoard$toast$reveal?'wetoast_show':''}}">
+                                                        <view class="wetoast__mask"></view>
+                                                        <view animation="{{$BaseBoard$toast$animationData}}" class="wetoast__bd">
+                                                            <view class="wetoast__bd__img {{$BaseBoard$toast$imgClassName||''}}" wx:if="{{$BaseBoard$toast$img}}">
+                                                                <image class="wetoast__bd__img_desc" mode="{{$BaseBoard$toast$imgMode||'scaleToFill'}}" src="{{$BaseBoard$toast$img}}"></image>
+                                                            </view>
+                                                            <view class="wetoast__bd__title {{$BaseBoard$toast$titleClassName||''}}" wx:if="{{$BaseBoard$toast$title}}">{{$BaseBoard$toast$title}}</view>
+                                                        </view>
+                                                    </view>
+                                                    <view bindtap="$Popup$onHide" class="popup-mask _450061e" hidden="{{$Popup$isHidden}}" wx:if="{{$Popup$hasMask}}"></view>
+                                                    <view class="{{'popup-wrap pop-'+$Popup$position}}" style="{{$Popup$animationStyle}}">
+                                                        <view class="pop-box">
+                                                            <scroll-view class="pop-box-scroll" enableBackToTop="enable-back-to-top" scrollY="true">
+                                                                <view bindtap="$Popup$onHide" class="pop-title">{{$Popup$pubSelectTips}}</view>
+                                                                <view class="service" wx:for="{{$Popup$sectionList}}" wx:key="id">
+                                                                    <view bindtap="$Popup$onclick" class="pop-item {{item.sectionId==$Popup$groupsectionid?'o':''}}" data-id="{{item.sectionId}}" data-name="{{item.sectionName}}">{{item.sectionName}}<view class="pop-item-img" wx:if="{{item.sectionId==$Popup$groupsectionid}}"></view>
+                                                                    </view>
+                                                                </view>
+                                                            </scroll-view>
+                                                        </view>
+                                                    </view>
+                                                    <view catchtap="$PrivilegeModal$onModalTap" catchtouchmove="$PrivilegeModal$onModalTouchMove" class="modalBg _eff6fa8 _450061e" data-ele="modalBg" wx:if="{{$PrivilegeModal$showModal}}">
+                                                        <view class="modalBody _eff6fa8">
+                                                            <view class="header _eff6fa8">选择使用发布特权，宝贝更快成交哦</view>
+                                                            <image catchtap="$PrivilegeModal$onClose" class="close _eff6fa8" src="https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/post/x.png"></image>
+                                                            <scroll-view scrollY class="privileges _eff6fa8">
+                                                                <view catchtap="$PrivilegeModal$onPrivilege" class="privilege _eff6fa8" data-wpyonprivilege-a="{{index}}" wx:for="{{$PrivilegeModal$privileges}}" wx:for-item="privilege">
+                                                                    <view class="selector {{privilege.selected?'selected':''}} _eff6fa8"></view>
+                                                                    <view class="info _eff6fa8">
+                                                                        <view class="name {{privilege.expire?'expirePresent':'expireAbsent'}} _eff6fa8">{{privilege.name}}</view>
+                                                                        <view class="expire _eff6fa8">{{privilege.expire}}</view>
+                                                                        <view catchtap="$PrivilegeModal$onRule" class="rules {{privilege.expanding?'expanded':'folded'}} _eff6fa8" data-wpyonrule-a="{{index}}" wx:if="{{privilege.rule}}">
+                                                                            <view class="title _eff6fa8">规则详情：</view>
+                                                                            <view class="switch _eff6fa8"></view>
+                                                                            <view class="content _eff6fa8" wx:if="{{privilege.expanding}}">{{privilege.rule}}</view>
+                                                                        </view>
+                                                                        <view class="tip _eff6fa8">{{privilege.tip}}</view>
+                                                                    </view>
+                                                                </view>
+                                                            </scroll-view>
+                                                        </view>
+                                                    </view>
+                                                    <block wx:if="{{$PrivilegeModal$Rule$show}}">
+                                                        <view catchtouchmove="$PrivilegeModal$Rule$moveMaskStop" class="gurantee-container">
+                                                            <view class="gurantee-rule {{$PrivilegeModal$Rule$type}}">
+                                                                <view class="gurantee-rule-title">{{$PrivilegeModal$Rule$ruleTitle}}</view>
+                                                                <scroll-view class="gurantee-rule-list" scrollY="true" style="height: {{$PrivilegeModal$Rule$contentHeight}}; {{$PrivilegeModal$Rule$contentExtraStyle}}">
+                                                                    <view class="gurantee-rule-list-item" wx:for="{{$PrivilegeModal$Rule$rulelist}}">
+            {{item}}
+          </view>
+                                                                </scroll-view>
+                                                                <view catchtap="$PrivilegeModal$Rule$onBtn" class="gurantee-rule-button">
+                                                                    <view>{{$PrivilegeModal$Rule$btnTxt}}</view>
+                                                                    <form bindsubmit="$PrivilegeModal$Rule$FormId$sendFormId" class="form-4id" reportSubmit="true">
+                                                                        <button class="button-4id" formType="submit"></button>
+                                                                    </form>
+                                                                </view>
+                                                            </view>
+                                                            <view catchtap="$PrivilegeModal$Rule$closeRule" class="gurantee-rule-close" wx:if="{{$PrivilegeModal$Rule$showClose}}"></view>
+                                                        </view>
+                                                        <view catchtap="$PrivilegeModal$Rule$closeRule" catchtouchmove="$PrivilegeModal$Rule$moveStop" class="mask"></view>
+                                                    </block>
+                                                    <view catchtouchmove="$DialogCommon$onScroll" class="dialog _3f95c5a _450061e" wx:if="{{$DialogCommon$show}}">
+                                                        <view class="dialog-mask _3f95c5a"></view>
+                                                        <view class="dialog-container _3f95c5a" style="{{$DialogCommon$options.containerExtraStyle}}">
+                                                            <image class="dialog-icon {{$DialogCommon$options.icon?$DialogCommon$options.icon.className:''}} _3f95c5a" src="{{$DialogCommon$options.icon.src}}" wx:if="{{$DialogCommon$options.icon}}"></image>
+                                                            <view bindtap="$DialogCommon$onClose" class="dialog-container-close _3f95c5a" wx:if="{{!$DialogCommon$options.hideCloseIcon}}">
+                                                                <text class="dialog-container-close-x _3f95c5a"></text>
+                                                            </view>
+                                                            <view class="dialog-container-title {{$DialogCommon$options.icon?'large-header':''}} _3f95c5a">{{$DialogCommon$options.title||''}}</view>
+                                                            <scroll-view class="dialog-container-content {{$DialogCommon$options.contentScrollable?'scrollable':''}} _3f95c5a" scrollY="{{$DialogCommon$options.contentScrollable}}" style="{{$DialogCommon$options.contentExtraStyle}}">{{$DialogCommon$options.content||''}}</scroll-view>
+                                                            <view class="dialog-container-buttons {{$DialogCommon$options.btnLayout}} {{$DialogCommon$options.btnStyle}} {{'count'+$DialogCommon$options.buttons.length}} _3f95c5a">
+                                                                <view bindtap="$DialogCommon$onButton" class="dialog-container-buttons-button {{button.main?'main':''}} _3f95c5a" data-wpyonbutton-a="{{index}}" data-wpyonbutton-b="{{$DialogCommon$$event}}" style="{{button.style}}" wx:for="{{$DialogCommon$options.buttons}}" wx:for-item="button" wx:key="text">
+          {{button.text}}
+          <button bindgetphonenumber="$DialogCommon$onGetPhoneNumber" class="_3f95c5a" data-share-data="{{button.shareData}}" data-wpyongetphonenumber-a="{{index}}" data-wpyongetphonenumber-b="{{$DialogCommon$$event}}" openType="{{button.openType}}">{{button.buttonText}}</button>
+                                                                </view>
+                                                            </view>
+                                                        </view>
+                                                    </view>
+                                                </view>
+                                            </button>
+                                        </form>
+                                    </button>
+                                </form>
+                            </button>
+                        </form>
+                    </button>
+                </form>
+            </button>
+        </form>
+    </view>
+    <view bindtap="$PageFrame$BackHome$onBackHome" bindtouchstart="$PageFrame$BackHome$onTouchstart" catchtouchmove="$PageFrame$BackHome$onTouchmove" class="backHome {{$PageFrame$BackHome$pageBodyReady?'ready':'unready'}} _757a836 _18ffead" style="background-image: url('{{$PageFrame$BackHome$backHome.icon}}'); {{$PageFrame$BackHome$backHome.extraStyle}}; transform: translate3d({{$PageFrame$BackHome$eleOffset.x}}px, {{$PageFrame$BackHome$eleOffset.y}}px, 0); " wx:if="{{$PageFrame$BackHome$backHome.show}}"></view>
+    <view bindtap="$PageFrame$ErrorTip$refresh" class="tip _f2dd71c _18ffead" wx:if="{{$PageFrame$ErrorTip$show}}">
+        <image class="error-icon _f2dd71c" src="{{$PageFrame$ErrorTip$icon}}"></image>
+        <view class="error-tip _f2dd71c">{{$PageFrame$ErrorTip$errorTip}}</view>
+    </view>
+</view>

@@ -1,0 +1,100 @@
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.more {
+    display: block;
+    height: 64rpx;
+    margin: 25px 0 10px 0;
+    font-size: 26rpx;
+}
+
+.more .text {
+    text-align: center;
+    color: black;
+}
+
+.more.white .text {
+    color: white;
+}
+
+.loadEffect.rotate {
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 1.45s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+.loadEffect {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 60rpx;
+}
+
+.loadEffect .v,.loadEffect .v_dark {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+    opacity: 0.3;
+}
+
+.loadEffect .v1 {
+    opacity: 0.3;
+}
+
+.loadEffect .v2 {
+    opacity: 0.4;
+    transform: rotate(45deg);
+    transform-origin: 200% 200%;
+}
+
+.loadEffect .v3 {
+    opacity: 0.5;
+    transform: rotate(90deg);
+    transform-origin: 200% 200%;
+}
+
+.loadEffect .v4 {
+    opacity: 0.6;
+    transform: rotate(135deg);
+    transform-origin: 200% 200%;
+}
+
+.loadEffect .v5 {
+    opacity: 0.7;
+    transform: rotate(180deg);
+    transform-origin: 200% 200%;
+}
+
+.loadEffect .v6 {
+    opacity: 0.8;
+    transform: rotate(225deg);
+    transform-origin: 200% 200%;
+}
+
+.loadEffect .v7 {
+    opacity: 0.9;
+    transform: rotate(270deg);
+    transform-origin: 200% 200%;
+}
+
+.loadEffect .v8 {
+    opacity: 1;
+    transform: rotate(315deg);
+    transform-origin: 200% 200%;
+}
+
+.loadEffect.white .v,.loadEffect.white .v_dark {
+    background-color: white;
+}

@@ -1,0 +1,173 @@
+.visit-gift-popup__container {
+    width: 600rpx;
+    height: 664rpx;
+    background-color: rgba(0,0,0,0);
+    background-image: url(https://b.yzcdn.cn/v2/image/wap/send_coupon/gift_back_m@2x.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.visit-gift-popup__container.visit-gift-popup__container-over {
+    background-image: url(https://img.yzcdn.cn/public_files/2018/02/09/07a1e009cbf37498a8fbd70b5ac06757.png);
+    height: 440rpx;
+}
+
+.visit-gift-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.visit-gift-title {
+    top: 40rpx;
+    font-size: 22px;
+    color: #FFFFFF;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    height: 30px;
+    line-height: 30px;
+}
+
+.visit-gift__title--left-line,.visit-gift__title--right-line {
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    display: inline-block;
+    margin-bottom: 6px;
+    position: relative;
+}
+
+.visit-gift__title--left-line:after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: inline-block;
+    position: absolute;
+    right: -4px;
+    top: -1px;
+}
+
+.visit-gift__title--right-line:before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: inline-block;
+    position: absolute;
+    left: -4px;
+    top: -1px;
+}
+
+.visit-gift-info {
+    top: 104rpx;
+    font-size: 12px;
+    color: #FFFFFF;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+}
+
+.visit-gift-coupon-container {
+    width: 100%;
+    position: absolute;
+    top: 162rpx;
+    height: 360rpx;
+    padding: 0 80rpx;
+    box-sizing: border-box;
+}
+
+.visit-gift-coupon {
+    width: 100%;
+    height: 150rpx;
+    position: relative;
+    background-color: rgba(0,0,0,0);
+    background-image: url(https://b.yzcdn.cn/v2/image/wap/send_coupon/card@2x.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 10rpx;
+}
+
+.visit-gift-coupon-name {
+    font-size: 14px;
+    color: #000;
+    position: absolute;
+    left: 30rpx;
+    top: 16rpx;
+}
+
+.visit-gift-coupon-info {
+    font-size: 12px;
+    color: #999;
+    position: absolute;
+    left: 30rpx;
+    top: 60rpx;
+}
+
+.visit-gift-coupon-time {
+    font-size: 10px;
+    color: #999;
+    position: absolute;
+    left: 30rpx;
+    bottom: 6rpx;
+    white-space: nowrap;
+}
+
+.visit-gift-coupon-time::before {
+    content: '';
+    display: inline-block;
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 8rpx;
+    margin-bottom: -4rpx;
+    background-color: rgba(0,0,0,0);
+    background-image: url(https://img.yzcdn.cn/public_files/2018/03/05/8dbe8577de96d8198610eea8df352a02.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.visit-gift-coupon-price {
+    font-size: 14px;
+    color: #F14845;
+    position: absolute;
+    top: 30rpx;
+    right: 20rpx;
+}
+
+.gray .visit-gift-coupon-name,.gray .visit-gift-coupon-info,.gray .visit-gift-coupon-time,.gray .visit-gift-coupon-price {
+    color: #999;
+}
+
+.visit-gift-know-btn {
+    background-image: linear-gradient(to bottom,#FCEA49,#FEBC17);
+    color: #d25e20;
+    width: 400rpx;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 19px;
+    left: 100rpx;
+    position: absolute;
+    text-align: center;
+    bottom: 30rpx;
+}
+
+.visit-gift-popup__container-over .visit-gift-know-btn {
+    bottom: 80rpx;
+    left: 80rpx;
+}
+
+.visit-gift-close {
+    color: #fff;
+    position: absolute;
+    bottom: -125rpx;
+    left: 275rpx;
+    font-size: 30px;
+}
+
+.visit-gift-popup__container-over .visit-gift-close {
+    bottom: -80rpx;
+    left: 268rpx;
+}

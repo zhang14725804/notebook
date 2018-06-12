@@ -1,0 +1,111 @@
+@import "../common/search-input.wxss";
+
+@import "../common/filter.wxss";
+
+@import "../common/search-module.wxss";
+
+page {
+    font-family: 'PingFangSC-Regular, sans-serif';
+}
+
+.srcoll-body {
+    max-height: 100%;
+}
+
+.page-body {
+    background-color: #efeff4;
+    overflow: hidden;
+}
+
+.cateright {
+    padding-right: 22rpx;
+}
+
+.catelist {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    padding-left: 22rpx;
+    margin-bottom: 20rpx;
+    color: #000;
+    background-color: #fff;
+}
+
+.last {
+    margin-bottom: 0;
+}
+
+.cate-parent {
+    font-family: 'STHeiti';
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    height: 88rpx;
+    font-size: 30rpx;
+}
+
+.cate-p-icon {
+    width: 10rpx;
+    height: 28rpx;
+    margin-right: 10rpx;
+    background-color: #ff552e;
+}
+
+.top-line {
+    border-top: 1rpx solid #eeeeee;
+}
+
+.cate-child {
+    font-family: 'PingFangSC-Light, sans-serif';
+    font-size: 28rpx;
+    color: #555;
+    line-height: 88rpx;
+    float: left;
+    width: 25%;
+    height: 88rpx;
+    padding: 0 5rpx;
+    box-sizing: border-box;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-top: 1rpx solid #eeeeee;
+    overflow: hidden;
+}
+
+.gotoSubscription {
+    padding: 19rpx 30rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #FF552E;
+    letter-spacing: 0;
+    line-height: 32rpx;
+    text-align: center;
+    position: relative;
+}
+
+.gotoSubscription::before {
+    content: ' ';
+    position: absolute;
+    top: 37rpx;
+    left: 30rpx;
+    width: 132rpx;
+    height: 1rpx;
+    background-color: #ddd;
+}
+
+.gotoSubscription::after {
+    content: ' ';
+    position: absolute;
+    top: 37rpx;
+    right: 30rpx;
+    width: 132rpx;
+    height: 1rpx;
+    background-color: #ddd;
+}

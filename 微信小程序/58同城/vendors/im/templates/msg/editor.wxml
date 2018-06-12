@@ -1,0 +1,8 @@
+<template name="editor">
+    <form bindsubmit="onsendmsg" reportSubmit="true" wx:if="{{scrollHeight>0}}">
+        <view class="{{isIphoneX?'im-editor im-editor-iphoneX':'im-editor'}}">
+            <input bindinput="oneditorbindinput" class="im-input" data-type="input" name="input" value="{{inputData}}"></input>
+            <button class="im-button" formType="submit">发送</button>
+        </view>
+    </form>
+</template>

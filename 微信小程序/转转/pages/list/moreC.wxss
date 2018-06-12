@@ -1,0 +1,177 @@
+@import "../../__wuBaseWxss__/4.wxss";
+
+.form {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+
+.submit-button {
+    border: none;
+    padding: none;
+    margin: none;
+    box-sizing: content-box;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.item-list-container {
+    width: 370rpx;
+    display: inline-block;
+    margin-bottom: 10rpx;
+    font-size: 28rpx;
+    color: #888;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.left-item {
+    margin-right: 10rpx;
+}
+
+.item-img {
+    display: block;
+    width: 100%;
+    height: 370rpx;
+}
+
+.item-desc {
+    height: 120rpx;
+    overflow: hidden;
+    padding: 24rpx 20rpx 22rpx 15rpx;
+    font-size: 26rpx;
+}
+
+.item-list-title {
+    height: 40rpx;
+    line-height: 40rpx;
+    overflow: hidden;
+}
+
+.item-title {
+    height: 80rpx;
+    font-size: 28rpx;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-list-price {
+    padding: 5rpx 0;
+}
+
+.item-list-local {
+    height: 26rpx;
+}
+
+.item-list-price view {
+    display: inline-block;
+    padding-right: 20rpx;
+}
+
+.item-nowPrice {
+    color: #E64340;
+    font-size: 32rpx;
+}
+
+.item-nowPrice i {
+    font-size: 26rpx;
+}
+
+.item-oriPrice {
+    text-decoration: line-through;
+}
+
+@import "../curtain/curtain.wxss";
+
+page {
+    background: #EFEFF4;
+}
+
+.pop-mask {
+    width: 100%;
+    height: 100%;
+    opacity: .34;
+    position: fixed;
+    left: 0;
+    background-color: #000;
+    z-index: 2;
+}
+
+.search-container {
+    background-color: #efeff4;
+    width: 100%;
+    height: 90rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.filter {
+    width: 100%;
+    position: fixed;
+    top: 90rpx;
+    left: 0;
+    z-index: 2;
+}
+
+.searchInput {
+    width: 685rpx;
+    height: 50rpx;
+    background-color: white;
+    border-radius: 11rpx;
+    margin-left: 21rpx;
+    margin-top: 18rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    text-align: center;
+    padding: 1rpx 10rpx;
+    border: 1rpx solid #e6e6ea;
+    float: left;
+}
+
+.list-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.banner-img {
+    width: 750rpx;
+    display: block;
+    height: 280rpx;
+    z-index: 100;
+}
+
+navigator {
+    background: #fff;
+}
+
+.back-top {
+    width: 130rpx;
+    height: 130rpx;
+    background-image: url(https://img.58cdn.com.cn/zhuanzhuan/zzwa/common/goToTop.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: fixed;
+    bottom: 10rpx;
+    right: 10rpx;
+    z-index: 999;
+}
+
+.goods-list {
+    top: 0;
+}

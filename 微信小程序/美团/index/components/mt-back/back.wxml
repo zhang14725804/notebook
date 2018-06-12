@@ -1,0 +1,1 @@
+<mt-pendant text="{{text}}" url="{{url}}" wx:if="{{showPendant}}"></mt-pendant>

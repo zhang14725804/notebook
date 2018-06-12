@@ -1,0 +1,4 @@
+<view class="floor-title">猜你喜欢</view>
+<view class="recommend">
+    <common-recommend></common-recommend>
+</view>

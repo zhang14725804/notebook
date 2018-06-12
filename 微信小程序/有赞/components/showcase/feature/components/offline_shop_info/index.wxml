@@ -1,0 +1,28 @@
+<template name="theme-feature-offline_shop_info">
+    <view class="sc-offline-shop-info__header" wx:if="{{data.name}}">
+        <swiper autoplay="{{true}}" circular="{{true}}" class="sc-offline-shop-info__swipe" interval="{{2000}}">
+            <swiper-item bind:tap="offline_shop_info__previewImage" class="sc-offline-shop-info__shop-img-wrap" data-current="{{listIndex}}" data-images="{{data.imgUrls}}" wx:for="{{data.imgUrls}}" wx:for-index="listIndex" wx:key="{{ item }}-{{ listIndex }}">
+                <image class="sc-offline-shop-info__shop-img" mode="aspectFill" src="{{item}}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="sc-offline-shop-info__body" wx:if="{{data.name}}">
+        <view class="sc-offline-shop-info__logo-wrap sc-offline-shop-info__logo-wrap--{{data.logoStyleClass}}">
+            <image class="sc-offline-shop-info__logo" mode="aspectFill" src="{{data.logoUrl}}"></image>
+        </view>
+        <view class="sc-offline-shop-info__detail">
+            <view class="sc-offline-shop-info__shop-name">{{data.name}}</view>
+            <view bind:tap="offline_shop_info__callShop" class="sc-offline-shop-info__tel" data-tel="{{data.tel}}">
+                <view class="zan-icon zan-icon-phone sc-offline-shop-info__tel-icon"></view>
+            </view>
+        </view>
+        <view bind:tap="offline_shop_info__openLocation" class="sc-offline-shop-info__address" data-address="{{data.address}}" data-lat="{{data.lat}}" data-lng="{{data.lng}}" data-name="{{data.name}}">
+            <view class="zan-icon zan-icon-location sc-offline-shop-info__info-icon"></view>
+            <text class="sc-offline-shop-info__address-detail">{{data.address}}</text>
+            <view class="zan-icon zan-icon-arrow sc-offline-shop-info__address-arrow"></view>
+        </view>
+        <view class="sc-offline-shop-info__open-time">
+            <view class="zan-icon zan-icon-clock sc-offline-shop-info__info-icon"></view>{{data.time}}
+    </view>
+    </view>
+</template>

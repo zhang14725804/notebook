@@ -1,0 +1,165 @@
+.my-cardcollect-container {
+    height: 100%;
+    background-color: #E72C3F;
+}
+
+.my-cardcollect-frame {
+    padding: 0 11rpx;
+    height: 100%;
+}
+
+.my-cardcollect-body {
+    padding-top: 66rpx;
+    background-color: #fff;
+    border-bottom-left-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+}
+
+.my-cardcollect-header {
+    height: 700rpx;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 100%;
+    background-image: url("https://sr.aihuishou.com/activity/minapp/headImage.png");
+}
+
+.my-cardcollect-title {
+    padding: 0 36rpx;
+    padding-top: 500rpx;
+}
+
+.title-refresh {
+    padding: 17rpx 21rpx;
+    border: 1rpx #F24540 solid;
+    border-radius: 34rpx;
+    position: absolute;
+    right: 41rpx;
+}
+
+.my-cardcollect-title-text {
+    color: #F24540;
+    font-size: 28rpx;
+}
+
+.title-text-round {
+    color: #333333;
+    font-size: 32rpx;
+    font-family: 'PingFangSC-Medium';
+}
+
+.title-text-round:after {
+    content: '';
+    width: 1rpx;
+    height: 1rpx;
+    position: relative;
+    border-left: 1rpx #DCD3D3 solid;
+    margin: 0 12rpx;
+}
+
+.my-cardcollect-countdown {
+    padding-top: 98rpx;
+    color: #333333;
+    font-size: 32rpx;
+    line-height: 36rpx;
+    font-family: 'PingFangSC-Medium';
+}
+
+.countdown-clock {
+    background-color: #4C0000;
+    color: #fff;
+    width: 44rpx;
+    height: 44rpx;
+    border-radius: 4rpx;
+    display: inline-block;
+    padding-left: 6.5rpx;
+    font-size: 28rpx;
+    line-height: 44rpx;
+}
+
+.my-cardcollect-content {
+    padding-bottom: 60rpx;
+}
+
+.my-cardcollect-body button {
+    width: 600rpx;
+    height: 104rpx;
+    line-height: 104rpx;
+    border-radius: 51rpx;
+    color: #fff;
+    background-color: #FF501A;
+    margin-top: 40rpx;
+    font-family: 'PingFangSC-Medium';
+    box-shadow: 0px 8rpx 20rpx #D8D8D8;
+}
+
+.my-cardcollect-info {
+    margin-top: 20rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    padding-bottom: 20rpx;
+    margin-bottom: 76rpx;
+}
+
+.info-walletpackget {
+    font-size: 32rpx;
+    color: #333;
+    padding: 35rpx 26.6rpx;
+    border-bottom: 1rpx #DCD3D3 solid;
+    line-height: 72rpx;
+}
+
+.info-walletpackget-withdraw {
+    background-color: #FF501A;
+    color: #fff;
+    position: absolute;
+    right: 42rpx;
+    line-height: 60rpx;
+    font-size: 24rpx;
+    width: 138rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+    text-align: center;
+    margin-top: 10rpx;
+    font-family: 'PingFangSC-Medium';
+}
+
+.unclick {
+    visibility: false;
+    background-color: #D8D8D8;
+}
+
+.info-walletpackget image {
+    width: 75rpx;
+    height: 60rpx;
+    vertical-align: middle;
+    margin-right: 18rpx;
+}
+
+.my-cardcollect-foot {
+    width: 600rpx;
+    height: 104rpx;
+    text-align: center;
+    line-height: 104rpx;
+    color: white;
+    background-color: #FF501A;
+    border-radius: 51rpx;
+    margin: 40rpx 65rpx;
+    border: 0;
+    padding: 0;
+    box-shadow: 0px 8rpx 20rpx #D8D8D8;
+}
+
+.nav-activityrule {
+    height: 52rpx;
+    background: rgba(0,0,0,0.4);
+    opacity: .4;
+    border-radius: 100rpx 0rpx 0rpx 100rpx;
+    position: absolute;
+    line-height: 52rpx;
+    top: 24rpx;
+    right: 0;
+    margin: 0;
+    color: #fff;
+    font-size: 24rpx;
+    padding: 0rpx 13rpx 0rpx 23rpx;
+}

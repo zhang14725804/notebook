@@ -1,0 +1,599 @@
+<app-launch skuId="{{skuId}}" wx:if="{{showApp}}"></app-launch>
+<view class="nav_tab" style="{{showApp?'top:49px;':''}}">
+    <view bindtap="navTabClk" class="nav_tab__content">
+        <view class="nav_tab__item {{nav_idx==0?'cur':''}}" data-idx="0">
+            <image data-idx="0" src="https://img11.360buyimg.com/jdphoto/s30x30_jfs/t18271/19/161508080/303/f745759d/5a60a067Nb9153772.png"></image>
+            商品
+        </view>
+        <view class="nav_tab__item {{nav_idx==1?'cur':''}}" data-idx="1">
+            <image data-idx="1" src="https://img11.360buyimg.com/jdphoto/s30x30_jfs/t18271/19/161508080/303/f745759d/5a60a067Nb9153772.png"></image>
+            评价
+        </view>
+        <view class="nav_tab__item {{nav_idx==2?'cur':''}}" data-idx="2">
+            <image data-idx="2" src="https://img11.360buyimg.com/jdphoto/s30x30_jfs/t18271/19/161508080/303/f745759d/5a60a067Nb9153772.png"></image>
+            详情
+        </view>
+        <view class="nav_tab__item {{nav_idx==3?'cur':''}}" data-idx="3" wx:if="{{!wxSearchFlag}}">
+            <image data-idx="3" src="https://img11.360buyimg.com/jdphoto/s30x30_jfs/t18271/19/161508080/303/f745759d/5a60a067Nb9153772.png"></image>
+            推荐
+        </view>
+    </view>
+    <button bindtap="handleShareBtnClick" class="nav_tab__share_btn"></button>
+    <view class="nav_tab__share_tip" wx:if="{{closeShareTip==1}}">
+        <image bindtap="doCloseShareTip" class="nav_tab__share_close" src="https://img11.360buyimg.com/jdphoto/s30x30_jfs/t14878/143/2666654356/279/8127f2e5/5aaf73a6N0fe26c2d.png"></image>
+        <view class="nav_tab__share_txt">点这里分享商品给好友</view>
+    </view>
+</view>
+<view class="wrapper item_detail {{info.promomiao?'in_seckill':''}}" style="{{showApp?'top:45px;':''}}">
+    <view bindtap="previewImage" class="cover Jrolling">
+        <swiper bindchange="onSwiperChange" circular="{{true}}" current="{{slideIdx}}" indicatorDots="{{false}}">
+            <block wx:if="{{slideImages.length}}">
+                <swiper-item wx:for="{{slideImages}}" wx:key="*this">
+                    <image mode="aspectFill" src="{{item}}"></image>
+                </swiper-item>
+            </block>
+            <swiper-item class="default_cover" wx:else>
+                <image src="https://img11.360buyimg.com/jdphoto/s200x164_jfs/t15445/293/1935232823/3508/1cbf2bb8/5a65899bN06385d8b.png"></image>
+            </swiper-item>
+        </swiper>
+        <view class="dots" wx:if="{{slideImages.length}}">
+            <view class="dot {{index==slideIdx?'cur':''}}" wx:for="{{slideImages}}"></view>
+        </view>
+        <view class="sale-atmos__tag" wx:if="{{saleAtmos.rightupImg}}">
+            <image src="{{saleAtmos.rightupImg}}"></image>
+        </view>
+        <image class="market_goods" src="https://img11.360buyimg.com/jdphoto/s90x100_jfs/t17263/94/2552483403/1095/a2485c6c/5af9307fNd1fc0b5a.png" wx:if="{{info.goodsFlag.clothes=='Zgtk'}}"></image>
+        <image class="new_goods" src="https://img11.360buyimg.com/jdphoto/s90x100_jfs/t18604/341/2441456765/772/87ec6cde/5af93175N0d183cd7.png" wx:if="{{info.goodsFlag.clothes=='Fzxp'}}"></image>
+        <image class="e_books" src="https://img11.360buyimg.com/jdphoto/s124x50_jfs/t17155/338/2504589931/3813/c10e1291/5af93190N71f219cb.jpg" wx:if="{{info.goodsFlag.Ebook}}"></image>
+        <image class="appliance_30days" src="https://img11.360buyimg.com/jdphoto/s120x140_jfs/t20482/54/66563607/2353/5033d2d8/5af931a2N923da4a3.png" wx:if="{{info.goodsFlag.appliance}}"></image>
+        <image catchtap="coverGotoH5" class="try_read_book try_flag_icon" src="https://img11.360buyimg.com/jdphoto/s128x50_jfs/t18307/144/2191903/1228/33ba4d36/5a5719f4N95e237e2.png" wx:if="{{cover.flag=='ebook'}}"></image>
+        <image catchtap="coverGotoH5" class="try_watch_video try_flag_icon" src="https://img11.360buyimg.com/jdphoto/s128x50_jfs/t18922/231/1575238/1380/33dc4e7b/5a571a55N769310f7.png" wx:elif="{{cover.flag=='mainVideo'}}"></image>
+        <image catchtap="coverGotoH5" class="try_watch_3D try_flag_icon" src="https://img11.360buyimg.com/jdphoto/s112x50_jfs/t14290/195/1637182103/1206/c53160c3/5a5719f4N70c95cd6.png" wx:elif="{{cover.flag=='3D'}}"></image>
+        <image catchtap="coverGotoH5" class="global_scene_icon try_flag_icon" src="https://img11.360buyimg.com/jdphoto/s152x50_jfs/t15370/23/2656807186/5307/d1293ada/5aaf732bN1bcca9b0.png" wx:elif="{{cover.flag=='alloverimg'}}"></image>
+    </view>
+    <view class="sale-atmos__banner" wx:if="{{saleAtmosFir&&saleAtmos.bannerImg}}">
+        <image src="{{saleAtmos.bannerImg}}"></image>
+    </view>
+    <view class="special-atmos" wx:if="{{isSpecialProcess}}">
+        <view class="special-atmos__main {{specialProcess.type==1?'subscribe-atmos':'buying-spree-atmos'}}">
+            <view class="special-atmos__price">￥
+                <text>{{setPrice(info.price).int}}</text>
+                .{{setPrice(info.price).decimal}}
+            </view>
+            <view class="special-atmos__content">
+                <view class="special-atmos__people" wx:if="{{specialProcess.num}}">{{specialProcess.num}}人已预约</view>
+                <image class="qiang_icon" src="https://img11.360buyimg.com/jdphoto/s83x30_jfs/t18805/210/2456705985/1009/b3878613/5af9337aNeb96f279.png" wx:if="{{specialProcess.type==2||specialProcess.type==3}}"></image>
+            </view>
+        </view>
+        <view class="special-atmos__countdown" wx:if="{{specialProcess.countdown.text}}">
+            <block wx:if="{{specialProcess.countdown.show}}">
+                <view class="special-atmos__tit">{{specialProcess.countdown.text}}</view>
+                <view class="special-atmos__timer">
+                    <text class="special-atmos__timer_s" wx:if="{{specialProcess.countdown.timer[0]>0||specialProcess.countdown.timer[1]>0}}">{{specialProcess.countdown.timer[0]}}{{specialProcess.countdown.timer[1]}}</text>
+                    <text class="special-atmos__day" wx:if="{{specialProcess.countdown.timer[0]>0||specialProcess.countdown.timer[1]>0}}">天</text>
+                    <text class="special-atmos__timer_s">{{specialProcess.countdown.timer[2]}}{{specialProcess.countdown.timer[3]}}</text>
+                    <text class="special-atmos__timer_s">{{specialProcess.countdown.timer[4]}}{{specialProcess.countdown.timer[5]}}</text>
+                    <text class="special-atmos__timer_s">{{specialProcess.countdown.timer[6]}}{{specialProcess.countdown.timer[7]}}</text>
+                </view>
+            </block>
+            <view class="special-atmos__bigTit" wx:else>
+                <text>{{specialProcess.countdown.text}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="seckill-atmos" wx:if="{{!isSpecialProcess}}">
+        <view class="seckill-atmos__price-wrap">
+            <view class="seckill-atmos__price">
+                <text class="seckill-atmos__symbol">{{secPriceMark}}</text>{{seckill.price[0]}}<text class="seckill-atmos__decimal" wx:if="{{seckill.price[1]}}">.{{seckill.price[1]}}</text>
+            </view>
+            <view class="seckill-atmos__info">
+                <view class="seckill-atmos__prev-price">{{secPrevPriceMark}}{{seckill.prevPrice}}</view>
+                <view class="seckill-flag">京东秒杀</view>
+            </view>
+        </view>
+        <view class="seckill_timer">
+            <text class="timer_title">距结束还剩</text>
+            <view class="timer_counter">
+                <text class="number">{{seckill.timer[0]}}</text>
+                <text class="number">{{seckill.timer[1]}}</text>
+                <text class="colon"></text>
+                <text class="number">{{seckill.timer[2]}}</text>
+                <text class="number">{{seckill.timer[3]}}</text>
+                <text class="colon"></text>
+                <text class="number">{{seckill.timer[4]}}</text>
+                <text class="number">{{seckill.timer[5]}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="belt-atmos" wx:if="{{!isSpecialProcess&&!isSeckillProcess&&beltAtmos.show&&beltAtmos.banner}}">
+        <image mode="widthFix" src="{{beltAtmos.banner}}"></image>
+    </view>
+    <view class="promotion-atmos" wx:if="{{promoteAtoms.config&&promoteAtoms.timer&&!(beltAtmos&&beltAtmos.show)}}">
+        <view class="promotion-atmos__main">
+            <image mode="aspectFill" src="{{promoteAtoms.config.bannerimg}}"></image>
+        </view>
+        <view class="promotion-atmos__countdown" style="background: {{promoteAtoms.config.backcolor}}">
+            <text class="small" style="color: {{promoteAtoms.config.textcolor}}">{{promoteAtoms.config.descword||'距开始还剩'}}</text>
+            <block wx:if="{{promoteAtoms.timer[0]}}">
+                <text class="number" style="color: {{promoteAtoms.config.numcolor}}; background: {{promoteAtoms.config.numbackcolor}}">{{promoteAtoms.timer[0]}}</text>
+                <text style="color: {{promoteAtoms.config.numbackcolor}}">天</text>
+            </block>
+            <text class="number" style="color: {{promoteAtoms.config.numcolor}}; background: {{promoteAtoms.config.numbackcolor}}">{{promoteAtoms.timer[1]}}{{promoteAtoms.timer[2]}}</text>
+            <text class="colon" style="color: {{promoteAtoms.config.numbackcolor}}">:</text>
+            <text class="number" style="color: {{promoteAtoms.config.numcolor}}; background: {{promoteAtoms.config.numbackcolor}}">{{promoteAtoms.timer[3]}}{{promoteAtoms.timer[4]}}</text>
+            <text class="colon" style="color: {{promoteAtoms.config.numbackcolor}}">:</text>
+            <text class="number" style="color: {{promoteAtoms.config.numcolor}}; background: {{promoteAtoms.config.numbackcolor}}">{{promoteAtoms.timer[5]}}{{promoteAtoms.timer[6]}}</text>
+        </view>
+    </view>
+    <view class="xlist">
+        <view class="xlist_group info">
+            <view class="xlist_item">
+                <view class="title_wrap">
+                    <view class="title line3" wx:if="{{info.skuName}}">
+                        <image class="sale-atmos__icon" src="{{saleAtmos.beforeTitleTag}}" wx:if="{{saleAtmos.beforeTitleTag}}"></image>
+                        <image class="icon_oneHour_zy" src="https://img11.360buyimg.com/jdphoto/s124x28_jfs/t17935/231/2098089439/2560/b5c4b3b8/5ae31d7fNb19f0097.png" wx:if="{{info.skuNameFlag=='oneHour'&&info.isZiying}}"></image>
+                        <image class="icon_oneHour" src="https://img11.360buyimg.com/jdphoto/s77x28_jfs/t16933/45/2072027450/1707/a62e0439/5ae31d53N51f6a7b0.png" wx:elif="{{info.skuNameFlag=='oneHour'}}"></image>
+                        <image class="jd_selection_icon" src="https://img10.360buyimg.com/jdphoto/s100x28_jfs/t20245/149/17300525/2688/443ac7d3/5af560bbN3ae1dda3.png" wx:if="{{info.spAttr.IsJX=='1'}}"></image>
+                        <image class="icon_global" src="https://img10.360buyimg.com/jdphoto/s68x28_jfs/t19774/351/2377805112/2165/35f3b101/5af16e93N9cbb5d45.png" wx:if="{{info.skuNameFlag=='global'}}"></image>
+                        <image class="icon_global_zy" src="https://img10.360buyimg.com/jdphoto/s116x28_jfs/t16666/177/2434981533/3178/61e2c559/5af16e95N5f8bea61.png" wx:elif="{{info.skuNameFlag=='global_zy'}}"></image>
+                        <image class="jd_market_icon" src="https://img10.360buyimg.com/jdphoto/s102x28_jfs/t18574/246/2434089402/2368/8468a10d/5af16eeaNf0a0ea0f.png" wx:elif="{{info.skuNameFlag=='jdmarket'}}"></image>
+                        <image class="jd_market_zy_icon" src="https://img10.360buyimg.com/jdphoto/s151x28_jfs/t19630/150/2351597362/3374/878385d3/5af16eedNddb49362.png" wx:elif="{{info.skuNameFlag=='jdmarket_zy'}}"></image>
+                        <image class="jd_zypoverty_icon" src="https://img10.360buyimg.com/jdphoto/s135x28_jfs/t17893/153/2339644015/3435/664d9caf/5af16f02N7a033158.png" wx:elif="{{info.spAttr.jzfp=='1'&&info.isZiying}}"></image>
+                        <image class="jd_express_icon" src="https://img10.360buyimg.com/jdphoto/s88x28_jfs/t17101/274/2341506818/2519/73b32d3f/5af16efeN76ebb5b8.png" wx:elif="{{info.spAttr.jzfp=='1'}}"></image>
+                        <image class="icon_sam" src="https://img10.360buyimg.com/jdphoto/s57x28_jfs/t19798/255/381638645/1777/71a20f4c/5af16f93N048903ff.png" wx:elif="{{info.skuNameFlag=='sam'}}"></image>
+                        <image class="icon_sam_jdexpress" src="https://img10.360buyimg.com/jdphoto/s148x28_jfs/t16675/36/2343853623/3876/cf5aef43/5af16fbaN08ead6c6.png" wx:elif="{{info.skuNameFlag=='sam_jdexpress'}}"></image>
+                        <image class="icon_zy" src="https://img10.360buyimg.com/jdphoto/s48x28_jfs/t16837/175/2336746342/1085/d4b6cf2c/5af16f73N5f0ce6d0.png" wx:elif="{{info.skuNameFlag=='zy'}}"></image>
+                        <image class="jd_express_icon" src="https://img10.360buyimg.com/jdphoto/s138x39_jfs/t18700/36/277279926/3346/cef78c79/5a6820c8N47b1bd48.png" wx:elif="{{info.skuNameFlag=='jdexpress'}}"></image>
+                        <image class="jd_daodian_icon" src="https://img10.360buyimg.com/jdphoto/s110x28_jfs/t4549/11/4711942375/1439/f10da1dc/591400f5Nc755a218.png" wx:if="{{info.spAttr.isLOC==='1'}}"></image>
+                        <image class="icon_drug" src="http://img11.360buyimg.com/jdphoto/s48x28_jfs/t16924/322/2320753884/1420/f6a4a454/5af16f82N4dacefa1.png" wx:elif="{{info.isOTC}}"></image>
+                        {{info.skuName}}
+                    </view>
+                    <view bindtap="favGoods" class="item_fav {{favStatus?'faved':''}}" data-type="{{favStatus?'del':'add'}}">
+                        <image src="https://img11.360buyimg.com/jdphoto/s30x30_jfs/t19192/160/2541768216/431/95111c6d/5af93e74N11ea39f2.png" wx:if="{{!favStatus}}"></image>
+                        <image src="https://img11.360buyimg.com/jdphoto/s30x30_jfs/t19921/180/484564962/432/f500efbe/5af93e78N75586b6b.png" wx:else></image>
+                        <text>{{favStatus?'已收藏':'收藏'}}</text>
+                    </view>
+                </view>
+                <view class="ad" wx:if="{{info.ad.length}}">
+                    <block wx:for="{{info.ad}}">
+                        <text bindtap="gotoAd" class="actUrl" data-id="{{item.id?item.id:''}}" data-position="ad" data-type="{{item.type}}" data-url="{{item.url}}" wx:if="{{item.url&&!wxSearchFlag}}">{{item.txt}}</text>
+                        <text wx:elif="{{item.url&&wxSearchFlag}}"></text>
+                        <text wx:else>{{item.txt}}</text>
+                    </block>
+                </view>
+                <view class="book_desc" wx:if="{{info.skuType==2}}">
+                    <view class="item" wx:if="{{info.item.AuthorArr.length}}">
+                        <text>{{info.item.AuthorArr[1]?info.item.AuthorArr[1]:''}} </text>
+                        <text bindtap="gotoSearchList" class="link" data-key="{{info.item.AuthorArr[2]}}">{{info.item.AuthorArr[2]}}</text>
+                        <text class="cup">著</text>
+                        <block wx:if="{{info.item.EditerArr}}">
+                            <text>{{info.item.EditerArr[1]?info.item.EditerArr[1]:''}} </text>
+                            <text bindtap="gotoSearchList" class="link" data-key="{{info.item.EditerArr[2]}}">{{info.item.EditerArr[2]}}</text>
+                            <text class="cup">编</text>
+                        </block>
+                        <block wx:if="{{info.item.DrawerArr}}">
+                            <text>{{info.item.DrawerArr[1]?info.item.DrawerArr[1]:''}} </text>
+                            <text bindtap="gotoSearchList" class="link" data-key="{{info.item.DrawerArr[2]}}">{{info.item.DrawerArr[2]}}</text>
+                            <text class="cup">绘</text>
+                        </block>
+                        <block wx:if="{{info.item.PhotographyArr}}">
+                            <text>{{info.item.PhotographyArr[1]?info.item.PhotographyArr[1]:''}} </text>
+                            <text bindtap="gotoSearchList" class="link" data-key="{{info.item.PhotographyArr[2]}}">{{info.item.PhotographyArr[2]}}</text>
+                            <text class="cup">摄影</text>
+                        </block>
+                        <block wx:if="{{info.item.WriteArr}}">
+                            <text>{{info.item.WriteArr[1]?info.item.WriteArr[1]:''}} </text>
+                            <text bindtap="gotoSearchList" class="link" data-key="{{info.item.WriteArr[2]}}">{{info.item.WriteArr[2]}}</text>
+                            <text class="cup">书写</text>
+                        </block>
+                        <block wx:if="{{info.item.Transfer}}">
+                            <text bindtap="gotoSearchList" class="link" data-key="{{util.formatTransfer(info.item.Transfer)}}">{{util.formatTransfer(info.item.Transfer)}}</text>
+                            <text class="cup">译</text>
+                        </block>
+                        <text bindtap="gotoSearchList" class="link" data-key="{{info.item.Publishers}}" wx:if="{{info.item.Publishers}}">{{info.item.Publishers}}</text>
+                    </view>
+                </view>
+                <view class="art_desc" wx:if="{{info.skuType==3}}">
+                    <view class="item" wx:if="{{info.item.Authorsstr}}">
+                        <text>{{info.item.Authorsstr}}</text>
+                    </view>
+                    <view wx:elif="{{info.item.Authors&&info.item.Authors[0]}}">
+                        <block wx:for="{{util.formatAuthorInfo(info.item.Authors)}}">
+                            <text class="pre-cup">{{item.title}}：</text>
+                            <text bindtap="gotoSearchList" class="link" data-key="{{author}}" wx:for="{{item.data}}" wx:for-item="author">{{author}}</text>
+                        </block>
+                    </view>
+                    <view class="item" wx:if="{{info.item.Publishing_Company}}">
+                        <text class="sub">发行公司：</text>
+                        <text bindtap="gotoSearchList" class="link" data-key="{{info.item.Publishing_Company}}">{{info.item.Publishing_Company}}</text>
+                    </view>
+                    <view class="item" wx:if="{{info.item.Transfer}}">
+                        <text bindtap="gotoSearchList" class="link" data-key="{{util.formatTransfer(info.item.Transfer)}}">{{util.formatTransfer(info.item.Transfer)}}</text>
+                        <text class="cup">译</text>
+                    </view>
+                    <view class="item" wx:if="{{info.item.Publishers}}">
+                        <text bindtap="gotoSearchList" class="link" data-key="{{info.item.Publishers}}">{{info.item.Publishers}}</text>
+                    </view>
+                </view>
+                <view class="special_wrap" wx:if="{{specialProcess.showTime}}">
+                    <view class="special" wx:if="{{specialProcess.processText}}">
+                        <text class="item">流程</text>
+                        {{specialProcess.processText}}
+                        <image bindtap="subscribeInfoTip" class="info_icon" data-content="{{specialProcess.iconText}}" data-type="subscribe" src="/assets/images/icon_info.png" wx:if="{{specialProcess.iconText}}"></image>
+                    </view>
+                    <view class="special">
+                        <text class="item">{{specialProcess.type==1?'秒杀时间':'抢购时间'}}</text>
+                        {{specialProcess.showTime}}
+                    </view>
+                </view>
+                <view class="priceArea" wx:if="{{!isSpecialProcess}}">
+                    <view class="price-item price {{(shopFavStatus||info.priorityPrice==='specialPrice'||info.priorityPrice==='plusPrice'&&info.isPlus||info.priorityPrice==='trialPlusPrice'&&info.isPlus||info.priorityPrice==='samPrice'&&samStatus.isCardMember)&&info.extraPriceFlag?'cur':''}}" wx:if="{{info.price}}">
+                        <block wx:if="{{info.price}}">
+                            <text class="yen">{{priceMark||''}}</text>{{info.price}}
+                        </block>
+                        <block wx:else>暂无定价</block>
+                        <view class="flag_hollow" wx:if="{{!info.priorityPrice&&discount.rate}}">{{discount.rate}}</view>
+                    </view>
+                    <view class="price-item plus_price {{info.isPlus?'cur':''}}" wx:if="{{info.extraPriceFlag&&info.priorityPrice==='plusPrice'}}">
+                        <text class="yen">{{priceMark||''}}</text>{{info.plusPrice}}
+                        <image class="plus_price_icon" src="https://img11.360buyimg.com/jdphoto/s58x20_jfs/t22384/49/156468206/435/abf2d1c3/5affcff5Nddec6f46.png"></image>
+                    </view>
+                    <view class="price-item plus_price {{info.isPlus?'cur':''}}" wx:elif="{{info.extraPriceFlag&&info.priorityPrice==='trialPlusPrice'}}">
+                        <text class="yen">{{priceMark||''}}</text>{{info.trialPlusPrice}}
+                        <image class="plus_price_icon" src="https://img11.360buyimg.com/jdphoto/s58x20_jfs/t22384/49/156468206/435/abf2d1c3/5affcff5Nddec6f46.png"></image>
+                    </view>
+                    <view class="special_price" wx:elif="{{info.extraPriceFlag&&info.priorityPrice=='specialPrice'}}">
+                        <text class="yen">{{priceMark||''}}</text>{{info.specialPrice}}
+                        <image class="special_price_icon" src="http://img11.360buyimg.com/jdphoto/jfs/t5857/103/5136913465/23872/dd568cf5/595a3043N72498825.png"></image>
+                        <image bindtap="modalTip" class="info_icon" data-type="specialPriceTip" src="/assets/images/icon_info.png"></image>
+                    </view>
+                    <view class="price-item sam_price {{samStatus.isCardMember?'cur':''}}" wx:elif="{{info.extraPriceFlag&&info.priorityPrice==='samPrice'}}">
+                        <text class="yen">{{priceMark||''}}</text>{{info.samPrice}}
+                        <image class="sam_price_icon" src="https://img11.360buyimg.com/jdphoto/s56x18_jfs/t20956/289/165607467/527/307d382e/5affd10dN756de383.png"></image>
+                        <image bindtap="modalTip" class="info_icon" data-type="samPriceTip" src="/assets/images/icon_info.png"></image>
+                    </view>
+                    <view class="price-item sfp_price {{shopFavStatus&&info.extraPriceFlag&&info.priorityPrice=='sfpPrice'?'shopFavStatus':''}}" wx:elif="{{info.extraPriceFlag&&info.priorityPrice=='sfpPrice'&&info.sfpPrice}}">
+                        <text class="yen">{{priceMark||''}}</text>{{info.sfpPrice}}
+                        <image class="sfp_price_icon" src="https://img11.360buyimg.com/jdphoto/s60x28_jfs/t21058/156/378881726/2556/b906583b/5b0b6377N4b71ffb4.png"></image>
+                    </view>
+                    <view class="price-item wxsearch_price" wx:if="{{wxSearchFlag}}">
+                        <view class="flag_hollow wxsearch">搜一搜用户随机返现</view>
+                    </view>
+                    <view bindtap="goDrop" class="priceArea_drop" wx:if="{{!isSeckillAtmo}}">降价提醒</view>
+                </view>
+                <view class="original_price" wx:if="{{discount.price}}">
+                    {{discount.desc}}
+                    <text>￥{{discount.price}}</text>
+                </view>
+                <block wx:if="{{!isSpecialProcess&&info.venderID&&info.sfpShopName}}">
+                    <view class="sfp_tip" wx:if="{{info.sfpPrice&&info.priorityPrice=='sfpPrice'&&!shopFavStatus}}">
+                        收藏{{info.sfpShopName}}，立享粉丝价，
+                        <text bindtap="addFavShop" data-venderID="{{info.venderID}}">立即收藏</text>
+                        <view class="sfp_tip_arrow" style="left: {{sfpArrowLeft}}px"></view>
+                    </view>
+                </block>
+                <view class="global_info" wx:if="{{info.globalInfo&&info.taxTxt.content&&info.taxTxt.title&&info.taxTxt.detail}}">
+                    <view class="global_info_nationalFlag" wx:if="{{info.globalInfo.nationalFlag}}">
+                        <image src="{{info.globalInfo.nationalFlag}}"></image>
+                    </view>
+                    <view class="global_info_nation" wx:if="{{info.globalInfo.nation}}">
+                        {{info.globalInfo.nation}}品牌
+                    </view>
+                    <view class="global_info_tax">进口税：{{info.globalInfo.tax}}</view>
+                    <view bindtap="taxInfoTip" class="global_info_taxInfo">
+                        <image src="/assets/images/icon_info.png"></image>
+                    </view>
+                </view>
+                <view class="promo_notice_info" wx:if="{{info.promoNoticeFlag&&info.postPromo&&info.postPromo.matid&&info.postPromo.activestage==1}}">
+                    <view class="price_info">
+                        <view class="flag_solid">活动预告</view>
+                        <text class="notice_name">{{info.postPromo.title}}</text>
+                        <text class="notice_price" wx:if="{{info.postPromo.price}}">
+                            <text class="yen">{{priceMark||''}}</text>{{info.postPromo.price[0]+''+info.postPromo.price[1]}}</text>
+                    </view>
+                    <view class="notice_tips">
+                        <text>将于{{info.postPromo.startTimeStr}}开抢，请提前加入购物车</text>
+                    </view>
+                </view>
+                <block wx:if="{{!isSpecialProcess}}">
+                    <view bindtap="modalTip" class="plus_tip" data-type="openPlusTip" wx:if="{{!info.isPlus&&(info.priorityPrice=='plusPrice'||info.priorityPrice=='trialPlusPrice')}}">
+                        <image class="plus_tip_icon" src="https://img11.360buyimg.com/jdphoto/s46x30_jfs/t20155/124/161162610/306/fd61fe72/5affd3a4Nb08e6c96.png"></image>
+                        开通PLUS会员，立享专享价
+                        <view class="xlist_icon_arrow"></view>
+                    </view>
+                    <view bindtap="modalTip" class="sam_tip" data-type="samTip" wx:if="{{!samStatus.isCardMember&&info.priorityPrice=='samPrice'}}">
+                        <view class="sam_tip_href">购买Sam's会籍
+                            <view class="sam_tip_arrow"></view>
+                        </view>
+                        <view class="sam_tip_bind">已是Sam's会员？请点击
+                            <text>绑定</text>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="detail_decoration_process" wx:if="{{info.spAttr.isLOC==='1'}}">
+            <view class="detail_decoration_process_title">购买服务流程</view>
+            <view class="detail_decoration_process_steps">
+                <view class="detail_decoration_process_step">
+                    <image class="detail_decoration_process_image" src="/assets/images/detail/icon_decoration_step1.png"></image>
+                    选择门店
+                </view>
+                <view class="detail_decoration_process_step">
+                    <image class="detail_decoration_process_image2" src="/assets/images/detail/icon_decoration_step2.png"></image>
+                    购买成功
+                </view>
+                <view class="detail_decoration_process_step">
+                    <image class="detail_decoration_process_image" src="/assets/images/detail/icon_decoration_step3.png"></image>
+                    获取短信凭证
+                </view>
+                <view class="detail_decoration_process_step">
+                    <image class="detail_decoration_process_image" src="/assets/images/detail/icon_decoration_step4.png"></image>
+                    线下门店服务
+                </view>
+            </view>
+            <view class="detail_decoration_process_text">
+                该商品是非实物商品，购买后会将获得短信凭证，在对应商家线下门店出示该凭证即可享受相关权益。
+            </view>
+        </view>
+        <view bindtap="showGlobalInfoPanel" class="global_protection" wx:if="{{info.serviceIconList&&info.serviceIconList.length}}">
+            <image class="global_protection_jxqq" src="https://img11.360buyimg.com/jdphoto/s184x39_jfs/t22024/234/155188231/1640/48db89b7/5affdcf4Nb1b81275.png" wx:if="{{info.spAttr.qqjx}}"></image>
+            <image class="global_protection_qqg" src="https://img11.360buyimg.com/jdphoto/s110x30_jfs/t18946/340/1999215/1100/c626aa01/5a570b53N25732d05.png" wx:else></image>
+            <text>
+                <block wx:for="{{info.serviceIconList}}">·{{item.title}}</block>
+            </text>
+            <view class="three_dot"></view>
+        </view>
+        <block wx:if="{{easyBuyList&&easyBuyList.length&&!wxSearchFlag}}">
+            <view bindtap="gotoAd" class="easy_floor" data-clickrd="{{item.clickRd}}" data-url="{{item.link}}" style="background: {{item.background}}; color: {{item.describeColor}}" wx:for="{{easyBuyList}}">
+                <image src="{{item.icon}}"></image>
+                <text>{{item.describe}}</text>
+                <view class="xlist_icon_arrow"></view>
+            </view>
+        </block>
+        <block wx:if="{{info.skuId}}">
+            <view class="xlist_group coupon" wx:if="{{coupons&&coupons.length}}">
+                <view bindtap="togglePanel" class="xlist_item flex_row header" data-panel="coupon">
+                    <text class="flex_l">领券</text>
+                    <view class="flex_c">
+                        <view class="coupon_lite" wx:for="{{coupons}}">
+                            <text wx:if="{{item.style=='3'}}">{{item.descDiscount1}}</text>
+                            <text wx:else>满{{item.limit}}减{{item.money}}</text>
+                        </view>
+                    </view>
+                    <text class="flex_r">共{{coupons.length}}张</text>
+                    <view class="xlist_icon_dots"></view>
+                </view>
+                <CouponLayer bind:closeCoupon="closeCouponLayer" bind:drawCoupon="drawCoupon" coupons="{{coupons}}" showCouponLayerFlag="{{showCouponLayerFlag}}"></CouponLayer>
+            </view>
+            <view class="xlist_group promote" wx:if="{{info.promote.length}}">
+                <view bindtap="togglePanel" class="xlist_item flex_row header" data-panel="promote">
+                    <text class="flex_l">促销</text>
+                    <view class="flex_c" wx:if="{{!panelShow.promote}}">
+                        <view class="flag_hollow {{item.showPlusStyle?'plus':''}}" wx:for="{{info.promote}}">{{item.name}}</view>
+                    </view>
+                    <view class="flex_r" wx:else>
+                        <text class="tips">{{info.count>=2&&!wxSearchFlag?'以下促销活动可在购物车内进行切换选择':'可享受以下促销'}}</text>
+                    </view>
+                    <view class="{{'xlist_icon_'+(panelShow.promote?'unfold':'fold')}}"></view>
+                </view>
+                <block wx:if="{{panelShow.promote}}" wx:for="{{info.promote}}">
+                    <view bindtap="navigateTo" class="xlist_item promote_item gift plus-gift others" data-url="/pages/item/subPackages/gift/gift?{{plusGiftQueryStr}}" wx:if="{{item.name==='PLUS赠品'}}">
+                        <view class="flag">
+                            <view class="flag_hollow">{{item.name}}</view>
+                        </view>
+                        <text class="promote_desc">{{item.title}}</text>
+                        <view class="xlist_icon_arrow"></view>
+                    </view>
+                    <view bindtap="navigateTo" class="xlist_item promote_item gift others" data-url="/pages/item/subPackages/gift/gift?{{giftQueryStr}}" wx:elif="{{item.name==='赠品'||item.name==='组套商品'}}">
+                        <view class="flag">
+                            <view class="flag_hollow">{{item.name}}</view>
+                        </view>
+                        <text class="promote_desc">{{item.title}}</text>
+                        <view class="xlist_icon_arrow"></view>
+                    </view>
+                    <view bindtap="gotoExchange" class="xlist_item promote_item line1 gift" data-activity-id="{{item.activityId}}" wx:elif="{{item.name==='换购'}}">
+                        <view class="flag">
+                            <view class="flag_hollow">{{item.name}}</view>
+                        </view>
+                        <text class="promote_desc">{{item.content}}</text>
+                        <view class="xlist_icon_arrow"></view>
+                    </view>
+                    <view bindtap="gotoSuitList" class="xlist_item promote_item line1 gift" data-idx="{{index}}" wx:elif="{{item.name==='优惠套装'}}">
+                        <view class="flag">
+                            <view class="flag_hollow">{{item.name}}</view>
+                        </view>
+                        <text class="promote_desc">{{item.title}}</text>
+                        <view class="xlist_icon_arrow" wx:if="{{!wxSearchFlag}}"></view>
+                    </view>
+                    <view bindtap="gotoSalesSearch" class="xlist_item promote_item sale" data-name="{{item.name}}" data-pid="{{item.activityId}}" data-tips="{{item.content}}" wx:elif="{{item.sale}}">
+                        <view class="flag">
+                            <view class="flag_hollow">{{item.name}}</view>
+                        </view>
+                        <text class="promote_desc">{{item.content}}</text>
+                        <view class="xlist_icon_arrow" wx:if="{{!wxSearchFlag}}"></view>
+                    </view>
+                    <view bindtap="gotoAd" class="xlist_item promote_item others" data-id="{{item.id}}" data-type="{{item.type}}" data-url="{{item.adurl||item.actUrl}}" wx:elif="{{item.adurl||item.actUrl}}">
+                        <view class="flag">
+                            <view class="flag_hollow">{{item.name}}</view>
+                        </view>
+                        <text class="promote_desc">{{item.content}}</text>
+                        <view class="xlist_icon_arrow" wx:if="{{!wxSearchFlag}}"></view>
+                    </view>
+                    <view class="xlist_item promote_item others" wx:else>
+                        <view class="flag">
+                            <view class="flag_hollow {{item.showPlusStyle?'plus':''}}">{{item.name}}</view>
+                        </view>
+                        <text class="promote_desc">{{item.content}}</text>
+                    </view>
+                </block>
+            </view>
+            <view class="xlist_group sku">
+                <view bindtap="togglePanel" class="xlist_item flex_row header" data-panel="sku">
+                    <text class="flex_l">已选</text>
+                    <text class="flex_c line1">{{currentSelect}}</text>
+                    <view class="{{'xlist_icon_'+(panelShow.sku?'unfold':'fold')}}"></view>
+                </view>
+                <block wx:if="{{panelShow.sku}}">
+                    <view class="xlist_item kind flex_row" wx:if="{{item.value.length>=1}}" wx:for="{{skuProps}}">
+                        <view class="label flex_l">
+                            <text>{{item.text}}</text>
+                        </view>
+                        <view class="options flex_c">
+                            <view bindtap="changeSku" class="opt {{_item==item.current?'selected':''}} {{item.sku[_index]?'':'disabled'}}" data-idx="{{index}}" data-name="{{item.name}}" data-sku="{{item.sku[_index]}}" data-val="{{_item}}" wx:if="{{_item}}" wx:for="{{item.value}}" wx:for-index="_index" wx:for-item="_item">
+                                {{_item}}
+                            </view>
+                        </view>
+                    </view>
+                    <view class="xlist_item flex_row gift_pool" wx:if="{{info.poolList}}">
+                        <view class="label flex_l">
+                            <text>赠品</text>
+                        </view>
+                        <view class="content flex_c">
+                            <view class="desc">此套装包含{{info.poolList.length}}件搭配赠品</view>
+                            <view bindtap="navigateTo" class="pool" data-url="/pages/item/subPackages/pool/pool">
+                                <image src="{{item.list[item.selected||0].img}}" wx:for="{{info.poolList}}"></image>
+                                <view class="xlist_icon_arrow"></view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="xlist_item flex_row num">
+                        <view class="label flex_l">
+                            <text>数量</text>
+                        </view>
+                        <view class="num_picker">
+                            <view bindtap="sub" class="sub {{num.subEnabled?'':'disabled'}}">-</view>
+                            <input bindblur="updateNum" maxlength="3" type="number" value="{{num.value}}"></input>
+                            <view bindtap="add" class="add {{num.addEnabled?'':'disabled'}}">+</view>
+                        </view>
+                        <view class="tips">
+                            <text class="stock" wx:if="{{info.stock.rn>0}}">库存仅剩{{info.stock.rn}}件</text>
+                            <text class="limit" wx:if="{{num.limit>1}}">{{num.limit}}件起售</text>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <Address address="{{address}}" bind:chooseShop="chooseShop" bind:showAddressLayer="showAddressLayer" class="Address" info="{{info}}" isOffline="{{info.spAttr.isLOC==='1'}}" offlineHasShop="{{offlineHasShop}}" serviceQueryStr="{{serviceQueryStr}}" wx:if="{{address}}"></Address>
+            <Accessories category="{{info.category}}" skuId="{{info.skuId}}" wx:if="{{info.category&&!wxSearchFlag}}"></Accessories>
+            <Shop category="{{info.category}}" favStatus="{{shopFavStatus}}" skuId="{{info.skuId}}" venderId="{{info.venderID}}" wxSearchFlag="{{wxSearchFlag}}" wx:if="{{info.venderID}}"></Shop>
+            <Review class="Review Jrolling" skuId="{{info.skuId}}" venderId="{{info.venderID}}"></Review>
+            <Answers skuId="{{info.skuId}}" wx:if="{{showAnswer&&!wxSearchFlag}}"></Answers>
+            <GuessYouLike category="{{info.category}}" class="GuessYouLike Jrolling" isZiying="{{info.isZiying}}" price="{{info.price}}" skuId="{{info.skuId}}" wx:if="{{info.category&&!wxSearchFlag}}"></GuessYouLike>
+            <Specific category="{{info.category[0]}}" class="Specific Jrolling" description="{{info.description}}" globalType="{{info.spAttr.isOverseaPurchase||'0'}}" infoVideo="{{infoVideo}}" isZiying="{{info.isZiying}}" skuId="{{info.skuId}}" skuType="{{info.skuType}}" slideImages="{{info.images}}" wx:if="{{info.skuType}}"></Specific>
+        </block>
+    </view>
+    <view class="bottom_tips" wx:if="{{info.spAttr.isLOC==='1'&&!offlineHasShop}}">您需在选择消费门店后提交购买</view>
+    <view class="bottom_tips" wx:if="{{isSpecialProcess&&specialProcessStatus.showStockStatus&&(info.stock.StockState==0||info.stock.StockState==34)}}">
+        <view>所选地区暂时无货</view>
+        <view>未成功支付的订单取消后，库存将被释放，敬请关注</view>
+    </view>
+    <view class="bottom_tips" wx:elif="{{info.tipsContent}}">{{info.tipsContent}}</view>
+    <view bindtap="certifiction" class="bottom_special_tips" data-status="{{specialProcessStatus.certifictionStatus}}" data-url="{{specialProcessStatus.certifictionUrl}}" wx:elif="{{specialProcessStatus.needCertifiction}}">
+        <text wx:if="{{specialProcessStatus.certifictionStatus==0}}">实名用户专享抢购商品，点击立即实名</text>
+        <text wx:elif="{{specialProcessStatus.certifictionStatus==1}}">实名用户专享抢购商品，点击立即补全账号信息并实名</text>
+        <view class="xlist_icon_arrow"></view>
+    </view>
+    <block wx:elif="{{!isSpecialProcess}}">
+        <view class="bottom_tips" wx:if="{{info.spAttr.zxLx==1&&!samStatus.isCardMember}}">
+            抱歉，所选商品为Sam‘s会员专属商品
+        </view>
+    </block>
+    <view class="bottom_op" hidden="{{!info.skuId}}">
+        <view bindtap="gotoAd" class="link_customer_service" data-position="customerService" data-url="{{customerService.url}}" wx:if="{{customerService.status}}">
+            <block wx:if="{{customerService.status==='online'}}">
+                <image src="https://img11.360buyimg.com/jdphoto/s36x36_jfs/t19366/116/2596835321/518/9c75c35f/5affe754Nabe6dae3.png" wx:if="{{info.isZiying}}"></image>
+                <image src="https://img11.360buyimg.com/jdphoto/s36x36_jfs/t18163/28/2609016272/626/a15feac6/5affe754N5a30c7b8.png" wx:else></image>
+            </block>
+            <image src="https://img11.360buyimg.com/jdphoto/s36x36_jfs/t21472/365/172242538/541/39c91b2a/5affe753Nefdb827d.png" wx:elif="{{customerService.status=='offline'}}"></image>
+            <text>{{info.isZiying||info.skuNameFlag==='zy'?'供应商':'卖家'}}</text>
+        </view>
+        <view bindtap="gotoShop" class="link_shop" wx:if="{{info.venderID!=0&&!wxSearchFlag}}">
+            <image src="/assets/images/icon_pop.png"></image>
+            <text>进店</text>
+        </view>
+        <view bindtap="gotoCart" class="link_cart" wx:if="{{!wxSearchFlag}}">
+            <image src="http://img11.360buyimg.com/img/jfs/t3913/19/2149320417/332/bdd6a638/58a1a42bNd26eea2e.png"></image>
+            <text>购物车</text>
+            <view class="badge" wx:if="{{cart.num>0}}">{{cart.num>99?'99+':cart.num}}</view>
+            <view animation="{{cart.ani}}" class="badge_ani">{{cart.add?'+'+cart.add:''}}</view>
+        </view>
+        <block wx:if="{{info.canBuy===false}}">
+            <view class="btn_cart disabled" wx:if="{{!wxSearchFlag}}">加入购物车</view>
+            <view class="btn_buy disabled">立即购买</view>
+        </block>
+        <block wx:elif="{{info.buyingSpreeFlag||info.subscribeFlag}}">
+            <view bindtap="{{bottomBtn[0].method}}" class="btn_cart {{bottomBtn[0].style}}" data-enable="{{bottomBtn[0].enable}}" wx:if="{{bottomBtn[0].text}}">
+                {{bottomBtn[0].text}}
+            </view>
+            <view bindtap="{{bottomBtn[1].method}}" class="btn_buy {{bottomBtn[1].style}}" data-enable="{{bottomBtn[1].enable}}" wx:if="{{bottomBtn[1].text}}">
+                {{bottomBtn[1].text}}
+            </view>
+        </block>
+        <block wx:elif="{{info.spAttr.zxLx==1&&!samStatus.isCardMember}}">
+            <view bindtap="modalTip" class="btn_buy_samCard" data-type="samTip">购买会籍</view>
+            <view bindtap="modalTip" class="btn_bind_samCard" data-type="samTip">绑定会籍</view>
+        </block>
+        <block wx:elif="{{info.stock.StockState==0||info.stock.StockState==34}}">
+            <view bindtap="lookLike" class="btn_lookLike" wx:if="{{!wxSearchFlag}}">查看相似商品</view>
+            <view bindtap="stockNotice" class="btn_stockNotice">到货通知</view>
+        </block>
+        <view bindtap="chooseShop" class="btn_cart btn_choseShop" wx:elif="{{info.spAttr.isLOC==='1'&&!offlineHasShop}}">选择门店</view>
+        <block wx:elif="{{saleAtmos&&saleAtmos.ppmsItemId}}">
+            <view bindtap="addToCart" class="btn_cart" style="{{'background: '+saleAtmos.cartBtnColor}}" wx:if="{{!wxSearchFlag}}">加入购物车</view>
+            <view bindtap="buy" class="btn_buy" style="{{'background: '+saleAtmos.buyBtnColor}}">立即购买</view>
+        </block>
+        <block wx:else>
+            <view bindtap="addToCart" class="btn_cart" wx:if="{{!wxSearchFlag}}">加入购物车</view>
+            <view bindtap="buy" class="btn_buy">立即购买</view>
+        </block>
+    </view>
+</view>
+<import src="../../../common/toast/toast.wxml"></import>
+<template is="toast" data="{{...toast}}"></template>
+<import src="../../../common/modal/modal.wxml"></import>
+<template is="modal" data="{{...modal}}"></template>
+<import src="../../../common/img_loader/img_loader.wxml"></import>
+<template is="img-loader" data="{{imgLoadList:imgLoadList}}"></template>
+<xModal bind:cancel="modalCancel" bind:close="modalClose" bind:confirm="modalConfirm" modal="{{xModal}}"></xModal>
+<return-app option="{{bottom:'235px'}}" wx:if="{{source==='pingou'}}"></return-app>
+<view bindtap="gotoHomePage" class="fixed_return" wx:if="{{showHomeBtn&&!wxSearchFlag}}"></view>
+<quick-nav wxappPageUrl="item/detail" wx:if="{{!wxSearchFlag}}"></quick-nav>
+<view bindtap="back2top" class="back2top" style="z-index: 12;" wx:if="{{scrollTop>1000}}"></view>
+<GlobalInfo bind:closeGlobalInfoPanel="closeGlobalInfoPanel" isQqjx="{{info.spAttr.qqjx}}" serviceIconList="{{info.serviceIconList}}" showGlobalInfoFlag="{{showGlobalInfoFlag}}"></GlobalInfo>
+<AddressLayer addressList="{{addressList}}" adid="{{adid}}" areaid="{{areaid}}" bind:closeAddress="closeAddressLayer" bind:switchAddress="switchAddress" showAddressLayerFlag="{{showAddressLayerFlag}}"></AddressLayer>
+<ShareLayer bind:closeShareLayer="closeShareLayer" shareOptions="{{shareOptions}}" showShareLayerFlag="{{showShareLayerFlag}}"></ShareLayer>
+<wxs module="setPrice" src="../../../common/wxs/price.wxs" />
+<wxs module="util">
+function formatAuthorInfo(authors) {
+    var authorsInfo = [];
+    var i;
+    var j;
+    var len;
+    var jlen;
+    for (i = 0, len = authors.length; i < len; i++) {
+        var authorsArr = [];
+        for (j = 0, jlen = authors[(nt_0 = i, null == nt_0 ? undefined : "Number" === nt_0.constructor ? nt_0 : "" + nt_0)].author.length; j < jlen; j++) {
+            authorsArr.push(authors[(nt_1 = i, null == nt_1 ? undefined : "Number" === nt_1.constructor ? nt_1 : "" + nt_1)].author[(nt_2 = j, 
+            null == nt_2 ? undefined : "Number" === nt_2.constructor ? nt_2 : "" + nt_2)].author);
+            if (authorsArr.length === 3) {
+                authorsArr[2] = authorsArr[2] + "...";
+                break;
+            }
+        }
+        authorsInfo.push({
+            title: authors[(nt_5 = i, null == nt_5 ? undefined : "Number" === nt_5.constructor ? nt_5 : "" + nt_5)].title,
+            data: authorsArr
+        });
+    }
+    return authorsInfo;
+}
+
+function formatTransfer(transfer) {
+    return transfer.replace("，等", "").replace(" 译", "");
+}
+
+module.exports = {
+    formatAuthorInfo: formatAuthorInfo,
+    formatTransfer: formatTransfer
+};
+</wxs>

@@ -1,0 +1,18 @@
+<import src="/pages/play/include/markLabel.wxml"></import>
+<view class="mod_figures mod_figures_h">
+    <view class="mod_figure">
+        <view bindtap="changePlay" class="list_item {{listItem.cid==cid?'current':''}}" data-cid="{{listItem.cid}}" wx:if="{{listIndex<3}}" wx:for="{{coverDataMap[dataItem.listKey].coverList}}" wx:for-index="listIndex" wx:for-item="listItem" wx:key="cid">
+            <view class="figure">
+                <image class="figure_pic" src="{{listItem.poster.imageUrl}}"></image>
+                <template is="markLabelWithImage" data="{{markLabelMap:listItem.poster.markLabelMap}}"></template>
+            </view>
+            <view class="figure_info">
+                <view class="figure_title">{{listItem.poster.firstLine}}</view>
+                <view class="figure_count" wx:if="{{listItem.poster.secondLine}}">{{listItem.poster.secondLine}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view bindtap="layer" class="mod_more" data-key="{{dataItem.listKey}}" wx:if="{{coverDataMap[dataItem.listKey].coverList.length>3}}">
+    <view class="more_txt">全部</view>
+</view>

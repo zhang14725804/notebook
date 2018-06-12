@@ -1,0 +1,13 @@
+<view class="setting-page">
+    <view class="menu-list">
+        <view bindtap="_dispatch" class="menu-link retina-border-bottom" data-bindtap="navigateToNewPage" data-page="verification">
+            <text>密码设置</text>
+        </view>
+        <view bindtap="_dispatch" class="menu-link retina-border-bottom" data-bindtap="navigateToUserGuide" data-page="guide">
+            <text>用户指南</text>
+        </view>
+    </view>
+    <view bindtap="_dispatch" class="logout" data-bindtap="logout">
+        <text>退出登录</text>
+    </view>
+</view>

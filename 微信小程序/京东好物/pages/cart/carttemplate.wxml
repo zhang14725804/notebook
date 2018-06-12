@@ -1,0 +1,176 @@
+<template name="giftproduct">
+    <block wx:if="{{suit&&suit.giftList&&suit.giftList.length>0}}">
+        <view bindtap="closeGiftBox" class="mask-below"></view>
+        <view class="pop-win-base init-pop-win pop-win-show">
+            <view class="additional-distinguish" id="chooseGifts{{suit.suitId}}">
+                <view class="additional-tittle-box">
+                    <text bindtap="closeGiftBox" class="additioncl-close"></text>
+              {{suit.giftTitle}}
+              <view class="additioncl-prompt-text">
+                        <text class="i"></text>{{suit.giftTip}}</view>
+                </view>
+                <scroll-view class="additional-list-items" scrollY="true" style="min-height: {{boxMinHeight}};max-height: {{boxMaxHeight}};">
+                    <view class="additional-list-wrapper">
+                        <view class="additional-list-container">
+                            <view class="additional-items" wx:for="{{suit.giftList}}" wx:for-item="cGift" wx:key="giftproductList">
+                                <view class="item-wrapper">
+                                    <view bindtap="beCartGiftDetail" class="additional-item-content" data-info="{'id':{{cGift.id}},'addMoney':{{suit.promotionAmount.addMoney}}}">
+                                        <view class="cart-product-name">
+                                            <view>
+                                                <text class="gift-product-name">{{cGift.name}}</text>
+                                            </view>
+                                        </view>
+                                        <view class="shp-cart-promotion-opt">
+                                            <view class="shp-cart-promotion-left">
+                                                <text class="icon-exchange" wx:if="{{cGift.giftMsg&&cGift.giftMsg!=''}}">{{cGift.giftMsg}}</text>
+                                            </view>
+                                            <view class="shp-cart-promotion-right">
+                                                <text class="shp-cart-item-price">
+                                                   ¥{{cGift.addMoney}}
+                                               </text>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="additional-check-wrapper" wx:if="{{!(cGift.giftMsg&&cGift.giftMsg!=''||cGift.stockCode==1)}}">
+                                    <text bindtap="selectGifts" class="cart-checkbox {{cGift.checkType==1?'checked':''}}" data-gid="{{cGift.id}}" data-gnum="{{1}}"></text>
+                                </view>
+                                <view class="additional-check-wrapper" wx:else>
+                                    <text class="cart-checkbox cart-notclick"></text>
+                                </view>
+                                <view class="additional-item-thumb">
+                                    <image class="cart-photo-thumb" src="{{suit.imageDomain+cGift.imagePath}}" wx:if="{{suit.imageDomain&&cGift.imagePath}}"></image>
+                                    <image class="cart-photo-thumb" wx:else></image>
+                                    <text class="i last" wx:if="{{cGift.stockCode==0&&cGift.remainNum&&cGift.remainNum!=''}}">{{cGift.remainNum}}</text>
+                                    <text class="soldOut" wx:elif="{{cGift.stockCode==1}}"></text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+                <view class="additional-list-header">
+                    <view class="additional-list-header-right">
+                        <text bindtap="hideChooseGifts" class="btn-jd-red">{{sureTxt}}</text>
+                    </view>
+                    <view class="additional-choose-num">
+                  {{suit.giftType==1||suit.giftType==2?alreadyAdditionalBuyTxt:suit.giftType==3||suit.giftType==4?alreadyGotTxt:''}}
+                  <text class="highlight">{{suit.selectedGiftSize}}/{{suit.maxGiftNum}}</text>
+                  {{unitTxt}}
+              </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</template>
+<template name="complexproduct">
+    <view class="items">
+        <view bindtap="changeSelected" class="check-wrapper" data-info="{\"skuid\":{{Id}},\"skunum\":{{Num}},\"shopid\":{{shopid}},\"suitId\":{{suitId}},\"suitNum\":{{suitNum}},\"sType\":{{sType}},\"productType\":\"suit\",\"isChecked\":\"{{CheckType==1?'checked':''}}\"}" id="checkIcon{{Id}}">
+            <text class="cart-checkbox group-{{shopid}} {{CheckType==1?'checked':''}}" data-info="{\"skuid\":{{Id}},\"skunum\":{{Num}},\"shopid\":{{shopid}},\"suitId\":{{suitId}},\"suitNum\":{{suitNum}},\"sType\":{{sType}},\"productType\":\"suit\",\"isChecked\":\"{{CheckType==1?'checked':''}}\"}" id="checkIcon{{Id}}"></text>
+        </view>
+        <view class="shp-cart-item-core shop-cart-display {{stockState==noshoppingTxt?'cart-noshopping':''}} {{remainNum!=''?'cart-little-shopping':''}}">
+            <view bindtap="beWareDetail" class="cart-product-cell-1" data-skuid="{{Id}}">
+                <image class="cart-photo-thumb" onerror="this.classList.add('err-img-hidden');" src="http://img10.360buyimg.com/n7/{{ImgUrl}}" style="opacity: 1;"></image>
+                <text class="i" wx:if="{{stockState==noshoppingTxt}}"></text>
+                <text class="i" wx:if="{{remainNum!=''}}">{{remainNum}}</text>
+            </view>
+            <view class="cart-product-cell-2">
+                <view bindtap="beWareDetail" class="cart-product-name limit-lines" data-skuid="{{Id}}">
+          {{Name}}
+          </view>
+                <view class="cart-product-prop eles-flex">
+                    <text class="prop0" wx:if="{{weight&&isOpenWareWeightShow}}">{{weight}}</text>
+                    <text class="prop1" wx:if="{{propertyTags.b&&!propertyTags.a}}">{{propertyTags.b}}</text>
+                    <block wx:else>
+                        <text class="prop1">{{propertyTags.a}}</text>
+                        <text class="prop2" wx:if="{{propertyTags.b}}">{{propertyTags.b}}</text>
+                    </block>
+                </view>
+                <view class="icon-list">
+                    <text class="icon-condition" wx:if="{{lowestBuy}}">{{lowestBuy+beginNumerTxt}}</text>
+                </view>
+                <view class="cart-product-cell-3">
+                    <view class="shp-cart-item-price " id="price10360744644">
+            {{PriceShow}}
+          </view>
+                    <view class="quantity-wrapper customize-qua">
+                        <text bindtap="checkLimitNum" class="quantity-decrease {{Num==1?'disabled':''}} {{Num<=lowestBuy||Num<=atLeastDefaultNum?'limit-boundary':''}}" data-info="{\"skuid\":{{Id}},\"skunum\":{{Num}},\"shopid\":{{shopid}},\"suitId\":{{suitId}},\"suitNum\":{{suitNum}},\"sType\":{{sType}},\"isDisabled\":{{Num==1?true:false}},\"isLimited\":{{Num<=lowestBuy||Num<=atLeastDefaultNum?true:false}},\"limitSukNum\":\"{{isBook?limitBookNum:limitNotBookNum}}\",\"remainNumInt\":{{remainNumInt}},\"productType\":\"suit\"}"></text>
+                        <input bindblur="modifyWare" class="quantity" confirmType="done" data-info="{\"skuid\":{{Id}},\"skunum\":{{Num}},\"shopid\":{{shopid}},\"suitId\":{{suitId}},\"suitNum\":{{suitNum}},\"sType\":{{sType}},\"limitSukNum\":\"{{isBook?limitBookNum:limitNotBookNum}}\",\"remainNumInt\":{{remainNumInt}},\"iatleastnum\":\"{{lowestBuy||atLeastDefaultNum}}\",\"productType\":\"suit\"}" id="num{{Id}}" maxlength="4" type="number" value="{{Num}}"></input>
+                        <text bindtap="addWareBybutton" class="quantity-increase {{Num==(isBook?limitBookNum:limitNotBookNum)||Num>=remainNumInt&&remainNumInt>=0?'disabled':''}}" data-info="{\"skuid\":{{Id}},\"skunum\":{{Num}},\"shopid\":{{shopid}},\"suitId\":{{suitId}},\"suitNum\":{{suitNum}},\"sType\":{{sType}},\"limitSukNum\":\"{{isBook?limitBookNum:limitNotBookNum}}\",\"remainNumInt\":{{remainNumInt}},\"productType\":\"suit\"}" id="addnum10360744644"></text>
+                    </view>
+                </view>
+            </view>
+            <view class="cart-product-cell-5 main-pro-btns">
+                <view class="shop-btn-com">
+                    <view bindtap="gointoEdit" class="cart-new-btn" data-skuid="{{Id}}" style="display:{{objEditMode[Id]?'none':'inline-block'}}">
+                        <text class="right-boundary"></text>
+                        <text class="btn-msg-in" style="color:#232326;">{{editTxt}}</text>
+                    </view>
+                    <view bindtap="deleteItem" class="cart-new-btn" data-info="{\"skuid\":{{Id}},\"skunum\":{{Num}},\"shopid\":{{shopid}},\"suitId\":{{suitId}},\"suitNum\":{{suitNum}},\"sType\":{{sType}},\"limitSukNum\":\"{{isBook?limitBookNum:limitNotBookNum}}\",\"remainNumInt\":{{remainNumInt}},\"productType\":\"suit\"}" data-skuid="{{Id}}" style="display:{{objEditMode[Id]?'inline-block':'none'}}">
+                        <text class="btn-msg-in">{{deleteTxt}}</text>
+                    </view>
+                    <view bindtap="gobackMain" class="cart-new-btn" data-skuid="{{Id}}" style="display:{{objEditMode[Id]?'inline-block':'none'}}">
+                        <text class="right-boundary"></text>
+                        <text class="btn-msg-in">{{completeTxt}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="basicproduct">
+    <view class="items">
+        <view bindtap="changeSelected" class="check-wrapper" data-info="{\"skuid\":{{Id}},\"skunum\":{{Num}},\"shopid\":{{shopid}},\"productType\":\"pure\",\"isChecked\":\"{{CheckType==1?'checked':''}}\"}" data-sku="{{Id+'@@'+Num}}" id="checkIcon{{Id}}">
+            <text class="cart-checkbox group-{{shopid}} {{CheckType==1?'checked':''}}" data-info="{\"skuid\":{{Id}},\"skunum\":{{Num}},\"shopid\":{{shopid}},\"productType\":\"pure\",\"isChecked\":\"{{CheckType==1?'checked':''}}\"}" data-sku="{{Id+'@@'+Num}}" id="checkIcon{{Id}}"></text>
+        </view>
+        <view class="shp-cart-item-core shop-cart-display {{stockState==noshoppingTxt?'cart-noshopping':''}} {{remainNum!=''?'cart-little-shopping':''}}">
+            <view bindtap="beWareDetail" class="cart-product-cell-1" data-skuid="{{Id}}">
+                <image binderror="" class="cart-photo-thumb" onerror="this.classList.add('err-img-hidden');" src="http://img10.360buyimg.com/n7/{{ImgUrl}}" style="opacity: 1;"></image>
+                <text class="i" wx:if="{{stockState==noshoppingTxt}}"></text>
+                <text class="i" wx:if="{{remainNum!=''}}">{{remainNum}}</text>
+            </view>
+            <view class="cart-product-cell-2">
+                <view bindtap="beWareDetail" class="cart-product-name limit-lines" data-skuid="{{Id}}">
+          {{Name}}
+          </view>
+                <view class="cart-product-prop eles-flex">
+                    <text class="prop0" wx:if="{{weight&&isOpenWareWeightShow}}">{{weight}}</text>
+                    <text class="prop1" wx:if="{{propertyTags.b&&!propertyTags.a}}">{{propertyTags.b}}</text>
+                    <block wx:else>
+                        <text class="prop1">{{propertyTags.a}}</text>
+                        <text class="prop2" wx:if="{{propertyTags.b}}">{{propertyTags.b}}</text>
+                    </block>
+                </view>
+                <view class="icon-list">
+                    <text class="icon-condition" wx:if="{{lowestBuy}}">{{lowestBuy+beginNumerTxt}}</text>
+                </view>
+                <view class="cart-product-cell-3">
+                    <view class="shp-cart-item-price " id="price{{Id}}">
+            {{PriceShow}}
+          </view>
+                    <view class="quantity-wrapper customize-qua">
+                        <text bindtap="checkLimitNum" class="quantity-decrease {{Num==1?'disabled':''}} {{Num<=lowestBuy||Num<=atLeastDefaultNum?'limit-boundary':''}}" data-info="{\"skuid\":{{Id}},\"skunum\":{{Num}},\"shopid\":{{shopid}},\"isDisabled\":{{Num==1?true:false}},\"isLimited\":{{Num<=lowestBuy||Num<=atLeastDefaultNum?true:false}},\"limitSukNum\":\"{{isBook?limitBookNum:limitNotBookNum}}\",\"remainNumInt\":{{remainNumInt}},\"productType\":\"pure\"}" href="javascript:subWareBybutton('188988','10360744644');" id="subnum{{Id}}"></text>
+                        <input bindblur="modifyWare" class="quantity" confirmType="done" data-info="{\"skuid\":{{Id}},\"skunum\":{{Num}},\"shopid\":{{shopid}},\"limitSukNum\":\"{{isBook?limitBookNum:limitNotBookNum}}\",\"remainNumInt\":{{remainNumInt}},\"iatleastnum\":\"{{lowestBuy||atLeastDefaultNum}}\",\"productType\":\"pure\"}" id="num{{Id}}" maxlength="4" type="number" value="{{Num}}"></input>
+                        <text bindtap="addWareBybutton" class="quantity-increase {{Num==(isBook?limitBookNum:limitNotBookNum)||Num>=remainNumInt&&remainNumInt>=0?'disabled':''}}" data-info="{\"skuid\":{{Id}},\"skunum\":{{Num}},\"shopid\":{{shopid}},\"limitSukNum\":\"{{isBook?limitBookNum:limitNotBookNum}}\",\"remainNumInt\":{{remainNumInt}},\"productType\":\"pure\"}" id="addnum{{Id}}"></text>
+                    </view>
+                </view>
+            </view>
+            <view class="cart-product-cell-5 main-pro-btns">
+                <view class="shop-btn-com">
+                    <view bindtap="gointoEdit" class="cart-new-btn" data-skuid="{{Id}}" style="display:{{objEditMode[Id]?'none':'inline-block'}}">
+                        <text class="right-boundary"></text>
+                        <text class="btn-msg-in" style="color:#232326;">{{editTxt}}</text>
+                    </view>
+                    <form bindsubmit="deleteItem" class="cart-new-btn" data-info="{\"skuid\":{{Id}},\"skunum\":{{Num}},\"shopid\":{{shopid}},\"limitSukNum\":\"{{isBook?limitBookNum:limitNotBookNum}}\",\"remainNumInt\":{{remainNumInt}},\"productType\":\"pure\"}" reportSubmit="true" style="display:{{objEditMode[Id]?'inline-block':'none'}}">
+                        <button class="message-push-btn cart-new-btn" formType="submit">>
+              <text class="btn-msg-in">{{deleteTxt}}</text>
+                        </button>
+                    </form>
+                    <view bindtap="gobackMain" class="cart-new-btn" data-skuid="{{Id}}" style="display:{{objEditMode[Id]?'inline-block':'none'}}">
+                        <text class="right-boundary"></text>
+                        <text class="btn-msg-in">{{completeTxt}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

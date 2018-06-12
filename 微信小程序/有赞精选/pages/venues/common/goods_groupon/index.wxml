@@ -1,0 +1,42 @@
+<template name="groupon-goods">
+    <view class="groupon-goods clearfix">
+        <view class="groupon-goods__img">
+            <image src="#"></image>
+            <view class="groupon-goods__img-tip">1234人团</view>
+            <view class="groupon-goods__img-sold"></view>
+            <view class="groupon-goods__img-sold-1"></view>
+            <view class="groupon-goods__img-vip">
+                <text>新人专享</text>
+            </view>
+        </view>
+        <view class="groupon-goods__desc">
+            <view class="groupon-goods__desc-title">测试测试测试测试测试测试测试测试测试测试测试测试</view>
+            <view class="groupon-goods__desc-progress">
+                <view class="groupon-goods__desc-progress-bar">
+                    <view class="fill" style="width: 100%;">{{true?'已售罄':''}}</view>
+                </view>
+                <view class="groupon-goods__desc-progress-detail clearfix">
+                    <view class="sold">已抢<text>12345</text>件</view>
+                    <view class="remain">仅剩<text>100</text>件</view>
+                </view>
+            </view>
+            <view>
+                <view class="groupon-goods__desc-follow">已有<text>123</text>人关注</view>
+                <view class="groupon-goods__desc-buy-tips">
+                    <text>12月10号</text>
+                    <text>11:00</text>开抢</view>
+            </view>
+            <view class="clearfix">
+                <view class="groupon-goods__desc-price">
+                    <view class="activity">100.00</view>
+                    <view class="origin">200.00</view>
+                </view>
+                <view class="groupon-goods__desc-action">去开团</view>
+                <view class="groupon-goods__desc-action">开抢</view>
+                <view class="groupon-goods__desc-action ready-buy">即将开抢</view>
+                <view class="groupon-goods__desc-action slod-out">去看看</view>
+            </view>
+            <view class="groupon-goods__desc-sold">已团<text>123456</text>件</view>
+        </view>
+    </view>
+</template>

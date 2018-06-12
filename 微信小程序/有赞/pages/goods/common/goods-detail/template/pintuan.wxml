@@ -1,0 +1,23 @@
+<template name="goods-pintuan">
+    <view class="pt-container">
+        <view class="pt-desc--header" wx:if="{{data.activity_extra.ongoing_group.length>0}}">以下小伙伴正在发起拼团、你可以直接参与</view>
+        <view class="zan-cell pt-cell" wx:for="{{data.activity_extra.ongoing_group}}" wx:key="*this">
+            <image class="pt-cell__image" src="{{item.fans_picture}}"></image>
+            <view class="pt-cell__detail">
+                <view class="zan-c-black">{{item.fans_nickname}}</view>
+                <view class="zan-c-gray-dark">
+                    <text>还差</text>
+                    <text class="zan-c-red"> {{item.gap_num}} </text>
+                    <text>人成团，剩余</text>
+                    <text class="zan-c-red">{{ongoing_group[index]}}</text>
+                    <text>结束</text>
+                </view>
+            </view>
+            <view bindtap="gotoCoutuan" class="pt-cell__btn zan-hairline--surround zan-c-red zan-font-12 zan-center" data-alias="{{item.group_alias}}">去凑团</view>
+        </view>
+        <view class="zan-cell pt-desc--footer zan-cell--access">
+            <text class="zan-cell__bd">支付开团邀请{{data.activity_extra.join_num-1}}人参团，人数不足自动退款</text>
+            <text bindtap="gotoDescDetail" class="zan-cell__ft zan-c-gray-darker">玩法详情</text>
+        </view>
+    </view>
+</template>

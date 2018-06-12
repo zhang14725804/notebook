@@ -1,0 +1,70 @@
+<view class="doctor-detail">
+    <view class="doctor-info">
+        <view class="img">
+            <image src="{{doctor.Doctor.HeadImage||imageBaseUri+'doctor-avatar.png'}}"></image>
+        </view>
+        <view class="details">
+            <view class="name">
+                <text>{{doctor.Doctor.Name}}</text>
+                <navigator class="navigator" url="/pages/doctor/paper/paper?id={{doctor.Doctor.Id}}" wx:if="{{doctor.Doctor.HaveLisence}}">
+                    <image src="https://cdn-ssl.meb.com/wxa/v1/whitepaper.png"></image>
+                </navigator>
+            </view>
+            <view class="info-item">
+                <view class="item-name">学历</view>
+                <view class="item-value">{{doctor.Doctor.Education}}</view>
+            </view>
+            <view class="info-item">
+                <view class="item-name">职称</view>
+                <view class="item-value">{{doctor.Doctor.JobTitle}}</view>
+            </view>
+            <view class="info-item">
+                <view class="item-name">医龄</view>
+                <view class="item-value">{{doctor.Doctor.WorkingTime}}年</view>
+            </view>
+        </view>
+    </view>
+    <view class="doctor-about">
+        <view class="doctor-about-title title-normal text-c">关于医生</view>
+        <view class="doctor-about-content">
+            {{doctor.Doctor.Description}}
+        </view>
+        <view class="projects">
+            <doctorProject Projects="{{doctor.Doctor.Projects}}" color="color-000" desc="擅长"></doctorProject>
+        </view>
+    </view>
+    <navigator class="doctor-hospital flex" openType="redirectTo" url="/pages/hospital/detail/detail?id={{doctor.Hospital[0].Id}}" wx:if="{{doctor.Hospital[0]}}">
+        <view class="angle-right text-c">{{doctor.Hospital[0].DutyName}}</view>
+        <view class="hospital flex-left" style="background:url({{imageBaseUri}}arrow-right.png) no-repeat 100% 50%/auto 30rpx">
+            <image class="circle" mode="aspectFit" src="{{doctor.Hospital[0].HospitalLogo||imageBaseUri+'hospital-avatar.png'}}"></image>
+            <text class="hospital-name">{{doctor.Hospital[0].HospitalName}}</text>
+        </view>
+    </navigator>
+    <view class="doctor-relate-diary" wx:if="{{doctor.DiariesCount}}">
+        <view class="item-title">
+            <text>关于医生的日记</text>
+            <text class="value">{{doctor.DiariesCount}}</text>
+        </view>
+        <diary bind:tapDiary="onTapDiary" data="{{item}}" hasSolid="{{idx<diarys.length-1}}" wx:for="{{diarys}}" wx:for-index="idx" wx:key="item.Id"></diary>
+        <navigator class="view-more text-c" hoverClass="none" url="/pages/diary/otherList/otherList?type=0&id={{doctor.Doctor.Id}}" wx:if="{{doctor.DiariesCount>2}}">查看更多 </navigator>
+    </view>
+    <view class="other-doctor">
+        <view class="item-title">
+            <text>看看其他医生</text>
+        </view>
+        <view class="split-line full"></view>
+        <block wx:for="{{doctorList}}" wx:for-index="idx" wx:key="item.Id">
+            <view class="split-line" wx:if="{{idx>0}}"></view>
+            <dcItem doctor="{{item}}" ispush="{{false}}"></dcItem>
+        </block>
+        <loadMore backColor="black" visible="{{HasMore}}"></loadMore>
+    </view>
+    <view class="bottom-view">
+        <view bindtap="goHomeAction" class="bottom-left-view">
+            <image src="{{imageBaseUri}}hospital-detail-home.png"></image>
+        </view>
+        <button class="bottom-right-view contact-btn" openType="contact">
+            <text>咨询一下</text>
+        </button>
+    </view>
+</view>

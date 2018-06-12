@@ -1,0 +1,3 @@
+<view bindtap="bindTapInput" class="replyBox_foot {{isIphoneX?'replyBox_foot__iphonex':''}}">
+    <view class="replyBox_foot_input">我也来说一句...</view>
+</view>

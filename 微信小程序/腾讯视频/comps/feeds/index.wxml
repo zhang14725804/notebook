@@ -1,0 +1,29 @@
+<template name="feeds">
+    <view class="mod_box mod_feeds_list">
+        <view class="mod_hd" hidden="{{!content}}">
+            <view class="mod_title">
+                <view class="title_txt">{{title}}</view>
+            </view>
+        </view>
+        <view class="mod_bd">
+            <view class="figure_box" wx:for="{{content}}" wx:for-item="video" wx:key="vid">
+                <view bindtap="onPicClick" class="mod_poster" data-index="{{index}}" data-vid="{{video.vid}}">
+                    <image class="poster" src="{{video.videoData.imageUrl||'https://i.gtimg.cn/qqlive/images/20150608/pic_h.png'}}"></image>
+                    <view class="{{!video.playEnd?'':' hide'}}">
+                        <view class="play_icon"></view>
+                        <view class="time">{{video.videoData.duration||''}}</view>
+                        <view class="toptitle two_row">{{video.videoData.title}}</view>
+                    </view>
+                </view>
+                <include src="/comps/feeds/inc/detail.wxml"></include>
+            </view>
+        </view>
+        <view class="mod_feeds_player" style="top: {{top}}px;display: {{isPlayerHidden?'none':'block'}}">
+            <video autoplay controls bindended="__onFeedEnded" class="player_video" id="feedsplayer" src="{{feedsUrl}}"></video>
+            <view class="player_error_layer" hidden="{{feedsState!='error'}}">
+                <view class="player_error_text">{{videoError}}</view>
+            </view>
+        </view>
+        <image hidden src="{{feedsReportUrl}}"></image>
+    </view>
+</template>

@@ -1,0 +1,56 @@
+<view class="bannerstip {{showBanner?'show':''}}">
+    <view class="exclamation"></view>
+      打开文档失败
+</view>
+<view class="newsCon" wx:if="{{!nodata&&!showLoading}}">
+    <view class="newsCon__t">
+        <view class="newsCon__t__title">{{newsData.title}}</view>
+        <view class="newsCon__t__sub">
+            <view class="newsCon__t__sub__source" style="display:{{newsData.src==''?'none':'inline-block'}}">{{newsData.src}}</view>
+            <view class="newsCon__t__sub__date">{{newsData.date}}</view>
+            <view bindtap="openPDF" class="newsCon__t__sub__pdfbtn" wx:if="{{pdf.show}}">
+                <view class="pdficon" wx:if="pdf.icon"></view>{{pdf.btn}}</view>
+        </view>
+    </view>
+    <view class="newsCon__b newsCon__b_reStocks" wx:if="{{newsData.stockcode.length}}">
+  相关股票：
+    <view bindtap="tapStock" class="newsCon__b_stock {{idx==newsData.stockcode.length-1?'':'reStocks'}} {{!stocksStorage[item.symbol]?'noClick':''}}" data-name="{{item.name}}" data-noClick="{{stocksStorage[item.symbol]}}" data-symbol="{{item.symbol}}" wx:for="{{newsData.stockcode}}" wx:for-index="idx" wx:key="idx">{{item.name}}</view>
+    </view>
+    <view class="newsCon__b">
+        <block wx:for="{{newsData.content}}" wx:for-item="content" wx:key="{{content.key}}">
+            <block wx:if="{{newsData.kuaixun}}">
+                <image mode="widthFix" src="{{content.desc}}" style="width: 100%;" wx:if="{{content.type=='img_url'}}"></image>
+                <view class="newsCon__b__s" wx:if="{{content.type=='cnt_article'}}">
+                    <block wx:for="{{content.content}}" wx:for-index="idx" wx:key="{{idx}}">
+                        <span class="newsCon__b__s" wx:if="{{item.type=='text'}}">{{item.info}}</span>
+                        <span bindtap="tapStock" class="newsCon__b_stock {{!stocksStorage[plainItem.symbol]?'noClick':''}}" data-name="{{item.name}}" data-noClick="{{stocksStorage[plainItem.symbol]}}" data-symbol="{{item.symbol}}" wx:if="{{item.type=='stock'}}">{{item.name}}</span>
+                    </block>
+                </view>
+            </block>
+            <block wx:else>
+                <image mode="widthFix" src="{{content.img}}" style="width: 100%;" wx:if="{{content.type=='img'}}"></image>
+                <view class="newsCon__b__s" wx:if="{{content.type=='text'}}">{{content.info}}</view>
+            </block>
+        </block>
+        <view class="pdfonly" wx:if="{{newsData.pdfOnly}}">该文件为独立文件，点【查看全文】查看<view class="handup"></view>
+        </view>
+    </view>
+</view>
+<view class="newsCon nodata" wx:if="{{nodata}}">
+    <view class="nodata-icon"></view>
+    <view class="nodata-text">当前网络状况不佳</view>
+</view>
+<view class="whole-white-bg" wx:if="{{showLoading}}">
+    <view style="height:100rpx;width:100%;padding-top:200rpx;">
+        <view class="loadEffect rotate">
+            <view class="v v1"></view>
+            <view class="v v2"></view>
+            <view class="v v3"></view>
+            <view class="v v4"></view>
+            <view class="v v5"></view>
+            <view class="v v6"></view>
+            <view class="v v7"></view>
+            <view class="v v8"></view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,16 @@
+"use strict";
+
+var SIZE_MAP = {
+    0: "big",
+    1: "small",
+    2: "list"
+};
+
+function getGrouponContainerClass(size) {
+    size = size || 0;
+    return "cap-ump-groupon--" + SIZE_MAP[(nt_0 = size.toString(), null == nt_0 ? undefined : "Number" === nt_0.constructor ? nt_0 : "" + nt_0)];
+}
+
+module.exports = {
+    getGrouponContainerClass: getGrouponContainerClass
+};

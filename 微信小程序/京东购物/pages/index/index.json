@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "京东购物",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 400,
+    "usingComponents": {
+        "wallet": "./wallet/index/index",
+        "mall": "./mall/index/index"
+    }
+}

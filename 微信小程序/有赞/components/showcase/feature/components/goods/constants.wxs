@@ -1,0 +1,44 @@
+"use strict";
+
+var cornerMarkMap = {
+    0: "new-arrival",
+    1: "hot-sale",
+    2: "new",
+    3: "hot"
+};
+
+var sizeTypeClassHash = {
+    0: "card",
+    1: "waterfall",
+    2: "simple",
+    3: "promotion",
+    5: "card2",
+    6: "card2"
+};
+
+var layoutClassHash = {
+    0: "big",
+    1: "small",
+    2: "big1small2",
+    3: "detail",
+    5: "three",
+    6: "three"
+};
+
+var imageRatioClass = {
+    0: "3-2",
+    1: "1-1"
+};
+
+var imageFillStyleMap = {
+    0: "whitespace",
+    1: "padding"
+};
+
+module.exports = {
+    cornerMarkMap: cornerMarkMap,
+    sizeTypeClassHash: sizeTypeClassHash,
+    layoutClassHash: layoutClassHash,
+    imageRatioClass: imageRatioClass,
+    imageFillStyleMap: imageFillStyleMap
+};

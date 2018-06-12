@@ -1,0 +1,32 @@
+<template name="bottomCard-video">
+    <view class="m-bottomCard-video">
+        <view class="m-sideBar-item">
+            <image class="c-icon-sideBar-img" src="/resource/images/c-icon-return-home.png"></image>
+            <text class="c-info">首页</text>
+        </view>
+    </view>
+</template>
+<template name="bottomCard-circlebox">
+    <view class="m-bottomCard-circlebox">
+        <view class="m-sideBar-item">
+            <view bindtap="showDialog" class="singed-box" wx:if="{{loginStatus===true&&processCount&&processCount===limitPerDay}}">
+                <image class="c-icon-sideBar-img" src="/resource/images/c-icon-qiandao.png"></image>
+                <text class="c-info">已签到</text>
+            </view>
+            <form bindsubmit="getFormId" class="collect-form sign-form-box" data-rseat="wx_dance_register" reportSubmit="true" wx:else>
+                <button bindtap="sign" class="sign-from-btn" formType="submit">
+                    <image class="c-icon-sideBar-img" src="/resource/images/c-icon-qiandao.png"></image>
+                    <text class="c-info">签到</text>
+                </button>
+            </form>
+        </view>
+        <view class="m-sideBar-item">
+            <form bindsubmit="getFormId" class="collect-form" data-rseat="wx_dance_share" reportSubmit="true">
+                <button class="vote-share-btn" data-share-type="share" formType="submit" openType="share">
+                    <image class="c-icon-sideBar-img" src="/resource/images/c-icon-share1.png"></image>
+                    <text>分享</text>
+                </button>
+            </form>
+        </view>
+    </view>
+</template>

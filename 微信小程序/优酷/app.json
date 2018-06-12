@@ -1,0 +1,42 @@
+{
+    "pages": [
+        "pages/index",
+        "pages/play/play",
+        "pages/play/webcontainer",
+        "pages/brief/brief",
+        "pages/member/member",
+        "pages/brief/briefTags",
+        "pages/member/historyList"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#333333",
+        "selectedColor": "#2692FF",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "text": "首页",
+                "pagePath": "pages/index",
+                "iconPath": "image/index.png",
+                "selectedIconPath": "image/index-active.png"
+            },
+            {
+                "text": "短视频",
+                "pagePath": "pages/brief/brief",
+                "iconPath": "image/brief.png",
+                "selectedIconPath": "image/brief-active.png"
+            },
+            {
+                "text": "我的",
+                "pagePath": "pages/member/member",
+                "iconPath": "image/member.png",
+                "selectedIconPath": "image/member-active.png"
+            }
+        ]
+    }
+}

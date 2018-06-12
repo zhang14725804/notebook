@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "券购搜索",
+    "usingComponents": {
+        "filter-sort": "../../components/filter-sort/index",
+        "search-bar": "../../components/search-bar/index",
+        "shop-panel": "../../components/shop-panel/index",
+        "good-count": "../components/good-count/index",
+        "goods-list": "../components/coupon-goods-list/index"
+    }
+}

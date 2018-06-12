@@ -1,0 +1,45 @@
+.main {
+    overflow: hidden;
+    background: #fff;
+}
+
+.location-error-img {
+    position: absolute;
+    top: 240rpx;
+    left: 50%;
+    margin-left: -130rpx;
+}
+
+.location-error-img image {
+    width: 260rpx;
+    height: 260rpx;
+}
+
+.location-error-containter {
+    margin-top: 560rpx;
+    text-align: center;
+}
+
+.location-error-containter .info {
+    display: block;
+    color: #666;
+    font-size: 30rpx;
+}
+
+.location-error-btn {
+    margin-top: 60rpx;
+    text-align: center;
+}
+
+.location-error-btn .btn {
+    width: 276rpx;
+    height: 86rpx;
+    color: #06C1AE;
+    background: #fff;
+    border: 2rpx solid #06C1AE;
+    border-radius: 8rpx;
+    background-color: #fff;
+    display: inline-block;
+    text-align: center;
+    line-height: 86rpx;
+}

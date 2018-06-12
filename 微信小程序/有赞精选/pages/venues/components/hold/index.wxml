@@ -1,0 +1,25 @@
+<template name="hold">
+    <template is="swiper" data="{{swiperData:page.data.banner}}"></template>
+    <view class="hot-sale__row">
+        <navigator class="hot-sale__goods-item {{goods.is_sold_out?'sold':''}}" hoverClass="none" url="/pages/goods/detail/index?alias={{item.alias}}&teamName={{item.team_name}}" wx:for="{{page.data.goods}}" wx:key="{{ index }}">
+            <view class="hot-sale__img-wrap">
+                <image class="hot-sale__hot-sale__img" src="{{item.pic_url+'?imageView2/2/w/600/h/0/q/90/format/jpg/interlace/1'}}"></image>
+                <view class="hot-sale__sold-mask"></view>
+            </view>
+            <view class="hot-sale__title">{{item.title}}</view>
+            <view class="hot-sale__price-wrap">
+                <view class="hot-sale__price">
+                    <text class="hot-sale__price-ico">￥</text>{{item.sale_price}}</view>
+                <view class="hot-sale__origin-price" wx:if="{{item.original_price}}">￥{{item.original_price}}</view>
+            </view>
+            <view class="hot-sale__footer">
+                <view class="hot-sale__sold-number">已售 <text class="hot-sale__number">{{item.sold_num||0}}</text> 件</view>
+                <view class="hot-sale__buy-btn">{{goods.is_sold_out?'去看看':'开抢'}}</view>
+            </view>
+        </navigator>
+    </view>
+    <template is="loadmore" data="{{loading:true,nomore:page.data.nomore,nodata:page.data.nodata}}"></template>
+</template>
+<import src="../../common/swiper/index.wxml"></import>
+<import src="../../common/goods_groupon/index.wxml"></import>
+<import src="../../../../templates/loadMore/loadMore.wxml"></import>

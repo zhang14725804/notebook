@@ -1,0 +1,16 @@
+@import "../../__wuBaseWxss__/5.wxss";
+
+.list-item {
+    display: block;
+    text-decoration: none;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 14px;
+    padding: 0 40rpx;
+    border-top: 1rpx solid #E0E1E2;
+    color: #3e4349;
+}
+
+.list-item:last-child {
+    border-bottom: 1rpx solid #E0E1E2;
+}

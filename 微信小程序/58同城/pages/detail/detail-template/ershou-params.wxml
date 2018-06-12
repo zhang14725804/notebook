@@ -1,0 +1,20 @@
+<template name="ershou-params">
+    <view class="fang-block ersc-cw-block marg-top" wx:if="{{info.paramMap.price||info.paramMap.breed||info.paramMap.dogage||info.paramMap.vaccine}}">
+        <view class="fang-tag ersc-cw" wx:if="{{info.paramMap.price}}">
+            <text class="tab-label">价格：</text>
+            <text class="tab-title">{{info.paramMap.price}}{{info.paramMap.price!='面议'?info.priceUnit:''}}</text>
+        </view>
+        <view class="fang-tag ersc-cw" wx:if="{{info.paramMap.objecttype}}">
+            <text class="tab-label">类别：</text>
+            <text class="tab-title">{{info.paramMap.objecttype}}</text>
+        </view>
+        <view class="fang-tag    ersc-cw" wx:if="{{info.paramMap.oldlevel}}">
+            <text class="tab-label">新旧程度：</text>
+            <text class="tab-title">{{info.paramMap.oldlevel}}</text>
+        </view>
+        <view class="fang-tag ersc-cw" wx:if="{{info.locations}}">
+            <text class="tab-label">区域位置：</text>
+            <text class="tab-title">{{info.locations}}</text>
+        </view>
+    </view>
+</template>

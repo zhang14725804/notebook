@@ -1,0 +1,22 @@
+<view class="specialSuggestPage">
+    <view class="special-suggest-wrapper">
+        <view class="special-suggest-header">
+            <view class="special-suggest-city">
+                <text>{{specialSuggest.props.city.cityname}}</text>
+            </view>
+            <view class="special-suggest-iuputtip">{{specialSuggest.props.title}}</view>
+            <view bindtap="_dispatch" class="special-suggest-cancel" data-bindtap="cancel" data-path="specialSuggest">取消</view>
+        </view>
+        <view class="special-suggest-list-wrapper">
+            <view class="special-suggest-list-content">
+                <view bindtap="_dispatch" class="special-suggest-list" data-bindtap="selectItem" data-path="specialSuggest" xmlns:wx="" wx:if="{{specialSuggest.state.sugDataList.length}}">
+                    <view class="special-suggest-list-item" data-item="{{item}}" wx:for="{{specialSuggest.state.sugDataList}}" wx:key="{{index}}">
+                        <view class="special-suggest-item-name" data-item="{{item}}" wx:if="{{item.displayname}}">{{item.displayname}}</view>
+                        <view class="special-suggest-item-address" data-item="{{item}}" wx:if="{{item.address}}">{{item.address}}</view>
+                    </view>
+                </view>
+                <view class="special-suggest-list-err" wx:else>暂无搜索结果</view>
+            </view>
+        </view>
+    </view>
+</view>

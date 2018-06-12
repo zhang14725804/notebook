@@ -1,0 +1,19 @@
+<view>
+    <view class="head flb">
+        <view class="flb-1">热门搜索</view>
+    </view>
+    <ul class="searchbar-list">
+        <li bindtap="onSearchbarTrigger" class="searchbar-result" data-value="{{item.title}}" wx:for="{{rank}}" wx:key="position">
+            <view class="searchbar-index {{['first','second','third'][index]||''}}">{{index+1}}</view>
+            <view class="flb">
+                <text>{{item.title}}</text>
+                <view class="search-label-wrap">
+                    <view class="searchbar-label" style="background-color: {{label.bgColor||''}}" wx:for="{{item.markLabelList}}" wx:for-item="label" wx:key="position">
+                        <view class="text">{{label.primeText}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="searchbar-indicator {{item.changeOrder==1?'up':''}} {{item.changeOrder==-1?'down':''}}"></view>
+        </li>
+    </ul>
+</view>

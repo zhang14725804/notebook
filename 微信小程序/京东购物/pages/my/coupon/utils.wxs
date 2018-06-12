@@ -1,0 +1,40 @@
+function calcCouponsAmount(coupons, page) {
+    coupons = coupons || [];
+    page = page || 0;
+    var length = 0;
+    if (page == 0) {
+        coupons.forEach(function(item, index) {
+            if (item.isFilterShow) {
+                length++;
+            }
+        });
+    } else {
+        length = coupons.length;
+    }
+    return length;
+}
+
+function fixedDecimal(price, decimalPlaces) {
+    var fPrice = parseFloat(price);
+    if (isNaN(fPrice)) {
+        return {
+            whole: price,
+            int: price,
+            decimal: ""
+        };
+    }
+    if (typeof decimalPlaces == "undefined") {
+        decimalPlaces = 2;
+    }
+    fPrice = parseFloat(fPrice.toFixed(decimalPlaces));
+    var priceArr = fPrice.toString().split(".");
+    return {
+        int: priceArr[0],
+        decimal: priceArr[1] || ""
+    };
+}
+
+module.exports = {
+    calcCouponsAmount: calcCouponsAmount,
+    fixedDecimal: fixedDecimal
+};

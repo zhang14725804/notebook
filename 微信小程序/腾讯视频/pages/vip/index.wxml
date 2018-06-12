@@ -1,0 +1,39 @@
+<import src="comps/account.wxml"></import>
+<import src="comps/price.wxml"></import>
+<import src="comps/film.wxml"></import>
+<import src="comps/privs.wxml"></import>
+<view wx:if="{{!netErr}}">
+    <template is="vip_user_account" data="{{avatar:avatar,nick:nick,loginType:loginType,vipIcon:vipIcon,vipLevel:vipLevel,isVip:isVip,vipEndTime:vipEndTime}}"></template>
+    <view class="gap"></view>
+    <template is="vip_user_price" data="{{isVip:isVip,priceList:priceList}}"></template>
+    <view class="gap"></view>
+    <template is="vip_user_film" data="{{filmList:filmList}}"></template>
+    <view class="gap"></view>
+    <template is="vip_user_privs" data="{{privList:privList}}"></template>
+</view>
+<view class="g_container_nonetwork" wx:if="{{netErr}}">
+    <view class="nonetwork_con">
+        <view class="icon_nonetwork"></view>
+        <view class="tit">网络故障</view>
+        <view class="txt">请检查连接后轻点重试</view>
+    </view>
+</view>
+<view class="g_pop_mask" wx:if="{{popTips}}"></view>
+<view class="g_pop g_pop_loading none">
+    <view class="pop_wrap">
+        <view class="pop_con">
+            <view class="icon_loading"></view>
+            <view class="txt">加载中...</view>
+        </view>
+    </view>
+</view>
+<view class="g_pop g_pop_qq" wx:if="{{popTips}}">
+    <view class="pop_wrap">
+        <view class="pop_con">
+            <view class="txt">{{popTips}}</view>
+        </view>
+        <view class="btn_wrap cf">
+            <view bindtap="closeTips" class="btn btn_em">确定</view>
+        </view>
+    </view>
+</view>

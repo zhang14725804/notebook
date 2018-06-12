@@ -1,0 +1,26 @@
+@import "../../../../components/showcase/index.wxss";
+
+@import "../../../../components/copyright/index.wxss";
+
+@import "../../../../components/sku/index.wxss";
+
+.all-goods__empty {
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    width: 100%;
+    text-align: center;
+}
+
+.all-goods__empty-image {
+    width: 80px;
+    height: 84px;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.all-goods__empty-text {
+    font-size: 14px;
+    line-height: 28px;
+    color: #a9a9a9;
+}

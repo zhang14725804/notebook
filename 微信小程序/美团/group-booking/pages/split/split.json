@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "美团",
+    "usingComponents": {
+        "red-packet": "/group-booking/components/red-packet/red-packet",
+        "mt-pendant": "../../../index/components/mt-pendant/pendant",
+        "pic-swiper": "/group-booking/components/pic-swiper/pic-swiper",
+        "news-swiper": "/group-booking/components/news-swiper/news-swiper",
+        "countdown": "/group-booking/components/countdown/countdown"
+    }
+}

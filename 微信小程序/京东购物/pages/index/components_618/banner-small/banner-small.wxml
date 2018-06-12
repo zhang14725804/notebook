@@ -1,0 +1,3 @@
+<view bindtap="onTap" class="banner-small" data-url="{{url}}" hidden="{{hideModule}}">
+    <image bindload="onImgLoad" class="banner-small__image {{showImage?'banner-small__image--show':''}}" mode="aspectFill" src="{{image}}"></image>
+</view>

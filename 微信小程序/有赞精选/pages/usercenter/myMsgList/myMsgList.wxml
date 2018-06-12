@@ -1,0 +1,15 @@
+<import src="../../../bower_components/zan/dist/loadmore/index.wxml"></import>
+<view class="container">
+    <view class="zan-panel msg-list">
+        <view class="zan-cell zan-cell--access msg-list__cell" wx:for="{{msgList}}">
+            <view class="zan-cell__icon msg-list__icon">
+                <image class="msg-list__img" src="{{item.icon_url}}"></image>
+            </view>
+            <view class="zan-cell__bd">{{item.nickname}}</view>
+            <view class="zan-cell__ft"></view>
+            <button businessId="{{item.business_id}}" class="msg-list__contact-btn" openType="contact" sessionFrom="{{item.kdt_id}}"></button>
+        </view>
+    </view>
+    <template is="zan-loadmore" data="{{loading:true}}" wx:if="{{isFetching}}"></template>
+    <template is="zan-loadmore" data="{{nodata:true,nodata_str:'暂无消息'}}" wx:if="{{!isFetching&&msgList.length===0}}"></template>
+</view>

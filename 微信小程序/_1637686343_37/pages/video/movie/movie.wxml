@@ -1,0 +1,15 @@
+<import src="/components/template/scrollCard.wxml"></import>
+<import src="../template/videoControl.wxml"></import>
+<import src="movieVideoDetail.wxml"></import>
+<import src="/components/paopao/paopao.wxml"></import>
+<import src="/components/comment/comment.wxml"></import>
+<import src="/components/template/launchApp.wxml"></import>
+<scroll-view class="scrollBody" scrollY="true" style="height:{{scrollBodyHeight+'px'}};">
+    <template is="launchApp" data="{{pluginParams:pluginParams}}" wx:if="{{launchApp}}"></template>
+    <template is="videoControl" data="{{playCountCN:playInfo.playCountCN,...videoControl,ifCanIUse:ifCanIUse,albumQipuId:playInfo.albumQipuId,isCollect:isCollect,...playInfo,showToast:showToast,toastTitle:toastTitle}}"></template>
+    <template is="movieVideoDetail" data="{{...playInfo,...desc}}"></template>
+    <template is="starUp" data="{{ifCanIUse:ifCanIUse,wallBaseInfo:wallBaseInfo,toIndex:true,collectFormId:false,rseat:''}}"></template>
+    <template is="scrollCard" data="{{...rbVideo,qipuId:playInfo.qipuId,bindItemTap:'playVideoAlbum'}}"></template>
+    <template is="comment" data="{{qipuId:playInfo.qipuId,comments:videoComment,inputBoxEnable:inputBoxEnable,isShowComment:isShowComment,launchApp:launchApp,pluginParams:pluginParams}}"></template>
+    <include src="/components/template/footer.wxml"></include>
+</scroll-view>

@@ -1,0 +1,108 @@
+<view class="index-container">
+    <view class="navwrap">
+        <view class="nav">
+            <view bindtap="selectNav" class="item {{item.navClassCurrent}}" data-wpyselectnav-a="{{index}}" id="nav{{index}}" wx:for="{{navList}}" wx:key="index">
+            {{item.pageName}}
+            <text class="botline"></text>
+            </view>
+        </view>
+    </view>
+    <swiper autoplay="{{false}}" bindchange="onSlideChangeEnd" class="swiper-no-swiping" current="{{pageId}}" style="height: {{scrollHeight}}px" wx:if="{{!loading}}">
+        <swiper-item wx:for="{{navData}}" wx:for-item="moduleData" wx:key="indexModuleList">
+            <view style="height: {{scrollHeight}}px" wx:if="{{moduleData.isError}}">
+                <view class="play-error">
+                    <image class="play-error-tips" src="{{$dataerror$errorType==='nodataerror'?'/image/nodata-error.png':'/image/connect-error.png'}}"></image>
+                    <view class="play-error-text">{{$dataerror$errorContent}}</view>
+                    <image bindtap="$dataerror$refrashData" class="play-refrash" src="/image/refrash.png" wx:if="{{$dataerror$errorType!=='nodataerror'}}"></image>
+                </view>
+            </view>
+            <scroll-view scrollY style="white-space: nowrap; height: {{scrollHeight}}px" wx:else>
+                <view class="panel" wx:for="{{moduleData.moduleList}}" wx:for-item="moduleItem" wx:key="indexmodules">
+                    <view class="title" wx:if="{{!moduleItem.hiddenHeader}}">{{moduleItem.title}}</view>
+                    <block wx:for="{{moduleItem.components}}" wx:for-item="componentItem" wx:key="key">
+                        <swiper autoplay="{{$swiperlayer$autoplay}}" bindchange="$swiperlayer$onSlideChangeEnd" class="swiper" data-com-index="{{index}}" data-wpyonslidechangeend-a="{{componentItem.itemResult}}" duration="{{$swiperlayer$duration}}" indicatorActiveColor="{{$swiperlayer$indicatorActiveColor}}" indicatorColor="{{$swiperlayer$indicatorColor}}" indicatorDots="{{$swiperlayer$indicatorDots}}" interval="{{$swiperlayer$interval}}" wx:if="{{componentItem.type==='PHONE_LUNBO'}}">
+                            <swiper-item wx:for="{{componentItem.itemResult}}" wx:key="swiperList">
+                                <view bindtap="$swiperlayer$jumpToPlay" class="swiperitem" data-com-index="{{index}}" data-wpyjumptoplay-a="{{item}}">
+                                    <image class="slide-image" mode="widthFix" src="{{item.img}}"></image>
+                                    <text class="swipertitle">{{item.title}}</text>
+                                    <view class="gradientbg"></view>
+                                </view>
+                            </swiper-item>
+                        </swiper>
+                        <view class="singlepic" wx:elif="{{componentItem.type==='PHONE_BASE_A'}}">
+                            <view bindtap="$singlepicture$jumpToPlay" data-com-index="{{index}}" data-wpyjumptoplay-a="{{componentItem.itemResult[0]}}">
+                                <view class="picwrap">
+                                    <image class="pic" mode="widthFix" src="{{componentItem.itemResult[0].img}}"></image>
+                                    <block wx:if="{{componentItem.itemResult[0].summaryType==='SCORE'}}">
+                                        <text class="item-score">{{(componentItem.itemResult[0].summary*10-componentItem.itemResult[0].summary*10%10)/10+''}}</text>
+                                        <text class="item-score score-small">.{{componentItem.itemResult[0].summary*10%10+''}}</text>
+                                    </block>
+                                    <text class="playtime" wx:else>{{componentItem.itemResult[0].summary}}</text>
+                                    <view class="gradientbg"></view>
+                                </view>
+                                <text class="vtitle">{{componentItem.itemResult[0].title}}</text>
+                                <text class="vdec">{{componentItem.itemResult[0].subtitle}}</text>
+                            </view>
+                        </view>
+                        <view class="drawlist {{componentItem.type}}" wx:elif="{{componentItem.type==='PHONE_BASE_B'||componentItem.type==='PHONE_BASE_C'||componentItem.type==='PHONE_BASE_E'}}">
+                            <block wx:if="{{componentItem.type!=='PHONE_BASE_E'}}">
+                                <view bindtap="$drawlist$jumpToPlay" class="item-movie" data-com-index="{{index}}" data-wpyjumptoplay-a="{{$drawlist$item}}" wx:if="{{$drawlist$index>=showModuleIndex[componentItem.componentId].startIndex&&$drawlist$index<=showModuleIndex[componentItem.componentId].endIndex}}" wx:for="{{componentItem.itemResult}}" wx:for-index="$drawlist$index" wx:for-item="$drawlist$item" wx:key="$drawlist$key">
+                                    <view class="picwrap">
+                                        <image class="pic net-cover" lazyLoad="lazy-load" src="{{$drawlist$item.img}}"></image>
+                                        <image class="pic" src="{{componentItem.type==='PHONE_BASE_C'?'/image/vertical-cover.png':'/image/horizontal-cover.png'}}"></image>
+                                        <block wx:if="{{$drawlist$item.summaryType==='SCORE'}}">
+                                            <text class="item-score">{{($drawlist$item.summary*10-$drawlist$item.summary*10%10)/10+''}}</text>
+                                            <text class="item-score score-small">.{{$drawlist$item.summary*10%10+''}}</text>
+                                        </block>
+                                        <text class="playtime" wx:else>{{$drawlist$item.summary}}</text>
+                                        <view class="gradientbg"></view>
+                                    </view>
+                                    <text class="vtitle">{{$drawlist$item.title}}</text>
+                                    <text class="vdec">{{$drawlist$item.subtitle}}</text>
+                                </view>
+                            </block>
+                            <scroll-view scrollX style="white-space: nowrap;" wx:elif="{{componentItem.type==='PHONE_BASE_E'}}">
+                                <view bindtap="$drawlist$jumpToPlay" class="item-movie-e" data-com-index="{{index}}" data-wpyjumptoplay-a="{{$drawlist$eitem}}" wx:for="{{componentItem.itemResult}}" wx:for-index="$drawlist$index" wx:for-item="$drawlist$eitem" wx:key="$drawlist$key">
+                                    <view class="picwrap">
+                                        <image class="pic net-cover" src="{{$drawlist$eitem.img}}"></image>
+                                        <image class="pic" src="/image/horizontal-cover.png"></image>
+                                        <block wx:if="{{$drawlist$eitem.summaryType==='SCORE'}}">
+                                            <text class="item-score">{{($drawlist$eitem.summary*10-$drawlist$eitem.summary*10%10)/10+''}}</text>
+                                            <text class="item-score score-small">.{{$drawlist$eitem.summary*10%10+''}}</text>
+                                        </block>
+                                        <text class="playtime" wx:else>{{$drawlist$eitem.summary}}</text>
+                                        <view class="gradientbg"></view>
+                                    </view>
+                                    <text class="vtitle">{{$drawlist$eitem.title}}</text>
+                                    <text class="vdec" style="opacity:0;color:#ffffff" wx:if="{{$drawlist$eitem.subtitle==''}}">...</text>
+                                    <text class="vdec" wx:else>{{$drawlist$eitem.subtitle}}</text>
+                                </view>
+                            </scroll-view>
+                        </view>
+                        <view bindtap="$adlist$jumpToPlay" class="ad-layer {{componentItem.type}}" data-com-index="{{index}}" data-wpyjumptoplay-a="{{componentItem.itemResult[0]}}" wx:elif="{{componentItem.type==='PHONE_AD_A'||componentItem.type==='PHONE_AD_B'}}">
+                            <block wx:if="{{componentItem.type==='PHONE_AD_A'}}">
+                                <view class="ad-picture">
+                                    <image src="{{componentItem.itemResult[0].img}}"></image>
+                                    <text class="ad-tips">广告</text>
+                                </view>
+                                <view class="vtitle ad-title" wx:if="{{componentItem.itemResult[0].title}}">{{componentItem.itemResult[0].title}}</view>
+                            </block>
+                            <view class="ad-picture" wx:if="{{componentItem.type==='PHONE_AD_B'}}">
+                                <image src="{{componentItem.itemResult[0].img}}"></image>
+                            </view>
+                        </view>
+                        <view bindtap="$update$addAnim" class="updatebar {{$update$circleClass}}" data-com-index="{{index}}" data-wpyaddanim-a="{{componentItem.componentId}}" wx:if="{{showModuleIndex[componentItem.componentId].page>1}}">
+                            <text>换一换</text>
+                            <image class="pic" src="https://gw.alicdn.com/tfs/TB1RvwIXuSSBuNjy0FlXXbBpVXa-17-17.png"></image>
+                        </view>
+                    </block>
+                    <view class="botline"></view>
+                </view>
+                <view class="footer">
+                    <image class="pic" src="/image/logo.png"></image>
+                </view>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</view>
+<loading hidden="{{!loading}}">加载中...</loading>

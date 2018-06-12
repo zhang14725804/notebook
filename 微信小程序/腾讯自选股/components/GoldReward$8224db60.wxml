@@ -1,0 +1,36 @@
+<template name="GoldReward$8224db60">
+    <view class="_div data-v-1dc23eb9 goldReward">
+        <view class="_div data-v-1dc23eb9 card">
+            <view class="_div data-v-1dc23eb9 pic">
+                <image class="_img data-v-1dc23eb9 image" mode="aspectFill" src="{{reward.detail.image_url}}"></image>
+                <view class="_div data-v-1dc23eb9 content">
+                    <template is="CardContent$abb08a10" data="{{...$root[$kk+'0'],$root:$root}}"></template>
+                </view>
+            </view>
+            <view class="_div data-v-1dc23eb9 info">
+                <view class="_div data-v-1dc23eb9">
+                    <image class="_img data-v-1dc23eb9 user-head-img" src="{{reward.user_image}}"></image>
+                </view>
+                <view class="_div data-v-1dc23eb9 user-name">{{reward.user_name}}</view>
+                <view class="_div data-v-1dc23eb9 post-info">
+                    <label class="_span data-v-1dc23eb9">{{reward.detail.created_at}}</label> 发表于
+          <label bindtap="handleProxy" class="_span data-v-1dc23eb9 bk" data-comkey="{{$k}}" data-eventid="{{'0'}}">#{{reward.detail.stock_name}}#</label>
+                </view>
+                <view class="_div data-v-1dc23eb9 reward-text-h1 gold-h1">
+                    <view class="_div data-v-1dc23eb9 reward-text-h1-border"></view>
+                    <view class="_div data-v-1dc23eb9 reward-text-h1-container">
+                        <view class="_div data-v-1dc23eb9 left"></view>
+                        <view class="_div data-v-1dc23eb9 text">金句奖{{reward.prize}}元</view>
+                        <view class="_div data-v-1dc23eb9 right"></view>
+                    </view>
+                    <view class="_div data-v-1dc23eb9 reward-text-h1-border"></view>
+                </view>
+                <view class="_div data-v-1dc23eb9 like-info">
+                    <view class="_div data-v-1dc23eb9 support">{{reward.detail.like_num}}人点赞</view>
+                    <view class="_div data-v-1dc23eb9 like-heart"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="CardContent$abb08a10"></import>

@@ -1,0 +1,280 @@
+<view class="pageFrame _18ffead">
+    <view class="navigationBar _18ffead"></view>
+    <view class="pageBody _18ffead">
+        <view class="container">
+            <view class="order-detail" wx:if="{{$orderDetail$dataReady}}">
+                <view class="order-detail-status" wx:if="{{!$orderDetail$isComplete}}">
+                    <view class="order-detail-status-progress">
+                        <view class="order-detail-status-progress-detail {{item.isActive?'order-detail-status-progress-detail-active':''}}" wx:for="{{$orderDetail$orderStatus}}" wx:key="{{index}}">
+                            <view class="order-detail-status-progress-detail-text">{{item.isActive?item.activeName:item.readyName}}
+          </view>
+                            <view class="order-detail-status-progress-detail-img">
+                                <view class="order-detail-status-progress-detail-img-i" style="background-image: url('{{item.isActive?item.activeImg:item.readyImg}}');"></view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="order-detail-status-detail">
+        {{$orderDetail$detailInfo}}
+        <view class="order-detail-status-detail-extra" wx:if="{{$orderDetail$countDown}}">
+                            <view class="order-detail-status-detail-extra-countDown">{{$orderDetail$countDown}}</view>
+          {{$orderDetail$detailInfo1}}
+        </view>
+                    </view>
+                </view>
+                <view class="order-detail-status" wx:else>
+                    <view class="order-detail-status-complete" wx:if="{{item.isActive}}" wx:for="{{$orderDetail$orderResult}}" wx:key="{{index}}">
+                        <view class="order-detail-status-complete-img">
+                            <view class="order-detail-status-complete-img-i" style="background-image: url('{{item.activeImg}}');"></view>
+                        </view>
+                        <view class="order-detail-status-complete-text">
+          {{$orderDetail$detailInfo}}
+          <view class="order-detail-status-detail-extra" wx:if="{{$orderDetail$isShowCountDown}}">
+                                <view class="order-detail-status-detail-extra-countDown">{{$orderDetail$countDown}}</view>
+            {{$orderDetail$detailInfo1}}
+          </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="order-detail__service-window" wx:if="{{$orderDetail$showServiceWindow}}">
+                <view class="top">
+                    <view class="top--logo" style="background-image: url({{$orderDetail$srviceWindowData.serviceWinIcon}})"></view>
+                    <view class="top--title">{{$orderDetail$srviceWindowData.serviceWinTitle}}</view>
+                    <view bindtap="$orderDetail$serviceWinBtnTap" class="top--type" data-wpyservicewinbtntap-a="{{$orderDetail$srviceWindowData.serviceWinBtnTitle}}">{{$orderDetail$srviceWindowData.serviceWinBtnTitle}}</view>
+                </view>
+                <view class="bottom">
+                    <view class="bottom--title">
+        {{$orderDetail$srviceWindowData.title}}
+      </view>
+                    <view class="bottom--content">{{$orderDetail$srviceWindowData.content}}</view>
+                </view>
+            </view>
+            <view bindtap="$orderDetail$deliverDetail" class="order-deliver" wx:if="{{$orderDetail$isShowLogistics}}">
+                <view class="order-deliver-left"></view>
+                <view class="order-deliver-center">
+                    <view class="order-deliver-center-detail">{{$orderDetail$deliver.lastLogisticsInfo}}</view>
+                    <view class="order-deliver-center-time">{{$orderDetail$deliver.lastLogisticsTime}}</view>
+                </view>
+                <view class="order-deliver-right">
+                    <view class="order-deliver-right-arrow"></view>
+                </view>
+            </view>
+            <view class="order-detail-center">
+                <view class="order-userDetail" wx:if="{{$orderDetail$dataReady}}">
+                    <view bindtap="$orderDetail$gotoMinePage" class="order-userDetail-avatar" style="background-image:url('{{$orderDetail$userInfo.userPic}}')"></view>
+                    <view bindtap="$orderDetail$gotoMinePage" class="order-userDetail-userName">{{$orderDetail$userInfo.userNickName}}</view>
+                    <view bindtap="$orderDetail$OrderDetailUserButton$operate" class="order-userDetail-contract" data-index="{{index}}" data-operationid="{{item.operationId}}" wx:if="{{$orderDetail$OrderDetailUserButton$show}}" wx:for="{{$orderDetail$OrderDetailUserButton$middleButton}}" wx:key="{{index}}">{{item.text}}</view>
+                    <view catchtouchmove="$orderDetail$OrderDetailUserButton$DialogCommon$onScroll" class="dialog _3f95c5a" wx:if="{{$orderDetail$OrderDetailUserButton$DialogCommon$show}}">
+                        <view class="dialog-mask _3f95c5a"></view>
+                        <view class="dialog-container _3f95c5a" style="{{$orderDetail$OrderDetailUserButton$DialogCommon$options.containerExtraStyle}}">
+                            <image class="dialog-icon {{$orderDetail$OrderDetailUserButton$DialogCommon$options.icon?$orderDetail$OrderDetailUserButton$DialogCommon$options.icon.className:''}} _3f95c5a" src="{{$orderDetail$OrderDetailUserButton$DialogCommon$options.icon.src}}" wx:if="{{$orderDetail$OrderDetailUserButton$DialogCommon$options.icon}}"></image>
+                            <view bindtap="$orderDetail$OrderDetailUserButton$DialogCommon$onClose" class="dialog-container-close _3f95c5a" wx:if="{{!$orderDetail$OrderDetailUserButton$DialogCommon$options.hideCloseIcon}}">
+                                <text class="dialog-container-close-x _3f95c5a"></text>
+                            </view>
+                            <view class="dialog-container-title {{$orderDetail$OrderDetailUserButton$DialogCommon$options.icon?'large-header':''}} _3f95c5a">{{$orderDetail$OrderDetailUserButton$DialogCommon$options.title||''}}</view>
+                            <scroll-view class="dialog-container-content {{$orderDetail$OrderDetailUserButton$DialogCommon$options.contentScrollable?'scrollable':''}} _3f95c5a" scrollY="{{$orderDetail$OrderDetailUserButton$DialogCommon$options.contentScrollable}}" style="{{$orderDetail$OrderDetailUserButton$DialogCommon$options.contentExtraStyle}}">{{$orderDetail$OrderDetailUserButton$DialogCommon$options.content||''}}</scroll-view>
+                            <view class="dialog-container-buttons {{$orderDetail$OrderDetailUserButton$DialogCommon$options.btnLayout}} {{$orderDetail$OrderDetailUserButton$DialogCommon$options.btnStyle}} {{'count'+$orderDetail$OrderDetailUserButton$DialogCommon$options.buttons.length}} _3f95c5a">
+                                <view bindtap="$orderDetail$OrderDetailUserButton$DialogCommon$onButton" class="dialog-container-buttons-button {{button.main?'main':''}} _3f95c5a" data-wpyonbutton-a="{{index}}" data-wpyonbutton-b="{{$orderDetail$OrderDetailUserButton$DialogCommon$$event}}" style="{{button.style}}" wx:for="{{$orderDetail$OrderDetailUserButton$DialogCommon$options.buttons}}" wx:for-item="button" wx:key="text">
+          {{button.text}}
+          <button bindgetphonenumber="$orderDetail$OrderDetailUserButton$DialogCommon$onGetPhoneNumber" class="_3f95c5a" data-share-data="{{button.shareData}}" data-wpyongetphonenumber-a="{{index}}" data-wpyongetphonenumber-b="{{$orderDetail$OrderDetailUserButton$DialogCommon$$event}}" openType="{{button.openType}}">{{button.buttonText}}</button>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="order-addressDetail" wx:if="{{$orderDetail$dataReady&&!$orderDetail$addressHidden}}">
+                    <view class="order-addressDetail-top">
+                        <view class="order-addressDetail-top-name">收货人：{{$orderDetail$address.name}}</view>
+                        <view class="order-addressDetail-top-mobile">{{$orderDetail$address.mobile}}</view>
+                    </view>
+                    <view class="order-addressDetail-detail">收货地址：{{$orderDetail$address.city+' '+$orderDetail$address.detail}}</view>
+                </view>
+                <view bindtap="$orderDetail$gotoGoodDetail" class="order-goodInfo" wx:if="{{$orderDetail$dataReady}}">
+                    <view class="order-goodInfo-goodInfo">
+                        <image class="order-goodInfo-goodInfo-pic" mode="aspectFill" src="{{$orderDetail$goodInfo.infoPicsHandle}}"></image>
+                        <view class="order-goodInfo-goodInfo-right">
+                            <view class="order-goodInfo-goodInfo-right-title">{{$orderDetail$goodInfo.infoTitle}}</view>
+                            <view class="order-goodInfo-goodInfo-right-bottom">
+                                <view class="order-goodInfo-goodInfo-right-price">
+              {{$orderDetail$goodInfo.price}}
+            </view>
+                                <view class="order-goodInfo-goodInfo-right-price-unit">￥</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="order-goodInfo-freight">
+                        <view class="order-goodInfo-freight-desc">运费</view>
+                        <view class="order-goodInfo-freight-unit">￥</view>
+                        <view class="order-goodInfo-freight-price">{{$orderDetail$goodInfo.freight}}</view>
+                    </view>
+                    <view class="order-goodInfo-infoTotalPrice">
+                        <view class="order-goodInfo-infoTotalPrice-desc">商品总额</view>
+                        <view class="order-goodInfo-infoTotalPrice-price">{{$orderDetail$goodInfo.infoTotalPrice}}</view>
+                        <view class="order-goodInfo-infoTotalPrice-unit">￥</view>
+                    </view>
+                    <view class="order-goodInfo-packAmount" wx:if="{{(!!$orderDetail$goodInfo.packAmount||$orderDetail$packId!=0)&&$orderDetail$isBuyer==1}}">
+                        <view class="order-goodInfo-packAmount-desc">红包立减</view>
+                        <view class="order-goodInfo-packAmount-price">{{$orderDetail$goodInfo.packAmount}}</view>
+                        <view class="order-goodInfo-packAmount-unit">-￥</view>
+                    </view>
+                    <view class="order-detail__other-service">
+                        <view class="top">其他服务金额<text style="color: #aaaeb9">（此部分金额由买家与平台结算）</text>
+                        </view>
+                        <view class="bottom" wx:for="{{$orderDetail$availableServices}}">
+                            <view class="bottom--logo" style="background-image: url({{item.serviceIcon}})"></view>
+                            <view class="bottom--title">{{item.title}}</view>
+                            <view class="bottom--price" wx:if="{{item.nowPrice}}">+￥{{item.nowPrice}}</view>
+                        </view>
+                    </view>
+                    <view class="order-goodInfo-sumPrice">
+                        <view class="order-goodInfo-sumPrice-icon"></view>
+                        <view class="order-goodInfo-sumPrice-desc">转转担保交易</view>
+                        <view class="order-goodInfo-sumPrice-price">{{$orderDetail$goodInfo.actualPayMoney}}</view>
+                        <view class="order-goodInfo-sumPrice-unit">￥</view>
+                        <view class="order-goodInfo-sumPrice-detail">支付总价</view>
+                    </view>
+                </view>
+            </view>
+            <view class="order-detail__promise" wx:if="{{$orderDetail$activityLink&&$orderDetail$activityLink.length>0}}">
+                <view class="item" wx:for="{{$orderDetail$activityLink}}">
+                    <view class="logo" style="background-image: url({{item.icon}})"></view>
+                    <view class="title">{{item.title}}</view>
+                </view>
+            </view>
+            <view class="order-infoDetail" wx:if="{{$orderDetail$dataReady}}">
+                <view class="order-infoDetail-list">
+                    <view class="order-infoDetail-id">订单编号：{{$orderDetail$infoDetail.orderId}}</view>
+                    <view bindtap="$orderDetail$setClipboard" class="order-infoDetail-copy">复制</view>
+                </view>
+                <view class="order-infoDetail-list order-infoDetail-type">支付方式：{{$orderDetail$infoDetail.payTypeTitle}}</view>
+                <view class="order-infoDetail-list order-infoDetail-orderTime">下单时间：{{$orderDetail$infoDetail.createTime}}</view>
+                <view class="order-infoDetail-list order-infoDetail-payTime" wx:if="{{$orderDetail$infoDetail.buyerPayTime}}">支付时间：{{$orderDetail$infoDetail.buyerPayTime}}</view>
+                <view class="order-infoDetail-list order-infoDetail-postTime" wx:if="{{$orderDetail$infoDetail.deliverTime}}">发货时间：{{$orderDetail$infoDetail.deliverTime}}</view>
+            </view>
+            <view class="order-infoDetail-bottom"></view>
+            <view class="risk _e9b289b" wx:if="{{$orderDetail$OrderDetailButton$RiskTip$show}}">
+                <view class="risk-content _e9b289b">
+                    <image class="risk-content-bg _e9b289b" src="https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/other/risk_bg3.png"></image>
+                    <view bindtap="$orderDetail$OrderDetailButton$RiskTip$close" class="risk-content-close _e9b289b"></view>
+                    <view bindtap="$orderDetail$OrderDetailButton$RiskTip$confirm" class="risk-content-confirm _e9b289b"></view>
+                    <view bindtap="$orderDetail$OrderDetailButton$RiskTip$readMore" class="risk-content-readmore _e9b289b"></view>
+                </view>
+            </view>
+            <view class="bottom-button" wx:if="{{$orderDetail$OrderDetailButton$isShow}}">
+                <form bindsubmit="$orderDetail$OrderDetailButton$bottomButton$handleTap" data-index="{{index}}" reportSubmit="{{$orderDetail$OrderDetailButton$bottomButton$reportSubmit}}" wx:for="{{$orderDetail$OrderDetailButton$bottomButton$button}}" wx:key="{{index}}">
+                    <button class="{{item.className}}" disabled="{{$orderDetail$OrderDetailButton$bottomButton$disabled}}" formType="{{item.formType}}" hoverClass="{{item.className}}-hover" style="background-color:{{item.style.backgroundColor}};color:{{item.style.color}};width:{{item.style.width}};height:{{item.style.height}};text-align:{{item.style.textAlign}};line-height:{{item.style.lineHeight}};font-size:{{item.style.fontSize}};border:{{item.style.border}}">
+                        <icon class="zzwa-bottom-button-icon" color="{{item.icon.color}}" size="{{item.icon.size}}" style="height:{{item.icon.size}}px" type="{{item.icon.type}}" wx:if="{{item.icon}}"></icon>
+        {{item.name}}
+      </button>
+                </form>
+            </view>
+            <view catchtouchmove="$orderDetail$OrderDetailButton$DialogCommon$onScroll" class="dialog _3f95c5a" wx:if="{{$orderDetail$OrderDetailButton$DialogCommon$show}}">
+                <view class="dialog-mask _3f95c5a"></view>
+                <view class="dialog-container _3f95c5a" style="{{$orderDetail$OrderDetailButton$DialogCommon$options.containerExtraStyle}}">
+                    <image class="dialog-icon {{$orderDetail$OrderDetailButton$DialogCommon$options.icon?$orderDetail$OrderDetailButton$DialogCommon$options.icon.className:''}} _3f95c5a" src="{{$orderDetail$OrderDetailButton$DialogCommon$options.icon.src}}" wx:if="{{$orderDetail$OrderDetailButton$DialogCommon$options.icon}}"></image>
+                    <view bindtap="$orderDetail$OrderDetailButton$DialogCommon$onClose" class="dialog-container-close _3f95c5a" wx:if="{{!$orderDetail$OrderDetailButton$DialogCommon$options.hideCloseIcon}}">
+                        <text class="dialog-container-close-x _3f95c5a"></text>
+                    </view>
+                    <view class="dialog-container-title {{$orderDetail$OrderDetailButton$DialogCommon$options.icon?'large-header':''}} _3f95c5a">{{$orderDetail$OrderDetailButton$DialogCommon$options.title||''}}</view>
+                    <scroll-view class="dialog-container-content {{$orderDetail$OrderDetailButton$DialogCommon$options.contentScrollable?'scrollable':''}} _3f95c5a" scrollY="{{$orderDetail$OrderDetailButton$DialogCommon$options.contentScrollable}}" style="{{$orderDetail$OrderDetailButton$DialogCommon$options.contentExtraStyle}}">{{$orderDetail$OrderDetailButton$DialogCommon$options.content||''}}</scroll-view>
+                    <view class="dialog-container-buttons {{$orderDetail$OrderDetailButton$DialogCommon$options.btnLayout}} {{$orderDetail$OrderDetailButton$DialogCommon$options.btnStyle}} {{'count'+$orderDetail$OrderDetailButton$DialogCommon$options.buttons.length}} _3f95c5a">
+                        <view bindtap="$orderDetail$OrderDetailButton$DialogCommon$onButton" class="dialog-container-buttons-button {{button.main?'main':''}} _3f95c5a" data-wpyonbutton-a="{{index}}" data-wpyonbutton-b="{{$orderDetail$OrderDetailButton$DialogCommon$$event}}" style="{{button.style}}" wx:for="{{$orderDetail$OrderDetailButton$DialogCommon$options.buttons}}" wx:for-item="button" wx:key="text">
+          {{button.text}}
+          <button bindgetphonenumber="$orderDetail$OrderDetailButton$DialogCommon$onGetPhoneNumber" class="_3f95c5a" data-share-data="{{button.shareData}}" data-wpyongetphonenumber-a="{{index}}" data-wpyongetphonenumber-b="{{$orderDetail$OrderDetailButton$DialogCommon$$event}}" openType="{{button.openType}}">{{button.buttonText}}</button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="$orderDetail$OrderDetailPopup$popup$onHide" class="popup-mask" hidden="{{$orderDetail$OrderDetailPopup$popup$isHidden}}" wx:if="{{$orderDetail$OrderDetailPopup$popup$hasMask&&$orderDetail$OrderDetailPopup$popup$popType!='tip'}}"></view>
+            <view class="{{'popup-wrap pop-'+$orderDetail$OrderDetailPopup$popup$position}}" style="{{$orderDetail$OrderDetailPopup$popup$animationStyle}}">
+                <view>
+                    <view class="order-detail-cancel" wx:if="{{$orderDetail$OrderDetailPopup$popupStatus.orderCancelReason}}">
+                        <view bindtap="$orderDetail$OrderDetailPopup$orderCancelReason" class="order-detail-cancel-board" data-id="{{index}}" wx:for="{{$orderDetail$OrderDetailPopup$cancelReason}}" wx:key="{{index}}">{{item}}
+        </view>
+                        <view bindtap="$orderDetail$OrderDetailPopup$orderCancelHide" class="order-detail-cancel-cancel">取消</view>
+                    </view>
+                    <view class="order-detail-post" wx:if="{{$orderDetail$OrderDetailPopup$popupStatus.post}}">
+                        <view bindtap="$orderDetail$OrderDetailPopup$sellerPost" class="order-detail-post-board">快递发货</view>
+                        <view bindtap="$orderDetail$OrderDetailPopup$sellerf2f" class="order-detail-post-board">当面交易</view>
+                        <view bindtap="$orderDetail$OrderDetailPopup$orderCancelHide" class="order-detail-post-cancel">取消</view>
+                    </view>
+                    <view class="order-detail-confirm" wx:if="{{$orderDetail$OrderDetailPopup$popupStatus.confirmGet}}">
+                        <view class="order-detail-confirm-title">手机安全验证</view>
+                        <view class="order-detail-confirm-tel">
+                            <view class="order-detail-confirm-tel-detail">验证码已发至：
+            <view class="order-detail-confirm-tel-detail-tel">{{$orderDetail$OrderDetailPopup$userInfo.userTel}}</view>
+                            </view>
+                            <view class="order-detail-confirm-tel-countDown" hidden="{{$orderDetail$OrderDetailPopup$captcha}}">{{$orderDetail$OrderDetailPopup$captchaCountDown}}</view>
+                            <view bindtap="$orderDetail$OrderDetailPopup$reRendCaptcha" class="order-detail-confirm-tel-reSend" hidden="{{!$orderDetail$OrderDetailPopup$captcha}}">重新发送</view>
+                        </view>
+                        <view class="order-detail-confirm-tip">确认收货后，交易将结束，请您确认已收到物品并确认物品状态</view>
+                        <view class="order-detail-confirm-captcha">{{$orderDetail$OrderDetailPopup$captchaNum}}</view>
+                        <view class="order-detail-confirm-err" wx:if="!!{{$orderDetail$OrderDetailPopup$captchaErr}}">{{$orderDetail$OrderDetailPopup$captchaErr}}</view>
+                        <view class="auction-board-keys">
+                            <button bindtap="$orderDetail$OrderDetailPopup$typeTap" class="auction-board-key border-bottom border-right" data-index="{{index+1}}" wx:for="{{9}}" wx:key="{{index}}">
+            {{index+1}}
+          </button>
+                            <button bindtap="$orderDetail$OrderDetailPopup$typeTap" class="auction-board-key border-bottom border-right auction-board-key-gray" data-index="00"></button>
+                            <button bindtap="$orderDetail$OrderDetailPopup$typeTap" class="auction-board-key border-bottom border-right" data-index="0">0</button>
+                            <button bindtap="$orderDetail$OrderDetailPopup$backTap" class="auction-board-key border-bottom border-right auction-board-key-gray">
+                                <image class="auction-board-key-backspace" src="https://img.58cdn.com.cn/zhuanzhuan/zzwa/main/orderDetail/backspace.png"></image>
+                            </button>
+                        </view>
+                    </view>
+                </view>
+                <view class="popup-content-container" wx:if="{{$orderDetail$OrderDetailPopup$popup$popType!='custom'}}">
+                    <view class="popup-content-confirm" wx:if="{{$orderDetail$OrderDetailPopup$popup$popType=='confirm'}}">
+                        <view class="popup-content-confirm-title">{{$orderDetail$OrderDetailPopup$popup$confirmConfig.title}}</view>
+                        <button bindtap="$orderDetail$OrderDetailPopup$popup$onAgree" class="popup-content-confirm-button popup-content-confirm-yes">{{$orderDetail$OrderDetailPopup$popup$confirmConfig.confirmText}}</button>
+                        <button bindtap="$orderDetail$OrderDetailPopup$popup$onCancel" class="popup-content-confirm-button popup-content-confirm-no">{{$orderDetail$OrderDetailPopup$popup$confirmConfig.cancelText}}</button>
+                    </view>
+                    <view class="popup-content-tip" wx:if="{{$orderDetail$OrderDetailPopup$popup$popType==='tip'}}">
+                        <view class="popup-content-tip-text">
+            {{$orderDetail$OrderDetailPopup$popup$tipConfig.text}}
+          </view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="$orderDetail$Dialog$Mask$handleTap" class="mask" style="background-color:{{$orderDetail$Dialog$Mask$color}};opacity:{{$orderDetail$Dialog$Mask$opacity}};z-index:{{$orderDetail$Dialog$Mask$zIndex}}" wx:if="{{$orderDetail$Dialog$Mask$show}}"></view>
+            <view class="common-dialog" hidden="{{$orderDetail$Dialog$isHidden}}">
+                <view class="common-dialog-title">
+                    <view bindtap="$orderDetail$Dialog$closeHandle" class="common-dialog-title-close">
+                        <view class="common-dialog-title-close-img"></view>
+                    </view>
+                </view>
+                <view class="common-dialog-content">
+                    <view class="common-dialog-content-title" hidden="{{!$orderDetail$Dialog$isShowTitle}}">{{$orderDetail$Dialog$title}}</view>
+                    <view class="common-dialog-content-detail">{{$orderDetail$Dialog$content}}</view>
+                </view>
+                <view class="common-dialog-buttons" style="display:{{$orderDetail$Dialog$buttonType}}">
+                    <button bindtap="$orderDetail$Dialog$buttonHandle" class="common-dialog-buttons-button {{$orderDetail$Dialog$isFlexButton?'common-dialog-buttons-button-flex':''}} {{item.isLeftButton?'common-dialog-buttons-button-leftButton':''}} {{item.isRightButton?'common-dialog-buttons-button-rightButton':''}}" data-index="{{index}}" wx:for="{{$orderDetail$Dialog$buttons}}" wx:key="{{index}}">
+        {{item.text}}
+      </button>
+                </view>
+            </view>
+            <view class="zzwa_loading" wx:if="{{!$orderDetail$dataReady}}"></view>
+            <view catchtouchmove="$orderDetail$DialogCommon$onScroll" class="dialog _3f95c5a" wx:if="{{$orderDetail$DialogCommon$show}}">
+                <view class="dialog-mask _3f95c5a"></view>
+                <view class="dialog-container _3f95c5a" style="{{$orderDetail$DialogCommon$options.containerExtraStyle}}">
+                    <image class="dialog-icon {{$orderDetail$DialogCommon$options.icon?$orderDetail$DialogCommon$options.icon.className:''}} _3f95c5a" src="{{$orderDetail$DialogCommon$options.icon.src}}" wx:if="{{$orderDetail$DialogCommon$options.icon}}"></image>
+                    <view bindtap="$orderDetail$DialogCommon$onClose" class="dialog-container-close _3f95c5a" wx:if="{{!$orderDetail$DialogCommon$options.hideCloseIcon}}">
+                        <text class="dialog-container-close-x _3f95c5a"></text>
+                    </view>
+                    <view class="dialog-container-title {{$orderDetail$DialogCommon$options.icon?'large-header':''}} _3f95c5a">{{$orderDetail$DialogCommon$options.title||''}}</view>
+                    <scroll-view class="dialog-container-content {{$orderDetail$DialogCommon$options.contentScrollable?'scrollable':''}} _3f95c5a" scrollY="{{$orderDetail$DialogCommon$options.contentScrollable}}" style="{{$orderDetail$DialogCommon$options.contentExtraStyle}}">{{$orderDetail$DialogCommon$options.content||''}}</scroll-view>
+                    <view class="dialog-container-buttons {{$orderDetail$DialogCommon$options.btnLayout}} {{$orderDetail$DialogCommon$options.btnStyle}} {{'count'+$orderDetail$DialogCommon$options.buttons.length}} _3f95c5a">
+                        <view bindtap="$orderDetail$DialogCommon$onButton" class="dialog-container-buttons-button {{button.main?'main':''}} _3f95c5a" data-wpyonbutton-a="{{index}}" data-wpyonbutton-b="{{$orderDetail$DialogCommon$$event}}" style="{{button.style}}" wx:for="{{$orderDetail$DialogCommon$options.buttons}}" wx:for-item="button" wx:key="text">
+          {{button.text}}
+          <button bindgetphonenumber="$orderDetail$DialogCommon$onGetPhoneNumber" class="_3f95c5a" data-share-data="{{button.shareData}}" data-wpyongetphonenumber-a="{{index}}" data-wpyongetphonenumber-b="{{$orderDetail$DialogCommon$$event}}" openType="{{button.openType}}">{{button.buttonText}}</button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="$PageFrame$BackHome$onBackHome" bindtouchstart="$PageFrame$BackHome$onTouchstart" catchtouchmove="$PageFrame$BackHome$onTouchmove" class="backHome {{$PageFrame$BackHome$pageBodyReady?'ready':'unready'}} _757a836 _18ffead" style="background-image: url('{{$PageFrame$BackHome$backHome.icon}}'); {{$PageFrame$BackHome$backHome.extraStyle}}; transform: translate3d({{$PageFrame$BackHome$eleOffset.x}}px, {{$PageFrame$BackHome$eleOffset.y}}px, 0); " wx:if="{{$PageFrame$BackHome$backHome.show}}"></view>
+    <view bindtap="$PageFrame$ErrorTip$refresh" class="tip _f2dd71c _18ffead" wx:if="{{$PageFrame$ErrorTip$show}}">
+        <image class="error-icon _f2dd71c" src="{{$PageFrame$ErrorTip$icon}}"></image>
+        <view class="error-tip _f2dd71c">{{$PageFrame$ErrorTip$errorTip}}</view>
+    </view>
+</view>

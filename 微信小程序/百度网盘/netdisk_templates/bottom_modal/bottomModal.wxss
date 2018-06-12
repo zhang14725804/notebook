@@ -1,0 +1,90 @@
+.bottom-modal-container {
+    position: fixed;
+    z-index: 110;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    visibility: visible;
+}
+
+.bottom-modal-container.hidden-modal {
+    visibility: hidden;
+}
+
+.bottom-modal-container .modal-background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 110;
+    background-color: rgba(0,0,0,0.4);
+    transition: all 0.2s;
+    opacity: 1;
+}
+
+.bottom-modal-container.hidden-modal .modal-background {
+    opacity: 0;
+}
+
+.bottom-modal-container.hidden-modal .modal-content {
+    height: 0;
+}
+
+.bottom-modal-container .modal-content {
+    height: 418rpx;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #F7F7F7;
+    z-index: 111;
+    transition: all 0.22s;
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom-modal-container .modal-content .modal-title {
+    padding-top: 38rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    font-size: 26rpx;
+    color: #999;
+    text-align: center;
+    background-color: #fff;
+}
+
+.bottom-modal-container .modal-content .modal-op-box {
+    display: flex;
+    height: 226rpx;
+}
+
+.bottom-modal-container .modal-content .modal-op-box .modal-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    font-size: 26rpx;
+    color: #333;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom-modal-container .modal-content .modal-op-box .op-icon {
+    width: 48rpx;
+    height: 48rpx;
+    background-size: 48rpx;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 18rpx;
+}
+
+.bottom-modal-container .modal-content .modal-cancel {
+    height: 100rpx;
+    margin-top: 12rpx;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    text-align: center;
+    color: #333;
+    background-color: #fff;
+}

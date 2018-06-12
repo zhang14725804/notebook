@@ -1,0 +1,124 @@
+.producticon-container {
+    width: 100%;
+    height: 100%;
+}
+
+.producticon-container:after {
+    content: '';
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.producticon-swiper {
+    width: 100%;
+    height: 210rpx;
+    white-space: nowrap;
+}
+
+.producticon-item {
+    white-space: normal;
+    display: inline-block;
+    width: 243rpx;
+    height: 286rpx;
+    background-image: url("https://sr.aihuishou.com/activity/minapp/collectcard.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.producticon-item-crosswise {
+    white-space: normal;
+    display: inline-block;
+    width: 180rpx;
+    height: 210rpx;
+    background-image: url("https://sr.aihuishou.com/activity/minapp/friendsmallredpack.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.uncollected {
+    opacity: 0.7;
+}
+
+.head-image {
+    float: left;
+    width: 30.6rpx;
+    height: 30.6rpx;
+    background-image: url('https://sr.aihuishou.com/activity/minapp/defaultsmall.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 30.6rpx;
+    margin-left: 37.8rpx;
+    margin-top: 15px;
+}
+
+.head-image-crosswise {
+    float: left;
+    width: 30.6rpx;
+    height: 30.6rpx;
+    background-image: url('https://sr.aihuishou.com/activity/minapp/defaultsmall.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 30.6rpx;
+    margin-left: 25.6rpx;
+    margin-top: 12px;
+}
+
+.producticon-item p {
+    float: left;
+    font-size: 22rpx;
+    display: block;
+    width: 132rpx;
+    padding-top: 30.6rpx;
+    padding-left: 7.2rpx;
+    color: #fff;
+    line-height: 30rpx;
+}
+
+.producticon-item-crosswise p {
+    float: left;
+    font-size: 18rpx;
+    display: block;
+    width: 93rpx;
+    padding-top: 24.5rpx;
+    padding-left: 5.8rpx;
+    color: #fff;
+    line-height: 25rpx;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.li-title {
+    height: 134.4rpx;
+    display: block;
+}
+
+.li-title-crosswise {
+    height: 95.4rpx;
+    display: block;
+}
+
+.product-icon {
+    width: 99rpx;
+    height: 99rpx;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+}
+
+.product-icon-crosswise {
+    width: 76rpx;
+    height: 76rpx;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+}
+
+.producticon-scroll-view {
+    width: 750rpx;
+    height: 280rpx;
+}

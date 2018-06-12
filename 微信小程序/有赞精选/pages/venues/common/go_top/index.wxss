@@ -1,0 +1,21 @@
+.go-top {
+    z-index: 9;
+    position: fixed;
+    right: 28rpx;
+    bottom: 60rpx;
+    width: 90rpx;
+    height: 90rpx;
+}
+
+.go-top.show {
+    display: block;
+}
+
+.go-top.hide {
+    display: none;
+}
+
+.go-top image {
+    width: 100%;
+    height: 100%;
+}

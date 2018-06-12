@@ -1,0 +1,256 @@
+@font-face {
+    font-family: "font_steelfish";
+    src: url('https://wq.360buyimg.com/data/ppms/others/steelfishRg.svg') format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+page {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f7f7f7;
+}
+
+page::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 0;
+    border-bottom: 1rpx solid #ddd;
+    z-index: 100;
+}
+
+scroll-view {
+    overflow: hidden;
+}
+
+.line1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.line2,.line3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.line3 {
+    -webkit-line-clamp: 3;
+}
+
+.btn_disabled {
+    color: #999;
+    background-color: #ccc;
+}
+
+.back2top {
+    position: fixed;
+    display: block;
+    right: 0;
+    bottom: 40px;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(0,0,0,.7);
+    border-radius: 4px 0 0 4px;
+}
+
+.back2top::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAoCAMAAACo9wirAAAAOVBMVEUAAAD///////////////////////////////////////////////////////////////////////8KOjVvAAAAEnRSTlMAEMzaFBwY19TH0LLew6geDSAgzKgRAAAAi0lEQVQ4y+3SSQ7CMBBE0fIQJ44JQ93/sKSRrBI2MWtQatn/LRuFw12/g39c9DkO+0KucdxHIq7cxUzvjnskk4nDDhISXU8wgBQ+COc5792ARNcrwGSi7wImsut6BRLqIUFAQn2CQBUXbvdXz9Z7gJsJdYFGFHUBiYKyqLcAj6C3F3jfCX4Y5K05PAF+zg1twSpO/gAAAABJRU5ErkJggg==");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 20px;
+}
+
+.fixed_return {
+    position: fixed;
+    right: 0;
+    bottom: 85px;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(0,0,0,.7);
+    border-radius: 4px 0 0 4px;
+}
+
+.fixed_return::before {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 32px;
+    color: white;
+    font-size: 11px;
+    text-align: center;
+    background-image: url('https://img11.360buyimg.com/jdphoto/s80x80_jfs/t19345/2/453803839/1301/1a09aa7e/5a7916edNb95aedac.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+
+.fixed_return::after {
+    content: '京东首页';
+    position: relative;
+    display: block;
+    top: -2px;
+    font-size: 8px;
+    text-align: center;
+    color: #f7f7f7;
+}
+
+.fixed_return.cate_text::after {
+    content: "返回分类";
+    width: 26px;
+    height: 26px;
+    line-height: 13px;
+    background-image: none;
+}
+
+.flag_solid,.flag_hollow {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -2px;
+    box-sizing: border-box;
+    padding: 2px 3px;
+    line-height: 1;
+    font-size: 10px;
+    border-radius: 2px;
+}
+
+.flag_solid {
+    color: #fff;
+    background: #E93B3D;
+}
+
+.flag_solid.green {
+    background: #09bb07;
+}
+
+.flag_quality {
+    position: relative;
+    width: 86rpx;
+    height: 28rpx;
+    line-height: 28rpx;
+    vertical-align: middle;
+    font-size: 20rpx;
+    color: #6400c6;
+    background: #fff;
+    border: 1rpx solid #6400c6;
+    border-radius: 4rpx;
+    padding-left: 36rpx;
+}
+
+.flag_quality:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 32rpx;
+    height: 30rpx;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAMAAAB61OwbAAAAgVBMVEVkAMVkAMVkAMUAAABkAMVkAMX///+3h+Tr3vdsDcimbN6BMNB6JM369/3LqeyZV9l8J853H81nBMb38vz28Pzo2ffk0vWwfeKNQ9VpCcf7+P3z6/q/lee0guOpcd9zGcvx6PrVue/AmOi8kOaWUdiIOtPy6frRs+7Al+eocN6dXtrQCdeIAAAABXRSTlPxrSYAKAFLLCwAAAD6SURBVCjPlZPZEoIwDEVx6V4sRVbZ3Lf//0ClrdpihfG+cJucySQTEizmswCMKJir9AgwAxOAU6C4SdkWLmD5kkIlWnoBjuFbOPIAB2jp8A2ItcpsQvVZiyGQQ63Lyph8ALzid2HMagDUz9gW45SQFOPt81G7QNR3kHL9kFnfhXSAVpWtTr0/ndWjdSuEeoYOAKJtGLk97FU0BWUJMmX33ikQzzLeeKdAGkggTIwdADHdQEshjb92cbWB2rMsVn3yFfMAIO5ys4Yu9v8wBRGIMSRIAfwA2kneNDzaoV8ANBoDkmQUwJQQil3AIthRT3Nkfx3OcuL0Jo/3AYtTGswTJOvlAAAAAElFTkSuQmCC') no-repeat;
+    background-color: #6400c6;
+    background-size: 100% 100%;
+}
+
+.flag_hollow {
+    color: #E93B3D;
+    background: #fff;
+    border: 1rpx solid #E93B3D;
+}
+
+.reset_btn {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    border-radius: 0;
+    color: #333;
+    background-color: transparent;
+}
+
+.reset_btn::after {
+    border: 0;
+}
+
+.x_bg {
+    background: url('https://img11.360buyimg.com/jdphoto/s100x100_jfs/t15085/104/1569475082/1026/e5cd0ac0/5a5319a2Nae505852.png') no-repeat center center;
+    background-size: 80px;
+}
+
+@import "__wuBaseWxss__/4.wxss";
+
+@import "__wuBaseWxss__/5.wxss";
+
+@import "common/address_picker/address_picker.wxss";
+
+@import "common/toast/toast.wxss";
+
+@import "common/modal/modal.wxss";
+
+@import "components/bindpopup/bindpopup.wxss";
+
+@import "__wuBaseWxss__/3.wxss";
+/*! Import by _C[8], whose real path we cannot found. */
+.jd-label {
+    position: absolute;
+    padding-right: 5px;
+    color: white;
+    line-height: 20px;
+    font-size: 12px;
+    background-image: linear-gradient(to right,#e93b3d,#ff9574);
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 4px 6px rgba(233,59,61,.2);
+}
+
+.jd-label::before,.jd-label::after {
+    content: "";
+    position: absolute;
+    left: -5px;
+    width: 5px;
+    border-radius: 5px 0 0 5px;
+}
+
+.jd-label::before {
+    top: 0;
+    height: 28px;
+    background-color: #e93b3d;
+}
+
+.jd-label::after {
+    top: 20px;
+    height: 8px;
+    background-color: #d53f41;
+}
+
+.tag {
+    position: absolute;
+    padding: 0 6px;
+    color: white;
+    line-height: 18px;
+    font-size: 12px;
+    background-image: linear-gradient(to right,#e93b3d,#ff9574);
+    box-shadow: 0 4px 6px rgba(233,59,61,.2);
+}
+
+.btn_grad {
+    width: 80px;
+    line-height: 25px;
+    color: white;
+    background-image: linear-gradient(to right,#e93b3d,#ff9574);
+    border-radius: 999px;
+    box-shadow: 0 6px 10px rgba(233,59,61,.2);
+}
+
+.btn_grad--disabled {
+    opacity: .3;
+}
+/*! Import end */

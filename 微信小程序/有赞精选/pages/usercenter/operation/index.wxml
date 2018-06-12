@@ -1,0 +1,27 @@
+<view class="container">
+    <view class="title">有赞精选盛大招商</view>
+    <text class="txt">有赞精选立足于微信小程序，致力于联合丰富的品牌商、生产商，为商家和消费者之间提供在微信环境内达成交易的电商平台。配备丰富的营销玩法以及运营服务，帮助入驻商家增加产品曝光，促进销售。为消费者提供 100% 品质保证的商品， 7 天无理由退货的售后服务。</text>
+    <block wx:for="{{list}}" wx:key="{{ item.title }}">
+        <view class="sub-title">{{item.title}}</view>
+        <view class="content" wx:for="{{item.contents}}" wx:for-item="content" wx:key="{{ content }}">
+            <text class="txt">{{index+1}}.</text>
+            <text class="txt">{{content}}</text>
+        </view>
+    </block>
+    <view class="sub-title">首批招商，优惠入驻政策</view>
+    <text class="txt">2018 年 3 月 31 日之前入驻的首批商家可享受价值 6.8 万有赞精选资源大礼包，具体资源以与平台沟通为准</text>
+    <view class="sub-title">有赞精选商家入驻流程</view>
+    <view class="row">
+        <block wx:for="{{flows}}" wx:key="item">
+            <view class="col-item">
+                <view class="block-item">{{item}}</view>
+            </view>
+            <view class="col-arrow" wx:if="{{index<3}}">
+                <view class="block-arrow"></view>
+            </view>
+        </block>
+    </view>
+    <view class="sub-title">招商联系</view>
+    <view class="txt">招商邮箱：push@youzan.com</view>
+    <text class="txt">关注“有赞”公众号，回复“招商报名”，自动获取报名链接</text>
+</view>

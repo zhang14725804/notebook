@@ -1,0 +1,173 @@
+.datepicker {
+    width: 100%;
+    background: #f6f6f6;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.datepicker .icon-close {
+    position: absolute;
+    right: 22rpx;
+    top: 22rpx;
+}
+
+.datepicker .icon-daychoice {
+    color: #999999;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.datepicker .hd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88rpx;
+    color: #333;
+    position: relative;
+    background: #fff;
+    border-bottom: 2rpx solid #e5e5e5;
+}
+
+.datepicker .bd {
+    display: flex;
+    flex-direction: column;
+}
+
+.datepicker .bd .navs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #fff;
+    font-size: 24rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.datepicker .bd .navs .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100rpx;
+    flex-grow: 1;
+}
+
+.datepicker .bd .navs .nav.on {
+    color: #FF4444;
+    border-bottom: 4rpx solid #FF4444;
+}
+
+.datepicker .bd .navs .nav.invalid {
+    color: #999999;
+}
+
+.datepicker .bd .navs .nav .month-day {
+    margin-top: 10rpx;
+}
+
+.datepicker .timebox-panel {
+    margin: 42rpx 0 24rpx 0;
+    display: flex;
+    justify-content: center;
+}
+
+.datepicker .timebox-panel scroll-view {
+    height: 540rpx;
+    width: 712rpx;
+}
+
+.datepicker .timebox-panel .timebox {
+    width: 160rpx;
+    height: 72rpx;
+    border: 2rpx solid rgba(153,153,153,0.5);
+    box-sizing: border-box;
+    margin: 10rpx 8rpx;
+    font-size: 26rpx;
+    display: inline-block;
+    text-align: center;
+    line-height: 72rpx;
+    color: #333;
+    background: #fff;
+    border-radius: 4rpx;
+}
+
+.datepicker .timebox-panel .timebox.current {
+    background: #f44;
+    border: 1rpx solid #FF4444;
+    color: #FFFFFF;
+}
+
+.datepicker .timebox-panel .timebox.expired {
+    background: #F2F2F2;
+    border: 1rpx solid #E5E5E5;
+    color: #CACACA;
+}
+
+.datepicker .ft button {
+    background: #f44;
+    height: 100rpx;
+    color: #fff;
+    border-radius: 4rpx;
+}
+
+.datepicker .bd .monthday-view .navs {
+    background: #f6f6f6;
+    border: 0;
+    padding: 0 10rpx;
+}
+
+.datepicker .bd .monthday-view .daybox-panel {
+    display: flex;
+    justify-content: center;
+}
+
+.datepicker .bd .monthday-view .daybox-panel scroll-view {
+    height: 640rpx;
+    width: 714rpx;
+}
+
+.datepicker .bd .monthday-view .daybox-panel .dayboxs {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40rpx;
+}
+
+.datepicker .bd .monthday-view .daybox-panel .dayboxs .dt {
+    flex-grow: 1;
+    text-align: right;
+    font-size: 24rpx;
+    color: #999999;
+    margin-bottom: 20rpx;
+}
+
+.datepicker .bd .monthday-view .daybox-panel .dayboxs .di .daybox {
+    display: inline-block;
+    width: 86rpx;
+    height: 76rpx;
+    margin: 10rpx 6rpx;
+    text-align: center;
+    line-height: 80rpx;
+    border: 2rpx solid rgba(153,153,153,0.5);
+    border-radius: 4rpx;
+    background: #FFFFFF;
+}
+
+.datepicker .bd .monthday-view .daybox-panel .dayboxs .di .daybox.expired {
+    color: #bbb;
+}
+
+.datepicker .bd .monthday-view .daybox-panel .dayboxs .di .daybox.current {
+    border-color: rgba(208,59,92,0.5);
+    background: #f44;
+    color: #FFFFFF;
+}
+
+.datepicker .bd .monthday-view .daybox-panel .dayboxs .di .daybox.today {
+    border-color: rgba(208,59,92,0.5);
+}
+
+.datepicker .bd .monthday-view .daybox-panel .dayboxs .di .daybox.empty {
+    height: 0;
+    visibility: hidden;
+}

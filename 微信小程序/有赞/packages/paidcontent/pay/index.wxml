@@ -1,0 +1,48 @@
+<import src="../../../bower_components/zan/dist/tab/index.wxml"></import>
+<import src="../../../bower_components/zan/dist/loadmore/index.wxml"></import>
+<import src="../../../components/pay/cashier/index.wxml"></import>
+<view class="{{themeClass}}" wx:if="{{fetched}}">
+    <view class="white-wp">
+        <view class="price-wp">
+            <text class="price">{{price}}</text>
+        </view>
+        <view class="pay-title">购买{{isColumn?'专栏':'内容'}}</view>
+        <view class="pay-info {{isColumn?'--column':''}}">
+            <view wx:if="{{isColumn}}">
+                <image class="column-image" mode="aspectFill" src="{{cover}}"></image>
+                <view class="column-desc">
+                    <view class="column-title">{{title}}</view>
+                    <view class="column-summary">{{summary}}</view>
+                    <view class="column-more">
+                        <text class="column-update">已更新 {{contentsCount}} 期</text>
+                        <text class="column-price">￥{{price}}</text>
+                    </view>
+                </view>
+            </view>
+            <view wx:else>
+                <view class="content-image-wp">
+                    <image class="content-image" mode="aspectFill" src="{{cover}}"></image>
+                    <image class="article-icon image-icon" src="https://img.yzcdn.cn/weapp/paidcontent/doc.png" wx:if="{{mediaType===1}}"></image>
+                    <image class="audio-icon image-icon" src="https://img.yzcdn.cn/weapp/paidcontent/music.png" wx:elif="{{mediaType===2}}"></image>
+                    <image class="video-icon image-icon" src="https://img.yzcdn.cn/weapp/paidcontent/video.png" wx:else></image>
+                </view>
+                <view class="content-desc">
+                    <view class="content-title">{{title}}</view>
+                    <view class="content-summary">{{summary}}</view>
+                    <view class="price-item">
+                        <text class="publish-time">{{time}}</text>
+                        <text>￥{{price}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="buyClick" class="buy-btn {{isColumn?'more-margin':''}}">
+    去支付
+  </view>
+</view>
+<import src="../../../components/copyright/index.wxml"></import>
+<template is="copyright" data="{{copyright:copyright,is_big_shop:is_big_shop}}" wx:if="{{fetched}}"></template>
+<template is="$cashier" data="{{$cashier:$cashier}}"></template>
+<import src="../../../pages/common/wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

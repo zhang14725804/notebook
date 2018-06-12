@@ -1,0 +1,30 @@
+<template name="msgBox$1551ac0b">
+    <view class="_div data-v-29921618 {{['wrapperClass',msgBoxClassName]}}" ref="boxWrapper">
+        <view class="_div data-v-29921618 {{boxClass}}">
+            <view class="_div data-v-29921618 msgBox outerStyle" ref="box">
+                <view class="_div data-v-29921618 msgBox-container containerStyle">
+                    <view class="_div data-v-29921618 msgBox-title titleStyle">
+                        <view class="_div data-v-29921618" wx:for="{{title}}">
+                            <view class="_div data-v-29921618">{{item}}</view>
+                        </view>
+                    </view>
+                    <view class="_div data-v-29921618 msgBox-content contentStyle">
+                        <view class="_div data-v-29921618" wx:for="{{content}}">
+                            <view class="_div data-v-29921618">{{item}}</view>
+                        </view>
+                    </view>
+                    <view class="_div data-v-29921618 msgBox-bottom bottomStyle">
+                        <view class="_div data-v-29921618 alert" wx:if="{{type==='alert'}}">
+                            <view bindtap="handleProxy" class="_div data-v-29921618 ok okStyle" data-comkey="{{$k}}" data-eventid="{{'0'}}">{{okButtonText}}</view>
+                        </view>
+                        <view class="_div data-v-29921618 confirm" wx:if="{{type==='confirm'}}">
+                            <view bindtap="handleProxy" class="_div data-v-29921618 sure sureStyle" data-comkey="{{$k}}" data-eventid="{{'1'}}">{{sureButtonText}}</view>
+                            <view bindtap="handleProxy" class="_div data-v-29921618 cancel cancelStyle" data-comkey="{{$k}}" data-eventid="{{'2'}}"> {{cancelButtonText}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="_div data-v-29921618 popup-mask maskStyle"></view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,23 @@
+<view class="preview-audio-wrap">
+    <view class="top-gap"></view>
+    <view class="audio-bg-wrap">
+        <view class="audio-bg"></view>
+    </view>
+    <view class="audio-name">{{audioName}}</view>
+    <view class="audio-size">{{audioSize}}</view>
+    <view class="audio-control-wrap">
+        <view class="audio-duration-wrap">
+            <text class="audio-currenttime">{{currentTime}}</text>
+            <view class="duration-bg">
+                <view class="duration-now" style="width: {{audioProgress}}%;"></view>
+                <view bindtouchend="durationEnd" bindtouchmove="durationMove" bindtouchstart="durationStart" class="duration-node" style="left: {{audioProgress}}%;"></view>
+            </view>
+            <text class="audio-endtime">{{endTime}}</text>
+        </view>
+        <view class="audio-control">
+            <view bindtap="previousPlay" class="previous-track"></view>
+            <view bindtap="audioPlay" class="{{isPlay===true?'play':'pause'}}"></view>
+            <view bindtap="nextPlay" class="next-track"></view>
+        </view>
+    </view>
+</view>

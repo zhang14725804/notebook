@@ -1,0 +1,46 @@
+<import src="../../../../components/copyright/index.wxml"></import>
+<import src="../../../../bower_components/zan/dist/tab/index.wxml"></import>
+<view class="page-container {{deviceType}} {{themeClass}}">
+    <view class="container" wx:if="{{!fetching}}">
+        <template is="zan-tab" data="{{tab:{list:expressList,selectedId:selectedId},componentId:'expressTab'}}" wx:if="{{expressList.length>1}}"></template>
+        <view class="express__hd zan-card zan-panel zan-cell zan-cell--last-child" wx:if="{{expressMap[selectedId].express_no}}">
+            <view class="zan-cell__bd">
+                <view class="express-card__thumb zan-card__thumb">
+                    <image class="express-card__img zan-card__img" mode="aspectFit" src="{{image_url}}"></image>
+                </view>
+                <view class="express-card__detail zan-card__detail">
+                    <view class="express-card__title">
+                        <text>物流状态: </text>
+                        <text class="zan-c-red">{{expressMap[selectedId].state}}</text>
+                    </view>
+                    <view class="zan-c-gray-dark zan-font-12">
+            共{{goods_count}}件商品，由【{{expressMap[selectedId].name}}】承运
+          </view>
+                    <view class="zan-c-gray-dark zan-font-12">
+            运单编号：{{expressMap[selectedId].express_no}}
+          </view>
+                </view>
+            </view>
+        </view>
+        <view class="express__bd zan-panel">
+            <view class="exp-item zan-cell {{index==0?'exp-item--active':''}} {{index+1==expressMap[selectedId].trace.length?'zan-cell--last-child':''}}" wx:if="{{expressMap[selectedId].trace.length>0}}" wx:for="{{expressMap[selectedId].trace}}" wx:for-item="expressItem" wx:key="index">
+                <view class="exp-item__line"></view>
+                <view class="zan-cell__bd">
+                    <view class="exp-item__content exp-item__title">
+                        <view class="exp-item__icon"></view>
+                        <text>{{expressItem.context}}</text>
+                    </view>
+                    <view class="exp-item__content zan-font-12">
+            {{expressItem.time}}
+          </view>
+                </view>
+            </view>
+            <view class="exp-empty zan-center" wx:if="{{expressMap[selectedId].trace.length==0}}">
+        暂无物流信息
+      </view>
+        </view>
+    </view>
+</view>
+<template is="copyright" data="{{copyright:copyright,is_big_shop:is_big_shop}}"></template>
+<import src="../../../../pages/common/wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

@@ -1,0 +1,12 @@
+<template name="searchbar">
+    <view class="search__container" style="background-color:{{searchbg||'#F2F2F2'}}">
+        <view class="search__corner">
+            <input autoFocus="{{autoFocus||true}}" bindblur="_searchBlur" bindconfirm="_searchDone" bindfocus="_searchBegin" bindinput="_searchInput" class="search__input" confirmType="search" focus="{{isfocus}}" placeholder="{{search_placeholder||'搜索商品'}}" placeholderStyle=" color:#999;" type="text" value="{{inputvalue}}"></input>
+            <icon bindtap="_searchContentClear" class="search__cancel" hidden="{{isShowClearButton?false:true}}" size="14" type="clear"></icon>
+            <view class="search__placeholder-left">
+                <image class="search_view_image" mode="aspectFit" src="https://img.yzcdn.cn/public_files/2017/06/20/5b0dddce35543f50e1a2232c44fb58f2.png"></image>
+            </view>
+        </view>
+        <view bindtap="_searchCancel" class="search_cancel_btn">取消</view>
+    </view>
+</template>

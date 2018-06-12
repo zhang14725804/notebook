@@ -1,0 +1,21 @@
+<view class="bottomcart iphonex-class">
+    <view bindtap="showTakeoutCartAction" class="bottomcart__cart-icon {{utils.getCartIconClass(allChoosedNum,allChoosedPrice,startFee)}} {{allChoosedNum==0?'bottomcart__cart-icon--zero':''}}">
+        <view class="bottomcart__icon-wrapper">
+            <view class="bottomcart__icon"></view>
+            <view class="bottomcart__choosed-num {{allChoosedNum>=10?'bottomcart__choosed-num--big':''}}">
+        {{allChoosedNum}}
+      </view>
+        </view>
+        <view class="bottomcart__choosed-price-wrapper">
+      合计：<text class="bottomcart__choosed-price">￥{{utils.cent2yuan(allChoosedPrice)}}</text>
+        </view>
+    </view>
+    <view class="bottomcart__buy-button bottomcart__buy-button--disabled" wx:if="{{allChoosedPrice===0&&allChoosedPrice<=startFee}}">
+    满{{utils.cent2yuan(startFee)}}元起送
+  </view>
+    <view class="bottomcart__buy-button bottomcart__buy-button--disabled" wx:elif="{{allChoosedPrice!==0&&allChoosedPrice<startFee}}">
+    还差{{utils.getPriceGap(startFee,allChoosedPrice)}}元起送
+  </view>
+    <view bindtap="goToPay" class="bottomcart__buy-button" wx:else>去结算</view>
+</view>
+<wxs module="utils" src="../index.wxs" />

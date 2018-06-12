@@ -1,0 +1,103 @@
+<view class="top-banner" wx:if="{{topBannerText}}">{{topBannerText}}</view>
+<view class="msxcx-layout-mod__ohd">发票类型</view>
+<view class="msxcx-layout-mod" wx:if="{{invoice_type==4}}">
+    <view class="msxcx-layout-mod__bd">
+        <view class="msxcx-widget-list">
+            <view bindtap="typeChecked" class="msxcx-widget-list__item" data-type="{{invoice.value}}" wx:if="{{invoice.value==4}}" wx:for="{{invoice_list}}" wx:for-item="invoice">
+                <view class="msxcx-layout-check-item">
+                    <text>{{invoice.desc}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="tips" wx:if="{{invoice_list.length>=2}}">
+            <text>电子发票与纸质发票具有相同法律效力，可作为报销、售后、维权凭证，推荐使用电子发票，不怕丢失，更方便、环保。
+</text>
+            <text bindtap="typeChecked" class="paper-invoice-btn" data-type="1">选择纸质发票 ></text>
+        </view>
+        <view class="tips" wx:elif="{{invoice_list.length==1}}">
+            <text>该订单只提供电子发票。电子发票是税务局认可的有效凭证，其法律效力、基本用途及使用规定同纸质发票。</text>
+        </view>
+    </view>
+</view>
+<view class="msxcx-layout-mod" wx:if="{{invoice_type==1}}">
+    <view class="msxcx-layout-mod__bd">
+        <view class="msxcx-widget-list">
+            <view bindtap="typeChecked" class="msxcx-widget-list__item" data-type="{{invoice.value}}" wx:for="{{invoice_list}}" wx:for-item="invoice">
+                <view class="msxcx-layout-check-item {{invoice_type==invoice.value?'msxcx-layout-check-item__checked':''}}">
+                    <text>{{invoice.desc}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="tips">
+            <text>电子发票与纸质发票具有相同法律效力，可作为报销、售后、维权凭证，</text>
+            <text class="red">推荐使用电子发票，不怕丢失，更方便、环保。</text>
+        </view>
+    </view>
+</view>
+<view>
+    <view class="msxcx-layout-mod__ohd">发票抬头</view>
+    <view class="msxcx-layout-mod">
+        <view class="msxcx-layout-mod__bd">
+            <view class="mx-invioce-select">
+                <view bindtap="chooseInvoiceTitle" class="{{invoiceTitleType=='personal'?'on':''}}" data-type="personal">个人</view>
+                <view bindtap="chooseInvoiceTitle" class="{{invoiceTitleType=='company'?'on':''}}" data-type="company">单位</view>
+            </view>
+        </view>
+    </view>
+</view>
+<block wx:if="{{invoiceTitleType=='personal'}}">
+    <view class="msxcx-layout-mod__ohd">个人姓名</view>
+    <view class="msxcx-layout-mod">
+        <view class="msxcx-layout-mod__bd">
+            <input bindinput="titleChanged" class="msxcx-widget-input" focus="true" maxlength="50" placeholder="个人" value="{{invoice_title}}"></input>
+        </view>
+    </view>
+</block>
+<block wx:if="{{invoiceTitleType=='company'}}">
+    <block wx:if="{{invoice_type==4}}">
+        <view class="msxcx-layout-mod__ohd">单位名称</view>
+        <view class="msxcx-layout-mod">
+            <view class="msxcx-layout-mod__bd">
+                <input bindinput="titleChanged" class="msxcx-widget-input" focus="true" maxlength="50" placeholder="单位" value="{{invoice_title}}"></input>
+            </view>
+        </view>
+        <view class="msxcx-layout-mod__ohd">企业税号</view>
+        <view class="msxcx-layout-mod">
+            <view class="msxcx-layout-mod__bd">
+                <input bindinput="codeChanged" class="msxcx-widget-input" maxlength="20" placeholder="纳税人识别号或统一社会信用代码" value="{{invoice_company_code}}"></input>
+            </view>
+        </view>
+    </block>
+    <block wx:elif="{{invoice_type==1}}">
+        <view class="msxcx-layout-mod__ohd">单位名称</view>
+        <view class="msxcx-layout-mod">
+            <view class="msxcx-layout-mod__bd">
+                <input bindinput="titleChanged" class="msxcx-widget-input" focus="true" maxlength="50" placeholder="单位" value="{{invoice_title}}"></input>
+            </view>
+        </view>
+        <view class="msxcx-layout-mod__ohd">企业税号</view>
+        <view class="msxcx-layout-mod">
+            <view class="msxcx-layout-mod__bd">
+                <input disabled bindinput="" class="msxcx-widget-input" maxlength="20" placeholder="小米商城纸质发票目前暂不支持填写税号" style="color:#ccc;" value="" wx:if="{{not_show_company_code}}"></input>
+                <input bindinput="codeChanged" class="msxcx-widget-input" maxlength="20" placeholder="纳税人识别号或统一社会信用代码" value="{{invoice_company_code}}" wx:else></input>
+            </view>
+        </view>
+    </block>
+</block>
+<block wx:if="{{invoice_type==4}}">
+    <view class="msxcx-layout-mod__ohd">收票人手机</view>
+    <view class="msxcx-layout-mod">
+        <view class="msxcx-layout-mod__bd">
+            <input bindinput="telChanged" class="msxcx-widget-input" focus="true" maxlength="20" placeholder="电子发票开具后短信告知你（选填）" value="{{invoice_tel}}"></input>
+        </view>
+    </view>
+</block>
+<block wx:if="{{invoice_type==4}}">
+    <view class="msxcx-layout-mod__ohd">收票人邮箱</view>
+    <view class="msxcx-layout-mod">
+        <view class="msxcx-layout-mod__bd">
+            <input bindinput="emailChanged" class="msxcx-widget-input" focus="true" maxlength="50" placeholder="用于接收电子发票（选填）" value="{{invoice_email}}"></input>
+        </view>
+    </view>
+</block>
+<button bindtap="confirmChecked" class="msxcx-widget-btn" type="mi">确定</button>

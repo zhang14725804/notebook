@@ -1,0 +1,135 @@
+@import "../searchbar.wxss";
+
+page {
+    padding: 76rpx 0 0;
+}
+
+.searchbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.list {
+    margin: 20rpx 0 0;
+}
+
+.list-gap {
+    height: 2rpx;
+    background: #ededed;
+    margin-left: 30rpx;
+}
+
+.list-t {
+    color: #999;
+    font-size: 44rpx;
+    line-height: 68rpx;
+    padding: 0 80rpx 0 0;
+    margin: 0 30rpx;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.list-t_zh {
+    color: #111;
+}
+
+.list-t_en {
+    color: #999;
+    font-size: 24rpx;
+    margin-left: 10rpx;
+    text-transform: uppercase;
+}
+
+.list-t_more {
+    background: #fff;
+    color: #111;
+    font-size: 24rpx;
+    position: absolute;
+    margin-top: 6rpx;
+    right: 0;
+    padding: 0 20rpx 0 10rpx;
+}
+
+.list-t_more::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 8rpx solid transparent;
+    border-left: 16rpx solid #111;
+    border-bottom: 8rpx solid transparent;
+    position: absolute;
+    top: 50%;
+    margin-top: -8rpx;
+    right: 0;
+}
+
+.list-c {
+    white-space: nowrap;
+    height: 322rpx;
+    padding-bottom: 36rpx;
+}
+
+.list-c-item {
+    display: inline-block;
+    vertical-align: top;
+    width: 380rpx;
+    height: 322rpx;
+    margin: 0 0 0 30rpx;
+    white-space: normal;
+}
+
+.list-c-item:last-child {
+    margin-right: 30rpx;
+}
+
+.list-c-item_image {
+    width: 380rpx;
+    height: 236rpx;
+    display: block;
+}
+
+.list-c-item_t {
+    display: block;
+    font-size: 28rpx;
+    line-height: 36rpx;
+    margin: 14rpx 0 0;
+    height: 72rpx;
+    overflow: hidden;
+}
+
+.list-hot {
+    background: linear-gradient(to top,#f8f8f8,#fff);
+    border-bottom: none;
+    margin: 32rpx 0 0;
+}
+
+.list-hot::after {
+    background: none;
+}
+
+.list-hot-c {
+    height: 350rpx;
+    padding: 0 0 40rpx;
+}
+
+.list-hot-item {
+    box-shadow: 4rpx 4rpx 4rpx #cecece;
+    display: inline-block;
+    height: 350rpx;
+    width: 240rpx;
+    margin: 0 0 0 30rpx;
+}
+
+.list-hot-item:last-child {
+    margin-right: 30rpx;
+}
+
+.hot_image {
+    width: 240rpx;
+    height: 350rpx;
+}

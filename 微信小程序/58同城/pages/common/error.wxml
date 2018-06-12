@@ -1,0 +1,8 @@
+<template name="error">
+    <view class="wrap-body">
+        <view class="no_result_tips">
+            <view class="no_result_icon"></view>
+            <text class="tips">抱歉，没有找到相关信息</text>
+        </view>
+    </view>
+</template>

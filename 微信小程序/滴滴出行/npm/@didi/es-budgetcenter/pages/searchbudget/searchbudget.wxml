@@ -1,0 +1,23 @@
+<view class="budgetSearchHtml">
+    <div class="top clearfix">
+        <div class="query">
+            <input bindinput="_dispatch" class="inp" data-bindinput="inputSearch" id="budgetInput" placeholder="请输入名称或ID查询" type="text"></input>
+        </div>
+        <div bindtap="_dispatch" class="close icon-close" data-bindtap="cancelBtn">取消</div>
+    </div>
+    <ul class="listBox" id="budgetSuggest" style="height:652px,overflowY:scroll">
+        <block wx:if="{{budgetlist.props.list.length>0}}">
+            <li catchtap="_dispatch" class="list" data-catchtap="selectBudget" data-id="{{item.id}}" data-name="{{item.name}}" data-path="budgetlist" wx:for="{{budgetlist.props.list}}" wx:key="budgetListData">
+                <p>{{item.name}}</p>
+                <span>{{item.out_budget_id}}</span>
+            </li>
+            <li catchtap="_dispatch" data-catchtap="clearBudget" data-id="" data-name="" data-path="budgetlist" wx:if="{{budgetlist.props.hasBudget!=''}}">
+                <p class="clearCon">清空成本中心</p>
+                <span>当你不需要成本中心时，选择此项</span>
+            </li>
+        </block>
+        <li class="nobd" wx:if="{{budgetlist.props.list.length==0}}">
+            <text class="h3">查不到此成本中心，请修改或联系管理员</text>
+        </li>
+    </ul>
+</view>

@@ -1,0 +1,12 @@
+{
+    "usingComponents": {
+        "dcItem": "/components/doctor/doctor",
+        "city": "/components/city/city",
+        "project": "/components/project/project",
+        "sort": "/components/sortProject/sort-project",
+        "empty": "/components/empty/empty",
+        "loadMore": "/components/loadMore/loadMore"
+    },
+    "enablePullDownRefresh": false,
+    "navigationBarTitleText": "潮流名医馆"
+}

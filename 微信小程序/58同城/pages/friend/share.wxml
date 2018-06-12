@@ -1,0 +1,26 @@
+<view class="share-container">
+    <image class="user-avatar" src="{{avatar||'https://img.58cdn.com.cn/weixin/img/wechat-app/webview/friends/no-matching.png'}}"></image>
+    <view class="answer-item answer-item-{{index}}" wx:for="{{answers}}" wx:key="index">
+        <text class="answer-item-icon"></text>
+        <text>{{item}}</text>
+    </view>
+    <form catchsubmit="e_saveQrCode" reportSubmit="{{true}}">
+        <button class="save-qr-btn" formType="submit">
+            <text>保存二维码图片</text>
+        </button>
+    </form>
+    <form catchsubmit="e_share_chat" reportSubmit="{{true}}">
+        <button class="invite-btn" formType="submit" openType="share">转发到群聊</button>
+    </form>
+</view>
+<view catchtap="e_shareAlertHide" class="qr-img-container" id="share" wx:if="{{showQrImg}}">
+    <view class="qr-img">
+        <view class="qr-img-show" style="background-image:url({{friendsShareImg}})"></view>
+        <form bindsubmit="saveImg" reportSubmit="true">
+            <button class="save-share-btn" formType="submit" plain="{{true}}">
+                <image class="share-icon" mode="scaleToFill" src="../../images/friends-white.png"></image>
+                <text>保存图片并分享</text>
+            </button>
+        </form>
+    </view>
+</view>

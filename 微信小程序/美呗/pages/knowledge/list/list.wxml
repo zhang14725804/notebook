@@ -1,0 +1,23 @@
+<view class="flter-view">
+    <view class="flter-item-view">
+        <view bindtap="onTapMenu" class="flter-item-sub-view" data-type="project">
+            <text class="flter-text">{{projectName}}</text>
+            <image class="flter-img" src="https://cdn-ssl.meb.com/wxa/v1/down-icon.png"></image>
+        </view>
+    </view>
+    <view class="flter-item-link-view"></view>
+    <view class="flter-item-view">
+        <view bindtap="onTapMenu" class="flter-item-sub-view" data-type="sort">
+            <text class="flter-text">{{sortName}}</text>
+            <image class="flter-img" src="https://cdn-ssl.meb.com/wxa/v1/down-icon.png"></image>
+        </view>
+    </view>
+</view>
+<view class="line-top"></view>
+<view class="list">
+    <know bindtap="onItemClick" data-id="{{item.Id}}" datas="{{item}}" wx:for="{{items}}"></know>
+    <loadMore visible="{{hasmore}}"></loadMore>
+</view>
+<project bind:changeProject="changeProject" bind:closeProject="{{closeProject}}" datas="{{projects}}" visible="{{showProject}}"></project>
+<sort bind:closeProject="{{closeSort}}" bind:selectedEvent="changeSort" sortData="{{sortData}}" visible="{{showShort}}"></sort>
+<empty wx:if="{{items&&!items.length}}"></empty>

@@ -1,0 +1,22 @@
+.wscpage-jump {
+    position: fixed;
+    left: 0;
+    bottom: 105px;
+    padding: 7px 15px 7px 21px;
+    line-height: 1.2;
+    font-size: 12px;
+    background-color: #fff;
+    border-radius: 0 30px 30px 0;
+    color: #666;
+    box-shadow: 0px 1px 4px #bbb;
+}
+
+.wscpage-jump--nav-page {
+    bottom: 56px;
+}
+
+.wscpage-jump .zan-arrow {
+    border-width: 0 0 2px 2px;
+    left: 10px;
+    border-color: #999;
+}

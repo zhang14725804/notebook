@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "品牌清仓",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "quick-nav": "../../../components/quick-nav/quick-nav",
+        "BrandGroup": "../components/brand_group/brand_group",
+        "PingTopBar": "../components/ping_topbar/ping_topbar",
+        "RenQiTuan": "../common/renqituan/renqituan",
+        "PingBottom": "../components/ping_bottom/ping_bottom"
+    }
+}

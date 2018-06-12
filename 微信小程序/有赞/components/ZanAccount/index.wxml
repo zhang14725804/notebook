@@ -1,0 +1,24 @@
+<template name="zan-account">
+    <view class="phone-bind__mask" wx:if="{{shouldShowLogin}}">
+        <view catchtap="ignoreAction" class="phone-bind__form">
+            <view class="phone-bind__form-header">
+                <view class="phone-bind__form-title">绑定手机号{{couponTitle}}</view>
+                <view catchtap="onHideLoginView" class="zan-icon zan-icon-close zan-c-gray zan-font-22"></view>
+            </view>
+            <view class="phone-bind__line-input">
+                <input bindinput="onInputPhoneNumber" class="acc-input__content" placeholder="输入手机号" placeholderClass="zan-c-gray zan-font-14" type="number" value="{{phoneNumber}}"></input>
+            </view>
+            <view class="phone-bind__line-input">
+                <input bindinput="onInputCaptchaCode" placeholder="输入验证码" placeholderClass="zan-c-gray zan-font-14" type="number" value="{{captcha.code}}"></input>
+                <view catchtap="onSendCaptchaCode" class="phone-bind__code {{captcha.btnStyle}}">
+                    <text class="{{captcha.textStyle}} zan-font-12">{{captcha.text}}</text>
+                </view>
+            </view>
+            <button catchtap="onZanAccountLogin" class="phone-bind__btn">
+        确定
+      </button>
+        </view>
+    </view>
+    <template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+</template>
+<import src="../../bower_components/zan/dist/toast/index.wxml"></import>

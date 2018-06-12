@@ -1,0 +1,10 @@
+<template name="babelInterval">
+    <view class="interval-view" style="background-color:{{backgroundColor}}"></view>
+</template>
+<template name="lunbotu">
+    <swiper autoplay="{{lunbo_url.length>1}}" bindchange="swiperDidChanged" circular="{{true}}" class="lunbotu_swiper" data-tmpidx="{{tmpIdx}}" duration="500" indicatorActiveColor="white" indicatorColor="rgba(0, 0, 0, 0.3)" indicatorDots="{{lunbo_url.length>1}}" interval="4000" style="width:750rpx;height:{{(styleHeight==='0'?220:styleHeight==='1'?480:300)+(lunbo_url.length>1?hasBorder?20:40:0)}}rpx;">
+        <swiper-item class="swiper_item" wx:for="{{lunbo_url}}" wx:key="unique">
+            <image bindtap="lunbotuDidTap" class="swiper_item_image" data-jump-info="{{item.jump}}" mode="scaleToFill" src="https:{{item.pictureUrl}}" style="margin:{{hasBorder?20:0}}rpx;width:{{hasBorder?710:750}}rpx;height:{{(styleHeight==='0'?220:styleHeight==='1'?480:300)-(hasBorder?40:0)}}rpx;"></image>
+        </swiper-item>
+    </swiper>
+</template>

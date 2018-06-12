@@ -1,0 +1,202 @@
+button._3f95c5a {
+    position: static;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: content-box;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1;
+    border-radius: 0;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    color: #000000;
+    background-color: transparent;
+}
+
+button._3f95c5a::before,button._3f95c5a::after {
+    content: '';
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.dialog._3f95c5a {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1800;
+}
+
+.dialog-mask._3f95c5a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    opacity: .6;
+}
+
+.dialog-container._3f95c5a {
+    position: absolute;
+    top: 300rpx;
+    left: 57rpx;
+    width: 640rpx;
+    border-radius: 5rpx;
+    background-color: #ffffff;
+    text-align: center;
+    font-family: "Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","Heiti SC","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+
+.dialog-container-close._3f95c5a {
+    display: block;
+    position: absolute;
+    padding: 15rpx 30rpx;
+    right: 0;
+    top: 0;
+}
+
+.dialog-container-close-x._3f95c5a {
+    display: inline-block;
+    width: 30rpx;
+    height: 2rpx;
+    background: #999;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+    -webkit-transform: rotate(45deg);
+}
+
+.dialog-container-close-x._3f95c5a::after {
+    content: '.';
+    display: block;
+    width: 30rpx;
+    height: 2rpx;
+    background: #999;
+    -webkit-transform: rotate(-90deg);
+}
+
+.dialog-container-title._3f95c5a {
+    font-size: 36rpx;
+    font-weight: 400;
+    line-height: 1;
+    color: #43474c;
+    padding: 64rpx 0 28rpx;
+    font-family: "PingFangSC-Medium";
+}
+
+.dialog-container .large-header._3f95c5a {
+    padding-top: 159rpx;
+}
+
+.dialog-container-content._3f95c5a {
+    font-size: 30rpx;
+    color: #aaaeb9;
+    font-weight: 400;
+    line-height: 46rpx;
+    box-sizing: border-box;
+    padding: 0 46rpx 52rpx 48rpx;
+    white-space: pre-wrap;
+}
+
+.dialog-container-content.scrollable._3f95c5a {
+    height: 354rpx;
+    text-align: left;
+}
+
+.dialog-container-buttons._3f95c5a {
+    position: relative;
+    border: none!important;
+    overflow: hidden;
+}
+
+.dialog-container-buttons._3f95c5a:before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 0;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    pointer-events: none;
+    border-radius: 0;
+    border-top: 1px solid #f1f1f1;
+}
+
+.dialog-container-buttons-button._3f95c5a {
+    height: 110rpx;
+    font-size: 36rpx;
+    color: #43474c;
+    font-weight: 400;
+    line-height: 110rpx;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+
+.dialog-container-buttons-button button._3f95c5a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dialog-container-buttons.horizontal.count2 .dialog-container-buttons-button._3f95c5a {
+    width: 50%;
+    float: left;
+}
+
+.dialog-container-buttons.horizontal.count2 .dialog-container-buttons-button._3f95c5a:nth-child(1) {
+    position: relative;
+    border: none!important;
+}
+
+.dialog-container-buttons.horizontal.count2 .dialog-container-buttons-button._3f95c5a:nth-child(1):before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 0;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    pointer-events: none;
+    border-radius: 0;
+    border-right: 1px solid #f1f1f1;
+}
+
+.dialog-container-buttons.vertical .dialog-container-buttons-button._3f95c5a:not(:last-child) {
+    position: relative;
+    border: none!important;
+}
+
+.dialog-container-buttons.vertical .dialog-container-buttons-button._3f95c5a:not(:last-child):before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 0;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    pointer-events: none;
+    border-radius: 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.dialog-container-buttons.highlight .dialog-container-buttons-button.main._3f95c5a {
+    color: #6DA5FF;
+}

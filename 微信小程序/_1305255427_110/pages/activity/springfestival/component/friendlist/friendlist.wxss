@@ -1,0 +1,71 @@
+.friend-list-container {
+    width: 100%;
+}
+
+.friend-list-title {
+    font-size: 32rpx;
+    padding: 48rpx 26rpx;
+}
+
+.friend-list-content {
+    width: 100%;
+    height: 522rpx;
+}
+
+.friend-list {
+    margin: 0 32rpx;
+    display: inline-block;
+    height: 172rpx;
+    line-height: 172rpx;
+    border-bottom: 1rpx solid #DCD3D3;
+}
+
+.friend-list p {
+    margin-left: 24rpx;
+}
+
+.friend-list image {
+    width: 88rpx;
+    height: 88rpx;
+    background-image: url('https://sr.aihuishou.com/activity/minapp/defaultlarge.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    margin-top: 47rpx;
+    position: absolute;
+    border-radius: 88rpx;
+}
+
+.list-info {
+    width: 362rpx;
+    color: #666;
+    font-size: 24rpx;
+    line-height: 32rpx;
+    margin: 57rpx 192rpx 0 112rpx;
+    display: inline-block;
+}
+
+.list-getmoney {
+    position: absolute;
+    right: 30rpx;
+    color: #666;
+    font-size: 24rpx;
+    display: inline-block;
+    line-height: 38rpx;
+    margin-top: 47rpx;
+}
+
+.not-first-entry {
+    text-align: center;
+}
+
+.not-first-entry image {
+    display: block;
+    width: 170rpx;
+    height: 170rpx;
+    margin: 0 auto;
+}
+
+.not-first-entry view {
+    font-size: 32rpx;
+}

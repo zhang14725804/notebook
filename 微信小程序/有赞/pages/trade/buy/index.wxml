@@ -1,0 +1,36 @@
+<import src="templates/top_info/top_info.wxml"></import>
+<import src="components/shop/shop.wxml"></import>
+<import src="components/coupon/coupon.wxml"></import>
+<import src="components/sms/sms.wxml"></import>
+<import src="../../../components/pay/cashier/index.wxml"></import>
+<import src="templates/order_total/order_total.wxml"></import>
+<import src="components/pay/order_pay.wxml"></import>
+<import src="components/unavailable_goods/unavailable_goods.wxml"></import>
+<import src="../../../bower_components/zan/dist/toast/index.wxml"></import>
+<import src="../../../components/datepicker/index.wxml"></import>
+<import src="../../../components/ZanAccount/index.wxml"></import>
+<import src="../templates/pintuan/pintuan.wxml"></import>
+<import src="../../multi-store/common/store-business/index.wxml"></import>
+<view class="page-container {{deviceType}} {{themeClass}}">
+    <view class="container">
+        <template is="store-business-status" data="{{business:CURRENT_GLOBAL_SHOP.business_hours_advanced_text}}" wx:if="{{CURRENT_GLOBAL_SHOP.isMultiStore&&CURRENT_GLOBAL_SHOP.is_opening==0}}"></template>
+        <template is="zan-account" data="{{...zanAccount}}"></template>
+        <service-due statusText="{{CURRENT_GLOBAL_SHOP.service.status_text}}" wx:if="{{CURRENT_GLOBAL_SHOP.isServiceDue}}"></service-due>
+        <view class="order-container zan-font-14" wx:if="{{!fetching}}">
+            <template is="top_info" data="{{includeFx:includeFx,is_optional_self_fetch_time:is_optional_self_fetch_time,address:address,customer:customer,order_no:order_no,is_virtual:is_virtual,goods_list:goods_list,showCountDown:showCountDown,countdown:countdown,canSelfFetch:canSelfFetch,fetchAddress:fetchAddress,fetchTime:fetchTime,showExpress:showExpress,showSelfFetch:showSelfFetch,steps:steps,selfFetchAddress:selfFetchAddress,fetchUserName:fetchUserName,fetchPhoneNumber:fetchPhoneNumber,show_fetch_time_arrow:show_fetch_time_arrow,hideSegmentOnlySelfFetch:hideSegmentOnlySelfFetch}}"></template>
+            <template is="pintuan" data="{{isLeader:isLeader,isLeaderSelected:isLeaderSelected,isOrderResult:isOrderResult,grouponColletcionNum:grouponColletcionNum,leaderName:leaderName,forceEnableGroupCollect:forceEnableGroupCollect}}" wx:if="{{isGroupon&&showGroupCollect}}"></template>
+            <template is="shop" data="{{address:address,idCardNo:idCardNo,postageInfo:postageInfo,localDeliveryInfo:localDeliveryInfo,goods_list:goods_list,points:points,CURRENT_GLOBAL_SHOP:CURRENT_GLOBAL_SHOP,shop:shop,order_no:order_no,is_virtual:is_virtual,canSelfFetch:canSelfFetch,showDeliveryDialog:showDeliveryDialog,showExpress:showExpress,showSelfFetch:showSelfFetch,hideSegmentOnlySelfFetch:hideSegmentOnlySelfFetch,isGroupon:isGroupon,page_path:page_path,kdt_id:kdt_id,servicePhoneNumber:servicePhoneNumber,isSetContact:isSetContact,userInfo:userInfo,userInfoDeny:userInfoDeny}}"></template>
+            <template is="coupon" data="{{coupons:coupons,order_no:order_no}}" wx:if="{{!(goods_list.length===1&&goods_list[0].activityType===5)&&goods_list.length!==0}}"></template>
+            <template is="sms" data="{{sms:sms,order_no:order_no}}" wx:if="{{goods_list.length!==0}}"></template>
+            <template is="order_total" data="{{payment:payment,payment_strs:payment_strs,coupons:coupons,showSelfFetch:showSelfFetch,showPostagePriceOnOrderTotal:showPostagePriceOnOrderTotal}}" wx:if="{{goods_list.length!==0}}"></template>
+            <template is="order_pay" data="{{isPayBtnLoading:isPayBtnLoading,is_virtual:is_virtual,order_no:order_no,payment_strs:payment_strs,postageInfo:postageInfo,address:address,showDescResult:showDescResult,localDeliveryInfo:localDeliveryInfo,fetchUserName:fetchUserName,fetchPhoneNumber:fetchPhoneNumber,fetchAddress:fetchAddress,fetchTime:fetchTime,hasPresale:hasPresale,CURRENT_GLOBAL_SHOP:CURRENT_GLOBAL_SHOP}}" wx:if="{{goods_list.length!==0&&!(coupons.showCouponList||shop.showActivityDetail||unavailable_goods.showDetail)}}"></template>
+            <template is="unavailable_goods" data="{{unavailable_goods:unavailable_goods}}" wx:if="{{unavailable_goods.list.length!==0}}"></template>
+            <order-ensure hasGuaranted="{{isGuarantedTrade}}" hasSecured="{{CURRENT_GLOBAL_SHOP.security.joined}}"></order-ensure>
+        </view>
+    </view>
+</view>
+<template is="zan-toast" data="{{zanToast:zanToast}}"></template>
+<template is="datepicker" data="{{...datepicker}}"></template>
+<import src="../../common/wsc-page/index.wxml"></import>
+<template is="wsc-page" data="{{wscpage:wscpage}}"></template>
+<template is="$cashier" data="{{$cashier:$cashier}}"></template>

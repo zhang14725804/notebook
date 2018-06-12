@@ -1,0 +1,33 @@
+module.exports = [ {
+    id: 1,
+    name: "高中以下",
+    text: "高中以下"
+}, {
+    id: 2,
+    name: "高中",
+    text: "高中"
+}, {
+    id: 3,
+    name: "中专/技校",
+    text: "中专/技校"
+}, {
+    id: 4,
+    name: "大专",
+    text: "大专"
+}, {
+    id: 5,
+    name: "本科",
+    text: "本科"
+}, {
+    id: 6,
+    name: "硕士",
+    text: "硕士"
+}, {
+    id: 7,
+    name: "博士",
+    text: "博士"
+}, {
+    id: 7,
+    name: "MBA/EMBA",
+    text: "MBA/EMBA"
+} ];

@@ -1,0 +1,32 @@
+<template name="goods-detail">
+    <view class="goods-detail-tab" wx:if="{{tab.list.length}}">
+        <template is="zan-tab" data="{{tab:tab,componentId:'goodsDetailTab'}}"></template>
+    </view>
+    <view class="goods-detail {{tab.list.length?'goods-detail--in-tab':''}}" wx:if="{{tab.selectedId==='detail'}}">
+        <view class="goods-detail__text" style="line-height: 14px;" wx:if="{{!tab.list.length}}">商品详情</view>
+        <template is="showcase" data="{{type:'feature',richTextList:richTextList,theme:theme,componentSKU:componentSKU}}"></template>
+        <template is="dr-bar" data="{{borderRadius:true,text:'价格说明'}}"></template>
+        <template is="price-intro" data="{{showPriceIntro:showPriceIntro}}"></template>
+    </view>
+    <view class="goods-sale-record" wx:elif="{{tab.selectedId==='sale'}}">
+        <view class="goods-sale-record__header">
+            <text class="goods-sale-record__col-1">买家</text>
+            <text class="goods-sale-record__col-2 center">成交时间</text>
+            <text class="goods-sale-record__col-3 center">数量</text>
+        </view>
+        <view class="goods-sale-record__body">
+            <view class="goods-sale-record__item" wx:for="{{saleRecord.list}}" wx:key="index">
+                <text class="goods-sale-record__col-1">{{item.nickname}}</text>
+                <text class="goods-sale-record__col-2">{{item.update_time}}</text>
+                <text class="goods-sale-record__col-3">{{item.item_num}}</text>
+            </view>
+        </view>
+        <view bind:tap="handleFetchMoreSaleRecord" class="goods-sale-record__view-more" wx:if="{{!saleRecord.finished&&!saleRecord.loading&&!saleRecord.nodata}}">查看更多</view>
+        <template is="zan-loadmore" data="{{nodata:saleRecord.nodata,loading:saleRecord.loading,nodata_str:'暂无成交记录'}}"></template>
+    </view>
+</template>
+<import src="../../../../bower_components/zan/dist/loadmore/index.wxml"></import>
+<import src="../../../../bower_components/zan/dist/tab/index.wxml"></import>
+<import src="../../../../components/dr-bar/index.wxml"></import>
+<import src="../../common/goods-detail/template/price-intro.wxml"></import>
+<import src="../../../../components/showcase/index.wxml"></import>

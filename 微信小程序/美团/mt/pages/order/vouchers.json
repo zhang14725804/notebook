@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "抵用券",
+    "usingComponents": {
+        "voucher": "../../components/voucher/voucher"
+    }
+}

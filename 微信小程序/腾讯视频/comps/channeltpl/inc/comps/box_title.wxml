@@ -1,0 +1,3 @@
+<view class="mod_hd" wx:if="{{item.cms_data.ZT_leaf_head||item.meta.title}}">
+    <view class="mod_title">{{item.cms_data.ZT_leaf_head||item.meta.title}}</view>
+</view>

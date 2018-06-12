@@ -1,0 +1,92 @@
+.phone-bind__mask {
+    background-color: rgba(0,0,0,0.3);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 99;
+}
+
+.phone-bind__form {
+    display: flex;
+    flex-direction: column;
+    padding: 40rpx;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    width: 630rpx;
+    position: fixed;
+    transform: translate(-50%,-50%);
+    background-color: #fafafc;
+    border-radius: 8rpx;
+}
+
+.phone-bind__form-header {
+    position: relative;
+    line-height: 44rpx;
+    margin-bottom: 20rpx;
+}
+
+.phone-bind__form-header .zan-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.phone-bind__line-input {
+    margin-top: 20rpx;
+    height: 92rpx;
+    width: 100%;
+    display: flex;
+}
+
+.phone-bind__line-input input {
+    flex: 1;
+    border: 1rpx solid #bbb;
+    padding: 0 20rpx;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 4rpx;
+    background: #fff;
+}
+
+.phone-bind__code {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: #06BE04 solid 1rpx;
+    border-radius: 4rpx;
+    margin-left: 20rpx;
+    width: 96px;
+}
+
+.phone-bind__code.acc-code--disabled {
+    background-color: #ccc;
+    border: #ddd solid 1rpx;
+}
+
+.phone-bind__code.acc-code--enabled {
+    background-color: white;
+    border: #06BE04 solid 1rpx;
+}
+
+.phone-bind__code .acc-code__btn--disabled {
+    color: white;
+}
+
+.phone-bind__code .acc-code__btn--enabled {
+    color: #06BE04;
+}
+
+.phone-bind__btn {
+    height: 90rpx;
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    line-height: 90rpx;
+    margin-top: 40rpx;
+    background: #44BB00;
+    border-radius: 4rpx;
+}

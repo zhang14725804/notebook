@@ -1,0 +1,93 @@
+{
+    "pages": [
+        "pages/venue/home/index",
+        "pages/venue/like/index",
+        "pages/venue/search/index",
+        "pages/venue/hotsale/index",
+        "pages/venue/activity/index",
+        "pages/venues/index/index",
+        "pages/usercenter/problemList/problemList",
+        "pages/usercenter/problemDetail/problemDetail",
+        "pages/usercenter/connectService/connectService",
+        "pages/usercenter/dashboard/index",
+        "pages/usercenter/promotion/my_coupon",
+        "pages/usercenter/promotion/promotion_detail",
+        "pages/usercenter/myCollection/myCollection",
+        "pages/usercenter/shopSelection/shopSelection",
+        "pages/usercenter/myTrack/myTrack",
+        "pages/usercenter/myMsgList/myMsgList",
+        "pages/goods/detail/index",
+        "pages/goods/guaranteeIntro/index",
+        "pages/ump/freeShipIntro/index",
+        "pages/goods/cart/index",
+        "pages/goods/search/index",
+        "pages/trade/address/index",
+        "pages/trade/express/index",
+        "pages/trade/buy/index",
+        "pages/trade/buy/coupon/index",
+        "pages/trade/goods_message/index",
+        "pages/trade/result/index",
+        "pages/trade/paid/index",
+        "pages/trade/buy/selectAddress/selectAddress",
+        "pages/trade/buy/selectAddress/selectCity",
+        "pages/trade/safe/apply/index",
+        "pages/trade/safe/info/index",
+        "pages/trade/safe/express/index",
+        "pages/order/list/index",
+        "pages/specialtopic/specialtopic",
+        "pages/common/error/index",
+        "pages/common/intro/index",
+        "pages/ump/pintuan/detail/index",
+        "pages/ump/pintuan/playingInstruction/playingInstruction",
+        "pages/ump/sharecut/detail/detail",
+        "pages/venues/discount/index",
+        "pages/venues/index2/index",
+        "pages/venues/sharecut/index",
+        "pages/venues/otherIndex/index",
+        "pages/ump/lotteryresult/lotteryresult",
+        "pages/usercenter/operation/index",
+        "pages/home/dashboard/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "有赞精选",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f8f8f8"
+    },
+    "tabBar": {
+        "color": "#7E7E7E",
+        "selectedColor": "#F76161",
+        "borderStyle": "#e4e4e4",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/venue/home/index",
+                "text": "精选",
+                "iconPath": "icons/home.png",
+                "selectedIconPath": "icons/home-selected.png"
+            },
+            {
+                "pagePath": "pages/venue/like/index",
+                "text": "喜欢",
+                "iconPath": "icons/like.png",
+                "selectedIconPath": "icons/like-selected.png"
+            },
+            {
+                "pagePath": "pages/goods/cart/index",
+                "text": "购物车",
+                "iconPath": "icons/cart.png",
+                "selectedIconPath": "icons/cart-selected.png"
+            },
+            {
+                "pagePath": "pages/usercenter/dashboard/index",
+                "text": "我的",
+                "iconPath": "icons/person.png",
+                "selectedIconPath": "icons/person-selected.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 5000
+    }
+}

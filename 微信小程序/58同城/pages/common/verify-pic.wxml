@@ -1,0 +1,15 @@
+<template name="verifyPic">
+    <view class="verify-wrap">
+        <view class="verify-block">
+            <view class="verify-title">请输入验证码</view>
+            <view class="verify">
+                <input bindinput="verifyInput" class="verify-input" focus="{{verifyFocus}}" maxlength="20" value="{{verifyValue}}"></input>
+                <image binderror="error" catchtap="refreshVerify" class="verify-pic" mode="aspectFit" src="{{verifyPic}}"></image>
+            </view>
+            <view class="verify-btn-block">
+                <button catchtap="cancleTel" class="verify-btn one">取消</button>
+                <button catchtap="e_verifyTel" class="verify-btn two" disabled="{{btnFlag}}">确定</button>
+            </view>
+        </view>
+    </view>
+</template>

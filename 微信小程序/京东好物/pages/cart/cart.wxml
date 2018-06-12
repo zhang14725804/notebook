@@ -1,0 +1,186 @@
+<import src="carttemplate.wxml"></import>
+<import src="../../components/toast/toast.wxml"></import>
+<template is="toast" data="{{...toastData}}"></template>
+<view class="shp-cart-empty" style="display:{{isLogined?'none':'block'}}" wx:if="{{!isLogined}}">
+    <text class="cart-empty-icn"></text>
+    <text class="empty-msg">{{objTextMain.loginInfoTxt}}</text>
+    <text bindtap="toLogin" class="to-login-see-btn">{{objTextMain.loginTxt}}</text>
+</view>
+<scroll-view bindscroll="listScroll" class="whole-page" scrollTop="{{scrollTop}}" scrollY="false" style="height:{{screenHeight}}px;">
+    <view class="shp-cart-empty" style="display:block" wx:if="{{isCartEmpty}}">
+        <text class="cart-empty-icn"></text>
+        <text class="empty-msg">{{objTextMain.emptyTxt}}</text>
+    </view>
+    <block wx:else>
+        <view class="shop-group">
+            <view class="shop-group-item" data-vendorid="{{vendor.shopId}}" id="shop{{vendor.shopId}}" wx:for="{{vendors}}" wx:for-item="vendor" wx:key="shopFor">
+                <view class="shop-title customize-shtit">
+                    <view class="item">
+                        <view bindtap="selectGroup" class="check-wrapper" data-shopid="{{vendor.vendorId}}" id="checkShop{{vendor.vendorId}}">
+                            <text class="cart-checkbox check-wrapper-unit {{vendor.checkedStatus}}" data-shopid="{{vendor.vendorId}}" id="checkShop{{vendor.vendorId}}"></text>
+                        </view>
+                        <view class="shop-title-content">
+                            <view class="shop-title-icon">
+                                <image src="https://st.360buyimg.com/order/images/cart5.0/JDshopTitle.png?v=20170607" wx:if="{{vendor.vendorId=='8888'}}"></image>
+                                <image src="https://st.360buyimg.com/order/images/cart5.0/POPshopTitle.png?v=20170607" wx:else></image>
+                            </view>
+                            <text class="shop-title-name" style="max-width: 441px;">{{vendor.shopName}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="shp-cart-list">
+                    <block wx:for="{{vendor.sorted}}" wx:for-item="sortedItem" wx:key="pureProductFor">
+                        <view class="li" id="product{{sortedItem.item.Id}}" name="productGroup{{vendor.vendorId}}" wx:if="{{sortedItem.itemType==1}}">
+                            <template is="basicproduct" data="{{...sortedItem.item,isOpenWareWeightShow:selfFreightInfo.isOpenWareWeightShow,shopid:vendor.vendorId,...objTextTemplate,objEditMode:objEditMode,limitBookNum:limitBookNum,limitNotBookNum:limitNotBookNum}}"></template>
+                            <view class="extended-warranty-area" id="givenYanbao{{sortedItem.item.Id}}" wx:if="{{cartYanBaoInfo}}">
+                                <view id="showyanbao{{sortedItem.item.Id}}" wx:if="{{sortedItem.item.YbSkus&&sortedItem.item.YbSkus.length>0}}">
+                                    <view class="shp-cart-gift-list">
+                                        <view class="shp-cart-gift-list" wx:if="{{yb&&yb.MainYbSku}}" wx:for="{{sortedItem.item.YbSkus}}" wx:for-item="yb" wx:key="extendedWarrantyList">{{objTextMain.serviceTxt+yb.MainYbSku.Name}}<text class="i">{{yb.MainYbSku.PriceShow}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="shp-cart-gift-list" wx:if="{{sortedItem.item.Gifts&&sortedItem.item.Gifts.length>0}}">
+                                <block wx:for="{{sortedItem.item.Gifts}}" wx:for-item="gift" wx:key="pureProductGiftFor">
+                                    <view bindtap="beWareDetail" data-skuid="{{gift.Id}}" wx:if="{{gift.AwardType==1}}">{{objTextMain.annexTxt+gift.Name}}
+                                                <text class="num-cont-show no-pro-color" wx:if="{{gift.stockState==objTextTemplate.noshoppingTxt}}">{{gift.stockState}}</text>
+                                        <text class="num-cont-show" wx:else>{{gift.Num}}</text>
+                                    </view>
+                                    <view bindtap="beWareDetail" data-skuid="{{gift.Id}}" wx:else>{{objTextMain.giftTxt+gift.Name}}
+                                                <text class="num-cont-show no-pro-color" wx:if="{{gift.stockState==objTextTemplate.noshoppingTxt}}">{{gift.stockState}}</text>
+                                        <text class="num-cont-show" wx:else>{{gift.Num}}</text>
+                                    </view>
+                                </block>
+                                <view wx:if="{{sortedItem.item.beanScore}}">{{objTextMain.giftBeanTxt+sortedItem.item.beanScore}}</view>
+                            </view>
+                        </view>
+                        <block wx:elif="{{sortedItem.itemType==4}}"></block>
+                        <view class="li" id="product10360744644" name="productGroup181375" wx:elif="{{sortedItem.itemType==9||sortedItem.itemType==12}}">
+                            <view bindtap="beMSearchPage" class="promotion-space" data-activityid="{{sortedItem.item.promotionId}}" data-canselectpromotions="{{sortedItem.item.Skus[0].canSelectPromotions}}" data-skuid="{{sortedItem.item.Skus[0].Id}}">
+                                <view class="icon-condition">
+                                    <text class="txt">{{sortedItem.item.suitLabel}}</text>
+                                    <text class="promotion-down-arrow-icon"></text>
+                                </view>
+                                <view class="condition-description">
+                                    <text class="two-linemax">{{sortedItem.item.STip}}</text>
+                                </view>
+                                <view class="condition-description-tips" wx:if="{{sortedItem.item.fullRefundType!=24}}">
+                                    <text wx:if="{{sortedItem.item.promoCase==true}}">去凑单</text>
+                                    <text wx:else>再逛逛</text>
+                                    <text class="condition-link"></text>
+                                </view>
+                            </view>
+                            <view class="shop-btn-com promo-spc" wx:if="{{sortedItem.item.CanSelectGifts&&sortedItem.item.CanSelectGifts.length!=0&&sortedItem.item.CanSelectedGiftNum>0&&sortedItem.item.suitLabel!=objTextMain.additionalBuyTxt}}">
+                                <view bindtap="showChooseGifts" class="cart-new-btn" data-id="{{sortedItem.item.Id}}" data-info="'suitid':{{sortedItem.item.Id}},'suitnum':{{sortedItem.item.Num}},'sType':{{sortedItem.item.SType==16?13:sortedItem.item.SType}},'addmoney':{{sortedItem.item.AddMoney}}" id="notGivenGift{{sortedItem.item.Id}}">
+                                    <text class="right-boundary"></text>
+                                    <block wx:if="{{sortedItem.item.AddMoney&&sortedItem.item.AddMoney>0}}">
+                                        <text class="btn-msg-in" wx:if="{{sortedItem.item.Gifts&&sortedItem.item.Gifts.length>0}}">重新换购</text>
+                                        <text class="btn-msg-in" wx:elif="{{sortedItem.item.promoCase==false}}">换购商品</text>
+                                        <text class="btn-msg-in" wx:else>查看换购</text>
+                                    </block>
+                                    <block wx:else>
+                                        <text class="btn-msg-in" wx:if="{{sortedItem.item.Gifts&&sortedItem.item.Gifts.length>0}}">重新领取</text>
+                                        <text class="btn-msg-in" wx:elif="{{sortedItem.item.promoCase==false}}">领取赠品</text>
+                                        <text class="btn-msg-in" wx:else>查看赠品</text>
+                                    </block>
+                                </view>
+                            </view>
+                            <view class="shop-btn-com promo-spc" wx:elif="{{sortedItem.item.SType!=11&&sortedItem.item.suitLabel!=objTextMain.additionalBuyTxt}}">
+                                <view class="cart-new-btn disabled-act-btn" data-id="{{sortedItem.item.Id}}" data-info="'suitid':{{sortedItem.item.Id}},'suitnum':{{sortedItem.item.Num}},'sType':{{sortedItem.item.SType==16?13:sortedItem.item.SType}},'addmoney':{{sortedItem.item.AddMoney}}" id="notGivenGift{{sortedItem.item.Id}}">
+                                    <text class="right-boundary"></text>
+                                    <block wx:if="{{sortedItem.item.AddMoney&&sortedItem.item.AddMoney>0}}">
+                                        <text class="btn-msg-in" wx:if="{{sortedItem.item.Gifts&&sortedItem.item.Gifts.length>0}}">重新换购</text>
+                                        <text class="btn-msg-in" wx:elif="{{sortedItem.item.promoCase==false}}">换购商品</text>
+                                        <text class="btn-msg-in" wx:else>查看换购</text>
+                                    </block>
+                                    <block wx:else>
+                                        <text class="btn-msg-in" wx:if="{{sortedItem.item.Gifts&&sortedItem.item.Gifts.length>0}}">重新领取</text>
+                                        <text class="btn-msg-in" wx:elif="{{sortedItem.item.promoCase==false}}">领取赠品</text>
+                                        <text class="btn-msg-in" wx:else>查看赠品</text>
+                                    </block>
+                                </view>
+                            </view>
+                            <view class="shp-cart-sub-produ-list clear" id="givenGift{{sortedItem.item.Id}}" wx:if="{{sortedItem.item&&(sortedItem.item.AddMoney||sortedItem.item.AddMoney==0)}}">
+                                <view class="items" wx:for="{{sortedItem.item.Gifts}}" wx:for-item="g" wx:key="giftForConsumption">
+                                    <view class="shp-cart-item-core shop-cart-display sub-product-display  {{g.stockState==objTextMain.noshoppingTxt?'cart-noshopping':''}}">
+                                        <view bindtap="beWareDetail" class="cart-product-cell-1 shp-cart-tag-trade" data-skuid="{{g.Id}}">
+                                            <image class="cart-photo-thumb" src="http://img10.360buyimg.com/n7/{{g.ImgUrl}}" wx:if="{{g.ImgUrl}}">
+                                                <text class="i" wx:if="{{g.stockState==objTextMain.noshoppingTxt}}"></text>
+                                            </image>
+                                            <image class="cart-photo-thumb" wx:else>
+                                                <text class="i" wx:if="{{g.stockState==objTextMain.noshoppingTxt}}"></text>
+                                            </image>
+                                        </view>
+                                        <view class="cart-product-cell-2">
+                                            <view class="cart-product-name">
+                                                <view bindtap="beWareDetail" data-skuid="{{g.Id}}">
+                                                    <view class="sub-product-name limit-lines">
+                                                        <text class="icon-condition" id="gift-info-sign" wx:if="{{sortedItem.item.AddMoney==0}}"> {{objTextMain.giftOnlyTxt}}</text>
+                                                        <text class="icon-condition" id="gift-info-sign" wx:else> {{objTextMain.additionalBuyTxt}}</text> {{g.Name}}
+                                                                    </view>
+                                                </view>
+                                            </view>
+                                            <view class="cart-product-cell-3">
+                                                <text class="shp-cart-item-price" id="price{{g.Id}}" style="line-height: 20px;">{{g.PriceShow}}</text>
+                                            </view>
+                                            <view class="cart-product-cell-5">
+                                                <text class="num-cont-show">{{g.Num}}</text>
+                                                <view class="shop-btn-com">
+                                                    <form bindsubmit="deleteGifts" class="cart-new-btn" data-info="{\"giftid\":{{g.Id}},\"giftnum\":{{g.Num}},\"shopid\":{{vendor.shopId}},\"vendorId\":\"{{vendor.vendorId}}\",\"suitId\":{{sortedItem.item.Id}},\"suitNum\":{{sortedItem.item.Num}},\"giftSType\":{{sortedItem.item.SType==16?16:undefined}}}" reportSubmit="true">
+                                                        <button class="message-push-btn cart-new-btn" formType="submit">
+                                                            <text class="right-boundary"></text>
+                                                            <text class="btn-msg-in">{{objTextMain.deleteTxt}}</text>
+                                                        </button>
+                                                    </form>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <block wx:for="{{sortedItem.item.Skus}}" wx:for-item="sku" wx:key="suitProductFor">
+                                <template is="complexproduct" data="{{...sku,isOpenWareWeightShow:selfFreightInfo.isOpenWareWeightShow,shopid:vendor.vendorId,suitId:sortedItem.item.Id,suitNum:sortedItem.item.Num,sType:sortedItem.item.SType==16?13:sortedItem.item.SType,...objTextTemplate,objEditMode:objEditMode,limitBookNum:limitBookNum,limitNotBookNum:limitNotBookNum}}"></template>
+                                <view class="extended-warranty-area" id="givenYanbao{{sortedItem.item.Id+sku.Id}}" wx:if="{{cartYanBaoInfo}}">
+                                    <view id="showyanbao{{sortedItem.item.Id+sku.Id}}" wx:if="{{sku.YbSkus&&sku.YbSkus.length>0}}">
+                                        <view class="shp-cart-gift-list">
+                                            <view class="shp-cart-gift-list" wx:if="{{yb&&yb.MainYbSku}}" wx:for="{{sku.YbSkus}}" wx:for-item="yb" wx:key="extendedWarrantyList">{{objTextMain.serviceTxt+yb.MainYbSku.Name}}<text class="i">{{yb.MainYbSku.PriceShow}}</text>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="shp-cart-gift-list" wx:if="{{sku.Gifts&&sku.Gifts.length>0}}">
+                                    <view bindtap="beWareDetail" data-skuid="{{gift.Id}}" wx:for="{{sku.Gifts}}" wx:for-item="gift" wx:key="suitProductGiftFor">{{objTextMain.giftTxt+gift.Name}}
+                                                    <text class="num-cont-show no-pro-color" wx:if="{{gift.stockState==objTextTemplate.noshoppingTxt}}">{{gift.stockState}}</text>
+                                        <text class="num-cont-show" wx:else>{{gift.Num}}</text>
+                                    </view>
+                                    <view wx:if="{{sku.beanScore}}">{{objTextMain.giftBeanTxt+sku.beanScore}}</view>
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <view id="payment_p" style="display:{{Num&&Num>0?'block':'none'}};">
+            <view id="paymentp"></view>
+            <view class="payment-total-bar payment-total-bar-new box-flex-f" id="payment">
+                <view bindtap="checkAllHandler" class="shp-chk shp-chk-new  box-flex-c" data-checktype="{{checkedWareNum==Num?'all':'notall'}}">
+                    <text class="cart-checkbox {{checkedWareNum==Num?'checked':''}}" id="checkIcon-1"></text>
+                    <text class="cart-checkbox-text">{{objTextMain.allCheckTxt}}</text>
+                </view>
+                <view class="shp-cart-info shp-cart-info-new  box-flex-c">
+                    <view class="shp-cart-total" data-fsizeinit="14" id="shpCartTotal">{{objTextMain.sumTxt}}<text class="bottom-bar-price" id="cart_realPrice"> {{PriceShow}}</text>
+                    </view>
+                    <view class="sale-off sale-off-new  bottom-total-price" data-fsizeinit="10" id="saleOffNew">{{objTextMain.allCountTxt}}<text class="money-unit-bf" id="cart_oriPrice">{{Price}}</text>{{objTextMain.minusTxt}}<text class="money-unit-bf" id="cart_rePrice">{{RePrice}}</text>
+                    </view>
+                </view>
+                <form bindsubmit="{{checkedWareNum&&checkedWareNum>0?'submitFn':''}}" class="box-flex-c btn-right-block" reportSubmit="true">
+                    <button class="message-push-btn btn-right-block btn-right-block-new  box-flex-c" formType="submit" id="submit">{{objTextMain.goCheckTxt}}<text id="checkedNum">({{checkedWareNum&&checkedWareNum>99?'99+':checkedWareNum}})</text>
+                    </button>
+                </form>
+            </view>
+        </view>
+    </block>
+    <image bindtap="toTopTap" class="bottom-to-top" src="http://commonst.360buyimg.com/common/wx-images/scroll-to-top-icon.png" style="display:{{toTopDisplay}}"></image>
+</scroll-view>
+<template is="giftproduct" data="{{...giftData,...objTextGift,...heightInfo}}" wx:if="{{isGiftWinShow}}"></template>

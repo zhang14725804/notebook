@@ -1,0 +1,13 @@
+<template name="coupon">
+    <view catchtap="showCouponList" class="zan-cell zan-cell--last-child order-panel zan-panel {{order_no?'':'zan-cell--access'}}" wx:if="{{!(order_no&&!coupons.selected.id)}}">
+        <text class="zan-cell__bd">优惠</text>
+        <view class="zan-cell__ft zan-c-gray-darker">
+            <text wx:if="{{coupons.list.length==0}}">暂无可用</text>
+            <text wx:elif="{{!coupons.selected.id}}">{{coupons.list.length}}张可用</text>
+            <block wx:elif="{{coupons.selected.id}}">
+                <view>{{coupons.selected.name}}</view>
+                <view>{{coupons.selected.condition}}</view>
+            </block>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,120 @@
+<template name="pt_tmp_name">
+    <view class="pt-tab-scroll" style="height:{{ptShangpinModel.tabStyle!=='0'?ptShangpinModel.tabHeight:0}}px;background-color:{{ptShangpinModel.tabConfig.tabBgColor}};">
+        <block wx:for="{{ptShangpinModel.tabList}}" wx:for-item="tabItem" wx:key="groupId">
+            <block wx:if="{{tabItem.tabStyle==='1'}}">
+                <view bindtap="ptTabDidClickEvent" class="pt-tab-item {{ptSelectedGroupInfo['tabIndex']==index?'activity':''}} {{index==0?'firstItem':''}}" data-model="{{ptShangpinModel}}" data-tabitem="{{tabItem}}" data-tmpidx="{{tmpIdx}}" style="line-height:{{ptShangpinModel.tabHeight-3}}px;border-bottom-color:{{ptSelectedGroupInfo['tabIndex']==index?ptShangpinModel.tabConfig.color:null}};color:{{ptSelectedGroupInfo['tabIndex']==index?ptShangpinModel.tabConfig.color:ptShangpinModel.tabConfig.unSelectColor}};">
+        {{tabItem.name}}
+      </view>
+                <view style="background-color:{{ptShangpinModel.tabConfig.tabBgColor}};color:{{ptShangpinModel.tabConfig.tabBgColor}};" wx:if="{{index==ptShangpinModel.tabList.length-1}}">1</view>
+            </block>
+            <block wx:elif="{{tabItem.tabStyle==='2'}}">
+                <view bindtap="ptTabDidClickEvent" class="pt-tab-item-image {{ptSelectedGroupInfo['tabIndex']==index?'activity':''}}" data-model="{{ptShangpinModel}}" data-tabitem="{{tabItem}}" data-tmpidx="{{tmpIdx}}" style="line-height:{{ptShangpinModel.tabHeight}}px;width:{{tabItem.width}}px;border-bottom-color:{{ptSelectedGroupInfo['tabIndex']==index?ptShangpinModel.tabConfig.color:null}};color:{{ptSelectedGroupInfo['tabIndex']==index?ptShangpinModel.tabConfig.color:ptShangpinModel.tabConfig.unSelectColor}};" wx:if="{{ptSelectedGroupInfo['tabIndex']==index&&tabItem.activePicUrl.length==0||ptSelectedGroupInfo['tabIndex']!=index&&tabItem.defaultPicUrl.length==0}}">
+        {{tabItem.name}}
+      </view>
+                <view bindtap="ptTabDidClickEvent" class="imageView" data-model="{{ptShangpinModel}}" data-tabitem="{{tabItem}}" data-tmpidx="{{tmpIdx}}" style="height:{{ptShangpinModel.tabHeight}}px;width:{{tabItem.width}}px;margin:0 0 0 {{ptShangpinModel.tabSpace}}px" wx:else>
+                    <image src="https:{{ptSelectedGroupInfo['tabIndex']==index?tabItem.activePicUrl:tabItem.defaultPicUrl}}" style="height:{{ptShangpinModel.tabHeight}}px;width:{{tabItem.width}}px;"></image>
+                </view>
+            </block>
+        </block>
+    </view>
+    <view class="pt-list" style="background-color:{{ptShangpinModel.backgroundColor}}" wx:if="{{ptSelectedGroupInfo['waresList'].length>0}}">
+        <view bindtap="ptShangpinDidTap" class="pt-item {{index%2===0?'pt-item-margin':''}}" data-id="{{item.skuId}}" data-skuid="{{item.skuId}}" style="background-color:{{ptShangpinModel.waresListConfig.cardColor?ptShangpinModel.waresListConfig.cardColor:'#ffffff'}}" wx:if="{{!(index==ptSelectedGroupInfo['waresList'].length-1&&index/2==1)}}" wx:for="{{ptSelectedGroupInfo['waresList']}}" wx:key="wareId">
+            <view class="pt-img">
+                <image class="pt-img" mode="aspectFit" src="../../pages/shop/shop_images/shop_goods_img_default.png"></image>
+                <image class="pt-img" mode="aspectFit" src="{{item.image.length?'http:'+item.image:'../../pages/shop/shop_images/shop_goods_img_default.png'}}" style="opacity:1;position:relative;top:-357rpx"></image>
+            </view>
+            <block wx:if="{{item.copyWriting&&item.copyWriting.length>0}}">
+                <block wx:if="{{ptShangpinModel.waresListConfig.subscript==='2'}}">
+                    <view class="pt-markLabel" style="opacity:1;top:-1rpx;left:-1rpx;position:absolute;background-color: #fc0c4a" wx:if="{{item.copyWriting.length>0&&item.copyWriting.length<2}}">{{item.copyWriting}}</view>
+                    <block wx:elif="{{item.copyWriting.length===2}}">
+                        <view class="pt-markLabel" style="opacity:1;top:-1rpx;left:-1rpx;position:absolute;background-color: #fc0c4a"></view>
+                        <text class="pt-markLabel style2Text" style="line-height:66rpx;top:0rpx;left:rpx">{{item.copyWriting}}</text>
+                    </block>
+                    <block wx:elif="{{item.copyWriting.length>2}}">
+                        <view class="pt-markLabel" style="opacity:1;top:-1rpx;left:-1rpx;position:absolute;background-color: #fc0c4a"></view>
+                        <text class="pt-markLabel style2Text">{{item.copyWriting}}</text>
+                    </block>
+                    <block wx:else></block>
+                </block>
+                <block wx:elif="{{ptShangpinModel.waresListConfig.subscript==='1'}}">
+                    <block wx:if="{{item.copyWriting.length>0&&item.copyWritingDown.length>0&&item.copyWriting.length<4&&item.copyWritingDown.length<4}}">
+                        <image class="pt-markLabel" src="../../pages/BabelHome/babel-images/babel-ptShangpin-superScript1.png" style="opacity:1;top:0rpx;left:0rpx;position:absolute"></image>
+                        <text class="pt-markLabel style1Text" style="opacity:1;top:4rpx;left:0rpx;position:absolute;color:#fc0c4a">{{item.copyWriting}}</text>
+                        <text class="pt-markLabel style1Text" style="opacity:1;top:36rpx;left:0rpx;position:absolute">{{item.copyWritingDown}}</text>
+                    </block>
+                </block>
+                <block wx:elif="{{ptShangpinModel.waresListConfig.subscript==='3'}}">
+                    <block wx:if="{{item.copyWriting.length>0&&item.copyWriting.length<2}}">
+                        <image class="pt-markLabel" src="../../pages/BabelHome/babel-images/babel-ptShangpin-superScript3.png" style="opacity:1;top:0rpx;left:0rpx;position:absolute"></image>
+                        <text class="pt-markLabel" style="opacity:1;top:0rpx;left:0rpx;position:absolute">{{item.copyWriting}}</text>
+                    </block>
+                    <block wx:elif="{{item.copyWriting.length===2}}">
+                        <image class="pt-markLabel" src="../../pages/BabelHome/babel-images/babel-ptShangpin-superScript3.png" style="opacity:1;top:0rpx;left:0rpx;position:absolute"></image>
+                        <text class="pt-markLabel style2Text" style="line-height:66rpx;top:0rpx;left:rpx">{{item.copyWriting}}</text>
+                    </block>
+                    <block wx:elif="{{item.copyWriting.length>2}}">
+                        <image class="pt-markLabel" src="../../pages/BabelHome/babel-images/babel-ptShangpin-superScript3.png" style="opacity:1;top:0rpx;left:0rpx;position:absolute"></image>
+                        <text class="pt-markLabel style2Text" style="top:6rpx;">{{item.copyWriting}}</text>
+                    </block>
+                    <block wx:else></block>
+                </block>
+                <block wx:elif="{{ptShangpinModel.waresListConfig.subscript==='4'}}">
+                    <block wx:if="{{item.copyWriting.length>=0&&item.copyWriting.length<2}}">
+                        <image class="pt-markLabel" src="https:{{ptShangpinModel.waresListConfig.subscriptUrl}}" style="opacity:1;top:0rpx;left:0rpx;position:absolute"></image>
+                        <text class="pt-markLabel" style="opacity:1;top:0rpx;left:0rpx;position:absolute">{{item.copyWriting}}</text>
+                    </block>
+                    <block wx:elif="{{item.copyWriting.length===2}}">
+                        <image class="pt-markLabel" src="https:{{ptShangpinModel.waresListConfig.subscriptUrl}}" style="opacity:1;top:0rpx;left:0rpx;position:absolute"></image>
+                        <text class="pt-markLabel style2Text" style="line-height:66rpx;top:0rpx;left:0rpx">{{item.copyWriting}}</text>
+                    </block>
+                    <block wx:elif="{{item.copyWriting.length>2}}">
+                        <image class="pt-markLabel" src="https:{{ptShangpinModel.waresListConfig.subscriptUrl}}" style="opacity:1;top:0rpx;left:0rpx;position:absolute"></image>
+                        <text class="pt-markLabel style2Text">{{item.copyWriting}}</text>
+                    </block>
+                    <block wx:else></block>
+                </block>
+            </block>
+            <block wx:else>
+                <block wx:if="{{ptShangpinModel.waresListConfig.subscript==='4'}}">
+                    <block wx:if="{{item.copyWriting.length>=0&&item.copyWriting.length<2}}">
+                        <image class="pt-markLabel" src="https:{{ptShangpinModel.waresListConfig.subscriptUrl}}" style="opacity:1;top:0rpx;left:0rpx;position:absolute"></image>
+                        <text class="pt-markLabel" style="opacity:1;top:0rpx;left:0rpx;position:absolute">{{item.copyWriting}}</text>
+                    </block>
+                    <block wx:elif="{{item.copyWriting.length===2}}">
+                        <image class="pt-markLabel" src="https:{{ptShangpinModel.waresListConfig.subscriptUrl}}" style="opacity:1;top:0rpx;left:0rpx;position:absolute"></image>
+                        <text class="pt-markLabel style2Text" style="line-height:66rpx;top:0rpx;left:0rpx">{{item.copyWriting}}</text>
+                    </block>
+                    <block wx:elif="{{item.copyWriting.length>2}}">
+                        <image class="pt-markLabel" src="https:{{ptShangpinModel.waresListConfig.subscriptUrl}}" style="opacity:1;top:0rpx;left:0rpx;position:absolute"></image>
+                        <text class="pt-markLabel style2Text">{{item.copyWriting}}</text>
+                    </block>
+                    <block wx:else></block>
+                </block>
+                <block wx:else></block>
+            </block>
+            <image class="pt-img-gray" src="../../pages/shop/shop_images/shop_product_soldOut.png" wx:if="{{item.canSell&&item.canSell!=='Y'}}"></image>
+            <image class="pt-img-gray" src="../../pages/shop/shop_images/shop_product_areaNoStock.png" wx:elif="{{item.areaStk&&item.areaStk!=='Y'}}"></image>
+            <block wx:else></block>
+            <view class="pt-title" style="color:{{ptShangpinModel.waresListConfig.titleColor?ptShangpinModel.waresListConfig.titleColor:'#000000'}}">{{item.name}}</view>
+            <view class="pt-slogan" style="color:{{ptShangpinModel.waresListConfig.sloganColor?ptShangpinModel.waresListConfig.sloganColor:'#f02b2b'}};height:22rpx;" wx:if="{{ptShangpinModel.waresListConfig.slogan!=='0'}}">{{item.tag}}</view>
+            <view class="pt-price pt-price-text">
+                <text class="pt-price-1" style="color:{{ptShangpinModel.waresListConfig.mainPriceColor?ptShangpinModel.waresListConfig.mainPriceColor:'#000000'}}">¥{{item.pPrice}}</text>
+                <view class="pt-price-origin" hidden="{{item.pPrice.length>=11||item.pPrice.length*32+item.pcpPrice.length*22>410}}" style="color:{{ptShangpinModel.waresListConfig.assistPriceColor?ptShangpinModel.waresListConfig.assistPriceColor:'#999999'}}" wx:if="{{item.pcpPrice.length>0&&ptShangpinModel.waresListConfig.jdPrice&&ptShangpinModel.waresListConfig.jdPrice==='1'}}">¥{{item.pcpPrice}}</view>
+                <view class="pt-promotionTag" hidden="{{item.promotionTag.length<=0||item.pPrice.length>11||item.pPrice.length*32+item.promotionTag.length*28>380}}" style="background-color:{{ptShangpinModel.waresListConfig.tabColor?ptShangpinModel.waresListConfig.tabColor:'#f02b2b'}}" wx:elif="{{ptShangpinModel.waresListConfig.jdPrice&&ptShangpinModel.waresListConfig.jdPrice==='0'}}">{{item.promotionTag}}</view>
+                <block wx:elif="{{ptShangpinModel.waresListConfig.jdPrice&&ptShangpinModel.waresListConfig.jdPrice==='3'}}"></block>
+                <block wx:else></block>
+            </view>
+            <view class="pt-comment" hidden="{{!item.commentCount||item.commentCount.length<=0||item.commentCount==='0'}}" style="color:{{ptShangpinModel.waresListConfig.commentColor?ptShangpinModel.waresListConfig.commentColor:'#999999'}}" wx:if="{{ptShangpinModel.waresListConfig.slogan==='0'&&ptShangpinModel.waresListConfig.showGoodCount==='1'}}">{{item.commentCount}}条评价 好评{{item.goodRate}}</view>
+            <image catchtap="addCart" class="pt-cart" data-wareid="{{item.skuId}}" hidden="{{ptShangpinModel.waresListConfig.showBuyCar==='1'?NO:YES}}" src="../../pages/BabelHome/babel-images/babel-ptShangpin-cart.png" style="position:absolute;right:20rpx;bottom:26rpx"></image>
+        </view>
+    </view>
+    <view class="pt-hasNoData" wx:if="{{noData}}">
+        <image class="pt-img-noData" src="../../pages/shop/shop_images/shop_joy.png"></image>
+        <view class="fontNodata">抱歉，暂无符合条件的商品</view>
+    </view>
+    <view class="pt-hasNoData" wx:if="{{netError}}">
+        <image class="pt-img-wifi" src="../../pages/shop/shop_images/shop_wifi.png"></image>
+        <view class="fontWifi">网络请求失败</view>
+        <view bindtap="_reloadData" class="fontReload">重新加载</view>
+    </view>
+</template>

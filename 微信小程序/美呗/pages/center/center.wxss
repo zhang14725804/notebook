@@ -1,0 +1,58 @@
+page {
+    background-color: #fff;
+}
+
+.headBg {
+    height: 400rpx;
+    background-color: #929292;
+}
+
+.headBg>image {
+    height: 400rpx;
+    width: 100vw;
+}
+
+.headImg {
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 70rpx;
+    display: flex;
+    margin-left: 30rpx;
+    margin-top: -70rpx;
+}
+
+.userName {
+    font-size: 34rpx;
+    color: #333;
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+    min-width: 140rpx;
+    display: inline-block;
+    text-align: center;
+}
+
+.loginButton {
+    width: 600rpx;
+    height: 90rpx;
+    color: #fff;
+    background-color: #ff8083;
+    font-size: 34rpx;
+    border-radius: 8rpx;
+    margin-top: 150rpx;
+}
+
+.logoutButton {
+    color: #333;
+    background: #fff;
+    border: 2rpx solid #666;
+    font-size: 36rpx;
+    border-radius: 8rpx;
+    height: 90rpx;
+    width: 420rpx;
+    margin: 0 auto;
+    margin-top: 300rpx;
+}
+
+.hidden {
+    display: none;
+}

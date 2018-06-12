@@ -1,0 +1,19 @@
+@import "../common/seckill_tab/index.wxss";
+
+@import "../common/goods_groupon/index.wxss";
+
+@import "../common/go_top/index.wxss";
+
+@import "../../../templates/loadMore/loadMore.wxss";
+
+@import "../common/share_btn/index.wxss";
+
+@import "../../../bower_components/zan/dist/toast/index.wxss";
+
+.discount-wrapper {
+    padding-bottom: 1rpx;
+}
+
+.goods-list {
+    padding-top: 116rpx;
+}

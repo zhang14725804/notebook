@@ -1,0 +1,26 @@
+<template name="tabList">
+    <view bindtap="_handleTabTap" class="jkp-tab-item {{tab.selectedId==item.id?'selected':''}}" data-item-id="{{item.id}}" id="scroll_{{item.id}}" wx:for="{{tab.list}}">
+        <view class="jkp-tab-title">{{item.title}}</view>
+    </view>
+</template>
+<template name="JKPTab">
+    <view class="jkp-tab {{tab.menu&&tab.menuStatus=='open'?'jkp-tab-menu-open':''}}">
+        <block wx:if="{{tab.scroll}}">
+            <scroll-view class="jkp-tab-wrap jkp-tab-wrap-scroll {{tab.menu?'jkp-tab-wrap-menu':''}}" scrollIntoView="scroll_{{tab.selectedId}}" scrollX="true">
+                <template is="tabList" data="{{tab:tab}}"></template>
+            </scroll-view>
+            <block wx:if="{{tab.menu}}">
+                <view class="menu-top-tip" style="display:{{tab.menuStatus=='open'?'block':'none'}}">{{tab.menuTopTip}}</view>
+                <view bindtap="_handleUnfoldTabMenu" class="unfold-tab-menu {{tab.menuStatus=='open'?'up':'down'}}" data-menu-status="{{tab.menuStatus}}">
+                    <view class="tab-menu-icon"></view>
+                </view>
+            </block>
+        </block>
+        <view class="jkp-tab-wrap" wx:else>
+            <template is="tabList" data="{{tab:tab}}"></template>
+        </view>
+    </view>
+    <view class="unfold-tab-list" style="display:{{tab.menuStatus=='open'?'block':'none'}}" wx:if="{{tab.menu}}">
+        <view bindtap="_handleUnfoldTabTap" class="unfold-tab-btn {{tab.selectedId==item.id?'selected':''}}" data-item-id="{{item.id}}" wx:for="{{tab.list}}">{{item.title}}</view>
+    </view>
+</template>

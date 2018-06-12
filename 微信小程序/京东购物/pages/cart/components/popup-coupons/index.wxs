@@ -1,0 +1,50 @@
+function getCouponCls(type) {
+    return {
+        0: "bg_jing",
+        1: "bg_dong",
+        2: "bg_yun"
+    }[(nt_0 = type, null == nt_0 ? undefined : "Number" === nt_0.constructor ? nt_0 : "" + nt_0)] || "";
+}
+
+function getCouponTypeText(typeCode, kindCode) {
+    var kind = {
+        2: "店铺",
+        3: "店铺"
+    }[(nt_1 = kindCode, null == nt_1 ? undefined : "Number" === nt_1.constructor ? nt_1 : "" + nt_1)] || "";
+    var type = {
+        0: "京券",
+        1: "东券",
+        2: "免运费券"
+    }[(nt_2 = typeCode, null == nt_2 ? undefined : "Number" === nt_2.constructor ? nt_2 : "" + nt_2)] || "";
+    return kind + type;
+}
+
+function getAmountCls(len) {
+    return len > 5 ? "small" : "";
+}
+
+function getStatusCls(status) {
+    return {
+        1: "",
+        2: "disabled",
+        3: "",
+        4: "disabled"
+    }[(nt_3 = status, null == nt_3 ? undefined : "Number" === nt_3.constructor ? nt_3 : "" + nt_3)] || "";
+}
+
+function getStatusText(status) {
+    return {
+        1: "领取",
+        2: "已领取",
+        3: "领取中",
+        4: "已抢光"
+    }[(nt_4 = status, null == nt_4 ? undefined : "Number" === nt_4.constructor ? nt_4 : "" + nt_4)] || "";
+}
+
+module.exports = {
+    getCouponCls: getCouponCls,
+    getCouponTypeText: getCouponTypeText,
+    getAmountCls: getAmountCls,
+    getStatusCls: getStatusCls,
+    getStatusText: getStatusText
+};
