@@ -1,0 +1,122 @@
+
+.my-address-bg {
+  height: inherit;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+}
+
+.addr-scroll-bg {
+  flex: 1;
+  width: 100%;
+  text-align: center;
+  overflow-y: scroll;
+  padding-bottom: 1.02rem;
+}
+
+.addr-item-bg {
+  border-radius: 0.2rem;
+  border-color: #FFFFFF;
+  background-color: #FFFFFF;
+  height: 2rem;
+  margin: 2% 2% 0 2%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.addr-item-left {
+  width: 1.6rem;
+  height: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.addr-item-middle {
+  flex: 1;
+  height: 100%;
+  text-align: left;
+  margin-right: 0.2rem;
+}
+
+.addr-item-right {
+  border-left-color: #e9e9e9;
+  border-left-width: 0.01rem;
+  border-left-style: solid;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addr-item-name {
+  height: 0.32rem;
+  font-size: 0.32rem;
+  color: #333333;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+  overflow: hidden; /** 隐藏超出的内容 **/
+
+}
+
+.addr-item-tag {
+  height: 0.3rem;
+  width: 0.6rem;
+  line-height: 0.3rem;
+  font-size: 0.2rem;
+  color: #FFFFFF;
+  background-color: #d42a1d;
+  margin-top: 0.2rem;
+  border-radius: 0.15rem;
+}
+
+.addr-item-phone {
+  font-size: 0.32rem;
+  color: #333333;
+  margin-top: 0.4rem;
+  display: block;
+}
+
+.addr-item-addrstr {
+  font-size: 0.28rem;
+  height: 0.68rem;
+  color: #666666;
+  margin-top: 0.07rem;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+  overflow: hidden; /** 隐藏超出的内容 **/
+}
+
+.addr-add-new {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 0.9rem;
+  color: #d42a1d;
+  font-size: 0.32rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  border-top-color: #f4f4f4;
+  border-top-width: 0.02rem;
+  border-top-style: solid;
+}
+
+.addr-tip-bg {
+  background-color: #e9e9e9;
+  line-height: 0.8rem;
+  height: 0.8rem;
+  padding-left: 0.3rem;
+  font-size: 0.24rem;
+  color: #F65F23;
+}

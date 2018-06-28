@@ -1,0 +1,47 @@
+
+.order-bg {
+    border-width: 0.02rem;
+    height: 3.2rem;
+    width: 96%;
+    margin-top: 0.5rem;
+    margin-left: 0.02rem;
+    margin-right: 0.02rem;
+    background-color: #ffffff;
+    border-radius: 0.15rem;
+    border-style: solid;
+    border-color: #ffffff #ffffff #ffffff #ffffff;
+}
+
+.order-items-bg {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.mmb-in-eat-bg {
+    width: 92%;
+    margin-top: 0.23rem;
+}
+
+.mmb-in-eat-card-bg {
+    height: 1.9rem;
+    margin-top: 0.13rem;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.entry-in-eat-bg {
+    height: 2.2rem;
+    width: 96%;
+    margin-top: 0.2rem;
+    margin-left: 0.02rem;
+    margin-right: 0.02rem;
+    background-color: #ffffff;
+    display: flex;
+    border-width: 0.02rem;
+    border-style: solid;
+    border-radius: 0.15rem;
+    border-color: #ffffff #ffffff #ffffff #ffffff;
+}

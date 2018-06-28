@@ -1,0 +1,41 @@
+.time-horizontal {
+    position: fixed;
+    bottom: 0.2rem;
+    width: 66%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #D1A34F;
+    list-style-type: none;
+    border-top: 1px solid #707070;
+    max-width: 800px;
+    padding: 0px;
+    margin: 0px;
+    li {
+      float: left;
+      position: relative;
+      text-align: center;
+      padding-top: 0.25rem;
+      font-size: 0.22rem;
+      line-height: 0.3rem;
+      width: 33.33%;
+      &:last-child{
+        right: 0;
+        text-align: right;
+      }
+      &:first-child{
+        text-align: left;
+      }
+      &:last-child b{
+        right: 0;
+      }
+      b {
+        position: absolute;
+        top: -0.14rem;
+        width: 0.28rem;
+        height: 0.28rem;
+        border: 1px solid #D1A34F;
+        border-radius: 50%;
+        background: #000000;
+      }
+    }
+  }
