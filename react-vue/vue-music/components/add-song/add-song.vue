@@ -78,7 +78,7 @@
     methods: {
       show() {
         this.showFlag = true
-        // display切换之后，刷新
+        // display切换之后， 刷新
         setTimeout(() => {
           if (this.currentIndex === 0) {
             this.$refs.songList.refresh()
