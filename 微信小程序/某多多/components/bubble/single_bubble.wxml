@@ -1,8 +1,0 @@
-<template name="single_bubble">
-    <view class="bubble-container {{showBubbleCls}}">
-        <image bindload="bubbleImageOnLoad" class="single-bubble-img" src="{{img}}"></image>
-        <view class="single-bubble-content">
-            <view class="bubble-content-text">{{content}}</view>
-        </view>
-    </view>
-</template>

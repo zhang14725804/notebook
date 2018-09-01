@@ -1,9 +1,0 @@
-<template name="mallCouponToast">
-    <view class="mall-coupons-toast-double" hidden="{{!toastVisible}}" wx:if="{{!single}}">
-        <view class="mc-toast-main">{{mainToast}}</view>
-        <view class="mc-toast-sub" wx:if="{{subToast}}">{{subToast}}</view>
-    </view>
-    <view class="mall-coupons-toast-single" hidden="{{!toastVisible}}" wx:if="{{single}}">
-        <view>{{mainToast}}</view>
-    </view>
-</template>

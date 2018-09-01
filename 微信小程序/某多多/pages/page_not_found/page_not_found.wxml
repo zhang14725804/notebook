@@ -1,4 +1,0 @@
-<view class="not-found-pannel">
-    <view class="icon"></view>
-    <text class="not-found-hint">哎哟，遇到点问题，正在重新跳转...</text>
-</view>

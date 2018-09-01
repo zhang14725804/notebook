@@ -1,8 +1,0 @@
-<view class="pdd-modal-mask" id="app-dw-modal" wx:if="{{showAppDownloadModal}}">
-    <view class="app-dw-bg">
-        <view class="app-dw-rw">{{appDownloadModalReward}}</view>
-        <form bindsubmit="didAppDownloadModalClose" reportSubmit="true">
-            <button class="app-dw-close-btn" formType="submit"></button>
-        </form>
-    </view>
-</view>

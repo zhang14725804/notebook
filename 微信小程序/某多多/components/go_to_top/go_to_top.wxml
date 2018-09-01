@@ -1,8 +1,0 @@
-<template name="to-top-template">
-    <form bindsubmit="$uploadFormId" reportSubmit="true">
-        <button catchtap="$goToTop" class="to-top-container {{topShow?minLeftTimeLocalGroup?isIpx?' fix-ipx-min-left-time-to-top-show':' min-left-time-to-top-show':isIpx?' fix-ipx-go-to-top':' to-top-show':''}} {{topShow&&bigSaleTopShow?bigSaleTopShow:''}}" data-diy="{{diy}}" formType="submit">
-            <view class="arrow"></view>
-            <txt class="txt">顶部</txt>
-        </button>
-    </form>
-</template>

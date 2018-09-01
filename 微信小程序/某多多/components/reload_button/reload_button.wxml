@@ -1,6 +1,0 @@
-<template name="reload-button">
-    <view catchtap="reloadButtonAction" class="navigation-modal-icon{{topShow?' navigation-modal-icon-up':''}}" style="z-index:10;">
-        <view class="navi-title icon-speedgroup icon-button-reload"></view>
-        <txt class="txt">刷新</txt>
-    </view>
-</template>
