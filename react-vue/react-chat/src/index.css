@@ -1,0 +1,33 @@
+.am-tab-bar{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.fixed-header.am-navbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 22;
+}
+
+#chat-page .chat-me .am-list-extra{
+  flex-basis: auto;
+}
+#chat-page .chat-me .am-list-content{
+  padding-right: 15px;
+  text-align: right;
+}
+#chat-page .am-grid-icon{
+	display: none;
+}
+#chat-page .am-grid-text{
+	margin-top: 0;
+}
+.sticky-footer{
+  position: fixed;
+  bottom:0;
+  z-index: 10;
+  width: 100%;
+}

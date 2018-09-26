@@ -1,32 +1,41 @@
 const express=require("express")
-const mongoose=require("mongoose")
-const DB_URL='mongodb://localhost:27017/imooc'
-mongoose.connect(DB_URL)
-mongoose.connection.on("connected",function(){
-  console.log("connected!!")
-})
+const bodyParser=require("body-parser")
+const cookieParser=require("cookie-parser")
 
-//create remove update find
-const User=mongoose.model('users',new mongoose.Schema({
-  name:{required:true,type:String},
-  age:{required:true,type:Number},
-}))
-
-User.create({
-  name:"大锤",
-  age:23
-})
-
+const model=require("./model")
+const Chat=model.getModel('chat')
+//socket with express
 const app=express()
+const server=require('http').Server(app)
+const io=require("socket.io")(server)
+
+io.on('connection',function(socket){
+  console.log('user login')
+  //当前链接
+  socket.on('sendMessage',function(message){
+    console.log(message)
+    //数据入库
+    const {from,to,msg}=message
+    const chatid=[from,to].sort().join('_')
+    Chat.create({chatid,from,to,content:msg},function(err,doc){
+      //广播到全局
+      io.emit('receiveMessage',Object.assign({},doc._doc))
+    })
+  })
+})
+
+//解析cookie和body的中间件
+app.use(cookieParser())
+app.use(bodyParser.json())
+const userRouter=require('./user')
+//子路由
+app.use('/user',userRouter)
 
 //直接用箭头函数不行？？
-app.get("/",function(req,res){
-  res.send("<h2>Hello World</h2>")
-})
-app.get("/data",function(req,res){
-  res.json({name:'Leborn James',type:"hero"})
-})
+// app.get("/",function(req,res){
+//   res.send("<h2>Hello World</h2>")
+// })
 
-app.listen(9093,function(res){
+server.listen(9093,function(res){
   console.log('server is already loaded')
 })

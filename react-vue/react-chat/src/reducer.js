@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux'
-import {counterReducer} from './counterReducer'
-import {authReducer} from './authReducer'
+
+import {user} from './store/userRedux'
+import {chatuser} from './store/chatUserRedux'
+import {chat} from './store/chatRedux'
 
 //state中存在对象
-
-export default combineReducers({counterReducer,authReducer})
+export default combineReducers({user,chatuser,chat})

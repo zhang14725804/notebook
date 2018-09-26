@@ -1,5 +1,6 @@
 import React from 'react'
-import {connect} from 'react-redux'
+//import {connect} from 'react-redux'
+import {connect} from './simpleReactRedux'
 
 import {increase_NUM,decrease_NUM,increase_NUM_async} from './store'
 
