@@ -20,10 +20,6 @@ import {increase_NUM,decrease_NUM,increase_NUM_async} from './counterReducer'
 )
 
 class App extends React.Component{
-  // constructor(props){
-  //   super(props)
-  // }
-
   render(){
     return(
       <div>

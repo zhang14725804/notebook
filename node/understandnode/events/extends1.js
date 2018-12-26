@@ -3,10 +3,11 @@ var EventEmitter=require('events')
 var util=require('util')
 
 function Greetr(){
+    EventEmitter.call(this)
     this.greeting='Hello World'
 }
 
-//继承
+//用工具类继承
 util.inherits(Greetr,EventEmitter)
 
 Greetr.prototype.greet=function(data){

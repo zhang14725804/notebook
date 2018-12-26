@@ -15,7 +15,6 @@ const initState={
   type:'',
   //pwd:'',
   //isAuth:'',
-  type:'',
 }
 //reducer
 export function user(state=initState,action){
