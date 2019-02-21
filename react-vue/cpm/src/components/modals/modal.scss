@@ -1,0 +1,24 @@
+.add-staff-modal{
+    padding:10px 0;
+    height: 299px;
+    display:flex;
+    .sort div{
+        padding:10px 10px 10px 0;
+        &.active{
+            color: #6198FC;
+        }
+    }
+}
+.radio-wrapper{
+    flex:1;
+    height: 299px;
+    overflow: auto;
+    padding: 10px 10px 10px 0;
+    background: #F9F9F9;
+    .radio-class{
+        padding: 10px;
+        &:hover{
+            background: #E8F1FF;
+        }
+    }
+}

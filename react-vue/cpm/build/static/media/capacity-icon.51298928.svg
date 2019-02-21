@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>容量</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="弹窗" transform="translate(-28.000000, -356.000000)" fill="#9C9C9C" fill-rule="nonzero">
+            <g id="1-copy-10" transform="translate(0.000000, 340.000000)">
+                <g id="容量" transform="translate(28.000000, 16.000000)">
+                    <path d="M13,5.89062492 C12.8163566,3.93453117 11.7617302,2.22909367 10.2266178,1.16349992 L7.56032693,5.89062492 L13,5.89062492 Z M6.515066,7.10937492 C6.17728909,7.10847864 5.90419457,6.8345633 5.90509294,6.49756623 C5.90536941,6.39385607 5.93213644,6.29192756 5.98286654,6.20140617 L9.16181164,0.565499923 L9.16181182,0.5655 C8.32933906,0.193100781 7.42739177,0.000392285156 6.51506618,0 C2.92282157,0 0,2.9144375 0,6.4991875 C0,10.0827187 2.92282157,13 6.51506618,13 C9.90208621,13 12.6897202,10.4077188 12.9991858,7.109375 L6.51506618,7.109375 L6.515066,7.10937492 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

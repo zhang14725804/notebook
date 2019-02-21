@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>创建部门</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1企业管理者" transform="translate(-29.000000, -358.000000)" fill="#9C9C9C" fill-rule="nonzero">
+            <g id="1-copy-3" transform="translate(0.000000, 341.000000)">
+                <g id="创建部门" transform="translate(29.000000, 17.000000)">
+                    <rect id="Rectangle" x="0" y="5" width="12" height="2"></rect>
+                    <rect id="Rectangle" transform="translate(6.000000, 6.000000) rotate(90.000000) translate(-6.000000, -6.000000) " x="0" y="5" width="12" height="2"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

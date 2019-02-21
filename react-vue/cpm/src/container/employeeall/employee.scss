@@ -1,0 +1,69 @@
+.filter-items div{
+    padding: 10px;
+}
+.filter-items div:hover{
+    color:#1890ff;
+}
+.filter-items div.active{
+    color: #1890ff;
+}
+
+.dept-data-wrapper{
+    padding-left: 16px;
+
+    .toolbar{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 28px;
+        .dept-name-count{
+            display: flex;
+            align-items: center;
+            .icon-wrapper{
+                margin-right: 9px;
+            }
+            .name{
+                margin-bottom: 0;
+            }
+        }
+        .operations{
+            display: flex;
+            align-items: center;
+            .oper-wrapper{
+                margin-right: 4px;
+            }
+            .search-wrapper{
+                display: flex;
+            }
+        }
+    }
+
+    .batch-btns{
+        padding:0 0 10px 10px;
+        .ant-btn{
+            margin-right: 8px;
+        }
+        .icon{
+            width: 12px;
+            height: 12px;
+            margin-right: 4px;
+        }
+    }
+    .datagrid-wrapper{
+        height: auto;
+        .role-tip{
+            font-size: 12px;
+            padding: 0 4px;
+            display: inline-block;
+            color: #8198FC;
+            border: 1px solid #8198FC;
+            border-radius: 2px;
+        }
+    }
+    .pagenation-wrapper{
+        position: absolute;
+        bottom: 36px;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+}

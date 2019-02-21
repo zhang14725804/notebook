@@ -1,0 +1,114 @@
+/*所有员工列表*/
+.all-emp .table-row-name, .all-emp .ant-table-thead tr{
+    display: flex;
+    td,th{
+        display: flex;
+        align-items: center;
+        & > div{
+            width: 100%;
+        }
+    }
+    td:nth-child(1),th:nth-child(1){
+        justify-content: center;
+    }
+    td:nth-child(2),th:nth-child(2){
+        flex: 1;
+        min-width: 150px;
+    }
+    td:nth-child(3),th:nth-child(3){
+        min-width: 150px;
+        flex: 1;
+    }
+    td:nth-child(4),th:nth-child(4){
+        min-width: 150px;
+        width: 10%;
+    }
+    td:nth-child(5),th:nth-child(5){
+        min-width: 150px;
+        width: 20%;
+    }
+}
+/*企业管理员员工列表*/
+.dept-emp .ant-table-tbody tr,.dept-emp .ant-table-thead tr{
+    display: flex;
+    td,th{
+        display: flex;
+        align-items: center;
+        & > div{
+            width: 100%;
+        }
+    }
+    td:nth-child(1),th:nth-child(1){
+        flex: 1;
+        min-width: 150px;
+    }
+    td:nth-child(2),th:nth-child(2){
+        min-width: 150px;
+        flex: 1;
+    }
+    td:nth-child(3),th:nth-child(3){
+        min-width: 150px;
+        width: 10%;
+    }
+    td:nth-child(4),th:nth-child(4){
+        min-width: 150px;
+        width: 20%;
+    }
+}
+/*部门管理员员工列表*/
+.demp .table-row-name,.demp .ant-table-thead tr{
+    display: flex;
+    td,th{
+        display: flex;
+        align-items: center;
+        & > div{
+            width: 100%;
+        }
+    }
+    td:first-of-type,th:first-of-type{
+        width: 40%;
+    }
+    td:nth-child(2),th:nth-child(2){
+        width: 150px;
+    }
+    td:nth-child(3),th:nth-child(3){
+        width: 200px;
+    }
+    td:nth-child(4),th:nth-child(4){
+        width: 150px;
+    }
+    td:nth-child(5),th:nth-child(5){
+        flex: 1;
+        min-width: 150px;
+    }
+}
+/*容量管理（第一个tr和td是checkbox）*/
+.capa-emp .table-row-name,.capa-emp .ant-table-thead tr{
+    display: flex;
+    td:nth-child(1),th:nth-child(1){
+        justify-content: center;
+    }
+    td,th{
+        display: flex;
+        align-items: center;
+        & > div{
+            width: 100%;
+        }
+    }
+    td:nth-child(2),th:nth-child(2){
+        flex: 1;
+        min-width: 150px;
+    }
+    td:nth-child(3),th:nth-child(3){
+        min-width: 150px;
+        flex: 1;
+    }
+    td:nth-child(4),th:nth-child(4){
+        min-width: 150px;
+        width: 20%;
+    }
+}
+
+.capa .ant-table-title th{
+    padding:0;
+}

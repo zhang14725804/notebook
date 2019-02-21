@@ -1,0 +1,48 @@
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #3A3A3A;
+    color: #fff;
+    font-family: PingFangSC-Medium;
+    padding: 0 130px 0 26px;
+    font-size: 16px;
+    .company{}
+    .avatar-name{
+        display: flex;
+        align-items: center;
+        .name{
+            margin-left: 10px;
+        }
+        .avatar{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #EAEAEA;
+        }
+    }
+}
+.cu-pop{
+    font-size: 12px;
+    .avatar-name-title{
+        display:flex;
+        padding:16px 24px;
+        .name-title{
+            margin-left: 10px;
+            .name{
+                color:#333333;
+                font-family:'PingFangSC-Medium';
+            }
+            .title{
+                color: #666666;
+            }
+        }
+    }
+    .oper{
+        display: flex;
+        align-items: center;
+        color:#333333;
+        line-height: 30px;
+        padding-left: 24px;
+    }
+}

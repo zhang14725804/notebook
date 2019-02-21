@@ -1,0 +1,32 @@
+.menubar{
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 88px;
+    .role{
+        padding: 26px 0 15px 26px;
+        color: #444444;
+        font-size:16px; 
+    }
+    /*不知道怎么的多出来一个空的div，暂时只能用这种本办法隐藏*/
+    .ant-menu-item-group-title{
+        display: none;
+    }
+    .menu-dark{
+        height: 30px;
+        background: #F2F2F2;
+    }
+    .icon{
+        margin-right: 10px;
+    }
+    .menu-btns{
+        background: #fff;
+        .btn{
+            padding: 15px 22px;
+            display: flex;
+            align-items: center;
+            img{
+                margin-right: 10px;
+            }
+        }
+    }
+}
