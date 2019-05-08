@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function wordBreak(s, wordDict) {
+            var dp = [1], res = [0];
+            console.log(dp,res)
+            for (var i = 1; i <= s.length; i++) {
+                var state = 0,
+                    js = 0;
+                while (js !== res.length) {
+                    if (wordDict.indexOf(s.slice(res[js], i)) !== -1) {
+                        res.push(i);
+                        state = 1;
+                        break;
+                    }
+                    js += 1;
+                    console.log(state,js)
+                }
+                dp[i] = state;
+                
+            }
+            console.log(s)
+            console.log(dp,res)
+            return dp[s.length];
+        }
+        console.log(wordBreak('leetcode',['leet','code','big']))
+    </script>
+</body>
+
+</html>
