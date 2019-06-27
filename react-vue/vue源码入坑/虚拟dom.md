@@ -85,3 +85,14 @@ export default class VNode {
 }
 
 ```
+
+### 生成新VNode的方法
+一些常用的构造VNode的方法
+
+- createEmptyVNode 创建一个空VNode节点
+- createTextVNode 创建一个文本节点
+- createComponent 创建一个组件节点
+- cloneVNode 克隆一个VNode节点
+- createElement
+
+createElement用来创建一个虚拟节点。当data上已经绑定__ob__的时候，代表该对象已经被Oberver过了，所以创建一个空节点。tag不存在的时候同样创建一个空节点。当tag不是一个String类型的时候代表tag是一个组件的构造类，直接用new VNode创建。当tag是String类型的时候，如果是保留标签，则用new VNode创建一个VNode实例，如果在vm的option的components找得到该tag，代表这是一个组件，否则统一用new VNode创建
