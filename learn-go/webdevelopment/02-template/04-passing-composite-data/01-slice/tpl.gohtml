@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello world</title>
+    </head>
+    <body>
+        <ul>
+            {{range .}}
+            <li>{{.}}</li>
+            {{end}}
+
+            {{range $index,$element := .}}
+            <li>{{$index}} - {{$element}}</li>
+            {{end}}
+        </ul>
+    </body>
+</html>
