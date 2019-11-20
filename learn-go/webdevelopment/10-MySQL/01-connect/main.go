@@ -27,8 +27,10 @@ const (
 	但是后台确实运行着mysql
 */
 func main() {
-	//构建连接："用户名:密码@tcp(IP:端口)/数据库?charset=utf8"
+	// 构建连接："用户名:密码@tcp(IP:端口)/数据库?charset=utf8"
+	// root:123456@tcp(127.0.0.1:3306)/goDB1113?charset=utf8
 	path := strings.Join([]string{userName, ":", password, "@tcp(", ip, ":", port, ")/", dbName, "?charset=utf8"}, "")
+	fmt.Println(path)
 	//打开数据库,前者是驱动名，所以要导入： _ "github.com/go-sql-driver/mysql"
 	db, err = sql.Open("mysql", path)
 	checkError(err)
