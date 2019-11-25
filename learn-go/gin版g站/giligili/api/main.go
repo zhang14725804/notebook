@@ -19,9 +19,12 @@ func Ping(c *gin.Context) {
 	})
 }
 
-// CurrentUser 获取当前用户
+/*
+	根据session 获取当前用户 CurrentUser
+*/
 func CurrentUser(c *gin.Context) *model.User {
 	if user, _ := c.Get("user"); user != nil {
+		// 对类型进行断言，只能是user类型
 		if u, ok := user.(*model.User); ok {
 			return u
 		}

@@ -30,7 +30,9 @@ func UserLogin(c *gin.Context) {
 		if user, err := service.Login(); err != nil {
 			c.JSON(200, err)
 		} else {
-			// 设置Session
+			/*
+				操做Session
+			*/
 			s := sessions.Default(c)
 			s.Clear()
 			s.Set("user_id", user.ID)

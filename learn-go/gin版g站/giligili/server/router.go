@@ -12,10 +12,17 @@ import (
 func NewRouter() *gin.Engine {
 	r := gin.Default()
 
+	/*
+		TODOS：：session使用方法（https://github.com/gin-contrib/sessions）
+		（1）cookie中存储sessionID，session存储在服务器，均衡负载中会话保存，指定一台服务器
+		（2）session存在用户本地，分布式和加密
+		（3）session存储在redis
+	*/
 	// 中间件, 顺序不能改
 	r.Use(middleware.Session(os.Getenv("SESSION_SECRET")))
 	// 跨域问题
 	r.Use(middleware.Cors())
+	// 获取用户身份
 	r.Use(middleware.CurrentUser())
 
 	// 路由

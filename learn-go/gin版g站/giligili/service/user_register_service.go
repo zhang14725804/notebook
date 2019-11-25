@@ -5,7 +5,10 @@ import (
 	"giligili/serializer"
 )
 
-// UserRegisterService 管理用户注册服务
+/*
+	数据绑定，获取用户输入信息
+	UserRegisterService 管理用户注册服务
+*/
 type UserRegisterService struct {
 	Nickname        string `form:"nickname" json:"nickname" binding:"required,min=2,max=30"`
 	UserName        string `form:"user_name" json:"user_name" binding:"required,min=5,max=30"`
@@ -13,8 +16,11 @@ type UserRegisterService struct {
 	PasswordConfirm string `form:"password_confirm" json:"password_confirm" binding:"required,min=8,max=40"`
 }
 
-// Valid 验证表单
+/*
+	Valid 验证表单
+*/
 func (service *UserRegisterService) Valid() *serializer.Response {
+	// 两次密码输入不一致
 	if service.PasswordConfirm != service.Password {
 		return &serializer.Response{
 			Status: 40001,
@@ -22,6 +28,7 @@ func (service *UserRegisterService) Valid() *serializer.Response {
 		}
 	}
 
+	// 用户名是否已经被注册
 	count := 0
 	model.DB.Model(&model.User{}).Where("nickname = ?", service.Nickname).Count(&count)
 	if count > 0 {

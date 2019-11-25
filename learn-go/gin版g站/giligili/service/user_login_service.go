@@ -11,7 +11,10 @@ type UserLoginService struct {
 	Password string `form:"password" json:"password" binding:"required,min=8,max=40"`
 }
 
-// Login 用户登录函数
+/*
+	Login 用户登录函数
+	验证账户名和密码
+*/
 func (service *UserLoginService) Login() (model.User, *serializer.Response) {
 	var user model.User
 
