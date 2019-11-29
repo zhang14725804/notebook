@@ -13,7 +13,7 @@ https://www.udemy.com/course/grpc-golang/（这个也行）
 - https://godoc.org
 
 ### 备选域名
-meihongzhu hupibobo
+meihongzhu hupibobo 20160626 echofan
  
 ### TODOS：：标准库
     （*）官方标准库：https://golang.org/pkg/
@@ -76,9 +76,4 @@ https://www.youtube.com/watch?v=nyF_QBS5cQA&list=PLwDQt7s1o9J4FMviSY4p5rhC43kBPv
 https://cloud.tencent.com/developer/column/2170/tag-10174
 
 
-### golang教程
-[慕课-Go实战仿百度云盘实现企业级分布式云存储系统](https://coding.imooc.com/class/chapter/323.html#Anchor)
-[慕课-Google资深工程师深度讲解Go语言](https://coding.imooc.com/class/180.html)
-[慕课-高并发&高性能 Go语言开发企业级抽奖项目](https://coding.imooc.com/class/chapter/295.html#Anchor)
-[慕课-Go语言实战流媒体视频网站](https://coding.imooc.com/class/chapter/227.html#Anchor)
-[Golang从入门到精通](https://study.163.com/course/introduction.htm?courseId=1004720008#/courseDetail?tab=1)
+
