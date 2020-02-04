@@ -14,3 +14,23 @@
 先增加第一个地址 git remote add origin <url1>
 
 然后增加第二个地址 git remote set-url --add origin <url2>
+
+### Git远程仓库地址变更本地如何修改
+
+- (1)直接修改远程地址
+ 
+    git remote -v 查看所有远程仓库
+
+    git remote set-url origin *** 添加远程仓库
+
+- (2)先删除再添加远程仓库
+
+    git remote -v 查看所有远程仓库
+
+    git remote rm origin
+
+    git remote set-url origin *** 添加远程仓库
+
+- (3)修改项目.git文件
+
+    修改 [remote “origin”]下面的url即可
