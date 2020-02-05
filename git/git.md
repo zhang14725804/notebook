@@ -1,3 +1,10 @@
+### win10 生成ssh keys
+
+先执行 cat ~/.ssh/id_rsa.pub 看本地是否已经存在
+
+执行ssh-keygen -t rsa -C "359947329@qq.com" 生成ssh keys
+
+
 ### 码云和git，每次提交都需要输入用户名密码（配置ssh公钥）
 
 通信方式由ssh切换成ssh，就好了
