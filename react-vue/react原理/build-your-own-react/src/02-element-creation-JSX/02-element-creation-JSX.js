@@ -7,9 +7,6 @@
         { name: "Components and state", url: "http://bit.ly/2rE16nh" }
     ]
     
-    // JSX
-    const appElement = <div><ul>{stories.map(storyElement)}</ul></div>
-    
     function storyElement({name,url}){
         // 随机数
         const likes = Math.ceil(Math.random()*100)
@@ -86,5 +83,10 @@
     }
     
     const Didact = react0()
+    /*
+        JSX
+        const appElement = <div><ul>{stories.map(storyElement)}</ul></div>
+    */
+    var appElement = Didact.createElement("div", null, Didact.createElement("ul", null, stories.map(storyElement)));
     Didact.render(appElement, document.getElementById("root"))
 })()
