@@ -58,6 +58,10 @@
         }
 
         function reconcile(parentDom, instance, element) {
+            console.log(instance);
+            console.log(instance.element);
+            console.log(element);
+            
             if (instance === null) {
                 const newInstance = instantiate(element)
                 parentDom.appendChild(newInstance.dom)
