@@ -58,10 +58,6 @@
         }
 
         function reconcile(parentDom, instance, element) {
-            console.log(instance);
-            console.log(instance.element);
-            console.log(element);
-            
             if (instance === null) {
                 const newInstance = instantiate(element)
                 parentDom.appendChild(newInstance.dom)
@@ -69,7 +65,9 @@
             } else if (element === null) {
                 parentDom.removeChild(instance.dom)
                 return null
-            } else if (instance.element.type === element.type) {
+            } else if (instance && instance.element && element && instance.element.type === element.type) {
+                // 上面判断条件这么恶心是不是有点不对劲
+                // if (instance.element.type === element.type) 
                 updateDomProperties(instance.dom, instance.element.props, element.props)
                 instance.childInstances = reconcileChild(instance, element)
                 instance.element = element
@@ -99,9 +97,11 @@
         function instantiate(element) {
             //  Cannot destructure property 'type' of 'element' as it is undefined.
             const { type, props } = element || {}
-
+            // debugger
             const isTextElement = type === "TEXT ELEMENT"
+            // 创建节点
             const dom = isTextElement ? document.createTextNode("") : document.createElement(type)
+            
             updateDomProperties(dom, [], props)
 
             const childElements = props ? props.children || []  : []
