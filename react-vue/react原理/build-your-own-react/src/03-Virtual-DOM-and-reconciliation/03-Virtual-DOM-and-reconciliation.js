@@ -37,13 +37,15 @@
             onClick: function onClick(e) {
                 return handleClick(story);
             }
-        }, story.likes, Didact.createElement("b", null, "❤️")), Didact.createElement("a", {
+        }, { type: "TEXT ELEMENT", props: { nodeValue: story.likes } }, Didact.createElement("b", null, { type: "TEXT ELEMENT", props: { nodeValue: "❤️" } })), Didact.createElement("a", {
             href: story.url
-        }, story.name));
+        }, { type: "TEXT ELEMENT", props: { nodeValue: story.name } }));
     }
 
+
     function handleClick(story) {
-        story.likes += 1
+        console.log(story);
+        story.likes ++
         Didact.render(appElement, document.getElementById("root"))
     }
 
@@ -59,20 +61,22 @@
 
         function reconcile(parentDom, instance, element) {
             if (instance === null) {
+                // 创建instance
                 const newInstance = instantiate(element)
                 parentDom.appendChild(newInstance.dom)
                 return newInstance
             } else if (element === null) {
+                // 移除instance
                 parentDom.removeChild(instance.dom)
                 return null
-            } else if (instance && instance.element && element && instance.element.type === element.type) {
-                // 上面判断条件这么恶心是不是有点不对劲
-                // if (instance.element.type === element.type) 
+            } else if (instance.element.type === element.type) {
+                // 更新instance
                 updateDomProperties(instance.dom, instance.element.props, element.props)
                 instance.childInstances = reconcileChild(instance, element)
                 instance.element = element
                 return instance
             } else {
+                // 替换instance
                 const newInstance = instantiate(element)
                 parentDom.replaceChild(newInstance.dom, instance.dom)
                 return newInstance
@@ -95,22 +99,18 @@
         }
 
         function instantiate(element) {
-            //  Cannot destructure property 'type' of 'element' as it is undefined.
-            const { type, props } = element || {}
-            // debugger
+            const { type, props } = element
             const isTextElement = type === "TEXT ELEMENT"
-            // 创建节点
+            // 创建dom节点
             const dom = isTextElement ? document.createTextNode("") : document.createElement(type)
-            
+
             updateDomProperties(dom, [], props)
 
-            const childElements = props ? props.children || []  : []
-
+            // Instantiate and append children
+            const childElements = props.children || []
             const childInstances = childElements.map(instantiate)
             const childDoms = childInstances.map(childInstance => childInstance.dom)
-            childDoms.forEach(childDom => {
-                dom.appendChild(childDom)
-            });
+            childDoms.forEach(childDom => dom.appendChild(childDom))
             const instance = { dom, element, childInstances }
             return instance
         }
@@ -120,25 +120,25 @@
             const isEvent = name => name.startsWith("on")
             const isAttribute = name => !isEvent(name) && name != "children"
 
-            // remove event listeners
+            // 移除 event listeners
             Object.keys(prevProps).filter(isEvent).forEach(name => {
                 const eventType = name.toLowerCase().substring(2)
                 dom.removeEventListener(eventType, prevProps[name])
             })
 
-            // remove attibutes
+            // 移除 attibutes
             Object.keys(prevProps).filter(isAttribute).forEach(name => {
                 dom[name] = null
             })
 
             //  Cannot convert undefined or null to object
-            if (JSON.stringify(nextProps) !== '{}' && nextProps !== null && nextProps !== 'null' && nextProps !== undefined ) {
-                // set attribute
+            if (JSON.stringify(nextProps) !== '{}' && nextProps !== null && nextProps !== 'null' && nextProps !== undefined) {
+                // 设置 attribute
                 Object.keys(nextProps).filter(isAttribute).forEach(name => {
                     dom[name] = nextProps[name]
                 })
 
-                // add event listeners
+                // 添加 event listeners
                 Object.keys(nextProps).filter(isEvent).forEach(name => {
                     const eventType = name.toLowerCase().substring(2)
                     dom.addEventListener(eventType, nextProps[name])
