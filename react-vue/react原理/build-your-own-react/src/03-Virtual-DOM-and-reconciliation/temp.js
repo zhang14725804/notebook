@@ -73,7 +73,7 @@ function importFromBelow() {
         } else if (instance.element.type === element.type) {
             // Update instance
             updateDomProperties(instance.dom, instance.element.props, element.props);
-            instance.childInstances = reconcileChildren(instance, element);
+            instance.childInstances = reconcileChild(instance, element);
             instance.element = element;
             return instance;
         } else {
@@ -84,7 +84,7 @@ function importFromBelow() {
         }
     }
 
-    function reconcileChildren(instance, element) {
+    function reconcileChild(instance, element) {
         const dom = instance.dom;
         const childInstances = instance.childInstances;
         const nextChildElements = element.props.children || [];
@@ -151,9 +151,7 @@ function importFromBelow() {
         const props = Object.assign({}, config);
         const hasChildren = args.length > 0;
         const rawChildren = hasChildren ? [].concat(...args) : [];
-        props.children = rawChildren
-            .filter(c => c != null && c !== false)
-            .map(c => c instanceof Object ? c : createTextElement(c));
+        props.children = rawChildren.filter(c => c != null && c !== false).map(c => c instanceof Object ? c : createTextElement(c));
         return { type, props };
     }
 

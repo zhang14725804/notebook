@@ -37,16 +37,15 @@
             onClick: function onClick(e) {
                 return handleClick(story);
             }
-        }, { type: "TEXT ELEMENT", props: { nodeValue: story.likes } }, Didact.createElement("b", null, { type: "TEXT ELEMENT", props: { nodeValue: "❤️" } })), Didact.createElement("a", {
+        }, story.likes , Didact.createElement("b", null, "❤️" )), Didact.createElement("a", {
             href: story.url
-        }, { type: "TEXT ELEMENT", props: { nodeValue: story.name } }));
+        }, story.name ));
     }
 
 
     function handleClick(story) {
-        console.log(story);
         story.likes ++
-        Didact.render(appElement, document.getElementById("root"))
+        Didact.render(appElement(), document.getElementById("root"))
     }
 
     function react0() {
@@ -97,7 +96,7 @@
             }
             return newChildInstances.filter(instance => instance != null)
         }
-
+        
         function instantiate(element) {
             const { type, props } = element
             const isTextElement = type === "TEXT ELEMENT"
@@ -130,32 +129,28 @@
             Object.keys(prevProps).filter(isAttribute).forEach(name => {
                 dom[name] = null
             })
+            // 设置 attribute
+            Object.keys(nextProps).filter(isAttribute).forEach(name => {
+                dom[name] = nextProps[name]
+            })
 
-            //  Cannot convert undefined or null to object
-            if (JSON.stringify(nextProps) !== '{}' && nextProps !== null && nextProps !== 'null' && nextProps !== undefined) {
-                // 设置 attribute
-                Object.keys(nextProps).filter(isAttribute).forEach(name => {
-                    dom[name] = nextProps[name]
-                })
-
-                // 添加 event listeners
-                Object.keys(nextProps).filter(isEvent).forEach(name => {
-                    const eventType = name.toLowerCase().substring(2)
-                    dom.addEventListener(eventType, nextProps[name])
-                })
-            }
+            // 添加 event listeners
+            Object.keys(nextProps).filter(isEvent).forEach(name => {
+                const eventType = name.toLowerCase().substring(2)
+                dom.addEventListener(eventType, nextProps[name])
+            })
         }
 
         function createElement(type, config, ...args) {
             const props = Object.assign({}, config)
             const hasChildren = args.length > 0
             const rawChildren = hasChildren ? [].concat(...args) : []
-            props.children = rawChildren.filter(c => c !== null && c !== false).map(c => c instanceof Object ? c : createTextElement(c))
+            props.children = rawChildren.filter(c => c != null && c !== false).map(c => c instanceof Object ? c : createTextElement(c))
             return { type, props }
         }
-
+        // 创建text节点，记得return返回
         function createTextElement(value) {
-            createElement(TEXT_ELEMENT, { nodeValue: value })
+            return createElement(TEXT_ELEMENT, { nodeValue: value })
         }
 
         return {
@@ -167,10 +162,12 @@
     const Didact = react0()
 
     /*
-        JSX
-        const appElement = <div><ul>{stories.map(storyElement)}</ul></div>
+        JSX(注意这里，是一个箭头函数)
+        const appElement = () => <div><ul>{stories.map(storyElement)}</ul></div>;
     */
-    var appElement = Didact.createElement("div", null, Didact.createElement("ul", null, stories.map(storyElement)));
+    const appElement = function(){
+        return Didact.createElement("div", null, Didact.createElement("ul", null, stories.map(storyElement)))
+    }
 
-    Didact.render(appElement, document.getElementById("root"))
+    Didact.render(appElement(), document.getElementById("root"))
 })()
