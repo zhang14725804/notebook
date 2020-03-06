@@ -1,3 +1,3 @@
-https://github.com/fi3ework/blog/issues/22
-英文版
+基于typescript开发react项目
+
 https://github.com/typescript-cheatsheets/react-typescript-cheatsheet
