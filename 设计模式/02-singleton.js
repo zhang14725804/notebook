@@ -1,8 +1,19 @@
 (function(){
+
     /*
-        闭包方式实现单例模式（推荐这种）
-        参考：https://segmentfault.com/a/1190000012842251
+        参考：
+        https://segmentfault.com/a/1190000012842251
+        https://juejin.im/post/5d11bcdcf265da1b94215726
+
+        “单例模式的特点，意图解决：维护一个全局实例对象。”
+
+        - 引用第三方库（多次引用只会使用一个库引用，如 jQuery）
+        - 弹窗（登录框，信息提升框）
+        - 购物车 (一个用户只有一个购物车)
+        - 全局态管理 store (Vuex / Redux)
     */ 
+
+    // 闭包方式实现单例模式（推荐这种）
     function Singleton(name){
         this.name = name
     }
@@ -27,9 +38,7 @@
     console.log(a.getName());// aa
     console.log(b.getName());// aa
 
-    /*
-        普通方式实现单例模式
-    */ 
+    // 普通方式实现单例模式
     function Singleton2(name){
         this.name = name
         this.instance = null
