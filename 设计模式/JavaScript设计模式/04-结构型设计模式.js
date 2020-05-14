@@ -1,8 +1,4 @@
 /*
-    结构型设计模式
-*/
-
-/*
     9、外观模式（处理兼容问题）
 */
 function addEvent(dom,type,fn){
