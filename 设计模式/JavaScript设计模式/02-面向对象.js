@@ -318,6 +318,7 @@ function deepCopy(parent,child){
     var c = child || {}
     for (var i in parent){
         if (typeof parent[i] === "object"){
+            // Object.prototype.toString.call(arg)==='[object Array]'
             c[i] = (parent[i].constructor === Array) ? []:{}
             deepCopy(parent[i],c[i])
         }else{
