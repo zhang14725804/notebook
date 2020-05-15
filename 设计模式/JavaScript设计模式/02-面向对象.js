@@ -1,25 +1,24 @@
 /*
-    面向对象
+    通过对this变量添加属性方法来实现对类添加属性和方法
 */
-
-// 创建一个类，通过对this变量添加属性方法来实现对类添加属性和方法
 var Book = function(id,name,price){
     // this指向当前对象
     this.id = id
     this.name = name
     this.price = price
 }
-// 也可以通过在类的prototype上添加属性和方法
+
+
+/*
+    通过在类的prototype上添加属性和方法
+*/
 Book.prototype.display = function(){}
 // 或者
 Book.prototype = {
     display : function(){}
 }
 
-/*
-    todo:引出了对象方法、类方法、原型方法（他们之间有什么区别，各自有什么作用）
-*/
-var book = new Book(1,"javascript设计模式",23)
+
 
 /*
     通过this添加的属性和方法与在prototype中添加的属性和方法的区别：
@@ -27,9 +26,22 @@ var book = new Book(1,"javascript设计模式",23)
     prototype添加的只创建一次
 */ 
 
+
 /*
-    属性和方法封装：私有的，共享的
+    在类的外部通过点语法定义的属性方法和在外部通过prototype定义的属性和方法的作用：
+
+    在类的外部通过点语法定义的属性方法：静态属性和方法（不会添加到新创建的对象上）
+    通过prototype定义的属性和方法：共有的属性和方法，实例对象中可以通过this访问到
+
+    todo:引出了对象方法、类方法、原型方法（他们之间有什么区别，各自有什么作用）
+
+    每个类有三个部分：
+    （1）构造函数内部的，供实例化对象复用
+    （2）构造函数外部的，通过点语法添加的，供类使用，实例对象访问不到
+    （3）原型中的，实例化对象可以通过原型链间接访问到，供所有实例对象公用
 */
+
+var book = new Book(1,"javascript设计模式",23)
 var Book = function(id,name,price){
     // 私有属性、方法
     var num = 1
@@ -46,11 +58,6 @@ var Book = function(id,name,price){
     this.setName(name)
     this.setPrice(price)
 }
-/*
-    在类的外部通过点语法定义的属性方法和在外部通过prototype定义的属性和方法什么作用
-    在类的外部通过点语法定义的属性方法：静态属性和方法（不会添加到新创建的对象上）
-    通过prototype定义的属性和方法：共有的属性和方法，实例对象中可以通过this访问到
-*/
 // 静态共有属性和方法（对象不能访问）
 Book.isChinese = true
 Book.resetTime = function(){}
@@ -60,7 +67,7 @@ Book.prototype = {
     display :function(){}
 }
 var b = new Book(2,"Golang高阶",23)
-console.log(b.num)
+console.log(b.num) // undefined
 console.log(b.isJavascriptBook)
 console.log(b.id)
 console.log(Book.isChinese)
@@ -99,6 +106,7 @@ Book.prototype = {
     display:function(){}
 }
 
+
 // 在闭包内部实现一个完整的类，然后将其返回
 var Book = (function(){
     // 静态私有变量、方法
@@ -131,6 +139,7 @@ var Book = (function(){
 })()
 
 
+
 /*
     创建对象的安全模式
 */
@@ -141,7 +150,7 @@ var Book = function(title,time,type){
 }
 // 这里应该使用new（new关键字的作用：对当前对象this赋值😅）
 var book = Book("javascript","2020","js")
-console.log(book)
+console.log(book)  // undefined
 console.log(window.title)
 console.log(window.time)
 
@@ -157,16 +166,15 @@ var Book = function(title,time,type){
 }
 
 
-/*
-    每个类有三个部分：
-    （1）构造函数内部的，供实例化对象复用
-    （2）构造函数外部的，通过点语法添加的，供类使用，实例对象访问不到
-    （3）原型中的，实例化对象可以通过原型链间接访问到，供所有实例对象公用
-*/
+
 
 /*
-    类式继承：将父类的实例赋值给子类的原型
+    1、类式继承：将父类的实例赋值给子类的原型
     通过子类的原型prototype对父类实例化来实现
+
+    类式继承的缺点：
+    （1）影响父类中引用类型的共享属性的属性值
+    （2）创建父类的时候，无法向父类传递参数
 */ 
 function Super(){
     this.value = true
@@ -177,7 +185,7 @@ Super.prototype.getSuperValue = function(){
 function Child(){
     this.value = false
 }
-// 继承父类（同时具有父类构造函数和原型中的属性和方法）
+// 继承父类（！！！！！！同时具有父类构造函数和原型中的属性和方法）
 Child.prototype = new Super()
 Child.prototype.getChildValue = function(){
     return this.value
@@ -191,16 +199,11 @@ console.log(instance instanceof Child)
 console.log(Child instanceof Super) // false
 console.log(Child.prototype instanceof Super)
 
-/*
-    类式继承的缺点
-    （1）影响父类中引用类型的共享属性的属性值
-    （2）创建父类的时候，无法向父类传递参数
-*/
+
 
 /*
-    构造函数继承：通过在子类的构造函数中执行一次父类的构造函数实现
-
-    父类的原型方法不会被继承，如果想要被继承就要放到构造函数中
+    2、构造函数继承：通过在子类的构造函数中执行一次父类的构造函数实现
+    缺点：父类的原型方法不会被继承，如果想要被继承就要放到构造函数中
 */
 function Super(id){
     // 引用类型共享属性
@@ -224,8 +227,11 @@ console.log(ins1.id);
 console.log(ins2.books);
 console.log(ins2.id);
 
+
+
 /*
-    组合式继承：通过原型prototype继承方法，通过构造函数继承属性
+    3、组合式继承：通过原型prototype继承方法，通过构造函数继承属性
+
     缺点：父类构造函数调用了两遍
     问题：子类不是父类的实例，子类的原型对象是父类的实例
 */
@@ -249,8 +255,9 @@ Child.prototype.getTime = function(){
     console.log(this.time);
 }
 
+
 /*
-    原型式继承 Object.create()由来
+    4、原型式继承 Object.create()由来
     其实是对类式继承的封装（类式继承的缺点原型式继承也有）
 */
 function inheritObject(o){
@@ -260,7 +267,7 @@ function inheritObject(o){
 }
 
 /*
-    寄生式继承（对原型式继承的二次封装）
+    5、寄生式继承（对原型式继承的二次封装）
 */
 var book = {
     name:"js book",
@@ -276,12 +283,13 @@ function createBook(obj){
 }
 
 /*
-    寄生组合式继承
+    6、寄生组合式继承
     解决组合式继承问题：子类不是父类的实例，子类的原型对象是父类的实例
 */
-function inheritPrototype(child,parent){
+function inheritPrototype(child, parent){
     var p = inheritObject(parent.prototype)
-    // 修正因重写子类原型导致子类的constructor属性被修改
+    // var p = Object.create(parent.prototype)
+    // ！！！！修正因重写子类原型导致子类的constructor属性被修改
     p.constructor = child
     child.prototype = p
 }
@@ -304,7 +312,7 @@ Child.prototype.getTime = function(){
 }
 
 /*
-    多继承：深拷贝（递归调用"浅拷贝"）
+    7、多继承：深拷贝（递归调用"浅拷贝"）
 */
 function deepCopy(parent,child){
     var c = child || {}
