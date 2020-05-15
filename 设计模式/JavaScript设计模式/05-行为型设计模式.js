@@ -1,10 +1,4 @@
 /*
-    行为型设计模式
-    用于不同对象之间职责划分或算法抽象，不仅设计对象和类，还涉及类或对象之间得交流模式
-*/
-
-
-/*
     16、模板方法模式（将多个模型抽象化统一，从中抽取出一个模板）
     核心在于方法的重用，将核心方法封装在基类中以实现方法共享。是一种行为的约束。子类可以对基类方法重写达到扩展的目的
     todo：好像和组合模式有些神似
@@ -52,6 +46,7 @@ new CancelAlert({
     success:function(){},
     fail:function(){},
 }).init()
+
 
 
 
@@ -106,7 +101,7 @@ var Observer = (function(){
 /*
     18、状态模式（消除多种分支判断的一种思路）
 */
-// 结果状态对象
+// 状态模式例1：结果状态对象
 var ResultState = function(){
     var States = {
         // 每种状态作为一种独立方法保存
@@ -123,7 +118,7 @@ var ResultState = function(){
     }
 }
 
-// 创建状态类
+// 状态模式例2：创建状态类
 var MarryState = function(){
     // 内部状态私有变量
     var _currentState = {}
@@ -177,7 +172,7 @@ marry.change("jump","shoot").goes().goes().change("shoot").goes()
         （1）jQuery动画缓冲函数
         （2）表单验证
 */
-// 价格策略对象
+// 策略模式例1：价格策略对象
 var PriceStrategy = function(){
     var strategy = {
         return30:function(price){},
@@ -190,7 +185,7 @@ var PriceStrategy = function(){
         return strategy[algoruthm] && strategy[algoruthm](price)
     }
 }
-// 表单验证策略对象
+// 策略模式例2：表单验证策略对象
 var AuthInputStrategy = function(){
     var strategy = {
         notNull:function(value){},
@@ -261,6 +256,7 @@ CanvasCommand([
 */
 
 
+
 /*
     23、中介者模式（相比观察者模式，中介模式单向通信）
 */
@@ -298,6 +294,7 @@ var Mediator = (function(){
 Mediator.register("demo",function(){console.log("first");})
 Mediator.register("demo",function(){console.log("second");})
 Mediator.send("demo")
+
 
 
 /*
