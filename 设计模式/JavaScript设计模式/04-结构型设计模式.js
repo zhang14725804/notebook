@@ -38,12 +38,6 @@ var preventDefault = function(event){
 */
 
 
-/*
-    11、代理模式（起中介得作用）
-    应用：
-        （1）站长统计
-        （2）JSONP
-*/
 
 
 /*
@@ -64,6 +58,16 @@ var decorator = function(element,fn){
         element.onclick = fn
     }
 }
+
+
+
+/*
+    11、代理模式（起中介得作用）
+    应用：
+        （1）站长统计
+        （2）JSONP
+*/
+
 
 /*
     13、桥接模式（体现面向对象对拓展得开放及对修改得关闭原则）
@@ -132,6 +136,7 @@ inheritPrototype(NewsGroup,News)
 NewsGroup.prototype.init = function(){}
 NewsGroup.prototype.add = function(){}
 NewsGroup.prototype.getElement = function(){}
+
 
 
 
