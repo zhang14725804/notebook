@@ -145,3 +145,39 @@ var methods = function(){}
 methods.addMethod("checkName",function(){}).addMethod("checkEmail",function(){})
 var m = new methods()
 m.checkName()
+
+
+
+/*
+    JavaScript中new运算符工作流程：
+    
+    （1）创建一个空的简单JavaScript对象（即{}）；
+    （2）链接该对象（即设置该对象的构造函数）到另一个对象 ；
+    （3）将步骤1新创建的对象作为this的上下文 ；
+    （4）如果该函数没有返回对象，则返回this。
+
+    var obj = {};
+    obj.__proto__ = Animal.prototype;
+    var result = Animal.call(obj,"cat");
+    return typeof result === 'obj'? result : obj;
+
+*/
+function Foo(age) {
+    this.age = age;
+}
+var o = new Foo(111);
+console.log(o); // {age: 111}
+
+function Foo(age) {
+    this.age = age;
+    return { type: "我是显式返回的" };
+}
+var o = new Foo(222);
+console.log(o); // {type: '我是显式返回的'}
+
+function Foo(age) {
+    this.age = age;
+    return 1;
+} 
+var o = new Foo(333);
+console.log(o); // {age: 333}
