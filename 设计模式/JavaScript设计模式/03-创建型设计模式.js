@@ -22,7 +22,7 @@ Tennis.prototype = {
     getMember:function(){console.log("1名队员");},
     getBallSize:function(){console.log("网球最小");},
 }
-// (1)通过类实例化对象
+// (1)通过类创建对象
 var SportsFactory = function(name){
     switch(name){
         case "NBA":
@@ -33,7 +33,7 @@ var SportsFactory = function(name){
             return new Tennis()
     }
 }
-// (1)通过创建一个新对象然后包装增强属性
+// (1)通过寄生方式创建对象
 function createSports(type,text){
     // 创建一个对象，并拓展属性方法
     var o = new Object()
@@ -125,13 +125,9 @@ BMW.prototype.getSpeed = function(){}
 
 /*
     6、建造者模式（先跳过）
-*/
-
-
-/*
     7、原型模式（懵了）
-
 */
+
 
 
 
@@ -141,20 +137,23 @@ BMW.prototype.getSpeed = function(){}
     （2）管理代码库得各个模块
     用例：管理静态变量
 */
-var LazySingle = (function(){
-    var _instance = null
-    function Single(){
-        return {
-            method:function(){},
-            proto:""
-        }
-    }
-    return function(){
-        if (!_instance){
-            _instance = Single()
-        }
-        return _instance
-    }
-})()
+function CreateSingleton (name) {
+    this.name = name;
+};
 
-
+// 获取实例的名字
+CreateSingleton.prototype.getName = function() {
+    console.log(this.name)
+};
+// 单例对象
+var Singleton = (function(){
+    var instance;
+    return function (name) {
+        if(!instance) {
+            instance = new CreateSingleton(name);
+        }
+        return instance;
+    }
+})();
+// 创建实例对象1
+var a = new Singleton('a');
