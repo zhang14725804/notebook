@@ -23,6 +23,18 @@
     });
     console.log('script end')
 
+2、 for和forEach的区别
+
+[forEach和for](https://www.cnblogs.com/echolun/p/11544045.html)
+
+
+    1.for循环可以使用break跳出循环，但forEach不能。
+    2.for循环可以控制循环起点（i初始化的数字决定循环的起点），forEach只能默认从索引0开始。
+    3.for循环过程中支持修改索引（修改 i），但forEach做不到（底层控制index自增，我们无法左右它）。
+
+
+
+
 ## 框架和库
 
 axios和ajax区别
