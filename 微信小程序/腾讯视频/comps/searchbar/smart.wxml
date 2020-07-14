@@ -1,8 +1,0 @@
-<import src="/comps/hltext/hltext.wxml"></import>
-<view wx:if="{{smartResults.length&&!hideSmart&&showLayout}}">
-    <ul class="searchbar-list">
-        <li bindtap="onSearchbarTrigger" class="searchbar-result label-none" data-value="{{item.text.text}}" wx:for="{{smartResults}}" wx:key="id">
-            <template is="hltext" data="{{text:item.text}}"></template>
-        </li>
-    </ul>
-</view>

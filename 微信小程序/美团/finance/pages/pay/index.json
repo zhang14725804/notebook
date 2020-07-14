@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "向商家付款",
-    "usingComponents": {
-        "component-redpacket": "./template/redpacket/index"
-    }
-}

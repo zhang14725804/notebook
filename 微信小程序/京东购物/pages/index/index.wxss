@@ -1,3 +1,0 @@
-page::before {
-    display: none;
-}

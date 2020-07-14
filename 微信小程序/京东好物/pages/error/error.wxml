@@ -1,7 +1,0 @@
-<view class="page-content">
-    <image class="error-icon" src="http://commonst.360buyimg.com/common/wx-images/error-dog.png"></image>
-    <view class="error-text-wrap">
-        <view class="error-text">哎呀！出错了！</view>
-        <view class="error-text">正在努力修复中！</view>
-    </view>
-</view>

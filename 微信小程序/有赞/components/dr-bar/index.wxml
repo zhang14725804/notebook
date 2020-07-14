@@ -1,9 +1,0 @@
-<template name="dr-bar">
-    <view class="dr-bar__container">
-        <view class="sideline-left"></view>
-        <view bindtap="onDrbarClick" class="content {{borderRadius&&'radius'}}">
-      {{text}}<text class="zan-icon zan-icon-arrow"></text>
-        </view>
-        <view class="sideline-right"></view>
-    </view>
-</template>

@@ -1,3 +1,0 @@
-<view bindtap="retuanApp" class="retuan_app" style="{{option.bottom?'bottom:'+option.bottom:''}}">
-    <text class="desc"></text>
-</view>

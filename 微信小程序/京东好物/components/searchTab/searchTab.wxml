@@ -1,7 +1,0 @@
-<template name="searchTab">
-    <view bindtap="_switchSearchTab" class="filter-box">
-        <view class="filter-tab {{tab.selectedId==item.id?'selected':''}}" data-item-id="{{item.id}}" data-sort="{{item.sort}}" data-title="{{item.title}}" wx:for="{{tab.list}}">
-        {{item.title}}<view class="{{item.iconName}} {{tab.selectedId==item.id?item.sort==item.upSort?'up':item.sort==item.downSort?'down':'':''}}" wx:if="{{item.isSwitchIcon}}"></view>
-        </view>
-    </view>
-</template>

@@ -1,8 +1,0 @@
-{
-    "navigationBarTitleText": "我的",
-    "usingComponents": {
-        "recommend": "/components/recommend/index",
-        "pinGouBack": "/components/return_app/return_app",
-        "bindpopup": "/components/bindpopup/bindpopup"
-    }
-}

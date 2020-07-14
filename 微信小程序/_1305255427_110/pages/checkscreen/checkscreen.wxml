@@ -1,5 +1,0 @@
-<import src="../../components/wetoast/wetoast.wxml"></import>
-<view class="screen-check-list">
-    <canvas bindtouchmove="touchCheckEvent" bindtouchstart="touchCheckEvent" canvasId="screen-canvas" disableScroll="true" id="screen-check-canvas"></canvas>
-    <template is="wetoast" data="{{...__wetoast__}}"></template>
-</view>

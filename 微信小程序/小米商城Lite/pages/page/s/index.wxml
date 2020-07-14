@@ -1,3 +1,0 @@
-<view style="z-index:100000;position:fixed;top:0;left:0;right:0;border-bottom:1rpx solid {{info.page.title.bg_color}};" wx:if="{{info.page.title.bg_color}}"></view>
-<import src="../../template/page/index.wxml"></import>
-<template is="tpl-page" data="{{info:info}}"></template>

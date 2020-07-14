@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "使用优惠券",
-    "usingComponents": {
-        "dialog": "../../../../common/dialog/dialog"
-    }
-}

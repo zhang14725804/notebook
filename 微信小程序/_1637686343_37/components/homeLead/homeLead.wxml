@@ -1,6 +1,0 @@
-<template name="home-lead">
-    <view bindtap="leadToHome" class="home-lead-box">
-        <image class="home-lead-icon" src="/resource/images/homeLead.png"></image>
-        <text class="home-lead-text">首页</text>
-    </view>
-</template>

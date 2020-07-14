@@ -1,5 +1,0 @@
-<template name="go-top">
-    <view bindtap="handleGoTop" class="go-top {{visiable?'show':'hide'}}" style="{{bottom?'bottom:'+bottom+'rpx':''}}">
-        <image src="https://img.yzcdn.cn/mars/image/common/gotop@3x.png"></image>
-    </view>
-</template>

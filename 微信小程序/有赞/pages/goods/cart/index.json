@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "购物车",
-    "enablePullDownRefresh": true,
-    "usingComponents": {
-        "form-view": "../../../components/form-view/index"
-    }
-}

@@ -1,3 +1,0 @@
-<view bind:tap="onTapBanner" class="banner" data-id="{{id}}" wx:if="{{show}}">
-    <image mode="aspectFit" src="{{src}}"></image>
-</view>

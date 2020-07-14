@@ -1,4 +1,0 @@
-<navigator class="pendant-com" hoverClass="" openType="{{type}}" url="{{url}}">
-    <image class="pendant-icon" src="{{icon}}" wx:if="{{icon}}"></image>
-    <text class="pendant-text" wx:if="{{text}}">{{text}}</text>
-</navigator>

@@ -1,9 +1,0 @@
-<template name="searchBar">
-    <view class="search-box {{bfocus?'focus':''}} {{type==1?'whitebg':''}}">
-        <image class="search-icon"></image>
-        <input bindconfirm="_search" bindfocus="_setFocus" bindinput="_inputText" confirmType="search" focus="{{bfocus?true:false}}" name="" placeholder="{{placeholder}}" placeholderClass="placeholder-text" type="text" value="{{text}}"></input>
-        <image bindtap="_clearText" class="clear-icon" style="display: {{bfocus&&text?'block':'none'}};"></image>
-        <view bindtap="_cancel" class="search-btn">取消</view>
-        <view bindtap="gotoSearch" class="mask" wx:if="{{!bable}}"></view>
-    </view>
-</template>

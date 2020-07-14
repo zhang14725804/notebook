@@ -1,6 +1,0 @@
-<import src="../Util/feature.wxml"></import>
-<view class="page-container {{deviceType}} {{themeClass}} {{isTabPage&&'page-is-tab-page'}}">
-    <template is="feature_common" data="{{CURRENT_GLOBAL_SHOP:CURRENT_GLOBAL_SHOP,isMultiStore:isMultiStore,pageBgColor:pageBgColor,themeClass:themeClass,theme:theme,type:type,fetching:fetching,richTextList:richTextList,banner:banner,tags:tags,goods:goods,systemInfo:systemInfo,scrollIntoView:scrollIntoView,scrollTop:scrollTop,fixedGoodsTag:fixedGoodsTag,componentSKU:componentSKU,zanTopTips:zanTopTips,zanToast:zanToast,copyright:copyright,is_big_shop:is_big_shop,isFeaturePage:isFeaturePage}}"></template>
-</view>
-<import src="../../common/wsc-page/index.wxml"></import>
-<template is="wsc-page" data="{{wscpage:wscpage}}"></template>

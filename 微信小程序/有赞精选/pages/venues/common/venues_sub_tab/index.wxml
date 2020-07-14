@@ -1,9 +1,0 @@
-<template name="venues-sub-tab">
-    <view class="sub-tab clearfix" style="height: {{subTab.list&&subTab.list.length>4?'148rpx':'74rpx'}};" wx:if="{{subTab.list&&subTab.list.length>0}}">
-        <view class="sub-tab__fix">
-            <view bindtap="onSubTabChange" class="sub-tab__item {{subTab.selectedId==item.id?'selected':''}}" data-component-id="{{subTabComponentId}}" data-item-id="{{item.id}}" wx:for="{{subTab.list}}" wx:key="{{ key }}">
-                <view class="sub-tab__inner">{{item.title}}</view>
-            </view>
-        </view>
-    </view>
-</template>

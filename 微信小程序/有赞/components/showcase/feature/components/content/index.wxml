@@ -1,9 +1,0 @@
-<template name="theme-feature-content">
-    <view class="theme-feature-content">
-        <view class="content-title" wx:if="{{data.showTitle}}">
-            <text class="title-text">{{data.title}}</text>
-            <text bindtap="goToAllContent" class="all-text">查看全部</text>
-        </view>
-        <cap-paid-content alias="{{item.alias}}" buyTime="{{item.buyTime}}" cover="{{item.cover}}" isFree="{{item.isFree}}" noBorder="{{index===data.list.length-1}}" price="{{item.price}}" subCount="{{item.subCount}}" summary="{{item.summary}}" themeClass="{{themeClass}}" time="{{item.time}}" title="{{item.title}}" type="{{item.mediaType}}" wx:for="{{data.list}}" wx:key="id"></cap-paid-content>
-    </view>
-</template>

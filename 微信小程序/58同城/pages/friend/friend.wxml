@@ -1,3 +1,0 @@
-<view wx:if="{{routerPath}}">
-    <web-view src="{{routerPath}}"></web-view>
-</view>

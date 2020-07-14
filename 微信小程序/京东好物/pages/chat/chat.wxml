@@ -1,3 +1,0 @@
-<view wx:if="{{h5Url}}">
-    <web-view src="{{h5Url}}"></web-view>
-</view>

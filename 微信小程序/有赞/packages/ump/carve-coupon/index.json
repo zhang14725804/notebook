@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "瓜分优惠券",
-    "enablePullDownRefresh": true,
-    "usingComponents": {
-        "form-button": "./components/form-button/index"
-    }
-}

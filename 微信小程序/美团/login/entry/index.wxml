@@ -1,8 +1,0 @@
-<view class="form-container">
-    <image class="banner" mode="{{image.mode}}" src="{{image.src}}" style="{{image.style}}"></image>
-    <button bindgetphonenumber="wxMobileLoginClick" bindtap="getLoginCode" class="wx-login" openType="getPhoneNumber">{{wxLoginText}}</button>
-    <button bindgetuserinfo="wxLoginClick" class="wx-userinfo-btn" openType="getUserInfo" wx:if="{{type===API_TYPE.WXV2}}">
-        <text class="second-login">{{mobileLoginText}}</text>
-    </button>
-    <text bindtap="mobileLoginClick" class="second-login" wx:else>{{mobileLoginText}}</text>
-</view>

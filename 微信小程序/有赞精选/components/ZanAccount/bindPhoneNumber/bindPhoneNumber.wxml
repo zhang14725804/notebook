@@ -1,7 +1,0 @@
-<template name="bind_phone_number">
-    <view class="bind__container">
-        <view class="bind__img"></view>
-        <view class="bind__title">{{bindTips}}</view>
-        <view catchtap="tapBindZanAccount" class="bind_action">立即绑定</view>
-    </view>
-</template>

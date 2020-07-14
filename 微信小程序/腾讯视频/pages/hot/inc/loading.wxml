@@ -1,3 +1,0 @@
-<view class="mod_loading{{response.loading?content.length?' loadmore':'':' hide'}}">
-    <view class="icon_loading"></view>
-</view>

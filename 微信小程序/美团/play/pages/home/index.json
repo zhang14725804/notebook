@@ -1,7 +1,0 @@
-{
-    "usingComponents": {
-        "nav": "../../components/nav/nav",
-        "list": "../../components/list/list"
-    },
-    "backgroundColor": "#F0F0F0"
-}

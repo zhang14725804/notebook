@@ -1,9 +1,0 @@
-<template name="buy-button">
-    <view catchtap="showcaseHandleGoodsBuy" class="sc-goods__buy-btn-wrapper sc-goods__buy-btn-wrapper--{{buyButtonType}}" data-alias="{{goodsInfo.alias}}">
-        <view class="sc-goods__buy-btn-1 zan-icon zan-icon-shopping-cart" wx:if="{{buyButtonType==1}}"></view>
-        <view class="sc-goods__buy-btn-2 zan-icon zan-icon-add-o" wx:if="{{buyButtonType==2}}"></view>
-        <button class="sc-goods__buy-btn-3 zan-btn zan-btn--danger zan-btn--mini" wx:if="{{buyButtonType==3}}">{{buttonText?buttonText:'马上抢'}}</button>
-        <button class="sc-goods__buy-btn-4 zan-btn zan-btn--mini" wx:if="{{buyButtonType==4}}">{{buttonText?buttonText:'购买'}}</button>
-        <button class="sc-goods__buy-btn-5 zan-btn--danger zan-btn--mini" wx:if="{{buyButtonType==5}}">我要抢购</button>
-    </view>
-</template>

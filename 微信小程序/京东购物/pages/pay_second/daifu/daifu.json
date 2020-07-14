@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "代付详情",
-    "usingComponents": {
-        "dialog": "../../../common/dialog/dialog"
-    }
-}

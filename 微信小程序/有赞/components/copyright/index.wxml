@@ -1,9 +1,0 @@
-<template name="copyright">
-    <view catchlongpress="copyright__longpress" class="copyright-container {{withScroll?'copyright--with-scroll':''}} {{withFixBottom?'copyright--with-fix-bottom':''}}" style="background-color:{{pageBgColor||'#F9F9F9'}}">
-        <navigator hoverClass="none" url="/pages/common/intro/index" wx:if="{{!is_big_shop}}">
-            <image class="copyright-image" mode="aspectFit" src="{{copyright.logo}}"></image>
-            <text class="copyright-text {{copyright.isCustomized?'copyright-text--customized':''}}">有赞提供技术支持</text>
-        </navigator>
-        <image class="copyright-image" mode="aspectFit" src="{{copyright.logo}}" wx:else></image>
-    </view>
-</template>

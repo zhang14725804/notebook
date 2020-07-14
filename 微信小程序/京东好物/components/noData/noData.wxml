@@ -1,6 +1,0 @@
-<template name="noMoreData">
-    <view class="no-more-wrap">
-        <image class="no-more-icon" src="http://commonst.360buyimg.com/common/wx-images/error-dog.png"></image>
-        <view class="no-more-text">{{msg}}</view>
-    </view>
-</template>

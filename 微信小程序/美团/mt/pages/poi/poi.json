@@ -1,9 +1,0 @@
-{
-    "usingComponents": {
-        "mt-back": "../../../index/components/mt-back/back",
-        "getMerchantVouchers": "../../components/getMerchantVouchers/getMerchantVouchers",
-        "formcover": "../../../index/components/formcover/formcover",
-        "collection": "../../components/collection/collection",
-        "mt-coupon": "../../../index/components/mt-coupon/coupon"
-    }
-}

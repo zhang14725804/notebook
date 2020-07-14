@@ -1,8 +1,0 @@
-{
-    "usingComponents": {
-        "wxc-tab": "/components/wxc-tab/index",
-        "wxc-tab-panel": "/components/wxc-tab/panel",
-        "wxc-tab-label": "/components/wxc-tab/label"
-    },
-    "backgroundColor": "#ffffff"
-}

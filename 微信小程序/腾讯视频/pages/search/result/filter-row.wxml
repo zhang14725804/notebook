@@ -1,3 +1,0 @@
-<scroll-view class="list" scrollLeft="{{searchFilterScrolls[filter.fileterItemKey]||0}}" scrollX="true">
-    <view bindtap="onSearchFilter" class="item {{!index?'first':''}} {{searchFilter[filter.fileterItemKey]==option.optionValue?'active':''}} {{index==filter.optionList.length-1?'last':''}}" data-name="{{filter.fileterItemKey}}" data-stat="search:filter_item" data-value="{{option.optionValue}}" wx:for="{{filter.optionList}}" wx:for-item="option" wx:key="optionValue">{{option.optionName}}</view>
-</scroll-view>

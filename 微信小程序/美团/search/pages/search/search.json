@@ -1,6 +1,0 @@
-{
-    "usingComponents": {
-        "mt-filter": "../../components/mt-filter/filter",
-        "mt-back": "../../../index/components/mt-back/back"
-    }
-}

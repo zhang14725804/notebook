@@ -1,9 +1,0 @@
-<template name="block-title">
-    <view class="block-title">
-        <view class="block-title__content">
-            <image class="block-title__icon" src="{{icon}}"></image>
-            <text class="block-title__title">{{title}}</text>
-        </view>
-        <view class="block-title__bottom"></view>
-    </view>
-</template>

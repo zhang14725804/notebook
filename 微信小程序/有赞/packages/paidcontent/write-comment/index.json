@@ -1,6 +1,0 @@
-{
-    "enablePullDownRefresh": false,
-    "usingComponents": {
-        "comment": "../../../components/paidcontent/comment/index"
-    }
-}

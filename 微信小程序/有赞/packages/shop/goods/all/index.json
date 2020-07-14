@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "全部商品",
-    "usingComponents": {
-        "date-picker": "../../../../components/datetime-picker/index"
-    }
-}

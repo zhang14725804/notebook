@@ -1,9 +1,0 @@
-<block wx:if="{{video.subtitle}}">
-    <view class="figure_title">{{video.title}}</view>
-    <view class="figure_desc">{{video.subtitle}}</view>
-</block>
-<view class="figure_detail_two_row" wx:else>
-    <view class="figure_title_two_row">
-        <view class="figure_title">{{video.title}}</view>
-    </view>
-</view>

@@ -1,4 +1,0 @@
-.rich-canvas {
-    position: fixed;
-    top: -2000px;
-}

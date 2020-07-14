@@ -1,5 +1,0 @@
-<view class="intention-wrap">
-    <view catchtap="e_intentionTap" class="list-item" data-cateid="{{item.cateid}}" wx:for="{{intentionList}}" wx:key="cateid">
-      {{item.name}}
-    </view>
-</view>

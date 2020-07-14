@@ -1,7 +1,0 @@
-<template name="Header$30de0eae">
-    <view class="_div data-v-06c35797" id="hotpost-header">
-        <view class="_div data-v-06c35797 top">
-            <view bindtap="handleProxy" class="_div data-v-06c35797 rule_btn" data-comkey="{{$k}}" data-eventid="{{'0'}}">活动规则</view>
-        </view>
-    </view>
-</template>

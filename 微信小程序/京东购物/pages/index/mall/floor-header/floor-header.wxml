@@ -1,7 +1,0 @@
-<view class="floor-header" style="background-image: url({{bg}});">
-    <view class="floor-header__group">
-        <view class="floor-header__zh">{{zh}}</view>
-        <view class="floor-header__en">{{en}}</view>
-    </view>
-    <view bind:tap="gotoUrl" class="floor-header__more" data-rd="{{rd}}" wx:if="{{rd}}">更多</view>
-</view>

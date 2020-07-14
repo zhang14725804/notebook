@@ -1,3 +1,0 @@
-<view class="car-detail-page">
-    <image src="{{state.carDetail}}"></image>
-</view>

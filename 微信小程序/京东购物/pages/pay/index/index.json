@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "确认订单",
-    "usingComponents": {
-        "pinbind": "../../components/pinbindnew/pinbind",
-        "dialog": "../../../common/dialog/dialog"
-    }
-}

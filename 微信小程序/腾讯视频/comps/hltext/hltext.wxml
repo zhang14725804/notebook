@@ -1,4 +1,0 @@
-<template name="hltext">
-    <text class="{{part.hl?'search-hl':''}}" wx:for="{{_.isString(text)?_.convert(text).parts:text.parts}}" wx:for-item="part" wx:key="id">{{part.w}}</text>
-</template>
-<wxs module="_" src="helper.wxs" />

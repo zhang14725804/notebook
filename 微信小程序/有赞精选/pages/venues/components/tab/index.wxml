@@ -1,6 +1,0 @@
-<template name="tab">
-    <template is="venues-tab" data="{{tab:tab,componentId:tabComponentId,tabScroll:tabScroll}}"></template>
-    <template is="venues-sub-tab" data="{{subTab:subTab,subTabComponentId:subTabComponentId}}"></template>
-</template>
-<import src="../../common/venues_tab/index.wxml"></import>
-<import src="../../common/venues_sub_tab/index.wxml"></import>

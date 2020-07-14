@@ -1,8 +1,0 @@
-<template name="jump-mini-program">
-    <block wx:if="{{data.isActive}}">
-        <view catchtap="wscpage__handleClick" class="wscpage-jump {{data.inNavPage?'wscpage-jump--nav-page':''}}" wx:if="{{data.showReturnBtn}}">
-            <view class="zan-arrow"></view>
-      返回
-    </view>
-    </block>
-</template>

@@ -1,3 +1,0 @@
-<view class="driver-register">
-    <web-view src="{{state.href}}"></web-view>
-</view>

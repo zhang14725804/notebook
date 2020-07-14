@@ -1,5 +1,0 @@
-@import "../../../components/ZanAccount/index.wxss";
-
-@import "../../../components/ZanTab/index.wxss";
-
-@import "../../../__wuBaseWxss__/81.wxss";

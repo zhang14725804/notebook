@@ -1,5 +1,0 @@
-<template name="theme-feature-contact_us">
-    <button businessId="{{data.businessId}}" class="sc-contact-us {{data.inTabPage?'sc-contact-us--in-tab':''}}" openType="contact">
-        <view class="zan-icon zan-icon-chat sc-contact-us__icon"></view>{{data.content}}
-  </button>
-</template>

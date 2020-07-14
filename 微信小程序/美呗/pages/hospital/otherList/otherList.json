@@ -1,9 +1,0 @@
-{
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "更多医生",
-    "navigationBarTextStyle": "black",
-    "usingComponents": {
-        "doctor": "../../../components/doctor/doctor",
-        "loadMore": "/components/loadMore/loadMore"
-    }
-}

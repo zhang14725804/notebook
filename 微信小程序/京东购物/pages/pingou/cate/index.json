@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "商品分类",
-    "onReachBottomDistance": 100,
-    "usingComponents": {
-        "PingBottom": "../components/ping_bottom/ping_bottom"
-    }
-}

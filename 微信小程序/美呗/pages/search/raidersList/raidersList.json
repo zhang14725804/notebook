@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "更多攻略",
-    "usingComponents": {
-        "raiders": "/components/raiders/raiders",
-        "loadMore": "/components/loadMore/loadMore"
-    }
-}

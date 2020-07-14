@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "取消原因",
-    "usingComponents": {
-        "i-button": "../../components/button/index",
-        "dialog": "/common/dialog/dialog"
-    }
-}

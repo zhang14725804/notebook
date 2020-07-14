@@ -1,9 +1,0 @@
-{
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "验证手机号",
-    "backgroundColor": "#f5f5f5",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": false,
-    "disableScroll": false
-}

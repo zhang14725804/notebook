@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "资讯--要闻",
-    "enablePullDownRefresh": true,
-    "usingComponents": {
-        "loadingOrMore": "/components/loadingOrMore/index"
-    }
-}

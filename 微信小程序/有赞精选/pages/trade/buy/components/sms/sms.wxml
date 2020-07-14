@@ -1,8 +1,0 @@
-<template name="sms">
-    <view class="zan-cell zan-panel order-panel zan-cell--last-child sms">
-        <text class="sms__title zan-cell__bd">短信通知收件人</text>
-        <view class="sms__ft zan-cell__ft">
-            <switch bindchange="onSmsChange" checked="{{sms==1?'checked':''}}" class="sms__switch"></switch>
-        </view>
-    </view>
-</template>

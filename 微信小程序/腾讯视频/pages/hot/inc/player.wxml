@@ -1,7 +1,0 @@
-<view class="mod_feeds_player" style="top: {{top}}px;display: {{isPlayerHidden?'none':'block'}}">
-    <video autoplay controls bindended="__onTvpEnded" binderror="__onTvpError" bindpause="__onTvpPause" bindplay="__onTvpPlay" bindtimeupdate="__onTvpTimeupdate" class="player_video" hidden="{{isPlayerHidden}}" id="tvp" src="{{tvpUrl}}"></video>
-    <view class="player_error_layer" hidden="{{tvpState!='error'}}">
-        <view class="player_error_text">{{videoError}}</view>
-    </view>
-</view>
-<image hidden src="{{tvpReportUrl}}"></image>

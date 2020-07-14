@@ -1,9 +1,0 @@
-{
-    "navigationBarTitleText": "凑单免运费",
-    "usingComponents": {
-        "navitem": "../components/coudan/navitem/navitem",
-        "product": "../components/coudan/product/product",
-        "defaultview": "../components/coudan/defaultview/defaultview",
-        "fixedfooter": "../components/coudan/fixedfooter/fixedfooter"
-    }
-}

@@ -1,2 +1,0 @@
-<component-mask bind:maskClose="maskClose" maskData="{{maskData}}" maskShow="{{maskShow}}" maskVaild="{{maskVaild}}"></component-mask>
-<component-aside asideData="{{asideData}}" asideShow="{{asideShow}}" bind:asideClose="asideClose" showHalf="{{asideHalf}}"></component-aside>

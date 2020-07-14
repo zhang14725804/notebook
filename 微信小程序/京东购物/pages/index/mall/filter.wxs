@@ -1,7 +1,0 @@
-function priceCeil(price) {
-    return Math.ceil(+price);
-}
-
-module.exports = {
-    priceCeil: priceCeil
-};

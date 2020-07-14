@@ -1,8 +1,0 @@
-<view class="wx_nav wx_nav_custom">
-    <view bindtap="gotoPage" class="wx_nav_item {{item.on?'on':''}} {{item.dot?'dot':''}}" data-index="{{index}}" wx:for="{{navlist}}">
-        <image class="highlight" mode="aspectFit" src="{{item.selectedIconPath}}"></image>
-        <image class="normal" mode="aspectFit" src="{{item.iconPath}}"></image>
-        <view class="wx_nav_name">{{item.text}}</view>
-        <view class="wx_nav_tag" wx:if="{{item.tag}}">{{item.tag}}</view>
-    </view>
-</view>

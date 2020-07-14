@@ -1,7 +1,0 @@
-{
-    "usingComponents": {
-        "mt-pendant": "../../../index/components/mt-pendant/pendant",
-        "pic-swiper": "/group-booking/components/pic-swiper/pic-swiper",
-        "news-swiper": "/group-booking/components/news-swiper/news-swiper"
-    }
-}

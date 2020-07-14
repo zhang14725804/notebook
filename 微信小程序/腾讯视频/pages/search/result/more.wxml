@@ -1,8 +1,0 @@
-<template name="search_more">
-    <view class="search-mod loose" style="margin-top: 24rpx">
-        <view bindtap="onRoute" class="search-button" data-stat="search_result:{{action.reportKey||'result_more'}}" data-url="{{action.url}}">
-            <text class="search-hl">{{poster.firstLine.raw}}</text>
-        </view>
-    </view>
-</template>
-<import src="/comps/hltext/hltext.wxml"></import>

@@ -1,5 +1,0 @@
-<view class="form-container">
-    <image class="banner" mode="{{image.mode}}" src="{{image.src}}" style="{{image.style}}" wx:if="{{image.src}}"></image>
-    <text class="info">{{text}}</text>
-    <button bindgetuserinfo="getuserinfoClick" class="btn" openType="{{btn.openType}}">{{btn.text}}</button>
-</view>

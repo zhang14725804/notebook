@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "京东拼购",
-    "usingComponents": {
-        "populartuan": "./components/populartuan/index",
-        "smartlist": "./components/smartlist/smartlist"
-    }
-}

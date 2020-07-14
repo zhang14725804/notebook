@@ -1,5 +1,0 @@
-<image class="mx-error-img" mode="widthFix" src="/images/error-no-net.png"></image>
-<text class="mx-error-txt">网络无法连接</text>
-<navigator openType="switchTab" url="/pages/index/index">
-    <view class="mx-error-btn">返回首页</view>
-</navigator>

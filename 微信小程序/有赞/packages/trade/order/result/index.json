@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "订单详情",
-    "enablePullDownRefresh": true,
-    "usingComponents": {
-        "form-view": "../../../../components/form-view/index"
-    }
-}

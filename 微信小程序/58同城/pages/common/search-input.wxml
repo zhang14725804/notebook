@@ -1,8 +1,0 @@
-<template name="search-input">
-    <view catchtap="e_searchTap" class="search-inp">
-        <view class="search-cont">
-            <icon class="search-logo" size="12" type="search"></icon>
-            <text>{{searchParams.value||searchKey?'当前搜索词为：'+(searchParams.value||searchKey):'搜索'}}</text>
-        </view>
-    </view>
-</template>

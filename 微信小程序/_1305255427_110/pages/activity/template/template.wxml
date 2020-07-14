@@ -1,2 +1,0 @@
-<web-view bindmessage="bindMessage" src="{{activityInfo.url}}"></web-view>
-<image class="piwik-image-placeholder" src="{{piwikSource}}"></image>

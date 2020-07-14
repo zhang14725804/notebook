@@ -1,7 +1,0 @@
-<template name="search_mark">
-    <block wx:for="{{marks}}" wx:for-item="mark" wx:key="position">
-        <view class="mark" style="background-image: url({{mark.markImageUrl}});" wx:if="{{mark.position==1}}"></view>
-        <text class="mark-text left" wx:if="{{mark.position==2}}">{{mark.primeText}}</text>
-        <text class="mark-text right" wx:if="{{mark.position==3}}">{{mark.primeText}}</text>
-    </block>
-</template>

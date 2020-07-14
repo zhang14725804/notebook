@@ -1,3 +1,0 @@
-<template name="theme-feature-emptyspace">
-    <view style="height: {{data.space_height}}px; width: 100%;"></view>
-</template>

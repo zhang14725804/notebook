@@ -1,8 +1,0 @@
-<view class="sort-view" wx:if="{{visible}}">
-    <view class="sort-view-top-bar">
-        <image bindtap="onClose" class="close-img" mode="aspectFit" src="https://cdn-ssl.meb.com/wxa/v1/close.png"></image>
-    </view>
-    <view catchtap="_selectedEvent" class="sort-item" data-id="{{item.id}}" data-name="{{item.name}}" wx:for="{{sortData}}" wx:key="{{item}}">
-        <text>{{item.name}}</text>
-    </view>
-</view>

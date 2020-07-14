@@ -1,3 +1,0 @@
-<view>
-    <web-view src="https://weixin.58.com/weixinredirect/?redirecturl=https://api.vip.58.com/m/infolist">web-view</web-view>
-</view>

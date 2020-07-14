@@ -1,6 +1,0 @@
-<template name="goods-new-user">
-    <view class="nu-cell zan-panel">
-        <text class="nu-cell__title">新人专享</text>
-        <text class="nu-cell__subtitle">仅限新用户可以开团和参团哦</text>
-    </view>
-</template>

@@ -1,9 +1,0 @@
-{
-    "usingComponents": {
-        "doctorProject": "/components/doctor/doctorProject/doctorProject",
-        "dcItem": "/components/doctor/doctor",
-        "diary": "/components/diary/diary",
-        "loadMore": "/components/loadMore/loadMore"
-    },
-    "navigationBarTitleText": "医生详情"
-}

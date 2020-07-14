@@ -1,4 +1,0 @@
-<view class="figure">
-    <image class="figure_pic" src="{{video.pic}}"></image>
-    <include src="./caption.wxml"></include>
-</view>

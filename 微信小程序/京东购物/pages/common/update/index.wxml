@@ -1,8 +1,0 @@
-<view class="wrapper">
-    <image class="icon" src="http://img11.360buyimg.com/jdphoto/s180x180_jfs/t13216/257/1153689596/25576/cf0c6f01/5a1c01d5N60a9fb00.png"></image>
-    <text class="title">微信版本过低</text>
-    <text class="desc">您的微信版本过低，无法使用当前功能</text>
-    <text class="desc">请至APP STORE/各大应用市场进行更新</text>
-    <view bindtap="tapOnBtn" class="btn">知道了</view>
-    <text class="debug-info" selectable="true">- {{sdkVersion}} -</text>
-</view>

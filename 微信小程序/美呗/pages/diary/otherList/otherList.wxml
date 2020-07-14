@@ -1,7 +1,0 @@
-<view>
-    <view style="background:#fff">
-        <diary bind:tapDiary="onTapDiary" data="{{item}}" wx:for="{{list}}" wx:for-index="i" wx:key="item"></diary>
-    </view>
-    <empty wx:if="{{list&&!list.length}}"></empty>
-    <loadMore visible="{{hasMore}}"></loadMore>
-</view>
