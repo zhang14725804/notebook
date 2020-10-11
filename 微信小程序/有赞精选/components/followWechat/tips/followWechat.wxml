@@ -1,5 +1,0 @@
-<template name="followWechat">
-    <view class="bind__container">
-        <view class="bind__title">{{bindTips}}</view>
-    </view>
-</template>

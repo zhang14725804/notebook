@@ -1,6 +1,0 @@
-<template name="topCard">
-    <view animation="{{animation}}" bindtap="{{bindTap}}" class="m-playRecorded-tips" style="bottom:0">
-        <text class="playRecorded-tips-content">{{content}}</text>
-        <text class="playRecorded-tips-link">{{button}}</text>
-    </view>
-</template>

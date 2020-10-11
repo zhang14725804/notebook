@@ -1,7 +1,0 @@
-<view class="input-number">
-    <view catch:tap="minusNum" class="input-number__icon-minus {{value<=min?'input-number__icon-minus--disabled':''}}" wx:if="{{!disabled&&isMinusShow}}"></view>
-    <view class="input-number__value" wx:if="{{isValueShow}}">
-    {{value}}
-  </view>
-    <view catch:tap="addNum" class="input-number__icon-add {{disabled||value>=max?'input-number__icon-add--disabled':''}}" wx:if="{{isAddShow}}"></view>
-</view>

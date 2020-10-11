@@ -1,9 +1,0 @@
-<view class="sales-promotion" wx:if="{{entries.length}}">
-    <view bindtap="onTap" class="sales-promotion__item" data-url="{{item.url}}" wx:for="{{entries}}" wx:key="uid">
-        <view class="sales-promotion__text-wrap">
-            <view class="sales-promotion__title line1">{{item.title}}</view>
-            <view class="sales-promotion__desc line1">{{item.desc}}</view>
-        </view>
-        <image class="sales-promotion__img" mode="aspectFill" src="{{item.image}}"></image>
-    </view>
-</view>

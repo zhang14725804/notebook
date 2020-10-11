@@ -1,7 +1,0 @@
-<view class="container error__container">
-    <view class="error__icon"></view>
-    <view class="error__texts zan-center">
-        <view class="zan-c-black zan-font-16">{{text}}</view>
-        <view class="zan-c-gray-dark zan-font-14" wx:if="{{code}}">编号：{{code}}</view>
-    </view>
-</view>

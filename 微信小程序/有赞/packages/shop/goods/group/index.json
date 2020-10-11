@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "商品分组",
-    "usingComponents": {
-        "date-picker": "../../../../components/datetime-picker/index",
-        "empty": "../../../../components/empty/index"
-    }
-}

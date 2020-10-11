@@ -1,9 +1,0 @@
-<template name="list-block">
-    <scroll-view class="list-block" scrollY="{{true}}">
-        <view class="list-title">
-            <icon catchtap="listBack" class="list-title-icon"></icon>{{localTitle}}</view>
-        <view class="list-item">
-            <view catchtap="itemClick" class="item" data-dispLocalId="{{item.dispLocalId}}" data-id="{{item.id}}" data-local-id="{{item.localId}}" data-name="{{item.name}}" data-price="{{item.price}}" wx:for="{{listArray}}" wx:key="dispLocalId">{{item.name}}</view>
-        </view>
-    </scroll-view>
-</template>

@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "京东卡/E卡",
-    "usingComponents": {
-        "dialog": "../../../../common/dialog/dialog"
-    }
-}

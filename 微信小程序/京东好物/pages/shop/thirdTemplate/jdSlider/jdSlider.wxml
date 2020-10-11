@@ -1,5 +1,0 @@
-<swiper autoplay="true" duration="1000" indicatorDots="{{isPointDisplay}}" interval="3000" style="width:{{width}};height:{{height}};border-width:{{styles.borderWidth}}px;border-color:{{styles.borderColor}};background-color:{{styles.backgroundColor}};circular:true;">
-    <swiper-item bindtap="_tapSlideItem" data-index="{{index}}" wx:for="{{imgArray}}">
-        <image src="{{item}}" style="width: 100%; height: 100%;"></image>
-    </swiper-item>
-</swiper>

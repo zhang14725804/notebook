@@ -1,8 +1,0 @@
-{
-    "navigationBarTitleText": "喜欢",
-    "usingComponents": {
-        "zan-tab": "../../../customer-components/tab/index",
-        "store": "../../../customer-components/store/index",
-        "goods-item": "../../../customer-components/goods-item/index"
-    }
-}

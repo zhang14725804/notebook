@@ -1,5 +1,0 @@
-<web-view bindmessage="onMessage" src="{{url}}" wx:if="{{url}}"></web-view>
-<view bindtap="goBack" class="error_retry full_page" wx:elif="{{showErrorTips}}">
-    <text>无效的页面链接！</text>
-    <button>返回</button>
-</view>

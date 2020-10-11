@@ -1,6 +1,0 @@
-<import src="../template/sms.wxml"></import>
-<import src="../template/popslider.wxml"></import>
-<view bindtap="onTapPage" bindtouchmove="onTouchMovePage" class="page">
-    <template is="popssms" data="{{...smsInfo}}"></template>
-    <template is="popslider" data="{{...sliderInfo}}"></template>
-</view>

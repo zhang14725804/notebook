@@ -1,7 +1,0 @@
-{
-    "usingComponents": {
-        "popup-alert": "../component/popup/popup"
-    },
-    "navigationBarTitleText": "爱回收",
-    "backgroundTextStyle": "light"
-}

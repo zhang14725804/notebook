@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "美呗日记",
-    "usingComponents": {
-        "diaryBookItem": "/components/diary/diaryBook/diaryBookItem"
-    }
-}

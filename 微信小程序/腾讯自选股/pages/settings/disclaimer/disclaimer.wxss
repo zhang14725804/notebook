@@ -1,8 +1,0 @@
-.disclaimer {
-    color: #f7fbff;
-    font-size: 34rpx;
-    padding: 48rpx 30rpx;
-    text-align: justify;
-    line-height: 58rpx;
-    letter-spacing: 1px;
-}

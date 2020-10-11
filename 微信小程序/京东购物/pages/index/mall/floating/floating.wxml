@@ -1,4 +1,0 @@
-<view class="floating" hidden="{{!showFloating}}">
-    <view bindtap="hideFloating" class="floating__close"></view>
-    <image bindload="imageLoaded" bindtap="gotoH5" class="floating__image" data-url="{{floating.url}}" mode="aspectFill" src="{{floating.image}}"></image>
-</view>

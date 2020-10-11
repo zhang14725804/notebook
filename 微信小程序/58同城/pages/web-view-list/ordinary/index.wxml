@@ -1,3 +1,0 @@
-<view>
-    <web-view src="{{jumpurl}}" wx:if="{{jumpurl}}"></web-view>
-</view>

@@ -1,8 +1,0 @@
-<template name="search_empty">
-    <view class="empty flb-vt">
-        <view class="flb-1"></view>
-        <view class="title">{{title}}</view>
-        <view class="text">{{details}}</view>
-        <view class="line"></view>
-    </view>
-</template>

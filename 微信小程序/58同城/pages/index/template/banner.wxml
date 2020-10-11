@@ -1,9 +1,0 @@
-<template name="banner">
-    <view class="banner-box">
-        <swiper catchchange="e_bindchange" circular="true" class="swiper-box" indicatorDots="dots">
-            <swiper-item wx:for="{{banners}}" wx:key="{{index}}">
-                <image catchtap="e_bannerclick" class="slide-image" data-appId="{{itm.appId||''}}" data-index="{{index+1}}" data-jumpType="{{item.jumpType||''}}" data-url="{{item.url}}" lazyLoad="{{true}}" mode="aspectFill" src="{{item.img||'https://img.58cdn.com.cn/ui9/house/list/lazy_pic.png'}}"></image>
-            </swiper-item>
-        </swiper>
-    </view>
-</template>

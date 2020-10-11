@@ -1,7 +1,0 @@
-<template name="multi-store-switch">
-    <view class="multi-store__page--header">
-        <image src="{{CURRENT_GLOBAL_SHOP.image||CURRENT_GLOBAL_SHOP.logo}}" wx:if="{{CURRENT_GLOBAL_SHOP.name||CURRENT_GLOBAL_SHOP.shop_name}}"></image>
-        <view bindtap="globalNavigate" class="zan-font-14 zan-c-gray" data-type="switch" data-url="/pages/home/dashboard/index" wx:if="{{CURRENT_GLOBAL_SHOP.name||CURRENT_GLOBAL_SHOP.shop_name}}">{{CURRENT_GLOBAL_SHOP.name||CURRENT_GLOBAL_SHOP.shop_name}}</view>
-        <view bindtap="globalNavigate" class="zan-font-14" data-url="/packages/shop/multi-store/index/index" style="color: #333;margin-left: 10px">[切换]</view>
-    </view>
-</template>

@@ -1,8 +1,0 @@
-<template name="copyright">
-    <view class="copyright-container {{withScroll?'copyright--with-scroll':''}}" style="background-color:{{pageBgColor||'#F9F9F9'}}">
-        <navigator hoverClass="none" url="/pages/common/intro/index">
-            <image class="copyright-image" mode="aspectFit" src="{{copyright}}"></image>
-            <view class="copyright-text" wx:if="{{!is_big_shop}}">有赞提供技术支持</view>
-        </navigator>
-    </view>
-</template>

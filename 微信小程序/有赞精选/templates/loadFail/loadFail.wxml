@@ -1,9 +1,0 @@
-<template name="loadFailView">
-    <view class="background-color" style="height: {{height}}px; width: {{width}}px; display: -webkit-flex; -webkit-justify-content: center; -webkit-align-items: center;" wx:if="{{!loadFail}}">
-        <view style="display: -webkit-flex; -webkit-flex-direction: column; -webkit-align-items: center; height: 314rpx;">
-            <image src="{{icon_network_error}}" style="height: 130rpx; width: 172rpx;"></image>
-            <view style="color: #666; font-size: 32rpx; text-align: center; height: 32rpx; margin-top: 40rpx;">亲，网络不太稳定哦~</view>
-            <view bindtap="{{clickInterface.clickInterface}}" class="be-center-style" style="height: 72rpx; width: 224rpx; border: #6CA4FF solid 2rpx; color: #6CA4FF; font-size: 28rpx; border-radius: 8rpx; margin-top: 40rpx;">重新加载</view>
-        </view>
-    </view>
-</template>

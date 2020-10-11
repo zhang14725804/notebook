@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "我的拼购",
-    "usingComponents": {
-        "PingBottom": "../components/ping_bottom/ping_bottom"
-    }
-}

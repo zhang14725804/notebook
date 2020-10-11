@@ -1,5 +1,0 @@
-<view class="shake {{showModule?'shake--show':''}}">
-    <view class="shake__wrap {{showModule?'shake__wrap--anim':''}}">
-        <image bindload="onImgLoaded" class="shake__image" mode="aspectFill" src="{{image}}"></image>
-    </view>
-</view>

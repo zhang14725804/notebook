@@ -1,7 +1,0 @@
-{
-    "enablePullDownRefresh": true,
-    "usingComponents": {
-        "cap-paid-column": "../../../components/paidcontent/column/index",
-        "cap-paid-content": "../../../components/paidcontent/content/index"
-    }
-}

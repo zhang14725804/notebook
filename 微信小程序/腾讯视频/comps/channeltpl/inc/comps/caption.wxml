@@ -1,8 +1,0 @@
-<view class="figure_subscript" wx:if="{{video.tagtext}}">
-    <view class="icon"></view>
-    <view class="text">{{video.tagtext}}</view>
-</view>
-<view class="figure_count" wx:if="{{(video.type==2||video.type==3)&&video.timelong}}">{{video.timelong}}</view>
-<view class="figure_count" wx:elif="{{video.type==1&&video.score}}">{{video.score}}</view>
-<view class="figure_count" wx:elif="{{video.type==10&&video.publishdate}}">{{video.publishdate}}</view>
-<view class="figure_count" wx:elif="{{video.itemId.length===11&&video.duration}}">{{video.duration}}</view>

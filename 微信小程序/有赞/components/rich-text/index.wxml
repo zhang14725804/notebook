@@ -1,2 +1,0 @@
-<canvas binderror="canvasErrorCallback" canvasId="{{canvasId}}" class="rich-canvas" style="width: 600px; height: 600px; display: {{showCanvas?'block':'none'}}"></canvas>
-<rich-text nodes="{{nodes}}"></rich-text>

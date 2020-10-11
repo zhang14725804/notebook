@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "拼购详情",
-    "usingComponents": {
-        "recommend-tuan": "../../components/recommend-tuan/recommend-tuan"
-    }
-}

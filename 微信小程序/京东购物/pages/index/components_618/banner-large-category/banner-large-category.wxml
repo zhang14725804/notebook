@@ -1,8 +1,0 @@
-<view class="banner {{indexName==='mall'?'banner--mall':''}}" hidden="{{hideModule}}">
-    <image bindload="onImgLoad" class="banner__image {{showImage?'banner__image--show':''}}" mode="aspectFill" src="{{image}}"></image>
-    <view bindtap="tapOnItem" class="banner__item" data-url="{{item}}" wx:for="{{banner}}"></view>
-    <view bindtap="tapOnItem" class="banner__calendar line1" data-url="{{calendar.url}}" hidden="{{!calendar.title&&!calendar.text}}" style="background-color: {{calendar.bg}}">
-        <view class="banner__calendar-title">{{calendar.title}}</view>
-        <view class="banner__calendar-text">{{calendar.text}}</view>
-    </view>
-</view>

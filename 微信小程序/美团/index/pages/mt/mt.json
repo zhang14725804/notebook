@@ -1,9 +1,0 @@
-{
-    "enablePullDownRefresh": true,
-    "navigationBarBackgroundColor": "#FEFEFE",
-    "navigationBarTextStyle": "black",
-    "usingComponents": {
-        "mt-scene": "../../../index/components/mt-scene/scene",
-        "resource-state-control": "../../../index/components/resource-state-control/control"
-    }
-}

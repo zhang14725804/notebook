@@ -1,5 +1,0 @@
-<template name="m-title">
-    <view class="m-title" wx:if="{{hotLive&&hotLive.length>0}}">
-        <text class="m-title_h">其他精彩直播</text>
-    </view>
-</template>

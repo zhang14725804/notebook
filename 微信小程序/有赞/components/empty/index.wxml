@@ -1,4 +1,0 @@
-<view class="empty-view__container">
-    <image src="{{image||'https://img.yzcdn.cn/public_files/2018/01/24/94944a6494616cc0781d3b168017299e.png'}}"></image>
-    <text class="zan-c-gray zan-font-14">{{text}}</text>
-</view>

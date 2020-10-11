@@ -1,8 +1,0 @@
-{
-    "navigationBarTitleText": "",
-    "navigationBarBackgroundColor": "#FFFFFF",
-    "navigationBarTextStyle": "black",
-    "usingComponents": {
-        "empty": "../../../../components/empty/index"
-    }
-}

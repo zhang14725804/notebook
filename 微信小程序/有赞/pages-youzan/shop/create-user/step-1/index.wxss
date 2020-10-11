@@ -1,8 +1,0 @@
-.youzan-app__shop-new.container:before {
-    height: 0;
-}
-
-.shop-new__fields {
-    background: #fff;
-    margin-top: 20px;
-}

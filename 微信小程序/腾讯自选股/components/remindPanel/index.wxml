@@ -1,7 +1,0 @@
-<template name="remindPanel">
-    <view class="remindPanel" style="visibility:{{remindShow?'visible':'hidden'}};margin-top:{{remindShow?'216rpx':'150rpx'}}">
-        <view catchtap="actionAddRemind" class="remindtip{{remindTipSmaller?'--smaller':''}}">{{remindTip}}</view>
-        <view catchtap="catchCloseRemind" class="closeRemind"></view>
-        <view catchtap="actionAddRemind" class="remindset" style="display: none">设置</view>
-    </view>
-</template>

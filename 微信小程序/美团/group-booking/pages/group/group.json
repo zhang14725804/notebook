@@ -1,7 +1,0 @@
-{
-    "enablePullDownRefresh": false,
-    "usingComponents": {
-        "news-swiper": "../../components/news-swiper/news-swiper",
-        "mt-pendant": "../../../index/components/mt-pendant/pendant"
-    }
-}

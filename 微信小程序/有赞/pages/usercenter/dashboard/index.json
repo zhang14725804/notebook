@@ -1,8 +1,0 @@
-{
-    "navigationBarTitleText": " ",
-    "navigationBarBackgroundColor": "#FFF",
-    "enablePullDownRefresh": true,
-    "usingComponents": {
-        "form-view": "../../../components/form-view/index"
-    }
-}

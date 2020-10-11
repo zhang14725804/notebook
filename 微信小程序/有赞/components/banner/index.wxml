@@ -1,7 +1,0 @@
-<template name="banner">
-    <view class="banner">
-        <view class="banner__filter-blur" style="background-image: url({{backImage}})" wx:if="{{backImage}}"></view>
-        <image class="banner__logo" src="{{logo}}"></image>
-        <view class="banner__title" wx:if="{{title}}">{{title}}</view>
-    </view>
-</template>

@@ -1,6 +1,0 @@
-<view class="cap-slider {{sliderClass}}  {{disabled?'disabled':''}}">
-    <view class="cap-slider__bar">
-        <text class="cap-slider__finished-portion" style="background-color:{{finishedColor}}; width:{{innerValue}}%;"></text>
-        <text bind:touchcancel="onTouchEnd" bind:touchend="onTouchEnd" bind:touchmove="onTouchMove" bind:touchstart="onTouchStart" class="cap-slider__pivot" style="background-color:{{inactive?inactiveColor:color}}; left:{{innerValue}}%; margin-left:{{pivotOffset}};"></text>
-    </view>
-</view>

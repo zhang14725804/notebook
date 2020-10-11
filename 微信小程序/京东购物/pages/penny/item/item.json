@@ -1,9 +1,0 @@
-{
-    "navigationBarTitleText": "1分钱抽奖",
-    "usingComponents": {
-        "Review": "../../components/review/review",
-        "Shop": "../../components/shop/shop",
-        "Specific": "../../components/specific/specific",
-        "quick-nav": "../../../components/quick-nav/quick-nav"
-    }
-}

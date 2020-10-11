@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "拼团详情",
-    "navigationBarBackgroundColor": "#FFF",
-    "usingComponents": {
-        "date-picker": "../../../../components/datetime-picker/index"
-    }
-}

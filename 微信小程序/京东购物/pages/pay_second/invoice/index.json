@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "发票信息",
-    "usingComponents": {
-        "dialog": "../../../common/dialog/dialog"
-    }
-}

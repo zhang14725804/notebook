@@ -1,7 +1,0 @@
-<view>
-    <form bindsubmit="submitHandler" class="customform" reportSubmit="true">
-        <button class="customform-button" formType="submit">
-            <slot></slot>
-        </button>
-    </form>
-</view>

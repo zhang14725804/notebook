@@ -1,2 +1,0 @@
-<text>Video</text>
-<video controls src="{{videoUrl.length?videoUrl:'../../shop_images/shop_goods_img_default.png'}}" style="height:{{height}};width:{{width}};"></video>

@@ -1,6 +1,0 @@
-<view class="wrap">
-    <wallet bind:firstScreenLoaded="firstScreenLoaded" onHide="{{onHide}}" onLoad="{{onLoad}}" onPageScroll="{{onPageScroll}}" onReachBottom="{{onReachBottom}}" onRefresh="{{onRefresh}}" onShow="{{onShow}}" wx:if="{{showIndex==1}}"></wallet>
-    <mall bind:firstScreenLoaded="firstScreenLoaded" onHide="{{onHide}}" onLoad="{{onLoad}}" onPageScroll="{{onPageScroll}}" onReachBottom="{{onReachBottom}}" onRefresh="{{onRefresh}}" onShow="{{onShow}}" wx:elif="{{showIndex==2}}"></mall>
-</view>
-<import src="../../common/toast/toast.wxml"></import>
-<template is="toast" data="{{...toast}}"></template>

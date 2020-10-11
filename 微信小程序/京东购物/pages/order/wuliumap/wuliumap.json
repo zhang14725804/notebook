@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "物流轨迹",
-    "usingComponents": {
-        "arrow": "../components/base-arrow/index"
-    }
-}

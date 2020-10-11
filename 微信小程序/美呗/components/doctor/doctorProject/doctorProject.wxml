@@ -1,5 +1,0 @@
-<view class="projects {{fullWidth?'full':''}} {{color}}">
-    <image class="icon" src="{{imageBaseUri}}medal-icon.png"></image>
-    <text class="color-ff8083">{{desc}}</text>
-    <text class="project-item {{color}}" wx:for="{{Projects}}" wx:key="{{item.Id}}">{{item.Name||item.ProjectName||item}}</text>
-</view>

@@ -1,6 +1,0 @@
-.virtual-ticket-info {
-    padding: 12px 10px;
-    background-color: #fff8f2;
-    line-height: 16px;
-    color: #333;
-}

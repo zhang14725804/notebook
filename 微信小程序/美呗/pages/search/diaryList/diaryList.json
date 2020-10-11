@@ -1,9 +1,0 @@
-{
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "更多日记",
-    "navigationBarTextStyle": "black",
-    "usingComponents": {
-        "diary": "../../../components/diary/diary",
-        "loadMore": "/components/loadMore/loadMore"
-    }
-}

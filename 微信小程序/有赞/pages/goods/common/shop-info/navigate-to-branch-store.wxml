@@ -1,8 +1,0 @@
-<template name="navigate-to-branch-store">
-    <navigator class="zan-cell zan-cell--access zan-bg-fff container--without-border" hoverClass="none" style="padding-bottom: 0" url="/packages/shop/multi-store/index/index?to=/pages/home/dashboard/index" wx:if="{{isMultiStore}}">
-        <view class="zan-cell__bd">
-      其他分店
-    </view>
-        <view class="zan-cell__ft zan-c-gray-dark"></view>
-    </navigator>
-</template>

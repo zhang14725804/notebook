@@ -1,7 +1,0 @@
-<template name="topic">
-    <view bindtap="onTopicClick" class="topic">
-        <image alt="" src="{{topic.img?topic.img:'javascript:void(0);'}}">&nbsp;</image>
-        <text class="txt title">{{topic.title}}</text>
-        <view class="txt extrainfo">{{topic.extrainfo}}</view>
-    </view>
-</template>

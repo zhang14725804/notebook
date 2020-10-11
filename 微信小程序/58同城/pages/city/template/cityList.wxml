@@ -1,5 +1,0 @@
-<template name="city-list">
-    <view class="city-list">
-        <view catchtap="e_cityItem" class="city-filter-item-li" data-city-id="{{cityItem.cityId}}" data-disp-city-id="{{cityItem.dispCityId}}" data-name="{{cityItem.cityName}}" id="city-{{cityItem.cityId=='-1'?cityItem.cityName:index}}" wx:for="{{searchKey?citySouList:cityList}}" wx:for-item="cityItem" wx:key="{{index}}">{{cityItem.cityName}}</view>
-    </view>
-</template>

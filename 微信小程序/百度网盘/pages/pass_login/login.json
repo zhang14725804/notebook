@@ -1,9 +1,0 @@
-{
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "backgroundColor": "#f5f5f5",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": false,
-    "navigationBarTitleText": "百度账号登录",
-    "disableScroll": false
-}

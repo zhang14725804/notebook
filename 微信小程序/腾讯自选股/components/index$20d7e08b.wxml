@@ -1,5 +1,0 @@
-<template name="index$20d7e08b">
-    <view class="_div data-v-2ee0add6 wxLogin">
-        <button bindgetuserinfo="handleProxy" class="_button data-v-2ee0add6 button" data-comkey="{{$k}}" data-eventid="{{'0'}}" openType="getUserInfo">微信登陆</button>
-    </view>
-</template>

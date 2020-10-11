@@ -1,5 +1,0 @@
-<template name="formidReciver">
-    <form bindsubmit="onFormIdSubmit" class="formid-ele" data-page-url="{{pageUrl}}" data-position="{{position}}" reportSubmit="{{true}}">
-        <button data-info="{{info}}" formType="submit"></button>
-    </form>
-</template>

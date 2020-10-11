@@ -1,7 +1,0 @@
-<template name="video">
-    <video autoplay="{{show}}" bindended="bindended" bindfullscreenchange="screenChangeHandle" bindpause="bindpause" bindplay="bindplay" bindtimeupdate="bindtimeupdate" class="video" hidden="{{!show}}" id="videoId" objectFit="contain" src="{{url}}">
-        <cover-view bindtap="manualPlay" class="cover-video-box" wx:if="{{coverImage===true}}">
-            <cover-image class="cover-video-img" src="http://statics-web.iqiyi.com/h5/wechat/images/cover_bg.png"></cover-image>
-        </cover-view>
-    </video>
-</template>

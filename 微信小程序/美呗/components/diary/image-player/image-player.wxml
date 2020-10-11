@@ -1,1 +1,0 @@
-<image bindtap="_imagePreview" class="image-player" data-index="{{dataUrls[dataIndex]}}" data-urls="{{dataUrls}}" mode="aspectFill" src="{{dataUrls[dataIndex]}}"></image>

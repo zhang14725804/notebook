@@ -1,6 +1,0 @@
-<template name="e-card-tip">
-    <view class="virtual-ticket-info zan-font-12">
-        <view>有效期：{{data.validPeriodText}}</view>
-        <view>使用须知：{{data.tipText}}</view>
-    </view>
-</template>

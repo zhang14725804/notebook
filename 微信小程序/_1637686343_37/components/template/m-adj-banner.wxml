@@ -1,3 +1,0 @@
-<view bindtap="toHotDancePage" class="m-adj-banner" data-url="{{hotDanceInfo.wxh5_url}}">
-    <image class="banner-img" mode="widthFix" src="{{hotDanceInfo.h5_img}}"></image>
-</view>
