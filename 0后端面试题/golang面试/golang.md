@@ -17,14 +17,11 @@
     golang的CAS原子操作
     golang锁如何实现
     goroutine和kernelThread之间什么关系
+    go的select作用
+    context包的作用
 
 ### 2、基本数据结构
 
-    golang对nil的slice和空slice处理是否一致
-    golang struct能否比较
-    go的defer原理
-    go的select作用
-    context包的作用
     slice如何扩容
     map如何实现顺序读取，map如何实现的
     golang指针接受者和值接收者区别
@@ -41,8 +38,13 @@
     golang对象如何分配内存
     golang堆、栈内存如何分配管理
     golang内存泄漏，如何检测
-    golang中new和make区别
+    
 
 ### 4、包及其实现
 
     http包实现原理
+
+
+### 参考：
+
+[go语言设计与实现](https://draveness.me/golang/)
