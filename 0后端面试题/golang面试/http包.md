@@ -20,6 +20,9 @@ type Handler interface
 func (w *response) Header() Header
 
 func (c *conn) readRequest(ctx context.Context) (w *response, err error)
+
+func readRequest(b *bufio.Reader, deleteHostHeader bool) (req *Request, err error)
+func (r *Reader) ReadMIMEHeader() (MIMEHeader, error)
 ```
 
 跟踪堆栈调用之后，如何退回到原来的位置
