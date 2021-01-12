@@ -1,18 +1,16 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"net/http"
+	. "fmt"
 )
 
-func home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello golang")
-}
 func main() {
-	http.HandleFunc("/", home)
-	err := http.ListenAndServe(":9999", nil)
-	if err != nil {
-		log.Fatal(err)
-	}
+	var ch chan int
+	Println(ch)
+	// 未初始化的channel读写造成死锁
+	// all goroutines are asleep - deadlock!
+	// goroutine 1 [chan receive (nil chan)]
+	// ch <- 123
+	<-ch
+	Println(ch)
 }
