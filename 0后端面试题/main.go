@@ -5,9 +5,12 @@ import (
 )
 
 func main() {
-	var x1 = nil
-	var x2 interface{} = nil
-	var x3 string = nil
-	var x4 error = nil
-	Println(x1, x2, x3, x4)
+	var ch chan int
+	Println(ch)
+	// 未初始化的channel读写造成死锁
+	// all goroutines are asleep - deadlock!
+	// goroutine 1 [chan receive (nil chan)]
+	// ch <- 123
+	<-ch
+	Println(ch)
 }
