@@ -1,18 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"net/http"
+	. "fmt"
 )
 
-func home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello golang")
-}
 func main() {
-	http.HandleFunc("/", home)
-	err := http.ListenAndServe(":9999", nil)
-	if err != nil {
-		log.Fatal(err)
-	}
+	var x1 = nil
+	var x2 interface{} = nil
+	var x3 string = nil
+	var x4 error = nil
+	Println(x1, x2, x3, x4)
 }
