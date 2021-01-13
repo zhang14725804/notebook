@@ -2,15 +2,42 @@ package main
 
 import (
 	. "fmt"
+	"sync"
 )
 
+type UserAges struct {
+	ages       map[string]int
+	sync.Mutex // 继承锁
+}
+
+func (ua *UserAges) Add(name string, age int) {
+	ua.Lock()
+	defer ua.Unlock()
+	ua.ages[name] = age
+}
+
+// 并发不安全
+func (ua *UserAges) Get(name string) int {
+	if age, ok := ua.ages[name]; ok {
+		return age
+	}
+	return -1
+}
 func main() {
-	var ch chan int
-	Println(ch)
-	// 未初始化的channel读写造成死锁
-	// all goroutines are asleep - deadlock!
-	// goroutine 1 [chan receive (nil chan)]
-	// ch <- 123
-	<-ch
-	Println(ch)
+	ua := UserAges{ages: make(map[string]int)}
+	//  🔥🔥🔥  等待主协程中创建的协程执行完毕之后再结束主协程（或者用channel也可以，sleep也行）
+	var wg sync.WaitGroup
+	wg.Add(20)
+	for i := 0; i < 19; i++ {
+		go func() {
+			age := ua.Get("你好")
+			Println(age)
+			wg.Done()
+		}()
+	}
+	go func() {
+		ua.Add("你好", 18)
+		wg.Done()
+	}()
+	wg.Wait()
 }
