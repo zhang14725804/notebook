@@ -130,8 +130,8 @@ var person2=new Person('Geo',32,'famer');
 
 ### 7、稳妥构造函数模式
 
-  (1)没有公共属性
-  (2)其方法不引用this的对象
+    (1)没有公共属性
+    (2)其方法不引用this的对象
 
 ```js
 function Person(name,age,job){
