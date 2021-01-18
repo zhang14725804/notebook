@@ -113,7 +113,7 @@ type Person1 struct {
 	job    string // 非导出变量
 	Name   string // 采用默认字段名
 	Age    int    `json:"age"` // 采用自定义字段名
-	Gender bool   `json:"sex"`
+	Gender bool   `json:"sex"` // 采用自定义字段名
 }
 
 func main() {
