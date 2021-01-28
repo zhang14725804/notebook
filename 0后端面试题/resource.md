@@ -12,8 +12,10 @@
 
 [google最常问的20个问题](https://www.programming-hero.com/blog/20-most-frequently-asked-google-interview-questions.html)
 
-[Go 与 Rust 对比学习](https://programming-idioms.org/cheatsheet/Go/Rust)
+[Go与Rust 对比学习](https://programming-idioms.org/cheatsheet/Go/Rust)
 
-[150行Go实现高性能socks5代理](https://mp.weixin.qq.com/s/WjRRCU3xKvDRKgru9dZ7hg)
+[Go面试题](https://mp.weixin.qq.com/s/50uRQ5u-egBR7EAAPb48zw)
 
-next:69
+[面经](https://mp.weixin.qq.com/s/50uRQ5u-egBR7EAAPb48zw)
+
+https://github.com/polaris1119/golangweekly next:69
