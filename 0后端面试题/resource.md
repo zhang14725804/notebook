@@ -18,4 +18,4 @@
 
 [面经](https://mp.weixin.qq.com/s/50uRQ5u-egBR7EAAPb48zw)
 
-https://github.com/polaris1119/golangweekly next:69
+https://github.com/polaris1119/golangweekly next:66
