@@ -2,24 +2,24 @@ package main
 
 import (
 	// . "fmt"
+	"fmt"
 	"sync"
 )
 
-// 嵌入字段的方式枷锁
-type Counter struct {
-	sync.Mutex
-	count int
+func foo(l sync.Locker) {
+	fmt.Println("in foo")
+	l.Lock()
+	bar(l)
+	l.Unlock()
+}
+
+func bar(l sync.Locker) {
+	l.Lock()
+	fmt.Println("in bar")
+	l.Unlock()
 }
 
 func main() {
-	var counter Counter
-	counter.Lock()
-	defer counter.Unlock()
-	counter.count++
-	fn(counter)
-}
-func fn(c Counter) {
-	c.Lock()
-	defer c.Unlock()
-	c.count++
+	l := &sync.Mutex{}
+	foo(l)
 }
