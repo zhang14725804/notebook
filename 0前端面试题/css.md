@@ -87,3 +87,7 @@ transition的子属性
     transition-delay
     指定延迟，即属性开始变化时与过渡开始发生时之间的时长。
 
+
+6、position
+
+    static、relative、absolute、fixed、sticky
