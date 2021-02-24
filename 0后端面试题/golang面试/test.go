@@ -1,25 +1,21 @@
 package main
 
 import (
-	// . "fmt"
-	"fmt"
-	"sync"
+	. "fmt"
 )
 
-func foo(l sync.Locker) {
-	fmt.Println("in foo")
-	l.Lock()
-	bar(l)
-	l.Unlock()
-}
-
-func bar(l sync.Locker) {
-	l.Lock()
-	fmt.Println("in bar")
-	l.Unlock()
-}
-
 func main() {
-	l := &sync.Mutex{}
-	foo(l)
+	var m = make(map[int]int, 10)
+	Println(m)
+	go func() {
+		for {
+			m[1] = 1
+		}
+	}()
+	go func() {
+		for {
+			_ = m[2]
+		}
+	}()
+	select {}
 }
