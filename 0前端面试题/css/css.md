@@ -89,6 +89,8 @@ transform的字属性有：
 
 transition的子属性
 
+[css-transitions](https://www.joshwcomeau.com/animation/css-transitions/#delays)
+
     transition-property
     指定哪个或哪些 CSS 属性用于过渡。只有指定的属性才会在过渡中发生动画，其它属性仍如通常那样瞬间变化。
     transition-duration
