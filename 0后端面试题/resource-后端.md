@@ -18,4 +18,9 @@
 
 [面经](https://mp.weixin.qq.com/s/50uRQ5u-egBR7EAAPb48zw)
 
+[go interview 🔥🔥🔥](https://www.yuque.com/go-interview/set/vbhf5b)
+
+[interview-go](https://github.com/lifei6671/interview-go)
+
 https://github.com/polaris1119/golangweekly next:66
+
