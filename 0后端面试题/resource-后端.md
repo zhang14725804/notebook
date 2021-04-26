@@ -22,5 +22,12 @@
 
 [interview-go](https://github.com/lifei6671/interview-go)
 
+[Go 语言原本 😅😅😅](https://golang.design/under-the-hood/)
+
+[Go 语言设计与实现 😅😅😅](https://draveness.me/golang/)
+
 https://github.com/polaris1119/golangweekly next:66
+
+
+
 

@@ -4,6 +4,9 @@
 
 执行ssh-keygen -t rsa -C "359947329@qq.com" 生成ssh keys
 
+在github账号setting中配置
+
+ssh -T git@github.com 测试是否配置成功
 
 ### 码云和git，每次提交都需要输入用户名密码（配置ssh公钥）
 
