@@ -5,8 +5,6 @@
 
 	TODO 😅😅😅😅😅😅
 	[并发题解&Go语言调度器](https://mp.weixin.qq.com/s/GhC2WDw3VHP91DrrFVCnag)
-	[协程和线城的区别](https://stackoverflow.com/questions/1934715/difference-between-a-coroutine-and-a-thread)
-	[Ardan Labs goroutine scheduling 🔥🔥🔥](https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html)
 */
 func main() {
 	timer := time.NewTimer(time.Second * 5)
