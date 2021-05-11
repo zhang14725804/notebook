@@ -26,6 +26,14 @@
 
 [Go 语言设计与实现 😅😅😅](https://draveness.me/golang/)
 
+
+
+
+[解决方案(7) golang话费充值多渠道兜底 --- 这个方案比较适合面试的时候](https://blog.csdn.net/fwhezfwhez/article/details/115393950)
+
+[golang 关于锁 mutex,你可能还需要继续理解 TODO 😅😅😅😅😅😅](https://blog.csdn.net/fwhezfwhez/article/details/82900498)
+
+
 https://github.com/polaris1119/golangweekly next:66
 
 
