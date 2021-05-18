@@ -13,4 +13,15 @@
 我一般使用git push -f origin master（有些许山炮的成分）
 
 
-### 
+git push -u origin --all 推送所有分支和标记
+
+git push -u origin --tags
+
+
+### 遇到的问题
+
+git push远程分支error: src refspec xxx does not match any.
+
+Git错误--git remote: HTTP Basic: Access denied
+
+git 将某一个仓库的某一次提交合并到另一个仓库（😅😅😅）

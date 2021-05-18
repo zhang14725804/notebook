@@ -18,7 +18,7 @@
 
 定义：存放相同元素的、连续的、固定长度的空间。
 
-传值：以值传递的形式，复制整个数组及其元素（传递时如果数组比较大那么会比较耗费资源）
+传值：以【值传递】的形式，复制整个数组及其元素（传递时如果数组比较大那么会比较耗费资源）
 
 ```golang
 func printArr(newArr [5]int) {
@@ -35,7 +35,7 @@ func main() {
 }
 ```
 
-### slice定义
+### slice源码定义
 
 ```golang
 // 源码结构
@@ -57,6 +57,7 @@ func main() {
     s3 := make([]int, 10, 20)
     s4 := []int{1, 2, 3}
     s5 := new([]int) // s5 本身是一个地址, slice的内容与s1一样。
+    
     // println方法可以打印出slice里面的len/cap/array 😅😅😅
     fmt.Printf("s1 地址：%p\n", &s1)
 	println("s1:", s1) // [0/0]0x0 中的内容是[len/cap]array
