@@ -2,6 +2,8 @@
 
 [slice源码](https://golang.org/src/runtime/slice.go)
 
+[slice特性及源码解读](https://mp.weixin.qq.com/s/Q4k6ertSyRP7-kVFtm1-Vg)
+
 ## 概要
 
     数组
