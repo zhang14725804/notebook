@@ -39,3 +39,39 @@ CSS支持一批特定的计算型函数：
     clamp()
     toggle()
     attr()
+
+### css选择器
+
+svg和html中都有a元素，我们若要想区分选择svg中的a和html中的a，就必须用带命名空间的类型选择器。
+
+```css
+    @namespace svg url(http://www.w3.org/2000/svg);
+    @namespace html url(http://www.w3.org/1999/xhtml);
+    svg|a {
+        stroke:blue;
+        stroke-width:1;
+    }
+
+    html|a {
+        font-size:40px
+    }
+```
+
+- 选择器的基本意义是：根据一些特征，选中元素树上的一批元素。
+
+    类型选择器和全体选择器
+    id选择器与class选择器
+    属性选择器
+    伪类选择器
+    树结构关系伪类选择器
+    链接与行为伪类选择器
+    逻辑伪类选择器
+
+- 选择器的组合、选择器优先级
+
+### css伪元素
+
+    ::first-line
+    ::first-letter
+    ::before
+    ::after
