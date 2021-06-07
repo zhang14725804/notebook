@@ -47,7 +47,7 @@ DOM API大致会包含4个部分。
 
 - Attribute和Property（😅😅😅）
 
-对DOM而言，**Attribute和Property**是完全不同的含义
+对DOM而言，**Attribute和Property**是完全不同的含义，到底哪里不同了，分别什么作用
 
 
 ### HTML链接：除了a标签，还有哪些标签叫链接？

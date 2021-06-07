@@ -40,9 +40,10 @@ CSS支持一批特定的计算型函数：
     toggle()
     attr()
 
-### css选择器
+### css选择器（如何选中svg里的a元素？）
 
 svg和html中都有a元素，我们若要想区分选择svg中的a和html中的a，就必须用带命名空间的类型选择器。
+
 
 ```css
     @namespace svg url(http://www.w3.org/2000/svg);

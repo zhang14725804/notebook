@@ -24,4 +24,3 @@
 
 [前端进阶训练营 ](https://u.geekbang.org/subject/fe/1000447?utm_source=time_web&utm_medium=menu&utm_term=timewebmenu)
 
-[Java进阶训练营](https://u.geekbang.org/subject/java/1000579?utm_source=time_web&utm_medium=menu&utm_term=timewebmenu)
