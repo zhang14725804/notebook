@@ -1,5 +1,9 @@
 ## 从多线程到Event Loop全面梳理
 
+参考:[进程，线程，event-loop](https://juejin.im/post/5d5b4c2df265da03dd3d73e5)
+
+[微任务、宏任务与Event-Loop](https://juejin.im/post/5b73d7a6518825610072b42b)
+
 ### CPU、进程、线程之间的关系
 
 - 进程是cpu资源分配的最小单位（是能拥有资源和独立运行的最小单位）
@@ -176,5 +180,4 @@ setTimeout(() => {
 
 
 
-参考:[进程，线程，event-loop](https://juejin.im/post/5d5b4c2df265da03dd3d73e5)
 
