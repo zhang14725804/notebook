@@ -7,3 +7,7 @@
 【google api design guide】
 
 《google测试之道》、《微软测试之道》
+
+《MySQL实战45讲》、《Nginx核心知识150讲》、《SQL必知必会》、《Redis核心技术与实战》
+
+xxx in facebook 系列文章
