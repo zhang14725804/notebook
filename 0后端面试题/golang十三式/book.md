@@ -12,6 +12,6 @@
 
 《代码整洁之道》
 
-xxx in facebook 系列文章
+《Scaling Memcache in Facebook 》 系列文章
 
 【Kratos源码】
