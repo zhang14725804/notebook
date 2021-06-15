@@ -15,3 +15,5 @@
 《Scaling Memcache in Facebook 》 系列文章
 
 【Kratos源码】
+
+[《秒杀系统设计与实现》](https://github.com/qiurunze123/miaosha)
