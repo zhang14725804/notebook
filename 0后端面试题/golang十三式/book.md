@@ -18,5 +18,6 @@
 
 [《秒杀系统设计与实现》](https://github.com/qiurunze123/miaosha)
 
+[秒杀系统—go](https://github.com/GuoZhaoran/spikeSystem)
 
 [microservices](https://microservices.io/)
