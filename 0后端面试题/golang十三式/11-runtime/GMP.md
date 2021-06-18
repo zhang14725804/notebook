@@ -32,12 +32,17 @@
 GMP概念
 
     G: goroutine runtime.g
-    M: 工作线程(OS thread) runtime.m。 没P找P，有P找G
-    P: 队列或者M的执行上下文
+    M: 工作线程(OS thread) runtime.m。 【没P找P，有P找G】
+    P: 队列或者M的执行上下文。每个P挂在一个mcache
 
 **【计算机科学中的每个问题都可以用一间接层解决】**
 
-1.2以前的模型——GM调度器。为什么要引入P
+1.2以前的模型——【GM调度器】存在的问题（为什么要引入P）
+
+    （1）全局锁问题
+    （2）Goroutine传递问题，G被M抢占，亲缘性不友好
+    （3）Per-M 持有内存缓存，M上挂在一个mcache
+    （4）系统调用时，M线程阻塞/解锁
 
 ### work-stealing调度算法
 
@@ -57,6 +62,8 @@ M中的g0创建的goroutine
 
 当使用了 Syscall，Go 无法限制 Blocked OS threads 的数量。使用 syscall 写程序要认真考虑 pthread exhaust 问题
 
+- Goroutine生命周期(😅)
+
 - work-stealing调度算法
 
 M 绑定的 P 没有可执行的 goroutine 时，它会去按照优先级去抢占任务（避免饥饿）：
@@ -73,13 +80,13 @@ M 绑定的 P 没有可执行的 goroutine 时，它会去按照优先级去抢�
     syscall（系统调用）：当M执行系统调用时，避免M处于busy，P中的G无法被调用
     sysmon（协作式抢占、异步抢占）
     network poller：
-    Scheduler Affinity（亲缘性）调度
+    Scheduler Affinity（亲缘性设计）
 
 
 【runq无锁队列】
 
-[fasthttp 快在哪里](https://xargin.com/why-fasthttp-is-fast-and-the-cost-of-it/)
+[曹大——fasthttp 快在哪里](https://xargin.com/why-fasthttp-is-fast-and-the-cost-of-it/)
 
-## 内存分配原理
+
 
 
