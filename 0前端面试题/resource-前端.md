@@ -24,3 +24,5 @@
 
 [前端进阶训练营 ](https://u.geekbang.org/subject/fe/1000447?utm_source=time_web&utm_medium=menu&utm_term=timewebmenu)
 
+[老男孩教育linux 76期2021年新课](https://shikey.com/2021/06/14/old-boy-education-linux-76-period.html)
+
