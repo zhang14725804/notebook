@@ -7,7 +7,7 @@ import (
 )
 
 // LogExtractor.exe -f "Start Time" -t "End Time" -i "Log file directory location"
-// https://mp.weixin.qq.com/s/WsWPCfFCMre5HH6AkPhEAg
+// go读取大文件过程 😅😅😅 https://mp.weixin.qq.com/s/WsWPCfFCMre5HH6AkPhEAg
 // https://medium.com/swlh/processing-16gb-file-in-seconds-go-lang-3982c235dfa2
 func main() {
 	s := time.Now()
