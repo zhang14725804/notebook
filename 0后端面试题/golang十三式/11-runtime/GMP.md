@@ -76,7 +76,7 @@ M 绑定的 P 没有可执行的 goroutine 时，它会去按照优先级去抢�
 
 不知道是些什么（😅）
 
-    Spining thread（线城自旋）
+    Spining thread（线程自旋）
     syscall（系统调用）：当M执行系统调用时，避免M处于busy，P中的G无法被调用
     sysmon（协作式抢占、异步抢占）
     network poller：
