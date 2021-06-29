@@ -74,7 +74,7 @@ func main() {
 }
 ```
 
-### make与new的区别
+### make与new的区别（😅）
 
 从s5与s1到s4中的结果可以看出。
 
