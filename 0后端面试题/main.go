@@ -1,5 +1,12 @@
 package main
 
+import "fmt"
+
+func main(){
+	fmt.Println("hello")
+}
+
+func
 // LogExtractor.exe -f "Start Time" -t "End Time" -i "Log file directory location"
 // go读取大文件过程 😅😅😅 https://mp.weixin.qq.com/s/WsWPCfFCMre5HH6AkPhEAg
 // https://medium.com/swlh/processing-16gb-file-in-seconds-go-lang-3982c235dfa2
