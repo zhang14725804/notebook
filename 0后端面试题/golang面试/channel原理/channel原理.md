@@ -96,3 +96,7 @@ channel 的发送和接收操作本质上都是 “值的拷贝”，无论是�
 ### 关闭一个 channel 的过程（😏）
 
 
+
+### 参考
+
+[channel原理](https://qcrao91.gitbook.io/go/channel/cong-yi-ge-guan-bi-de-channel-reng-ran-neng-du-chu-shu-ju-ma)
