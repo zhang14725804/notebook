@@ -40,7 +40,6 @@ func main() {
 ### slice源码定义
 
 ```golang
-// 源码结构
 type slice struct {
     array unsafe.Pointer // unsafe.Pointer 就是 *int 的别名占4个字节；表示第一个元素的地址
     len   int // 表示slice有效的元素个数
@@ -72,6 +71,22 @@ func main() {
 	fmt.Printf("s5 地址：%p\n", s5)
 	println("s5:", *s5) // [0/0]0x0
 }
+
+func main() {
+	slice := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	s1 := slice[2:5]
+	s2 := s1[2:6:7]
+
+	s2 = append(s2, 100) // 😅😅 会修改原数组
+	s2 = append(s2, 200)
+
+	s1[2] = 20
+
+	fmt.Println(s1)
+	fmt.Println(s2)
+    // [0 1 2 3 20 5 6 7 100 9]
+	fmt.Println(slice)
+}
 ```
 
 ### make与new的区别（😅）
@@ -83,7 +98,7 @@ make会返回slice本身，会初始化array。
 new会返回slice的指针，不会初始化array, 即array = nil。
 
 
-### nil slice与空slice
+### nil slice与空slice（😅）
 
 对比s1, s2 可以发现【nil slice】 是指array = nil, 而【空slice】 是array是有值 的，只是len, cap = 0。
 
@@ -237,11 +252,25 @@ func growslice(et *_type, old slice, cap int) slice {
 }
 ```
 
+
 从源码中可以看出当cap>2*old.cap时，直接取cap作为新slice的cap.
 
 否则当old.len< 1024, 则以2倍速增长。
 
 否则就以1/4*old.len（old.cap吧😅） 增长，直到超过需求cap.
+
+😅😅😅😅😅
+
+后半部分还对 newcap 作了一个内存对齐，这个和内存分配策略相关。进行内存对齐之后，新 slice 的容量是要 【大于等于】 老 slice 容量的 2倍或者1.25倍。
+
+```golang
+func main() {
+	s := []int{1, 2}
+	s = append(s, 4, 5, 6)
+    // len=5, cap=6
+	fmt.Printf("len=%d, cap=%d", len(s), cap(s))
+}
+```
 
 ### 二维slice理解
 

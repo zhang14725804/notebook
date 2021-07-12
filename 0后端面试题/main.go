@@ -2,11 +2,12 @@ package main
 
 import "fmt"
 
-func main(){
-	fmt.Println("hello")
+func main() {
+	s := []int{1, 2}
+	s = append(s, 4, 5, 6)
+	fmt.Printf("len=%d, cap=%d", len(s), cap(s))
 }
 
-func
 // LogExtractor.exe -f "Start Time" -t "End Time" -i "Log file directory location"
 // go读取大文件过程 😅😅😅 https://mp.weixin.qq.com/s/WsWPCfFCMre5HH6AkPhEAg
 // https://medium.com/swlh/processing-16gb-file-in-seconds-go-lang-3982c235dfa2
