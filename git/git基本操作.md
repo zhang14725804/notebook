@@ -13,9 +13,9 @@
 我一般使用git push -f origin master（有些许山炮的成分）
 
 
-git push -u origin --all 推送所有分支和标记
+git push -f origin --all  推送所有分支和标记
 
-git push -u origin --tags
+git push -f origin --tags
 
 
 ### 遇到的问题
