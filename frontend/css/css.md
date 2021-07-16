@@ -104,3 +104,8 @@ transition的子属性
 6、position
 
     static、relative、absolute、fixed、sticky
+
+
+7、像素、像素密度、DPI、PPI、DPR 等概念
+
+[像素、像素密度、DPI、PPI、DPR 等概念](https://blog.infolink.com.tw/2021/rediscover-pixel-dpi-ppi-and-pixel-density/)
