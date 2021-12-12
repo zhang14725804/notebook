@@ -1,6 +1,6 @@
 [经典计算机教材 SICP 的 JavaScript 语言版](https://sicp.comp.nus.edu.sg/)
 
-[计算机科学入门-从最基本的二进制开始讲起，直到操作系统的底层原理工具](https://www.bottomupcs.com/index.xhtml)，看起来很不错
+[计算机科学入门-从最基本的二进制开始讲起，直到操作系统的底层原理工具](https://www.bottomupcs.com/index.xhtml)
 
 [rosettagit网站收集一些典型的编程任务，然后用尽可能多的计算机语言](https://rosettagit.org/)
 
@@ -30,22 +30,19 @@
 - Programming languages and compiler
     - Essentials of Programming Languages
 
-
-## 基础
-    
-    《tcp/ip详解》（《网络是怎样连接的》《图解TCP/IP》《图解HTTP》《wireshark网络分析》）
-    《计算机网络-自顶向下》
-   
-    《操作系统导论》
-    《深入理解计算机系统》
-    《操作系统--清华大学向勇》 --- 《搭配现代操作系统》
-    《操作系统--哈工大李志军》
-    《计算机组成原理》《深入浅出计算机组成原理--极客时间》
-    数据结构和算法
-
 ### 大学cs公开课
 
 - 哈佛大学的CS50
+
+- cmu15445
+
+[关系型数据库管理系统](https://15445.courses.cs.cmu.edu/fall2021/)
+
+[关于15445](https://www.qtmuniao.com/2021/02/15/cmu15445-introduction/)
+
+- cs61B（数据结构）
+
+[about cs61B](https://www.1point3acres.com/bbs/thread-529482-1-1.html)
 
 - 卡内基梅隆的15112（暂时没有视频）
 
