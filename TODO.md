@@ -12,25 +12,21 @@
 
 [深入理解计算机系统😅](https://wdxtub.com/csapp/thin-csapp-0/2016/04/16/)
 
-### best-cs-books（https://www.coderscat.com/best-cs-books）
+## 系统设计
 
-- general programming
-    - The Pragmatic Programmer: From Journeyman to Master
-    - code complete
-    - Structure and Interpretation of Computer Programs（MIT的视频教程：http://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/）
+[系统设计面试题](https://www.educative.io/courses/grokking-the-system-design-interview?aff=BYZE)
 
--  Algorithms
-    - Programming Pearls
-    - The Art of Computer Programming（计算机程序设计艺术）
-    - The Algorithm Design Manual
-    - https://leetcode.com/
-    - https://www.hackerrank.com/
-    - Introduction to Algorithms
+[系统设计准备+面试经历](https://www.1point3acres.com/bbs/thread-828490-1-1.html)
 
-- Programming languages and compiler
-    - Essentials of Programming Languages
+[Grokking-System-Design](https://github.com/Jeevan-kumar-Raj/Grokking-System-Design)
 
-### 大学cs公开课
+[Grokking-System-Design视频](https://www.youtube.com/playlist?list=PLyZIkzkRXymSgo05YWzp7fW36VFvAgxh0)
+
+[grokking-the-system-design-interview 付费](https://www.educative.io/courses/grokking-the-system-design-interview?affiliate_id=5749180081373184)
+
+[grokking-the-system-design-interview 付费](https://designgurus.org/course/grokking-the-system-design-interview)
+
+## 大学cs公开课
 
 - 哈佛大学的CS50
 
@@ -50,12 +46,15 @@
 https://www.youtube.com/watch?v=Tkciq5IQVp0&list=PLItDYn6dy-i2RKRTOK30ihu7uFCZesZTJ
 
 - MIT（600.1）
+
 https://www.edx.org/course/6-00-1x-introduction-to-computer-science-and-programming-using-python-4
 
 - Georgia Tech
+
 https://www.edx.org/course/computing-in-python-i-fundamentals-and-procedural-programming-2
 
 - www.edx.org(这个网站需要探索)
 
 - cs15112
+
 http://www.cs.cmu.edu/~aada/courses/15112s16/15112-lec2.html
