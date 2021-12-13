@@ -8,8 +8,6 @@
 
 设计数据密集型应用(Designing Data-Intensive Applications)
 
-[系统设计面试题，高大上](https://www.educative.io/courses/grokking-the-system-design-interview?aff=BYZE)
-
 [深入理解计算机系统😅](https://wdxtub.com/csapp/thin-csapp-0/2016/04/16/)
 
 ## 系统设计
@@ -29,6 +27,10 @@
 ## 大学cs公开课
 
 - 哈佛大学的CS50
+
+- MIT 6.824
+
+[关于6.824](https://zhuanlan.zhihu.com/p/110168818)
 
 - cmu15445
 
