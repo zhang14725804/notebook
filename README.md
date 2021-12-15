@@ -60,3 +60,11 @@ https://www.edx.org/course/computing-in-python-i-fundamentals-and-procedural-pro
 - cs15112
 
 http://www.cs.cmu.edu/~aada/courses/15112s16/15112-lec2.html
+
+### 游戏开发
+
+[浅墨的游戏编程Blog](https://blog.csdn.net/poem_qianmo)
+
+《Windows游戏编程之从零开始》
+
+[浅墨（毛星云）](https://github.com/QianMo)
