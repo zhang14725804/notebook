@@ -55,8 +55,34 @@ https://www.edx.org/course/6-00-1x-introduction-to-computer-science-and-programm
 
 https://www.edx.org/course/computing-in-python-i-fundamentals-and-procedural-programming-2
 
-- www.edx.org(这个网站需要探索)
-
 - cs15112
 
 http://www.cs.cmu.edu/~aada/courses/15112s16/15112-lec2.html
+
+### CMU 好课
+
+    15213 Introduction to Computer Systems 🌟🌟🌟
+    15619 Cloud Computing 🌟🌟
+    15719 Advanced cloud computing
+    15746 Storage Systems 🌟🌟
+    15641 Computer Networks 🌟🌟
+    18645 How to Write Fast Code
+    15640 Distributed Systems
+    15605 Operating System Design and Implementation 🌟🌟
+    15445 🌟🌟🌟
+    15721 🌟🌟
+
+### MIT 好课
+
+    6.824 🌟🌟🌟
+    6.S081 🌟🌟
+
+### UC 好课
+
+    CS162 🌟🌟
+    CS61C 🌟🌟
+
+### Stanford 好课
+
+    CS144 🌟🌟🌟
+    CS143 🌟

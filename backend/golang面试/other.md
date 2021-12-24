@@ -82,29 +82,6 @@ switch 默认情况下 case 最后自带 break 语句，匹配成功后就不会
 
 是否会改变对象的值
 
-### for...range遍历
-
-```golang
-strs := []string{"one", "two", "three"}
-// goroutine 执行
-for _, str := range strs {
-    go func(str string) {
-        time.Sleep(1 * time.Millisecond)
-        Println(str)
-    }(str)
-    // 全部输出three
-    go func() {
-        time.Sleep(1 * time.Millisecond)
-        Println(str)
-    }()
-}
-time.Sleep(3 * time.Millisecond)
-// 只有一个接受者的情况，只返回下标
-for v := range strs {
-    Println(v)
-}
-```
-
 
 ### 结构体序列化
 
