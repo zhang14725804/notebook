@@ -1,15 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
+
+func goroutineA(a <-chan int) {
+	val := <-a
+	fmt.Println("goroutine A received data: ", val)
+	return
+}
+
+func goroutineB(b <-chan int) {
+	val := <-b
+	fmt.Println("goroutine B received data: ", val)
+	return
+}
 
 func main() {
-	slice := []int{0, 1, 2, 3}
-	for _, value := range slice {
-		if value == 1 {
-			value = 100
-		}
-	}
-	for k, v := range slice {
-		fmt.Printf("%d ==> %d\n", k, v)
-	}
+	ch := make(chan int)
+	go goroutineA(ch)
+	go goroutineB(ch)
+	ch <- 3
+	time.Sleep(time.Second)
 }

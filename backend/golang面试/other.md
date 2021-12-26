@@ -70,14 +70,6 @@ func add(args ...int) int {
     }
 ```
 
-### switch case
-
-switch 语句用于基于不同条件执行不同动作，每一个 case 分支都是唯一的，从上至下逐一测试，直到匹配为止。
-
-switch 语句执行的过程从上至下，直到找到匹配项，匹配项后面也不需要再加 break。
-
-switch 默认情况下 case 最后自带 break 语句，匹配成功后就不会执行其他 case，如果我们需要执行后面的 case，可以使用 【fallthrough】
-
 ### golang方法接收者【值】和【指针】的区别
 
 是否会改变对象的值
