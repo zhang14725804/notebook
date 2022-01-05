@@ -61,7 +61,8 @@ db.Where("name like ?", "赵%").Find(&us)
 - Count放回匹配的行数
 
 - Group 设置 group by 子句
-- 直接执行sql语句
+
+### 直接执行sql语句
 
 ```go
 sql := "SELECT type, count(*) as  total FROM `foods` where create_time > ? GROUP BY type HAVING (total > 0)"
