@@ -6,3 +6,7 @@
 ### 改变命令行prompt提示信息
 
 [PS1变量](https://blog.csdn.net/windyyyy14/article/details/105912299)
+
+### mac brew更换国内源
+
+https://www.jianshu.com/p/bea984d27cd2
