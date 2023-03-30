@@ -6,3 +6,7 @@
 6. DNS报文格式（😅）
 7. 根据域名服务器拒绝服务怎么办，毕竟在国外？有镜像有影子
 8. 任播（😅）
+
+参考：
+
+https://mp.weixin.qq.com/s/Lr9Yb4UzjeE2mivq0YSl2w
