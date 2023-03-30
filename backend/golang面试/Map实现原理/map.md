@@ -98,38 +98,11 @@ buckets 编号就是桶编号，当两个不同的 key 落在同一个桶中，�
 
 - 源码（question）
 
-
 mapaccess函数；
 hmap.flag map状态；
 alg 哈希函数；
 外循环遍历overflow，内循环遍历8个key-value。
 
-### 如何实现两种get操作
-
-Go 语言中读取 map 有两种语法：带 comma 和 不带 comma。
-
-```go
-func main() {
-    ageMap := make(map[string]int)
-    ageMap["qcrao"] = 18
-
-    // 不带 comma 用法
-    age1 := ageMap["stefno"]
-    fmt.Println(age1)
-
-    // 带 comma 用法
-    age2, ok := ageMap["stefno"]
-    fmt.Println(age2, ok)
-}
-```
-
-对应源码
-
-```go
-// src/runtime/hashmap.go
-func mapaccess1(t *maptype, h *hmap, key unsafe.Pointer) unsafe.Pointer
-func mapaccess2(t *maptype, h *hmap, key unsafe.Pointer) (unsafe.Pointer, bool)
-```
 
 ### map赋值过程（【插入】、【覆盖】） mapassign函数 （question 😏😏😏）
 
@@ -266,4 +239,7 @@ func tooManyOverflowBuckets(noverflow uint16, B uint8) bool {
 [map源码阅读分析-talkgo 同一个人](https://www.bilibili.com/video/BV1Q4411W7MR?from=search&seid=4495796292348114675)
 
 [map-go-questions](https://qcrao91.gitbook.io/go/map/map-de-di-ceng-shi-xian-yuan-li-shi-shi-mo)
+
+
+
 

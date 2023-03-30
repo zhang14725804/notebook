@@ -2,6 +2,10 @@
 
 [go语言map实现](https://draveness.me/golang/docs/part2-foundation/ch03-datastructure/golang-hashmap/)
 
+https://cloud.tencent.com/developer/article/1746966
+
+https://golang.design/go-questions/map/principal/
+
 ### 实现原理
 
 想要实现一个性能优异的哈希表，需要注意两个关键点 —— 【哈希函数】和【冲突解决】方法。
