@@ -4,7 +4,7 @@
     channel应用场景
     如何优雅的关闭channel
     channel什么情况引起资源泄露
-    什么事CSP
+    什么是CSP
     channel底层数据结构
     channel发送接受本质
     channel的happend-before有哪些
@@ -13,56 +13,9 @@
     操作channel情况总结
     关闭一个channel的过程
 
-### 从一个关闭的 channel 仍然能读出数据吗（有无缓冲都一样？）
+### 从一个关闭的 channel 仍然能读出数据吗
 
 从一个有缓冲的 channel 里读数据，当 channel 被关闭，依然能读出有效值。只有当返回的 ok 为 false 时，读出的数据才是无效的。
-
-
-```go
-func main() {
-    // 有缓冲
-	ch := make(chan int, 5)
-	ch <- 18
-	close(ch)
-	x, ok := <-ch
-	if ok {
-		fmt.Println("received: ", x)
-	}
-
-	x, ok = <-ch
-	if !ok {
-		fmt.Println("channel closed, data invalid.")
-    }
-
-    // 无缓冲，直接写、关闭
-    ch := make(chan int, 5)
-    // fatal error: all goroutines are asleep - deadlock!
-    ch <- 18
-    close(ch)
-    
-	x, ok := <-ch
-	if ok {
-		fmt.Println("received: ", x)
-	}
-}
-
-func main() {
-    // 无缓冲，在goroutine中写、关闭
-	ch := make(chan int)
-	go func() {
-		fmt.Println("开始写")
-		ch <- 1
-		close(ch)
-		fmt.Println("关闭")
-	}()
-	fmt.Println("读数据")
-	for i := 0; i < 5; i++ {
-        // 关闭之后false
-		v, ok := <-ch
-		fmt.Println(v, ok)
-	}
-}
-```
 
 ### channel应用场景
 
@@ -225,3 +178,10 @@ func main() {
 ### 参考
 
 [channel](https://qcrao91.gitbook.io/go/channel)
+
+// 😅 这个讲的能听懂
+https://www.bilibili.com/video/BV1uv4y187p6?p=6&vd_source=7729b7ed5590ea706aa1776774852022
+
+https://colobu.com/2016/04/14/Golang-Channels/
+https://halfrost.com/go_channel/
+https://qcrao.com/post/dive-into-go-channel/

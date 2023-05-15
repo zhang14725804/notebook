@@ -63,3 +63,34 @@ mysql加锁，是不是有表级锁、行级锁。sync.RWMutex加锁方式相当
 
 
 
+### 基本用法
+### 基本数据结构
+
+
+### 读流程
+
+1. 先用read只读map，无需加锁
+2. 加锁，double check，在检查read
+3. 用dirty
+4. 更新miss，进而用dirty替换read
+
+### 写流程
+
+missLocked
+dirtyLock
+先dirty->read，再read->dirty 😅
+写多读少时，回退化成线性复杂度
+
+### 删除流程
+
+read逻辑删
+dirty物理删
+
+### 遍历流程
+### 总结
+
+entry类型的value，软删除和硬删除的作用用途存在的意义
+空间换取时间+动态调整
+double check
+read和dirty的数据流转 😅： irty->read；read->dirty
+适用场景和注意问题

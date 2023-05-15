@@ -64,26 +64,9 @@ func main() {
 不管传的是 slice 还是 slice 指针，如果改变了 slice 底层数组的数据，会反应到实参 slice 的底层数据。
 为什么能改变底层数组的数据？很好理解：底层数据在 slice 结构体里是一个指针，仅管 slice 结构体自身不会被改变，也就是说底层数据地址不会被改变。 但是通过指向底层数据的指针，可以改变切片的底层数据，没有问题。
 
-```go
-// 上一个例子在这里
-func main() {
-	s := []int{1, 1, 1}
-	f(s)
-	fmt.Println(s)
-}
-
-func f(s []int) {
-	for i := range s {
-		s[i] += 1
-	}
-}
-```
-
-question
 
 ```go
 func myAppend(s []int) []int {
-	// question 这不是和上一个例子矛盾了么
 	// 这里 s 虽然改变了，但并不会影响外层函数的 s
 	s = append(s, 100)
 	return s
@@ -138,3 +121,5 @@ func main() {
 ### 向一个nil的slice添加元素会发生什么？为什么？
 
 其实 nil slice 或者 empty slice 都是可以通过调用 append 函数来获得底层数组的扩容。最终都是调用 mallocgc 来向 Go 的内存管理器申请到一块内存，然后再赋给原来的nil slice 或 empty slice，然后摇身一变，成为“真正”的 slice 了。
+
+

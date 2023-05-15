@@ -6,6 +6,9 @@ https://golang.design/under-the-hood/zh-cn/part2runtime/ch08gc/basic/
 https://developer.aliyun.com/article/775798
 https://juejin.cn/post/7111515970669117447
 
+[Golang 垃圾回收原理与优化](https://mp.weixin.qq.com/s/WBoU4v7dI29JX_2lETaw6A)
+go tool pprof 😅 😅
+go tool trace 😅 😅
 
 ## 垃圾回收算法
 
