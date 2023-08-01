@@ -25,5 +25,3 @@
 - Idle-time collection空闲时间收集
 
 垃圾收集器尝试仅在 CPU 空闲时运行，以减少对执行的可能影响。
-
-## golang垃圾回收机制( TODO )
